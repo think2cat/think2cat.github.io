@@ -1,0 +1,11 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /css/
+Disallow: /js/
+Disallow: /lib/
+
+Sitemap: https://21ido.com/sitemap.xml
+Sitemap: https://21ido.com/baidusitemap.xml
