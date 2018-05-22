@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TypeScript学习笔记(2)]]></title>
+    <url>%2F2018%2F05%2F383e290e%2F</url>
+    <content type="text"><![CDATA[数组[]表示法在类型定义后面加上[]即表示数组定义的数组不允许出现其它类型，同时支持联合类型1234let catArr: number[] = [1,2,3];let catName: string[] = ["one","tow","three"];let catColor: (string|number)[] = [1,"tow",0xFFF];catColor.push("four");泛型表示法1234let catArr: Array&lt;number&gt; = [1,2,3];let catName: Array&lt;string&gt; = ["one","tow","three"];let catColor: Array&lt;boolean|number&gt; = [0,1, true];catColor.push(3);接口描述法前面的interface可以描述和约束对象，所以也可以描述一个数组12345interface TestArray &#123; [proName: number]: string;&#125;let t: TestArray = ["a","b"];t[2]="c";但是当12345678910&gt; error TS2339: Property &apos;push&apos; does not exist on type &apos;TestArray&apos;因为定义的只是值类型，没有push这个方法#### any数组如果向往数组塞任意类型数据，就使用any类型```tslet catCategory: any[] = [&quot;white&quot;, 0xfff, &quot;small&quot;, 2000];let catCategory: any[] = [&quot;white&quot;, 0xfff, &quot;small&quot;, 2000];catCategory.push(&#123;&quot;name&quot;:&quot;gavin&quot;&#125;);catCategory.push(true);]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[TypeScript学习笔记（1）]]></title>
     <url>%2F2018%2F05%2F1f5ada0a%2F</url>
     <content type="text"><![CDATA[《TypeScript入门教程》TypeScript是什么是JavaScript的超集安装nodejs后执行1npm i -g typescriptTypeScript是后缀名为ts的文本文件，编译ts命令为1tsc hello.ts然后就会生成对应js文件数据类型原始数据类型布尔值1let isCat: boolean = true;数值1let catNum: number = 9;字符串1let catName: string = "Gavin";null 和 undefined这2个类型比较特殊，值只能是null和undefined12let n: null = null;let u: undefined = undefined;但是其它类型的值可以是null或undefined12let catAge: number = 10;catAge = undefined;voidJS是没有Void，但TS可以有，表示没有返回值123function sayHello(): void&#123; console.log("hello");&#125;any任意型JS没有严格的类型规定，实际使用中可以随意转换类型12let myCat = "hello";myCat = 10;这样在JS中并不会报错，因为JS会隐性类型转换，但TS严格定义了类型，使用过程是不允许改变类型的所以有了任意值类型1234let myCat: any = "hello";myCat = 10;myCat.name = "Gavin";console.log(myCat);类型推论如果定义是没有指明类型，则自动根据值判断类型123let catAge = 10;//等同于let catAge: number = 10;如果没有赋值，则是any类型联合类型赋予变量多种类型，同时取值可以为多种类型中一种比如在JS函数里头，往往希望传入参数是数值，但偏偏传进一个带引号的数值’10’，于是变成字符串在TS中则可以这么定义12let myCat: string | number = 20;myCat = '10';甚至可以指定3个类型，这还要看具体需要12let myCat: string | number | boolean = "hello";myCat = true;接口interface接口是用来描述和约束一个对象的东西，说起来比较抽象12345678interface Cat&#123; name: string; color: string;&#125;let blackCat: Cat = &#123; name: "Gavin"; color: "black";&#125;接口规定了2个属性和属性类型，如果增加第三个属性，比如123456let blackCat: Cat = &#123; name: "Gavin"; color: "black"; age: 10;&#125;// 报错，因为age不在接口定义里面可以定义可选属性12345interface Cat&#123; name: string; color: string; age?: number;&#125;可以定义只读属性这里的只读属性是指给属性赋值后只读，不可再次修改1234567891011121314interface Cat&#123; readonly id: number; name: string; color: string; age?: number;&#125;let myCat: Cat = &#123; id: 1, name: "Gavin", color: "Black"&#125;myCat.id = 2;//(12,7): error TS2540: Cannot assign to 'id' because it is a constant or a read-only property.//报错了，只读属性不可再次赋值还可以定义任意类型任意名称的属性1234567interface Cat&#123; readonly id: number; name: string; color: string; age?: number; [propName: string]: any;&#125;]]></content>
@@ -8,8 +20,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>typescript</tag>
         <tag>javascript</tag>
+        <tag>typescript</tag>
       </tags>
   </entry>
   <entry>
@@ -171,8 +183,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>nodejs</tag>
+        <tag>javascript</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -657,8 +669,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -673,9 +685,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -688,10 +700,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -705,8 +717,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>钟楼</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -840,12 +852,12 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>乐昌</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
+        <tag>乐昌</tag>
         <tag>大源</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -858,9 +870,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -873,8 +885,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>罗家渡</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -1145,8 +1157,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1845,8 +1857,8 @@
       <tags>
         <tag>book</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
@@ -1864,8 +1876,8 @@
       <tags>
         <tag>book</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
@@ -2063,12 +2075,12 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>html</tag>
+        <tag>javascript</tag>
         <tag>修改</tag>
         <tag>ajax</tag>
-        <tag>zblog</tag>
         <tag>highlight</tag>
+        <tag>zblog</tag>
       </tags>
   </entry>
   <entry>
@@ -2260,9 +2272,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
         <tag>读后感</tag>
+        <tag>xml</tag>
         <tag>sql</tag>
       </tags>
   </entry>
@@ -2400,8 +2412,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2811,8 +2823,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -3456,8 +3468,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
         <tag>修改</tag>
         <tag>ligntbox</tag>
       </tags>
@@ -3510,9 +3522,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
         <tag>css</tag>
+        <tag>javascript</tag>
         <tag>技巧</tag>
         <tag>修改</tag>
       </tags>
@@ -3850,8 +3862,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>XUL</tag>
         <tag>XUL指南</tag>
       </tags>
@@ -4323,8 +4335,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>book</tag>
         <tag>金子</tag>
+        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -4923,8 +4935,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4935,8 +4947,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>

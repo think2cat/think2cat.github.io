@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://21ido.com/2018/05/383e290e/</loc>
+    <lastmod>2018-05-22T08:24:29.283Z</lastmod>
+    <data>
+        <display>
+        <title>TypeScript学习笔记(2)</title>
+        <pubTime>2018-05-16T08:29:33.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>typescript</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="https://21ido.com/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://21ido.com/2018/05/1f5ada0a/</loc>
     <lastmod>2018-05-22T07:46:42.701Z</lastmod>
     <data>
@@ -11,9 +33,9 @@
         <title>TypeScript学习笔记（1）</title>
         <pubTime>2018-05-14T03:44:00.000Z</pubTime>
         
-        <tag>typescript</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>typescript</tag>
          
          
            
@@ -103,9 +125,9 @@
         <title>grunt入门笔记（1）</title>
         <pubTime>2017-05-14T16:14:47.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>nodejs</tag>
+         
+        <tag>javascript</tag>
          
         <tag>grunt</tag>
          
@@ -265,9 +287,9 @@
         
         <tag>南山66</tag>
          
-        <tag>梧桐山</tag>
-         
         <tag>登山</tag>
+         
+        <tag>梧桐山</tag>
          
          
            
@@ -2027,9 +2049,9 @@
         
         <tag>国庆</tag>
          
-        <tag>华山</tag>
-         
         <tag>青海湖</tag>
+         
+        <tag>华山</tag>
          
         <tag>西宁</tag>
          
@@ -2057,13 +2079,13 @@
         
         <tag>国庆</tag>
          
-        <tag>华山</tag>
-         
-        <tag>大雁塔</tag>
-         
         <tag>西安</tag>
          
         <tag>青海湖</tag>
+         
+        <tag>华山</tag>
+         
+        <tag>大雁塔</tag>
          
          
            
@@ -2175,11 +2197,11 @@
         
         <tag>国庆</tag>
          
-        <tag>华山</tag>
-         
         <tag>西安</tag>
          
         <tag>青海湖</tag>
+         
+        <tag>华山</tag>
          
         <tag>西宁</tag>
          
@@ -2207,9 +2229,9 @@
          
         <tag>西安</tag>
          
-        <tag>青海湖</tag>
-         
         <tag>钟楼</tag>
+         
+        <tag>青海湖</tag>
          
          
            
@@ -2315,9 +2337,9 @@
          
         <tag>京广线</tag>
          
-        <tag>露营</tag>
-         
         <tag>罗家渡</tag>
+         
+        <tag>露营</tag>
          
          
            
@@ -3656,17 +3678,17 @@
         
         <tag>徒步</tag>
          
-        <tag>乐昌</tag>
-         
         <tag>京广线</tag>
+         
+        <tag>露营</tag>
+         
+        <tag>乐昌</tag>
          
         <tag>大源</tag>
          
         <tag>小摊</tag>
          
         <tag>金鸡号</tag>
-         
-        <tag>露营</tag>
          
          
            
@@ -3690,11 +3712,11 @@
          
         <tag>京广线</tag>
          
+        <tag>露营</tag>
+         
         <tag>小摊</tag>
          
         <tag>金鸡号</tag>
-         
-        <tag>露营</tag>
          
          
            
@@ -4286,9 +4308,9 @@
         <title>3月9日 周日爬梧桐山</title>
         <pubTime>2008-03-10T05:08:15.000Z</pubTime>
         
-        <tag>梧桐山</tag>
-         
         <tag>登山</tag>
+         
+        <tag>梧桐山</tag>
          
          
            
@@ -4676,9 +4698,9 @@
         <title>2003即将过去</title>
         <pubTime>2003-12-30T17:51:00.000Z</pubTime>
         
-        <tag>金子</tag>
-         
         <tag>blog</tag>
+         
+        <tag>金子</tag>
          
          
            
@@ -5480,17 +5502,17 @@
         <title>z-blog 1.8 加入代码高亮</title>
         <pubTime>2008-06-17T11:10:42.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>html</tag>
+         
+        <tag>javascript</tag>
          
         <tag>修改</tag>
          
         <tag>ajax</tag>
          
-        <tag>zblog</tag>
-         
         <tag>highlight</tag>
+         
+        <tag>zblog</tag>
          
          
            
@@ -5510,9 +5532,9 @@
         <title>10月24日·哥登的不是梧桐山，是寂寞</title>
         <pubTime>2009-10-24T15:05:45.000Z</pubTime>
         
-        <tag>梧桐山</tag>
-         
         <tag>登山</tag>
+         
+        <tag>梧桐山</tag>
          
          
            
@@ -6210,9 +6232,9 @@
         <title>给Z-Blog加上LightBox</title>
         <pubTime>2007-03-23T13:39:49.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>blog</tag>
+         
+        <tag>javascript</tag>
          
         <tag>修改</tag>
          
@@ -6236,11 +6258,11 @@
         <title>给Z-Blog加上代码高亮显示</title>
         <pubTime>2007-03-19T03:21:03.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>blog</tag>
          
         <tag>css</tag>
+         
+        <tag>javascript</tag>
          
         <tag>技巧</tag>
          
@@ -8074,9 +8096,9 @@
         <title>修正BlueBlog一些问题</title>
         <pubTime>2004-01-01T17:54:00.000Z</pubTime>
         
-        <tag>金子</tag>
-         
         <tag>blog</tag>
+         
+        <tag>金子</tag>
          
          
            
@@ -8436,9 +8458,9 @@
         <title>《XUL指南》第一章：引言</title>
         <pubTime>2006-10-23T15:15:47.000Z</pubTime>
         
-        <tag>xml</tag>
-         
         <tag>笔记</tag>
+         
+        <tag>xml</tag>
          
         <tag>XUL</tag>
          
@@ -8462,11 +8484,11 @@
         <title>《SQL Server 2000存储过程与XML编程》学习笔记</title>
         <pubTime>2008-04-16T02:04:40.000Z</pubTime>
         
-        <tag>xml</tag>
-         
         <tag>笔记</tag>
          
         <tag>读后感</tag>
+         
+        <tag>xml</tag>
          
         <tag>sql</tag>
          
@@ -8538,9 +8560,9 @@
          
         <tag>flex</tag>
          
-        <tag>xml</tag>
-         
         <tag>笔记</tag>
+         
+        <tag>xml</tag>
          
         <tag>Macromedia</tag>
          
@@ -8574,9 +8596,9 @@
          
         <tag>flex</tag>
          
-        <tag>xml</tag>
-         
         <tag>笔记</tag>
+         
+        <tag>xml</tag>
          
         <tag>Macromedia</tag>
          
@@ -9206,9 +9228,9 @@
         <title>2006学习目标</title>
         <pubTime>2006-01-20T16:05:06.000Z</pubTime>
         
-        <tag>book</tag>
-         
         <tag>金子</tag>
+         
+        <tag>book</tag>
          
          
            
