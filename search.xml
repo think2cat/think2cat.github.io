@@ -346,9 +346,9 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
+        <tag>大致坡</tag>
         <tag>文昌</tag>
         <tag>琼海</tag>
       </tags>
@@ -363,10 +363,10 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
-        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>海口</tag>
         <tag>蜜月</tag>
+        <tag>大致坡</tag>
       </tags>
   </entry>
   <entry>
@@ -671,8 +671,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>华山</tag>
-        <tag>西宁</tag>
         <tag>151基地</tag>
+        <tag>西宁</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -783,9 +783,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
-        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -928,9 +928,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>跑步</tag>
         <tag>东莞</tag>
         <tag>松山湖</tag>
+        <tag>跑步</tag>
         <tag>花草</tag>
       </tags>
   </entry>
@@ -1182,10 +1182,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>旅游</tag>
-        <tag>单车</tag>
         <tag>寮步广场</tag>
       </tags>
   </entry>
@@ -1197,11 +1197,11 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
         <tag>旅游</tag>
-        <tag>单车</tag>
         <tag>运动</tag>
       </tags>
   </entry>
@@ -1213,10 +1213,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>旅游</tag>
-        <tag>单车</tag>
         <tag>运动</tag>
         <tag>寮步广场</tag>
       </tags>
@@ -1407,8 +1407,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>南山66</tag>
         <tag>西丽</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1575,9 +1575,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>别峰</tag>
         <tag>功夫茶</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1589,9 +1589,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
+        <tag>潮州</tag>
         <tag>巨峰寺</tag>
         <tag>汕头</tag>
-        <tag>潮州</tag>
         <tag>牛肉丸</tag>
       </tags>
   </entry>
@@ -1603,8 +1603,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1632,11 +1632,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>刷街</tag>
         <tag>南头</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
+        <tag>单车</tag>
         <tag>轮滑</tag>
       </tags>
   </entry>
@@ -1674,8 +1674,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>登山</tag>
+        <tag>南山66</tag>
         <tag>马峦山</tag>
       </tags>
   </entry>
@@ -1700,8 +1700,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>轮滑</tag>
+        <tag>运动</tag>
         <tag>爬山</tag>
         <tag>整理</tag>
       </tags>
@@ -1841,8 +1841,8 @@
       </categories>
       <tags>
         <tag>运动</tag>
-        <tag>跑步</tag>
         <tag>户外</tag>
+        <tag>跑步</tag>
         <tag>装备</tag>
         <tag>松拓</tag>
       </tags>
@@ -1856,12 +1856,12 @@
       </categories>
       <tags>
         <tag>book</tag>
+        <tag>xml</tag>
+        <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
         <tag>笔记</tag>
-        <tag>Macromedia</tag>
         <tag>Adobe</tag>
         <tag>书</tag>
       </tags>
@@ -1875,12 +1875,12 @@
       </categories>
       <tags>
         <tag>book</tag>
+        <tag>xml</tag>
+        <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
         <tag>笔记</tag>
-        <tag>Macromedia</tag>
         <tag>Adobe</tag>
         <tag>书</tag>
       </tags>
@@ -1918,8 +1918,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>南山</tag>
+        <tag>运动</tag>
         <tag>户外</tag>
         <tag>爬山</tag>
       </tags>
@@ -1993,8 +1993,8 @@
       <tags>
         <tag>Acer</tag>
         <tag>宏碁</tag>
-        <tag>4520</tag>
         <tag>散热</tag>
+        <tag>4520</tag>
       </tags>
   </entry>
   <entry>
@@ -2078,8 +2078,8 @@
         <tag>html</tag>
         <tag>javascript</tag>
         <tag>ajax</tag>
-        <tag>highlight</tag>
         <tag>zblog</tag>
+        <tag>highlight</tag>
       </tags>
   </entry>
   <entry>
@@ -2186,10 +2186,10 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>paypal</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>xml</tag>
+        <tag>paypal</tag>
         <tag>网银</tag>
       </tags>
   </entry>
@@ -2255,9 +2255,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>运动</tag>
         <tag>户外</tag>
         <tag>家乐福</tag>
         <tag>游行</tag>
@@ -2298,9 +2298,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>运动</tag>
         <tag>梧桐山</tag>
         <tag>户外</tag>
       </tags>
@@ -2380,9 +2380,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>运动</tag>
         <tag>大梅沙</tag>
         <tag>磨房</tag>
         <tag>百公里</tag>
@@ -2396,10 +2396,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>莲花山</tag>
+        <tag>运动</tag>
         <tag>户外</tag>
       </tags>
   </entry>
@@ -2449,10 +2449,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>QBQ</tag>
         <tag>工作</tag>
         <tag>态度</tag>
-        <tag>笔记</tag>
         <tag>读后感</tag>
       </tags>
   </entry>
@@ -2567,8 +2567,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>西丽</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2594,8 +2594,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>登山</tag>
+        <tag>南山66</tag>
         <tag>排牙山</tag>
       </tags>
   </entry>
@@ -2820,8 +2820,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>登山</tag>
+        <tag>南山66</tag>
         <tag>梧桐山</tag>
       </tags>
   </entry>
@@ -2876,8 +2876,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>汕头</tag>
         <tag>潮州</tag>
+        <tag>汕头</tag>
       </tags>
   </entry>
   <entry>
@@ -2974,8 +2974,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>西丽</tag>
+        <tag>南山66</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3279,8 +3279,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sp2</tag>
         <tag>win2003</tag>
+        <tag>sp2</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3378,7 +3378,7 @@
   <entry>
     <title><![CDATA[清除Tomcat页面缓存小技巧]]></title>
     <url>%2F2007%2F04%2Febcd1bf6%2F</url>
-    <content type="text"><![CDATA[相信很多用Tomcat的人都会重复这样的事 关闭Tomcat 打开tomcat\work目录 删除Catalina目录 运行Tomcat其实可以用RD命令删除整个目录，只需打开 tomcat\bin\startup.bat 文件，在开头加入 1rd/s/q "D:\Program Files\tomcat-5.5.9\work\Catalina" 路径根据自己实际情况做修改 这样每次启动Tomcat的时候就会先删除页面缓存了，不用担心页面修改后没被重新编译]]></content>
+    <content type="text"><![CDATA[相信很多用Tomcat的人都会重复这样的事关闭Tomcat打开tomcat\work目录删除Catalina目录运行Tomcat其实可以用RD命令删除整个目录，只需打开 tomcat\bin\startup.bat 文件，在开头加入1rd/s/q "D:\Program Files\tomcat-5.5.9\work\Catalina"路径根据自己实际情况做修改这样每次启动Tomcat的时候就会先删除页面缓存了，不用担心页面修改后没被重新编译]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3690,7 +3690,7 @@
   <entry>
     <title><![CDATA[Prototype 1.5.0]]></title>
     <url>%2F2007%2F01%2F9daab76b%2F</url>
-    <content type="text"><![CDATA[记得谁谁谁说过JavaScript是最富创造性的语言，确实是很灵活的语言，即使很看起来似乎很简单。Prototype是最流行的JS框架之一，什么时候出的就不清楚了，反正我是在AJAX大行其道的时候才知道的，那时好像是1.3版本，现在1.5已经出来了，据说对字符串类进行了恐怖的扩充，什么递归正则都用上了，体积也达到70KB。官网很慢，本站提供本地下载本地下载&nbsp;| 官方下载&nbsp;| 官方网站&nbsp;| API在线文档附带几张原型模型图，用来做壁纸太酷了，点击看大图1024*7681280*960&nbsp;1440*960&nbsp;&nbsp;]]></content>
+    <content type="text"><![CDATA[记得谁谁谁说过JavaScript是最富创造性的语言，确实是很灵活的语言，即使很看起来似乎很简单。Prototype是最流行的JS框架之一，什么时候出的就不清楚了，反正我是在AJAX大行其道的时候才知道的，那时好像是1.3版本，现在1.5已经出来了，据说对字符串类进行了恐怖的扩充，什么递归正则都用上了，体积也达到70KB。官网很慢，本站提供本地下载本地下载 | 官方下载 | 官方网站 | API在线文档附带几张原型模型图，用来做壁纸太酷了，点击看大图1024*7681280*9601440*960]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3915,7 +3915,7 @@
   <entry>
     <title><![CDATA[DIY杯垫]]></title>
     <url>%2F2006%2F07%2F1884eed5%2F</url>
-    <content type="text"><![CDATA[首先声明，我家不是做果冻的，也不是废物收集站。 ![](/images/2006/07/015308.jpg) 哈哈，这是逛超市买的果冻布丁，￥2.3 很好吃哦，吃完硬纸板可以做杯垫 &amp;nbsp; ![](/images/2006/07/015422.jpg) 擦干净，双面贴上透明胶，可以防水 我自己用了段时间，发现有个问题，就是杯子底部有水的话，杯子拿起来时垫会跟着粘起来 &amp;nbsp; ![](/images/2006/07/015634.jpg) 昨晚把小问题解决了一下，就是在上面贴上牙签，哈哈，这下看你还粘不粘 手机照的，不是很清晰，哈]]></content>
+    <content type="text"><![CDATA[首先声明，我家不是做果冻的，也不是废物收集站。哈哈，这是逛超市买的果冻布丁，￥2.3很好吃哦，吃完硬纸板可以做杯垫擦干净，双面贴上透明胶，可以防水我自己用了段时间，发现有个问题，就是杯子底部有水的话，杯子拿起来时垫会跟着粘起来昨晚把小问题解决了一下，就是在上面贴上牙签，哈哈，这下看你还粘不粘手机照的，不是很清晰，哈]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -4026,7 +4026,7 @@
   <entry>
     <title><![CDATA[《交互设计之路》读后感]]></title>
     <url>%2F2006%2F04%2F28897a50%2F</url>
-    <content type="text"><![CDATA[前几天大致数了一下，每天光点击确认对话框的次数就超过100次了。删除文件要确认、删邮件移邮件要确认、退出也要确认，电脑是人设计的，说白了就是设计软件的人不信任操作电脑的人，以至于每步操作都要再问你&amp;ldquo;真的要这样做么？&amp;rdquo; 我经常吃快餐，每次进去坐下来，服务员就会递来杯茶，我会说&amp;ldquo;白切鸡饭&amp;rdquo;，服务员记下来然后就走开了，没有多余的语言和动作，但如果把电脑上的情景套上去： &amp;nbsp; 我：白切鸡饭服务员：白切鸡饭？我：是的服务员：一份？我：是的，请快点服务员：在这吃？我：是的实际上这样的情景是很少发生的，只有在听不清楚才会要确认一下，而且我一个人进去，如果要2份或打包我会特别交待，如果没有，那就是一份，这又涉及到软件的智能判断了，例如我在工商网上银行查帐，我帐户只绑定了一张卡，可是每次还要我选择查询哪张卡，而下拉框只有一个选择，这好比服务员问你&amp;ldquo;先生吃什么？&amp;rdquo;等你说要白切鸡饭时服务员才说&amp;ldquo;只剩下牛腩饭了，可以么？&amp;rdquo;这都是多余的，所以我经常对我的同事朋友说&amp;ldquo;不要把能一次说清楚的话分两次说！&amp;rdquo; 人与人之间的交互比去人与电脑，省事得多，因为人与人之间本来就存在一种信任，可是电脑却不信任人，为什么？一来是初期对初级用户电脑水平的不了解，二来是长期以来养成的习惯，就像保存BIOS就是F10&amp;gt;&amp;gt;Enter，删除文件就是Del&amp;gt;&amp;gt;Enter，这是一种习惯。 《交互设计之路》是我第一本在地铁上看完的书，因为之前看过些可用性设计的书和文章，这次的阅读并没有太大收获，不过这确实是本好书，建议从事IT业的都应该看一看，我们还有很长的路要走。 **附录：转载Alan Cooper《The Inmates are Running the Asylum》 《精神病人管理精神病院》国内中文译本作《软件创新之路－－冲破高技术营造的牢笼》观点摘要：** 1. 虽然电脑操作系统需要层次式文件系统，而使用的人则不必知道它。2. ATM总是打出取款单据，大多数人都把它扔了，ATM附近总是凌乱一片。3. 设计很糟的软件，其代价是不可估量的。4. 他们做他们想做的事，设计与他们自己的交互。5. 功能太多，它们共同协力设程序变得难以理解和使用。找不到需要的功能，因为它们埋藏在众多的其他免费功能之中。6. 电视卫星系统，在前几次尝试后，我完全放弃了它，就像别人所做的那样。7. 用户不必非要成为电脑文化人才能去使用企业应用中的电脑。8. 大多数与我共过事的产品经理都宁肯交付失败产品也不冒延期的危险。9. PalmPilot的成功归功于设计师专心致志，聚精汇神与目标用户，以及关注用户想要如愿以偿的实际东西。10. 技术支持是软件难用的最昂贵的项目之一。微软每年要花八亿美元用在技术支持上。11. 你使用铅笔，只以及好的方法进行设计，比使用任何数量的原型法设计要好得多。12. 在我的电脑上，线索化消息与单独消息的比例约为50：1，却没有电子邮件程序能够识别和处理。13. 日历程序的失败：大多上情况下，结束时间是不重要的，不需要的，不指定的，甚至预先不知道的，却要输入一个精确的时间。14. 非浏览器程序为何需要进行安装的唯一理由是程序员经常以这样的方式来完成他们的工作，任何在浏览器中运行的程序必然地会牺牲其庞大的性能。15. PhotoShop不记忆用户的图形文件放在何处，也不记忆他经常用它进行的典型工作。16. 什么是期望的？什么是可能？什么是存活的？（设计，工程，商业）17. 当她期望某些东西时，她会忠诚于它。18. 通过满足莎丽的期望，可以使公司更持久，更强壮地成长起来并能领导业界。19. 所有这些重大失策很容易击毙任何正常的公司，但是苹果对设计的运用时使Macintosh可期望地博得前所未闻的消费者忠诚度。20. 让软件为用户服务。21. 程序员对可能性的想象造成了软件中大量充斥着不必要或用户不想要的功能。22. 工程师们会把编程效率看得比用户的需求更重要。23. 因为他们错误地认为CPU是在超负荷地工作，其结果就是软件让用户超负荷工作。24. 被愉悦的用户是极其有效]]></content>
+    <content type="text"><![CDATA[前几天大致数了一下，每天光点击确认对话框的次数就超过100次了。删除文件要确认、删邮件移邮件要确认、退出也要确认，电脑是人设计的，说白了就是设计软件的人不信任操作电脑的人，以至于每步操作都要再问你&ldquo;真的要这样做么？&rdquo;我经常吃快餐，每次进去坐下来，服务员就会递来杯茶，我会说&ldquo;白切鸡饭&rdquo;，服务员记下来然后就走开了，没有多余的语言和动作，但如果把电脑上的情景套上去：我：白切鸡饭服务员：白切鸡饭？我：是的服务员：一份？我：是的，请快点服务员：在这吃？我：是的实际上这样的情景是很少发生的，只有在听不清楚才会要确认一下，而且我一个人进去，如果要2份或打包我会特别交待，如果没有，那就是一份，这又涉及到软件的智能判断了，例如我在工商网上银行查帐，我帐户只绑定了一张卡，可是每次还要我选择查询哪张卡，而下拉框只有一个选择，这好比服务员问你&ldquo;先生吃什么？&rdquo;等你说要白切鸡饭时服务员才说&ldquo;只剩下牛腩饭了，可以么？&rdquo;这都是多余的，所以我经常对我的同事朋友说&ldquo;不要把能一次说清楚的话分两次说！&rdquo;人与人之间的交互比去人与电脑，省事得多，因为人与人之间本来就存在一种信任，可是电脑却不信任人，为什么？一来是初期对初级用户电脑水平的不了解，二来是长期以来养成的习惯，就像保存BIOS就是F10&gt;&gt;Enter，删除文件就是Del&gt;&gt;Enter，这是一种习惯。《交互设计之路》是我第一本在地铁上看完的书，因为之前看过些可用性设计的书和文章，这次的阅读并没有太大收获，不过这确实是本好书，建议从事IT业的都应该看一看，我们还有很长的路要走。附录：转载Alan Cooper《The Inmates are Running the Asylum》《精神病人管理精神病院》国内中文译本作《软件创新之路－－冲破高技术营造的牢笼》观点摘要：虽然电脑操作系统需要层次式文件系统，而使用的人则不必知道它。ATM总是打出取款单据，大多数人都把它扔了，ATM附近总是凌乱一片。设计很糟的软件，其代价是不可估量的。他们做他们想做的事，设计与他们自己的交互。功能太多，它们共同协力设程序变得难以理解和使用。找不到需要的功能，因为它们埋藏在众多的其他免费功能之中。电视卫星系统，在前几次尝试后，我完全放弃了它，就像别人所做的那样。用户不必非要成为电脑文化人才能去使用企业应用中的电脑。大多数与我共过事的产品经理都宁肯交付失败产品也不冒延期的危险。PalmPilot的成功归功于设计师专心致志，聚精汇神与目标用户，以及关注用户想要如愿以偿的实际东西。技术支持是软件难用的最昂贵的项目之一。微软每年要花八亿美元用在技术支持上。你使用铅笔，只以及好的方法进行设计，比使用任何数量的原型法设计要好得多。在我的电脑上，线索化消息与单独消息的比例约为50：1，却没有电子邮件程序能够识别和处理。日历程序的失败：大多上情况下，结束时间是不重要的，不需要的，不指定的，甚至预先不知道的，却要输入一个精确的时间。非浏览器程序为何需要进行安装的唯一理由是程序员经常以这样的方式来完成他们的工作，任何在浏览器中运行的程序必然地会牺牲其庞大的性能。PhotoShop不记忆用户的图形文件放在何处，也不记忆他经常用它进行的典型工作。什么是期望的？什么是可能？什么是存活的？（设计，工程，商业）当她期望某些东西时，她会忠诚于它。通过满足莎丽的期望，可以使公司更持久，更强壮地成长起来并能领导业界。所有这些重大失策很容易击毙任何正常的公司，但是苹果对设计的运用时使Macintosh可期望地博得前所未闻的消费者忠诚度。让软件为用户服务。程序员对可能性的想象造成了软件中大量充斥着不必要或用户不想要的功能。工程师们会把编程效率看得比用户的需求更重要。因为他们错误地认为CPU是在超负荷地工作，其结果就是软件让用户超负荷工作。被愉悦的用户是极其有效]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -4318,13 +4318,13 @@
   <entry>
     <title><![CDATA[2006学习目标]]></title>
     <url>%2F2006%2F01%2F8d289e13%2F</url>
-    <content type="text"><![CDATA[上周在淘宝买了本SQL的书，早上收到包裹，嘿嘿，翻了一下，还不错1。熟悉SQL2000/2005、熟悉MYSQL、对Oracle做适当了解2。熟悉JSP开发，并对Java有比较深入了解3。基本掌握软件开发流程、项目管理、设计模式等理论知识4。熟悉服务器配置、网络管理，拿到MCSE2003证书5。熟悉JS、CSS、DHTML6。对.Net框架有一定了解7。熟悉Wap、XML开发8。提高英语水平9。掌握RIA基础知识、框架、开发流程]]></content>
+    <content type="text"><![CDATA[上周在淘宝买了本SQL的书，早上收到包裹，嘿嘿，翻了一下，还不错熟悉SQL2000/2005、熟悉MYSQL、对Oracle做适当了解熟悉JSP开发，并对Java有比较深入了解基本掌握软件开发流程、项目管理、设计模式等理论知识熟悉服务器配置、网络管理，拿到MCSE2003证书熟悉JS、CSS、DHTML对.Net框架有一定了解熟悉Wap、XML开发提高英语水平掌握RIA基础知识、框架、开发流程]]></content>
       <categories>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>book</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4899,8 +4899,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4911,8 +4911,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
