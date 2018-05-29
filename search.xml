@@ -243,8 +243,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -639,10 +639,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
+        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
-        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -656,8 +656,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>151基地</tag>
-        <tag>黑马河</tag>
         <tag>江西沟</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -671,8 +671,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>华山</tag>
-        <tag>151基地</tag>
         <tag>西宁</tag>
+        <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -853,11 +853,11 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>小摊</tag>
+        <tag>金鸡号</tag>
         <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
-        <tag>小摊</tag>
-        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -870,9 +870,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -885,8 +885,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>罗家渡</tag>
         <tag>露营</tag>
+        <tag>罗家渡</tag>
       </tags>
   </entry>
   <entry>
@@ -1856,12 +1856,12 @@
       </categories>
       <tags>
         <tag>book</tag>
-        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1875,12 +1875,12 @@
       </categories>
       <tags>
         <tag>book</tag>
-        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1986,15 +1986,13 @@
   <entry>
     <title><![CDATA[清洗笔记本散热]]></title>
     <url>%2F2008%2F07%2Fd9021d30%2F</url>
-    <content type="text"><![CDATA[本本在被我折磨了2500多个小时之后，散热器淤积了大量灰尘，通风不顺畅，于是温度狂升，从刚买时候40多度一路升到60多度&nbsp;TM4520的散热器很好拆，只要把背板卸下即可，然后拆风扇（2螺丝）和热管（5螺丝）&nbsp;好脏的散热片&nbsp;这是洗好后的，记得彻底晾干才能装回去，CPU要重新涂上硅脂&nbsp;CPU被打磨的很光滑&nbsp;清洗后的温度，下降了10来度了，效果还是不错的]]></content>
+    <content type="text"><![CDATA[本本在被我折磨了2500多个小时之后，散热器淤积了大量灰尘，通风不顺畅，于是温度狂升，从刚买时候40多度一路升到60多度TM4520的散热器很好拆，只要把背板卸下即可，然后拆风扇（2螺丝）和热管（5螺丝）好脏的散热片这是洗好后的，记得彻底晾干才能装回去，CPU要重新涂上硅脂CPU被打磨的很光滑清洗后的温度，下降了10来度了，效果还是不错的]]></content>
       <categories>
         <category>Life</category>
       </categories>
       <tags>
         <tag>Acer</tag>
-        <tag>宏碁</tag>
-        <tag>4520</tag>
-        <tag>散热</tag>
+        <tag>笔记本</tag>
       </tags>
   </entry>
   <entry>
@@ -2186,9 +2184,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>xml</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
-        <tag>xml</tag>
         <tag>paypal</tag>
         <tag>网银</tag>
       </tags>
@@ -2398,8 +2396,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>莲花山</tag>
         <tag>运动</tag>
+        <tag>莲花山</tag>
         <tag>户外</tag>
       </tags>
   </entry>
@@ -2490,8 +2488,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>咖啡</tag>
         <tag>节日</tag>
+        <tag>咖啡</tag>
       </tags>
   </entry>
   <entry>
@@ -2502,10 +2500,10 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>xml</tag>
         <tag>asp</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
-        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -3294,8 +3292,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>diy</tag>
         <tag>Acer</tag>
+        <tag>diy</tag>
         <tag>二奶</tag>
         <tag>宏碁</tag>
         <tag>笔记本</tag>
@@ -3371,8 +3369,8 @@
       <tags>
         <tag>blog</tag>
         <tag>asp</tag>
-        <tag>转换</tag>
         <tag>cms</tag>
+        <tag>转换</tag>
       </tags>
   </entry>
   <entry>
@@ -3421,12 +3419,12 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>tomcat</tag>
         <tag>eclipse</tag>
         <tag>ide</tag>
         <tag>IDEA</tag>
         <tag>netbeans</tag>
         <tag>ruby</tag>
+        <tag>tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -3447,7 +3445,7 @@
   <entry>
     <title><![CDATA[抱歉，手机如二奶，不外借！]]></title>
     <url>%2F2007%2F03%2F6e7fdbb8%2F</url>
-    <content type="text"><![CDATA[我确实不想发这样的文章，一来不符合我这性格，二来会被鄙视，但还是要说，我一直不怕被鄙视的，也希望大家能多小心今天手机被借给同事做测试，好像要开发个电脑连手机发短信的鬼东西，而公司只有我一人带了手机数据线，不幸啊，就这样把心爱的手机奉上了。由于连接不上，被玩弄一番之后，手机归来。估计买的那个鬼控件不支持USB连接或不支持智能手机。然后下午下班之后想打电话，发现电话簿全部丢失，而且手机变得非常非常缓慢，重启N次之后依旧，幸运的是前天晚上做过备份，无奈只好硬启，恢复了通讯录和短信，终于正常了，装了个闹钟程序pTravelAlarm，没空去搞其它东西了，用用先吧 老猫很小气的，以下物品不外借，死党除外 笔记本手机相机计算机书羽拍、乒乓球拍今天突然想起以前也写过手机连电脑发短信的程序，VB写的，用的是微软的COMM控件，直接用AT指令发送的附上相关文章&nbsp;在PC上通过手机发送短消息[VB] 作者：lotusswanAT指令编程必读&amp;nbsp;]]></content>
+    <content type="text"><![CDATA[我确实不想发这样的文章，一来不符合我这性格，二来会被鄙视，但还是要说，我一直不怕被鄙视的，也希望大家能多小心今天手机被借给同事做测试，好像要开发个电脑连手机发短信的鬼东西，而公司只有我一人带了手机数据线，不幸啊，就这样把心爱的手机奉上了。由于连接不上，被玩弄一番之后，手机归来。估计买的那个鬼控件不支持USB连接或不支持智能手机。然后下午下班之后想打电话，发现电话簿全部丢失，而且手机变得非常非常缓慢，重启N次之后依旧，幸运的是前天晚上做过备份，无奈只好硬启，恢复了通讯录和短信，终于正常了，装了个闹钟程序pTravelAlarm，没空去搞其它东西了，用用先吧老猫很小气的，以下物品不外借，死党除外笔记本手机相机计算机书羽拍、乒乓球拍今天突然想起以前也写过手机连电脑发短信的程序，VB写的，用的是微软的COMM控件，直接用AT指令发送的附上相关文章在PC上通过手机发送短消息[VB] 作者：lotusswanAT指令编程必读]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -3646,8 +3644,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jdk</tag>
         <tag>tomcat</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -3671,8 +3669,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>diy</tag>
         <tag>Acer</tag>
+        <tag>diy</tag>
         <tag>二奶</tag>
         <tag>宏碁</tag>
         <tag>笔记本</tag>
@@ -3722,7 +3720,7 @@
   <entry>
     <title><![CDATA[安装Acer的ePower后powrprof.dll模块出错解决方法]]></title>
     <url>%2F2007%2F01%2F56a5ea23%2F</url>
-    <content type="text"><![CDATA[Acer的蓝牙模块，需要装个ePower的软件进行开启，这还真是件麻烦事，且不说占了20多M空间和50M内存（ePower是建立在Acer Empowering Framework之上的，这家伙一启动就吃了32M内存），而且目前没有在Windows2003下使用的版本，XP下倒是没问题，2003下启动肯定会报错，虽然还能凑合用，但无法对电源管理进行设置，而且使用过程中偶尔也会报错而终止。上周下了个新版的ePower，其实也不新，06年10月30日发布的，2.0.2028版For Win2000/XP，在Windows2003下安装时提示只能在XP下安装，于是把兼容性改为XP，顺利完成安装，启动也没报错，电源管理也能用了，以为事情解决，可是重启电脑后又报错了，还是那句&ldquo;无法定位序数24于动态链接库powrerof.dll&rdquo;，真是悲哀，把ePower所有可执行文件兼容性都改为XP，还是不行，网上搜了一下也没找到解决办法。然后想到能否用XP的电源模块来代替呢，在朋友机子拷了个powrprof.dll过来，然后用深山红叶启动进行替换，忐忑不安的重启后，居然可以了，经过一周试用，一切正常，哇哈哈~~~powrprof.dll的比较&nbsp;WindowsXPWindows2003版本号6.00.2900.2180(xpsp_sp2_rtm.040803-2158)6.00.3790.1830(srv03_sp1_rtm.050324-1447)文件大小17.0 KB (17,408 字节)16.5 KB (16,896 字节]]></content>
+    <content type="text"><![CDATA[Acer的蓝牙模块，需要装个ePower的软件进行开启，这还真是件麻烦事，且不说占了20多M空间和50M内存（ePower是建立在Acer Empowering Framework之上的，这家伙一启动就吃了32M内存），而且目前没有在Windows2003下使用的版本，XP下倒是没问题，2003下启动肯定会报错，虽然还能凑合用，但无法对电源管理进行设置，而且使用过程中偶尔也会报错而终止。上周下了个新版的ePower，其实也不新，06年10月30日发布的，2.0.2028版For Win2000/XP，在Windows2003下安装时提示只能在XP下安装，于是把兼容性改为XP，顺利完成安装，启动也没报错，电源管理也能用了，以为事情解决，可是重启电脑后又报错了，还是那句&ldquo;无法定位序数24于动态链接库powrerof.dll&rdquo;，真是悲哀，把ePower所有可执行文件兼容性都改为XP，还是不行，网上搜了一下也没找到解决办法。然后想到能否用XP的电源模块来代替呢，在朋友机子拷了个powrprof.dll过来，然后用深山红叶启动进行替换，忐忑不安的重启后，居然可以了，经过一周试用，一切正常，哇哈哈~powrprof.dllWindowsXPWindows2003版本号6.00.2900.2180(xpsp_sp2_rtm.040803-2158)6.00.3790.1830(srv03_sp1_rtm.050324-1447)文件大小17.0 KB (17,408 字节)16.5 KB (16,896 字节)]]></content>
       <categories>
         <category>IT</category>
       </categories>
@@ -3778,9 +3776,9 @@
       <tags>
         <tag>blog</tag>
         <tag>asp</tag>
+        <tag>转换</tag>
         <tag>oblog</tag>
         <tag>pjblog</tag>
-        <tag>转换</tag>
       </tags>
   </entry>
   <entry>
@@ -3869,8 +3867,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>diy</tag>
         <tag>Acer</tag>
+        <tag>diy</tag>
         <tag>二奶</tag>
         <tag>宏碁</tag>
         <tag>模块</tag>
@@ -4315,8 +4313,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>book</tag>
         <tag>金子</tag>
+        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -4436,7 +4434,7 @@
   <entry>
     <title><![CDATA[[未与信任 SQL Server 连接相关联]解决方法]]></title>
     <url>%2F2005%2F07%2F9bdb9439%2F</url>
-    <content type="text"><![CDATA[企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’/iisHelp/common/500-100.asp，行242Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。/conn.asp，行7该错误产生的原因是由于SQL Server使用了”仅 Windows”的身份验证方式，因此用户无法使用SQL Server的登录帐户（如 sa ）进行连接。解决方法如下所示： 1、 在服务器端使用企业管理器，并且选择”使用 Windows 身份验证”连接上 SQL Server； 2、 展开”SQL Server组”，鼠标右键点击SQL Server服务器的名称，选择”属性”，再选择”安全性”选项卡； 3、 在”身份验证”下，选择”SQL Server和 Windows “。 4、 重新启动SQL Server服务。 在以上解决方法中，如果在第 1 步中使用”使用 Windows 身份验证”连接 SQL Server 失败，那么我们将遇到一个两难的境地：首先，服务器只允许了 Windows 的身份验证；其次，即使使用了 Windows 身份验证仍然无法连接上服务器。这种情形被形象地称之为”自己把自己锁在了门外”，因为无论用何种方式，用户均无法使用进行连接。实际上，我们可以通过修改一个注册表键值来将身份验证方式改为 SQL Server 和 Windows 混合验证，步骤如下所示： 1、点击”开始”-“运行”，输入regedit，回车进入注册表编辑器； 2、依次展开注册表项，浏览到以下注册表键：[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer] 3、在屏幕右方找到名称”LoginMode”，双击编辑双字节值； 4、将原值从1改为2，点击”确定”； 5、关闭注册表编辑器]]></content>
+    <content type="text"><![CDATA[企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’/iisHelp/common/500-100.asp，行242Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。/conn.asp，行7该错误产生的原因是由于SQL Server使用了”仅 Windows”的身份验证方式，因此用户无法使用SQL Server的登录帐户（如 sa ）进行连接。解决方法如下所示：在服务器端使用企业管理器，并且选择”使用 Windows 身份验证”连接上 SQL Server；展开”SQL Server组”，鼠标右键点击SQL Server服务器的名称，选择”属性”，再选择”安全性”选项卡；在”身份验证”下，选择”SQL Server和 Windows “。重新启动SQL Server服务。 在以上解决方法中，如果在第 1 步中使用”使用 Windows 身份验证”连接 SQL Server 失败，那么我们将遇到一个两难的境地：首先，服务器只允许了 Windows 的身份验证；其次，即使使用了 Windows 身份验证仍然无法连接上服务器。这种情形被形象地称之为”自己把自己锁在了门外”，因为无论用何种方式，用户均无法使用进行连接。实际上，我们可以通过修改一个注册表键值来将身份验证方式改为 SQL Server 和 Windows 混合验证，步骤如下所示：点击”开始”-“运行”，输入regedit，回车进入注册表编辑器；依次展开注册表项，浏览到以下注册表键：[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer]在屏幕右方找到名称”LoginMode”，双击编辑双字节值；将原值从1改为2，点击”确定”；关闭注册表编辑器]]></content>
       <categories>
         <category>IT</category>
       </categories>
@@ -4856,17 +4854,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[睡觉咯!]]></title>
-    <url>%2F2004%2F01%2F99e94a2c%2F</url>
-    <content type="text"><![CDATA[晚上跟老爸出去,被朋友臭了一顿,真是不爽!唉,走猫的路,让狗说去吧!今晚早点睡觉,明天继续努力!2004,new year new start!]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>金子</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[没有阳光]]></title>
     <url>%2F2004%2F01%2F13ceb21a%2F</url>
     <content type="text"><![CDATA[下午骑车出去，风很大，穿很少，很冷。心也冷，整个人像幽魂，不知怎么的，很迷茫，骑到斑马线，绿灯，居然跟机动车一样停了下来，跟机动车一起等绿灯，5…4…3…2…1……变绿灯了，我跟机动车一起前进，结果差点被撞死。。。我到底怎么了。。。。]]></content>
@@ -4890,8 +4877,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4902,8 +4889,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -5055,7 +5042,7 @@
   <entry>
     <title><![CDATA[对Blog的界面进行了一些修改]]></title>
     <url>%2F2003%2F10%2Fc6843e45%2F</url>
-    <content type="text"><![CDATA[对Blog的界面进行了一些修改嘿嘿,是不是好看多了,开始有Blog的味道了,嗯,加油.还有好多功能没完成.不知不觉快两点了,唉,睡觉去.原来在CSS加入word-break:break-all就可以实现长句断行,哦~~~~]]></content>
+    <content type="text"><![CDATA[对Blog的界面进行了一些修改嘿嘿,是不是好看多了,开始有Blog的味道了,嗯,加油.还有好多功能没完成.不知不觉快两点了,唉,睡觉去.原来在CSS加入1word-break:break-all就可以实现长句断行,哦~~~~]]></content>
       <categories>
         <category>Life</category>
       </categories>
