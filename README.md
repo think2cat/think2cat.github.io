@@ -10,7 +10,7 @@
 ---
 
 ## :pill:To-Do: 
-- [ ] wordpress到markdown转换(70% complete)
+- [ ] wordpress到markdown转换(75% complete)
 - [ ] add about page
 - [ ] 页面美化
 - [ ] 404页面
