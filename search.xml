@@ -313,8 +313,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>万宁</tag>
         <tag>英州</tag>
+        <tag>万宁</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -466,8 +466,8 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>广水</tag>
+        <tag>旅行</tag>
         <tag>信阳</tag>
       </tags>
   </entry>
@@ -482,9 +482,9 @@
         <tag>单车</tag>
         <tag>孝感</tag>
         <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>安陆</tag>
         <tag>广水</tag>
+        <tag>旅行</tag>
       </tags>
   </entry>
   <entry>
@@ -497,9 +497,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
-        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
+        <tag>东西湖</tag>
         <tag>董永</tag>
       </tags>
   </entry>
@@ -513,9 +513,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
-        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
+        <tag>东西湖</tag>
         <tag>武汉</tag>
       </tags>
   </entry>
@@ -604,8 +604,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>青海湖</tag>
         <tag>水井巷</tag>
         <tag>莫家街</tag>
       </tags>
@@ -620,8 +620,8 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>青海湖</tag>
         <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
@@ -670,8 +670,8 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>青海湖</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
@@ -686,9 +686,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
+        <tag>西宁</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>西宁</tag>
       </tags>
   </entry>
   <entry>
@@ -701,9 +701,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -783,9 +783,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
+        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -824,8 +824,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>羊台山</tag>
+        <tag>徒步</tag>
         <tag>露营</tag>
       </tags>
   </entry>
@@ -852,12 +852,12 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>乐昌</tag>
+        <tag>京广线</tag>
         <tag>大源</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -870,9 +870,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -885,8 +885,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>罗家渡</tag>
         <tag>露营</tag>
+        <tag>罗家渡</tag>
       </tags>
   </entry>
   <entry>
@@ -899,8 +899,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1117,9 +1117,9 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
         <tag>60km</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1157,8 +1157,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1182,10 +1182,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>旅游</tag>
+        <tag>单车</tag>
         <tag>寮步广场</tag>
       </tags>
   </entry>
@@ -1197,11 +1197,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
         <tag>旅游</tag>
+        <tag>单车</tag>
         <tag>运动</tag>
       </tags>
   </entry>
@@ -1213,10 +1213,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>旅游</tag>
+        <tag>单车</tag>
         <tag>运动</tag>
         <tag>寮步广场</tag>
       </tags>
@@ -1469,8 +1469,8 @@
         <tag>单车</tag>
         <tag>运动</tag>
         <tag>户外</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1575,9 +1575,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
+        <tag>潮州</tag>
         <tag>别峰</tag>
         <tag>功夫茶</tag>
-        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1589,9 +1589,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>巨峰寺</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
         <tag>牛肉丸</tag>
       </tags>
   </entry>
@@ -1603,8 +1603,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
         <tag>单车</tag>
+        <tag>南山</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1632,11 +1632,11 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>刷街</tag>
         <tag>南头</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
-        <tag>单车</tag>
         <tag>轮滑</tag>
       </tags>
   </entry>
@@ -1688,8 +1688,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1700,8 +1700,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>运动</tag>
+        <tag>轮滑</tag>
         <tag>爬山</tag>
         <tag>整理</tag>
       </tags>
@@ -1918,8 +1918,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
         <tag>运动</tag>
+        <tag>南山</tag>
         <tag>户外</tag>
         <tag>爬山</tag>
       </tags>
@@ -2076,8 +2076,8 @@
         <tag>html</tag>
         <tag>javascript</tag>
         <tag>ajax</tag>
-        <tag>highlight</tag>
         <tag>zblog</tag>
+        <tag>highlight</tag>
       </tags>
   </entry>
   <entry>
@@ -2253,9 +2253,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>运动</tag>
         <tag>户外</tag>
         <tag>家乐福</tag>
         <tag>游行</tag>
@@ -2296,9 +2296,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>运动</tag>
         <tag>梧桐山</tag>
         <tag>户外</tag>
       </tags>
@@ -2378,12 +2378,12 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>运动</tag>
         <tag>大梅沙</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2394,9 +2394,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>运动</tag>
         <tag>莲花山</tag>
         <tag>户外</tag>
       </tags>
@@ -2409,8 +2409,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2819,8 +2819,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2874,8 +2874,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -3277,8 +3277,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sp2</tag>
         <tag>win2003</tag>
+        <tag>sp2</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3489,8 +3489,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>网银</tag>
+        <tag>java</tag>
         <tag>淘宝</tag>
         <tag>jsp</tag>
       </tags>
@@ -3619,8 +3619,8 @@
       <tags>
         <tag>book</tag>
         <tag>css</tag>
-        <tag>web</tag>
         <tag>读后感</tag>
+        <tag>web</tag>
         <tag>div</tag>
         <tag>xhtml</tag>
       </tags>
@@ -4399,7 +4399,7 @@
   <entry>
     <title><![CDATA[喝了7年咖啡，终于买了咖啡机]]></title>
     <url>%2F2005%2F08%2Fac9d8b39%2F</url>
-    <content type="text"><![CDATA[7年之痒，终于买了咖啡机，飞利浦7460，啊哈哈![](/images/2003/10/em096.gif) ![](/images/2005/08/15_16_212322187_12696.jpg) 巴西巴拉那的咖啡豆，麦斯威尔奶末，太古砂糖，看来又得研究一番了～～～]]></content>
+    <content type="text"><![CDATA[7年之痒，终于买了咖啡机，飞利浦7460，啊哈哈巴西巴拉那的咖啡豆，麦斯威尔奶末，太古砂糖，看来又得研究一番了～～～]]></content>
       <categories>
         <category>Life</category>
       </categories>
