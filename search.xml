@@ -466,9 +466,9 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>广水</tag>
         <tag>旅行</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -482,9 +482,9 @@
         <tag>单车</tag>
         <tag>孝感</tag>
         <tag>国庆</tag>
-        <tag>安陆</tag>
-        <tag>广水</tag>
         <tag>旅行</tag>
+        <tag>广水</tag>
+        <tag>安陆</tag>
       </tags>
   </entry>
   <entry>
@@ -497,9 +497,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>东西湖</tag>
         <tag>董永</tag>
       </tags>
   </entry>
@@ -513,9 +513,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>东西湖</tag>
         <tag>武汉</tag>
       </tags>
   </entry>
@@ -604,8 +604,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西宁</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
         <tag>水井巷</tag>
         <tag>莫家街</tag>
       </tags>
@@ -620,8 +620,8 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>西宁</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
         <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
@@ -670,8 +670,8 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>西宁</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
@@ -686,9 +686,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>西宁</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
       </tags>
   </entry>
   <entry>
@@ -701,9 +701,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
+        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -783,9 +783,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
-        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -852,12 +852,12 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>乐昌</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
+        <tag>乐昌</tag>
         <tag>大源</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -870,9 +870,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -885,8 +885,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>罗家渡</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -1118,8 +1118,8 @@
         <tag>轮滑</tag>
         <tag>徒步</tag>
         <tag>磨房</tag>
-        <tag>60km</tag>
         <tag>惠州</tag>
+        <tag>60km</tag>
       </tags>
   </entry>
   <entry>
@@ -1157,8 +1157,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -1841,8 +1841,8 @@
       </categories>
       <tags>
         <tag>运动</tag>
-        <tag>跑步</tag>
         <tag>户外</tag>
+        <tag>跑步</tag>
         <tag>装备</tag>
         <tag>松拓</tag>
       </tags>
@@ -2076,8 +2076,8 @@
         <tag>html</tag>
         <tag>javascript</tag>
         <tag>ajax</tag>
-        <tag>zblog</tag>
         <tag>highlight</tag>
+        <tag>zblog</tag>
       </tags>
   </entry>
   <entry>
@@ -2409,8 +2409,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -2488,8 +2488,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>咖啡</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -2819,8 +2819,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -3277,8 +3277,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3363,8 +3363,8 @@
       <tags>
         <tag>blog</tag>
         <tag>asp</tag>
-        <tag>cms</tag>
         <tag>转换</tag>
+        <tag>cms</tag>
       </tags>
   </entry>
   <entry>
@@ -3489,8 +3489,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>网银</tag>
         <tag>java</tag>
+        <tag>网银</tag>
         <tag>淘宝</tag>
         <tag>jsp</tag>
       </tags>
@@ -3619,8 +3619,8 @@
       <tags>
         <tag>book</tag>
         <tag>css</tag>
-        <tag>读后感</tag>
         <tag>web</tag>
+        <tag>读后感</tag>
         <tag>div</tag>
         <tag>xhtml</tag>
       </tags>
@@ -3763,9 +3763,9 @@
       <tags>
         <tag>blog</tag>
         <tag>asp</tag>
-        <tag>转换</tag>
         <tag>oblog</tag>
         <tag>pjblog</tag>
+        <tag>转换</tag>
       </tags>
   </entry>
   <entry>
@@ -4304,7 +4304,7 @@
   <entry>
     <title><![CDATA[失业了]]></title>
     <url>%2F2005%2F12%2Ff5287eb2%2F</url>
-    <content type="text"><![CDATA[早上终于办完离职手续，整理电脑、收拾东西，走前还把桌子电脑擦了一遍，其实这里办公环境不错滴，像微软、三星、西门子都在这大厦办公，可惜公司老总不重视偶，还是走罢，哈哈&middot;&middot;&middot;回窝收拾了东西，晚上坐火车回家&amp;middot;&amp;middot;&amp;middot; ![](/images/2005/12/31_27_1613564413_12706.jpg) 再见了我曾经的位子 ![](/images/2006/01/27_1614541210.jpg) 再见了23楼的兄弟姐妹们 ![](/images/2006/01/27_1615652498.jpg) 再见了楼下的鲜花们 我是金子，我要发光！![](/images/2003/10/em069.gif)]]></content>
+    <content type="text"><![CDATA[早上终于办完离职手续，整理电脑、收拾东西，走前还把桌子电脑擦了一遍，其实这里办公环境不错滴，像微软、三星、西门子都在这大厦办公，可惜公司老总不重视偶，还是走罢，哈哈&middot;&middot;&middot;回窝收拾了东西，晚上坐火车回家&middot;&middot;&middot;再见了我曾经的位子再见了23楼的兄弟姐妹们再见了楼下的鲜花们我是金子，我要发光！]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -4697,7 +4697,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[一点小修改]]></title>
+    <title><![CDATA[Blog一点小修改]]></title>
     <url>%2F2004%2F07%2Febe34d3a%2F</url>
     <content type="text"><![CDATA[修改：修改了一点RSS，想检验一下，一时找不到那个网站 =_=||发表Blog后转到首页改为转到新发表的Blog删除Blog的Bug上传目录的名称改为与LeadBBS的一致，原先1月份上传的话目录名称为[1]，现在改为[01]，方便管理现在最需要解决的是月历了，一直想不到什么好的办法，唉决定从明晚起，每天学做几个Firework的例子，补充点网页美工PS:发现Poorfish’s Blog在搜索时有Bug]]></content>
       <categories>
@@ -4854,7 +4854,6 @@
       </categories>
       <tags>
         <tag>blog</tag>
-        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4992,17 +4991,6 @@
       <categories>
         <category>Life</category>
       </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[好悃呐～～～～]]></title>
-    <url>%2F2003%2F10%2F804dc5d2%2F</url>
-    <content type="text"><![CDATA[[蓝色心情]V2开始策划了,版面还没任何头绪,一整天都不知做什么,又浪费了一天的时间,唉.Blog也几天没进展了,还是先把[蓝色心情]搞定再说.好悃!悃死了!革命善未成功偶仍需努力!]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>金子</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[增加了友情链接]]></title>
