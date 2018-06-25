@@ -308,11 +308,11 @@
       <category term="Web" scheme="https://21ido.com/categories/Web/"/>
     
     
-      <category term="flex" scheme="https://21ido.com/tags/flex/"/>
-    
       <category term="css" scheme="https://21ido.com/tags/css/"/>
     
       <category term="html" scheme="https://21ido.com/tags/html/"/>
+    
+      <category term="flex" scheme="https://21ido.com/tags/flex/"/>
     
   </entry>
   
@@ -354,9 +354,9 @@
       <category term="Web" scheme="https://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="https://21ido.com/tags/javascript/"/>
-    
       <category term="nodejs" scheme="https://21ido.com/tags/nodejs/"/>
+    
+      <category term="javascript" scheme="https://21ido.com/tags/javascript/"/>
     
       <category term="grunt" scheme="https://21ido.com/tags/grunt/"/>
     
