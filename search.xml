@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Promise入坑指南(1)]]></title>
+    <url>%2F2018%2F06%2Fce2cf615%2F</url>
+    <content type="text"><![CDATA[Promise是异步编程的解决方案Promise有3种状态pendingfulfilledrejected对象的状态是不受外界影响的，而且状态的改变只有两种pending -&gt; fulfilledpending -&gt; rejected一旦变成fulfilled或rejected，则终止，不会再改变而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作代码示例1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;);创建一个Promise实例，其构造函数接收一个function作为参数，而function又有2个参数，分别为resolve和reject状态在pending变为fulfilled时执行 resolve，变为rejected则执行 reject，可以理解为成功和失败异常的回调这样看起来跟老式callback好像差不多啊打印看下除了包含上面提到的resolve和reject，可以看到原型还包含then和catch，这些是最常用到的如果只是简单的回调，使用起来确实差不多12345function getList()&#123; ajax(url1, function(response)&#123; //do something &#125;);&#125;这是最常见的ajax异步回调，一次请求即可完成，如果是特殊一点，需要先从A地址获取A参数，然后提交到B地址，甚至提交到B地址成功后再回写到C地址，那则需要层层嵌套1234567891011function add()&#123; ajax(url1, function(response)&#123; let url2 = response.url; ajax(url2, function(response)&#123; let url3 = response.url; ajax(url3, function(response)&#123; //do something &#125;); &#125;); &#125;);&#125;用Promise来重写这段代码12345678910111213let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; resolve("url1"); &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", res); return "url2"&#125;).then(res =&gt; &#123; console.log("cb2", res); return "url3"&#125;);控制台先打印了Promise对象，2秒后打出cb1和cb21234Promisecb1 url1cb2 url2虽然是链式，看起来跟平时用的 ajax 异步回调有点不一样啊，链式写法多步执行后面会详细讲，这节先讲基本语法前面提到 then 可以传入2个function作为参数，分别代表 resolve 和 reject 的回调同时有个 catch 用于捕获异常，如果传入 then 只有 resolve 函数，在状态变为 rejected 时会调用传入 catch 的函数1234567891011121314let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; reject("url"); &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", res); return "url2"&#125;).catch(res =&gt; &#123; console.log("err",res); return "error";&#125;);// -&gt; err url值得说的是即使状态从pending变为fulfilled，理应执行resolve，但是如果执行resolve时异常了，同样会调用catch传入的function，如下面代码1234567891011121314let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; resolve("url"); // &lt;= 执行resolve &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", aaaaaa); // &lt;- 打印不存在的变量 return "url2"&#125;).catch(res =&gt; &#123; console.log("err",res); return "error";&#125;);// -&gt; err url]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>promise</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[TypeScript学习笔记(2)]]></title>
     <url>%2F2018%2F05%2F383e290e%2F</url>
     <content type="text"><![CDATA[数组[]表示法在类型定义后面加上[]即表示数组定义的数组不允许出现其它类型，同时支持联合类型1234let catArr: number[] = [1,2,3];let catName: string[] = ["one","tow","three"];let catColor: (string|number)[] = [1,"tow",0xFFF];catColor.push("four");泛型表示法1234let catArr: Array&lt;number&gt; = [1,2,3];let catName: Array&lt;string&gt; = ["one","tow","three"];let catColor: Array&lt;boolean|number&gt; = [0,1, true];catColor.push(3);接口描述法前面的interface可以描述和约束对象，所以也可以描述一个数组12345interface TestArray &#123; [proName: number]: string;&#125;let t: TestArray = ["a","b"];t[2]="c";但是当 t.push(“d”) 会发现，报错了error TS2339: Property ‘push’ does not exist on type ‘TestArray’因为定义的只是值类型，没有push这个方法any数组如果向往数组塞任意类型数据，就使用any类型123let catCategory: any[] = ["white", 0xfff, "small", 2000];let catCategory: any[] = ["white", 0xfff, "small", 2000];catCategory.push(&#123;"name":"gavin"&#125;);catCategory.push(true);]]></content>
@@ -183,8 +195,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>nodejs</tag>
         <tag>javascript</tag>
+        <tag>nodejs</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -243,8 +255,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>马拉松</tag>
         <tag>旅行</tag>
+        <tag>马拉松</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -313,8 +325,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>万宁</tag>
         <tag>英州</tag>
+        <tag>万宁</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -452,8 +464,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>信阳</tag>
         <tag>武汉</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -466,9 +478,9 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>广水</tag>
         <tag>旅行</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -482,9 +494,9 @@
         <tag>单车</tag>
         <tag>孝感</tag>
         <tag>国庆</tag>
-        <tag>安陆</tag>
-        <tag>广水</tag>
         <tag>旅行</tag>
+        <tag>广水</tag>
+        <tag>安陆</tag>
       </tags>
   </entry>
   <entry>
@@ -497,9 +509,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>东西湖</tag>
         <tag>董永</tag>
       </tags>
   </entry>
@@ -513,9 +525,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>东西湖</tag>
         <tag>武汉</tag>
       </tags>
   </entry>
@@ -669,10 +681,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
-        <tag>151基地</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -685,9 +697,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -700,10 +712,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -717,8 +729,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -853,11 +865,11 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>小摊</tag>
+        <tag>金鸡号</tag>
         <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
-        <tag>小摊</tag>
-        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -870,9 +882,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -885,8 +897,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>罗家渡</tag>
         <tag>露营</tag>
+        <tag>罗家渡</tag>
       </tags>
   </entry>
   <entry>
@@ -899,8 +911,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -928,9 +940,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>跑步</tag>
         <tag>东莞</tag>
         <tag>松山湖</tag>
+        <tag>跑步</tag>
         <tag>花草</tag>
       </tags>
   </entry>
@@ -1114,11 +1126,11 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>徒步</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
         <tag>60km</tag>
       </tags>
   </entry>
@@ -1241,8 +1253,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>徒步</tag>
+        <tag>南山66</tag>
         <tag>鹅公湾</tag>
         <tag>西贡</tag>
       </tags>
@@ -1455,8 +1467,8 @@
         <tag>单车</tag>
         <tag>运动</tag>
         <tag>户外</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -1561,9 +1573,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
+        <tag>潮州</tag>
         <tag>别峰</tag>
         <tag>功夫茶</tag>
-        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1575,9 +1587,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>巨峰寺</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
         <tag>牛肉丸</tag>
       </tags>
   </entry>
@@ -1674,8 +1686,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1713,10 +1725,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>东部华侨城</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>东部华侨城</tag>
       </tags>
   </entry>
   <entry>
@@ -1843,11 +1855,11 @@
       <tags>
         <tag>book</tag>
         <tag>xml</tag>
-        <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
+        <tag>Macromedia</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1862,11 +1874,11 @@
       <tags>
         <tag>book</tag>
         <tag>xml</tag>
-        <tag>Macromedia</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
+        <tag>Macromedia</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1961,9 +1973,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>大梅沙</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>大梅沙</tag>
         <tag>大鹏</tag>
         <tag>东西冲</tag>
         <tag>西冲</tag>
@@ -1989,9 +2001,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>大梅沙</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>大梅沙</tag>
         <tag>大鹏</tag>
         <tag>杨梅坑</tag>
         <tag>桔钓沙</tag>
@@ -2005,9 +2017,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>大梅沙</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>大梅沙</tag>
         <tag>大鹏</tag>
         <tag>西冲</tag>
       </tags>
@@ -2365,11 +2377,11 @@
       </categories>
       <tags>
         <tag>运动</tag>
+        <tag>大梅沙</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>大梅沙</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -2860,8 +2872,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -3261,8 +3273,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -4277,8 +4289,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>book</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4836,8 +4848,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>

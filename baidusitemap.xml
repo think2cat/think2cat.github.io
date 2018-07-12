@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://21ido.com/2018/06/ce2cf615/</loc>
+    <lastmod>2018-07-11T15:54:11.368Z</lastmod>
+    <data>
+        <display>
+        <title>Promise入坑指南(1)</title>
+        <pubTime>2018-06-04T06:48:28.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+        <tag>promise</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web" url="https://21ido.com/categories/Web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://21ido.com/2007/07/d1ea9ded/</loc>
     <lastmod>2018-07-07T05:11:28.147Z</lastmod>
     <data>
@@ -817,8 +839,6 @@
          
         <tag>xml</tag>
          
-        <tag>Macromedia</tag>
-         
         <tag>actionscript</tag>
          
         <tag>Adobe</tag>
@@ -826,6 +846,8 @@
         <tag>flash</tag>
          
         <tag>flex</tag>
+         
+        <tag>Macromedia</tag>
          
         <tag>书</tag>
          
@@ -853,8 +875,6 @@
          
         <tag>xml</tag>
          
-        <tag>Macromedia</tag>
-         
         <tag>actionscript</tag>
          
         <tag>Adobe</tag>
@@ -862,6 +882,8 @@
         <tag>flash</tag>
          
         <tag>flex</tag>
+         
+        <tag>Macromedia</tag>
          
         <tag>书</tag>
          
@@ -1137,9 +1159,9 @@
         <title>2006学习目标</title>
         <pubTime>2006-01-20T16:05:06.000Z</pubTime>
         
-        <tag>金子</tag>
-         
         <tag>book</tag>
+         
+        <tag>金子</tag>
          
          
            
@@ -2327,9 +2349,9 @@
         <title>grunt入门笔记（1）</title>
         <pubTime>2017-05-14T16:14:47.000Z</pubTime>
         
-        <tag>nodejs</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>nodejs</tag>
          
         <tag>grunt</tag>
          
@@ -3011,15 +3033,15 @@
         <title>2009磨房@愉悦60，爱我那抹绿·惠州60km徒步</title>
         <pubTime>2009-11-16T04:44:54.000Z</pubTime>
         
+        <tag>徒步</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
          
-        <tag>徒步</tag>
+        <tag>惠州</tag>
          
         <tag>磨房</tag>
-         
-        <tag>惠州</tag>
          
         <tag>60km</tag>
          
@@ -3075,11 +3097,11 @@
          
         <tag>孝感</tag>
          
+        <tag>东西湖</tag>
+         
         <tag>国庆</tag>
          
         <tag>旅行</tag>
-         
-        <tag>东西湖</tag>
          
         <tag>武汉</tag>
          
@@ -3105,11 +3127,11 @@
          
         <tag>孝感</tag>
          
+        <tag>东西湖</tag>
+         
         <tag>国庆</tag>
          
         <tag>旅行</tag>
-         
-        <tag>东西湖</tag>
          
         <tag>董永</tag>
          
@@ -3137,11 +3159,11 @@
          
         <tag>国庆</tag>
          
-        <tag>安陆</tag>
+        <tag>旅行</tag>
          
         <tag>广水</tag>
          
-        <tag>旅行</tag>
+        <tag>安陆</tag>
          
          
            
@@ -3165,11 +3187,11 @@
          
         <tag>国庆</tag>
          
-        <tag>广水</tag>
-         
         <tag>旅行</tag>
          
         <tag>信阳</tag>
+         
+        <tag>广水</tag>
          
          
            
@@ -3195,9 +3217,9 @@
          
         <tag>旅行</tag>
          
-        <tag>信阳</tag>
-         
         <tag>武汉</tag>
+         
+        <tag>信阳</tag>
          
          
            
@@ -3299,9 +3321,9 @@
         
         <tag>单车</tag>
          
-        <tag>磨房</tag>
-         
         <tag>惠州</tag>
+         
+        <tag>磨房</tag>
          
          
            
@@ -3343,11 +3365,11 @@
         <title>7月20日 大梅沙->杨梅坑刷街</title>
         <pubTime>2008-07-21T03:17:00.000Z</pubTime>
         
+        <tag>大梅沙</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
-         
-        <tag>大梅沙</tag>
          
         <tag>大鹏</tag>
          
@@ -3899,9 +3921,9 @@
          
         <tag>户外</tag>
          
-        <tag>百公里</tag>
-         
         <tag>磨房</tag>
+         
+        <tag>百公里</tag>
          
          
            
@@ -4053,13 +4075,13 @@
         
         <tag>国庆</tag>
          
-        <tag>青海湖</tag>
-         
         <tag>华山</tag>
          
-        <tag>151基地</tag>
+        <tag>青海湖</tag>
          
         <tag>西宁</tag>
+         
+        <tag>151基地</tag>
          
         <tag>西海镇</tag>
          
@@ -4083,13 +4105,13 @@
         
         <tag>国庆</tag>
          
-        <tag>西安</tag>
-         
-        <tag>青海湖</tag>
-         
         <tag>华山</tag>
          
         <tag>大雁塔</tag>
+         
+        <tag>西安</tag>
+         
+        <tag>青海湖</tag>
          
          
            
@@ -4201,11 +4223,11 @@
         
         <tag>国庆</tag>
          
+        <tag>华山</tag>
+         
         <tag>西安</tag>
          
         <tag>青海湖</tag>
-         
-        <tag>华山</tag>
          
         <tag>西宁</tag>
          
@@ -4233,9 +4255,9 @@
          
         <tag>西安</tag>
          
-        <tag>钟楼</tag>
-         
         <tag>青海湖</tag>
+         
+        <tag>钟楼</tag>
          
          
            
@@ -4341,9 +4363,9 @@
          
         <tag>京广线</tag>
          
-        <tag>罗家渡</tag>
-         
         <tag>露营</tag>
+         
+        <tag>罗家渡</tag>
          
          
            
@@ -4515,11 +4537,11 @@
         <title>7月6日 大梅沙-西冲刷街</title>
         <pubTime>2008-07-07T02:55:12.000Z</pubTime>
         
+        <tag>大梅沙</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
-         
-        <tag>大梅沙</tag>
          
         <tag>大鹏</tag>
          
@@ -4795,9 +4817,9 @@
          
         <tag>蜜月</tag>
          
-        <tag>万宁</tag>
-         
         <tag>英州</tag>
+         
+        <tag>万宁</tag>
          
         <tag>陵水</tag>
          
@@ -5207,11 +5229,11 @@
         
         <tag>单车</tag>
          
+        <tag>潮州</tag>
+         
         <tag>别峰</tag>
          
         <tag>功夫茶</tag>
-         
-        <tag>潮州</tag>
          
          
            
@@ -5233,11 +5255,11 @@
         
         <tag>单车</tag>
          
-        <tag>潮州</tag>
-         
         <tag>巨峰寺</tag>
          
         <tag>汕头</tag>
+         
+        <tag>潮州</tag>
          
         <tag>牛肉丸</tag>
          
@@ -5587,15 +5609,15 @@
          
         <tag>京广线</tag>
          
+        <tag>小摊</tag>
+         
+        <tag>金鸡号</tag>
+         
         <tag>露营</tag>
          
         <tag>乐昌</tag>
          
         <tag>大源</tag>
-         
-        <tag>小摊</tag>
-         
-        <tag>金鸡号</tag>
          
          
            
@@ -5619,11 +5641,11 @@
          
         <tag>京广线</tag>
          
-        <tag>露营</tag>
-         
         <tag>小摊</tag>
          
         <tag>金鸡号</tag>
+         
+        <tag>露营</tag>
          
          
            
@@ -5937,11 +5959,11 @@
         <title>7月26-27日 西冲露营，听着海浪声入眠</title>
         <pubTime>2008-07-30T08:08:32.000Z</pubTime>
         
+        <tag>大梅沙</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
-         
-        <tag>大梅沙</tag>
          
         <tag>大鹏</tag>
          
@@ -5997,9 +6019,9 @@
          
         <tag>轮滑</tag>
          
-        <tag>百公里</tag>
-         
         <tag>磨房</tag>
+         
+        <tag>百公里</tag>
          
         <tag>深圳</tag>
          
@@ -6021,13 +6043,13 @@
         <title>11月2日·东部华侨城刷山</title>
         <pubTime>2008-11-03T04:58:04.000Z</pubTime>
         
+        <tag>东部华侨城</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
          
         <tag>南山66</tag>
-         
-        <tag>东部华侨城</tag>
          
          
            
@@ -6107,15 +6129,15 @@
         
         <tag>运动</tag>
          
+        <tag>大梅沙</tag>
+         
         <tag>刷街</tag>
          
         <tag>轮滑</tag>
          
-        <tag>大梅沙</tag>
+        <tag>磨房</tag>
          
         <tag>百公里</tag>
-         
-        <tag>磨房</tag>
          
          
            
@@ -6161,9 +6183,9 @@
         <title>9月13日 西贡-鹅公湾徒步穿越</title>
         <pubTime>2009-09-15T07:15:11.000Z</pubTime>
         
-        <tag>南山66</tag>
-         
         <tag>徒步</tag>
+         
+        <tag>南山66</tag>
          
         <tag>鹅公湾</tag>
          
@@ -6503,11 +6525,11 @@
         <title>1月30日·松山湖赏花</title>
         <pubTime>2010-02-09T06:51:17.000Z</pubTime>
         
-        <tag>跑步</tag>
-         
         <tag>东莞</tag>
          
         <tag>松山湖</tag>
+         
+        <tag>跑步</tag>
          
         <tag>花草</tag>
          
@@ -6605,9 +6627,9 @@
         <title>2003即将过去</title>
         <pubTime>2003-12-30T17:51:00.000Z</pubTime>
         
-        <tag>blog</tag>
-         
         <tag>金子</tag>
+         
+        <tag>blog</tag>
          
          
            
@@ -7145,9 +7167,9 @@
         <title>win2003 sp2跟卡巴冲突蓝屏</title>
         <pubTime>2007-06-25T08:25:37.000Z</pubTime>
         
-        <tag>win2003</tag>
-         
         <tag>sp2</tag>
+         
+        <tag>win2003</tag>
          
         <tag>冲突</tag>
          
@@ -7821,9 +7843,9 @@
          
         <tag>轮滑</tag>
          
-        <tag>潮州</tag>
-         
         <tag>汕头</tag>
+         
+        <tag>潮州</tag>
          
          
            
@@ -8255,9 +8277,9 @@
         
         <tag>跑步</tag>
          
-        <tag>马拉松</tag>
-         
         <tag>旅行</tag>
+         
+        <tag>马拉松</tag>
          
         <tag>巴厘岛</tag>
          
