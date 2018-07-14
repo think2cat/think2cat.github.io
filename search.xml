@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Promise入门指南(2)]]></title>
+    <url>%2F2018%2F07%2F7cecbcde%2F</url>
+    <content type="text"><![CDATA[1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;);前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面new Promise示例并return1234567891011var getUrl = param =&gt; &#123; return new Promise(resolve =&gt; &#123; //do something $.ajax(url, response =&gt; &#123; resolve(response); &#125;); &#125;);&#125;getUrl(1).then(response =&gt; &#123; render(response);&#125;);这是比较标准的写法，还有比较偷懒的写法123var getUrl = Promise.resolve();getUrl.then(response =&gt; &#123;&#125;);前面的resolv()中传什么东西，到了then中的 response 就是前面传入的东西如果为空，则 response = undefined，如果是 function 则 response = function123456789var getUrl = Promise.resolve(() =&gt; &#123; console.log("hello");&#125;);getUrl.then(cb =&gt; &#123; console.log("It's raining day"); cb();&#125;);// =&gt; It's raining day// =&gt; hello而在实例化Promise时，回调 resolve 和 reject 传入的参数，只能是一个，多出的是获取不到的123456789var getUrl = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve("a", "b"); &#125;,2000);&#125;);getUrl.then((i, k) =&gt; &#123; console.log(i, k);&#125;);// =&gt; a undefined在 then 传入的参数，也必须是 function，如果非 function 则忽略，而传入的 function 最多2个，分别为 onFulfilled 和 onRejected 时调用，也可以不传前面说到状态一旦变为 fulfilled 或 rejected 则不会再改变，那如果已经执行 then 中的 resolve，此时再调用 then 是否不会执行 resolve，测试一下12345678910111213141516var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,2000);&#125;);p.then((v) =&gt; &#123; console.log(v);&#125;);setTimeout(() =&gt; &#123; p.then((v) =&gt; &#123; console.log(v); &#125;);&#125;,4000);// =&gt; 99// =&gt; 1531586556347// =&gt; 1531586556347在第二次调用 then 时，resolve 依然再次执行了]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>promise</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Promise入门指南(1)]]></title>
     <url>%2F2018%2F06%2F57c1ef1d%2F</url>
     <content type="text"><![CDATA[Promise是异步编程的解决方案Promise有3种状态pendingfulfilledrejected对象的状态是不受外界影响的，而且状态的改变只有两种pending -&gt; fulfilledpending -&gt; rejected一旦变成fulfilled或rejected，则终止，不会再改变而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作代码示例1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;);创建一个Promise实例，其构造函数接收一个function作为参数，而function又有2个参数，分别为resolve和reject状态在pending变为fulfilled时执行 resolve，变为rejected则执行 reject，可以理解为成功和失败异常的回调这样看起来跟老式callback好像差不多啊打印看下除了包含上面提到的resolve和reject，可以看到原型还包含then和catch，这些是最常用到的如果只是简单的回调，使用起来确实差不多12345function getList()&#123; loadfile(url1, function(response)&#123; //do something &#125;);&#125;这是最常见的ajax异步回调，一次请求即可完成，如果是特殊一点，需要先从A地址获取A参数，然后提交到B地址，甚至提交到B地址成功后再回写到C地址，那则需要层层嵌套123456789function add()&#123; ajax(url, function(url)&#123; ajax(url, function(url)&#123; ajax(url, function(response)&#123; //do something &#125;); &#125;); &#125;);&#125;用Promise来重写这段代码12345678910111213let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; resolve("url1"); &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", res); return "url2"&#125;).then(res =&gt; &#123; console.log("cb2", res); return "url3"&#125;);控制台先打印了Promise对象，2秒后打出cb1和cb21234[Promise]cb1 url1cb2 url2虽然是链式，看起来跟平时用的 ajax 异步回调有点不一样啊，链式写法多步执行后面会详细讲，这节先讲基本语法前面提到 then 可以传入2个function作为参数，分别代表 resolve 和 reject 的回调同时有个 catch 用于捕获异常，如果传入 then 只有 resolve 函数，在状态变为 rejected 时会调用传入 catch 的函数1234567891011121314let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; reject("url"); &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", res); return "url2"&#125;).catch(res =&gt; &#123; console.log("err",res); return "error";&#125;);// -&gt; err url值得说的是即使状态从pending变为fulfilled，理应执行resolve，但是如果执行resolve时异常了，同样会调用catch传入的function，如下面代码1234567891011121314let p = new Promise((resolve, reject) =&gt;&#123; //do something setTimeout(()=&gt; &#123; resolve("url"); // &lt;= 执行resolve &#125;,2000);&#125;);p.then(res =&gt; &#123; console.log("cb1", aaaaaa); // &lt;- 打印不存在的变量，报异常 return "url2"&#125;).catch(res =&gt; &#123; console.log("err",res); return "error";&#125;);// -&gt; err url]]></content>
@@ -343,8 +355,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>万宁</tag>
         <tag>琼海</tag>
+        <tag>万宁</tag>
       </tags>
   </entry>
   <entry>
@@ -360,9 +372,9 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>琼海</tag>
         <tag>大致坡</tag>
         <tag>文昌</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -634,10 +646,10 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
-        <tag>西海镇</tag>
       </tags>
   </entry>
   <entry>
@@ -667,8 +679,8 @@
       <tags>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>151基地</tag>
+        <tag>黑马河</tag>
         <tag>江西沟</tag>
       </tags>
   </entry>
@@ -681,11 +693,11 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
-        <tag>西海镇</tag>
         <tag>151基地</tag>
+        <tag>西海镇</tag>
       </tags>
   </entry>
   <entry>
@@ -697,9 +709,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -712,10 +724,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -729,8 +741,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>钟楼</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -1196,9 +1208,9 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
-        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1211,9 +1223,9 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>小楼</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
+        <tag>小楼</tag>
         <tag>运动</tag>
       </tags>
   </entry>
@@ -1227,10 +1239,10 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
         <tag>运动</tag>
-        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -3235,9 +3247,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>mobile</tag>
         <tag>css</tag>
         <tag>html</tag>
+        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
@@ -3273,8 +3285,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -4289,8 +4301,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>book</tag>
         <tag>金子</tag>
+        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -4848,8 +4860,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
