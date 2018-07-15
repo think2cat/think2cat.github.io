@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-07-14T16:45:33.800Z</updated>
+  <updated>2018-07-15T11:56:53.454Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Promise入门指南(3)</title>
+    <link href="http://21ido.com/2018/07/65f78d9f/"/>
+    <id>http://21ido.com/2018/07/65f78d9f/</id>
+    <published>2018-07-15T10:44:55.000Z</published>
+    <updated>2018-07-15T11:56:53.454Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Promise是JavaScript异步编程解决方案，之一&lt;br&gt;以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算&lt;br&gt;而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的api&lt;/p&gt;&lt;p&gt;Promise/A+规范解决了回调函数的一些弊端，比如&lt;/p&gt;&lt;ul&gt;&lt;li&gt;代码书写逻辑&lt;/li&gt;&lt;li&gt;更改回调顺序的噩梦&lt;/li&gt;&lt;li&gt;多步回调的魔鬼嵌套&lt;/li&gt;&lt;li&gt;回调函数的跟踪&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景&lt;/p&gt;&lt;p&gt;前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象&lt;/p&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	setTimeout( &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		resolve(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;().getTime());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.dir(p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.dir(p.then(&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;().getTime();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise入门指南(2)</title>
@@ -445,26 +467,6 @@
       <category term="svn" scheme="http://21ido.com/tags/svn/"/>
     
       <category term="GIT" scheme="http://21ido.com/tags/GIT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript数组的every、some、map、filter、forEach</title>
-    <link href="http://21ido.com/2017/03/10afd6ef/"/>
-    <id>http://21ido.com/2017/03/10afd6ef/</id>
-    <published>2017-03-10T08:02:32.000Z</published>
-    <updated>2018-07-13T03:55:52.211Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;&lt;li&gt;&lt;strong&gt;every&lt;/strong&gt;，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false&lt;/li&gt;&lt;li&gt;&lt;strong&gt;some&lt;/strong&gt;，判断是否有元素符合，一旦遇到true则停止&lt;/li&gt;&lt;li&gt;&lt;strong&gt;map&lt;/strong&gt;，每个元素按function返回结果构成新数组&lt;/li&gt;&lt;li&gt;&lt;strong&gt;filter&lt;/strong&gt;，返回所有符合条件的元素构成的新数组&lt;/li&gt;&lt;li&gt;&lt;strong&gt;forEach&lt;/strong&gt;，单独执行每个元素，无返回&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;各函数执行时需要传入function作为参数，每次执行会传入value和index&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
   </entry>
   

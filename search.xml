@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Promise入门指南(3)]]></title>
+    <url>%2F2018%2F07%2F65f78d9f%2F</url>
+    <content type="text"><![CDATA[Promise是JavaScript异步编程解决方案，之一以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的apiPromise/A+规范解决了回调函数的一些弊端，比如代码书写逻辑更改回调顺序的噩梦多步回调的魔鬼嵌套回调函数的跟踪但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象123456789var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,1000);&#125;);console.dir(p);console.dir(p.then((v) =&gt; &#123; return new Date().getTime();&#125;));分别打印2次执行返回的Promise对象，发现并不一样，第一个是 pending ，而第二个是 resolved 而且 PromiseValue 是 undefined其实这是因为Promise是异步执行，代码是先返回新的Promise对象，再执行异步处理，所以在打出第一个Promise对象那一刻确实是 pending 状态，而第二个打出的一刻其实也是 pending 状态，只是没有设置延迟，所以等我点开对象时已经变成 resolved如果分别延迟打印这2个返回的对象，应该都是 resolved ，测试一下这个猜想12345678910111213var p = new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; resolve(new Date().getTime()); &#125;,1000);&#125;);setTimeout(() =&gt; &#123; console.dir(p);&#125;, 2000);setTimeout(() =&gt; &#123; console.dir(p.then((v) =&gt; &#123; return new Date().getTime() &#125;));&#125;, 3000);在注册 resolved 和 rejected 函数时，函数体本身的return其实是Promise对象里的PromiseValue，可以由下级注册的回调函数所捕获如果需要在级联也保持异步回调 resolved 或 rejected，则需要返回一个Promise对象，而不是then生成的123456789101112131415161718var p1 = new Promise(resolve =&gt; &#123; console.log("exec 1", new Date().getSeconds()); setTimeout(() =&gt; &#123; console.log("resolve 1", new Date().getSeconds()); resolve(new Date().getTime()); &#125;,2000);&#125;);var p2 = p1.then((v) =&gt; &#123; console.log("rev", v, new Date().getSeconds()); return new Promise(resolve =&gt; &#123; console.log("exec 2", new Date().getSeconds()); setTimeout(() =&gt; &#123; console.log("resolve 2", new Date().getSeconds()); resolve(new Date().getTime()); &#125;,2000); &#125;)&#125;);console.log(p2, new Date().getSeconds());]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>promise</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Promise入门指南(2)]]></title>
     <url>%2F2018%2F07%2F7cecbcde%2F</url>
     <content type="text"><![CDATA[1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;);前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面new Promise示例并return1234567891011var getUrl = param =&gt; &#123; return new Promise(resolve =&gt; &#123; //do something $.ajax(url, response =&gt; &#123; resolve(response); &#125;); &#125;);&#125;getUrl(1).then(response =&gt; &#123; render(response);&#125;);这是比较标准的写法，还有比较偷懒的写法123var getUrl = Promise.resolve();getUrl.then(response =&gt; &#123;&#125;);前面的resolv()中传什么东西，到了then中的 response 就是前面传入的东西如果为空，则 response = undefined，如果是 function 则 response = function123456789var getUrl = Promise.resolve(() =&gt; &#123; console.log("hello");&#125;);getUrl.then(cb =&gt; &#123; console.log("It's raining day"); cb();&#125;);// =&gt; It's raining day// =&gt; hello而在实例化Promise时，回调 resolve 和 reject 传入的参数，只能是一个，多出的是获取不到的123456789var getUrl = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve("a", "b"); &#125;,2000);&#125;);getUrl.then((i, k) =&gt; &#123; console.log(i, k);&#125;);// =&gt; a undefined在 then 传入的参数，也必须是 function，如果非 function 则忽略，而传入的 function 最多2个，分别为 onFulfilled 和 onRejected 时调用，也可以不传前面说到状态一旦变为 fulfilled 或 rejected 则不会再改变，那如果已经执行 then 中的 resolve，此时再调用 then 是否不会执行 resolve，测试一下12345678910111213141516var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,2000);&#125;);p.then((v) =&gt; &#123; console.log(v);&#125;);setTimeout(() =&gt; &#123; p.then((v) =&gt; &#123; console.log(v); &#125;);&#125;,4000);// =&gt; 99// =&gt; 1531586556347// =&gt; 1531586556347在第二次调用 then 时，resolve 依然再次执行了]]></content>
@@ -267,8 +279,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>马拉松</tag>
         <tag>旅行</tag>
+        <tag>马拉松</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -695,8 +707,8 @@
         <tag>国庆</tag>
         <tag>华山</tag>
         <tag>青海湖</tag>
-        <tag>151基地</tag>
         <tag>西宁</tag>
+        <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -877,9 +889,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
       </tags>
@@ -894,9 +906,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -909,8 +921,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>罗家渡</tag>
         <tag>露营</tag>
+        <tag>罗家渡</tag>
       </tags>
   </entry>
   <entry>
@@ -952,9 +964,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>跑步</tag>
         <tag>东莞</tag>
         <tag>松山湖</tag>
-        <tag>跑步</tag>
         <tag>花草</tag>
       </tags>
   </entry>
@@ -1036,9 +1048,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>厦门</tag>
         <tag>比赛</tag>
         <tag>跑步</tag>
+        <tag>厦门</tag>
         <tag>马拉松</tag>
       </tags>
   </entry>
@@ -1225,8 +1237,8 @@
         <tag>增城</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
-        <tag>运动</tag>
         <tag>小楼</tag>
+        <tag>运动</tag>
       </tags>
   </entry>
   <entry>
@@ -1253,8 +1265,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>西丽</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1402,10 +1414,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1416,8 +1428,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>西丽</tag>
+        <tag>单车</tag>
         <tag>南山66</tag>
       </tags>
   </entry>
@@ -1585,9 +1597,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
+        <tag>潮州</tag>
         <tag>别峰</tag>
         <tag>功夫茶</tag>
-        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1599,9 +1611,9 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>巨峰寺</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
         <tag>牛肉丸</tag>
       </tags>
   </entry>
@@ -1671,9 +1683,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1724,8 +1736,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -1737,10 +1749,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>东部华侨城</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1779,10 +1791,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>莲花山</tag>
       </tags>
   </entry>
@@ -1794,10 +1806,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -1851,8 +1863,8 @@
       </categories>
       <tags>
         <tag>运动</tag>
-        <tag>户外</tag>
         <tag>跑步</tag>
+        <tag>户外</tag>
         <tag>装备</tag>
         <tag>松拓</tag>
       </tags>
@@ -1957,9 +1969,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2056,9 +2068,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>世界之窗</tag>
         <tag>罗湖火车站</tag>
       </tags>
@@ -2161,10 +2173,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -2234,9 +2246,9 @@
       </categories>
       <tags>
         <tag>寮步广场</tag>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>东莞</tag>
         <tag>松岗</tag>
       </tags>
@@ -2249,10 +2261,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2307,9 +2319,9 @@
       </categories>
       <tags>
         <tag>运动</tag>
-        <tag>梧桐山</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>梧桐山</tag>
         <tag>户外</tag>
       </tags>
   </entry>
@@ -2443,9 +2455,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>莲花山</tag>
       </tags>
   </entry>
@@ -2547,9 +2559,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>罗湖</tag>
       </tags>
   </entry>
@@ -2574,9 +2586,9 @@
       </categories>
       <tags>
         <tag>西丽</tag>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2629,9 +2641,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2683,8 +2695,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2709,8 +2721,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -2748,9 +2760,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2773,9 +2785,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>东门</tag>
       </tags>
   </entry>
@@ -2787,9 +2799,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2814,8 +2826,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -2829,8 +2841,8 @@
       </categories>
       <tags>
         <tag>登山</tag>
-        <tag>梧桐山</tag>
         <tag>南山66</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2841,8 +2853,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -2868,8 +2880,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -2884,8 +2896,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -2896,8 +2908,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2910,8 +2922,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -2937,11 +2949,11 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>红树林</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2965,10 +2977,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>市民中心</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -2981,9 +2993,9 @@
       </categories>
       <tags>
         <tag>西丽</tag>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3010,9 +3022,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
         <tag>平花</tag>
       </tags>
@@ -3025,9 +3037,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3039,8 +3051,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>荔香公园</tag>
       </tags>
@@ -3053,9 +3065,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3068,9 +3080,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>腐败</tag>
         <tag>华侨城</tag>
       </tags>
@@ -3083,8 +3095,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>圆博园</tag>
       </tags>
@@ -3110,9 +3122,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>华强北</tag>
         <tag>白石洲</tag>
       </tags>
@@ -3125,9 +3137,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>腐败</tag>
       </tags>
   </entry>
@@ -3139,8 +3151,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3153,9 +3165,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3167,9 +3179,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>深大</tag>
       </tags>
   </entry>
@@ -3194,9 +3206,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>海滨广场</tag>
         <tag>腐败</tag>
       </tags>
@@ -3220,9 +3232,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>南山66</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3417,11 +3429,11 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>tomcat</tag>
         <tag>eclipse</tag>
+        <tag>java</tag>
         <tag>netbeans</tag>
         <tag>ruby</tag>
+        <tag>tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -3640,8 +3652,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jdk</tag>
         <tag>tomcat</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -4301,8 +4313,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>book</tag>
         <tag>金子</tag>
+        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -4860,8 +4872,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
