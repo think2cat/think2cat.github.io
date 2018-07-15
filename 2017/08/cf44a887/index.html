@@ -1,1 +1,314 @@
-<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="bower,nodejs,"><link rel="alternate" href="../../../atom.xml" title="猫大叔" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico?v=5.1.2"><meta name="description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta name="keywords" content="bower,nodejs"><meta property="og:type" content="article"><meta property="og:title" content="Bower学习笔记"><meta property="og:url" content="http://21ido.com/2017/08/cf44a887/index.html"><meta property="og:site_name" content="猫大叔"><meta property="og:description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://21ido.com/images/2017/08/bower.png"><meta property="og:image" content="http://21ido.com/images/2017/08/npm3deps4.png"><meta property="og:updated_time" content="2018-07-13T03:55:52.206Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bower学习笔记"><meta name="twitter:description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta name="twitter:image" content="http://21ido.com/images/2017/08/bower.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",sidebar:{position:"left",display:"post",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:!0,duoshuo:{userId:"0",author:"Author"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://21ido.com/2017/08/cf44a887/"><title>Bower学习笔记 | 猫大叔</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">猫大叔</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">关注前端，热爱生活</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>Home</a></li><li class="menu-item menu-item-archives"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>Archives</a></li><li class="menu-item menu-item-tags"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>Tags</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Bower学习笔记</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T15:17:19+08:00">2017-08-21 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../../categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><img src="/images/2017/08/bower.png" alt="bower"></p><h4 id="1-bower是什么"><a href="#1-bower是什么" class="headerlink" title="1. bower是什么"></a>1. bower是什么</h4><p>bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类<br>而像yeoman和grunt则是在bower基础上的开发工具</p><h4 id="2-bower和npm的区别"><a href="#2-bower和npm的区别" class="headerlink" title="2. bower和npm的区别"></a>2. bower和npm的区别</h4><p>都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的包，但对于前端库来说，这些基本是多余的，往往需要的只是一个未压缩或者压缩后的js和css而已，而bower正是管理js/css/模板的一个工具<br><a href="https://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm" target="_blank" rel="noopener">Stack上有相关评论点这里</a><br><a id="more"></a></p><h4 id="3-如何安装"><a href="#3-如何安装" class="headerlink" title="3. 如何安装"></a>3. 如何安装</h4><p>安装完node.js后输入<br>npm install -g bower<br>安装完后输入 bower -v 如果能打印版本号说明安装成功</p><h4 id="4-如何使用"><a href="#4-如何使用" class="headerlink" title="4.  如何使用"></a>4. 如何使用</h4><ul><li><p>初始化bower.json</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower init</span><br></pre></td></tr></table></figure></li><li><p>安装bower本身支持的包，支持列表见 <a href="https://bower.io/search/" target="_blank" rel="noopener">https://bower.io/search/</a></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install jQuery --save-dev</span><br></pre></td></tr></table></figure></li><li><p>安装github上的包，则可用短连接形式安装</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install jQuery/jQuery</span><br></pre></td></tr></table></figure></li><li><p>安装其它网上资源，则直接跟上URL</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install https://github.com/jquery/jquery</span><br></pre></td></tr></table></figure></li><li><p>安装特定版本库</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install bootstrap<span class="comment">#3.3.7</span></span><br></pre></td></tr></table></figure></li><li><p>卸载安装包</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower uninstall jquery</span><br></pre></td></tr></table></figure></li><li><p>搜索</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower search bootstrap</span><br></pre></td></tr></table></figure></li><li><p>查看库信息，包括各版本和依赖</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower info bootstrap</span><br></pre></td></tr></table></figure></li><li><p>查看本地库的依赖关系</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower list</span><br></pre></td></tr></table></figure></li><li><p>打开包的官网</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower home bootstrap</span><br></pre></td></tr></table></figure></li></ul><h4 id="5-配置文件-bowerrc"><a href="#5-配置文件-bowerrc" class="headerlink" title="5. 配置文件.bowerrc"></a>5. 配置文件.bowerrc</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"directory"</span>: <span class="string">"bower_components"</span> //包目录，我一般localhost会指到build目录，所以配成build/bower_components</span><br><span class="line">    "json" : "bower.json", //包管理文件</span><br><span class="line">    "endpoint" : "https://Bower.herokuapp.com", //用来搜索库的索引地址</span><br><span class="line">    "searchpath" : "", //备用索引地址，一般是用于非公开库的搜索</span><br><span class="line">    "proxy": "http://proxy.local", //网络代理设置</span><br><span class="line">    "https-proxy": "https://proxy.local",</span><br><span class="line">    "timeout": 60000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其它参数请看<a href="https://bower.io/docs/config/" target="_blank" rel="noopener">官方文档</a>，或者<a href="https://github.com/bower/spec/blob/master/config.md" target="_blank" rel="noopener">GitHub</a></p><h4 id="6-补充：npm-v3的依赖管理"><a href="#6-补充：npm-v3的依赖管理" class="headerlink" title="6. 补充：npm v3的依赖管理"></a>6. 补充：npm v3的依赖管理</h4><p>上面说的嵌套依赖管理是npm v2的，在v3已经做了优化，在库版本兼容前提下不会再重复下载，详情可看<a href="https://docs.npmjs.com/how-npm-works/npm3" target="_blank" rel="noopener">这里</a> | <a href="http://coloration.cc/npmjs-documentation/2016/03/29/npmV3.html" target="_blank" rel="noopener">中文</a></p><p><img src="/images/2017/08/npm3deps4.png" alt=""></p><h4 id="7-补充：关于语义化版本"><a href="#7-补充：关于语义化版本" class="headerlink" title="7. 补充：关于语义化版本"></a>7. 补充：关于语义化版本</h4><p><a href="http://semver.org/lang/zh-CN/" target="_blank" rel="noopener">http://semver.org/lang/zh-CN/</a></p></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div></div><button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'><span>Donate</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"><img id="wechat_qr" src="/images/wechatpay.jpg" alt="猫大叔 WeChat Pay"><p>WeChat Pay</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="../../../tags/bower/" rel="tag"># bower</a> <a href="../../../tags/nodejs/" rel="tag"># nodejs</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="../d15bd75e/" rel="next" title="Flex布局学习笔记"><i class="fa fa-chevron-left"></i> Flex布局学习笔记</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="../../09/33570702/" rel="prev" title="vue-cli下解决跨域sessionid问题">vue-cli下解决跨域sessionid问题 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table of Contents</li><li class="sidebar-nav-overview" data-target="site-overview">Overview</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="../../../images/avatar.gif" alt="猫大叔"><p class="site-author-name" itemprop="name">猫大叔</p><p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="../../../archives/"><span class="site-state-item-count">397</span> <span class="site-state-item-name">posts</span></a></div><div class="site-state-item site-state-categories"><a href="../../../categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">categories</span></a></div><div class="site-state-item site-state-tags"><a href="../../../tags/index.html"><span class="site-state-item-count">360</span> <span class="site-state-item-name">tags</span></a></div></nav><div class="feed-link motion-element"><a href="../../../atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-bower是什么"><span class="nav-number">1.</span> <span class="nav-text">1. bower是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-bower和npm的区别"><span class="nav-number">2.</span> <span class="nav-text">2. bower和npm的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-如何安装"><span class="nav-number">3.</span> <span class="nav-text">3. 如何安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-如何使用"><span class="nav-number">4.</span> <span class="nav-text">4. 如何使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置文件-bowerrc"><span class="nav-number">5.</span> <span class="nav-text">5. 配置文件.bowerrc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-补充：npm-v3的依赖管理"><span class="nav-number">6.</span> <span class="nav-text">6. 补充：npm v3的依赖管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-补充：关于语义化版本"><span class="nav-number">7.</span> <span class="nav-text">7. 补充：关于语义化版本</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2003 - <span itemprop="copyrightYear">2018</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">猫大叔</span></div><div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div><div class="theme-info">Theme - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="../../../lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="../../../lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="../../../js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/bootstrap.js?v=5.1.2"></script></body></html>
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="bower,nodejs,"><link rel="alternate" href="../../../atom.xml" title="猫大叔" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico?v=5.1.2"><meta name="description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta name="keywords" content="bower,nodejs"><meta property="og:type" content="article"><meta property="og:title" content="Bower学习笔记"><meta property="og:url" content="http://21ido.com/2017/08/cf44a887/index.html"><meta property="og:site_name" content="猫大叔"><meta property="og:description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://21ido.com/images/2017/08/bower.png"><meta property="og:image" content="http://21ido.com/images/2017/08/npm3deps4.png"><meta property="og:updated_time" content="2018-07-13T03:55:52.206Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bower学习笔记"><meta name="twitter:description" content="1. bower是什么bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类而像yeoman和grunt则是在bower基础上的开发工具2. bower和npm的区别都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的"><meta name="twitter:image" content="http://21ido.com/images/2017/08/bower.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",sidebar:{position:"left",display:"post",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:!0,duoshuo:{userId:"0",author:"Author"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://21ido.com/2017/08/cf44a887/"><title>Bower学习笔记 | 猫大叔</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">猫大叔</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">关注前端，热爱生活</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>Home</a></li><li class="menu-item menu-item-about"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>About</a></li><li class="menu-item menu-item-archives"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>Archives</a></li><li class="menu-item menu-item-tags"><a href="" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>Tags</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>Search</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Bower学习笔记</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">Posted on</span> <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-21T15:17:19+08:00">2017-08-21 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">In</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../../categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><img src="/images/2017/08/bower.png" alt="bower"></p><h4 id="1-bower是什么"><a href="#1-bower是什么" class="headerlink" title="1. bower是什么"></a>1. bower是什么</h4><p>bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类<br>而像yeoman和grunt则是在bower基础上的开发工具</p><h4 id="2-bower和npm的区别"><a href="#2-bower和npm的区别" class="headerlink" title="2. bower和npm的区别"></a>2. bower和npm的区别</h4><p>都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的包，但对于前端库来说，这些基本是多余的，往往需要的只是一个未压缩或者压缩后的js和css而已，而bower正是管理js/css/模板的一个工具<br><a href="https://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm" target="_blank" rel="noopener">Stack上有相关评论点这里</a><br><a id="more"></a></p><h4 id="3-如何安装"><a href="#3-如何安装" class="headerlink" title="3. 如何安装"></a>3. 如何安装</h4><p>安装完node.js后输入<br>npm install -g bower<br>安装完后输入 bower -v 如果能打印版本号说明安装成功</p><h4 id="4-如何使用"><a href="#4-如何使用" class="headerlink" title="4.  如何使用"></a>4. 如何使用</h4><ul><li><p>初始化bower.json</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower init</span><br></pre></td></tr></table></figure></li><li><p>安装bower本身支持的包，支持列表见 <a href="https://bower.io/search/" target="_blank" rel="noopener">https://bower.io/search/</a></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install jQuery --save-dev</span><br></pre></td></tr></table></figure></li><li><p>安装github上的包，则可用短连接形式安装</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install jQuery/jQuery</span><br></pre></td></tr></table></figure></li><li><p>安装其它网上资源，则直接跟上URL</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install https://github.com/jquery/jquery</span><br></pre></td></tr></table></figure></li><li><p>安装特定版本库</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install bootstrap<span class="comment">#3.3.7</span></span><br></pre></td></tr></table></figure></li><li><p>卸载安装包</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower uninstall jquery</span><br></pre></td></tr></table></figure></li><li><p>搜索</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower search bootstrap</span><br></pre></td></tr></table></figure></li><li><p>查看库信息，包括各版本和依赖</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower info bootstrap</span><br></pre></td></tr></table></figure></li><li><p>查看本地库的依赖关系</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower list</span><br></pre></td></tr></table></figure></li><li><p>打开包的官网</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower home bootstrap</span><br></pre></td></tr></table></figure></li></ul><h4 id="5-配置文件-bowerrc"><a href="#5-配置文件-bowerrc" class="headerlink" title="5. 配置文件.bowerrc"></a>5. 配置文件.bowerrc</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"directory"</span>: <span class="string">"bower_components"</span> //包目录，我一般localhost会指到build目录，所以配成build/bower_components</span><br><span class="line">    "json" : "bower.json", //包管理文件</span><br><span class="line">    "endpoint" : "https://Bower.herokuapp.com", //用来搜索库的索引地址</span><br><span class="line">    "searchpath" : "", //备用索引地址，一般是用于非公开库的搜索</span><br><span class="line">    "proxy": "http://proxy.local", //网络代理设置</span><br><span class="line">    "https-proxy": "https://proxy.local",</span><br><span class="line">    "timeout": 60000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其它参数请看<a href="https://bower.io/docs/config/" target="_blank" rel="noopener">官方文档</a>，或者<a href="https://github.com/bower/spec/blob/master/config.md" target="_blank" rel="noopener">GitHub</a></p><h4 id="6-补充：npm-v3的依赖管理"><a href="#6-补充：npm-v3的依赖管理" class="headerlink" title="6. 补充：npm v3的依赖管理"></a>6. 补充：npm v3的依赖管理</h4><p>上面说的嵌套依赖管理是npm v2的，在v3已经做了优化，在库版本兼容前提下不会再重复下载，详情可看<a href="https://docs.npmjs.com/how-npm-works/npm3" target="_blank" rel="noopener">这里</a> | <a href="http://coloration.cc/npmjs-documentation/2016/03/29/npmV3.html" target="_blank" rel="noopener">中文</a></p><p><img src="/images/2017/08/npm3deps4.png" alt=""></p><h4 id="7-补充：关于语义化版本"><a href="#7-补充：关于语义化版本" class="headerlink" title="7. 补充：关于语义化版本"></a>7. 补充：关于语义化版本</h4><p><a href="http://semver.org/lang/zh-CN/" target="_blank" rel="noopener">http://semver.org/lang/zh-CN/</a></p></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>如果觉得我的文章对您有用，可否请我喝杯速溶咖啡</div><button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'><span>Donate</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"><img id="wechat_qr" src="/images/wechatpay.jpg" alt="猫大叔 WeChat Pay"><p>WeChat Pay</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="../../../tags/bower/" rel="tag"># bower</a> <a href="../../../tags/nodejs/" rel="tag"># nodejs</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="../d15bd75e/" rel="next" title="Flex布局学习笔记"><i class="fa fa-chevron-left"></i> Flex布局学习笔记</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="../../09/33570702/" rel="prev" title="vue-cli下解决跨域sessionid问题">vue-cli下解决跨域sessionid问题 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">Table of Contents</li><li class="sidebar-nav-overview" data-target="site-overview">Overview</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="../../../images/avatar.gif" alt="猫大叔"><p class="site-author-name" itemprop="name">猫大叔</p><p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="../../../archives/"><span class="site-state-item-count">397</span> <span class="site-state-item-name">posts</span></a></div><div class="site-state-item site-state-categories"><a href="../../../categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">categories</span></a></div><div class="site-state-item site-state-tags"><a href="../../../tags/index.html"><span class="site-state-item-count">360</span> <span class="site-state-item-name">tags</span></a></div></nav><div class="feed-link motion-element"><a href="../../../atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-bower是什么"><span class="nav-number">1.</span> <span class="nav-text">1. bower是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-bower和npm的区别"><span class="nav-number">2.</span> <span class="nav-text">2. bower和npm的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-如何安装"><span class="nav-number">3.</span> <span class="nav-text">3. 如何安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-如何使用"><span class="nav-number">4.</span> <span class="nav-text">4. 如何使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置文件-bowerrc"><span class="nav-number">5.</span> <span class="nav-text">5. 配置文件.bowerrc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-补充：npm-v3的依赖管理"><span class="nav-number">6.</span> <span class="nav-text">6. 补充：npm v3的依赖管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-补充：关于语义化版本"><span class="nav-number">7.</span> <span class="nav-text">7. 补充：关于语义化版本</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2003 - <span itemprop="copyrightYear">2018</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">猫大叔</span></div><div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div><div class="theme-info">Theme - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="../../../lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="../../../lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="../../../js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/bootstrap.js?v=5.1.2"></script><script type="text/javascript">// Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });</script></body></html>
