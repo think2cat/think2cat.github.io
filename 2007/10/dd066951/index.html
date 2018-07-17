@@ -547,9 +547,11 @@
             <a href="../../../tags/平花/" rel="tag"># 平花</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/10/2d8cc5a8/" title="10月26日·宝安海滨广场" rel="bookmark">10月26日·宝安海滨广场</a></li><li class="related-posts-item"><a href="/2007/10/dfc7445/" title="10月06日周六海滨广场" rel="bookmark">10月06日周六海滨广场</a></li><li class="related-posts-item"><a href="/2007/11/4cd416d2/" title="11月17日周六于海滨广场" rel="bookmark">11月17日周六于海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/26a1d810/" title="9月29日周六海滨广场" rel="bookmark">9月29日周六海滨广场</a></li><li class="related-posts-item"><a href="/2008/05/d39a2df3/" title="5月25日 捐衣服，刷街市民中心杀人" rel="bookmark">5月25日 捐衣服，刷街市民中心杀人</a></li><li class="related-posts-item"><a href="/2007/08/de3a6fb5/" title="8月4日宝安海滨新广场" rel="bookmark">8月4日宝安海滨新广场</a></li><li class="related-posts-item"><a href="/2007/11/dc90404/" title="11月20周二晚深大" rel="bookmark">11月20周二晚深大</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/10/2d8cc5a8/" title="10月26日·宝安海滨广场" rel="bookmark">10月26日·宝安海滨广场</a></li><li class="related-posts-item"><a href="/2007/10/dfc7445/" title="10月06日周六海滨广场" rel="bookmark">10月06日周六海滨广场</a></li><li class="related-posts-item"><a href="/2007/11/4cd416d2/" title="11月17日周六于海滨广场" rel="bookmark">11月17日周六于海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/26a1d810/" title="9月29日周六海滨广场" rel="bookmark">9月29日周六海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/4e5cc4a2/" title="8月29日·荔香公园" rel="bookmark">8月29日·荔香公园</a></li><li class="related-posts-item"><a href="/2007/11/dc90404/" title="11月20周二晚深大" rel="bookmark">11月20周二晚深大</a></li><li class="related-posts-item"><a href="/2008/05/d39a2df3/" title="5月25日 捐衣服，刷街市民中心杀人" rel="bookmark">5月25日 捐衣服，刷街市民中心杀人</a></li></ul>
       
 
     </div>
@@ -605,21 +607,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '10月13日周六海滨广场', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

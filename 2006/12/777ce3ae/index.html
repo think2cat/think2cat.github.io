@@ -453,9 +453,11 @@
             <a href="../../../tags/pjblog/" rel="tag"># pjblog</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2004/09/786b2ee7/" title="Weekday()" rel="bookmark">Weekday()</a></li><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2003/10/b95f2ab8/" title="增加了友情链接" rel="bookmark">增加了友情链接</a></li><li class="related-posts-item"><a href="/2003/09/72c63f76/" title="Cat's Blog基本完成" rel="bookmark">Cat's Blog基本完成</a></li><li class="related-posts-item"><a href="/2004/08/90b85a16/" title="Blue Blog 0.3 发布" rel="bookmark">Blue Blog 0.3 发布</a></li><li class="related-posts-item"><a href="/2003/12/4d46fbe2/" title="2003即将过去" rel="bookmark">2003即将过去</a></li><li class="related-posts-item"><a href="/2006/03/21ca53d9/" title="Blue Blog开发历程" rel="bookmark">Blue Blog开发历程</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2004/09/786b2ee7/" title="Weekday()" rel="bookmark">Weekday()</a></li><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2003/10/b95f2ab8/" title="增加了友情链接" rel="bookmark">增加了友情链接</a></li><li class="related-posts-item"><a href="/2003/09/72c63f76/" title="Cat's Blog基本完成" rel="bookmark">Cat's Blog基本完成</a></li><li class="related-posts-item"><a href="/2004/08/90b85a16/" title="Blue Blog 0.3 发布" rel="bookmark">Blue Blog 0.3 发布</a></li><li class="related-posts-item"><a href="/2003/12/4d46fbe2/" title="2003即将过去" rel="bookmark">2003即将过去</a></li><li class="related-posts-item"><a href="/2003/12/7c5a34cc/" title="BlueBlog快好了" rel="bookmark">BlueBlog快好了</a></li></ul>
       
 
     </div>
@@ -511,21 +513,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: 'oBlog v3.12 转 pjBlog2 v2.6', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

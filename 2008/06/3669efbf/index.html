@@ -476,7 +476,9 @@
             <a href="../../../tags/深大/" rel="tag"># 深大</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2007/08/5f49aac6/" title="8月28日晚上刷街到深大" rel="bookmark">8月28日晚上刷街到深大</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li><li class="related-posts-item"><a href="/2008/04/aee128ff/" title="4月15日（周二）深大" rel="bookmark">4月15日（周二）深大</a></li><li class="related-posts-item"><a href="/2008/05/d39a2df3/" title="5月25日 捐衣服，刷街市民中心杀人" rel="bookmark">5月25日 捐衣服，刷街市民中心杀人</a></li><li class="related-posts-item"><a href="/2007/08/1f5d4131/" title="8月7日晚上深大" rel="bookmark">8月7日晚上深大</a></li><li class="related-posts-item"><a href="/2007/08/65049c27/" title="8月2日晚上深大" rel="bookmark">8月2日晚上深大</a></li><li class="related-posts-item"><a href="/2008/03/45e5787b/" title="3月29日 周六晚宝安海滨广场" rel="bookmark">3月29日 周六晚宝安海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/f5ab02e7/" title="9月27日周四晚深大" rel="bookmark">9月27日周四晚深大</a></li></ul>
       
@@ -534,21 +536,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '5月13日 周二晚深大', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

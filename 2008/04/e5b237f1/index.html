@@ -533,7 +533,9 @@
             <a href="../../../tags/sql/" rel="tag"># sql</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2008/09/85f5a119/" title="《ActionScript 3殿堂之路》学习笔记(2)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(2)</a></li><li class="related-posts-item"><a href="/2006/10/c4d720b9/" title="《XUL指南》第一章：引言" rel="bookmark">《XUL指南》第一章：引言</a></li><li class="related-posts-item"><a href="/2008/09/aed8f2da/" title="《ActionScript 3殿堂之路》学习笔记(1)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2008/02/4ea5ad13/" title="QBQ的思考" rel="bookmark">QBQ的思考</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2008/01/a60b2e49/" title="ASP调SOAP接口注意事项" rel="bookmark">ASP调SOAP接口注意事项</a></li><li class="related-posts-item"><a href="/2006/11/fb42f1fd/" title="《XUL指南》第四章：更多布局元素" rel="bookmark">《XUL指南》第四章：更多布局元素</a></li><li class="related-posts-item"><a href="/2003/10/3b3dd35d/" title="增加了RSS" rel="bookmark">增加了RSS</a></li></ul>
       
@@ -591,21 +593,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '《SQL Server 2000存储过程与XML编程》学习笔记', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

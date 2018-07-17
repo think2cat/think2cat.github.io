@@ -476,9 +476,11 @@
             <a href="../../../tags/青海湖/" rel="tag"># 青海湖</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/10/c4c749bf/" title="青色的海，蓝色的梦·Day 2" rel="bookmark">青色的海，蓝色的梦·Day 2</a></li><li class="related-posts-item"><a href="/2010/10/b3c07929/" title="青色的海，蓝色的梦·Day 3" rel="bookmark">青色的海，蓝色的梦·Day 3</a></li><li class="related-posts-item"><a href="/2011/10/fdd8498a/" title="2011国庆，追寻阳光，一路向北，Day1" rel="bookmark">2011国庆，追寻阳光，一路向北，Day1</a></li><li class="related-posts-item"><a href="/2011/10/9e5242e6/" title="2011国庆，追寻阳光，一路向北，Day5(end)" rel="bookmark">2011国庆，追寻阳光，一路向北，Day5(end)</a></li><li class="related-posts-item"><a href="/2010/10/5aa3dc1c/" title="青色的海，蓝色的梦·Day 5" rel="bookmark">青色的海，蓝色的梦·Day 5</a></li><li class="related-posts-item"><a href="/2010/10/c3aa8da6/" title="青色的海，蓝色的梦·Day 6" rel="bookmark">青色的海，蓝色的梦·Day 6</a></li><li class="related-posts-item"><a href="/2010/10/b4adbd30/" title="青色的海，蓝色的梦·Day 7" rel="bookmark">青色的海，蓝色的梦·Day 7</a></li><li class="related-posts-item"><a href="/2010/10/2da4ec8a/" title="青色的海，蓝色的梦·Day 4" rel="bookmark">青色的海，蓝色的梦·Day 4</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/10/b3c07929/" title="青色的海，蓝色的梦·Day 3" rel="bookmark">青色的海，蓝色的梦·Day 3</a></li><li class="related-posts-item"><a href="/2010/10/c4c749bf/" title="青色的海，蓝色的梦·Day 2" rel="bookmark">青色的海，蓝色的梦·Day 2</a></li><li class="related-posts-item"><a href="/2010/10/5aa3dc1c/" title="青色的海，蓝色的梦·Day 5" rel="bookmark">青色的海，蓝色的梦·Day 5</a></li><li class="related-posts-item"><a href="/2010/10/2412a0a1/" title="青色的海，蓝色的梦·Day 8" rel="bookmark">青色的海，蓝色的梦·Day 8</a></li><li class="related-posts-item"><a href="/2011/10/9e5242e6/" title="2011国庆，追寻阳光，一路向北，Day5(end)" rel="bookmark">2011国庆，追寻阳光，一路向北，Day5(end)</a></li><li class="related-posts-item"><a href="/2010/10/b4adbd30/" title="青色的海，蓝色的梦·Day 7" rel="bookmark">青色的海，蓝色的梦·Day 7</a></li><li class="related-posts-item"><a href="/2010/10/c3aa8da6/" title="青色的海，蓝色的梦·Day 6" rel="bookmark">青色的海，蓝色的梦·Day 6</a></li><li class="related-posts-item"><a href="/2011/10/fdd8498a/" title="2011国庆，追寻阳光，一路向北，Day1" rel="bookmark">2011国庆，追寻阳光，一路向北，Day1</a></li></ul>
       
 
     </div>
@@ -534,21 +536,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '青色的海，蓝色的梦·2010国庆圣湖之旅', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

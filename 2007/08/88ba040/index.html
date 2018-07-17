@@ -594,9 +594,11 @@
             <a href="../../../tags/华侨城/" rel="tag"># 华侨城</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/07/5679fd92/" title="7月28日宝安新广场" rel="bookmark">7月28日宝安新广场</a></li><li class="related-posts-item"><a href="/2007/08/dbc71447/" title="8月18日周六晚宝安区活动" rel="bookmark">8月18日周六晚宝安区活动</a></li><li class="related-posts-item"><a href="/2007/12/8285e9bf/" title="12月22日·宝安海滨广场" rel="bookmark">12月22日·宝安海滨广场</a></li><li class="related-posts-item"><a href="/2007/10/5381fbc0/" title="10月27日 周六晚上宝安海滨广场" rel="bookmark">10月27日 周六晚上宝安海滨广场</a></li><li class="related-posts-item"><a href="/2008/10/7675ba60/" title="10月2日 市民中心刷街世界之窗" rel="bookmark">10月2日 市民中心刷街世界之窗</a></li><li class="related-posts-item"><a href="/2008/02/114e8a45/" title="2月20日 周三晚宝安腐败，祝心灵一路平安" rel="bookmark">2月20日 周三晚宝安腐败，祝心灵一路平安</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li><li class="related-posts-item"><a href="/2007/09/82866b80/" title="9月1日·刷街宝安海滨广场" rel="bookmark">9月1日·刷街宝安海滨广场</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/07/5679fd92/" title="7月28日宝安新广场" rel="bookmark">7月28日宝安新广场</a></li><li class="related-posts-item"><a href="/2007/08/dbc71447/" title="8月18日周六晚宝安区活动" rel="bookmark">8月18日周六晚宝安区活动</a></li><li class="related-posts-item"><a href="/2007/12/8285e9bf/" title="12月22日·宝安海滨广场" rel="bookmark">12月22日·宝安海滨广场</a></li><li class="related-posts-item"><a href="/2008/10/7675ba60/" title="10月2日 市民中心刷街世界之窗" rel="bookmark">10月2日 市民中心刷街世界之窗</a></li><li class="related-posts-item"><a href="/2007/10/df4e117a/" title="10月28日·白石洲东门40公里刷街" rel="bookmark">10月28日·白石洲东门40公里刷街</a></li><li class="related-posts-item"><a href="/2008/02/114e8a45/" title="2月20日 周三晚宝安腐败，祝心灵一路平安" rel="bookmark">2月20日 周三晚宝安腐败，祝心灵一路平安</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li><li class="related-posts-item"><a href="/2008/10/bf4d8a57/" title="10月12日·世界之窗刷街莲花山" rel="bookmark">10月12日·世界之窗刷街莲花山</a></li></ul>
       
 
     </div>
@@ -652,21 +654,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '8月25日·华侨城 >> 宝安[刷街 + 腐败]', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

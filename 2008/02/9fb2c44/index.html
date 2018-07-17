@@ -444,7 +444,9 @@
             <a href="../../../tags/节日/" rel="tag"># 节日</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2006/02/205aaa90/" title="今年过节不收礼，收礼还收咖啡啊" rel="bookmark">今年过节不收礼，收礼还收咖啡啊</a></li><li class="related-posts-item"><a href="/2005/08/ac9d8b39/" title="喝了7年咖啡，终于买了咖啡机" rel="bookmark">喝了7年咖啡，终于买了咖啡机</a></li><li class="related-posts-item"><a href="/2005/10/e092cfac/" title="偶老了" rel="bookmark">偶老了</a></li><li class="related-posts-item"><a href="/2006/03/8e90e02c/" title="妈，生日快乐！" rel="bookmark">妈，生日快乐！</a></li><li class="related-posts-item"><a href="/2006/08/32644d6a/" title="庆祝第二个本本入手" rel="bookmark">庆祝第二个本本入手</a></li><li class="related-posts-item"><a href="/2008/08/b99e4d63/" title="我还活着，而且活的很好" rel="bookmark">我还活着，而且活的很好</a></li></ul>
       
@@ -502,21 +504,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '其实我不是很喜欢咖啡滴', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

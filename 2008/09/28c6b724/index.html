@@ -472,7 +472,9 @@
             <a href="../../../tags/松拓/" rel="tag"># 松拓</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/10/bd3222ba/" title="慢跑装备08年版" rel="bookmark">慢跑装备08年版</a></li><li class="related-posts-item"><a href="/2009/02/191777c9/" title="i-gotU USB GPS轨迹仪(GP-120)评测（初稿）" rel="bookmark">i-gotU USB GPS轨迹仪(GP-120)评测（初稿）</a></li><li class="related-posts-item"><a href="/2009/09/a25c8ab5/" title="十年的2009十登南山" rel="bookmark">十年的2009十登南山</a></li><li class="related-posts-item"><a href="/2008/08/318a0e4/" title="雨夜里独上南山" rel="bookmark">雨夜里独上南山</a></li><li class="related-posts-item"><a href="/2009/03/78c63d76/" title="2009,百公里.每个人都有自己的百公里..." rel="bookmark">2009,百公里.每个人都有自己的百公里...</a></li><li class="related-posts-item"><a href="/2008/04/d9682b67/" title="4月13日 梧桐山，刷上去又刷下来" rel="bookmark">4月13日 梧桐山，刷上去又刷下来</a></li><li class="related-posts-item"><a href="/2008/04/e7393b3c/" title="4月20日 刷深南，沙河派出所半日游" rel="bookmark">4月20日 刷深南，沙河派出所半日游</a></li></ul>
       
@@ -530,21 +532,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: 'Suunto T1使用感受', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

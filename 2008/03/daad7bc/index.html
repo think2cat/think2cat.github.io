@@ -516,9 +516,11 @@
             <a href="../../../tags/莲花山/" rel="tag"># 莲花山</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/10/bf4d8a57/" title="10月12日·世界之窗刷街莲花山" rel="bookmark">10月12日·世界之窗刷街莲花山</a></li><li class="related-posts-item"><a href="/2007/09/3455ce37/" title="9月16日·30公里刷街 白石洲 <=> 市民中心" rel="bookmark">9月16日·30公里刷街 白石洲 <=> 市民中心</a></li><li class="related-posts-item"><a href="/2007/08/de3a6fb5/" title="8月4日宝安海滨新广场" rel="bookmark">8月4日宝安海滨新广场</a></li><li class="related-posts-item"><a href="/2007/10/5381fbc0/" title="10月27日 周六晚上宝安海滨广场" rel="bookmark">10月27日 周六晚上宝安海滨广场</a></li><li class="related-posts-item"><a href="/2008/10/7675ba60/" title="10月2日 市民中心刷街世界之窗" rel="bookmark">10月2日 市民中心刷街世界之窗</a></li><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/03/662f0e4a/" title="3月16日 白石洲 -> 莲花山" rel="bookmark">3月16日 白石洲 -> 莲花山</a></li><li class="related-posts-item"><a href="/2007/09/31b0a562/" title="9月8日周六晚上宝安区海滨广场" rel="bookmark">9月8日周六晚上宝安区海滨广场</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/10/bf4d8a57/" title="10月12日·世界之窗刷街莲花山" rel="bookmark">10月12日·世界之窗刷街莲花山</a></li><li class="related-posts-item"><a href="/2007/09/3455ce37/" title="9月16日·30公里刷街 白石洲 <=> 市民中心" rel="bookmark">9月16日·30公里刷街 白石洲 <=> 市民中心</a></li><li class="related-posts-item"><a href="/2007/10/5381fbc0/" title="10月27日 周六晚上宝安海滨广场" rel="bookmark">10月27日 周六晚上宝安海滨广场</a></li><li class="related-posts-item"><a href="/2008/10/7675ba60/" title="10月2日 市民中心刷街世界之窗" rel="bookmark">10月2日 市民中心刷街世界之窗</a></li><li class="related-posts-item"><a href="/2007/10/df4e117a/" title="10月28日·白石洲东门40公里刷街" rel="bookmark">10月28日·白石洲东门40公里刷街</a></li><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/03/662f0e4a/" title="3月16日 白石洲 -> 莲花山" rel="bookmark">3月16日 白石洲 -> 莲花山</a></li><li class="related-posts-item"><a href="/2007/09/571a324e/" title="9月15日周六晚刷西丽" rel="bookmark">9月15日周六晚刷西丽</a></li></ul>
       
 
     </div>
@@ -574,21 +576,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '3月2日 南山海雅刷到莲花山山顶', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

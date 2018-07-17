@@ -441,7 +441,9 @@
             <a href="../../../tags/蓝牙/" rel="tag"># 蓝牙</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2006/10/7a349610/" title="Acer 3642 镶牙记(DIY蓝牙模块)" rel="bookmark">Acer 3642 镶牙记(DIY蓝牙模块)</a></li><li class="related-posts-item"><a href="/2007/03/a541da7e/" title="通过蓝牙连接进行ActiveSync同步" rel="bookmark">通过蓝牙连接进行ActiveSync同步</a></li></ul>
       
@@ -499,21 +501,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '体验蓝牙', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

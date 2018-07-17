@@ -459,9 +459,11 @@
             <a href="../../../tags/磨房/" rel="tag"># 磨房</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/06/209c348/" title="风雨无阻，跟着美女爬南山" rel="bookmark">风雨无阻，跟着美女爬南山</a></li><li class="related-posts-item"><a href="/2008/03/fb77eaac/" title="3月9日 周日爬梧桐山" rel="bookmark">3月9日 周日爬梧桐山</a></li><li class="related-posts-item"><a href="/2009/10/2bee67b5/" title="10月24日·哥登的不是梧桐山，是寂寞" rel="bookmark">10月24日·哥登的不是梧桐山，是寂寞</a></li><li class="related-posts-item"><a href="/2009/10/93702ff6/" title="10月25日·梅林水库-塘朗山徒步" rel="bookmark">10月25日·梅林水库-塘朗山徒步</a></li><li class="related-posts-item"><a href="/2008/01/ea156cfe/" title="12月30日排牙山,美丽的刷牙之行" rel="bookmark">12月30日排牙山,美丽的刷牙之行</a></li><li class="related-posts-item"><a href="/2009/12/736a80ba/" title="12月6日·威斯跑山赛深圳站" rel="bookmark">12月6日·威斯跑山赛深圳站</a></li><li class="related-posts-item"><a href="/2010/04/4f7ef7f0/" title="4月11日·塘朗山-梅林水库穿越" rel="bookmark">4月11日·塘朗山-梅林水库穿越</a></li><li class="related-posts-item"><a href="/2009/10/c37b2a76/" title="10月18日·羊台山探幽行记" rel="bookmark">10月18日·羊台山探幽行记</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/06/209c348/" title="风雨无阻，跟着美女爬南山" rel="bookmark">风雨无阻，跟着美女爬南山</a></li><li class="related-posts-item"><a href="/2008/03/fb77eaac/" title="3月9日 周日爬梧桐山" rel="bookmark">3月9日 周日爬梧桐山</a></li><li class="related-posts-item"><a href="/2009/10/2bee67b5/" title="10月24日·哥登的不是梧桐山，是寂寞" rel="bookmark">10月24日·哥登的不是梧桐山，是寂寞</a></li><li class="related-posts-item"><a href="/2008/11/53bde4ef/" title="11月23日·美丽的马峦山" rel="bookmark">11月23日·美丽的马峦山</a></li><li class="related-posts-item"><a href="/2008/01/ea156cfe/" title="12月30日排牙山,美丽的刷牙之行" rel="bookmark">12月30日排牙山,美丽的刷牙之行</a></li><li class="related-posts-item"><a href="/2009/12/736a80ba/" title="12月6日·威斯跑山赛深圳站" rel="bookmark">12月6日·威斯跑山赛深圳站</a></li><li class="related-posts-item"><a href="/2010/04/4f7ef7f0/" title="4月11日·塘朗山-梅林水库穿越" rel="bookmark">4月11日·塘朗山-梅林水库穿越</a></li><li class="related-posts-item"><a href="/2009/10/c37b2a76/" title="10月18日·羊台山探幽行记" rel="bookmark">10月18日·羊台山探幽行记</a></li></ul>
       
 
     </div>
@@ -517,21 +519,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '八登南山', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

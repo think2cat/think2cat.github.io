@@ -516,9 +516,11 @@
             <a href="../../../tags/鼓浪屿/" rel="tag"># 鼓浪屿</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2009/10/a5fe590b/" title="10月1-3日·南昆山[2]" rel="bookmark">10月1-3日·南昆山[2]</a></li><li class="related-posts-item"><a href="/2009/10/8ed30ac8/" title="10月1-3日·南昆山[1]" rel="bookmark">10月1-3日·南昆山[1]</a></li><li class="related-posts-item"><a href="/2009/10/bce5684a/" title="10月1-3日·南昆山[3]" rel="bookmark">10月1-3日·南昆山[3]</a></li><li class="related-posts-item"><a href="/2012/01/4f35ac13/" title="2012庐山第一场雪" rel="bookmark">2012庐山第一场雪</a></li><li class="related-posts-item"><a href="/2008/09/ea4c7a60/" title="中秋·西冲-大鹿港穿越" rel="bookmark">中秋·西冲-大鹿港穿越</a></li><li class="related-posts-item"><a href="/2010/09/a0be742e/" title="探访西沟" rel="bookmark">探访西沟</a></li><li class="related-posts-item"><a href="/2008/05/2c77e85e/" title="5月17-18日·阳朔2日游" rel="bookmark">5月17-18日·阳朔2日游</a></li><li class="related-posts-item"><a href="/2010/01/961d3ca6/" title="我的处马·记2010厦门国际马拉松赛" rel="bookmark">我的处马·记2010厦门国际马拉松赛</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2009/10/bce5684a/" title="10月1-3日·南昆山[3]" rel="bookmark">10月1-3日·南昆山[3]</a></li><li class="related-posts-item"><a href="/2009/10/a5fe590b/" title="10月1-3日·南昆山[2]" rel="bookmark">10月1-3日·南昆山[2]</a></li><li class="related-posts-item"><a href="/2009/10/8ed30ac8/" title="10月1-3日·南昆山[1]" rel="bookmark">10月1-3日·南昆山[1]</a></li><li class="related-posts-item"><a href="/2012/01/4f35ac13/" title="2012庐山第一场雪" rel="bookmark">2012庐山第一场雪</a></li><li class="related-posts-item"><a href="/2008/09/ea4c7a60/" title="中秋·西冲-大鹿港穿越" rel="bookmark">中秋·西冲-大鹿港穿越</a></li><li class="related-posts-item"><a href="/2010/09/a0be742e/" title="探访西沟" rel="bookmark">探访西沟</a></li><li class="related-posts-item"><a href="/2008/05/2c77e85e/" title="5月17-18日·阳朔2日游" rel="bookmark">5月17-18日·阳朔2日游</a></li><li class="related-posts-item"><a href="/2010/01/961d3ca6/" title="我的处马·记2010厦门国际马拉松赛" rel="bookmark">我的处马·记2010厦门国际马拉松赛</a></li></ul>
       
 
     </div>
@@ -574,21 +576,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '1月1-2日·厦门印象', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

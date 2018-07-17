@@ -443,7 +443,9 @@
             <a href="../../../tags/Spider/" rel="tag"># Spider</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2006/02/afb4ae18/" title="0768114.net网址大全爬行脚本" rel="bookmark">0768114.net网址大全爬行脚本</a></li><li class="related-posts-item"><a href="/2007/02/8db6a251/" title="EXCEL批量导入图片" rel="bookmark">EXCEL批量导入图片</a></li><li class="related-posts-item"><a href="/2006/02/ca437a69/" title="无聊之下爬行了小飞的网址大全" rel="bookmark">无聊之下爬行了小飞的网址大全</a></li><li class="related-posts-item"><a href="/2006/03/bb255c33/" title="网易手机壁纸小偷程序" rel="bookmark">网易手机壁纸小偷程序</a></li><li class="related-posts-item"><a href="/2006/04/8c91055b/" title="计算某天是当月第几周" rel="bookmark">计算某天是当月第几周</a></li><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2006/12/777ce3ae/" title="oBlog v3.12 转 pjBlog2 v2.6" rel="bookmark">oBlog v3.12 转 pjBlog2 v2.6</a></li></ul>
       
@@ -501,21 +503,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '将整个数据库进行简繁体互转的VBS', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

@@ -444,7 +444,9 @@
             <a href="../../../tags/记录/" rel="tag"># 记录</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2011/12/df42cfe6/" title="2011上海马拉松，有你更精彩" rel="bookmark">2011上海马拉松，有你更精彩</a></li><li class="related-posts-item"><a href="/2006/06/6fa76946/" title="上海之行的PP" rel="bookmark">上海之行的PP</a></li><li class="related-posts-item"><a href="/2008/02/4ea5ad13/" title="QBQ的思考" rel="bookmark">QBQ的思考</a></li><li class="related-posts-item"><a href="/2008/01/bc26559d/" title="做个记号，博客换了样式并升级到1.8" rel="bookmark">做个记号，博客换了样式并升级到1.8</a></li></ul>
       
@@ -502,21 +504,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '飞了1343公里', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

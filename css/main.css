@@ -1478,7 +1478,7 @@ pre .javascript .function {
   transition-delay: 0s;
 }
 .posts-expand .post-title-link:hover {
-  background-color: #ccc;
+  background-color: #666;
 }
 .posts-expand .post-title-link .fa {
   font-size: 16px;
@@ -1944,7 +1944,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #269cb8;
+  background: #8ec3ff;
 }
 .links-of-blogroll {
   font-size: 13px;

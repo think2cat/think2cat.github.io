@@ -631,9 +631,11 @@
             <a href="../../../tags/莲花山/" rel="tag"># 莲花山</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/10/bf4d8a57/" title="10月12日·世界之窗刷街莲花山" rel="bookmark">10月12日·世界之窗刷街莲花山</a></li><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/03/daad7bc/" title="3月2日 南山海雅刷到莲花山山顶" rel="bookmark">3月2日 南山海雅刷到莲花山山顶</a></li><li class="related-posts-item"><a href="/2008/05/5eaf13af/" title="5月1日 爆刷72公里，南山到东莞寮步" rel="bookmark">5月1日 爆刷72公里，南山到东莞寮步</a></li><li class="related-posts-item"><a href="/2007/12/a90154a6/" title="12月23日 周日南山刷华强北" rel="bookmark">12月23日 周日南山刷华强北</a></li><li class="related-posts-item"><a href="/2008/12/ebd69282/" title="12月7日 桂庙路口刷圆博园照片" rel="bookmark">12月7日 桂庙路口刷圆博园照片</a></li><li class="related-posts-item"><a href="/2010/01/79dad217/" title="1月17日·松山湖晒太阳" rel="bookmark">1月17日·松山湖晒太阳</a></li><li class="related-posts-item"><a href="/2009/11/59d9d299/" title="2009磨房@愉悦60，爱我那抹绿·惠州60km徒步" rel="bookmark">2009磨房@愉悦60，爱我那抹绿·惠州60km徒步</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/10/bf4d8a57/" title="10月12日·世界之窗刷街莲花山" rel="bookmark">10月12日·世界之窗刷街莲花山</a></li><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/03/daad7bc/" title="3月2日 南山海雅刷到莲花山山顶" rel="bookmark">3月2日 南山海雅刷到莲花山山顶</a></li><li class="related-posts-item"><a href="/2008/06/1ef3041d/" title="6月15日 桂庙路口刷街东门文化宫" rel="bookmark">6月15日 桂庙路口刷街东门文化宫</a></li><li class="related-posts-item"><a href="/2008/12/ebd69282/" title="12月7日 桂庙路口刷圆博园照片" rel="bookmark">12月7日 桂庙路口刷圆博园照片</a></li><li class="related-posts-item"><a href="/2009/12/a6e98982/" title="12月5日·三人行，必有灯泡·刷街天鹅堡" rel="bookmark">12月5日·三人行，必有灯泡·刷街天鹅堡</a></li><li class="related-posts-item"><a href="/2010/01/79dad217/" title="1月17日·松山湖晒太阳" rel="bookmark">1月17日·松山湖晒太阳</a></li><li class="related-posts-item"><a href="/2009/11/59d9d299/" title="2009磨房@愉悦60，爱我那抹绿·惠州60km徒步" rel="bookmark">2009磨房@愉悦60，爱我那抹绿·惠州60km徒步</a></li></ul>
       
 
     </div>
@@ -689,21 +691,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '3月16日 白石洲 -> 莲花山', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

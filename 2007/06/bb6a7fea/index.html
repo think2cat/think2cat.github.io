@@ -85,7 +85,7 @@
 <link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="sp2,win2003,冲突,卡巴斯基,蓝屏," />
+  <meta name="keywords" content="win2003,sp2,冲突,卡巴斯基,蓝屏," />
 
 
 
@@ -104,7 +104,7 @@
 
 
 <meta name="description" content="Windows 2003 企业版 SP1 卡巴斯基防毒6.0.1.411  打完SP2之后，还没进桌面就蓝屏  进安全模式卸除SP2后正常2.  Windows 2003 企业版 SP2 (冷风0618)  一样的卡巴，装完之后，病毒库是06年12月的，一样启动就蓝屏  进安全模式，修改注册表  [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Servi">
-<meta name="keywords" content="sp2,win2003,冲突,卡巴斯基,蓝屏">
+<meta name="keywords" content="win2003,sp2,冲突,卡巴斯基,蓝屏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="win2003 sp2跟卡巴冲突蓝屏">
 <meta property="og:url" content="http://21ido.com/2007/06/bb6a7fea/index.html">
@@ -457,9 +457,9 @@
       
         <div class="post-tags">
           
-            <a href="../../../tags/sp2/" rel="tag"># sp2</a>
-          
             <a href="../../../tags/win2003/" rel="tag"># win2003</a>
+          
+            <a href="../../../tags/sp2/" rel="tag"># sp2</a>
           
             <a href="../../../tags/冲突/" rel="tag"># 冲突</a>
           
@@ -468,7 +468,9 @@
             <a href="../../../tags/蓝屏/" rel="tag"># 蓝屏</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2006/03/fc4b2fc/" title="Windows 2003 安装摘要" rel="bookmark">Windows 2003 安装摘要</a></li></ul>
       
@@ -526,21 +528,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: 'win2003 sp2跟卡巴冲突蓝屏', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

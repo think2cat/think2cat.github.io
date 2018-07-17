@@ -751,7 +751,9 @@ div太多，不仅影响浏览器解析，还可能因为未关闭标签造成�
             <a href="../../../tags/优化/" rel="tag"># 优化</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2007/07/ff1d6635/" title="3G豆豆页面设计" rel="bookmark">3G豆豆页面设计</a></li><li class="related-posts-item"><a href="/2017/08/d15bd75e/" title="Flex布局学习笔记" rel="bookmark">Flex布局学习笔记</a></li><li class="related-posts-item"><a href="/2008/06/87262eef/" title="z-blog 1.8 加入代码高亮" rel="bookmark">z-blog 1.8 加入代码高亮</a></li><li class="related-posts-item"><a href="/2005/01/934b503e/" title="可访问性测试" rel="bookmark">可访问性测试</a></li><li class="related-posts-item"><a href="/2004/08/9539b47d/" title="学习XHTML的进展很慢" rel="bookmark">学习XHTML的进展很慢</a></li><li class="related-posts-item"><a href="/2004/09/3e66892c/" title="让DIV不换行" rel="bookmark">让DIV不换行</a></li><li class="related-posts-item"><a href="/2005/05/39227cd3/" title="谁说Web标准下的网页无设计可言" rel="bookmark">谁说Web标准下的网页无设计可言</a></li><li class="related-posts-item"><a href="/2007/02/46ae5ac4/" title="网站重构，又见《网站重构》" rel="bookmark">网站重构，又见《网站重构》</a></li></ul>
       
@@ -809,21 +811,24 @@ div太多，不仅影响浏览器解析，还可能因为未关闭标签造成�
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: 'HTML代码优化', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

@@ -464,9 +464,11 @@
             <a href="../../../tags/zblog/" rel="tag"># zblog</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/01/9daab76b/" title="Prototype 1.5.0" rel="bookmark">Prototype 1.5.0</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2017/08/d15bd75e/" title="Flex布局学习笔记" rel="bookmark">Flex布局学习笔记</a></li><li class="related-posts-item"><a href="/2005/01/934b503e/" title="可访问性测试" rel="bookmark">可访问性测试</a></li><li class="related-posts-item"><a href="/2004/08/9539b47d/" title="学习XHTML的进展很慢" rel="bookmark">学习XHTML的进展很慢</a></li><li class="related-posts-item"><a href="/2004/09/3e66892c/" title="让DIV不换行" rel="bookmark">让DIV不换行</a></li><li class="related-posts-item"><a href="/2005/05/39227cd3/" title="谁说Web标准下的网页无设计可言" rel="bookmark">谁说Web标准下的网页无设计可言</a></li><li class="related-posts-item"><a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数" rel="bookmark">Capture和Bubble，简明解读addEventListener的第三个参数</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/01/9daab76b/" title="Prototype 1.5.0" rel="bookmark">Prototype 1.5.0</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2006/10/ca0f1096/" title="HTML代码优化" rel="bookmark">HTML代码优化</a></li><li class="related-posts-item"><a href="/2005/01/934b503e/" title="可访问性测试" rel="bookmark">可访问性测试</a></li><li class="related-posts-item"><a href="/2004/08/9539b47d/" title="学习XHTML的进展很慢" rel="bookmark">学习XHTML的进展很慢</a></li><li class="related-posts-item"><a href="/2004/09/3e66892c/" title="让DIV不换行" rel="bookmark">让DIV不换行</a></li><li class="related-posts-item"><a href="/2005/05/39227cd3/" title="谁说Web标准下的网页无设计可言" rel="bookmark">谁说Web标准下的网页无设计可言</a></li><li class="related-posts-item"><a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数" rel="bookmark">Capture和Bubble，简明解读addEventListener的第三个参数</a></li></ul>
       
 
     </div>
@@ -522,21 +524,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: 'z-blog 1.8 加入代码高亮', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

@@ -549,9 +549,11 @@
             <a href="../../../tags/露营/" rel="tag"># 露营</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/04/ed562407/" title="4月3-5日·烟雨清明，烂漫老京广线[2]" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[2]</a></li><li class="related-posts-item"><a href="/2010/04/c67b77c4/" title="4月3-5日·烟雨清明，烂漫老京广线[1]" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[1]</a></li><li class="related-posts-item"><a href="/2010/04/68b62dfd/" title="4月3-5日·烟雨清明，烂漫老京广线[3](完)" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[3](完)</a></li><li class="related-posts-item"><a href="/2008/10/bf19af96/" title="国庆·凤凰山露营" rel="bookmark">国庆·凤凰山露营</a></li><li class="related-posts-item"><a href="/2010/04/4f7ef7f0/" title="4月11日·塘朗山-梅林水库穿越" rel="bookmark">4月11日·塘朗山-梅林水库穿越</a></li><li class="related-posts-item"><a href="/2009/10/c37b2a76/" title="10月18日·羊台山探幽行记" rel="bookmark">10月18日·羊台山探幽行记</a></li><li class="related-posts-item"><a href="/2009/11/59d9d299/" title="2009磨房@愉悦60，爱我那抹绿·惠州60km徒步" rel="bookmark">2009磨房@愉悦60，爱我那抹绿·惠州60km徒步</a></li><li class="related-posts-item"><a href="/2009/10/93702ff6/" title="10月25日·梅林水库-塘朗山徒步" rel="bookmark">10月25日·梅林水库-塘朗山徒步</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2010/04/ed562407/" title="4月3-5日·烟雨清明，烂漫老京广线[2]" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[2]</a></li><li class="related-posts-item"><a href="/2010/04/c67b77c4/" title="4月3-5日·烟雨清明，烂漫老京广线[1]" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[1]</a></li><li class="related-posts-item"><a href="/2010/04/68b62dfd/" title="4月3-5日·烟雨清明，烂漫老京广线[3](完)" rel="bookmark">4月3-5日·烟雨清明，烂漫老京广线[3](完)</a></li><li class="related-posts-item"><a href="/2008/10/bf19af96/" title="国庆·凤凰山露营" rel="bookmark">国庆·凤凰山露营</a></li><li class="related-posts-item"><a href="/2010/04/4f7ef7f0/" title="4月11日·塘朗山-梅林水库穿越" rel="bookmark">4月11日·塘朗山-梅林水库穿越</a></li><li class="related-posts-item"><a href="/2009/10/c37b2a76/" title="10月18日·羊台山探幽行记" rel="bookmark">10月18日·羊台山探幽行记</a></li><li class="related-posts-item"><a href="/2009/11/884d5bcb/" title="2009磨房@走进东莞，50KM徒步" rel="bookmark">2009磨房@走进东莞，50KM徒步</a></li><li class="related-posts-item"><a href="/2009/10/93702ff6/" title="10月25日·梅林水库-塘朗山徒步" rel="bookmark">10月25日·梅林水库-塘朗山徒步</a></li></ul>
       
 
     </div>
@@ -607,21 +609,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '刺猬，你可记得大明湖畔的老猫', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

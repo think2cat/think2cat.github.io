@@ -573,9 +573,11 @@
             <a href="../../../tags/百公里/" rel="tag"># 百公里</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/03/1078085/" title="3月23日·磨房百公里" rel="bookmark">3月23日·磨房百公里</a></li><li class="related-posts-item"><a href="/2009/05/1d4a3d07/" title="5月1-3日鹅公湾-杨梅坑露营" rel="bookmark">5月1-3日鹅公湾-杨梅坑露营</a></li><li class="related-posts-item"><a href="/2009/10/a5fe590b/" title="10月1-3日·南昆山[2]" rel="bookmark">10月1-3日·南昆山[2]</a></li><li class="related-posts-item"><a href="/2009/01/65a622d8/" title="1月18日·骑行仙湖" rel="bookmark">1月18日·骑行仙湖</a></li><li class="related-posts-item"><a href="/2008/04/d9682b67/" title="4月13日 梧桐山，刷上去又刷下来" rel="bookmark">4月13日 梧桐山，刷上去又刷下来</a></li><li class="related-posts-item"><a href="/2010/03/366b5b71/" title="3月20日·2010磨房深圳百公里" rel="bookmark">3月20日·2010磨房深圳百公里</a></li><li class="related-posts-item"><a href="/2008/03/35a45d55/" title="3月16日·白石洲到莲花山" rel="bookmark">3月16日·白石洲到莲花山</a></li><li class="related-posts-item"><a href="/2008/08/318a0e4/" title="雨夜里独上南山" rel="bookmark">雨夜里独上南山</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2009/05/1d4a3d07/" title="5月1-3日鹅公湾-杨梅坑露营" rel="bookmark">5月1-3日鹅公湾-杨梅坑露营</a></li><li class="related-posts-item"><a href="/2008/03/1078085/" title="3月23日·磨房百公里" rel="bookmark">3月23日·磨房百公里</a></li><li class="related-posts-item"><a href="/2009/01/65a622d8/" title="1月18日·骑行仙湖" rel="bookmark">1月18日·骑行仙湖</a></li><li class="related-posts-item"><a href="/2008/11/8733a705/" title="2008磨房@惠州60公里徒步" rel="bookmark">2008磨房@惠州60公里徒步</a></li><li class="related-posts-item"><a href="/2015/05/3f917936/" title="我为什么骑车上班，你为什么不？" rel="bookmark">我为什么骑车上班，你为什么不？</a></li><li class="related-posts-item"><a href="/2009/04/f8dad8bc/" title="清明·北上游惠州" rel="bookmark">清明·北上游惠州</a></li><li class="related-posts-item"><a href="/2009/10/a5fe590b/" title="10月1-3日·南昆山[2]" rel="bookmark">10月1-3日·南昆山[2]</a></li><li class="related-posts-item"><a href="/2010/01/c37ba310/" title="10月6-7日·珠海横琴岛[1]" rel="bookmark">10月6-7日·珠海横琴岛[1]</a></li></ul>
       
 
     </div>
@@ -631,21 +633,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '2009,百公里.每个人都有自己的百公里...', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

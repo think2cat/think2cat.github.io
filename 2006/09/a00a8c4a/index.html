@@ -462,7 +462,9 @@
             <a href="../../../tags/生活/" rel="tag"># 生活</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
         <ul class="related-posts"><li class="related-posts-item"><a href="/2010/02/de3cfbc5/" title="1月30日·松山湖赏花" rel="bookmark">1月30日·松山湖赏花</a></li><li class="related-posts-item"><a href="/2007/03/95824a07/" title="老猫发飙，后果很严重" rel="bookmark">老猫发飙，后果很严重</a></li><li class="related-posts-item"><a href="/2006/05/79b85e4e/" title="金钱总是给我带来负担" rel="bookmark">金钱总是给我带来负担</a></li><li class="related-posts-item"><a href="/2008/01/7c9b3f9c/" title="鼠年未到，鼠仔来访" rel="bookmark">鼠年未到，鼠仔来访</a></li></ul>
       
@@ -520,21 +522,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '一颗不知什么豆的发育过程', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       

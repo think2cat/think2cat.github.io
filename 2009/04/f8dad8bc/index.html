@@ -643,9 +643,11 @@
             <a href="../../../tags/陈江/" rel="tag"># 陈江</a>
           
         </div>
+      
 
+      
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2009/01/65a622d8/" title="1月18日·骑行仙湖" rel="bookmark">1月18日·骑行仙湖</a></li><li class="related-posts-item"><a href="/2008/11/8733a705/" title="2008磨房@惠州60公里徒步" rel="bookmark">2008磨房@惠州60公里徒步</a></li><li class="related-posts-item"><a href="/2009/03/78c63d76/" title="2009,百公里.每个人都有自己的百公里..." rel="bookmark">2009,百公里.每个人都有自己的百公里...</a></li><li class="related-posts-item"><a href="/2009/05/1d4a3d07/" title="5月1-3日鹅公湾-杨梅坑露营" rel="bookmark">5月1-3日鹅公湾-杨梅坑露营</a></li><li class="related-posts-item"><a href="/2009/06/4f0a8288/" title="6月14日·小宝单车婚礼" rel="bookmark">6月14日·小宝单车婚礼</a></li><li class="related-posts-item"><a href="/2010/12/5a18df18/" title="话说2个男人到贺胜桥搞了只鸡" rel="bookmark">话说2个男人到贺胜桥搞了只鸡</a></li><li class="related-posts-item"><a href="/2009/01/5f2a3596/" title="1月23日·骑行汕头，吃牛丸、游庵寺" rel="bookmark">1月23日·骑行汕头，吃牛丸、游庵寺</a></li><li class="related-posts-item"><a href="/2010/01/edb2490/" title="1月31日·横岗美利达杯园山爬坡赛" rel="bookmark">1月31日·横岗美利达杯园山爬坡赛</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2009/01/65a622d8/" title="1月18日·骑行仙湖" rel="bookmark">1月18日·骑行仙湖</a></li><li class="related-posts-item"><a href="/2008/11/8733a705/" title="2008磨房@惠州60公里徒步" rel="bookmark">2008磨房@惠州60公里徒步</a></li><li class="related-posts-item"><a href="/2009/03/78c63d76/" title="2009,百公里.每个人都有自己的百公里..." rel="bookmark">2009,百公里.每个人都有自己的百公里...</a></li><li class="related-posts-item"><a href="/2009/05/1d4a3d07/" title="5月1-3日鹅公湾-杨梅坑露营" rel="bookmark">5月1-3日鹅公湾-杨梅坑露营</a></li><li class="related-posts-item"><a href="/2009/06/4f0a8288/" title="6月14日·小宝单车婚礼" rel="bookmark">6月14日·小宝单车婚礼</a></li><li class="related-posts-item"><a href="/2010/12/5a18df18/" title="话说2个男人到贺胜桥搞了只鸡" rel="bookmark">话说2个男人到贺胜桥搞了只鸡</a></li><li class="related-posts-item"><a href="/2009/01/72e6516e/" title="1月29日·大年初四 骑行别峰 品功夫茶" rel="bookmark">1月29日·大年初四 骑行别峰 品功夫茶</a></li><li class="related-posts-item"><a href="/2010/01/edb2490/" title="1月31日·横岗美利达杯园山爬坡赛" rel="bookmark">1月31日·横岗美利达杯园山爬坡赛</a></li></ul>
       
 
     </div>
@@ -701,21 +703,24 @@
       </div>
     
 
-          <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-            var gitment = new Gitment({
-              id: '清明·北上游惠州', // 可选。默认为 location.href
-              owner: 'think2cat',
-              repo: 'think2cat.github.io',
-              oauth: {
-                client_id: '7d663847dc0ef6026d5a',
-                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
-              }
-            });
-            gitment.render('container');
-            </script>
+    
+      <div id="comment_container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: location.pathname,
+          owner: 'think2cat',
+          repo: 'think2cat.github.io',
+          oauth: {
+            client_id: '7d663847dc0ef6026d5a',
+            client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+          }
+        });
+        gitment.render('comment_container');
+      </script>
+    
+
     <footer class="post-footer">
       
       
