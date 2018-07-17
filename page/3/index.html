@@ -1,4 +1,2261 @@
-<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="../../lib/pace/pace.min.js?v=1.0.2"></script><link href="../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="javascript, nodejs, typescript, web"><link rel="alternate" href="../../atom.xml" title="猫大叔" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico?v=5.1.2"><meta name="description" content="不想做鼓励师的前端狗不是好的程序猿"><meta property="og:type" content="website"><meta property="og:title" content="猫大叔"><meta property="og:url" content="http://21ido.com/page/3/index.html"><meta property="og:site_name" content="猫大叔"><meta property="og:description" content="不想做鼓励师的前端狗不是好的程序猿"><meta property="og:locale" content="zh-CN"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="猫大叔"><meta name="twitter:description" content="不想做鼓励师的前端狗不是好的程序猿"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",sidebar:{position:"left",display:"post",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:!0,duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://21ido.com/page/3/"><title>猫大叔</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-1162524-4","auto"),ga("send","pageview")</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-home"><div class="headband"><a href="https://github.com/think2cat"><img style="position:absolute;top:0;right:0;border:0" src="/images/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">猫大叔</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">关注前端，热爱生活</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><section id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2017/03/10afd6ef/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2017/03/10afd6ef/" itemprop="url">Javascript数组的every、some、map、filter、forEach</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T16:02:32+08:00">2017-03-10 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><ul><li><strong>every</strong>，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false</li><li><strong>some</strong>，判断是否有元素符合，一旦遇到true则停止</li><li><strong>map</strong>，每个元素按function返回结果构成新数组</li><li><strong>filter</strong>，返回所有符合条件的元素构成的新数组</li><li><strong>forEach</strong>，单独执行每个元素，无返回</li></ul><p>各函数执行时需要传入function作为参数，每次执行会传入value和index<br></p><div class="post-button text-center"><a class="btn" href="../../2017/03/10afd6ef/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2018/01/d3edd405/" title="jsPlumb学习笔记（1）" rel="bookmark">jsPlumb学习笔记（1）</a></li><li class="related-posts-item"><a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数" rel="bookmark">Capture和Bubble，简明解读addEventListener的第三个参数</a></li><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2010/01/64fe6205/" title="cntv.cn视频绝对地址分析" rel="bookmark">cntv.cn视频绝对地址分析</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2017/03/1768cee0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2017/03/1768cee0/" itemprop="url">ECMAScript6笔记（1）</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T00:54:57+08:00">2017-03-06 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">阮老师的《ECMAScript6入门》</a></p><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><p>声明块级作用域变量<br>let用在花括号{ }里面<br>在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined</p><h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><p>更接近传统OOP的写法<br></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"cat"</span>;</span><br><span class="line">        <span class="keyword">this</span>.color = <span class="string">"black"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YellowCat</span> <span class="keyword">extends</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.color = <span class="string">'yellow'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p><div class="post-button text-center"><a class="btn" href="../../2017/03/1768cee0/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li><li class="related-posts-item"><a href="/2018/01/d3edd405/" title="jsPlumb学习笔记（1）" rel="bookmark">jsPlumb学习笔记（1）</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2010/01/64fe6205/" title="cntv.cn视频绝对地址分析" rel="bookmark">cntv.cn视频绝对地址分析</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2016/01/ebd5f440/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2016/01/ebd5f440/" itemprop="url">带上跑鞋去旅行，我在巴厘岛跑了半马</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-07T15:42:47+08:00">2016-01-07 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><img src="/images/2015/06/IMG_0343_1.jpg" alt="飞机上拍到的火烧云"><br>(飞机上拍到的火烧云）</p><p>自从当爹之后，睡眠严重不足，脑子不好使，越来越健忘，一直以为巴厘岛之行回程是5月9日下午抵达香港机场，大连国际马拉松也是9日，想着回深圳后还能跑个半马，于是在5月3日报了大连线上马拉松半程组。</p><p>直到出行前一天，也就是5日，才发现是10日回程，不过幸运的是9日是自由活动日，想着还有机会完成，于是乎一场带跑鞋的旅途就开始了！</p><p>虽然只有半程21公里，但还是很怕跑不完，因为已经整整15个月没跑步了，2013年底骑车摔了脚踝，没伤到骨，但是伤了韧带，加上滑膜炎，没办法放弃了13年底的珠海半马，放弃了14年初的香港渣打马拉松，养伤3个月后，走路骑车都无大碍，唯独跑步一落脚就疼，跑步有个说法，半月不跑武功减半，我这15个月，不止武功尽失，简直就是挑断脚筋吖，欣慰的是每天骑车上下班，想着跑10公里走10公里，总能在关门前完成吧（半程马拉松关门时间一般为3小时）<br></p><div class="post-button text-center"><a class="btn" href="../../2016/01/ebd5f440/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2011/12/df42cfe6/" title="2011上海马拉松，有你更精彩" rel="bookmark">2011上海马拉松，有你更精彩</a></li><li class="related-posts-item"><a href="/2012/05/b7a463b1/" title="不完美的扬州马拉松" rel="bookmark">不完美的扬州马拉松</a></li><li class="related-posts-item"><a href="/2010/01/961d3ca6/" title="我的处马·记2010厦门国际马拉松赛" rel="bookmark">我的处马·记2010厦门国际马拉松赛</a></li><li class="related-posts-item"><a href="/2012/04/2353d5c3/" title="烈日下的郑开马拉松" rel="bookmark">烈日下的郑开马拉松</a></li><li class="related-posts-item"><a href="/2011/10/fdd8498a/" title="2011国庆，追寻阳光，一路向北，Day1" rel="bookmark">2011国庆，追寻阳光，一路向北，Day1</a></li><li class="related-posts-item"><a href="/2009/12/736a80ba/" title="12月6日·威斯跑山赛深圳站" rel="bookmark">12月6日·威斯跑山赛深圳站</a></li><li class="related-posts-item"><a href="/2011/01/c869f798/" title="不停奔跑，不断超越 [跑步记录]" rel="bookmark">不停奔跑，不断超越 [跑步记录]</a></li><li class="related-posts-item"><a href="/2008/10/bd3222ba/" title="慢跑装备08年版" rel="bookmark">慢跑装备08年版</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2015/05/3f917936/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2015/05/3f917936/" itemprop="url">我为什么骑车上班，你为什么不？</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-03T15:37:06+08:00">2015-05-03 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><img src="/images/2015/06/111.jpg" alt=""></p><p>写在前面的后序：<br>在柴静的《穹顶之下》出来后，就有想写点东西，呼吁大家注意环保，呼吁少开车，后来跟同事的聊天慢慢发现这很难改变什么，开车的依旧选择开车，住的近的也依然不会骑车，第一步总是难以迈开，不想做的事总会给自己千万个理由</p><p>我为什么骑车？</p><ol><li>酷</li><li>省钱</li><li>怕塞车</li><li>不用等车</li><li>无须挤公交<div class="post-button text-center"><a class="btn" href="../../2015/05/3f917936/#more" rel="contents">阅读全文 &raquo;</a></div></li></ol></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2009/10/8ed30ac8/" title="10月1-3日·南昆山[1]" rel="bookmark">10月1-3日·南昆山[1]</a></li><li class="related-posts-item"><a href="/2009/03/78c63d76/" title="2009,百公里.每个人都有自己的百公里..." rel="bookmark">2009,百公里.每个人都有自己的百公里...</a></li><li class="related-posts-item"><a href="/2009/10/a5fe590b/" title="10月1-3日·南昆山[2]" rel="bookmark">10月1-3日·南昆山[2]</a></li><li class="related-posts-item"><a href="/2010/01/c37ba310/" title="10月6-7日·珠海横琴岛[1]" rel="bookmark">10月6-7日·珠海横琴岛[1]</a></li><li class="related-posts-item"><a href="/2009/05/1d4a3d07/" title="5月1-3日鹅公湾-杨梅坑露营" rel="bookmark">5月1-3日鹅公湾-杨梅坑露营</a></li><li class="related-posts-item"><a href="/2010/06/dfe2e04/" title="绿野无垠，寻找稻田守望者【端午骑行开平】" rel="bookmark">绿野无垠，寻找稻田守望者【端午骑行开平】</a></li><li class="related-posts-item"><a href="/2009/01/72e6516e/" title="1月29日·大年初四 骑行别峰 品功夫茶" rel="bookmark">1月29日·大年初四 骑行别峰 品功夫茶</a></li><li class="related-posts-item"><a href="/2008/11/8733a705/" title="2008磨房@惠州60公里徒步" rel="bookmark">2008磨房@惠州60公里徒步</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2013/03/aea23e72/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2013/03/aea23e72/" itemprop="url">Capture和Bubble，简明解读addEventListener的第三个参数</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-03-13T22:42:42+08:00">2013-03-13 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><strong>target.addEventListener(type, listener[, useCapture]);</strong></p><p>前两个参数很好理解，这里不多说，第三个参数是个布尔值，代表Capture和Bubble<br>网上解释很多，啰哩啰嗦的，这里用一段代码来解读<br></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid red"</span> <span class="attr">id</span>=<span class="string">"aa"</span>&gt;</span>aaaa</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid yellow"</span> <span class="attr">id</span>=<span class="string">"bb"</span>&gt;</span>bbbb</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid blue"</span> <span class="attr">id</span>=<span class="string">"cc"</span>&gt;</span>cccc</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid green"</span> <span class="attr">id</span>=<span class="string">"dd"</span>&gt;</span>dddd<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        var dom = document.getElementsByTagName("div");</span></span><br><span class="line"><span class="undefined">        for(var i =0; i&lt;dom.length; i++)&#123;</span></span><br><span class="line"><span class="undefined">            dom[i].addEventListener("click",function(evt)&#123;</span></span><br><span class="line"><span class="undefined">                console.log(this.id);</span></span><br><span class="line"><span class="undefined">            &#125;,false);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p></p><div class="post-button text-center"><a class="btn" href="../../2013/03/aea23e72/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2018/01/d3edd405/" title="jsPlumb学习笔记（1）" rel="bookmark">jsPlumb学习笔记（1）</a></li><li class="related-posts-item"><a href="/2017/03/1768cee0/" title="ECMAScript6笔记（1）" rel="bookmark">ECMAScript6笔记（1）</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2010/01/64fe6205/" title="cntv.cn视频绝对地址分析" rel="bookmark">cntv.cn视频绝对地址分析</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2013/01/1f8fa459/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2013/01/1f8fa459/" itemprop="url">如何开会？</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-01-23T23:19:42+08:00">2013-01-23 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p>如何开会，是个很泛的话题，开会是沟通的一种，通常来说，开会分2种，1是传达信息，2是决策</p><h4 id="会前准备"><a href="#会前准备" class="headerlink" title="会前准备"></a>会前准备</h4><ul><li>为什么开会，这是最重要的，没意义的会不开</li><li>准备方案，不管技术文档还是演示PPT，这些是写给参与者看的，尽量简单明了</li><li>确定时间和场地，包括会议设备的准备（投影仪、电话会议等）</li><li>确定和通知参加者（包括发送相关文档），参与者分为【必到】和【可选】，这样不是很紧要的人员可以省下时间忙其它事</li><li>会议前的通知，这点很重要，往往就是有人忘了，导致会议开始了人没齐，结果就为了等一两人浪费了一屋子人的时间<div class="post-button text-center"><a class="btn" href="../../2013/01/1f8fa459/#more" rel="contents">阅读全文 &raquo;</a></div></li></ul></div><h3>相关文章推荐</h3><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/a843a5b0/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2012/11/a843a5b0/" itemprop="url">海南蜜月行，Day6，三亚！三亚！</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-21T23:29:27+08:00">2012-11-21 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="/images/2013/03/day6.jpg"><img src="/images/2013/03/day6.jpg" alt="day6"></a></p><p>11月16日，Day 6，英州镇 - 三亚，61km，累计爬坡1679米 <a href="http://www.endomondo.com/workouts/113650569/581133" target="_blank" rel="noopener">GPS轨迹</a><br></p><div class="post-button text-center"><a class="btn" href="../../2012/11/a843a5b0/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2012/11/fdd2d6f2/" title="海南蜜月行，Day5，翻越陵水之巅" rel="bookmark">海南蜜月行，Day5，翻越陵水之巅</a></li><li class="related-posts-item"><a href="/2012/11/dde62480/" title="海南蜜月行，Day3，没有海的琼海" rel="bookmark">海南蜜月行，Day3，没有海的琼海</a></li><li class="related-posts-item"><a href="/2012/11/d75db985/" title="海南蜜月行，Day4，两人世界" rel="bookmark">海南蜜月行，Day4，两人世界</a></li><li class="related-posts-item"><a href="/2012/11/15669aec/" title="海南蜜月行，Day1，飞离大陆" rel="bookmark">海南蜜月行，Day1，飞离大陆</a></li><li class="related-posts-item"><a href="/2012/11/5e0fbb42/" title="海南蜜月行，Day2，肥到掉油的文昌鸡" rel="bookmark">海南蜜月行，Day2，肥到掉油的文昌鸡</a></li><li class="related-posts-item"><a href="/2011/10/13d628a6/" title="2011国庆，追寻阳光，一路向北，Day3" rel="bookmark">2011国庆，追寻阳光，一路向北，Day3</a></li><li class="related-posts-item"><a href="/2011/10/64d11830/" title="2011国庆，追寻阳光，一路向北，Day2" rel="bookmark">2011国庆，追寻阳光，一路向北，Day2</a></li><li class="related-posts-item"><a href="/2011/10/8db2bd05/" title="2011国庆，追寻阳光，一路向北，Day4" rel="bookmark">2011国庆，追寻阳光，一路向北，Day4</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/fdd2d6f2/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2012/11/fdd2d6f2/" itemprop="url">海南蜜月行，Day5，翻越陵水之巅</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-15T19:57:55+08:00">2012-11-15 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="/images/2013/03/day5.jpg"><img src="/images/2013/03/day5.jpg" alt="day5"></a></p><p>11月15日，Day 5，万宁市 - 凌水县 - 英州镇，93km，累计爬坡2848米</p><p><a href="http://www.endomondo.com/workouts/113648933/581133" target="_blank" rel="noopener">GPS轨迹</a></p><p>骑行的第四天，想起此时KK和包子正在三亚沙滩喝红酒，起了个早，昨晚问过酒店的老板，说到陵水有很长很陡的上坡，你们骑过不去的，我笑了，老板你吓唬谁呢，陵水的山，顶多就200米，比深圳塘朗山矮多了</p><p>9点出发时，昨晚偶遇的那对兄弟车友早已走了，在路边吃了早餐，猪脚饭和粉，完全没胃口啊，想起昨晚所谓的鱼汤，满嘴都是腥味，海南人都是吃鱼长大的，不是吃米饭呀，习惯了呀，而且空气中还有鱼腥味，习惯了呀<br></p><div class="post-button text-center"><a class="btn" href="../../2012/11/fdd2d6f2/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2012/11/d75db985/" title="海南蜜月行，Day4，两人世界" rel="bookmark">海南蜜月行，Day4，两人世界</a></li><li class="related-posts-item"><a href="/2012/11/a843a5b0/" title="海南蜜月行，Day6，三亚！三亚！" rel="bookmark">海南蜜月行，Day6，三亚！三亚！</a></li><li class="related-posts-item"><a href="/2012/11/dde62480/" title="海南蜜月行，Day3，没有海的琼海" rel="bookmark">海南蜜月行，Day3，没有海的琼海</a></li><li class="related-posts-item"><a href="/2012/11/15669aec/" title="海南蜜月行，Day1，飞离大陆" rel="bookmark">海南蜜月行，Day1，飞离大陆</a></li><li class="related-posts-item"><a href="/2012/11/5e0fbb42/" title="海南蜜月行，Day2，肥到掉油的文昌鸡" rel="bookmark">海南蜜月行，Day2，肥到掉油的文昌鸡</a></li><li class="related-posts-item"><a href="/2011/10/13d628a6/" title="2011国庆，追寻阳光，一路向北，Day3" rel="bookmark">2011国庆，追寻阳光，一路向北，Day3</a></li><li class="related-posts-item"><a href="/2011/10/64d11830/" title="2011国庆，追寻阳光，一路向北，Day2" rel="bookmark">2011国庆，追寻阳光，一路向北，Day2</a></li><li class="related-posts-item"><a href="/2011/10/8db2bd05/" title="2011国庆，追寻阳光，一路向北，Day4" rel="bookmark">2011国庆，追寻阳光，一路向北，Day4</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/d75db985/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2012/11/d75db985/" itemprop="url">海南蜜月行，Day4，两人世界</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-14T18:33:55+08:00">2012-11-14 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="/images/2013/02/day4.jpg"><img src="/images/2013/02/day4.jpg" alt="day4"></a></p><p>11月14日，Day 4，琼海 - 万宁，79km，累计爬坡2096米</p><p><a href="http://www.endomondo.com/workouts/113648399/581133" target="_blank" rel="noopener">GPS轨迹</a></p><p>鉴于包包童鞋亲戚来访，决定KK陪包子直接坐车去三亚，而我跟媳妇骑车去，也就是说今天开始，就是我们两的世界了，蜜月行正式开始<br></p><div class="post-button text-center"><a class="btn" href="../../2012/11/d75db985/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2012/11/dde62480/" title="海南蜜月行，Day3，没有海的琼海" rel="bookmark">海南蜜月行，Day3，没有海的琼海</a></li><li class="related-posts-item"><a href="/2012/11/fdd2d6f2/" title="海南蜜月行，Day5，翻越陵水之巅" rel="bookmark">海南蜜月行，Day5，翻越陵水之巅</a></li><li class="related-posts-item"><a href="/2012/11/a843a5b0/" title="海南蜜月行，Day6，三亚！三亚！" rel="bookmark">海南蜜月行，Day6，三亚！三亚！</a></li><li class="related-posts-item"><a href="/2012/11/15669aec/" title="海南蜜月行，Day1，飞离大陆" rel="bookmark">海南蜜月行，Day1，飞离大陆</a></li><li class="related-posts-item"><a href="/2012/11/5e0fbb42/" title="海南蜜月行，Day2，肥到掉油的文昌鸡" rel="bookmark">海南蜜月行，Day2，肥到掉油的文昌鸡</a></li><li class="related-posts-item"><a href="/2011/10/13d628a6/" title="2011国庆，追寻阳光，一路向北，Day3" rel="bookmark">2011国庆，追寻阳光，一路向北，Day3</a></li><li class="related-posts-item"><a href="/2011/10/64d11830/" title="2011国庆，追寻阳光，一路向北，Day2" rel="bookmark">2011国庆，追寻阳光，一路向北，Day2</a></li><li class="related-posts-item"><a href="/2011/10/8db2bd05/" title="2011国庆，追寻阳光，一路向北，Day4" rel="bookmark">2011国庆，追寻阳光，一路向北，Day4</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/dde62480/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"><a class="post-title-link" href="../../2012/11/dde62480/" itemprop="url">海南蜜月行，Day3，没有海的琼海</a></h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-13T22:34:22+08:00">2012-11-13 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p><a href="/images/2013/01/day3.jpg"><img src="/images/2013/01/day3.jpg" alt="day3"></a></p><p>11月13日，大致坡 - 文昌 - 琼海，93.78km，累计爬坡1589米</p><p><a href="http://www.endomondo.com/workouts/113647836/581133" target="_blank" rel="noopener">GPS轨迹</a></p><p>从抵达海南已经超过30小时了，可是仍未看到海，虽然我们4人都是看过各地方的海，但海南的海还是有那么点好奇</p><p>今天本来是要到博鳌的，但是由于昨天的耽误，今天目的地改为琼海，一早起来吃了早点，海南当地特色的河粉米粉，一碗6元，可惜热气大太多烟，照糊了<br></p><div class="post-button text-center"><a class="btn" href="../../2012/11/dde62480/#more" rel="contents">阅读全文 &raquo;</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2012/11/d75db985/" title="海南蜜月行，Day4，两人世界" rel="bookmark">海南蜜月行，Day4，两人世界</a></li><li class="related-posts-item"><a href="/2012/11/5e0fbb42/" title="海南蜜月行，Day2，肥到掉油的文昌鸡" rel="bookmark">海南蜜月行，Day2，肥到掉油的文昌鸡</a></li><li class="related-posts-item"><a href="/2012/11/fdd2d6f2/" title="海南蜜月行，Day5，翻越陵水之巅" rel="bookmark">海南蜜月行，Day5，翻越陵水之巅</a></li><li class="related-posts-item"><a href="/2012/11/a843a5b0/" title="海南蜜月行，Day6，三亚！三亚！" rel="bookmark">海南蜜月行，Day6，三亚！三亚！</a></li><li class="related-posts-item"><a href="/2012/11/15669aec/" title="海南蜜月行，Day1，飞离大陆" rel="bookmark">海南蜜月行，Day1，飞离大陆</a></li><li class="related-posts-item"><a href="/2011/10/13d628a6/" title="2011国庆，追寻阳光，一路向北，Day3" rel="bookmark">2011国庆，追寻阳光，一路向北，Day3</a></li><li class="related-posts-item"><a href="/2011/10/64d11830/" title="2011国庆，追寻阳光，一路向北，Day2" rel="bookmark">2011国庆，追寻阳光，一路向北，Day2</a></li><li class="related-posts-item"><a href="/2011/10/8db2bd05/" title="2011国庆，追寻阳光，一路向北，Day4" rel="bookmark">2011国庆，追寻阳光，一路向北，Day4</a></li></ul><footer class="post-footer"><div class="post-eof"></div></footer></div></article></section><nav class="pagination"><a class="extend prev" rel="prev" href="../2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span><a class="page-number" href="../4/">4</a><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><a class="page-number" href="../7/">7</a><a class="page-number" href="../8/">8</a><span class="space">&hellip;</span><a class="page-number" href="../40/">40</a><a class="extend next" rel="next" href="../4/"><i class="fa fa-angle-right"></i></a></nav></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview sidebar-panel sidebar-panel-active"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="../../images/avatar.gif" alt="猫大叔"><p class="site-author-name" itemprop="name">猫大叔</p><p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="../../archives/"><span class="site-state-item-count">398</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="../../categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="../../tags/index.html"><span class="site-state-item-count">360</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="../../atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/think2cat" target="_blank" title="github"><i class="fa fa-fw fa-globe"></i> github</a></span></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2003 - <span itemprop="copyrightYear">2018</span> <span class="with-love"><i class="fa fa-"></i> </span><span class="author" itemprop="copyrightHolder">猫大叔</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info">主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="../../lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="../../lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="../../js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="../../js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="../../js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="../../js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="../../js/src/bootstrap.js?v=5.1.2"></script><script type="text/javascript">// Popup Window;
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="../../lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript, nodejs, typescript, web" />
+
+
+
+
+
+  <link rel="alternate" href="../../atom.xml" title="猫大叔" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="不想做鼓励师的前端狗不是好的程序猿">
+<meta property="og:type" content="website">
+<meta property="og:title" content="猫大叔">
+<meta property="og:url" content="http://21ido.com/page/3/index.html">
+<meta property="og:site_name" content="猫大叔">
+<meta property="og:description" content="不想做鼓励师的前端狗不是好的程序猿">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="猫大叔">
+<meta name="twitter:description" content="不想做鼓励师的前端狗不是好的程序猿">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://21ido.com/page/3/"/>
+
+
+
+
+
+  <title>猫大叔</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1162524-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband">
+      <a href="https://github.com/think2cat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猫大叔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">关注前端，热爱生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2017/03/10afd6ef/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2017/03/10afd6ef/" itemprop="url">Javascript数组的every、some、map、filter、forEach</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T16:02:32+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li><strong>every</strong>，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false</li>
+<li><strong>some</strong>，判断是否有元素符合，一旦遇到true则停止</li>
+<li><strong>map</strong>，每个元素按function返回结果构成新数组</li>
+<li><strong>filter</strong>，返回所有符合条件的元素构成的新数组</li>
+<li><strong>forEach</strong>，单独执行每个元素，无返回</li>
+</ul>
+<p>各函数执行时需要传入function作为参数，每次执行会传入value和index<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2017/03/10afd6ef/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: 'Javascript数组的every、some、map、filter、forEach', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2017/03/1768cee0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2017/03/1768cee0/" itemprop="url">ECMAScript6笔记（1）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T00:54:57+08:00">
+                2017-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">阮老师的《ECMAScript6入门》</a></p>
+<h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><p>声明块级作用域变量<br>let用在花括号{ }里面<br>在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined</p>
+<h4 id="class"><a href="#class" class="headerlink" title="class"></a>class</h4><p>更接近传统OOP的写法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"cat"</span>;</span><br><span class="line">        <span class="keyword">this</span>.color = <span class="string">"black"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YellowCat</span> <span class="keyword">extends</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>()&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.color = <span class="string">'yellow'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2017/03/1768cee0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: 'ECMAScript6笔记（1）', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2016/01/ebd5f440/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2016/01/ebd5f440/" itemprop="url">带上跑鞋去旅行，我在巴厘岛跑了半马</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-07T15:42:47+08:00">
+                2016-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="/images/2015/06/IMG_0343_1.jpg" alt="飞机上拍到的火烧云"><br>(飞机上拍到的火烧云）</p>
+<p>自从当爹之后，睡眠严重不足，脑子不好使，越来越健忘，一直以为巴厘岛之行回程是5月9日下午抵达香港机场，大连国际马拉松也是9日，想着回深圳后还能跑个半马，于是在5月3日报了大连线上马拉松半程组。</p>
+<p>直到出行前一天，也就是5日，才发现是10日回程，不过幸运的是9日是自由活动日，想着还有机会完成，于是乎一场带跑鞋的旅途就开始了！</p>
+<p>虽然只有半程21公里，但还是很怕跑不完，因为已经整整15个月没跑步了，2013年底骑车摔了脚踝，没伤到骨，但是伤了韧带，加上滑膜炎，没办法放弃了13年底的珠海半马，放弃了14年初的香港渣打马拉松，养伤3个月后，走路骑车都无大碍，唯独跑步一落脚就疼，跑步有个说法，半月不跑武功减半，我这15个月，不止武功尽失，简直就是挑断脚筋吖，欣慰的是每天骑车上下班，想着跑10公里走10公里，总能在关门前完成吧（半程马拉松关门时间一般为3小时）<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2016/01/ebd5f440/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '带上跑鞋去旅行，我在巴厘岛跑了半马', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2015/05/3f917936/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2015/05/3f917936/" itemprop="url">我为什么骑车上班，你为什么不？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-03T15:37:06+08:00">
+                2015-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="/images/2015/06/111.jpg" alt=""></p>
+<p>写在前面的后序：<br>在柴静的《穹顶之下》出来后，就有想写点东西，呼吁大家注意环保，呼吁少开车，后来跟同事的聊天慢慢发现这很难改变什么，开车的依旧选择开车，住的近的也依然不会骑车，第一步总是难以迈开，不想做的事总会给自己千万个理由</p>
+<p>我为什么骑车？</p>
+<ol>
+<li>酷</li>
+<li>省钱</li>
+<li>怕塞车</li>
+<li>不用等车</li>
+<li>无须挤公交
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2015/05/3f917936/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '我为什么骑车上班，你为什么不？', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2013/03/aea23e72/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2013/03/aea23e72/" itemprop="url">Capture和Bubble，简明解读addEventListener的第三个参数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-03-13T22:42:42+08:00">
+                2013-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>target.addEventListener(type, listener[, useCapture]);</strong></p>
+<p>前两个参数很好理解，这里不多说，第三个参数是个布尔值，代表Capture和Bubble<br>网上解释很多，啰哩啰嗦的，这里用一段代码来解读<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid red"</span> <span class="attr">id</span>=<span class="string">"aa"</span>&gt;</span>aaaa</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid yellow"</span> <span class="attr">id</span>=<span class="string">"bb"</span>&gt;</span>bbbb</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid blue"</span> <span class="attr">id</span>=<span class="string">"cc"</span>&gt;</span>cccc</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border:1px solid green"</span> <span class="attr">id</span>=<span class="string">"dd"</span>&gt;</span>dddd<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        var dom = document.getElementsByTagName("div");</span></span><br><span class="line"><span class="undefined">        for(var i =0; i&lt;dom.length; i++)&#123;</span></span><br><span class="line"><span class="undefined">            dom[i].addEventListener("click",function(evt)&#123;</span></span><br><span class="line"><span class="undefined">                console.log(this.id);</span></span><br><span class="line"><span class="undefined">            &#125;,false);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2013/03/aea23e72/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: 'Capture和Bubble，简明解读addEventListener的第三个参数', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2013/01/1f8fa459/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2013/01/1f8fa459/" itemprop="url">如何开会？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-01-23T23:19:42+08:00">
+                2013-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>如何开会，是个很泛的话题，开会是沟通的一种，通常来说，开会分2种，1是传达信息，2是决策</p>
+<h4 id="会前准备"><a href="#会前准备" class="headerlink" title="会前准备"></a>会前准备</h4><ul>
+<li>为什么开会，这是最重要的，没意义的会不开</li>
+<li>准备方案，不管技术文档还是演示PPT，这些是写给参与者看的，尽量简单明了</li>
+<li>确定时间和场地，包括会议设备的准备（投影仪、电话会议等）</li>
+<li>确定和通知参加者（包括发送相关文档），参与者分为【必到】和【可选】，这样不是很紧要的人员可以省下时间忙其它事</li>
+<li>会议前的通知，这点很重要，往往就是有人忘了，导致会议开始了人没齐，结果就为了等一两人浪费了一屋子人的时间
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2013/01/1f8fa459/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '如何开会？', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/a843a5b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2012/11/a843a5b0/" itemprop="url">海南蜜月行，Day6，三亚！三亚！</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-21T23:29:27+08:00">
+                2012-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/images/2013/03/day6.jpg"><img src="/images/2013/03/day6.jpg" alt="day6"></a></p>
+<p>11月16日，Day 6，英州镇 - 三亚，61km，累计爬坡1679米 <a href="http://www.endomondo.com/workouts/113650569/581133" target="_blank" rel="noopener">GPS轨迹</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2012/11/a843a5b0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '海南蜜月行，Day6，三亚！三亚！', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/fdd2d6f2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2012/11/fdd2d6f2/" itemprop="url">海南蜜月行，Day5，翻越陵水之巅</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-15T19:57:55+08:00">
+                2012-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/images/2013/03/day5.jpg"><img src="/images/2013/03/day5.jpg" alt="day5"></a></p>
+<p>11月15日，Day 5，万宁市 - 凌水县 - 英州镇，93km，累计爬坡2848米</p>
+<p><a href="http://www.endomondo.com/workouts/113648933/581133" target="_blank" rel="noopener">GPS轨迹</a></p>
+<p>骑行的第四天，想起此时KK和包子正在三亚沙滩喝红酒，起了个早，昨晚问过酒店的老板，说到陵水有很长很陡的上坡，你们骑过不去的，我笑了，老板你吓唬谁呢，陵水的山，顶多就200米，比深圳塘朗山矮多了</p>
+<p>9点出发时，昨晚偶遇的那对兄弟车友早已走了，在路边吃了早餐，猪脚饭和粉，完全没胃口啊，想起昨晚所谓的鱼汤，满嘴都是腥味，海南人都是吃鱼长大的，不是吃米饭呀，习惯了呀，而且空气中还有鱼腥味，习惯了呀<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2012/11/fdd2d6f2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '海南蜜月行，Day5，翻越陵水之巅', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/d75db985/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2012/11/d75db985/" itemprop="url">海南蜜月行，Day4，两人世界</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-14T18:33:55+08:00">
+                2012-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/images/2013/02/day4.jpg"><img src="/images/2013/02/day4.jpg" alt="day4"></a></p>
+<p>11月14日，Day 4，琼海 - 万宁，79km，累计爬坡2096米</p>
+<p><a href="http://www.endomondo.com/workouts/113648399/581133" target="_blank" rel="noopener">GPS轨迹</a></p>
+<p>鉴于包包童鞋亲戚来访，决定KK陪包子直接坐车去三亚，而我跟媳妇骑车去，也就是说今天开始，就是我们两的世界了，蜜月行正式开始<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2012/11/d75db985/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '海南蜜月行，Day4，两人世界', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2012/11/dde62480/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2012/11/dde62480/" itemprop="url">海南蜜月行，Day3，没有海的琼海</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-13T22:34:22+08:00">
+                2012-11-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/images/2013/01/day3.jpg"><img src="/images/2013/01/day3.jpg" alt="day3"></a></p>
+<p>11月13日，大致坡 - 文昌 - 琼海，93.78km，累计爬坡1589米</p>
+<p><a href="http://www.endomondo.com/workouts/113647836/581133" target="_blank" rel="noopener">GPS轨迹</a></p>
+<p>从抵达海南已经超过30小时了，可是仍未看到海，虽然我们4人都是看过各地方的海，但海南的海还是有那么点好奇</p>
+<p>今天本来是要到博鳌的，但是由于昨天的耽误，今天目的地改为琼海，一早起来吃了早点，海南当地特色的河粉米粉，一碗6元，可惜热气大太多烟，照糊了<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2012/11/dde62480/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '海南蜜月行，Day3，没有海的琼海', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="../2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span><a class="page-number" href="../4/">4</a><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><a class="page-number" href="../7/">7</a><a class="page-number" href="../8/">8</a><span class="space">&hellip;</span><a class="page-number" href="../40/">40</a><a class="extend next" rel="next" href="../4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="../../images/avatar.gif"
+               alt="猫大叔" />
+          <p class="site-author-name" itemprop="name">猫大叔</p>
+           
+              <p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../archives/">
+                <span class="site-state-item-count">398</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="../../categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../tags/index.html">
+                <span class="site-state-item-count">360</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="../../atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/think2cat" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2003 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猫大叔</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
     var isfetched = false;
     var isXml = true;
     // Search DB path;
@@ -311,4 +2568,39 @@
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

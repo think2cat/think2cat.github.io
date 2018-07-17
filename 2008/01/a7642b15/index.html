@@ -1,4 +1,478 @@
-<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="../../../lib/pace/pace.min.js?v=1.0.2"></script><link href="../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css"><meta name="keywords" content="笔记,cvs,svn,管理,软件工程,"><link rel="alternate" href="../../../atom.xml" title="猫大叔" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico?v=5.1.2"><meta name="description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧&amp;nbsp;SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM目录一、版本管理基础&amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍&amp;nbsp;&amp;nbsp;&amp;"><meta name="keywords" content="笔记,cvs,svn,管理,软件工程"><meta property="og:type" content="article"><meta property="og:title" content="SVN学习笔记"><meta property="og:url" content="http://21ido.com/2008/01/a7642b15/index.html"><meta property="og:site_name" content="猫大叔"><meta property="og:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧&amp;nbsp;SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM目录一、版本管理基础&amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍&amp;nbsp;&amp;nbsp;&amp;"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="http://21ido.com/images/loading.gif"><meta property="og:image" content="http://21ido.com/images/loading.gif"><meta property="og:image" content="http://21ido.com/images/loading.gif"><meta property="og:updated_time" content="2018-07-13T03:55:52.214Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="SVN学习笔记"><meta name="twitter:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧&amp;nbsp;SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM目录一、版本管理基础&amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍&amp;nbsp;&amp;nbsp;&amp;"><meta name="twitter:image" content="http://21ido.com/images/loading.gif"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",sidebar:{position:"left",display:"post",offset:12,offset_float:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:!0,duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://21ido.com/2008/01/a7642b15/"><title>SVN学习笔记 | 猫大叔</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-1162524-4","auto"),ga("send","pageview")</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"><a href="https://github.com/think2cat"><img style="position:absolute;top:0;right:0;border:0" src="/images/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">猫大叔</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">关注前端，热爱生活</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="http://21ido.com"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="猫大叔"><meta itemprop="description" content=""><meta itemprop="image" content="../../../images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="猫大叔"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">SVN学习笔记</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-01-08T19:21:39+08:00">2008-01-08 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="../../../categories/IT/" itemprop="url" rel="index"><span itemprop="name">IT</span></a></span></span></div></header><div class="post-body" itemprop="articleBody"><p>之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。</p><p>半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧</p><p>&nbsp;</p><h2 id="SVN学习笔记"><a href="#SVN学习笔记" class="headerlink" title="SVN学习笔记"></a>SVN学习笔记</h2><p><span class="Title"></span>创建于：2007年7月25日</p><p>最后更新： 2007年8月3日 3:59 PM</p><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>一、版本管理基础</p><p>&nbsp;&nbsp;&nbsp; 1.版本控制介绍</p><p>&nbsp;&nbsp;&nbsp; 2.常用软件</p><p>二、Subversion基础</p><p>&nbsp;&nbsp;&nbsp; 1.发展历史</p><p>&nbsp;&nbsp;&nbsp; 2.特性</p><p>&nbsp;&nbsp;&nbsp; 3.安装</p><p>&nbsp;&nbsp;&nbsp; 4.组成</p><p>&nbsp;&nbsp;&nbsp; 5.配置</p><p>三、基本操作</p><p>&nbsp;&nbsp;&nbsp; 1.检出Check Out</p><p>&nbsp;&nbsp;&nbsp; 2.提交Commit</p><p>&nbsp;&nbsp;&nbsp; 3.解决冲突</p><p>&nbsp;&nbsp;&nbsp; 4.标签Tag</p><p>四、分支与合并</p><p>&nbsp;&nbsp;&nbsp; 1.版本库的概念</p><p>&nbsp;&nbsp;&nbsp; 2.什么是分支？</p><p>&nbsp;&nbsp;&nbsp; 3.使用分支</p><p>五、进阶</p><p>&nbsp;&nbsp;&nbsp; 1.以后台服务方式启动</p><p>&nbsp;&nbsp;&nbsp; 2.从CVS转换到SVN</p><p>六、附录</p><p>&nbsp;&nbsp;&nbsp; A. 参考资源</p><p>&nbsp;&nbsp;&nbsp; B. 相关资源</p><p>&nbsp;</p><h3 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="一、版本管理基础"><a href="#一、版本管理基础" class="headerlink" title="一、版本管理基础"></a>一、版本管理基础</h3><h4 id="1-版本控制介绍"><a href="#1-版本控制介绍" class="headerlink" title="1. 版本控制介绍"></a>1. 版本控制介绍</h4><p>在多人协作开发软件的时候，经常出现员工A的代码被员工B覆盖，或者今天做了小修改明天却发现需要把代码改回去，版本控制正是为此而诞生的，它是软件开发团队高效协作的重要管理工具。</p><p>简单来说，版本控制服务器是一个特殊的文件服务器，不仅控制用户对文件的读取、写入等操作，更记录了每一次修改的内容。</p><h4 id="2-常用软件"><a href="#2-常用软件" class="headerlink" title="2. 常用软件"></a>2. 常用软件</h4><p>A. <strong>Microsoft Visual SourceSafe</strong>，2005新特征</p><ol><li>通过 HTTP 进行远程 Web 访问2. 增强的性能和可伸缩性3. 增加的容量，数据存储增至 4 GB4. 区域性时区和语言B. <strong>CVS</strong>，开源的</li></ol><p>C. <strong>Clearcase</strong>，IBM开发的企业级管理软件</p><p>D. 其它的还有<strong>PVCS</strong>、<strong>MKS</strong>和企业级的<strong>CCC Harvest</strong></p><h3 id="nbsp-1"><a href="#nbsp-1" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="二、Subversion基础"><a href="#二、Subversion基础" class="headerlink" title="二、Subversion基础"></a>二、Subversion基础</h3><h4 id="1-发展历史"><a href="#1-发展历史" class="headerlink" title="1. 发展历史"></a>1. 发展历史</h4><p>Subversion是在CVS基础发展而来的，2000年的时候，CollabNet公司的协作软件采用CVS作为版本控制系统，因为CVS本身一些局限性，从而需要一个代替品，然后邀请了Karl Fogel（Open Source Development with CVS）参与开发，14个月后，2001年8月31日，新的版本管理系统Subversion诞生，开始不再用CVS进行版本管理，而使用自己管理自己了。</p><h4 id="2-特性"><a href="#2-特性" class="headerlink" title="2. 特性"></a>2. 特性</h4><ul><li><p><strong>目录版本化</strong></p><pre><code>CVS只能管理单个文件的更改，而Subversion可以跟踪到目录树的变更*   **真实的版本历史**
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="../../../lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,cvs,svn,管理,软件工程," />
+
+
+
+
+
+  <link rel="alternate" href="../../../atom.xml" title="猫大叔" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
+<meta name="keywords" content="笔记,cvs,svn,管理,软件工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVN学习笔记">
+<meta property="og:url" content="http://21ido.com/2008/01/a7642b15/index.html">
+<meta property="og:site_name" content="猫大叔">
+<meta property="og:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://21ido.com/images/2008/01/08_12782.jpg">
+<meta property="og:image" content="http://21ido.com/blog/upload/2008/1/200801081933002252.jpg">
+<meta property="og:image" content="http://21ido.com/blog/upload/2008/1/200801081933044758.jpg">
+<meta property="og:updated_time" content="2018-07-13T03:55:52.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVN学习笔记">
+<meta name="twitter:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
+<meta name="twitter:image" content="http://21ido.com/images/2008/01/08_12782.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://21ido.com/2008/01/a7642b15/"/>
+
+
+
+
+
+  <title>SVN学习笔记 | 猫大叔</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1162524-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband">
+      <a href="https://github.com/think2cat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猫大叔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">关注前端，热爱生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SVN学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-01-08T19:21:39+08:00">
+                2008-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../../categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。</p>
+<p>半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧</p>
+<p>&nbsp;</p>
+<h2 id="SVN学习笔记"><a href="#SVN学习笔记" class="headerlink" title="SVN学习笔记"></a>SVN学习笔记</h2><p><span class="Title"></span>创建于：2007年7月25日</p>
+<p>最后更新： 2007年8月3日 3:59 PM</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>一、版本管理基础</p>
+<p>&nbsp;&nbsp;&nbsp; 1.版本控制介绍</p>
+<p>&nbsp;&nbsp;&nbsp; 2.常用软件</p>
+<p>二、Subversion基础</p>
+<p>&nbsp;&nbsp;&nbsp; 1.发展历史</p>
+<p>&nbsp;&nbsp;&nbsp; 2.特性</p>
+<p>&nbsp;&nbsp;&nbsp; 3.安装</p>
+<p>&nbsp;&nbsp;&nbsp; 4.组成</p>
+<p>&nbsp;&nbsp;&nbsp; 5.配置</p>
+<p>三、基本操作</p>
+<p>&nbsp;&nbsp;&nbsp; 1.检出Check Out </p>
+<p>&nbsp;&nbsp;&nbsp; 2.提交Commit </p>
+<p>&nbsp;&nbsp;&nbsp; 3.解决冲突</p>
+<p>&nbsp;&nbsp;&nbsp; 4.标签Tag </p>
+<p>四、分支与合并</p>
+<p>&nbsp;&nbsp;&nbsp; 1.版本库的概念</p>
+<p>&nbsp;&nbsp;&nbsp; 2.什么是分支？</p>
+<p>&nbsp;&nbsp;&nbsp; 3.使用分支</p>
+<p>五、进阶</p>
+<p>&nbsp;&nbsp;&nbsp; 1.以后台服务方式启动</p>
+<p>&nbsp;&nbsp;&nbsp; 2.从CVS转换到SVN </p>
+<p>六、附录</p>
+<p>&nbsp;&nbsp;&nbsp; A. 参考资源</p>
+<p>&nbsp;&nbsp;&nbsp; B. 相关资源</p>
+<p>&nbsp;</p>
+<h3 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="一、版本管理基础"><a href="#一、版本管理基础" class="headerlink" title="一、版本管理基础"></a>一、版本管理基础</h3><h4 id="1-版本控制介绍"><a href="#1-版本控制介绍" class="headerlink" title="1. 版本控制介绍"></a>1. 版本控制介绍</h4><p>在多人协作开发软件的时候，经常出现员工A的代码被员工B覆盖，或者今天做了小修改明天却发现需要把代码改回去，版本控制正是为此而诞生的，它是软件开发团队高效协作的重要管理工具。</p>
+<p>简单来说，版本控制服务器是一个特殊的文件服务器，不仅控制用户对文件的读取、写入等操作，更记录了每一次修改的内容。</p>
+<h4 id="2-常用软件"><a href="#2-常用软件" class="headerlink" title="2. 常用软件"></a>2. 常用软件</h4><p>A. <strong>Microsoft Visual SourceSafe</strong>，2005新特征</p>
+<ol>
+<li>通过 HTTP 进行远程 Web 访问2.  增强的性能和可伸缩性3.  增加的容量，数据存储增至 4 GB4.  区域性时区和语言B. <strong>CVS</strong>，开源的</li>
+</ol>
+<p>C. <strong>Clearcase</strong>，IBM开发的企业级管理软件</p>
+<p>D. 其它的还有<strong>PVCS</strong>、<strong>MKS</strong>和企业级的<strong>CCC Harvest</strong></p>
+<h3 id="nbsp-1"><a href="#nbsp-1" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="二、Subversion基础"><a href="#二、Subversion基础" class="headerlink" title="二、Subversion基础"></a>二、Subversion基础</h3><h4 id="1-发展历史"><a href="#1-发展历史" class="headerlink" title="1. 发展历史"></a>1. 发展历史</h4><p>Subversion是在CVS基础发展而来的，2000年的时候，CollabNet公司的协作软件采用CVS作为版本控制系统，因为CVS本身一些局限性，从而需要一个代替品，然后邀请了Karl Fogel（Open Source Development with CVS）参与开发，14个月后，2001年8月31日，新的版本管理系统Subversion诞生，开始不再用CVS进行版本管理，而使用自己管理自己了。</p>
+<h4 id="2-特性"><a href="#2-特性" class="headerlink" title="2. 特性"></a>2. 特性</h4><ul>
+<li><p><strong>目录版本化</strong></p>
+<pre><code>CVS只能管理单个文件的更改，而Subversion可以跟踪到目录树的变更*   **真实的版本历史**
 
 CVS无法实现文件移动改名操作，所以但一个文件搬到另一个地方或者改名，版本号将重新编，而Subversion可以实现移动、改名等操作*   **原子提交**
 
@@ -21,7 +495,17 @@ Unix用户可以在版本控制里置入对象链接，这个链接会在Unix的
 Subversion所有的命令行客户端输出的内容都经过精心的设计，适合人们读取和自动解析；脚本化也具备较高的优先级。*   **本地化信息**
 
 Subversion会根据本地设置使用gettext()来显示传输错误、报告和帮助信息。
-</code></pre></li></ul><h4 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h4><p>Subversion建立在APR（Apache Portable Runtime library）可移植层上，APR是独立运行的库，所以Subversion可以运行在所有运行Apache的服务器平台上（Windows、Lunix、BSD、MacOSX、Netware&hellip;&hellip;等等）。</p><p>Subversion官网提供了各种操作系统的相应版本，可以从以下地址获得最新版本，目前最新是1.4.4，<a href="http://subversion.tigris.org/project_packages.html" target="_blank" rel="noopener">http://subversion.tigris.org/project_packages.html</a></p><p>针对Windows系统，提供了GUI界面的安装包，安装时只需一路Next下去即可</p><p>这里使用的SVN客户端是TortoiseSVN-1.4.4，将SVN完全整合到资源浏览器，使用非常方便，而且是完全免费的，从官方下载 <a href="http://tortoisesvn.net/" target="_blank" rel="noopener">http://tortoisesvn.net/</a></p><p>注意有32位和64位不同版本，官方网站同时提供了各种语言版下载，其中包括可爱的简体中文。</p><p>安装过程也非常简单，一路Next下去就可，安装后会提示重启电脑，重启只是为了在资源管理器显示特有图标，不重启也是可以正常使用的。</p><h4 id="4-组成"><a href="#4-组成" class="headerlink" title="4. 组成"></a>4. 组成</h4><ul><li><p><font color="#0000ff">**Svn</font></p><pre><code>**&lt;/font&gt;命令行客户端。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnversion&lt;/font&gt;**
+</code></pre></li>
+</ul>
+<h4 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h4><p>Subversion建立在APR（Apache Portable Runtime library）可移植层上，APR是独立运行的库，所以Subversion可以运行在所有运行Apache的服务器平台上（Windows、Lunix、BSD、MacOSX、Netware&hellip;&hellip;等等）。</p>
+<p>Subversion官网提供了各种操作系统的相应版本，可以从以下地址获得最新版本，目前最新是1.4.4，<a href="http://subversion.tigris.org/project_packages.html" target="_blank" rel="noopener">http://subversion.tigris.org/project_packages.html</a></p>
+<p>针对Windows系统，提供了GUI界面的安装包，安装时只需一路Next下去即可</p>
+<p>这里使用的SVN客户端是TortoiseSVN-1.4.4，将SVN完全整合到资源浏览器，使用非常方便，而且是完全免费的，从官方下载 <a href="http://tortoisesvn.net/" target="_blank" rel="noopener">http://tortoisesvn.net/</a></p>
+<p>注意有32位和64位不同版本，官方网站同时提供了各种语言版下载，其中包括可爱的简体中文。</p>
+<p>安装过程也非常简单，一路Next下去就可，安装后会提示重启电脑，重启只是为了在资源管理器显示特有图标，不重启也是可以正常使用的。</p>
+<h4 id="4-组成"><a href="#4-组成" class="headerlink" title="4. 组成"></a>4. 组成</h4><ul>
+<li><p><font color="#0000ff">**Svn</font></p>
+<pre><code>**&lt;/font&gt;命令行客户端。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnversion&lt;/font&gt;**
 
 报告工作拷贝状态（当前修订版本的项目）的工具。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnlook&lt;/font&gt;**
 
@@ -34,7 +518,67 @@ Subversion会根据本地设置使用gettext()来显示传输错误、报告和�
 Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*   **&lt;font color=&quot;#0000ff&quot;&gt;svnserve&lt;/font&gt;**
 
 一种单独运行的服务器，可以作为守护进程由SSH调用，另一种让版本库在网络上可见的方式。
-</code></pre></li></ul><h4 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h4><h5 id="1-建立版本库（Repository）"><a href="#1-建立版本库（Repository）" class="headerlink" title="1) 建立版本库（Repository）"></a>1) 建立版本库（Repository）</h5><blockquote><p>在CMD命令行模式下，运行</p><p>svnadmin create f:\svn\test</p><p>即可在 F:\svn目录下建立一个名称为test的版本库</p><p>也可以使用TortoiseSVN图形化的完成这一步：</p><p>在目录F:\svn\下新建一文件夹test，然后右击test，选<strong>TortoiseSVN &gt;&gt; Create Repository here…</strong>， 然后可以选择版本库模式， 这里使用默认即可， 然后就创建了一系列目录和文件。&lt;/<br>p&gt;</p><p><font color="#ff0000">运行命令行之前Test目录必须是空的或者尚未有此目录。</font></p><p>不推荐把版本库创建在网络共享上，如果非要这样做，请使用FSFS格式，而不要用BDB格式！</p></blockquote><h5 id="2-配置用户和权限"><a href="#2-配置用户和权限" class="headerlink" title="2) 配置用户和权限"></a>2) 配置用户和权限</h5><blockquote><p>用记事本打开新建的test\conf目录下面的svnserve.conf</p><p><strong><font style="BACKGROUND-COLOR:silver"># password-db = passwd</font></strong></p><p>去掉前面# 号，即改为</p><p><strong><font style="BACKGROUND-COLOR:silver">password-db = passwd</font></strong></p><p>表示用密码文件进行权限管理，对应文件名为同目录下的passwd文件</p><p>保存，接着再用记事本打开同目录下面passwd文件</p><p>**<font style="BACKGROUND-COLOR:silver"># harry = harryssecret</font></p><h1 id="sally-sallyssecret"><a href="#sally-sallyssecret" class="headerlink" title="sally = sallyssecret**"></a>sally = sallyssecret**</h1><p>同样去掉#号，改为</p><p>**<font style="BACKGROUND-COLOR:silver">harry = harryssecret</font></p><p>sally = sallyssecret**</p><p>这里表示2个用户，其中harry表示登录用户名，harryssecret表示密码，你可以自己修改</p><p>在svnserve.conf文件打开<strong><font style="BACKGROUND-COLOR:silver"># auth-access = write</font></strong>表示匿名用户可写数据，这不推荐！</p></blockquote><h5 id="3-运行独立服务器"><a href="#3-运行独立服务器" class="headerlink" title="3) 运行独立服务器"></a>3) 运行独立服务器</h5><blockquote><p>在命令行窗口输入</p><p>svnserve -d -r f:\svn</p></blockquote><h5 id="4-初始化导入"><a href="#4-初始化导入" class="headerlink" title="4) 初始化导入"></a>4) 初始化导入</h5><blockquote><p>在要引入的工程文件夹右击，选<strong>TortoiseSVN &gt;&gt; Import…</strong></p><p>URL of repository输入&ldquo;svn://localhost/test&rdquo;，点【OK】之后会提示输入用户名密码，按照前面设置的输入即可，如果没报错，就可以看到文件哗啦哗啦的导进版本库了。</p><font color="#ff0000">注意这里是在本机操作，所以地址输入svn://localhost/test，如果是远程提交的话，要换成相应IP地址，例如svn://222.111.26.26/test</font></blockquote><h3 id="nbsp-2"><a href="#nbsp-2" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="三、基本操作"><a href="#三、基本操作" class="headerlink" title="三、基本操作"></a>三、基本操作</h3><h4 id="1-检出-Check-Out"><a href="#1-检出-Check-Out" class="headerlink" title="1. 检出 Check Out"></a>1. 检出 Check Out</h4><p>在开始干活前，你必须得到一个最新的工作副本，在资源管理器右击空白处，选 <strong>TortoiseSVN &gt;&gt; checkout</strong></p><p>输入目录名后点OK，如果输入的目录名是不存在的，程序会自动创建。</p><p><img src="/images/loading.gif" data-original="/images/2008/01/08_12782.jpg" alt="svn"></p><h4 id="2-提交-Commit"><a href="#2-提交-Commit" class="headerlink" title="2. 提交 Commit"></a>2. 提交 Commit</h4><p>当完成一个或若干个文件的修改后，选中要提交的文件或文件夹，右击选<strong> TortoiseSVN &gt;&gt; Commit</strong></p><p>输入备注信息后点OK就可以了，为了方便日后查看，备注信息请尽量写详细。</p><p><img src="/images/loading.gif" data-original="/blog/upload/2008/1/200801081933002252.jpg" alt="svn"></p><font color="#ff0000">有时不清楚具体修改了哪些文件，或者新增了哪些文件，又或者要提交的文件太多了，可以直接右击文件夹进行提交，TortoiseSVN将把需要提交的文件清单列出来，进行选择后再提交即可</font><h4 id="3-解决冲突"><a href="#3-解决冲突" class="headerlink" title="3. 解决冲突"></a>3. 解决冲突</h4><p>&nbsp;</p><h4 id="4-标签-Tag"><a href="#4-标签-Tag" class="headerlink" title="4. 标签 Tag"></a>4. 标签 Tag</h4><h3 id="nbsp-3"><a href="#nbsp-3" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="四、分支与合并"><a href="#四、分支与合并" class="headerlink" title="四、分支与合并"></a>四、分支与合并</h3><h4 id="1-版本库的概念"><a href="#1-版本库的概念" class="headerlink" title="1. 版本库的概念"></a>1. 版本库的概念</h4><p><strong>Subversion没有项目的概念，只有版本库。</strong></p><p><img src="/images/loading.gif" data-original="/blog/upload/2008/1/200801081933044758.jpg" alt="svn"></p><p>版本库记录了每一次修改内容，通过版本库，可以很方便的回朔到某个以前的版本，可以很容易的查看上月某天的某人改了什么东西。</p><p>版本号初始值为0，每次成功提交后递增1，Subversion的版本号是针对整个目录树的，而不是单个文件</p><h4 id="2-什么是分支？"><a href="#2-什么是分支？" class="headerlink" title="2. 什么是分支？"></a>2. 什么是分支？</h4><p>例如重庆上的算命网站代码，加入了SVN版本管理，现在新疆也要上算命业务，页面代码上基本是相同的，只有在某些接口存在差异，这时就需要新建一个分支，来对2个网站代码进行管理。</p><p>又例如IBS后台在进行升级改造，这可能需要比较长的时间，而同时又需要对平时出现的一些问题修修补补，最佳方案就是建立分支，让升级和日常维护分开来，虽然这样在升级结束后代码的合并会有些难度，但至少可以保证在升级过程中的代码不会跟日常维护的修改造成混乱。</p><p><strong><font color="#ff0000">分支跟版本库的差别？</font></strong></p><p>分支跟版本库本来就是不同的东西，不过估计有人看了上面那段话后会问，建立分支是不是等于把版本库重新拷贝一份，所以有了下面的思考</p><ol><li>版本库是重新复制整个文件夹，而分支用了类似Unix下硬链接的技术，只是在已存在的目录树多建一个入口，而不是全盘复制，所以不管是在磁盘空间、消耗时间付出的代价都是非常小的。2. 分支之间是相互联系的，可以把某一分支的修改合并到另一分支去，例如某天出了一个SuperSVN的东西，于是有人把本文档建立分支进行修改，于是就有SVN和SuperSVN两个分支了，改着改着发现有段话写错了，这样2个分支就都可能存在这种错误了，如果是2个版本库的话，你就要改2次了，而如果是分支，你可以把一个分支的修改合并到另一分支去，这就是分支的相互联系3. 新建版本库，意味着新的权限关系，当然，你也可以把配置文件复制一份到新的版本库4. 维护带来的问题？</li></ol><h4 id="3-使用分支"><a href="#3-使用分支" class="headerlink" title="3. 使用分支"></a>3. 使用分支</h4><h5 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1) 创建分支"></a>1) 创建分支</h5><blockquote><p>选择要创建分支的文件或文件夹，右击选TortoiseSVN &gt;&gt; Branch/Tag，在 To Url输入分支新路径</p></blockquote><h5 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2) 查看分支"></a>2) 查看分支</h5><h3 id="nbsp-4"><a href="#nbsp-4" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="五、进阶"><a href="#五、进阶" class="headerlink" title="五、进阶"></a>五、进阶</h3><h4 id="1-以后台服务方式启动"><a href="#1-以后台服务方式启动" class="headerlink" title="1. 以后台服务方式启动"></a>1. 以后台服务方式启动</h4><h4 id="2-从CVS转换到SVN"><a href="#2-从CVS转换到SVN" class="headerlink" title="2. 从CVS转换到SVN"></a>2. 从CVS转换到SVN</h4><p><strong>本节引用《cvs2svn 把CVS档案库转换为SVN档案库》，作者yasakya</strong></p><p>cvs2svn工具是用来把CVS档案库转换为SVN档案库的。</p><ol><li><p><strong>安装</strong></p><pre><code>*   **python2.4**
+</code></pre></li>
+</ul>
+<h4 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h4><h5 id="1-建立版本库（Repository）"><a href="#1-建立版本库（Repository）" class="headerlink" title="1) 建立版本库（Repository）"></a>1) 建立版本库（Repository）</h5><blockquote>
+<p>在CMD命令行模式下，运行</p>
+<p>svnadmin create f:\svn\test</p>
+<p>即可在 F:\svn目录下建立一个名称为test的版本库</p>
+<p>也可以使用TortoiseSVN图形化的完成这一步：</p>
+<p>在目录F:\svn\下新建一文件夹test，然后右击test，选<strong>TortoiseSVN &gt;&gt; Create Repository here…</strong>， 然后可以选择版本库模式， 这里使用默认即可， 然后就创建了一系列目录和文件。&lt;/<br>p&gt;</p><p><font color="#ff0000">运行命令行之前Test目录必须是空的或者尚未有此目录。</font></p>
+<p>不推荐把版本库创建在网络共享上，如果非要这样做，请使用FSFS格式，而不要用BDB格式！</p>
+</blockquote>
+<h5 id="2-配置用户和权限"><a href="#2-配置用户和权限" class="headerlink" title="2) 配置用户和权限"></a>2) 配置用户和权限</h5><blockquote>
+<p>用记事本打开新建的test\conf目录下面的svnserve.conf </p>
+<p><strong><font style="BACKGROUND-COLOR: #c0c0c0"># password-db = passwd</font></strong></p>
+<p>去掉前面# 号，即改为</p>
+<p><strong><font style="BACKGROUND-COLOR: #c0c0c0">password-db = passwd</font></strong></p>
+<p>表示用密码文件进行权限管理，对应文件名为同目录下的passwd文件</p>
+<p>保存，接着再用记事本打开同目录下面passwd文件</p>
+<p>**<font style="BACKGROUND-COLOR: #c0c0c0"># harry = harryssecret</font></p>
+<h1 id="sally-sallyssecret"><a href="#sally-sallyssecret" class="headerlink" title="sally = sallyssecret**"></a>sally = sallyssecret**</h1><p>同样去掉#号，改为</p>
+<p>**<font style="BACKGROUND-COLOR: #c0c0c0">harry = harryssecret</font></p>
+<p>sally = sallyssecret**</p>
+<p>这里表示2个用户，其中harry表示登录用户名，harryssecret表示密码，你可以自己修改</p>
+<p>在svnserve.conf文件打开<strong><font style="BACKGROUND-COLOR: #c0c0c0"># auth-access = write</font></strong>表示匿名用户可写数据，这不推荐！</p>
+</blockquote>
+<h5 id="3-运行独立服务器"><a href="#3-运行独立服务器" class="headerlink" title="3) 运行独立服务器"></a>3) 运行独立服务器</h5><blockquote>
+<p>在命令行窗口输入</p>
+<p>svnserve -d -r f:\svn</p>
+</blockquote>
+<h5 id="4-初始化导入"><a href="#4-初始化导入" class="headerlink" title="4) 初始化导入"></a>4) 初始化导入</h5><blockquote>
+<p>在要引入的工程文件夹右击，选<strong>TortoiseSVN &gt;&gt; Import…</strong></p>
+<p>URL of repository输入&ldquo;svn://localhost/test&rdquo;，点【OK】之后会提示输入用户名密码，按照前面设置的输入即可，如果没报错，就可以看到文件哗啦哗啦的导进版本库了。</p>
+<font color="#ff0000">注意这里是在本机操作，所以地址输入svn://localhost/test，如果是远程提交的话，要换成相应IP地址，例如svn://222.111.26.26/test</font>
+</blockquote>
+<h3 id="nbsp-2"><a href="#nbsp-2" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="三、基本操作"><a href="#三、基本操作" class="headerlink" title="三、基本操作"></a>三、基本操作</h3><h4 id="1-检出-Check-Out"><a href="#1-检出-Check-Out" class="headerlink" title="1. 检出 Check Out"></a>1. 检出 Check Out</h4><p>在开始干活前，你必须得到一个最新的工作副本，在资源管理器右击空白处，选 <strong>TortoiseSVN &gt;&gt; checkout</strong></p>
+<p>输入目录名后点OK，如果输入的目录名是不存在的，程序会自动创建。</p>
+<p><img src="/images/2008/01/08_12782.jpg" alt="svn"></p>
+<h4 id="2-提交-Commit"><a href="#2-提交-Commit" class="headerlink" title="2. 提交 Commit"></a>2. 提交 Commit</h4><p>当完成一个或若干个文件的修改后，选中要提交的文件或文件夹，右击选<strong> TortoiseSVN &gt;&gt; Commit</strong></p>
+<p>输入备注信息后点OK就可以了，为了方便日后查看，备注信息请尽量写详细。</p>
+<p><img src="/blog/upload/2008/1/200801081933002252.jpg" alt="svn"></p>
+<font color="#ff0000">有时不清楚具体修改了哪些文件，或者新增了哪些文件，又或者要提交的文件太多了，可以直接右击文件夹进行提交，TortoiseSVN将把需要提交的文件清单列出来，进行选择后再提交即可</font>
+
+<h4 id="3-解决冲突"><a href="#3-解决冲突" class="headerlink" title="3. 解决冲突"></a>3. 解决冲突</h4><p>&nbsp;</p>
+<h4 id="4-标签-Tag"><a href="#4-标签-Tag" class="headerlink" title="4. 标签 Tag"></a>4. 标签 Tag</h4><h3 id="nbsp-3"><a href="#nbsp-3" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="四、分支与合并"><a href="#四、分支与合并" class="headerlink" title="四、分支与合并"></a>四、分支与合并</h3><h4 id="1-版本库的概念"><a href="#1-版本库的概念" class="headerlink" title="1. 版本库的概念"></a>1. 版本库的概念</h4><p><strong>Subversion没有项目的概念，只有版本库。</strong></p>
+<p><img src="/blog/upload/2008/1/200801081933044758.jpg" alt="svn"></p>
+<p>版本库记录了每一次修改内容，通过版本库，可以很方便的回朔到某个以前的版本，可以很容易的查看上月某天的某人改了什么东西。</p>
+<p>版本号初始值为0，每次成功提交后递增1，Subversion的版本号是针对整个目录树的，而不是单个文件</p>
+<h4 id="2-什么是分支？"><a href="#2-什么是分支？" class="headerlink" title="2. 什么是分支？"></a>2. 什么是分支？</h4><p>例如重庆上的算命网站代码，加入了SVN版本管理，现在新疆也要上算命业务，页面代码上基本是相同的，只有在某些接口存在差异，这时就需要新建一个分支，来对2个网站代码进行管理。</p>
+<p>又例如IBS后台在进行升级改造，这可能需要比较长的时间，而同时又需要对平时出现的一些问题修修补补，最佳方案就是建立分支，让升级和日常维护分开来，虽然这样在升级结束后代码的合并会有些难度，但至少可以保证在升级过程中的代码不会跟日常维护的修改造成混乱。</p>
+<p><strong><font color="#ff0000">分支跟版本库的差别？</font></strong></p>
+<p>分支跟版本库本来就是不同的东西，不过估计有人看了上面那段话后会问，建立分支是不是等于把版本库重新拷贝一份，所以有了下面的思考</p>
+<ol>
+<li>版本库是重新复制整个文件夹，而分支用了类似Unix下硬链接的技术，只是在已存在的目录树多建一个入口，而不是全盘复制，所以不管是在磁盘空间、消耗时间付出的代价都是非常小的。2.  分支之间是相互联系的，可以把某一分支的修改合并到另一分支去，例如某天出了一个SuperSVN的东西，于是有人把本文档建立分支进行修改，于是就有SVN和SuperSVN两个分支了，改着改着发现有段话写错了，这样2个分支就都可能存在这种错误了，如果是2个版本库的话，你就要改2次了，而如果是分支，你可以把一个分支的修改合并到另一分支去，这就是分支的相互联系3.  新建版本库，意味着新的权限关系，当然，你也可以把配置文件复制一份到新的版本库4.  维护带来的问题？</li>
+</ol>
+<h4 id="3-使用分支"><a href="#3-使用分支" class="headerlink" title="3. 使用分支"></a>3. 使用分支</h4><h5 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1) 创建分支"></a>1) 创建分支</h5><blockquote>
+<p>选择要创建分支的文件或文件夹，右击选TortoiseSVN &gt;&gt; Branch/Tag，在 To Url输入分支新路径</p>
+</blockquote>
+<h5 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2) 查看分支"></a>2) 查看分支</h5><h3 id="nbsp-4"><a href="#nbsp-4" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="五、进阶"><a href="#五、进阶" class="headerlink" title="五、进阶"></a>五、进阶</h3><h4 id="1-以后台服务方式启动"><a href="#1-以后台服务方式启动" class="headerlink" title="1. 以后台服务方式启动"></a>1. 以后台服务方式启动</h4><h4 id="2-从CVS转换到SVN"><a href="#2-从CVS转换到SVN" class="headerlink" title="2. 从CVS转换到SVN"></a>2. 从CVS转换到SVN</h4><p><strong>本节引用《cvs2svn 把CVS档案库转换为SVN档案库》，作者yasakya</strong></p>
+<p>cvs2svn工具是用来把CVS档案库转换为SVN档案库的。</p>
+<ol>
+<li><p><strong>安装</strong></p>
+<pre><code>*   **python2.4**
 
         [http://www.python.org/download/](http://www.python.org/download/)
 
@@ -51,10 +595,47 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
         [http://www.cs.purdue.edu/homes/trinkle/RCS/](http://www.cs.purdue.edu/homes/trinkle/RCS/)
 
         说明：需要用到RCS的一个工具co.exe，下载rcs57pc1.zip，把该压缩包中的bin/win32下的rcslib.dll以及co.exe这两个文件同样解压到cvs2svn目录中。2.  **使用cvs2svn把CVS档案库转换为SVN档案库**&gt; 接下来我们开始转换资源库，输入以下命令
-</code></pre><blockquote><p>C:\Python\python cvs2svn &ndash;s d:\svn\repository\project1 \project1</p><p>其中我们假设project1是原有CVS资源库中的一个项目。</p><p>下面是在我的机器上转换完毕后cvs2svn显示详细的统计信息：</p><p>cvs2svn Statistics:</p><hr><p>Total CVS Files: 7</p><p>Total CVS Revisions: 7</p><p>Total Unique Tags: 0</p><p>Total Unique Branches: 0</p><p>CVS Repos Size in KB: 2261</p><p>Total SVN Commits: 2</p><p>First Revision Date: Sat Sep 03 15:05:26 2005</p><p>Last Revision Date: Sat Sep 03 15:05:27 2005</p><hr><p>Timings:</p><hr><p>pass 1: 0 seconds</p><p>pass 2: 0 seconds</p><p>pass 3: 0 seconds</p><p>pass 4: 0 seconds</p><p>pass 5: 0 seconds</p><p>pass 6: 0 seconds</p><p>pass 7: 0 seconds</p><p>pass 8: 1 second</p><p>total: 3 seconds</p><p>转换完毕后我们用浏览器打开 <a href="http://localhost/svn/project1" target="_blank" rel="noopener">http://localhost/svn/project1</a> 即可看到SVN仓库</p><font color="#ff0000">注意如果要用 –encode=gb2312，必须使用python2.4以上版本</font></blockquote></li></ol><h3 id="nbsp-5"><a href="#nbsp-5" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h3><h4 id="A-参考资源"><a href="#A-参考资源" class="headerlink" title="A. 参考资源"></a>A. 参考资源</h4><ul><li><p><strong>《Subversion特性》</strong></p><pre><code>[http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9](http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9)*   **《使用Subversion进行版本控制》中文版***   **《TortoiseSVN帮助手册中文版 1.5版》***   **《把CVS档案库转换为SVN档案库》**
+</code></pre><blockquote>
+<p>C:\Python\python cvs2svn &ndash;s d:\svn\repository\project1 \project1</p>
+<p>其中我们假设project1是原有CVS资源库中的一个项目。</p>
+<p>下面是在我的机器上转换完毕后cvs2svn显示详细的统计信息：</p>
+<p>cvs2svn Statistics:</p>
+<hr>
+<p>Total CVS Files: 7</p>
+<p>Total CVS Revisions: 7</p>
+<p>Total Unique Tags: 0</p>
+<p>Total Unique Branches: 0</p>
+<p>CVS Repos Size in KB: 2261</p>
+<p>Total SVN Commits: 2</p>
+<p>First Revision Date: Sat Sep 03 15:05:26 2005</p>
+<p>Last Revision Date: Sat Sep 03 15:05:27 2005</p>
+<hr>
+<p>Timings:</p>
+<hr>
+<p>pass 1: 0 seconds</p>
+<p>pass 2: 0 seconds</p>
+<p>pass 3: 0 seconds</p>
+<p>pass 4: 0 seconds</p>
+<p>pass 5: 0 seconds</p>
+<p>pass 6: 0 seconds</p>
+<p>pass 7: 0 seconds</p>
+<p>pass 8: 1 second</p>
+<p>total: 3 seconds</p>
+<p>转换完毕后我们用浏览器打开 <a href="http://localhost/svn/project1" target="_blank" rel="noopener">http://localhost/svn/project1</a> 即可看到SVN仓库</p>
+<font color="#ff0000">注意如果要用 –encode=gb2312，必须使用python2.4以上版本</font>
+</blockquote>
+</li>
+</ol>
+<h3 id="nbsp-5"><a href="#nbsp-5" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h3><h4 id="A-参考资源"><a href="#A-参考资源" class="headerlink" title="A. 参考资源"></a>A. 参考资源</h4><ul>
+<li><p><strong>《Subversion特性》</strong></p>
+<pre><code>[http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9](http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9)*   **《使用Subversion进行版本控制》中文版***   **《TortoiseSVN帮助手册中文版 1.5版》***   **《把CVS档案库转换为SVN档案库》**
 
 [http://www.iusesvn.com/bbs/viewthread.php?tid=245](http://www.iusesvn.com/bbs/viewthread.php?tid=245)
-</code></pre></li></ul><h4 id="B-相关资源"><a href="#B-相关资源" class="headerlink" title="B. 相关资源"></a>B. 相关资源</h4><ul><li><p><strong>Subversion</strong></p><pre><code>[http://subversion.tigris.org/](http://subversion.tigris.org/)*   **TortoiseSVN**
+</code></pre></li>
+</ul>
+<h4 id="B-相关资源"><a href="#B-相关资源" class="headerlink" title="B. 相关资源"></a>B. 相关资源</h4><ul>
+<li><p><strong>Subversion</strong></p>
+<pre><code>[http://subversion.tigris.org/](http://subversion.tigris.org/)*   **TortoiseSVN**
 
 [http://www.tortoisesvn.net](http://www.tortoisesvn.net)*   **SVNmanager**
 
@@ -65,7 +646,434 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
 一个开源的SVN客户端
 
 [http://code.google.com/p/easysvn/](http://code.google.com/p/easysvn/)
-</code></pre></li></ul><div class="post-tags"><a href="../../../tags/笔记/" rel="tag"># 笔记</a> <a href="../../../tags/cvs/" rel="tag"># cvs</a> <a href="../../../tags/svn/" rel="tag"># svn</a> <a href="../../../tags/管理/" rel="tag"># 管理</a> <a href="../../../tags/软件工程/" rel="tag"># 软件工程</a></div></div><h3>相关文章推荐</h3><ul class="related-posts"><li class="related-posts-item"><a href="/2006/03/a4c7a9f0/" title="mFancy手机动画学习笔记" rel="bookmark">mFancy手机动画学习笔记</a></li><li class="related-posts-item"><a href="/2008/09/aed8f2da/" title="《ActionScript 3殿堂之路》学习笔记(1)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2008/02/4ea5ad13/" title="QBQ的思考" rel="bookmark">QBQ的思考</a></li><li class="related-posts-item"><a href="/2008/04/e5b237f1/" title="《SQL Server 2000存储过程与XML编程》学习笔记" rel="bookmark">《SQL Server 2000存储过程与XML编程》学习笔记</a></li><li class="related-posts-item"><a href="/2006/10/c4d720b9/" title="《XUL指南》第一章：引言" rel="bookmark">《XUL指南》第一章：引言</a></li><li class="related-posts-item"><a href="/2008/09/85f5a119/" title="《ActionScript 3殿堂之路》学习笔记(2)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(2)</a></li><li class="related-posts-item"><a href="/2006/03/fc4b2fc/" title="Windows 2003 安装摘要" rel="bookmark">Windows 2003 安装摘要</a></li></ul><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>如果觉得我的文章对您有用，可否请我喝杯速溶咖啡</div><button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'><span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"><img id="wechat_qr" src="/images/wechatpay.jpg" alt="微信扫码"><p>微信扫码</p></div></div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong> 猫大叔</li><li class="post-copyright-link"><strong>本文链接：</strong> <a href="http://21ido.com/2008/01/a7642b15/" title="SVN学习笔记">http://21ido.com/2008/01/a7642b15/</a></li><li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="../ea156cfe/" rel="next" title="12月30日排牙山,美丽的刷牙之行"><i class="fa fa-chevron-left"></i> 12月30日排牙山,美丽的刷牙之行</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="../12e2b870/" rel="prev" title="1月13日 南山海雅刷街到西沥水库">1月13日 南山海雅刷街到西沥水库 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview">站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="../../../images/avatar.gif" alt="猫大叔"><p class="site-author-name" itemprop="name">猫大叔</p><p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="../../../archives/"><span class="site-state-item-count">398</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="../../../categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="../../../tags/index.html"><span class="site-state-item-count">360</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="../../../atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/think2cat" target="_blank" title="github"><i class="fa fa-fw fa-globe"></i> github</a></span></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN学习笔记"><span class="nav-number">1.</span> <span class="nav-text">SVN学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp"><span class="nav-number">1.2.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、版本管理基础"><span class="nav-number">1.3.</span> <span class="nav-text">一、版本管理基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本控制介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 版本控制介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用软件"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 常用软件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-1"><span class="nav-number">1.4.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Subversion基础"><span class="nav-number">1.5.</span> <span class="nav-text">二、Subversion基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-发展历史"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 发展历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-特性"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-组成"><span class="nav-number">1.5.4.</span> <span class="nav-text">4. 组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置"><span class="nav-number">1.5.5.</span> <span class="nav-text">5. 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-建立版本库（Repository）"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">1) 建立版本库（Repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置用户和权限"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">2) 配置用户和权限</span></a></li></ol></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#sally-sallyssecret"><span class="nav-number"></span> <span class="nav-text">sally = sallyssecret**</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运行独立服务器"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">3) 运行独立服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-初始化导入"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">4) 初始化导入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-2"><span class="nav-number">0.1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基本操作"><span class="nav-number">0.2.</span> <span class="nav-text">三、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-检出-Check-Out"><span class="nav-number">0.2.1.</span> <span class="nav-text">1. 检出 Check Out</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-提交-Commit"><span class="nav-number">0.2.2.</span> <span class="nav-text">2. 提交 Commit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-解决冲突"><span class="nav-number">0.2.3.</span> <span class="nav-text">3. 解决冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-标签-Tag"><span class="nav-number">0.2.4.</span> <span class="nav-text">4. 标签 Tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-3"><span class="nav-number">0.3.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、分支与合并"><span class="nav-number">0.4.</span> <span class="nav-text">四、分支与合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本库的概念"><span class="nav-number">0.4.1.</span> <span class="nav-text">1. 版本库的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-什么是分支？"><span class="nav-number">0.4.2.</span> <span class="nav-text">2. 什么是分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用分支"><span class="nav-number">0.4.3.</span> <span class="nav-text">3. 使用分支</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建分支"><span class="nav-number">0.4.3.1.</span> <span class="nav-text">1) 创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-查看分支"><span class="nav-number">0.4.3.2.</span> <span class="nav-text">2) 查看分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-4"><span class="nav-number">0.5.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、进阶"><span class="nav-number">0.6.</span> <span class="nav-text">五、进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-以后台服务方式启动"><span class="nav-number">0.6.1.</span> <span class="nav-text">1. 以后台服务方式启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-从CVS转换到SVN"><span class="nav-number">0.6.2.</span> <span class="nav-text">2. 从CVS转换到SVN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-5"><span class="nav-number">0.7.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、附录"><span class="nav-number">0.8.</span> <span class="nav-text">六、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-参考资源"><span class="nav-number">0.8.1.</span> <span class="nav-text">A. 参考资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-相关资源"><span class="nav-number">0.8.2.</span> <span class="nav-text">B. 相关资源</span></a></li></ol></li></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2003 - <span itemprop="copyrightYear">2018</span> <span class="with-love"><i class="fa fa-"></i> </span><span class="author" itemprop="copyrightHolder">猫大叔</span></div><div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info">主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="../../../lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="../../../lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="../../../js/src/utils.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/motion.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/scrollspy.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/post-details.js?v=5.1.2"></script><script type="text/javascript" src="../../../js/src/bootstrap.js?v=5.1.2"></script><script type="text/javascript">// Popup Window;
+</code></pre></li>
+</ul>
+
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../../tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="../../../tags/cvs/" rel="tag"># cvs</a>
+          
+            <a href="../../../tags/svn/" rel="tag"># svn</a>
+          
+            <a href="../../../tags/管理/" rel="tag"># 管理</a>
+          
+            <a href="../../../tags/软件工程/" rel="tag"># 软件工程</a>
+          
+        </div>
+
+        <h3>相关文章推荐</h3>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2006/03/a4c7a9f0/" title="mFancy手机动画学习笔记" rel="bookmark">mFancy手机动画学习笔记</a></li><li class="related-posts-item"><a href="/2008/09/aed8f2da/" title="《ActionScript 3殿堂之路》学习笔记(1)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2008/02/4ea5ad13/" title="QBQ的思考" rel="bookmark">QBQ的思考</a></li><li class="related-posts-item"><a href="/2008/04/e5b237f1/" title="《SQL Server 2000存储过程与XML编程》学习笔记" rel="bookmark">《SQL Server 2000存储过程与XML编程》学习笔记</a></li><li class="related-posts-item"><a href="/2006/10/c4d720b9/" title="《XUL指南》第一章：引言" rel="bookmark">《XUL指南》第一章：引言</a></li><li class="related-posts-item"><a href="/2008/09/85f5a119/" title="《ActionScript 3殿堂之路》学习笔记(2)" rel="bookmark">《ActionScript 3殿堂之路》学习笔记(2)</a></li><li class="related-posts-item"><a href="/2006/03/fc4b2fc/" title="Windows 2003 安装摘要" rel="bookmark">Windows 2003 安装摘要</a></li></ul>
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果觉得我的文章对您有用，可否请我喝杯速溶咖啡</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="微信扫码"/>
+        <p>微信扫码</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    猫大叔
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://21ido.com/2008/01/a7642b15/" title="SVN学习笔记">http://21ido.com/2008/01/a7642b15/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: 'SVN学习笔记', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../ea156cfe/" rel="next" title="12月30日排牙山,美丽的刷牙之行">
+                <i class="fa fa-chevron-left"></i> 12月30日排牙山,美丽的刷牙之行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="../12e2b870/" rel="prev" title="1月13日 南山海雅刷街到西沥水库">
+                1月13日 南山海雅刷街到西沥水库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="../../../images/avatar.gif"
+               alt="猫大叔" />
+          <p class="site-author-name" itemprop="name">猫大叔</p>
+           
+              <p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../../archives/">
+                <span class="site-state-item-count">398</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="../../../categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../../tags/index.html">
+                <span class="site-state-item-count">360</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="../../../atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/think2cat" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN学习笔记"><span class="nav-number">1.</span> <span class="nav-text">SVN学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp"><span class="nav-number">1.2.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、版本管理基础"><span class="nav-number">1.3.</span> <span class="nav-text">一、版本管理基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本控制介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 版本控制介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用软件"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 常用软件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-1"><span class="nav-number">1.4.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Subversion基础"><span class="nav-number">1.5.</span> <span class="nav-text">二、Subversion基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-发展历史"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 发展历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-特性"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-组成"><span class="nav-number">1.5.4.</span> <span class="nav-text">4. 组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置"><span class="nav-number">1.5.5.</span> <span class="nav-text">5. 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-建立版本库（Repository）"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">1) 建立版本库（Repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置用户和权限"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">2) 配置用户和权限</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sally-sallyssecret"><span class="nav-number"></span> <span class="nav-text">sally = sallyssecret**</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运行独立服务器"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">3) 运行独立服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-初始化导入"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">4) 初始化导入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-2"><span class="nav-number">0.1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基本操作"><span class="nav-number">0.2.</span> <span class="nav-text">三、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-检出-Check-Out"><span class="nav-number">0.2.1.</span> <span class="nav-text">1. 检出 Check Out</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-提交-Commit"><span class="nav-number">0.2.2.</span> <span class="nav-text">2. 提交 Commit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-解决冲突"><span class="nav-number">0.2.3.</span> <span class="nav-text">3. 解决冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-标签-Tag"><span class="nav-number">0.2.4.</span> <span class="nav-text">4. 标签 Tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-3"><span class="nav-number">0.3.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、分支与合并"><span class="nav-number">0.4.</span> <span class="nav-text">四、分支与合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本库的概念"><span class="nav-number">0.4.1.</span> <span class="nav-text">1. 版本库的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-什么是分支？"><span class="nav-number">0.4.2.</span> <span class="nav-text">2. 什么是分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用分支"><span class="nav-number">0.4.3.</span> <span class="nav-text">3. 使用分支</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建分支"><span class="nav-number">0.4.3.1.</span> <span class="nav-text">1) 创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-查看分支"><span class="nav-number">0.4.3.2.</span> <span class="nav-text">2) 查看分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-4"><span class="nav-number">0.5.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、进阶"><span class="nav-number">0.6.</span> <span class="nav-text">五、进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-以后台服务方式启动"><span class="nav-number">0.6.1.</span> <span class="nav-text">1. 以后台服务方式启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-从CVS转换到SVN"><span class="nav-number">0.6.2.</span> <span class="nav-text">2. 从CVS转换到SVN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-5"><span class="nav-number">0.7.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、附录"><span class="nav-number">0.8.</span> <span class="nav-text">六、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-参考资源"><span class="nav-number">0.8.1.</span> <span class="nav-text">A. 参考资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-相关资源"><span class="nav-number">0.8.2.</span> <span class="nav-text">B. 相关资源</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2003 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猫大叔</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="../../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../../js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
     var isfetched = false;
     var isXml = true;
     // Search DB path;
@@ -378,4 +1386,39 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

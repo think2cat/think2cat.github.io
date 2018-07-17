@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="../../lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript, nodejs, typescript, web" />
+
+
+
+
+
+  <link rel="alternate" href="../../atom.xml" title="猫大叔" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="不想做鼓励师的前端狗不是好的程序猿">
+<meta property="og:type" content="website">
+<meta property="og:title" content="猫大叔">
+<meta property="og:url" content="http://21ido.com/page/23/index.html">
+<meta property="og:site_name" content="猫大叔">
+<meta property="og:description" content="不想做鼓励师的前端狗不是好的程序猿">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="猫大叔">
+<meta name="twitter:description" content="不想做鼓励师的前端狗不是好的程序猿">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://21ido.com/page/23/"/>
+
+
+
+
+
+  <title>猫大叔</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1162524-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband">
+      <a href="https://github.com/think2cat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">猫大叔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">关注前端，热爱生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/09/4e5cc4a2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/09/4e5cc4a2/" itemprop="url">8月29日·荔香公园</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-09-06T00:27:17+08:00">
+                2007-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月29日晚上<br>地点：荔香公园<br>人物：安安、猫、飘飘、风、零点、KK</p>
+<p>认识了一个11岁的小孩，学不到一年，但很强<br>安安撞到了2个欧巴桑，还把KK撞到了，批评一下</p>
+<p><img src="/images/2007/09/06_001735_7710.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_001754_7711.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_001801_7712.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_001818_7713.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_001833_7714.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_001911_7715.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002009_7716.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002030_7717.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002046_7718.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002101_7719.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002111_7720.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002123_7721.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002150_7722.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002226_7723.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002247_7724.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002322_7725.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002338_7726.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002353_7727.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002432_7728.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002507_7729.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002531_7730.jpg" alt=""></p>
+<p><img src="/images/2007/09/06_002635_7731.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月29日·荔香公园', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/5f49aac6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/5f49aac6/" itemprop="url">8月28日晚上刷街到深大</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-29T01:11:53+08:00">
+                2007-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月28日 晚上<br>地点：深大石头坞</p>
+<p>人物：安安、猫、吖牛、棒棒糖、虫子、杰仔、璐璐、summer、风、零点、蝌蚪、贝贝、飘飘、杨扬、小贤、游鱼。。。。。。太多了，30来人，好多还不知道名字</p>
+<p>老路线，从白石洲刷到深大</p>
+<p>人太多了，好多不认识不好意思照，有些又不配合，没照片的就不好意思了</p>
+<p>总结？不想写了，队伍大了，不好带了</p>
+<p><img src="/images/2007/08/29_005236_7676.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005249_7677.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005259_7678.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005328_7679.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005346_7680.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005400_7681.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005408_7682.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005418_7683.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005428_7684.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005436_7685.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005457_7686.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005520_7687.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005532_7688.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005539_7689.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005546_7690.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005555_7691.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005605_7692.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005613_7693.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005626_7694.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005636_7695.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005745_7696.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005758_7697.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005810_7698.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005818_7699.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010819_7700.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010844_7701.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010856_7702.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010906_7703.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_011040_7704.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_005850_7705.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010318_7706.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010324_7707.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_010802_7708.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_011348_7709.jpg" alt=""></p>
+<p>八卦一下，又有人开始走私了哦</p>
+<p><img src="/images/2007/08/29_092036_12970.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092112_12971.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092119_12972.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092125_12973.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092131_12974.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092139_12975.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092147_12976.jpg" alt=""></p>
+<p><img src="/images/2007/08/29_092156_12977.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月28日晚上刷街到深大', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/88ba040/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/88ba040/" itemprop="url">8月25日·华侨城 >> 宝安[刷街 + 腐败]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-26T15:32:38+08:00">
+                2007-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月25日 周六下午<br>人物：猫、Summer、安安、草草、叶子、唐烨、呏、云龙、呏的女友、蝌蚪、贝贝、飘飘</p>
+<p>本来是想从会展中心开刷的，可是福田下雨了，7人失望的从会展中心坐地铁到达华侨城，那里居然阳光灿烂，迫不及待穿上鞋子开刷，途中路过白石洲，呏的女友也加入，刷街好猛滴说<br>今天刷街很快，50分钟就到达宝安区交通局，会和贝贝、蝌蚪，然后去东北菜馆腐败一顿<br>不幸的是腐败的时候外面就下了大雨，没法去刷街<br>唐烨提出去大家乐溜冰场，然后吃完之后打了3辆的士过去，一直玩到十点多<br>回来途中路径宝安某个车站，看到门口场地不错，玩了会平花，啊哈哈，这群疯子</p>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="600" height="450"><param name="movie" value="http://www.56.com/n_v138_/c28_/18_/17_/ruller66_/zhajm_118818586966_/63000_/0_/17639588.swf"><param name="quality" value="high"><param name="play" value="true"><embed src="http://www.56.com/n_v138_/c28_/18_/17_/ruller66_/zhajm_118818586966_/63000_/0_/17639588.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="600" height="450" play="true"></object>
+
+<p>吃饭的时候，唐烨在讲丛飞的故事，他希望我们能参加一些义工团，做些有益社会的事<br>蝌蚪同志要点名批评下，人家很认真的在讲，她居然在旁边唱歌<br>要注意场合啊，该玩的时候玩，该严肃的时候就别嘻嘻哈哈的</p>
+<p><img src="/images/2007/08/26_145930_7611.jpg" alt=""><br>情侣装哈</p>
+<p><img src="/images/2007/08/26_145949_7612.jpg" alt=""><br>会展中心地铁，外面在下雨，大家很郁闷</p>
+<p><img src="/images/2007/08/26_150006_7613.jpg" alt=""><br>穿红金的唐哗</p>
+<p><img src="/images/2007/08/26_150015_7614.jpg" alt=""><br>美女summer，进步很快滴说</p>
+<p><img src="/images/2007/08/26_150136_7615.jpg" alt=""><br>到达华侨城，天气晴朗，换鞋ing</p>
+<p><img src="/images/2007/08/26_150220_7616.jpg" alt=""><br>红金！红金！</p>
+<p><img src="/images/2007/08/26_150229_7617.jpg" alt=""><br>呏穿了速滑紧身裤，当街脱裤子ing</p>
+<p><img src="/images/2007/08/26_150334_7618.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150403_7619.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150430_7620.jpg" alt=""><br>已到宝安区交通局，等蝌蚪ing</p>
+<p><img src="/images/2007/08/26_150456_7621.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150509_7622.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150519_7623.jpg" alt=""><br>招蜂引蝶的安安</p>
+<p><img src="/images/2007/08/26_150534_7624.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150558_7625.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150613_7626.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150640_7627.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150656_7628.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150708_7629.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150719_7630.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150909_7631.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150926_7632.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150933_7633.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_150947_7634.jpg" alt=""><br>虫子不在，某人心情低落</p>
+<p><img src="/images/2007/08/26_151032_7635.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151048_7636.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151120_7637.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151208_7638.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151219_7639.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151225_7640.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151236_7641.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151248_7642.jpg" alt=""><br>此图绝非PS！</p>
+<p><img src="/images/2007/08/26_151310_7643.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151329_7644.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151340_7645.jpg" alt=""><br>东北妹子，长得很灵气</p>
+<p><img src="/images/2007/08/26_151422_7646.jpg" alt=""><br>云龙也招蜂引蝶。。。</p>
+<p><img src="/images/2007/08/26_151510_7647.jpg" alt=""><br>猫去接飘飘了，大伙不敢先动筷子，哈哈</p>
+<p><img src="/images/2007/08/26_151609_7648.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151622_7649.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151645_7650.jpg" alt=""><br>“饿死我了~~~”</p>
+<p><img src="/images/2007/08/26_151718_7651.jpg" alt=""><br>某人依然情绪低落</p>
+<p><img src="/images/2007/08/26_151753_7652.jpg" alt=""><br>美女飘飘，四川妹子</p>
+<p><img src="/images/2007/08/26_151815_7653.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151823_7654.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151837_7655.jpg" alt=""><br>眼神好抚媚，在看安安么？</p>
+<p><img src="/images/2007/08/26_151905_7656.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_151926_7657.jpg" alt=""><br>叶子被调戏</p>
+<p><img src="/images/2007/08/26_151952_7658.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152016_7659.jpg" alt=""><br>见鬼了？</p>
+<p><img src="/images/2007/08/26_152050_7660.jpg" alt=""><br>小帅哥，唐烨的朋友</p>
+<p><img src="/images/2007/08/26_152150_7661.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152200_7662.jpg" alt=""><br>某人的脚毛，比较有特色</p>
+<p><img src="/images/2007/08/26_152220_7663.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152251_7664.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152324_7665.jpg" alt=""><br>再来张东北妹子的特写，眼睛很美滴说</p>
+<p><img src="/images/2007/08/26_152349_7666.jpg" alt=""><br>吃粒花生也用不着站起来吧？</p>
+<p><img src="/images/2007/08/26_152533_7667.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152553_7668.jpg" alt=""><br>飘飘的姿势好淑女滴说</p>
+<p><img src="/images/2007/08/26_152652_7669.jpg" alt=""><br>神的袜子</p>
+<p><img src="/images/2007/08/26_152712_7670.jpg" alt=""><br>贝贝表情好凶</p>
+<p><img src="/images/2007/08/26_152733_7671.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_152923_7672.jpg" alt=""><br>在客运站摆桩，啊哈哈</p>
+<p><img src="/images/2007/08/26_152950_7673.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153024_7674.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153042_7675.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153310_12962.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153318_12963.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153325_12964.jpg" alt=""><br>这是什么菜，为什么我没吃到<img src="/images/2007/08/26_em028_12965.gif" alt=""></p>
+<p><img src="/images/2007/08/26_153402_12966.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153411_12967.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153518_12968.jpg" alt=""></p>
+<p><img src="/images/2007/08/26_153544_12969.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月25日·华侨城 >> 宝安[刷街 + 腐败]', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/f9a9da6b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/f9a9da6b/" itemprop="url">8月22日晚上圆博园玩平花</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-23T00:47:44+08:00">
+                2007-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>时间：07年8月22日 周三晚上<br>地点：圆博园<br>人物：猫、安安、贝贝、叶子、天天、虫子、杨扬、草草、菜菜、蝌蚪、风、零点</p>
+<p>白石洲湾畔百货集合，先刷到华侨城，绕到侨香路，再刷到圆博园，玩到十点半然后刷回白石洲<br>本来要虫子请客的，太晚了，改天再宰他们吧<img src="/images/2007/08/23_em016_7586.gif" alt=""></p>
+<font color="red">虫子迟到了，等他请吃饭的时候要狠狠宰</font>
+
+<p>晚上回来整理照片才发现没给风、零点照相，菜菜、杨扬照得也很少，抱歉了，下次给你们多照点</p>
+<p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="600" height="450"><param name="movie" value="http://www.56.com/n_v138_/c28_/29_/1_/ruller66_/zhajm_118784735669_/615000_/0_/17375904.swf"><param name="quality" value="high"><param name="play" value="true"><embed src="http://www.56.com/n_v138_/c28_/29_/1_/ruller66_/zhajm_118784735669_/615000_/0_/17375904.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="600" height="450" play="true"></object><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2007/08/f9a9da6b/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月22日晚上圆博园玩平花', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/f4309e6d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/f4309e6d/" itemprop="url">8月21日周二晚刷街到圆博园</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-21T23:34:54+08:00">
+                2007-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>时间：8月21日 周二晚上<br>人物：猫、安安</p>
+<p>从白石洲湾畔出发，绕到华侨城后面的侨香路，然后去圆博园玩平花</p>
+<p>侨香路刷街很爽滴说</p>
+<p><img src="/images/2007/08/21_233027_7581.jpg" alt=""><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2007/08/f4309e6d/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月21日周二晚刷街到圆博园', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/3e0cb4b1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/3e0cb4b1/" itemprop="url">8月19日·滑行15公里，华强北 -->> 白石洲</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-20T00:40:36+08:00">
+                2007-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月19日 周日下午<br>人物：猫、安安、草草、菜菜、蝌蚪</p>
+<p>蝌蚪同志拿着一叠钞票去华强北买笔记本了，4个好同志做了一下午保镖，买完之后从华强北刷回来了，6:30从华强北中电大厦出发，8:30到白石洲，中间路过市民中心，在广场玩了二十分钟</p>
+<p>今天没相机照相，到白石洲之后几人在城市快餐吃晚饭，叶子、虫子、杨扬他们正巧打电话过来，才一起照了几张</p>
+<p>下午滑行距离大概15公里</p>
+<p>总结：<br>因为是安安中午突然打电话跟我说的，所以事先没通知，我只发短信给有留手机号给我的人，来不及参加的只能先抱歉了，下周六25日还有类似活动<br>菜菜下午不管技术或耐力，都有明显进步，表扬一下，再接再厉！<br>蝌蚪同志的砍价本领，无比佩服！<br>从最近几次活动来说，白石洲众位同志还是有比较强的时间观念，值得大家学习！<br><img src="/images/2007/08/20_003739_7567.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003748_7568.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003756_7569.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003802_7570.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003808_7571.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003814_7572.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003821_7573.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003841_7574.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003848_7575.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003857_7576.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003904_7577.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003911_7578.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003931_7579.jpg" alt=""></p>
+<p><img src="/images/2007/08/20_003937_7580.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月19日·滑行15公里，华强北 -->> 白石洲', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/dbc71447/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/dbc71447/" itemprop="url">8月18日周六晚宝安区活动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-20T00:20:31+08:00">
+                2007-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>时间：8月18日 周六晚<br>地点：宝安区某处 </p>
+<p>人物：猫、安安、风、零点、贝贝、叶子、泪、小蝌蚪、Summer、虫子、杨扬和女友？ </p>
+<p>本来是要去海滨新广场溜的，结果半路下雨了，猫-安安-泪-风-零点一行六人先坐车回家了，剩下的去搞腐败了 </p>
+<p>总结：没啥好总结的，就希望大家能守时，别每次都有人迟到 </p>
+<p><img src="/images/2007/08/20_000854_7524.jpg" alt=""><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2007/08/dbc71447/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月18日周六晚宝安区活动', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/1f5d4131/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/1f5d4131/" itemprop="url">8月7日晚上深大</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-08T10:06:15+08:00">
+                2007-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月7日晚上<br>地点：深大溜冰场<br>人物：猫、安安、叶子、泪、蝌蚪、sunny、风、小贤</p>
+<p><img src="/images/2007/08/08_100156_7508.jpg" alt=""><br>帅哥小贤</p>
+<p><img src="/images/2007/08/08_100209_7509.jpg" alt=""><br>sunny老师</p>
+<p><img src="/images/2007/08/08_100311_7510.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100318_7511.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100337_7512.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100346_7513.jpg" alt=""><br>又见猥亵的安安</p>
+<p><img src="/images/2007/08/08_100408_7514.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100417_7515.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100423_7516.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100431_7517.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100438_7518.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100449_7519.jpg" alt=""><br>莫非这就是传说中滴玛丽？</p>
+<p><img src="/images/2007/08/08_100517_7520.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100532_7521.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100539_7522.jpg" alt=""></p>
+<p><img src="/images/2007/08/08_100545_7523.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月7日晚上深大', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/de3a6fb5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/de3a6fb5/" itemprop="url">8月4日宝安海滨新广场</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-05T15:13:48+08:00">
+                2007-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>时间：8月4日<br>地点：宝安海滨新广场</p>
+<p>人物：猫、安安、草草、虫子、叶子、杨杨、杰仔、HipHop、贝贝、小蝌蚪、Summer、耗子</p>
+<p>猫跟安安、草草、虫子、叶子、杨杨、杰仔在科技园KFC碰面后，由叶子请吃KFC后刷往宝安，经过半小时后达到会合地点：宝安区交通局，<br>然后跟 HP、贝贝、蝌蚪和Summer一起刷往新广场<br>十点半离开新广场，去了湘菜馆腐败，之后刷回家</p>
+<p>总结：</p>
+<ul>
+<li>3日修改了活动安排，有些溜友没看到，导致没能参加。请有兴趣参加的多注意QQ群公告和论坛，通知都会贴在论坛，或者出现状况的时候打电话问下</li>
+<li>以后要参加活动的请直接在论坛回帖，说明在哪个集合点会合，不要大队不知你要来而没等你直接走，或者不确定还有谁要来而浪费时间等</li>
+<li>晚饭可能都没吃饱，而大量运动后，宵夜的时候，饭菜吃得精光，这点非常好！粒粒皆辛苦啊！</li>
+<li>没乱丢垃圾</li>
+</ul>
+<p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="600" height="450"><param name="movie" value="http://www.56.com/n_v48_/c21_/0_/3_/ruller66_/zhajm_1186297462_405_/1147000_/0_/16329180.swf"><param name="quality" value="high"><param name="play" value="true"><embed src="http://www.56.com/n_v48_/c21_/0_/3_/ruller66_/zhajm_1186297462_405_/1147000_/0_/16329180.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="600" height="450" play="true"></object><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2007/08/de3a6fb5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月4日宝安海滨新广场', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/08/65049c27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2007/08/65049c27/" itemprop="url">8月2日晚上深大</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-08-03T08:52:22+08:00">
+                2007-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时间：8月2日晚上<br>地点：深大溜冰场</p>
+<p>因为有事的有事，鸽子的鸽子，最后参加的只有猫、KK和鱼，所以时间改为7:30深大北门见</p>
+<p>刚好昨天下午反光带到了，昨晚KK和鱼最先戴上，真是又靓又亮</p>
+<p>深大放假了，现在学校空空的，刷街很爽滴说</p>
+<p>昨晚猫为了锻炼体力，每只脚绑了5kg的沙包，想参加月底长刷的同志可以参考参考，别到时刷不动或者跟不上了</p>
+<p><img src="/images/2007/08/03_084820_7493.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084841_7494.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084855_7495.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084908_7496.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084918_7497.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084925_7498.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084937_7499.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_084946_7500.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085003_7501.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085017_7502.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085027_7503.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085038_7504.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085043_7505.jpg" alt=""></p>
+<p><img src="/images/2007/08/03_085049_7506.jpg" alt=""></p>
+
+          
+        
+      
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+          <div id="container"></div>
+            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+            <script>
+            var gitment = new Gitment({
+              id: '8月2日晚上深大', // 可选。默认为 location.href
+              owner: 'think2cat',
+              repo: 'think2cat.github.io',
+              oauth: {
+                client_id: '7d663847dc0ef6026d5a',
+                client_secret: 'c80320d11cbc8edfdaca268d976fc996b0f410d9'
+              }
+            });
+            gitment.render('container');
+            </script>
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="../22/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../18/">18</a><a class="page-number" href="../19/">19</a><a class="page-number" href="../20/">20</a><a class="page-number" href="../21/">21</a><a class="page-number" href="../22/">22</a><span class="page-number current">23</span><a class="page-number" href="../24/">24</a><a class="page-number" href="../25/">25</a><a class="page-number" href="../26/">26</a><a class="page-number" href="../27/">27</a><a class="page-number" href="../28/">28</a><span class="space">&hellip;</span><a class="page-number" href="../40/">40</a><a class="extend next" rel="next" href="../24/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="../../images/avatar.gif"
+               alt="猫大叔" />
+          <p class="site-author-name" itemprop="name">猫大叔</p>
+           
+              <p class="site-description motion-element" itemprop="description">不想做鼓励师的前端狗不是好的程序猿</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="../../archives/">
+                <span class="site-state-item-count">398</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="../../categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="../../tags/index.html">
+                <span class="site-state-item-count">360</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="../../atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/think2cat" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2003 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猫大叔</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="../../lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="../../js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="../../js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="../../js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="../../js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="../../js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
