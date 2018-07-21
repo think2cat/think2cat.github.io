@@ -337,6 +337,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2008/02/da1c3810/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2008/02/da1c3810/" itemprop="url">zblog文章归档修改</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-02-18T17:26:12+08:00">
+                2008-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/blog/upload/200802181731042353.gif" alt=""></p>
+<p>默认是按月划分的，时间久了就一大堆，占空间也影响美观，改了一下，本想用中文，发现文字很难对齐（下图），只好用英文缩写，其实用阿拉伯数字是最漂亮的，对的最整齐</p>
+<p><img src="/blog/upload/200802181731114031.gif" alt=""></p>
+<p>修改后的效果看右侧【文章归档】</p>
+<p>以zblog 1.8(080201)为例，修改如下，打开 <span style="color: rgb(255,0,0)">function/c_system_event.asp</span>，搜索 <strong>Function BlogReBuild_Archives()</strong>，完整代码如下，需根据自己使用的样式对代码进行修改</p>
+<textarea class="vb:firstline[1092]" rows="10" cols="100" name="code">Function BlogReBuild_Archives()<br>    Dim firstTime,lastTime<br>    Dim sql,objRS,objStream<br>    sql = “SELECT [log_PostTime] FROM [blog_Article] WHERE ([log_Level]&gt;1) ORDER BY [log_PostTime]”<br>    Set objRS = Server.CreateObject(“adodb.recordset”)<br>    objRS.open sql,objConn,1,1<br>    If (Not objRS.bof) And (Not objRS.eof) Then<br>        firstTime = objRS(“log_PostTime”)<br>        objRS.movelast<br>        lastTime = objRS(“log_PostTime”)<br>    End if<br>    objRS.Close<br>    Set objRS=Nothing<br><br>    Dim i,j,strArchives<br>    For i = Year(lastTime) To Year(firstTime) step -1<br>        strArchives = strArchives &amp; “<li>&lt;span class=””year””&gt;” &amp; i &amp; “<br>“ &amp; vbCrlf<br>        For j = 1 To 12<br>            If i&gt;= Year(Now()) And j &gt; Month(Now()) Then Exit For<br>            If i = Year(firstTime) And  j &lt; Month(firstTime) Then j = Month(firstTime)<br><br>            Set objRS=objConn.Execute(“SELECT COUNT([log_ID]) FROM [blog_Article] WHERE ([log_Level]&gt;1) AND year(log_PostTime) = “ &amp; i &amp; “ and month(log_PostTime) = “ &amp; j)<br><br>            If (Not objRS.bof) And (Not objRS.eof) Then<br>                If objRS(0) &gt; 0 then<br><br>                    If ZC_MOONSOFT_PLUGIN_ENABLE=True Then<br>                        strArchives = strArchives &amp; “<a href="">“ &amp; Left(ZVA_Month(j),3) &amp; “.</a> “<br>                        Call BuildCategory(Empty,Empty,Empty,i &amp; “-“ &amp; j,Empty,ZC_DISPLAY_MODE_ALL,ZC_STATIC_DIRECTORY,i &amp; “_” &amp; j&amp; “.” &amp; ZC_STATIC_TYPE)<br>                    Else<br>                        strArchives = strArchives &amp; “<a href="">“ &amp; Left(ZVA_Month(j),3) &amp; “.</a> “<br>                    End If<br>                Else<br>                    strArchives = strArchives &amp; “<span>“ &amp; Left(ZVA_Month(j),3) &amp; “.</span> “<br>                End If<br>            End If<br><br>            objRS.Close<br>            Set objRS=Nothing<br>        next<br>        strArchives = strArchives &amp; “</li>“ &amp; vbCrlf<br>    Next<br><br>    strArchives=TransferHTML(strArchives,”[no-asp]”)<br><br>    Call SaveToFile(BlogPath &amp; “/include/archives.asp”,strArchives,”utf-8”,True)<br><br>    BlogReBuild_Archives=True<br><br>End Function</textarea>
+          
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/blog/" rel="tag"># blog</a>
+          
+            <a href="../../tags/asp/" rel="tag"># asp</a>
+          
+            <a href="../../tags/zblog/" rel="tag"># zblog</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2008/02/9fb2c44/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,13 +775,13 @@
       
         <div class="post-tags">
           
+            <a href="../../tags/xml/" rel="tag"># xml</a>
+          
             <a href="../../tags/asp/" rel="tag"># asp</a>
           
             <a href="../../tags/soap/" rel="tag"># soap</a>
           
             <a href="../../tags/wsdl/" rel="tag"># wsdl</a>
-          
-            <a href="../../tags/xml/" rel="tag"># xml</a>
           
         </div>
       
@@ -2079,171 +2240,6 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/12/a90154a6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2007/12/a90154a6/" itemprop="url">12月23日 周日南山刷华强北</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-12-24T13:07:28+08:00">
-                2007-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="600" height="450"><param name="movie" value="http://www.56.com/n_v162_/c35_/12_/18_/ruller66_/119849196550_/1252000_/0_/25845613.swf"><param name="quality" value="high"><param name="play" value="true"><embed src="http://www.56.com/n_v162_/c35_/12_/18_/ruller66_/119849196550_/1252000_/0_/25845613.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="600" height="450" play="true"></object> 
-
-<p><strong>时间标签</strong><br>0 捐衣服<br>2:30 科技园<br>7:10 侨城东?<br>12:20 特区报社 吃午餐<br>13:50 市民中心<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="../../2007/12/a90154a6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/刷街/" rel="tag"># 刷街</a>
-          
-            <a href="../../tags/轮滑/" rel="tag"># 轮滑</a>
-          
-            <a href="../../tags/世界之窗/" rel="tag"># 世界之窗</a>
-          
-            <a href="../../tags/华强北/" rel="tag"># 华强北</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2294,7 +2290,7 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">398</span>
+                <span class="site-state-item-count">399</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

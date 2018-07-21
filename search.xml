@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Promise入门指南(4)]]></title>
+    <url>%2F2018%2F07%2F2ab61b58%2F</url>
+    <content type="text"><![CDATA[Promise.all有一些场景，需要同时调用几个接口，拿到全部返回数据，才能接着往下调用以往遇到这种情况，需要设置一些临时变量来记录每个接口是否返回数据，每次返回时再判断是否数据已经齐全，再往下接着走而 all 方法就是为此而生的，接受参数为 Promise对象数组12345678910111213141516171819202122232425262728let pArr = [];pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p1 resolve"); resolve("resp1"); &#125;, 1000);&#125;))pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p2 resolve"); resolve("resp2"); &#125;, 5000);&#125;));pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p3 resolve"); resolve("resp3"); &#125;, 3000);&#125;));let p = Promise.all(pArr);p.then(resp =&gt; &#123; console.log("all is done, doing next");&#125;);// =&gt; p1 resolve// =&gt; p3 resolve// =&gt; p2 resolve// =&gt; all is done, doing next 而如果在Promise对象数组里，有任一个出现rejected状态，则会立即执行外层注册的rejecte回调，但是剩下未完成的Promise也依旧会继续执行，前面说过了Promise一旦开始，就会持续到状态变成fuil或rejected，并不受外界影响，也无法取消执行123456789101112131415161718192021222324252627282930let pArr = [];pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p1 resolve"); resolve("resp1"); &#125;, 1000);&#125;))pArr.push(new Promise((resolve, reject) =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p2 reject"); reject("resp2"); &#125;, 3000);&#125;));pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p3 resolve"); resolve("resp3"); &#125;, 5000);&#125;));let p = Promise.all(pArr);p.then(resp =&gt; &#123; console.log("all is done, doing next");&#125;,resp =&gt; &#123; console.log("reject!",resp);&#125;);// =&gt; p1 resolve// =&gt; p2 reject// =&gt; reject! resp2// =&gt; p3 resolve Promise.race通过 race 掺入的Promise对象数组，其中任何一个Promise的状态改变，则立即返回状态给外层回调如果最先完成的Promise是resolved，则调用外层 resolve， 反之如果是 rejected，则调用外层 rejecte回调 123456789101112131415161718192021222324252627282930let pArr = [];pArr.push(new Promise((resolve, reject) =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p1 reject"); reject("resp1"); &#125;, 1000);&#125;))pArr.push(new Promise((resolve, reject) =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p2 reject"); resolve("resp2"); &#125;, 3000);&#125;));pArr.push(new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; console.log("p3 resolve"); resolve("resp3"); &#125;, 5000);&#125;));let p = Promise.race(pArr);p.then(resp =&gt; &#123; console.log("resole!", resp);&#125;,resp =&gt; &#123; console.log("reject!", resp);&#125;);// =&gt; p1 reject// =&gt; reject! resp1// =&gt; p2 reject// =&gt; p3 resolve]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>promise</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Promise入门指南(3)]]></title>
     <url>%2F2018%2F07%2F65f78d9f%2F</url>
     <content type="text"><![CDATA[Promise是JavaScript异步编程解决方案，之一以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的api Promise/A+规范解决了回调函数的一些弊端，比如 代码书写逻辑 更改回调顺序的噩梦 多步回调的魔鬼嵌套 回调函数的跟踪 但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景 前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象 123456789var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,1000);&#125;);console.dir(p);console.dir(p.then((v) =&gt; &#123; return new Date().getTime();&#125;)); 分别打印2次执行返回的Promise对象，发现并不一样，第一个是 pending ，而第二个是 resolved 而且 PromiseValue 是 undefined其实这是因为Promise是异步执行，代码是先返回新的Promise对象，再执行异步处理，所以在打出第一个Promise对象那一刻确实是 pending 状态，而第二个打出的一刻其实也是 pending 状态，只是没有设置延迟，所以等我点开对象时已经变成 resolved如果分别延迟打印这2个返回的对象，应该都是 resolved ，测试一下这个猜想 12345678910111213var p = new Promise(resolve =&gt; &#123; setTimeout(() =&gt; &#123; resolve(new Date().getTime()); &#125;,1000);&#125;);setTimeout(() =&gt; &#123; console.dir(p);&#125;, 2000);setTimeout(() =&gt; &#123; console.dir(p.then((v) =&gt; &#123; return new Date().getTime() &#125;));&#125;, 3000); 在注册 resolved 和 rejected 函数时，函数体本身的return其实是Promise对象里的PromiseValue，可以由下级注册的回调函数所捕获如果需要在级联也保持异步回调 resolved 或 rejected，则需要返回一个Promise对象，而不是then生成的123456789101112131415161718var p1 = new Promise(resolve =&gt; &#123; console.log("exec 1", new Date().getSeconds()); setTimeout(() =&gt; &#123; console.log("resolve 1", new Date().getSeconds()); resolve(new Date().getTime()); &#125;,2000);&#125;);var p2 = p1.then((v) =&gt; &#123; console.log("rev", v, new Date().getSeconds()); return new Promise(resolve =&gt; &#123; console.log("exec 2", new Date().getSeconds()); setTimeout(() =&gt; &#123; console.log("resolve 2", new Date().getSeconds()); resolve(new Date().getTime()); &#125;,2000); &#125;)&#125;);console.log(p2, new Date().getSeconds());]]></content>
@@ -279,8 +291,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -367,8 +379,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>琼海</tag>
         <tag>万宁</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -385,8 +397,8 @@
         <tag>海南</tag>
         <tag>蜜月</tag>
         <tag>大致坡</tag>
-        <tag>文昌</tag>
         <tag>琼海</tag>
+        <tag>文昌</tag>
       </tags>
   </entry>
   <entry>
@@ -705,10 +717,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
-        <tag>151基地</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -721,9 +733,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -736,10 +748,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -753,8 +765,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -819,9 +831,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
-        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -889,11 +901,11 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>小摊</tag>
+        <tag>金鸡号</tag>
         <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
-        <tag>小摊</tag>
-        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -906,9 +918,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -921,8 +933,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>罗家渡</tag>
         <tag>露营</tag>
+        <tag>罗家渡</tag>
       </tags>
   </entry>
   <entry>
@@ -987,7 +999,7 @@
   <entry>
     <title><![CDATA[cntv.cn视频绝对地址分析]]></title>
     <url>%2F2010%2F01%2F64fe6205%2F</url>
-    <content type="text"><![CDATA[http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml 这是CCTV电影站一个播放页面地址，打开源码，找到播放器一段，flash player是由JS创建的12345678910111213141516171819var fo = createPlayer("v_player_cctv",928,552);fo.addVariable("videoId", "20091221100120");fo.addVariable("articleId", "VIDE0020091221100120");fo.addVariable("scheduleId", "C13671000001");fo.addVariable("filePath", "/love/lianaiqianguize/classpage/video/");fo.addVariable("sorts", "其他,,,爱情,C13671,CCTV-9");fo.addVariable("sysSource", "discovery");fo.addVariable("url", "http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml");fo.addVariable("videoCenterId","36b502b4ceeb4a6d950955b4bd9e93f8");//视频生产中心idfo.addVariable("channelId",channelId);//埋码fo.addVariable("adCall",adCall);//广告fo.addVariable("isLogin", "y");fo.addVariable("userId", "001");fo.addVariable("hour24DataURL", "");fo.addVariable("isCycle", "false");fo.addVariable("wideMode", "normal");fo.addVariable("defaultRate", "low");fo.addVariable("isAutoPlay", "true");writePlayer(fo,"myFlash"); createPlayer() 函数在 film_standard2.js 文件，找到swf播放器地址 http://player.cntv.cn/standard/cntvplayer.swf ，下载下来用 Action Script Viewer 6 打开 发现里面有这么个类 com.cntv.common.model.proxy.GetVideoInfoProxy ，通过用 videoId、articleId、filePath 等关键字搜索，找到这么一段AS代码 1_local2 = (((((this._localtor.configVO.videoInfoURL + this._localtor.paramVO.filePath) + this._localtor.paramVO.videoId.substr(0, 8)) + "/") + this._localtor.paramVO.videoId.substr(8, (this._localtor.paramVO.videoId.length - 1))) + ".txt"); 就是说把videoId截前面8位，作为目录，后面是文件名，用 videoId = “20091221100120” 代入，得到这么一个地址 http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.txt，跟播放页地址一样，后缀名改为txt而已，把地址放到IE打开，发现是一个JSON格式的文本，格式化之后如下1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768&#123; "videoid": "20091221100120", "duration": "21:56", "isLive": "false", "title": "恋爱前规则1", "imagePath": "http://p1.img.cctvpic.com/image/2009/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439_2.jpg", "isRtmp": "false", "ack": "yes", "relation": "public", "refHtml": "&amp;lt;embed id=’v_player_cctv’ width=’960′ height=’540′ flashvars=’videoId=20091221100120&amp;amp;isLogin=y&amp;amp;userId=001&amp;amp; articleId=VIDE0020091221100120&amp;amp;scheduleId=C13671000001&amp;amp; filePath=/love/lianaiqianguize/classpage/video/&amp;amp;sorts=其他,,,爱情,C13671000001&amp;amp;url=http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml&amp;amp;configPath=http://dianshiju.cntv.cn/nettv/Library/film/player/config.xml&amp;amp;widgetsConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/widgetsConfig.xml&amp;amp;languageConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/zh_cn.xml&amp;amp;sysSource=film’ allowscriptaccess=’always’ allowfullscreen=’true’ menu=’false’ quality=’best’ bgcolor=’#000000′ name=’v_player_cctv’ src=’http://dianshiju.cntv.cn/nettv/Library/tongyong/player/OutSidePlayer.swf’ type=’application/x-shockwave-flash’ lk_mediaid=’lk_juiceapp_mediaPopup_1257416656250′ lk_media=’yes’/&amp;gt;", "refURL": "http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml", "chapters": [ &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-1.mp4", "duration": "296" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-2.mp4", "duration": "297" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-3.mp4", "duration": "299" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-4.mp4", "duration": "299" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-5.mp4", "duration": "126" &#125; ], "chapters2": [ &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-1.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-2.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-3.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-4.mp4", "duration": "179" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-5.mp4", "duration": "179" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-6.mp4", "duration": "176" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-7.mp4", "duration": "176" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-8.mp4", "duration": "72" &#125; ]&#125; 实际是个播放列表，直接用迅雷就可以下载了 事实上，cntv还有另一种json格式，比如《火星没事》http://dianying.cntv.cn/lcomedy/C15956/classpage/video/20100128/100696.shtml，JSON文本如下12345678910111213141516171819202122232425262728293031323334&#123; "videoid": "20100128100696", "duration": "01:32:36", "isLive": "false", "title": "火星宝贝之火星没事", "imagePath": "http://p3.img.cctvpic.com/image/2009/qgds/2010/01/28/qgds_h26441800\r\n\r\n0nero_aac32_20100128_1264647498894_2.jpg", "isRtmp": "true", "ack": "yes", "relation": "public", "refHtml": "&amp;lt;embed id=’v_player_cctv’ width=’960′ height=’540′ flashvars=’videoId=20100128100696&amp;amp;isLogin=y&amp;amp;userId=001&amp;amp;articleId=VIDE0020100128100696&amp;amp;scheduleId=C15956000001&amp;amp;filePath=/lcomedy/C15956/classpage/video/&amp;amp;sorts=其他,,,喜剧,C15956000001&amp;amp;url=http://dianying.cntv.cn/lcomedy/C15956/classpage/video/20100128/100696.shtml&amp;amp;configPath=http://dianshiju.cntv.cn/nettv/Library/film/player/config.xml&amp;amp;widgetsConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/widgetsConfig.xml&amp;amp;languageConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/zh_cn.xml&amp;amp;sysSource=film’ allowscriptaccess=’always’ allowfullscreen=’true’ menu=’false’ quality=’best’ bgcolor=’#000000′ name=’v_player_cctv’ src=’http://dianshiju.cntv.cn/nettv/Library/tongyong/player/OutSidePlayer.swf’ type=’application/x-shockwave-flash’ lk_mediaid=’lk_juiceapp_mediaPopup_1257416656250′ lk_media=’yes’/&amp;gt;", "refURL": "http://dianying.cntv.cn/lcomedy/C15956/classpage/video/20100128/100696.shtml", "streams": [ &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264218000nero_aac32.mp4", "bitRate": "250" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264418000nero_aac32.mp4", "bitRate": "450" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264818000nero_aac32.mp4", "bitRate": "850" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h2641436000nero_aac64.mp4", "bitRate": "1500" &#125; ]&#125; rtmp 是adobe用于flash流媒体的播放协议，详情猛击这里 http://www.51testing.com/?uid-8776-action-viewspace-itemid-81594 关于rtmp的播放，我也不清楚，在反编译的AS中截取这么几段代码，剩下的请自己分析吧123456789101112131415161718192021222324252627282930313233343536override protected function initNetConnection():void&#123; this.nc = new NetConnection(); this.nc.addEventListener(NetStatusEvent.NET_STATUS, this.ncNetStatuHandler); this.nc.addEventListener(SecurityErrorEvent.SECURITY_ERROR, this.ncSecurityHandler); this.nc.addEventListener(IOErrorEvent.IO_ERROR, this.ncIOErrorHandler); this.nc.addEventListener(AsyncErrorEvent.ASYNC_ERROR, this.ncAsyncErrorHandler); this.nc.client = new VideoPlayerClient(this); this.nc.call("checkBandwidth", null);&#125;override public function play():void&#123; if (!this.isStartPlay)&#123; this.nc.connect(_modelLocator.currentVideoInfo.rtmpHost); &#125; else &#123; if (this.ns != null)&#123; this.ns.resume(); this.isPause = false; _dispatcher.dispatchEvent(new ControlBarEvent(ControlBarEvent.EVENT_VIDEO_PLAY)); &#125;; &#125;;&#125;private function createStream():void&#123; this.ns = new NetStream(this.nc); this.ns.bufferTime = this.BUFFER_TIME; this.ns.addEventListener(NetStatusEvent.NET_STATUS, this.nsNetStatusHandler); this.ns.addEventListener(IOErrorEvent.IO_ERROR, this.nsIOErrorHandler); this.ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, this.nsAsyncErrorHandler); this.ns.client = new VideoPlayerClient(this); this.video = new Video(); this.video.smoothing = true; this.video.attachNetStream(this.ns); this.psFilter = new PSFilterTools(this.video); this.addChild(this.video); setMask(); this.ns.play(_modelLocator.currentVideoInfo.streamName);&#125;]]></content>
+    <content type="text"><![CDATA[http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml 这是CCTV电影站一个播放页面地址，打开源码，找到播放器一段，flash player是由JS创建的12345678910111213141516171819var fo = createPlayer("v_player_cctv",928,552);fo.addVariable("videoId", "20091221100120");fo.addVariable("articleId", "VIDE0020091221100120");fo.addVariable("scheduleId", "C13671000001");fo.addVariable("filePath", "/love/lianaiqianguize/classpage/video/");fo.addVariable("sorts", "其他,,,爱情,C13671,CCTV-9");fo.addVariable("sysSource", "discovery");fo.addVariable("url", "http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml");fo.addVariable("videoCenterId","36b502b4ceeb4a6d950955b4bd9e93f8");//视频生产中心idfo.addVariable("channelId",channelId);//埋码fo.addVariable("adCall",adCall);//广告fo.addVariable("isLogin", "y");fo.addVariable("userId", "001");fo.addVariable("hour24DataURL", "");fo.addVariable("isCycle", "false");fo.addVariable("wideMode", "normal");fo.addVariable("defaultRate", "low");fo.addVariable("isAutoPlay", "true");writePlayer(fo,"myFlash"); createPlayer() 函数在 film_standard2.js 文件，找到swf播放器地址 http://player.cntv.cn/standard/cntvplayer.swf ，下载下来用 Action Script Viewer 6 打开 发现里面有这么个类 com.cntv.common.model.proxy.GetVideoInfoProxy ，通过用 videoId、articleId、filePath 等关键字搜索，找到这么一段AS代码 1_local2 = (((((this._localtor.configVO.videoInfoURL + this._localtor.paramVO.filePath) + this._localtor.paramVO.videoId.substr(0, 8)) + "/") + this._localtor.paramVO.videoId.substr(8, (this._localtor.paramVO.videoId.length - 1))) + ".txt"); 就是说把videoId截前面8位，作为目录，后面是文件名，用 videoId = “20091221100120” 代入，得到这么一个地址 http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.txt，跟播放页地址一样，后缀名改为txt而已，把地址放到IE打开，发现是一个JSON格式的文本，格式化之后如下1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768&#123; "videoid": "20091221100120", "duration": "21:56", "isLive": "false", "title": "恋爱前规则1", "imagePath": "http://p1.img.cctvpic.com/image/2009/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439_2.jpg", "isRtmp": "false", "ack": "yes", "relation": "public", "refHtml": "&amp;lt;embed id=’v_player_cctv’ width=’960′ height=’540′ flashvars=’videoId=20091221100120&amp;amp;isLogin=y&amp;amp;userId=001&amp;amp; articleId=VIDE0020091221100120&amp;amp;scheduleId=C13671000001&amp;amp; filePath=/love/lianaiqianguize/classpage/video/&amp;amp;sorts=其他,,,爱情,C13671000001&amp;amp;url=http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml&amp;amp;configPath=http://dianshiju.cntv.cn/nettv/Library/film/player/config.xml&amp;amp;widgetsConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/widgetsConfig.xml&amp;amp;languageConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/zh_cn.xml&amp;amp;sysSource=film’ allowscriptaccess=’always’ allowfullscreen=’true’ menu=’false’ quality=’best’ bgcolor=’#000000′ name=’v_player_cctv’ src=’http://dianshiju.cntv.cn/nettv/Library/tongyong/player/OutSidePlayer.swf’ type=’application/x-shockwave-flash’ lk_mediaid=’lk_juiceapp_mediaPopup_1257416656250′ lk_media=’yes’/&amp;gt;", "refURL": "http://dianying.cntv.cn/love/lianaiqianguize/classpage/video/20091221/100120.shtml", "chapters": [ &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-1.mp4", "duration": "296" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-2.mp4", "duration": "297" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-3.mp4", "duration": "299" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-4.mp4", "duration": "299" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264418000nero_aac32_20091221_1261357606439-5.mp4", "duration": "126" &#125; ], "chapters2": [ &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-1.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-2.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-3.mp4", "duration": "178" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-4.mp4", "duration": "179" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-5.mp4", "duration": "179" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-6.mp4", "duration": "176" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-7.mp4", "duration": "176" &#125;, &#123; "url": "http://sportsipr.v.cctv.com/200911/qgds/2009/12/21/qgds_h264818000nero_aac32_20091221_1261357611665-8.mp4", "duration": "72" &#125; ]&#125; 实际是个播放列表，直接用迅雷就可以下载了 事实上，cntv还有另一种json格式，比如《火星没事》，JSON文本如下 12345678910111213141516171819202122232425262728293031323334&#123; "videoid": "20100128100696", "duration": "01:32:36", "isLive": "false", "title": "火星宝贝之火星没事", "imagePath": "http://p3.img.cctvpic.com/image/2009/qgds/2010/01/28/qgds_h26441800\r\n\r\n0nero_aac32_20100128_1264647498894_2.jpg", "isRtmp": "true", "ack": "yes", "relation": "public", "refHtml": "&amp;lt;embed id=’v_player_cctv’ width=’960′ height=’540′ flashvars=’videoId=20100128100696&amp;amp;isLogin=y&amp;amp;userId=001&amp;amp;articleId=VIDE0020100128100696&amp;amp;scheduleId=C15956000001&amp;amp;filePath=/lcomedy/C15956/classpage/video/&amp;amp;sorts=其他,,,喜剧,C15956000001&amp;amp;url=http://dianying.cntv.cn/lcomedy/C15956/classpage/video/20100128/100696.shtml&amp;amp;configPath=http://dianshiju.cntv.cn/nettv/Library/film/player/config.xml&amp;amp;widgetsConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/widgetsConfig.xml&amp;amp;languageConfig=http://dianshiju.cntv.cn/nettv/Library/film/player/zh_cn.xml&amp;amp;sysSource=film’ allowscriptaccess=’always’ allowfullscreen=’true’ menu=’false’ quality=’best’ bgcolor=’#000000′ name=’v_player_cctv’ src=’http://dianshiju.cntv.cn/nettv/Library/tongyong/player/OutSidePlayer.swf’ type=’application/x-shockwave-flash’ lk_mediaid=’lk_juiceapp_mediaPopup_1257416656250′ lk_media=’yes’/&amp;gt;", "refURL": "http://dianying.cntv.cn/lcomedy/C15956/classpage/video/20100128/100696.shtml", "streams": [ &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264218000nero_aac32.mp4", "bitRate": "250" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264418000nero_aac32.mp4", "bitRate": "450" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h264818000nero_aac32.mp4", "bitRate": "850" &#125;, &#123; "rtmpHost": "rtmp://streaming.cctvpic.com/vod/", "streamName": "mp4:v/2010/01/28/65f94038a6f14759bf061da589feba26_h2641436000nero_aac64.mp4", "bitRate": "1500" &#125; ]&#125; rtmp 是adobe用于flash流媒体的播放协议，详情猛击这里 http://www.51testing.com/?uid-8776-action-viewspace-itemid-81594 关于rtmp的播放，我也不清楚，在反编译的AS中截取这么几段代码，剩下的请自己分析吧 123456789101112131415161718192021222324252627282930313233343536override protected function initNetConnection():void&#123; this.nc = new NetConnection(); this.nc.addEventListener(NetStatusEvent.NET_STATUS, this.ncNetStatuHandler); this.nc.addEventListener(SecurityErrorEvent.SECURITY_ERROR, this.ncSecurityHandler); this.nc.addEventListener(IOErrorEvent.IO_ERROR, this.ncIOErrorHandler); this.nc.addEventListener(AsyncErrorEvent.ASYNC_ERROR, this.ncAsyncErrorHandler); this.nc.client = new VideoPlayerClient(this); this.nc.call("checkBandwidth", null);&#125;override public function play():void&#123; if (!this.isStartPlay)&#123; this.nc.connect(_modelLocator.currentVideoInfo.rtmpHost); &#125; else &#123; if (this.ns != null)&#123; this.ns.resume(); this.isPause = false; _dispatcher.dispatchEvent(new ControlBarEvent(ControlBarEvent.EVENT_VIDEO_PLAY)); &#125;; &#125;;&#125;private function createStream():void&#123; this.ns = new NetStream(this.nc); this.ns.bufferTime = this.BUFFER_TIME; this.ns.addEventListener(NetStatusEvent.NET_STATUS, this.nsNetStatusHandler); this.ns.addEventListener(IOErrorEvent.IO_ERROR, this.nsIOErrorHandler); this.ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, this.nsAsyncErrorHandler); this.ns.client = new VideoPlayerClient(this); this.video = new Video(); this.video.smoothing = true; this.video.attachNetStream(this.ns); this.psFilter = new PSFilterTools(this.video); this.addChild(this.video); setMask(); this.ns.play(_modelLocator.currentVideoInfo.streamName);&#125;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -1096,9 +1108,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南澳</tag>
         <tag>大鹏</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1193,8 +1205,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -1220,9 +1232,9 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
+        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1235,9 +1247,9 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>小楼</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
-        <tag>小楼</tag>
         <tag>运动</tag>
       </tags>
   </entry>
@@ -1251,10 +1263,10 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
         <tag>运动</tag>
+        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1416,8 +1428,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1456,8 +1468,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>大梅沙</tag>
         <tag>运动</tag>
+        <tag>大梅沙</tag>
         <tag>大鹏</tag>
         <tag>户外</tag>
         <tag>杨梅坑</tag>
@@ -1749,10 +1761,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>东部华侨城</tag>
         <tag>南山66</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>东部华侨城</tag>
       </tags>
   </entry>
   <entry>
@@ -1793,8 +1805,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>莲花山</tag>
       </tags>
   </entry>
@@ -1808,8 +1820,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -1878,12 +1890,12 @@
       </categories>
       <tags>
         <tag>book</tag>
-        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1897,12 +1909,12 @@
       </categories>
       <tags>
         <tag>book</tag>
-        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1997,10 +2009,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大梅沙</tag>
+        <tag>大鹏</tag>
         <tag>东西冲</tag>
         <tag>西冲</tag>
       </tags>
@@ -2025,10 +2037,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大梅沙</tag>
+        <tag>大鹏</tag>
         <tag>杨梅坑</tag>
         <tag>桔钓沙</tag>
       </tags>
@@ -2041,10 +2053,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大梅沙</tag>
+        <tag>大鹏</tag>
         <tag>西冲</tag>
       </tags>
   </entry>
@@ -2175,8 +2187,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -2206,9 +2218,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>xml</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
-        <tag>xml</tag>
         <tag>paypal</tag>
         <tag>网银</tag>
       </tags>
@@ -2263,8 +2275,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2400,10 +2412,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>大梅沙</tag>
         <tag>运动</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
+        <tag>大梅沙</tag>
         <tag>磨房</tag>
         <tag>百公里</tag>
       </tags>
@@ -2431,8 +2443,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -2522,10 +2534,10 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>xml</tag>
         <tag>asp</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
-        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -2682,9 +2694,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
         <tag>红树林</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2840,8 +2852,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>梧桐山</tag>
+        <tag>登山</tag>
         <tag>南山66</tag>
       </tags>
   </entry>
@@ -2951,9 +2963,9 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
         <tag>红树林</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2979,8 +2991,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3297,8 +3309,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
