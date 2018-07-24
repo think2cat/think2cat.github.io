@@ -510,9 +510,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
   </entry>
   

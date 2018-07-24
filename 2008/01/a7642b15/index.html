@@ -85,7 +85,7 @@
 <link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记,cvs,svn,管理,软件工程," />
+  <meta name="keywords" content="笔记,cvs,svn,管理," />
 
 
 
@@ -103,22 +103,22 @@
 
 
 
-<meta name="description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
-<meta name="keywords" content="笔记,cvs,svn,管理,软件工程">
+<meta name="description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧  SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 1.版本控制介绍 2.常用软件二、Subversion基础  1.发展历史  2.">
+<meta name="keywords" content="笔记,cvs,svn,管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVN学习笔记">
 <meta property="og:url" content="http://21ido.com/2008/01/a7642b15/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
+<meta property="og:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧  SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 1.版本控制介绍 2.常用软件二、Subversion基础  1.发展历史  2.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://21ido.com/images/2008/01/08_12782.jpg">
-<meta property="og:image" content="http://21ido.com/blog/upload/2008/1/200801081933002252.jpg">
-<meta property="og:image" content="http://21ido.com/blog/upload/2008/1/200801081933044758.jpg">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.214Z">
+<meta property="og:image" content="http://21ido.com/images/2008/01/08_12782_12782.jpg">
+<meta property="og:image" content="http://21ido.com/images/2008/1/200801081933002252.jpg">
+<meta property="og:image" content="http://21ido.com/images/2008/1/200801081933044758.jpg">
+<meta property="og:updated_time" content="2018-07-24T09:39:02.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVN学习笔记">
-<meta name="twitter:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧 &amp;nbsp; SVN学习笔记创建于：2007年7月25日 最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 &amp;nbsp;&amp;nbsp;&amp;nbsp; 1.版本控制介绍 &amp;nbsp;">
-<meta name="twitter:image" content="http://21ido.com/images/2008/01/08_12782.jpg">
+<meta name="twitter:description" content="之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。 半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧  SVN学习笔记创建于：2007年7月25日最后更新： 2007年8月3日 3:59 PM 目录一、版本管理基础 1.版本控制介绍 2.常用软件二、Subversion基础  1.发展历史  2.">
+<meta name="twitter:image" content="http://21ido.com/images/2008/01/08_12782_12782.jpg">
 
 
 
@@ -433,220 +433,129 @@
       
         <p>之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。</p>
 <p>半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧</p>
-<p>&nbsp;</p>
-<h2 id="SVN学习笔记"><a href="#SVN学习笔记" class="headerlink" title="SVN学习笔记"></a>SVN学习笔记</h2><p><span class="Title"></span>创建于：2007年7月25日</p>
-<p>最后更新： 2007年8月3日 3:59 PM</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>一、版本管理基础</p>
-<p>&nbsp;&nbsp;&nbsp; 1.版本控制介绍</p>
-<p>&nbsp;&nbsp;&nbsp; 2.常用软件</p>
-<p>二、Subversion基础</p>
-<p>&nbsp;&nbsp;&nbsp; 1.发展历史</p>
-<p>&nbsp;&nbsp;&nbsp; 2.特性</p>
-<p>&nbsp;&nbsp;&nbsp; 3.安装</p>
-<p>&nbsp;&nbsp;&nbsp; 4.组成</p>
-<p>&nbsp;&nbsp;&nbsp; 5.配置</p>
-<p>三、基本操作</p>
-<p>&nbsp;&nbsp;&nbsp; 1.检出Check Out </p>
-<p>&nbsp;&nbsp;&nbsp; 2.提交Commit </p>
-<p>&nbsp;&nbsp;&nbsp; 3.解决冲突</p>
-<p>&nbsp;&nbsp;&nbsp; 4.标签Tag </p>
-<p>四、分支与合并</p>
-<p>&nbsp;&nbsp;&nbsp; 1.版本库的概念</p>
-<p>&nbsp;&nbsp;&nbsp; 2.什么是分支？</p>
-<p>&nbsp;&nbsp;&nbsp; 3.使用分支</p>
-<p>五、进阶</p>
-<p>&nbsp;&nbsp;&nbsp; 1.以后台服务方式启动</p>
-<p>&nbsp;&nbsp;&nbsp; 2.从CVS转换到SVN </p>
-<p>六、附录</p>
-<p>&nbsp;&nbsp;&nbsp; A. 参考资源</p>
-<p>&nbsp;&nbsp;&nbsp; B. 相关资源</p>
-<p>&nbsp;</p>
-<h3 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="一、版本管理基础"><a href="#一、版本管理基础" class="headerlink" title="一、版本管理基础"></a>一、版本管理基础</h3><h4 id="1-版本控制介绍"><a href="#1-版本控制介绍" class="headerlink" title="1. 版本控制介绍"></a>1. 版本控制介绍</h4><p>在多人协作开发软件的时候，经常出现员工A的代码被员工B覆盖，或者今天做了小修改明天却发现需要把代码改回去，版本控制正是为此而诞生的，它是软件开发团队高效协作的重要管理工具。</p>
+<hr>
+<h1 id="SVN学习笔记"><a href="#SVN学习笔记" class="headerlink" title="SVN学习笔记"></a>SVN学习笔记</h1><p>创建于：2007年7月25日<br>最后更新： 2007年8月3日 3:59 PM</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、版本管理基础<br> 1.版本控制介绍<br> 2.常用软件<br>二、Subversion基础<br>  1.发展历史<br>  2.特性<br>  3.安装<br>  4.组成<br>  5.配置<br>三、基本操作<br>  1.检出Check Out<br>  2.提交Commit<br>  3.解决冲突<br>  4.标签Tag<br>四、分支与合并<br>  1.版本库的概念<br>  2.什么是分支？<br>  3.使用分支<br>五、进阶<br>  1.以后台服务方式启动<br>  2.从CVS转换到SVN<br>六、附录<br>  A. 参考资源<br>  B. 相关资源<br><a id="more"></a></p>
+<h2 id="一、版本管理基础"><a href="#一、版本管理基础" class="headerlink" title="一、版本管理基础"></a>一、版本管理基础</h2><h3 id="1-版本控制介绍"><a href="#1-版本控制介绍" class="headerlink" title="1. 版本控制介绍"></a>1. 版本控制介绍</h3><p>在多人协作开发软件的时候，经常出现员工A的代码被员工B覆盖，或者今天做了小修改明天却发现需要把代码改回去，版本控制正是为此而诞生的，它是软件开发团队高效协作的重要管理工具。</p>
 <p>简单来说，版本控制服务器是一个特殊的文件服务器，不仅控制用户对文件的读取、写入等操作，更记录了每一次修改的内容。</p>
-<h4 id="2-常用软件"><a href="#2-常用软件" class="headerlink" title="2. 常用软件"></a>2. 常用软件</h4><p>A. <strong>Microsoft Visual SourceSafe</strong>，2005新特征</p>
+<h3 id="2-常用软件"><a href="#2-常用软件" class="headerlink" title="2. 常用软件"></a>2. 常用软件</h3><h4 id="A-Microsoft-Visual-SourceSafe"><a href="#A-Microsoft-Visual-SourceSafe" class="headerlink" title="A. Microsoft Visual SourceSafe"></a>A. <strong>Microsoft Visual SourceSafe</strong></h4><p>2005新特征</p>
 <ol>
-<li>通过 HTTP 进行远程 Web 访问2.  增强的性能和可伸缩性3.  增加的容量，数据存储增至 4 GB4.  区域性时区和语言B. <strong>CVS</strong>，开源的</li>
+<li>通过 HTTP 进行远程 Web 访问</li>
+<li>增强的性能和可伸缩性</li>
+<li>增加的容量，数据存储增至 4 GB</li>
+<li>区域性时区和语言</li>
 </ol>
-<p>C. <strong>Clearcase</strong>，IBM开发的企业级管理软件</p>
-<p>D. 其它的还有<strong>PVCS</strong>、<strong>MKS</strong>和企业级的<strong>CCC Harvest</strong></p>
-<h3 id="nbsp-1"><a href="#nbsp-1" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="二、Subversion基础"><a href="#二、Subversion基础" class="headerlink" title="二、Subversion基础"></a>二、Subversion基础</h3><h4 id="1-发展历史"><a href="#1-发展历史" class="headerlink" title="1. 发展历史"></a>1. 发展历史</h4><p>Subversion是在CVS基础发展而来的，2000年的时候，CollabNet公司的协作软件采用CVS作为版本控制系统，因为CVS本身一些局限性，从而需要一个代替品，然后邀请了Karl Fogel（Open Source Development with CVS）参与开发，14个月后，2001年8月31日，新的版本管理系统Subversion诞生，开始不再用CVS进行版本管理，而使用自己管理自己了。</p>
-<h4 id="2-特性"><a href="#2-特性" class="headerlink" title="2. 特性"></a>2. 特性</h4><ul>
-<li><p><strong>目录版本化</strong></p>
-<pre><code>CVS只能管理单个文件的更改，而Subversion可以跟踪到目录树的变更*   **真实的版本历史**
-
-CVS无法实现文件移动改名操作，所以但一个文件搬到另一个地方或者改名，版本号将重新编，而Subversion可以实现移动、改名等操作*   **原子提交**
-
-将一系列文件的修改组成一个逻辑整体，以后可以一次性还原*   **版本号元数据**
-
-Subversion不仅能管理文件内容，也能管理文件和目录属性（meta-data）*   **可选的网络层**
-
-Subversion可以作为扩展模块嵌入Apache，自身还实现了一个轻型独立的服务器软件*   **一致的数据操作**
-
-Subversion用了二进制差异算法描述文件的变化，所以对于文本文件和二进制文件，操作方法是一样的*   **高效的分支和标签操作**
-
-Subversion使用一种类似硬链接（Unix名词）的机制拷贝整个工程来对分支和标签进行操作，消耗的时间跟修改部分成正比，而不是整个文件的大小，因此这些操作的开销很小，花费时间很少*   **可扩展性**
-
-Subversion由一系列结构化的模块组成，具有定义良好的API，使得和其它语言互动操作性很强，而且非常方便维护*   **可以选择数据库和纯文件的版本库实现**
-
-版本库可以使用嵌入的数据库((DBD，Berkeley database)，也可以使用定义格式的纯文件(FSFS，Native filesystem)*   **对象链接的版本化**
-
-Unix用户可以在版本控制里置入对象链接，这个链接会在Unix的工作拷贝里重建，但不会在win32工作拷贝里创建。*   **可解析的输出**
-
-Subversion所有的命令行客户端输出的内容都经过精心的设计，适合人们读取和自动解析；脚本化也具备较高的优先级。*   **本地化信息**
-
-Subversion会根据本地设置使用gettext()来显示传输错误、报告和帮助信息。
-</code></pre></li>
-</ul>
-<h4 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h4><p>Subversion建立在APR（Apache Portable Runtime library）可移植层上，APR是独立运行的库，所以Subversion可以运行在所有运行Apache的服务器平台上（Windows、Lunix、BSD、MacOSX、Netware&hellip;&hellip;等等）。</p>
+<h4 id="B-CVS，开源的"><a href="#B-CVS，开源的" class="headerlink" title="B. CVS，开源的"></a>B. <strong>CVS</strong>，开源的</h4><h4 id="C-Clearcase，IBM开发的企业级管理软件"><a href="#C-Clearcase，IBM开发的企业级管理软件" class="headerlink" title="C. Clearcase，IBM开发的企业级管理软件"></a>C. <strong>Clearcase</strong>，IBM开发的企业级管理软件</h4><h4 id="D-其它的还有PVCS、MKS和企业级的CCC-Harvest"><a href="#D-其它的还有PVCS、MKS和企业级的CCC-Harvest" class="headerlink" title="D. 其它的还有PVCS、MKS和企业级的CCC Harvest"></a>D. 其它的还有<strong>PVCS</strong>、<strong>MKS</strong>和企业级的<strong>CCC Harvest</strong></h4><h2 id="二、Subversion基础"><a href="#二、Subversion基础" class="headerlink" title="二、Subversion基础"></a>二、Subversion基础</h2><h3 id="1-发展历史"><a href="#1-发展历史" class="headerlink" title="1. 发展历史"></a>1. 发展历史</h3><p>Subversion是在CVS基础发展而来的，2000年的时候，CollabNet公司的协作软件采用CVS作为版本控制系统，因为CVS本身一些局限性，从而需要一个代替品，然后邀请了Karl Fogel（Open Source Development with CVS）参与开发，14个月后，2001年8月31日，新的版本管理系统Subversion诞生，开始不再用CVS进行版本管理，而使用自己管理自己了。</p>
+<h3 id="2-特性"><a href="#2-特性" class="headerlink" title="2. 特性"></a>2. 特性</h3><h4 id="目录版本化"><a href="#目录版本化" class="headerlink" title="目录版本化"></a>目录版本化</h4><p>CVS只能管理单个文件的更改，而Subversion可以跟踪到目录树的变更</p>
+<h4 id="真实的版本历史"><a href="#真实的版本历史" class="headerlink" title="真实的版本历史"></a>真实的版本历史</h4><p>CVS无法实现文件移动改名操作，所以但一个文件搬到另一个地方或者改名，版本号将重新编，而Subversion可以实现移动、改名等操作</p>
+<h4 id="原子提交"><a href="#原子提交" class="headerlink" title="原子提交"></a>原子提交</h4><p>将一系列文件的修改组成一个逻辑整体，以后可以一次性还原</p>
+<h4 id="版本号元数据"><a href="#版本号元数据" class="headerlink" title="版本号元数据"></a>版本号元数据</h4><p>Subversion不仅能管理文件内容，也能管理文件和目录属性（meta-data）</p>
+<h4 id="可选的网络层"><a href="#可选的网络层" class="headerlink" title="可选的网络层"></a>可选的网络层</h4><p>Subversion可以作为扩展模块嵌入Apache，自身还实现了一个轻型独立的服务器软件</p>
+<h4 id="一致的数据操作"><a href="#一致的数据操作" class="headerlink" title="一致的数据操作"></a>一致的数据操作</h4><p>Subversion用了二进制差异算法描述文件的变化，所以对于文本文件和二进制文件，操作方法是一样的</p>
+<h4 id="高效的分支和标签操作"><a href="#高效的分支和标签操作" class="headerlink" title="高效的分支和标签操作"></a>高效的分支和标签操作</h4><p>Subversion使用一种类似硬链接（Unix名词）的机制拷贝整个工程来对分支和标签进行操作，消耗的时间跟修改部分成正比，而不是整个文件的大小，因此这些操作的开销很小，花费时间很少</p>
+<h4 id="可扩展性"><a href="#可扩展性" class="headerlink" title="可扩展性"></a>可扩展性</h4><p>Subversion由一系列结构化的模块组成，具有定义良好的API，使得和其它语言互动操作性很强，而且非常方便维护</p>
+<h4 id="可以选择数据库和纯文件的版本库实现"><a href="#可以选择数据库和纯文件的版本库实现" class="headerlink" title="可以选择数据库和纯文件的版本库实现"></a>可以选择数据库和纯文件的版本库实现</h4><p>版本库可以使用嵌入的数据库((DBD，Berkeley database)，也可以使用定义格式的纯文件(FSFS，Native filesystem)</p>
+<h4 id="对象链接的版本化"><a href="#对象链接的版本化" class="headerlink" title="对象链接的版本化"></a>对象链接的版本化</h4><p>Unix用户可以在版本控制里置入对象链接，这个链接会在Unix的工作拷贝里重建，但不会在win32工作拷贝里创建。</p>
+<h4 id="可解析的输出"><a href="#可解析的输出" class="headerlink" title="可解析的输出"></a>可解析的输出</h4><p>Subversion所有的命令行客户端输出的内容都经过精心的设计，适合人们读取和自动解析；脚本化也具备较高的优先级。</p>
+<h4 id="本地化信息"><a href="#本地化信息" class="headerlink" title="本地化信息"></a>本地化信息</h4><p>Subversion会根据本地设置使用gettext()来显示传输错误、报告和帮助信息。</p>
+<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h3><p>Subversion建立在APR（Apache Portable Runtime library）可移植层上，APR是独立运行的库，所以Subversion可以运行在所有运行Apache的服务器平台上（Windows、Lunix、BSD、MacOSX、Netware&hellip;&hellip;等等）。</p>
 <p>Subversion官网提供了各种操作系统的相应版本，可以从以下地址获得最新版本，目前最新是1.4.4，<a href="http://subversion.tigris.org/project_packages.html" target="_blank" rel="noopener">http://subversion.tigris.org/project_packages.html</a></p>
 <p>针对Windows系统，提供了GUI界面的安装包，安装时只需一路Next下去即可</p>
 <p>这里使用的SVN客户端是TortoiseSVN-1.4.4，将SVN完全整合到资源浏览器，使用非常方便，而且是完全免费的，从官方下载 <a href="http://tortoisesvn.net/" target="_blank" rel="noopener">http://tortoisesvn.net/</a></p>
 <p>注意有32位和64位不同版本，官方网站同时提供了各种语言版下载，其中包括可爱的简体中文。</p>
 <p>安装过程也非常简单，一路Next下去就可，安装后会提示重启电脑，重启只是为了在资源管理器显示特有图标，不重启也是可以正常使用的。</p>
-<h4 id="4-组成"><a href="#4-组成" class="headerlink" title="4. 组成"></a>4. 组成</h4><ul>
-<li><p><font color="#0000ff">**Svn</font></p>
-<pre><code>**&lt;/font&gt;命令行客户端。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnversion&lt;/font&gt;**
-
-报告工作拷贝状态（当前修订版本的项目）的工具。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnlook&lt;/font&gt;**
-
-检查版本库的工具。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svnadmin&lt;/font&gt;**
-
-建立、调整和修补版本库的工具。*   **&lt;font color=&quot;#0000ff&quot;&gt;Svndumpfilter&lt;/font&gt;**
-
-过滤Subversion版本库转储文件的工具。*   **&lt;font color=&quot;#0000ff&quot;&gt;mod_dav_svn&lt;/font&gt;**
-
-Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*   **&lt;font color=&quot;#0000ff&quot;&gt;svnserve&lt;/font&gt;**
-
-一种单独运行的服务器，可以作为守护进程由SSH调用，另一种让版本库在网络上可见的方式。
-</code></pre></li>
+<h3 id="4-组成"><a href="#4-组成" class="headerlink" title="4. 组成"></a>4. 组成</h3><h4 id="Svn命令行客户端"><a href="#Svn命令行客户端" class="headerlink" title="Svn命令行客户端"></a>Svn命令行客户端</h4><ul>
+<li>Svnversion 报告工作拷贝状态（当前修订版本的项目）的工具</li>
+<li>Svnlook 检查版本库的工具</li>
+<li>Svnadmin 建立、调整和修补版本库的工具</li>
+<li>Svndumpfilter 过滤Subversion版本库转储文件的工具</li>
+<li>mod_dav_svn Apache HTTP服务器的一个插件，可以让版本库在网络上可见</li>
+<li>svnserve 一种单独运行的服务器，可以作为守护进程由SSH调用，另一种让版本库在网络上可见的方式</li>
 </ul>
-<h4 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h4><h5 id="1-建立版本库（Repository）"><a href="#1-建立版本库（Repository）" class="headerlink" title="1) 建立版本库（Repository）"></a>1) 建立版本库（Repository）</h5><blockquote>
-<p>在CMD命令行模式下，运行</p>
-<p>svnadmin create f:\svn\test</p>
-<p>即可在 F:\svn目录下建立一个名称为test的版本库</p>
-<p>也可以使用TortoiseSVN图形化的完成这一步：</p>
-<p>在目录F:\svn\下新建一文件夹test，然后右击test，选<strong>TortoiseSVN &gt;&gt; Create Repository here…</strong>， 然后可以选择版本库模式， 这里使用默认即可， 然后就创建了一系列目录和文件。&lt;/<br>p&gt;</p><p><font color="#ff0000">运行命令行之前Test目录必须是空的或者尚未有此目录。</font></p>
+<h3 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h3><h4 id="1-建立版本库（Repository）"><a href="#1-建立版本库（Repository）" class="headerlink" title="1. 建立版本库（Repository）"></a>1. 建立版本库（Repository）</h4><p>在CMD命令行模式下，运行</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnadmin create f:\svn\test</span><br></pre></td></tr></table></figure>
+<p>即可在 F:\svn目录下建立一个名称为test的版本库<br>也可以使用TortoiseSVN图形化的完成这一步：</p>
+<p>在目录F:\svn\下新建一文件夹test，然后右击test，选<strong>TortoiseSVN &gt;&gt; Create Repository here…</strong>， 然后可以选择版本库模式， 这里使用默认即可， 然后就创建了一系列目录和文件。<br>运行命令行之前Test目录必须是空的或者尚未有此目录。</p>
 <p>不推荐把版本库创建在网络共享上，如果非要这样做，请使用FSFS格式，而不要用BDB格式！</p>
-</blockquote>
-<h5 id="2-配置用户和权限"><a href="#2-配置用户和权限" class="headerlink" title="2) 配置用户和权限"></a>2) 配置用户和权限</h5><blockquote>
-<p>用记事本打开新建的test\conf目录下面的svnserve.conf </p>
-<p><strong><font style="BACKGROUND-COLOR: #c0c0c0"># password-db = passwd</font></strong></p>
+<h4 id="2-配置用户和权限"><a href="#2-配置用户和权限" class="headerlink" title="2. 配置用户和权限"></a>2. 配置用户和权限</h4><p>用记事本打开新建的test\conf目录下面的svnserve.conf</p>
+<p><code>#password-db = passwd</code></p>
 <p>去掉前面# 号，即改为</p>
-<p><strong><font style="BACKGROUND-COLOR: #c0c0c0">password-db = passwd</font></strong></p>
+<p><code>password-db = passwd</code></p>
 <p>表示用密码文件进行权限管理，对应文件名为同目录下的passwd文件</p>
 <p>保存，接着再用记事本打开同目录下面passwd文件</p>
-<p>**<font style="BACKGROUND-COLOR: #c0c0c0"># harry = harryssecret</font></p>
-<h1 id="sally-sallyssecret"><a href="#sally-sallyssecret" class="headerlink" title="sally = sallyssecret**"></a>sally = sallyssecret**</h1><p>同样去掉#号，改为</p>
-<p>**<font style="BACKGROUND-COLOR: #c0c0c0">harry = harryssecret</font></p>
-<p>sally = sallyssecret**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># harry = harryssecret</span><br><span class="line"></span><br><span class="line"># sally = sallyssecret</span><br></pre></td></tr></table></figure>
+<p>同样去掉#号，改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">harry = harryssecret</span><br><span class="line"></span><br><span class="line">sally = sallyssecret</span><br></pre></td></tr></table></figure>
 <p>这里表示2个用户，其中harry表示登录用户名，harryssecret表示密码，你可以自己修改</p>
-<p>在svnserve.conf文件打开<strong><font style="BACKGROUND-COLOR: #c0c0c0"># auth-access = write</font></strong>表示匿名用户可写数据，这不推荐！</p>
-</blockquote>
-<h5 id="3-运行独立服务器"><a href="#3-运行独立服务器" class="headerlink" title="3) 运行独立服务器"></a>3) 运行独立服务器</h5><blockquote>
-<p>在命令行窗口输入</p>
-<p>svnserve -d -r f:\svn</p>
-</blockquote>
-<h5 id="4-初始化导入"><a href="#4-初始化导入" class="headerlink" title="4) 初始化导入"></a>4) 初始化导入</h5><blockquote>
-<p>在要引入的工程文件夹右击，选<strong>TortoiseSVN &gt;&gt; Import…</strong></p>
-<p>URL of repository输入&ldquo;svn://localhost/test&rdquo;，点【OK】之后会提示输入用户名密码，按照前面设置的输入即可，如果没报错，就可以看到文件哗啦哗啦的导进版本库了。</p>
-<font color="#ff0000">注意这里是在本机操作，所以地址输入svn://localhost/test，如果是远程提交的话，要换成相应IP地址，例如svn://222.111.26.26/test</font>
-</blockquote>
-<h3 id="nbsp-2"><a href="#nbsp-2" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="三、基本操作"><a href="#三、基本操作" class="headerlink" title="三、基本操作"></a>三、基本操作</h3><h4 id="1-检出-Check-Out"><a href="#1-检出-Check-Out" class="headerlink" title="1. 检出 Check Out"></a>1. 检出 Check Out</h4><p>在开始干活前，你必须得到一个最新的工作副本，在资源管理器右击空白处，选 <strong>TortoiseSVN &gt;&gt; checkout</strong></p>
+<p>在svnserve.conf文件打开<code># auth-access = write</code>表示匿名用户可写数据，这不推荐！</p>
+<h4 id="3-运行独立服务器"><a href="#3-运行独立服务器" class="headerlink" title="3. 运行独立服务器"></a>3. 运行独立服务器</h4><p>在命令行窗口输入</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r f:\svn</span><br></pre></td></tr></table></figure>
+<h4 id="4-初始化导入"><a href="#4-初始化导入" class="headerlink" title="4. 初始化导入"></a>4. 初始化导入</h4><p>在要引入的工程文件夹右击，选<strong>TortoiseSVN &gt;&gt; Import…</strong></p>
+<p>URL of repository 输入 <code>svn://localhost/test</code><br>点【OK】之后会提示输入用户名密码，按照前面设置的输入即可，如果没报错，就可以看到文件哗啦哗啦的导进版本库了。</p>
+<p>注意这里是在本机操作，所以地址输入<code>svn://localhost/test</code>，如果是远程提交的话，要换成相应IP地址，例如 <code>svn://222.111.26.26/test</code></p>
+<h2 id="三、基本操作"><a href="#三、基本操作" class="headerlink" title="三、基本操作"></a>三、基本操作</h2><h3 id="1-检出-Check-Out"><a href="#1-检出-Check-Out" class="headerlink" title="1. 检出 Check Out"></a>1. 检出 Check Out</h3><p>在开始干活前，你必须得到一个最新的工作副本，在资源管理器右击空白处，选 <strong>TortoiseSVN &gt;&gt; checkout</strong></p>
 <p>输入目录名后点OK，如果输入的目录名是不存在的，程序会自动创建。</p>
-<p><img src="/images/2008/01/08_12782.jpg" alt="svn"></p>
-<h4 id="2-提交-Commit"><a href="#2-提交-Commit" class="headerlink" title="2. 提交 Commit"></a>2. 提交 Commit</h4><p>当完成一个或若干个文件的修改后，选中要提交的文件或文件夹，右击选<strong> TortoiseSVN &gt;&gt; Commit</strong></p>
+<p><img src="/images/2008/01/08_12782_12782.jpg" alt="svn"></p>
+<h3 id="2-提交-Commit"><a href="#2-提交-Commit" class="headerlink" title="2. 提交 Commit"></a>2. 提交 Commit</h3><p>当完成一个或若干个文件的修改后，选中要提交的文件或文件夹，右击选<strong> TortoiseSVN &gt;&gt; Commit</strong></p>
 <p>输入备注信息后点OK就可以了，为了方便日后查看，备注信息请尽量写详细。</p>
-<p><img src="/blog/upload/2008/1/200801081933002252.jpg" alt="svn"></p>
-<font color="#ff0000">有时不清楚具体修改了哪些文件，或者新增了哪些文件，又或者要提交的文件太多了，可以直接右击文件夹进行提交，TortoiseSVN将把需要提交的文件清单列出来，进行选择后再提交即可</font>
-
-<h4 id="3-解决冲突"><a href="#3-解决冲突" class="headerlink" title="3. 解决冲突"></a>3. 解决冲突</h4><p>&nbsp;</p>
-<h4 id="4-标签-Tag"><a href="#4-标签-Tag" class="headerlink" title="4. 标签 Tag"></a>4. 标签 Tag</h4><h3 id="nbsp-3"><a href="#nbsp-3" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="四、分支与合并"><a href="#四、分支与合并" class="headerlink" title="四、分支与合并"></a>四、分支与合并</h3><h4 id="1-版本库的概念"><a href="#1-版本库的概念" class="headerlink" title="1. 版本库的概念"></a>1. 版本库的概念</h4><p><strong>Subversion没有项目的概念，只有版本库。</strong></p>
-<p><img src="/blog/upload/2008/1/200801081933044758.jpg" alt="svn"></p>
+<p><img src="/images/2008/1/200801081933002252.jpg" alt="svn"></p>
+<p>有时不清楚具体修改了哪些文件，或者新增了哪些文件，又或者要提交的文件太多了，可以直接右击文件夹进行提交，TortoiseSVN将把需要提交的文件清单列出来，进行选择后再提交即可</p>
+<h3 id="3-解决冲突"><a href="#3-解决冲突" class="headerlink" title="3. 解决冲突"></a>3. 解决冲突</h3><h3 id="4-标签-Tag"><a href="#4-标签-Tag" class="headerlink" title="4. 标签 Tag"></a>4. 标签 Tag</h3><h2 id="四、分支与合并"><a href="#四、分支与合并" class="headerlink" title="四、分支与合并"></a>四、分支与合并</h2><h3 id="1-版本库的概念"><a href="#1-版本库的概念" class="headerlink" title="1. 版本库的概念"></a>1. 版本库的概念</h3><h4 id="Subversion没有项目的概念，只有版本库"><a href="#Subversion没有项目的概念，只有版本库" class="headerlink" title="Subversion没有项目的概念，只有版本库"></a>Subversion没有项目的概念，只有版本库</h4><p><img src="/images/2008/1/200801081933044758.jpg" alt="svn"></p>
 <p>版本库记录了每一次修改内容，通过版本库，可以很方便的回朔到某个以前的版本，可以很容易的查看上月某天的某人改了什么东西。</p>
 <p>版本号初始值为0，每次成功提交后递增1，Subversion的版本号是针对整个目录树的，而不是单个文件</p>
-<h4 id="2-什么是分支？"><a href="#2-什么是分支？" class="headerlink" title="2. 什么是分支？"></a>2. 什么是分支？</h4><p>例如重庆上的算命网站代码，加入了SVN版本管理，现在新疆也要上算命业务，页面代码上基本是相同的，只有在某些接口存在差异，这时就需要新建一个分支，来对2个网站代码进行管理。</p>
+<h3 id="2-什么是分支？"><a href="#2-什么是分支？" class="headerlink" title="2. 什么是分支？"></a>2. 什么是分支？</h3><p>例如重庆上的算命网站代码，加入了SVN版本管理，现在新疆也要上算命业务，页面代码上基本是相同的，只有在某些接口存在差异，这时就需要新建一个分支，来对2个网站代码进行管理。</p>
 <p>又例如IBS后台在进行升级改造，这可能需要比较长的时间，而同时又需要对平时出现的一些问题修修补补，最佳方案就是建立分支，让升级和日常维护分开来，虽然这样在升级结束后代码的合并会有些难度，但至少可以保证在升级过程中的代码不会跟日常维护的修改造成混乱。</p>
-<p><strong><font color="#ff0000">分支跟版本库的差别？</font></strong></p>
-<p>分支跟版本库本来就是不同的东西，不过估计有人看了上面那段话后会问，建立分支是不是等于把版本库重新拷贝一份，所以有了下面的思考</p>
+<h4 id="分支跟版本库的差别？"><a href="#分支跟版本库的差别？" class="headerlink" title="分支跟版本库的差别？"></a>分支跟版本库的差别？</h4><p>分支跟版本库本来就是不同的东西，不过估计有人看了上面那段话后会问，建立分支是不是等于把版本库重新拷贝一份，所以有了下面的思考</p>
 <ol>
-<li>版本库是重新复制整个文件夹，而分支用了类似Unix下硬链接的技术，只是在已存在的目录树多建一个入口，而不是全盘复制，所以不管是在磁盘空间、消耗时间付出的代价都是非常小的。2.  分支之间是相互联系的，可以把某一分支的修改合并到另一分支去，例如某天出了一个SuperSVN的东西，于是有人把本文档建立分支进行修改，于是就有SVN和SuperSVN两个分支了，改着改着发现有段话写错了，这样2个分支就都可能存在这种错误了，如果是2个版本库的话，你就要改2次了，而如果是分支，你可以把一个分支的修改合并到另一分支去，这就是分支的相互联系3.  新建版本库，意味着新的权限关系，当然，你也可以把配置文件复制一份到新的版本库4.  维护带来的问题？</li>
+<li>版本库是重新复制整个文件夹，而分支用了类似Unix下硬链接的技术，只是在已存在的目录树多建一个入口，而不是全盘复制，所以不管是在磁盘空间、消耗时间付出的代价都是非常小的。</li>
+<li>分支之间是相互联系的，可以把某一分支的修改合并到另一分支去，例如某天出了一个SuperSVN的东西，于是有人把本文档建立分支进行修改，于是就有SVN和SuperSVN两个分支了，改着改着发现有段话写错了，这样2个分支就都可能存在这种错误了，如果是2个版本库的话，你就要改2次了，而如果是分支，你可以把一个分支的修改合并到另一分支去，这就是分支的相互联系</li>
+<li>新建版本库，意味着新的权限关系，当然，你也可以把配置文件复制一份到新的版本库</li>
+<li>维护带来的问题？</li>
 </ol>
-<h4 id="3-使用分支"><a href="#3-使用分支" class="headerlink" title="3. 使用分支"></a>3. 使用分支</h4><h5 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1) 创建分支"></a>1) 创建分支</h5><blockquote>
-<p>选择要创建分支的文件或文件夹，右击选TortoiseSVN &gt;&gt; Branch/Tag，在 To Url输入分支新路径</p>
-</blockquote>
-<h5 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2) 查看分支"></a>2) 查看分支</h5><h3 id="nbsp-4"><a href="#nbsp-4" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="五、进阶"><a href="#五、进阶" class="headerlink" title="五、进阶"></a>五、进阶</h3><h4 id="1-以后台服务方式启动"><a href="#1-以后台服务方式启动" class="headerlink" title="1. 以后台服务方式启动"></a>1. 以后台服务方式启动</h4><h4 id="2-从CVS转换到SVN"><a href="#2-从CVS转换到SVN" class="headerlink" title="2. 从CVS转换到SVN"></a>2. 从CVS转换到SVN</h4><p><strong>本节引用《cvs2svn 把CVS档案库转换为SVN档案库》，作者yasakya</strong></p>
+<h3 id="3-使用分支"><a href="#3-使用分支" class="headerlink" title="3. 使用分支"></a>3. 使用分支</h3><h4 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1) 创建分支"></a>1) 创建分支</h4><p>选择要创建分支的文件或文件夹，右击选TortoiseSVN &gt;&gt; Branch/Tag，在 To Url输入分支新路径</p>
+<h4 id="2-查看分支"><a href="#2-查看分支" class="headerlink" title="2) 查看分支"></a>2) 查看分支</h4><h2 id="五、进阶"><a href="#五、进阶" class="headerlink" title="五、进阶"></a>五、进阶</h2><h3 id="1-以后台服务方式启动"><a href="#1-以后台服务方式启动" class="headerlink" title="1. 以后台服务方式启动"></a>1. 以后台服务方式启动</h3><h3 id="2-从CVS转换到SVN"><a href="#2-从CVS转换到SVN" class="headerlink" title="2. 从CVS转换到SVN"></a>2. 从CVS转换到SVN</h3><p><strong>本节引用《cvs2svn 把CVS档案库转换为SVN档案库》，作者yasakya</strong></p>
 <p>cvs2svn工具是用来把CVS档案库转换为SVN档案库的。</p>
-<ol>
-<li><p><strong>安装</strong></p>
-<pre><code>*   **python2.4**
-
-        [http://www.python.org/download/](http://www.python.org/download/)
-
-        说明：下载最新版本的Python for Windows的安装程序python-2.4.1.msi，按照默认的方式安装Python，假设安装目录是C:\Python。*   **cvs2svn**
-
-        [http://cvs2svn.tigris.org/servlets/ProjectDocumentList?folderID=2976](http://cvs2svn.tigris.org/servlets/ProjectDocumentList?folderID=2976)
-
-        说明：用WinRAR解压到任一个目录下。打开命令行窗口转到cvs2svn所在的目录先测试一下python，执行C:\python\python cvs2svn，这时候会输出cvs2svn的帮助信息。*   **UnxUtils.zip**
-
-        [http://unxutils.sourceforge.net/](http://unxutils.sourceforge.net/)
-
-        说明：由于cvs2svn用到了GUN sort工具，因此必须下载UnxUtils.zip，把该压缩包下的usr/local/wbin/sort.exe文件解压到cvs2svn目录中。*   **rcs57pc1.zip**
-
-        [http://www.cs.purdue.edu/homes/trinkle/RCS/](http://www.cs.purdue.edu/homes/trinkle/RCS/)
-
-        说明：需要用到RCS的一个工具co.exe，下载rcs57pc1.zip，把该压缩包中的bin/win32下的rcslib.dll以及co.exe这两个文件同样解压到cvs2svn目录中。2.  **使用cvs2svn把CVS档案库转换为SVN档案库**&gt; 接下来我们开始转换资源库，输入以下命令
-</code></pre><blockquote>
-<p>C:\Python\python cvs2svn &ndash;s d:\svn\repository\project1 \project1</p>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><ul>
+<li>python2.4</li>
+</ul>
+<p><a href="http://www.python.org/download/" target="_blank" rel="noopener">http://www.python.org/download/</a></p>
+<p>说明：下载最新版本的Python for Windows的安装程序python-2.4.1.msi，按照默认的方式安装Python，假设安装目录是C:\Python。</p>
+<ul>
+<li>cvs2svn</li>
+</ul>
+<p><a href="http://cvs2svn.tigris.org/servlets/ProjectDocumentList?folderID=2976" target="_blank" rel="noopener">http://cvs2svn.tigris.org/servlets/ProjectDocumentList?folderID=2976</a></p>
+<p>说明：用WinRAR解压到任一个目录下。打开命令行窗口转到cvs2svn所在的目录先测试一下python，执行C:\python\python cvs2svn，这时候会输出cvs2svn的帮助信息。</p>
+<ul>
+<li>UnxUtils.zip</li>
+</ul>
+<p><a href="http://unxutils.sourceforge.net/" target="_blank" rel="noopener">http://unxutils.sourceforge.net/</a></p>
+<p>说明：由于cvs2svn用到了GUN sort工具，因此必须下载UnxUtils.zip，把该压缩包下的usr/local/wbin/sort.exe文件解压到cvs2svn目录中。</p>
+<ul>
+<li>rcs57pc1.zip</li>
+</ul>
+<p><a href="http://www.cs.purdue.edu/homes/trinkle/RCS/" target="_blank" rel="noopener">http://www.cs.purdue.edu/homes/trinkle/RCS/</a></p>
+<p>说明：需要用到RCS的一个工具co.exe，下载rcs57pc1.zip，把该压缩包中的bin/win32下的rcslib.dll以及co.exe这两个文件同样解压到cvs2svn目录中。</p>
+<h4 id="2-使用cvs2svn把CVS档案库转换为SVN档案库"><a href="#2-使用cvs2svn把CVS档案库转换为SVN档案库" class="headerlink" title="2. 使用cvs2svn把CVS档案库转换为SVN档案库"></a>2. 使用cvs2svn把CVS档案库转换为SVN档案库</h4><p>接下来我们开始转换资源库，输入以下命令</p>
+<p><code>C:\Python\python cvs2svn -s d:\svn\repository\project1 \project1</code></p>
 <p>其中我们假设project1是原有CVS资源库中的一个项目。</p>
 <p>下面是在我的机器上转换完毕后cvs2svn显示详细的统计信息：</p>
-<p>cvs2svn Statistics:</p>
-<hr>
-<p>Total CVS Files: 7</p>
-<p>Total CVS Revisions: 7</p>
-<p>Total Unique Tags: 0</p>
-<p>Total Unique Branches: 0</p>
-<p>CVS Repos Size in KB: 2261</p>
-<p>Total SVN Commits: 2</p>
-<p>First Revision Date: Sat Sep 03 15:05:26 2005</p>
-<p>Last Revision Date: Sat Sep 03 15:05:27 2005</p>
-<hr>
-<p>Timings:</p>
-<hr>
-<p>pass 1: 0 seconds</p>
-<p>pass 2: 0 seconds</p>
-<p>pass 3: 0 seconds</p>
-<p>pass 4: 0 seconds</p>
-<p>pass 5: 0 seconds</p>
-<p>pass 6: 0 seconds</p>
-<p>pass 7: 0 seconds</p>
-<p>pass 8: 1 second</p>
-<p>total: 3 seconds</p>
-<p>转换完毕后我们用浏览器打开 <a href="http://localhost/svn/project1" target="_blank" rel="noopener">http://localhost/svn/project1</a> 即可看到SVN仓库</p>
-<font color="#ff0000">注意如果要用 –encode=gb2312，必须使用python2.4以上版本</font>
+<blockquote>
+<h2 id="cvs2svn-Statistics"><a href="#cvs2svn-Statistics" class="headerlink" title="cvs2svn Statistics:"></a>cvs2svn Statistics:</h2><p>Total CVS Files: 7<br>Total CVS Revisions: 7<br>Total Unique Tags: 0<br>Total Unique Branches: 0<br>CVS Repos Size in KB: 2261<br>Total SVN Commits: 2<br>First Revision Date: Sat Sep 03 15:05:26 2005</p>
+<h2 id="Last-Revision-Date-Sat-Sep-03-15-05-27-2005"><a href="#Last-Revision-Date-Sat-Sep-03-15-05-27-2005" class="headerlink" title="Last Revision Date: Sat Sep 03 15:05:27 2005"></a>Last Revision Date: Sat Sep 03 15:05:27 2005</h2><h2 id="Timings"><a href="#Timings" class="headerlink" title="Timings:"></a>Timings:</h2><p>pass 1: 0 seconds<br>pass 2: 0 seconds<br>pass 3: 0 seconds<br>pass 4: 0 seconds<br>pass 5: 0 seconds<br>pass 6: 0 seconds<br>pass 7: 0 seconds<br>pass 8: 1 second<br>total: 3 seconds</p>
 </blockquote>
-</li>
-</ol>
-<h3 id="nbsp-5"><a href="#nbsp-5" class="headerlink" title="&nbsp;"></a>&nbsp;</h3><h3 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h3><h4 id="A-参考资源"><a href="#A-参考资源" class="headerlink" title="A. 参考资源"></a>A. 参考资源</h4><ul>
-<li><p><strong>《Subversion特性》</strong></p>
-<pre><code>[http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9](http://www.subversion.org.cn/index.php?option=com_content&amp;amp;task=view&amp;amp;id=72&amp;amp;Itemid=9)*   **《使用Subversion进行版本控制》中文版***   **《TortoiseSVN帮助手册中文版 1.5版》***   **《把CVS档案库转换为SVN档案库》**
-
-[http://www.iusesvn.com/bbs/viewthread.php?tid=245](http://www.iusesvn.com/bbs/viewthread.php?tid=245)
-</code></pre></li>
+<p>转换完毕后我们用浏览器打开 <code>http://localhost/svn/project1</code> 即可看到SVN仓库</p>
+<p>注意如果要用 –encode=gb2312，必须使用python2.4以上版本</p>
+<h2 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h2><h3 id="A-参考资源"><a href="#A-参考资源" class="headerlink" title="A. 参考资源"></a>A. 参考资源</h3><ul>
+<li><a href="http://www.subversion.org.cn/index.php?option=com_content&amp;task=view&amp;id=72&amp;Itemid=9" target="_blank" rel="noopener">《Subversion特性》</a></li>
+<li>《使用Subversion进行版本控制》中文版</li>
+<li>《TortoiseSVN帮助手册中文版 1.5版》</li>
+<li><a href="http://www.iusesvn.com/bbs/viewthread.php?tid=245" target="_blank" rel="noopener">《把CVS档案库转换为SVN档案库》</a></li>
 </ul>
-<h4 id="B-相关资源"><a href="#B-相关资源" class="headerlink" title="B. 相关资源"></a>B. 相关资源</h4><ul>
-<li><p><strong>Subversion</strong></p>
-<pre><code>[http://subversion.tigris.org/](http://subversion.tigris.org/)*   **TortoiseSVN**
-
-[http://www.tortoisesvn.net](http://www.tortoisesvn.net)*   **SVNmanager**
-
-基于PHP的SVN管理工具
-
-[http://svnmanager.sourceforge.net/](http://svnmanager.sourceforge.net/)*   **Easysvn**
-
-一个开源的SVN客户端
-
-[http://code.google.com/p/easysvn/](http://code.google.com/p/easysvn/)
-</code></pre></li>
+<h3 id="B-相关资源"><a href="#B-相关资源" class="headerlink" title="B. 相关资源"></a>B. 相关资源</h3><ul>
+<li>Subversion <a href="http://subversion.tigris.org/" target="_blank" rel="noopener">http://subversion.tigris.org/</a></li>
+<li>TortoiseSVN <a href="http://www.tortoisesvn.net" target="_blank" rel="noopener">http://www.tortoisesvn.net</a></li>
+<li>SVNmanager 基于PHP的SVN管理工具 <a href="http://svnmanager.sourceforge.net/" target="_blank" rel="noopener">http://svnmanager.sourceforge.net/</a></li>
+<li>Easysvn 一个开源的SVN客户端 <a href="http://code.google.com/p/easysvn/" target="_blank" rel="noopener">http://code.google.com/p/easysvn/</a></li>
 </ul>
 
       
@@ -660,8 +569,6 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
             <a href="../../../tags/svn/" rel="tag"># svn</a>
           
             <a href="../../../tags/管理/" rel="tag"># 管理</a>
-          
-            <a href="../../../tags/软件工程/" rel="tag"># 软件工程</a>
           
         </div>
       
@@ -917,7 +824,7 @@ Apache HTTP服务器的一个插件，可以让版本库在网络上可见。*  
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN学习笔记"><span class="nav-number">1.</span> <span class="nav-text">SVN学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp"><span class="nav-number">1.2.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、版本管理基础"><span class="nav-number">1.3.</span> <span class="nav-text">一、版本管理基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本控制介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 版本控制介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用软件"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 常用软件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-1"><span class="nav-number">1.4.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Subversion基础"><span class="nav-number">1.5.</span> <span class="nav-text">二、Subversion基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-发展历史"><span class="nav-number">1.5.1.</span> <span class="nav-text">1. 发展历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-特性"><span class="nav-number">1.5.2.</span> <span class="nav-text">2. 特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装"><span class="nav-number">1.5.3.</span> <span class="nav-text">3. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-组成"><span class="nav-number">1.5.4.</span> <span class="nav-text">4. 组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置"><span class="nav-number">1.5.5.</span> <span class="nav-text">5. 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-建立版本库（Repository）"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">1) 建立版本库（Repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-配置用户和权限"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">2) 配置用户和权限</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sally-sallyssecret"><span class="nav-number"></span> <span class="nav-text">sally = sallyssecret**</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运行独立服务器"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">3) 运行独立服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-初始化导入"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">4) 初始化导入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-2"><span class="nav-number">0.1.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基本操作"><span class="nav-number">0.2.</span> <span class="nav-text">三、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-检出-Check-Out"><span class="nav-number">0.2.1.</span> <span class="nav-text">1. 检出 Check Out</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-提交-Commit"><span class="nav-number">0.2.2.</span> <span class="nav-text">2. 提交 Commit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-解决冲突"><span class="nav-number">0.2.3.</span> <span class="nav-text">3. 解决冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-标签-Tag"><span class="nav-number">0.2.4.</span> <span class="nav-text">4. 标签 Tag</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-3"><span class="nav-number">0.3.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、分支与合并"><span class="nav-number">0.4.</span> <span class="nav-text">四、分支与合并</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版本库的概念"><span class="nav-number">0.4.1.</span> <span class="nav-text">1. 版本库的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-什么是分支？"><span class="nav-number">0.4.2.</span> <span class="nav-text">2. 什么是分支？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-使用分支"><span class="nav-number">0.4.3.</span> <span class="nav-text">3. 使用分支</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建分支"><span class="nav-number">0.4.3.1.</span> <span class="nav-text">1) 创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-查看分支"><span class="nav-number">0.4.3.2.</span> <span class="nav-text">2) 查看分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-4"><span class="nav-number">0.5.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、进阶"><span class="nav-number">0.6.</span> <span class="nav-text">五、进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-以后台服务方式启动"><span class="nav-number">0.6.1.</span> <span class="nav-text">1. 以后台服务方式启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-从CVS转换到SVN"><span class="nav-number">0.6.2.</span> <span class="nav-text">2. 从CVS转换到SVN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nbsp-5"><span class="nav-number">0.7.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、附录"><span class="nav-number">0.8.</span> <span class="nav-text">六、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-参考资源"><span class="nav-number">0.8.1.</span> <span class="nav-text">A. 参考资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-相关资源"><span class="nav-number">0.8.2.</span> <span class="nav-text">B. 相关资源</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN学习笔记"><span class="nav-text">SVN学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、版本管理基础"><span class="nav-text">一、版本管理基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-版本控制介绍"><span class="nav-text">1. 版本控制介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用软件"><span class="nav-text">2. 常用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Microsoft-Visual-SourceSafe"><span class="nav-text">A. Microsoft Visual SourceSafe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-CVS，开源的"><span class="nav-text">B. CVS，开源的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-Clearcase，IBM开发的企业级管理软件"><span class="nav-text">C. Clearcase，IBM开发的企业级管理软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#D-其它的还有PVCS、MKS和企业级的CCC-Harvest"><span class="nav-text">D. 其它的还有PVCS、MKS和企业级的CCC Harvest</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Subversion基础"><span class="nav-text">二、Subversion基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-发展历史"><span class="nav-text">1. 发展历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-特性"><span class="nav-text">2. 特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录版本化"><span class="nav-text">目录版本化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#真实的版本历史"><span class="nav-text">真实的版本历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原子提交"><span class="nav-text">原子提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本号元数据"><span class="nav-text">版本号元数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可选的网络层"><span class="nav-text">可选的网络层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一致的数据操作"><span class="nav-text">一致的数据操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效的分支和标签操作"><span class="nav-text">高效的分支和标签操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可扩展性"><span class="nav-text">可扩展性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可以选择数据库和纯文件的版本库实现"><span class="nav-text">可以选择数据库和纯文件的版本库实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象链接的版本化"><span class="nav-text">对象链接的版本化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可解析的输出"><span class="nav-text">可解析的输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地化信息"><span class="nav-text">本地化信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装"><span class="nav-text">3. 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-组成"><span class="nav-text">4. 组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Svn命令行客户端"><span class="nav-text">Svn命令行客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-配置"><span class="nav-text">5. 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-建立版本库（Repository）"><span class="nav-text">1. 建立版本库（Repository）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-配置用户和权限"><span class="nav-text">2. 配置用户和权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-运行独立服务器"><span class="nav-text">3. 运行独立服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-初始化导入"><span class="nav-text">4. 初始化导入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、基本操作"><span class="nav-text">三、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-检出-Check-Out"><span class="nav-text">1. 检出 Check Out</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-提交-Commit"><span class="nav-text">2. 提交 Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-解决冲突"><span class="nav-text">3. 解决冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-标签-Tag"><span class="nav-text">4. 标签 Tag</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、分支与合并"><span class="nav-text">四、分支与合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-版本库的概念"><span class="nav-text">1. 版本库的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Subversion没有项目的概念，只有版本库"><span class="nav-text">Subversion没有项目的概念，只有版本库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-什么是分支？"><span class="nav-text">2. 什么是分支？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分支跟版本库的差别？"><span class="nav-text">分支跟版本库的差别？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用分支"><span class="nav-text">3. 使用分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建分支"><span class="nav-text">1) 创建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-查看分支"><span class="nav-text">2) 查看分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、进阶"><span class="nav-text">五、进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-以后台服务方式启动"><span class="nav-text">1. 以后台服务方式启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-从CVS转换到SVN"><span class="nav-text">2. 从CVS转换到SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用cvs2svn把CVS档案库转换为SVN档案库"><span class="nav-text">2. 使用cvs2svn把CVS档案库转换为SVN档案库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cvs2svn-Statistics"><span class="nav-text">cvs2svn Statistics:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Last-Revision-Date-Sat-Sep-03-15-05-27-2005"><span class="nav-text">Last Revision Date: Sat Sep 03 15:05:27 2005</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timings"><span class="nav-text">Timings:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、附录"><span class="nav-text">六、附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-参考资源"><span class="nav-text">A. 参考资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-相关资源"><span class="nav-text">B. 相关资源</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

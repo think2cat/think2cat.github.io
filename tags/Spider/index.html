@@ -106,7 +106,7 @@
 <meta name="description" content="不想做鼓励师的前端狗不是好的程序猿">
 <meta property="og:type" content="website">
 <meta property="og:title" content="猫大叔">
-<meta property="og:url" content="http://21ido.com/tags/Spider/index.html">
+<meta property="og:url" content="http://21ido.com/tags/spider/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="不想做鼓励师的前端狗不是好的程序猿">
 <meta property="og:locale" content="zh-CN">
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://21ido.com/tags/Spider/"/>
+  <link rel="canonical" href="http://21ido.com/tags/spider/"/>
 
 
 
 
 
-  <title>标签: Spider | 猫大叔</title>
+  <title>标签: spider | 猫大叔</title>
   
 
 
@@ -328,7 +328,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Spider<small>标签</small>
+        <h1>spider<small>标签</small>
         </h1>
       </div>
 
@@ -340,9 +340,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="../../2006/11/f01d6cb2/" itemprop="url">
+            <a class="post-title-link" href="../../2010/01/64fe6205/" itemprop="url">
               
-                <span itemprop="name">将整个数据库进行简繁体互转的VBS</span>
+                <span itemprop="name">cntv.cn视频绝对地址分析</span>
               
             </a>
         
@@ -350,9 +350,93 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2006-11-02T03:26:32+08:00"
-              content="2006-11-02" >
-          11-02
+              datetime="2010-01-29T17:45:26+08:00"
+              content="2010-01-29" >
+          01-29
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="../../2006/03/bb255c33/" itemprop="url">
+              
+                <span itemprop="name">网易手机壁纸小偷程序</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2006-03-09T23:06:55+08:00"
+              content="2006-03-09" >
+          03-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="../../2006/02/afb4ae18/" itemprop="url">
+              
+                <span itemprop="name">0768114.net网址大全爬行脚本</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2006-02-25T02:49:58+08:00"
+              content="2006-02-25" >
+          02-25
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="../../2006/02/ca437a69/" itemprop="url">
+              
+                <span itemprop="name">无聊之下爬行了小飞的网址大全</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2006-02-24T01:37:14+08:00"
+              content="2006-02-24" >
+          02-24
         </time>
       </div>
 
@@ -899,91 +983,6 @@
                 }
               });
               var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-            var searchResultList = '<ul class=\"search-result-list\">';
               resultItems.forEach(function (result) {
                 searchResultList += result.item;
               })
