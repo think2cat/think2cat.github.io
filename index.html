@@ -919,7 +919,7 @@
 
       
         
-          <h2 id="Promise是异步编程的解决方案"><a href="#Promise是异步编程的解决方案" class="headerlink" title="Promise是异步编程的解决方案"></a>Promise是异步编程的解决方案</h2><p>Promise有3种状态</p>
+          <h3 id="Promise是异步编程的解决方案"><a href="#Promise是异步编程的解决方案" class="headerlink" title="Promise是异步编程的解决方案"></a>Promise是异步编程的解决方案</h3><p>Promise有3种状态</p>
 <ul>
 <li>pending</li>
 <li>fulfilled</li>
@@ -931,7 +931,7 @@
 <li>pending -&gt; rejected</li>
 </ol>
 <p>一旦变成fulfilled或rejected，则终止，不会再改变<br>而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作</p>
-<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'finished'</span>);</span><br><span class="line">        resolve(<span class="string">'someone'</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'finished'</span>);</span><br><span class="line">        resolve(<span class="string">'someone'</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="2018/06/57c1ef1d/#more" rel="contents">
@@ -2035,7 +2035,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="tags/index.html">
-                <span class="site-state-item-count">360</span>
+                <span class="site-state-item-count">356</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
