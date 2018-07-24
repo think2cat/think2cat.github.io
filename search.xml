@@ -394,9 +394,9 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
+        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>大致坡</tag>
         <tag>文昌</tag>
         <tag>琼海</tag>
       </tags>
@@ -411,10 +411,10 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
+        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>海口</tag>
         <tag>蜜月</tag>
-        <tag>大致坡</tag>
       </tags>
   </entry>
   <entry>
@@ -500,8 +500,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>武汉</tag>
         <tag>信阳</tag>
+        <tag>武汉</tag>
       </tags>
   </entry>
   <entry>
@@ -717,8 +717,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -733,9 +733,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -748,10 +748,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -765,8 +765,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -900,12 +900,12 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>乐昌</tag>
         <tag>京广线</tag>
-        <tag>大源</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
+        <tag>乐昌</tag>
+        <tag>大源</tag>
       </tags>
   </entry>
   <entry>
@@ -918,9 +918,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -933,8 +933,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>罗家渡</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -947,8 +947,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1108,9 +1108,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南澳</tag>
         <tag>大鹏</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1165,8 +1165,8 @@
         <tag>徒步</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
         <tag>60km</tag>
       </tags>
   </entry>
@@ -1232,9 +1232,9 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
-        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1247,10 +1247,10 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>小楼</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
         <tag>运动</tag>
+        <tag>小楼</tag>
       </tags>
   </entry>
   <entry>
@@ -1263,10 +1263,10 @@
       <tags>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>单车</tag>
         <tag>运动</tag>
-        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1289,8 +1289,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>徒步</tag>
+        <tag>南山66</tag>
         <tag>鹅公湾</tag>
         <tag>西贡</tag>
       </tags>
@@ -1322,7 +1322,7 @@
   <entry>
     <title><![CDATA[认识Javascript数组(2)]]></title>
     <url>%2F2009%2F08%2F75f744fe%2F</url>
-    <content type="text"><![CDATA[2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b = new Array();b[2.2] = "XXXXX";alert(b[2.2]); //-&gt; XXXXX 此时相当于1234567### 2.1 数组的循环```jsvar a = [1,2,3,4,5,6];for(var i =0; i&lt;a.length; i++)&#123; alert(a[i]);&#125; 这是最常用的，历遍数组，代码将依次弹出1至6还有一种常用的1234var a = [1,2,3,4,5,6];for(var e in a)&#123; alert(e);&#125; 还是依次弹出1至6，for…in是历遍对象（数组是特殊的对象）对象，用在数组上，因为数组没有属性名，所以直接输出值，这结构语句用在对象上，例如下面1234var a = &#123;x:1,y:2,z:3&#125;;for(var e in a)&#123; alert(e + ":" + a[e]);&#125; 此时e取到的是属性名，即 x、y、x，而要取得值，则采用 数组名[属性] ，所以 a[e] 等同于```12345678910111213141516### 2.2 数组常用函数#### concat在现有数组后面追加数组，并返回新数组，不影响现有数组```jsvar a = [123];var b = &quot;sunnycat&quot;;var c = [&quot;www&quot;,21,&quot;ido&quot;];var d = &#123;x:3.14, y:&quot;SK&quot;&#125;;var e = [1,2,3,4,[5,6,[7,8]]];alert(a.concat(b)); // -&gt; 123,sunnycatalert(a); // -&gt; 123alert(b.concat(c, d)); // -&gt; sunnycatwww,21,ido[object Object]alert(c.concat(b)); // -&gt; www,21,ido,sunnycatalert(e.concat(11,22,33).join(&quot; # &quot;)); // -&gt; 1 # 2 # 3 # 4 # 5,6,7,8 # 11 # 22 # 33 需要注意的是只能用于数组或字符串，如果被连接（前面的a）的是数值、布尔值、对象，就会报错，字符串连接数组时，字符串会跟数组首元素拼接成新元素，而数组连接字符串则会追加新元素（这点我也不清楚原委，知情者请透露），对于数组里面包含数组、对象的，连接后保持原样 join用指定间隔符连起来，把数组转为字符串123var a = ['a','b','c','d','e','f','g'];lert(a.join(",")); // -&gt; a,b,c,d,e,f,g 相当于a.toString()alert(a.join(" x ")); // -&gt; a x b x c x d x e x f x g 这个很容易理解，但需要注意的是只转换一维数组里面，如果数组里面还有数组，将不是采用join指定的字符串接，而是采用默认的toString()，例如12var a = ['a','b','c','d','e','f','g',[11,22,33]];alert(a.join(" * ")); // -&gt; a * b * c * d * e * f * g * 11,22,33 数组里面的数组，并没用 * 连接 pop删除数组最后一个元素，并返回该元素123var a = ["aa","bb","cc"];document.write(a.pop()); // -&gt; ccdocument.write(a); // -&gt; aa, bb 如果数组为空，则返回undefined push往数组后面添加数组，并返回数组新长度12345var a = ["aa","bb","cc"];document.write(a.push("dd")); // -&gt; 4document.write(a); // -&gt; aa,bb,cc,dddocument.write(a.push([1,2,3])); // -&gt; 5document.write(a); // -&gt; aa,bb,cc,dd,1,2,3 跟concat的区别在于，concat不影响原数组，直接返回新数组，而push则直接修改原数组，返回的是数组新长度 sort数组排序，先看个例子12var a = [11,2,3,33445,5654,654,"asd","b"];alert(a.sort()); // -&gt; 11,2,3,33445,5654,654,asd,b 结果是不是很意外，没错，排序并不是按整型大小，而是字符串对比，就是取第一个字符的ANSI码对比，小的排前面，相同的话取第二个字符再比，如果要按整型数值比较，可以这样12345var a = [11,2,3,33445,5654,654];a.sort(function(a,b) &#123;return a - b;&#125;);alert(a); // -&gt; 2,3,11,654,5654,33445 sort()方法有个可选参数，就是代码里的function，这是个简单的例子，不可对非数字进行排序，非数字需要多做判断，这里就不多讲 reverse对数组进行反排序跟，sort()一样，取第一字符ASCII值进行比较12var a = [11,3,5,66,4];alert(a.reverse()); // -&gt; 4,66,5,3,11 如果数组里面还包含数组，则当为对象处理，并不会把元素解出来123var a = ['a','b','c','d','e','f','g',[4,11,33]];alert(a.reverse()); // -&gt; 4,11,33,g,f,e,d,c,b,aalert(a.join(" * ")); // -&gt; 4,11,33 * g * f * e * d * c * b * a 按理应该是11排最后面，因为这里把 4,11,33 当做完整的对象比较，所以被排在第一位看不明白的话，用join()串起来，就明了多 shift删除数组第一个元素，并返回该元素，跟pop差不多123var a = ["aa","bb","cc"];document.write(a.shift()); // -&gt; aadocument.write(a); // -&gt; bb,cc 当数组为空时，返回undefined unshift跟shift相反，往数组最前面添加元素，并返回数组新长度1234567var a = ["aa","bb","cc"];document.write(a.unshift(11)); // -&gt; 4 注：IE下返回undefineddocument.write(a); // -&gt; 11,aa,bb,ccdocument.write(a.unshift([11,22])); // -&gt; 5document.write(a); // -&gt; 11,22,11,aa,bb,ccdocument.write(a.unshift("cat")); // -&gt; 6document.write(a); // -&gt; cat,11,22,11,aa,bb,cc 注意该方法，在IE下将返回undefined，貌似微软的bug，我在firefox下则能正确发挥数组新长度 slice返回数组片段12345var a = ['a','b','c','d','e','f','g'];alert(a.slice(1,2)); // -&gt; balert(a.slice(2)); // -&gt; c,d,e,f,galert(a.slice(-4)); // -&gt; d,e,f,galert(a.slice(-2,-6)); // -&gt; 空 a.slice(1,2)，从下标为1开始，到下标为2之间的数，注意并不包括下标为2的元素如果只有一个参数，则默认到数组最后-4是表示倒数第4个元素，所以返回倒数的四个元素最后一行，从倒数第2开始，因为是往后截取，所以显然取不到前面的元素，所以返回空数组，如果改成 a.slice(-6,-2) 则返回b,c,d,e splice从数组删除某片段的元素，并返回删除的元素12345678910111213var a = [1,2,3,4,5,6,7,8,9];document.write(a.splice(3,2)); // -&gt; 4,5document.write(a); // -&gt; 1,2,3,6,7,8,9document.write(a.splice(4)); // -&gt; 7,8,9 注：IE下返回空document.write(a); // -&gt; 1,2,3,6document.write(a.splice(0,1)); // -&gt; 1document.write(a); // -&gt; 2,3,6document.write(a.splice(1,1,["aa","bb","cc"])); // -&gt; 3document.write(a); // -&gt; 2,aa,bb,cc,6,7,8,9document.write(a.splice(1,2,"ee").join("#")); // -&gt; aa,bb,cc#6document.write(a); // -&gt; 2,ee,7,8,9document.write(a.splice(1,2,"cc","aa","tt").join("#")); // -&gt; ee#7document.write(a); // -&gt; 2,cc,aa,tt,8,9 注意该方法在IE下，第二个参数是必须的，不填则默认为0，例如a.splice(4)，在IE下则返回空，效果等同于a.splice(4,0) toString把数组转为字符串，不只数组，所有对象均可使用该方法12345678910var a = [5,6,7,8,9,["A","BB"],100];document.write(a.toString()); // -&gt; 5,6,7,8,9,A,BB,100var b = new Date()document.write(b.toString()); // -&gt; Sat Aug 8 17:08:32 UTC+0800 2009var c = function(s)&#123; alert(s);&#125;document.write(c.toString()); // -&gt; function(s)&#123; alert(s); &#125; 布尔值则返回true或false，对象则返回[object objectname]相比join()方法，join()只对一维数组进行替换，而toString()则把整个数组（不管一维还是多维）完全平面化同时该方法可用于10进制、2进制、8进制、16进制转换，例如1234var a = [5,6,7,8,9,"A","BB",100];for(var i=0; i&amp;lt;a.length; i++)&#123; document.write(a[i].toString() + " 的二进制是 " + a[i].toString(2) + " ，八进制是 " + a[i].toString(8) + " ，十六进制是 " + a[i].toString(16)); // -&gt; 4,5&#125; 输出结果123456785 的二进制是 101 ，八进制是 5 ，十六进制是 56 的二进制是 110 ，八进制是 6 ，十六进制是 67 的二进制是 111 ，八进制是 7 ，十六进制是 78 的二进制是 1000 ，八进制是 10 ，十六进制是 89 的二进制是 1001 ，八进制是 11 ，十六进制是 9A 的二进制是 A ，八进制是 A ，十六进制是 ABB 的二进制是 BB ，八进制是 BB ，十六进制是 BB100 的二进制是 1100100 ，八进制是 144 ，十六进制是 64 转换只能在元素进行，如果对整个数组进行转换，则原封不动返回该数组 toLocaleString返回本地格式字符串，主要用在Date对象上1234var a = new Date();document.write(a.toString()); // -&gt; Sat Aug 8 17:28:36 UTC+0800 2009document.write(a.toLocaleString()); // -&gt; 2009年8月8日 17:28:36document.write(a.toLocaleDateString()); // -&gt; 2009年8月8日 区别在于，toString()返回标准格式，toLocaleString()返回本地格式完整日期（在【控制面板】&gt;&gt;【区域和语言选项】，通过修改[时间]和[长日期]格式），toLocaleDateString()跟toLocaleString()一样，只是少了时间 valueOf根据不同对象返回不同原始值，用于输出的话跟toString()差不多，但是toString()是返回string类型，而valueOf()是返回原对象类型12345678910111213var a = [1,2,3,[4,5,6,[7,8,9]]];var b = new Date();var c = true;var d = function()&#123; alert("sunnycat");&#125;;document.write(a.valueOf()); // -&gt; 1,2,3,4,5,6,7,8,9document.write(typeof (a.valueOf())); // -&gt; objectdocument.write(b.valueOf()); // -&gt; 1249874470052document.write(typeof(b.valueOf())); // -&gt; numberdocument.write(c.valueOf()); // -&gt; truedocument.write(typeof(c.valueOf())); // -&gt; booleandocument.write(d.valueOf()); // -&gt; function () &#123; alert("sunnycat"); &#125;document.write(typeof(d.valueOf())); // -&gt; function 数组也是对象，所以typeof (a.valueOf())返回object，返回的依然是个多维数组123var a = [1,2,3,[4,5,6,[7,8,9]]];var aa = a.valueOf();document.write(aa[3][3][1]); // -&gt; 8 Date对象返回的是距离1970年1月1日的毫秒数，Math和Error对象没有valueOf方法]]></content>
+    <content type="text"><![CDATA[2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b = new Array();b[2.2] = "XXXXX";alert(b[2.2]); //-&gt; XXXXX 此时相当于1234567### 2.1 数组的循环```jsvar a = [1,2,3,4,5,6];for(var i =0; i&lt;a.length; i++)&#123; alert(a[i]);&#125; 这是最常用的，历遍数组，代码将依次弹出1至6还有一种常用的1234var a = [1,2,3,4,5,6];for(var e in a)&#123; alert(e);&#125; 还是依次弹出1至6，for…in是历遍对象（数组是特殊的对象）对象，用在数组上，因为数组没有属性名，所以直接输出值，这结构语句用在对象上，例如下面1234var a = &#123;x:1,y:2,z:3&#125;;for(var e in a)&#123; alert(e + ":" + a[e]);&#125; 此时e取到的是属性名，即 x、y、x，而要取得值，则采用 数组名[属性] ，所以 a[e] 等同于a[&quot;x&quot;]、a[&quot;y&quot;]、a[&quot;z&quot;] 2.2 数组常用函数concat在现有数组后面追加数组，并返回新数组，不影响现有数组12345678910var a = [123];var b = "sunnycat";var c = ["www",21,"ido"];var d = &#123;x:3.14, y:"SK"&#125;;var e = [1,2,3,4,[5,6,[7,8]]];alert(a.concat(b)); // -&gt; 123,sunnycatalert(a); // -&gt; 123alert(b.concat(c, d)); // -&gt; sunnycatwww,21,ido[object Object]alert(c.concat(b)); // -&gt; www,21,ido,sunnycatalert(e.concat(11,22,33).join(" # ")); // -&gt; 1 # 2 # 3 # 4 # 5,6,7,8 # 11 # 22 # 33 需要注意的是只能用于数组或字符串，如果被连接（前面的a）的是数值、布尔值、对象，就会报错，字符串连接数组时，字符串会跟数组首元素拼接成新元素，而数组连接字符串则会追加新元素（这点我也不清楚原委，知情者请透露），对于数组里面包含数组、对象的，连接后保持原样 join用指定间隔符连起来，把数组转为字符串123var a = ['a','b','c','d','e','f','g'];lert(a.join(",")); // -&gt; a,b,c,d,e,f,g 相当于a.toString()alert(a.join(" x ")); // -&gt; a x b x c x d x e x f x g 这个很容易理解，但需要注意的是只转换一维数组里面，如果数组里面还有数组，将不是采用join指定的字符串接，而是采用默认的toString()，例如12var a = ['a','b','c','d','e','f','g',[11,22,33]];alert(a.join(" * ")); // -&gt; a * b * c * d * e * f * g * 11,22,33 数组里面的数组，并没用 * 连接 pop删除数组最后一个元素，并返回该元素123var a = ["aa","bb","cc"];document.write(a.pop()); // -&gt; ccdocument.write(a); // -&gt; aa, bb 如果数组为空，则返回undefined push往数组后面添加数组，并返回数组新长度12345var a = ["aa","bb","cc"];document.write(a.push("dd")); // -&gt; 4document.write(a); // -&gt; aa,bb,cc,dddocument.write(a.push([1,2,3])); // -&gt; 5document.write(a); // -&gt; aa,bb,cc,dd,1,2,3 跟concat的区别在于，concat不影响原数组，直接返回新数组，而push则直接修改原数组，返回的是数组新长度 sort数组排序，先看个例子12var a = [11,2,3,33445,5654,654,"asd","b"];alert(a.sort()); // -&gt; 11,2,3,33445,5654,654,asd,b 结果是不是很意外，没错，排序并不是按整型大小，而是字符串对比，就是取第一个字符的ANSI码对比，小的排前面，相同的话取第二个字符再比，如果要按整型数值比较，可以这样12345var a = [11,2,3,33445,5654,654];a.sort(function(a,b) &#123;return a - b;&#125;);alert(a); // -&gt; 2,3,11,654,5654,33445 sort()方法有个可选参数，就是代码里的function，这是个简单的例子，不可对非数字进行排序，非数字需要多做判断，这里就不多讲 reverse对数组进行反排序跟，sort()一样，取第一字符ASCII值进行比较12var a = [11,3,5,66,4];alert(a.reverse()); // -&gt; 4,66,5,3,11 如果数组里面还包含数组，则当为对象处理，并不会把元素解出来123var a = ['a','b','c','d','e','f','g',[4,11,33]];alert(a.reverse()); // -&gt; 4,11,33,g,f,e,d,c,b,aalert(a.join(" * ")); // -&gt; 4,11,33 * g * f * e * d * c * b * a 按理应该是11排最后面，因为这里把 4,11,33 当做完整的对象比较，所以被排在第一位看不明白的话，用join()串起来，就明了多 shift删除数组第一个元素，并返回该元素，跟pop差不多123var a = ["aa","bb","cc"];document.write(a.shift()); // -&gt; aadocument.write(a); // -&gt; bb,cc 当数组为空时，返回undefined unshift跟shift相反，往数组最前面添加元素，并返回数组新长度1234567var a = ["aa","bb","cc"];document.write(a.unshift(11)); // -&gt; 4 注：IE下返回undefineddocument.write(a); // -&gt; 11,aa,bb,ccdocument.write(a.unshift([11,22])); // -&gt; 5document.write(a); // -&gt; 11,22,11,aa,bb,ccdocument.write(a.unshift("cat")); // -&gt; 6document.write(a); // -&gt; cat,11,22,11,aa,bb,cc 注意该方法，在IE下将返回undefined，貌似微软的bug，我在firefox下则能正确发挥数组新长度 slice返回数组片段12345var a = ['a','b','c','d','e','f','g'];alert(a.slice(1,2)); // -&gt; balert(a.slice(2)); // -&gt; c,d,e,f,galert(a.slice(-4)); // -&gt; d,e,f,galert(a.slice(-2,-6)); // -&gt; 空 a.slice(1,2)，从下标为1开始，到下标为2之间的数，注意并不包括下标为2的元素如果只有一个参数，则默认到数组最后-4是表示倒数第4个元素，所以返回倒数的四个元素最后一行，从倒数第2开始，因为是往后截取，所以显然取不到前面的元素，所以返回空数组，如果改成 a.slice(-6,-2) 则返回b,c,d,e splice从数组删除某片段的元素，并返回删除的元素12345678910111213var a = [1,2,3,4,5,6,7,8,9];document.write(a.splice(3,2)); // -&gt; 4,5document.write(a); // -&gt; 1,2,3,6,7,8,9document.write(a.splice(4)); // -&gt; 7,8,9 注：IE下返回空document.write(a); // -&gt; 1,2,3,6document.write(a.splice(0,1)); // -&gt; 1document.write(a); // -&gt; 2,3,6document.write(a.splice(1,1,["aa","bb","cc"])); // -&gt; 3document.write(a); // -&gt; 2,aa,bb,cc,6,7,8,9document.write(a.splice(1,2,"ee").join("#")); // -&gt; aa,bb,cc#6document.write(a); // -&gt; 2,ee,7,8,9document.write(a.splice(1,2,"cc","aa","tt").join("#")); // -&gt; ee#7document.write(a); // -&gt; 2,cc,aa,tt,8,9 注意该方法在IE下，第二个参数是必须的，不填则默认为0，例如a.splice(4)，在IE下则返回空，效果等同于a.splice(4,0) toString把数组转为字符串，不只数组，所有对象均可使用该方法12345678910var a = [5,6,7,8,9,["A","BB"],100];document.write(a.toString()); // -&gt; 5,6,7,8,9,A,BB,100var b = new Date()document.write(b.toString()); // -&gt; Sat Aug 8 17:08:32 UTC+0800 2009var c = function(s)&#123; alert(s);&#125;document.write(c.toString()); // -&gt; function(s)&#123; alert(s); &#125; 布尔值则返回true或false，对象则返回[object objectname]相比join()方法，join()只对一维数组进行替换，而toString()则把整个数组（不管一维还是多维）完全平面化同时该方法可用于10进制、2进制、8进制、16进制转换，例如1234var a = [5,6,7,8,9,"A","BB",100];for(var i=0; i&amp;lt;a.length; i++)&#123; document.write(a[i].toString() + " 的二进制是 " + a[i].toString(2) + " ，八进制是 " + a[i].toString(8) + " ，十六进制是 " + a[i].toString(16)); // -&gt; 4,5&#125; 输出结果123456785 的二进制是 101 ，八进制是 5 ，十六进制是 56 的二进制是 110 ，八进制是 6 ，十六进制是 67 的二进制是 111 ，八进制是 7 ，十六进制是 78 的二进制是 1000 ，八进制是 10 ，十六进制是 89 的二进制是 1001 ，八进制是 11 ，十六进制是 9A 的二进制是 A ，八进制是 A ，十六进制是 ABB 的二进制是 BB ，八进制是 BB ，十六进制是 BB100 的二进制是 1100100 ，八进制是 144 ，十六进制是 64 转换只能在元素进行，如果对整个数组进行转换，则原封不动返回该数组 toLocaleString返回本地格式字符串，主要用在Date对象上1234var a = new Date();document.write(a.toString()); // -&gt; Sat Aug 8 17:28:36 UTC+0800 2009document.write(a.toLocaleString()); // -&gt; 2009年8月8日 17:28:36document.write(a.toLocaleDateString()); // -&gt; 2009年8月8日 区别在于，toString()返回标准格式，toLocaleString()返回本地格式完整日期（在【控制面板】&gt;&gt;【区域和语言选项】，通过修改[时间]和[长日期]格式），toLocaleDateString()跟toLocaleString()一样，只是少了时间 valueOf根据不同对象返回不同原始值，用于输出的话跟toString()差不多，但是toString()是返回string类型，而valueOf()是返回原对象类型12345678910111213var a = [1,2,3,[4,5,6,[7,8,9]]];var b = new Date();var c = true;var d = function()&#123; alert("sunnycat");&#125;;document.write(a.valueOf()); // -&gt; 1,2,3,4,5,6,7,8,9document.write(typeof (a.valueOf())); // -&gt; objectdocument.write(b.valueOf()); // -&gt; 1249874470052document.write(typeof(b.valueOf())); // -&gt; numberdocument.write(c.valueOf()); // -&gt; truedocument.write(typeof(c.valueOf())); // -&gt; booleandocument.write(d.valueOf()); // -&gt; function () &#123; alert("sunnycat"); &#125;document.write(typeof(d.valueOf())); // -&gt; function 数组也是对象，所以typeof (a.valueOf())返回object，返回的依然是个多维数组123var a = [1,2,3,[4,5,6,[7,8,9]]];var aa = a.valueOf();document.write(aa[3][3][1]); // -&gt; 8 Date对象返回的是距离1970年1月1日的毫秒数，Math和Error对象没有valueOf方法]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -1428,8 +1428,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1503,8 +1503,8 @@
         <tag>单车</tag>
         <tag>运动</tag>
         <tag>户外</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1722,8 +1722,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1805,8 +1805,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>莲花山</tag>
       </tags>
   </entry>
@@ -1820,8 +1820,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -2011,8 +2011,8 @@
       <tags>
         <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大鹏</tag>
         <tag>东西冲</tag>
         <tag>西冲</tag>
       </tags>
@@ -2039,8 +2039,8 @@
       <tags>
         <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大鹏</tag>
         <tag>杨梅坑</tag>
         <tag>桔钓沙</tag>
       </tags>
@@ -2055,8 +2055,8 @@
       <tags>
         <tag>大梅沙</tag>
         <tag>刷街</tag>
-        <tag>大鹏</tag>
         <tag>轮滑</tag>
+        <tag>大鹏</tag>
         <tag>西冲</tag>
       </tags>
   </entry>
@@ -2110,8 +2110,8 @@
         <tag>html</tag>
         <tag>javascript</tag>
         <tag>ajax</tag>
-        <tag>zblog</tag>
         <tag>highlight</tag>
+        <tag>zblog</tag>
       </tags>
   </entry>
   <entry>
@@ -2187,8 +2187,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -2275,8 +2275,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2416,8 +2416,8 @@
         <tag>大梅沙</tag>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2694,9 +2694,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
         <tag>红树林</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2963,9 +2963,9 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
         <tag>红树林</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2991,8 +2991,8 @@
       <tags>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3271,9 +3271,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>mobile</tag>
         <tag>css</tag>
         <tag>html</tag>
-        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
@@ -3388,7 +3388,7 @@
   <entry>
     <title><![CDATA[NB文章系统2.0 转 Z-Blog1.7]]></title>
     <url>%2F2007%2F04%2F4d80ea3f%2F</url>
-    <content type="text"><![CDATA[17google是在05年制作的，现有文章1630篇，基本是人工整理进去的，后来因时间有限，一直搁着没更新，实在有点遗憾 今天写了个程序把数据库转为Z-Blog 1.7，以后应该会不定期更新下的NB文章系统2.0 MSSQL数据库&nbsp;&gt;&gt; Z-Blog 1.7 Access数据库123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282283284285286287288289290291292293294295296297298299300301302303304305306307308309310311312313314315316&lt;%@LANGUAGE=&quot;VBSCRIPT&quot; CODEPAGE=&quot;65001&quot;%&gt;&lt;%Response.Charset=&quot;UTF-8&quot;Session.CodePage=&quot;65001&quot;Response.buffer=Falseserver.ScriptTimeout = 999999&apos;NB文章系统2.0 change to Z-Blog 1.7&apos;梦游的猫&apos;建立时间 2007年4月10日 15:53:49&apos;最后修改 2007年4月10日 22:53:41%&gt;&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;UTF-8&quot;&gt;&lt;head&gt; &lt;style&gt; body &#123;FONT-FAMILY: 宋体; FONT-SIZE: 12px;padding:30px 0 0 30px;&#125; #title &#123;border:1px solid #EAEAEA;padding:10px;&#125; &lt;/style&gt;&lt;/head&gt;NB文章系统2.0 change to Z-Blog 1.7作者：梦游的猫http://www.21ido.com&lt;p&gt;&amp;nbsp;&lt;div id = &quot;title&quot;&gt;&lt;/div&gt;&amp;nbsp;&lt;div id = &quot;log&quot;&gt;&lt;/div&gt;&lt;%db1 = &quot;cat|pass|daName|(local)&quot; &apos;NB文章系统数据库链接，Access的请参考下面设置db2 = &quot;data/cat.mdb&quot; &apos;博客数据库地址&apos;进行替换，可自行定义Function filtContent(str) If IsNull(str) Or str = &quot;&quot; Then filtContent = &quot;&quot; Else str = Replace(str,&quot;=&quot;&quot;/UserFiles/&quot;,&quot;=&quot;&quot;/UPLOAD/&quot;) str = Replace(str,&quot;=&quot;&quot;/editor/UploadFile/&quot;,&quot;=&quot;&quot;/UPLOAD/&quot;) Do While InStr(str,&quot;&lt;IFRAME&quot;) &gt; 0 p1 = InStr(str,&quot;&lt;IFRAME&quot;) p2 = InStr(p1,str,&quot;&lt;/IFRAME&gt;&quot;) If p2 &gt; p1 then p2 = p2 + Len(&quot;&lt;/IFRAME&gt;&quot;) Else p2 = InStr(p1,str,&quot;&gt;&quot;) End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,&quot;&quot;) End if loop Do While InStr(str,&quot;&lt;SCRIPT&quot;) &gt; 0 p1 = InStr(str,&quot;&lt;SCRIPT&quot;) p2 = InStr(p1,str,&quot;&lt;/SCRIPT&gt;&quot;) If p2 &gt; p1 then p2 = p2 + Len(&quot;&lt;/SCRIPT&gt;&quot;) Else p2 = InStr(p1,str,&quot;&gt;&quot;) End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,&quot;&quot;) End if loop filtContent = str End ifEnd Function&apos;以下部分一般不用修改&apos;=========================================================================timeStart = timerdbArr = Split(db1,&quot;|&quot;)showTitle &quot;开始&quot;Set conn1 = CreateObject(&quot;ADODB.Connection&quot;)Set conn2 = CreateObject(&quot;ADODB.Connection&quot;)If UBound(dbArr) &gt; 0 then ConnStr = &quot;Provider = Sqloledb; User ID = &quot; &amp; dbArr(0) &amp; &quot;; Password = &quot; &amp; dbArr(1) &amp; &quot;; Initial Catalog = &quot; &amp; dbArr(2) &amp; &quot;; Data Source = &quot; &amp; dbArr(3) &amp; &quot;;&quot;Else ConnStr = &quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&quot; &amp; server.MapPath(db1)End ifconn1.Open connstrconnstr=&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&quot; &amp; server.MapPath(db2)conn2.Open connstrSet rs = Server.CreateObject(&quot;adodb.recordset&quot;)Set rsTemp = Server.CreateObject(&quot;adodb.recordset&quot;)&apos;---------------------------------------------------------------转换文章showTitle &quot;正在转换文章。。。&quot;sql = &quot;select T1.id,T2.title as className,T1.title,T1.addDate,T1.content,T1.keyword,T1.viewNum,T1.author,T1.source,T1.sourceUrl,T1.summary from NB_Content T1 inner join NB_Column T2 on T1.columnId = T2.id order by T1.adddate&quot;rs.open sql,conn1,1,1sql = &quot;select top 1 * from [blog_Article]&quot;rsTemp.open sql,conn2,1,3For i = 1 To rs.recordCount showLog &quot;正在添加 [&quot; &amp; rs(&quot;className&quot;) &amp; &quot;] &lt;span style=&apos;color:blue;bold-weight:bolder;&apos;&gt;&quot; &amp; Replace(rs(&quot;title&quot;),&quot;&amp;nbsp;&quot;,&quot; &quot;) &amp; &quot;&lt;/span&gt; 。。。&quot; rsTemp.Addnew rsTemp(&quot;log_CateID&quot;) = findCatID(rs(&quot;className&quot;)) rsTemp(&quot;log_AuthorID&quot;) = 1 rsTemp(&quot;log_Level&quot;) = 4 rsTemp(&quot;log_Title&quot;) = replace(rs(&quot;title&quot;),&quot;&amp;nbsp;&quot;,&quot; &quot;) content = filtContent(rs(&quot;content&quot;)) summary = rs(&quot;summary&quot;) If IsNull(summary) or Len(summary) &lt; 10 Then summary = Left(noHTML(content),150) rsTemp(&quot;log_Intro&quot;) = summary author = rs(&quot;author&quot;) source = rs(&quot;source&quot;) sourceUrl = rs(&quot;sourceUrl&quot;) If Not IsNull(source) And source &lt;&gt; &quot;&quot; Then If Not IsNull(sourceUrl) And sourceUrl &lt;&gt; &quot;&quot; Then content = &quot;转自：[&quot; &amp; source &amp; &quot;]()&quot; &amp; vbCrlf &amp; content else content = &quot;转自：&quot; &amp; source &amp; &quot;&quot; &amp; vbCrlf &amp; content End if End if If Not IsNull(author) And author &lt;&gt; &quot;17google.com.cn&quot; And author &lt;&gt; &quot;&quot; Then content = &quot;作者：&quot; &amp; author &amp; &quot;&quot; &amp; vbCrlf &amp; content End if rsTemp(&quot;log_content&quot;) = content rsTemp(&quot;log_ip&quot;) = &quot;127.0.0.1&quot; rsTemp(&quot;log_postTime&quot;) = rs(&quot;addDate&quot;) rsTemp(&quot;log_viewNums&quot;) = rs(&quot;viewNum&quot;) rsTemp(&quot;log_Tag&quot;) = addTag(rs(&quot;keyword&quot;)) showLog &quot;&lt;span style=&apos;color:red&apos;&gt;完成&lt;/span&gt;&quot; rsTemp.update If i Mod 20 = 0 Then Call clsLog rs.movenextnextrsTemp.closers.closeCall clsLogshowTitle &quot;&lt;span style=&apos;color:red&apos;&gt;完成&lt;/span&gt;&quot;&apos;---------------------------------------------------------------转换评论showTitle &quot;转换评论。。。&quot;sql = &quot;select T1.addDate,T1.content,T1.username,T2.title,T1.ip from [NB_Review] T1 inner join [NB_Content] T2 on T1.id = T2.id order by T1.adddate&quot;rs.open sql,conn1,1,1For i = 1 To rs.recordCount str=Replace(rs(&quot;title&quot;),&quot;&amp;nbsp;&quot;,&quot; &quot;) str=replace(str,&quot;&apos;&quot;,&quot;&apos;&apos;&quot;) showLog &quot;正在添加 [&lt;span style=&apos;color:blue;bold-weight:bolder;&apos;&gt;&quot; &amp; str &amp; &quot;&lt;/span&gt;]。。。&quot; sql = &quot;select top 1 log_ID from [blog_Article] where log_title = &apos;&quot; &amp; str &amp; &quot;&apos;&quot; rsTemp.open sql,conn2,1,1 If Not rsTemp.eof Then blog_ID = rsTemp(&quot;log_ID&quot;) rsTemp.close sql = &quot;select top 1 * from [blog_comment]&quot; rsTemp.open sql,conn2,1,3 rsTemp.addnew rsTemp(&quot;log_id&quot;) = blog_id rsTemp(&quot;comm_authorID&quot;) = 0 rsTemp(&quot;comm_author&quot;) = rs(&quot;username&quot;) rsTemp(&quot;comm_content&quot;) = rs(&quot;content&quot;) rsTemp(&quot;comm_postTime&quot;) = rs(&quot;adddate&quot;) rsTemp(&quot;comm_IP&quot;) = rs(&quot;ip&quot;) rsTemp.update sql = &quot;update [blog_Article] set log_commNums = log_commNums + 1 where log_ID = &quot; &amp; blog_ID conn2.execute(sql) showLog &quot;&lt;span style=&apos;color:red&apos;&gt;完成&lt;/span&gt;&quot; Else showLog &quot;&lt;span style=&apos;color:red&apos;&gt;出错，跳过&lt;/span&gt; &quot; &amp; sql &amp; &quot;&quot; End If rsTemp.close If i Mod 20 = 0 Then Call clsLog rs.movenextnextrs.close&apos;Call clsLogshowTitle &quot;&lt;span style=&apos;color:red&apos;&gt;完成&lt;/span&gt;&quot;&apos;---------------------------------------------------------------重新统计博客数据showTitle &quot;重新统计博客数据。。。&quot;sql = &quot;select log_cateid,count(1) from [blog_article] group by log_cateid&quot;rs.open sql,conn2,1,1cateCount = rs.getrowsrs.closeFor i = 0 To UBound(cateCount,2) sql = &quot;select cate_id,cate_name,cate_count from [blog_Category] where cate_id = &quot; &amp; cateCount(0,i) rs.open sql,conn2,1,3 rs(&quot;cate_count&quot;) = cateCount(1,i) rs.update showLog &quot;[&quot; &amp; rs(&quot;cate_name&quot;) &amp; &quot;]有文章数：&quot; &amp; cateCount(1,i) &amp; &quot;&quot; rs.closenextSet rs = NothingshowLog &quot;转换完成，请登录博客后台[初始化数据]&quot;showTitle &quot;&lt;span style=&apos;color:red&apos;&gt;完成&lt;/span&gt;，耗时 &quot; &amp; Int((timer - timeStart)*10)/10 &amp; &quot; 秒&quot;%&gt;&lt;%&apos;----------------------------------------------------------------------------------------------------------------------------&apos;----------------------------------------------------------------------------------------------------------------------------Function findCatID(str) If isnull(str) Or str = &quot;&quot; Then catID = 0 Else Set rsT = server.CreateObject(&quot;adodb.recordset&quot;) sql = &quot;select top 1 cate_id,cate_name from [blog_Category] where cate_name = &apos;&quot; &amp; str &amp; &quot;&apos;&quot; rsT.open sql,conn2,1,3 If Not rsT.eof Then catID = rsT(&quot;cate_id&quot;) Else rsT.addNew rsT(&quot;cate_name&quot;) = str rsT.update rsT.close showLog &quot;创建类别 [&quot; &amp; str &amp; &quot;]。。&quot; sql = &quot;select top 1 cate_id from [blog_Category] where cate_name = &apos;&quot; &amp; str &amp; &quot;&apos;&quot; rsT.open sql,conn2,1,1 catID = rsT(&quot;cate_id&quot;) End If rsT.close Set rsT = Nothing End If findCatID = catIDEnd FunctionFunction addTag(str) If IsNull(str) Or Trim(str) = &quot;&quot; Then addTag = &quot;&quot; else str = Trim(str) str = Replace(str,&quot;,&quot;,&quot;|&quot;) str = Replace(str,&quot;，&quot;,&quot;|&quot;) str = Replace(str,&quot; &quot;,&quot;|&quot;) Do While InStr(str,&quot;||&quot;) &gt; 0 str = Replace(str,&quot;||&quot;,&quot;|&quot;) Loop If Left(str,1) = &quot;|&quot; Then str = Right(str,Len(str)-1) If Right(str,1) = &quot;|&quot; Then str = left(str,Len(str)-1) tagArr = Split(str,&quot;|&quot;) addTag = &quot;&quot; Set rsT = server.CreateObject(&quot;Adodb.recordset&quot;) For iTag = 0 To UBound(tagArr) tagArr(iTag) = Trim(tagArr(iTag)) sql = &quot;select top 1 * from [blog_Tag] where tag_name = &apos;&quot; &amp; tagArr(iTag) &amp; &quot;&apos;&quot; rsT.open sql,conn2,1,3 If Not rsT.eof Then rsT(&quot;tag_count&quot;) = rsT(&quot;tag_count&quot;) + 1 rsT.update Else showlog &quot; [&quot; &amp; tagArr(iTag) &amp; &quot;]&quot; rsT.addNew rsT(&quot;tag_name&quot;) = tagArr(iTag) rsT(&quot;tag_count&quot;) = 1 rsT.update showlog &quot;创建标签[&quot; &amp; tagArr(iTag) &amp; &quot;]&quot; rsT.close sql = &quot;select top 1 * from [blog_tag] where tag_name = &apos;&quot; &amp; tagArr(iTag) &amp; &quot;&apos; order by tag_id desc&quot; rsT.open sql,conn2,1,1 End If If InStr(addTag,&quot;&#123;&quot; &amp; rsT(&quot;tag_id&quot;) &amp; &quot;&#125;&quot;) &gt; 0 Then &apos;skin else addTag = addTag &amp; &quot;&#123;&quot; &amp; rsT(&quot;tag_id&quot;) &amp; &quot;&#125;&quot; End if rsT.close Next Set rsT = Nothing showlog addTag &amp; &quot;。。&quot; End ifEnd FunctionSub showLog(str) response.write &quot;&lt;script language=&apos;javascript&apos;&gt;document.all.log.innerHTML += &apos;&quot; &amp; Replace(Replace(str,&quot;&apos;&quot;,&quot;\&apos;&quot;),&quot;&quot;&quot;&quot;,&quot;\&quot;&quot;&quot;) &amp; &quot;&apos;;&lt;/script&gt;&quot; &apos;response.write strEnd SubSub showtitle(str) response.write &quot;&lt;script language=&apos;javascript&apos;&gt;document.all.title.innerHTML += &apos;&quot; &amp; Replace(Replace(str,&quot;&apos;&quot;,&quot;\&apos;&quot;),&quot;&quot;&quot;&quot;,&quot;\&quot;&quot;&quot;) &amp; &quot;&apos;;&lt;/script&gt;&quot; &apos;response.write strEnd SubSub clsLog response.write &quot;&lt;script language=&apos;javascript&apos;&gt;document.all.log.innerHTML = &apos;&apos;;&lt;/script&gt;&quot;End Subfunction noHTML(str) dim re Set re=new RegExp re.IgnoreCase =true re.Global=True re.Pattern=&quot;(\&lt;.[^\&lt;]*\&gt;)&quot; str=re.replace(str,&quot; &quot;) re.Pattern=&quot;(\&lt;\/[^\&lt;]*\&gt;)&quot; str=re.replace(str,&quot; &quot;) nohtml=str set re=nothingend function%&gt;]]></content>
+    <content type="text"><![CDATA[17google是在05年制作的，现有文章1630篇，基本是人工整理进去的，后来因时间有限，一直搁着没更新，实在有点遗憾 今天写了个程序把数据库转为Z-Blog 1.7，以后应该会不定期更新下的NB文章系统2.0 MSSQL数据库&nbsp;&gt;&gt; Z-Blog 1.7 Access数据库123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282283284285286287288289290291292293294295296297298299300301302303304305306307308309310311312313314315&lt;%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%&gt;&lt;%Response.Charset="UTF-8"Session.CodePage="65001"Response.buffer=Falseserver.ScriptTimeout = 999999'NB文章系统2.0 change to Z-Blog 1.7'梦游的猫'建立时间 2007年4月10日 15:53:49'最后修改 2007年4月10日 22:53:41%&gt;&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8"&gt;&lt;head&gt; &lt;style&gt; body &#123;FONT-FAMILY: 宋体; FONT-SIZE: 12px;padding:30px 0 0 30px;&#125; #title &#123;border:1px solid #EAEAEA;padding:10px;&#125; &lt;/style&gt;&lt;/head&gt;NB文章系统2.0 change to Z-Blog 1.7&lt;br /&gt;作者：梦游的猫&lt;br /&gt;http://www.21ido.com&lt;br /&gt;&lt;div id = "title"&gt;&lt;/div&gt;&amp;nbsp;&lt;div id = "log"&gt;&lt;/div&gt;&lt;%db1 = "cat|pass|daName|(local)" 'NB文章系统数据库链接，Access的请参考下面设置db2 = "data/cat.mdb" '博客数据库地址'进行替换，可自行定义Function filtContent(str) If IsNull(str) Or str = "" Then filtContent = "" Else str = Replace(str,"=""/UserFiles/","=""/UPLOAD/") str = Replace(str,"=""/editor/UploadFile/","=""/UPLOAD/") Do While InStr(str,"&lt;IFRAME") &gt; 0 p1 = InStr(str,"&lt;IFRAME") p2 = InStr(p1,str,"&lt;/IFRAME&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/IFRAME&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop Do While InStr(str,"&lt;SCRIPT") &gt; 0 p1 = InStr(str,"&lt;SCRIPT") p2 = InStr(p1,str,"&lt;/SCRIPT&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/SCRIPT&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop filtContent = str End ifEnd Function'以下部分一般不用修改'=========================================================================timeStart = timerdbArr = Split(db1,"|")showTitle "开始"Set conn1 = CreateObject("ADODB.Connection")Set conn2 = CreateObject("ADODB.Connection")If UBound(dbArr) &gt; 0 then ConnStr = "Provider = Sqloledb; User ID = " &amp; dbArr(0) &amp; "; Password = " &amp; dbArr(1) &amp; "; Initial Catalog = " &amp; dbArr(2) &amp; "; Data Source = " &amp; dbArr(3) &amp; ";"Else ConnStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db1)End ifconn1.Open connstrconnstr="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db2)conn2.Open connstrSet rs = Server.CreateObject("adodb.recordset")Set rsTemp = Server.CreateObject("adodb.recordset")'---------------------------------------------------------------转换文章showTitle "正在转换文章。。。"sql = "select T1.id,T2.title as className,T1.title,T1.addDate,T1.content,T1.keyword,T1.viewNum,T1.author,T1.source,T1.sourceUrl,T1.summary from NB_Content T1 inner join NB_Column T2 on T1.columnId = T2.id order by T1.adddate"rs.open sql,conn1,1,1sql = "select top 1 * from [blog_Article]"rsTemp.open sql,conn2,1,3For i = 1 To rs.recordCount showLog "正在添加 [" &amp; rs("className") &amp; "] &lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; Replace(rs("title"),"&amp;nbsp;"," ") &amp; "&lt;/span&gt; 。。。" rsTemp.Addnew rsTemp("log_CateID") = findCatID(rs("className")) rsTemp("log_AuthorID") = 1 rsTemp("log_Level") = 4 rsTemp("log_Title") = replace(rs("title"),"&amp;nbsp;"," ") content = filtContent(rs("content")) summary = rs("summary") If IsNull(summary) or Len(summary) &lt; 10 Then summary = Left(noHTML(content),150) rsTemp("log_Intro") = summary author = rs("author") source = rs("source") sourceUrl = rs("sourceUrl") If Not IsNull(source) And source &lt;&gt; "" Then If Not IsNull(sourceUrl) And sourceUrl &lt;&gt; "" Then content = "转自：[" &amp; source &amp; "]()" &amp; vbCrlf &amp; content else content = "转自：" &amp; source &amp; "" &amp; vbCrlf &amp; content End if End if If Not IsNull(author) And author &lt;&gt; "17google.com.cn" And author &lt;&gt; "" Then content = "作者：" &amp; author &amp; "" &amp; vbCrlf &amp; content End if rsTemp("log_content") = content rsTemp("log_ip") = "127.0.0.1" rsTemp("log_postTime") = rs("addDate") rsTemp("log_viewNums") = rs("viewNum") rsTemp("log_Tag") = addTag(rs("keyword")) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" rsTemp.update If i Mod 20 = 0 Then Call clsLog rs.movenextnextrsTemp.closers.closeCall clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------转换评论showTitle "转换评论。。。"sql = "select T1.addDate,T1.content,T1.username,T2.title,T1.ip from [NB_Review] T1 inner join [NB_Content] T2 on T1.id = T2.id order by T1.adddate"rs.open sql,conn1,1,1For i = 1 To rs.recordCount str=Replace(rs("title"),"&amp;nbsp;"," ") str=replace(str,"'","''") showLog "正在添加 [&lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; str &amp; "&lt;/span&gt;]。。。" sql = "select top 1 log_ID from [blog_Article] where log_title = '" &amp; str &amp; "'" rsTemp.open sql,conn2,1,1 If Not rsTemp.eof Then blog_ID = rsTemp("log_ID") rsTemp.close sql = "select top 1 * from [blog_comment]" rsTemp.open sql,conn2,1,3 rsTemp.addnew rsTemp("log_id") = blog_id rsTemp("comm_authorID") = 0 rsTemp("comm_author") = rs("username") rsTemp("comm_content") = rs("content") rsTemp("comm_postTime") = rs("adddate") rsTemp("comm_IP") = rs("ip") rsTemp.update sql = "update [blog_Article] set log_commNums = log_commNums + 1 where log_ID = " &amp; blog_ID conn2.execute(sql) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" Else showLog "&lt;span style='color:red'&gt;出错，跳过&lt;/span&gt; " &amp; sql &amp; "" End If rsTemp.close If i Mod 20 = 0 Then Call clsLog rs.movenextnextrs.close'Call clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------重新统计博客数据showTitle "重新统计博客数据。。。"sql = "select log_cateid,count(1) from [blog_article] group by log_cateid"rs.open sql,conn2,1,1cateCount = rs.getrowsrs.closeFor i = 0 To UBound(cateCount,2) sql = "select cate_id,cate_name,cate_count from [blog_Category] where cate_id = " &amp; cateCount(0,i) rs.open sql,conn2,1,3 rs("cate_count") = cateCount(1,i) rs.update showLog "[" &amp; rs("cate_name") &amp; "]有文章数：" &amp; cateCount(1,i) &amp; "" rs.closenextSet rs = NothingshowLog "转换完成，请登录博客后台[初始化数据]"showTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;，耗时 " &amp; Int((timer - timeStart)*10)/10 &amp; " 秒"%&gt;&lt;%'----------------------------------------------------------------------------------------------------------------------------'----------------------------------------------------------------------------------------------------------------------------Function findCatID(str) If isnull(str) Or str = "" Then catID = 0 Else Set rsT = server.CreateObject("adodb.recordset") sql = "select top 1 cate_id,cate_name from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then catID = rsT("cate_id") Else rsT.addNew rsT("cate_name") = str rsT.update rsT.close showLog "创建类别 [" &amp; str &amp; "]。。" sql = "select top 1 cate_id from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,1 catID = rsT("cate_id") End If rsT.close Set rsT = Nothing End If findCatID = catIDEnd FunctionFunction addTag(str) If IsNull(str) Or Trim(str) = "" Then addTag = "" else str = Trim(str) str = Replace(str,",","|") str = Replace(str,"，","|") str = Replace(str," ","|") Do While InStr(str,"||") &gt; 0 str = Replace(str,"||","|") Loop If Left(str,1) = "|" Then str = Right(str,Len(str)-1) If Right(str,1) = "|" Then str = left(str,Len(str)-1) tagArr = Split(str,"|") addTag = "" Set rsT = server.CreateObject("Adodb.recordset") For iTag = 0 To UBound(tagArr) tagArr(iTag) = Trim(tagArr(iTag)) sql = "select top 1 * from [blog_Tag] where tag_name = '" &amp; tagArr(iTag) &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then rsT("tag_count") = rsT("tag_count") + 1 rsT.update Else showlog " [" &amp; tagArr(iTag) &amp; "]" rsT.addNew rsT("tag_name") = tagArr(iTag) rsT("tag_count") = 1 rsT.update showlog "创建标签[" &amp; tagArr(iTag) &amp; "]" rsT.close sql = "select top 1 * from [blog_tag] where tag_name = '" &amp; tagArr(iTag) &amp; "' order by tag_id desc" rsT.open sql,conn2,1,1 End If If InStr(addTag,"&#123;" &amp; rsT("tag_id") &amp; "&#125;") &gt; 0 Then 'skin else addTag = addTag &amp; "&#123;" &amp; rsT("tag_id") &amp; "&#125;" End if rsT.close Next Set rsT = Nothing showlog addTag &amp; "。。" End ifEnd FunctionSub showLog(str) response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub showtitle(str) response.write "&lt;script language='javascript'&gt;document.all.title.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub clsLog response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML = '';&lt;/script&gt;"End Subfunction noHTML(str) dim re Set re=new RegExp re.IgnoreCase =true re.Global=True re.Pattern="(\&lt;.[^\&lt;]*\&gt;)" str=re.replace(str," ") re.Pattern="(\&lt;\/[^\&lt;]*\&gt;)" str=re.replace(str," ") nohtml=str set re=nothingend function%&gt;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3857,7 +3857,7 @@
   <entry>
     <title><![CDATA[HTML代码优化]]></title>
     <url>%2F2006%2F10%2Fca0f1096%2F</url>
-    <content type="text"><![CDATA[刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员 其中6.5节可能因为文件覆盖而不全 HTML代码优化 作者：梦游的猫 最后修改时间 2006年7月7日 16:40:37 目录 一. 为什么要优化？ 二. 优化原则 三. 优化技巧 四. SEO 五. 关于网页标准 何谓标准？ 使用标准价值在哪？ 团队合作流程 如何实现 六. 实例分析 删除空标签 合并标签 合理安排表格布局 表格列表优化 利用&lt;div&gt;简化代码 七. 修订记录 八. 附录 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A. 参考文档 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. 相关资源 一. 为什么要优化？ 节省带宽 服务器带宽是有限制的，为了支持更多在线人数，可以租用更多带宽，也可以增加服务器，但如果能通过优化代码减小网页体积，例如减少50%，那原本支持1000人同时在线的带宽现在就可以支持2000人了，这样就节省了昂贵的带宽费用 利于程序员编写代码 静态页面转为动态页面时，经常要分析结构，把重复代码改为循环，因此简洁的代码有利用提高效率 减少页面下载及解析时间 虽然现在大部分都是宽带，带宽非常充足，但一般访客都不只打开一个页面，而是同时访问多个网站，加上聊天、下载等工具占用一定带宽，这样带宽就显得拥挤了，减少页面体积可以缩短下载时间，同时也能减少客户端浏览器的解析时间 二. 优化原则 不影响原外观 不要把整个页面放到一个table里面 不要嵌套太多表格，因为表格需要代码全部下载才能显示出来 不要用太大、太多Flash动画 不要用太多JavaScript特效，用户是来看内容不是看特效 尽量把大图切成小图，可以再次利用的图片就无需再另切图了 三. 优化技巧 使用静态页面可以有效减少服务器资源占用 重复使用的样式写到外部CSS文件，一般是整站一个共用CSS文件，各独立栏目共用一个CSS文件，某页面特有的可以写在本页面内 需要从数据库读取但又不经常更换的内容，写到单独JS文件，例如各个栏目，内容是从数据库获取的，但又不会频繁更换 需要链接外部的Flash、图片等，可以用iframe标签，避免外部网络延迟而拖慢整体页面显示 四. SEO SEO全称是Search Engine Optimization，即针对搜索的优化。网站在推出之后，最大的难点莫过于推广，而通过搜索引擎带来的流量是不可忽视的，如何通过优化代码使搜索引擎最大限度的收录，也就成为重要课题。 明确的标题，即&lt;title&gt;标签 例如搜索&amp;ldquo;电脑&amp;rdquo;，搜索结果有2个页面，一个标题包含&amp;ldquo;电脑&amp;rdquo;，另一个只包含在正文&amp;lt;body&amp;gt;标签中，第一个页面会排第一位。 根据观察，各搜索引擎都会对标题进行截断，具体为baidu20字、google30字、Yahoo20字、MSN Search25字（均为中文） 所以标题不能过长，要跟正文内容符合，例如一个《碟中碟》电影页面，标题可以为&amp;ldquo;碟中碟 汤姆克鲁斯 酷娱乐 91Q.com&amp;rdquo; META标记 &lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;5&quot; bgcolor=&quot;#f7f7f7&quot; code=&quot;&quot; class=&quot;TBBG9&quot;&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td bgcolor=&quot;#eeeeee&quot; class=&quot;TBBG1&quot;&gt;&amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;网页简述&amp;quot;&amp;gt; &amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;关键字&amp;quot;&amp;gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 链接文本 文章、新闻经常标题过长，为了页面美观而不得不截短，加入title属性，一来有利于访客阅读完整标题，也有利于搜索引擎的收录 &lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;5&quot; bgcolor=&quot;#f7f7f7&quot; code=&quot;&quot; class=&quot;TBBG9&quot;&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td bgcolor=&quot;#eeeeee&quot; class=&quot;TBBG1&quot;&gt;&amp;lt;a href=&amp;quot;test.htm&amp;quot; title=&amp;quot;浅谈Flash ActionScript代码优化&amp;quot;&amp;gt;浅谈Flash ActionScr&amp;hellip;&amp;lt;/a&amp;gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 图像 同上，相应属性为alt 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字 SEO还包括其它方面的内容，以上只是在代码方面的优化 五. 关于网页标准 何谓标准？ 网页标准是进2年流行的话题，简单的说，就是抛弃HTML+Table改用XHTML+CSS来写网页，做到结构和样式分离。XHTML标准分过渡型和严格型，其中过渡型可以使用table，而严格型只能用div来进行布局。 使用标准价值在哪？ 1. **易于维护** HTML代码发展到现在，已经变得十分臃肿，这对网页设计师来说是非常不利的，特别在重构大型网站的时候，经常显得力不从心 2. **加速开发** 通过结构与表现层分离，可以优化团队工作流程，提高工作效率 3. **拓展访问渠** 不需做大改动即可在PDA等掌上设备浏览 4. **节约带宽成本 **一般运用网页标准进行网站重构之后，代码可以减少一半以上，每页面如果能减少几十K，乘以访问量，一个月下来，就可以节约昂贵的带宽费用了 5. **提高用户体验** 干净简介的代码，总比臃肿复杂代码显示得快，用户不必再忍受缓慢的访问速度 团队合作流程 ![](/blog/upload/2006/10/23/002724.gif) 如何实现 1. XHTML标签和属性全部要小写，比如&amp;lt;BODY&amp;gt;&amp;l t;HEAD&gt;&lt;BR /&gt; 2. 标签注意要关闭，常见的比如&amp;lt;br /&amp;gt;&amp;lt;input /&amp;gt;等，还有&amp;lt;img src=&amp;quot;&amp;quot; alt=&amp;quot;&amp;quot; /&amp;gt;，别把alt属性忘记了 3. 不用&amp;lt;font&amp;gt;标签，可以用&amp;lt;span&amp;gt;标签加CSS定义 4. XHTML不具备HTML标签所有属性和值，例如居中align=&apos;absmiddle&apos;，在XHTML里面是没有absmiddle值的，只有top/bottom/right/left/center，某些属性例如onload也被废除了 5. 公用函数&amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;放在&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;之间，共有的写在单独文件再在网页导入 6. 尽量用div布局而不用table，但table还是可以用的 六. 实例分析 删除空标签 &amp;lt;td height=&amp;quot;23&amp;quot;&amp;gt;&amp;lt;div align=&amp;quot;left&amp;quot; class=&amp;quot;lineh15 style4&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;剧情看点： &amp;lt;/a&amp;gt;&amp;lt;%=exStr1%&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; 是可以去掉的 合并标签 &amp;lt;td height=&amp;quot;23&amp;quot;&amp;gt;&amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;%=sShowName%&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/td&amp;gt; div太多，不仅影响浏览器解析，还可能因为未关闭标签造成错乱，也给编辑带来困难，例如用DW打开，如下图 ![](/blog/upload/2006/10/23/002931.png) 表格和div密密麻麻的N多线 &amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt; 的作用是左对其，其实在表格设置水平左对其也一样，修改后为 &amp;lt;td height=&amp;quot;23&amp;quot; align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;%=sShowName%&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/td&amp;gt; 合理安排表格布局 ![](/blog/upload/2006/10/23/003023.jpg) 上图红色表示表格，绿色表示div层，可以看出里面嵌套了4层表格，同时也用了div来使文字靠左，其实&amp;lt;td&amp;gt;标签也有水平位置的align属性，而且表格默认就是左对齐，所以div标签完全可以取消，整理一下，结果如下图 ![](/blog/upload/2006/10/23/003052.jpg) 表格列表优化 ![](/blog/upload/2006/10/23/003207.png) 如上图，红色表示表格，绿色是DIV，可以看出套了很多表格，整理一下所要的效果，无非是外面圆角边框加里面数据，其中数据又分上下两部分，上面是图片加文字，而下面是文字。 下图是优化后，可以看出只有2个表格嵌套，结构很简洁。 ![](/blog/upload/2006/10/23/003418.png) &lt;font color=&quot;blue&quot;&gt;优化过程：&lt;/font&gt; 1. 将【本类排行】表格，放到外面表格中，作为一行而不是单独表格2. 排行第一的电影，原先用了几个表格嵌套，现改用div将图片浮动左边，文字会自动插入到右边空白处3. 下面的2－10排行不再用表格分割，改用&amp;lt;li&amp;gt;标签，再用css进行修饰 &lt;font color=&quot;blue&quot;&gt;代码片段：&lt;/font&gt; **CSS部分** &lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;5&quot; bgcolor=&quot;#f7f7f7&quot; code=&quot;&quot; class=&quot;TBBG9&quot;&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td bgcolor=&quot;#eeeeee&quot; class=&quot;TBBG1&quot;&gt;#test{ &amp;nbsp;color:#000000; &amp;nbsp;list-style:none; &amp;nbsp;line-height:200%; &amp;nbsp;margin:5px&amp;nbsp;0&amp;nbsp;0&amp;nbsp;10px; } #test&amp;nbsp;li{ &amp;nbsp;border-bottom:1px&amp;nbsp;dotted&amp;nbsp;#FFFFFF; }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; **排行列表** &lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;5&quot; bgcolor=&quot;#f7f7f7&quot; code=&quot;&quot; class=&quot;TBBG9&quot;&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td bgcolor=&quot;#eeeeee&quot; class=&quot;TBBG1&quot;&gt;&amp;lt;li&amp;gt;2.新精武门&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;3.赌圣2之街头赌圣&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;4.流氓状元&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;5.韩2005爆笑性喜..&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;6.我的野蛮本色&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;7.捣蛋三人组-整蛊王&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;8.笑林小子2之乌龙院&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;9.妓女竞选总统记&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;10.一见钟性&amp;lt;/li&amp;gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 优化后代码字数为原来32% 利用&lt;div&gt;简化代码&nbsp; (该节不全) ![](/blog/upload/2006/10/23/003449.jpg) 如上图，五部影片所在的表格，先是用&amp;lt;td&amp;gt;分割，再用&amp;lt;div&amp;gt;定义样式（主要是定义字体大小），其中影片截图，为了显示圆边框，又套了一个表格，表格采用九宫格布置。单个电影代码如下： &lt;table width=&quot;100%&quot; cellspacing=&quot;2&quot; cellpadding=&quot;5&quot; bgcolor=&quot;#f7f7f7&quot; code=&quot;&quot; class=&quot;TBBG9&quot;&gt; &lt;tbody&gt; &lt;tr&gt; &lt;td bgcolor=&quot;#eeeeee&quot; class=&quot;TBBG1&quot;&gt;&amp;lt;td&amp;nbsp;height=&amp;quot;52&amp;quot;&amp;nbsp;align=&amp;quot;center&amp;quot;&amp;nbsp;class=&amp;quot;lineh15&amp;quot;&amp;gt;&amp;lt;div&amp;nbsp;align=&amp;quot;left&amp;quot;&amp;nbsp;class=&amp;quot;size14&amp;quot;&amp;gt; &amp;nbsp;&amp;nbsp;&amp;lt;table&amp;nbsp;border=&amp;quot;0&amp;quot;&amp;nbsp;cellspacing=&amp;quot;0&amp;quot;&amp;nbsp;cellpadding=&amp;quot;0&amp;quot;&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/ttl.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;background=&amp;quot;http://www.21ido.com/bbs/images/tt.jpg&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tt.jpg&amp;quot;&amp;nbsp;width=&amp;quot;1&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/ttr.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;background=&amp;quot;http://www.21ido.com/bbs/images/tl.jpg&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tl.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;1&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;width=&amp;quot;65&amp;quot;&amp;nbsp;height=&amp;quot;75&amp;quot;&amp;gt;&amp;lt;a&amp;nbsp;href=&amp;quot;mo vie2.jsp?sTypeId=164&amp;sPgmId=176&quot;&gt;&lt;img&nbsp;src=&quot;http://cqmovie.bqol.com.cn:8092/logo/凤凰大视野：天空铁路01.jpg&quot;&nbsp;width=&quot;92&quot;&nbsp;height=&quot;124&quot;&nbsp;border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/td&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;background=&amp;quot;http://www.21ido.com/bbs/images/tr.jpg&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tr.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;1&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tbl.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;background=&amp;quot;http://www.21ido.com/bbs/images/tb.jpg&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tb.jpg&amp;quot;&amp;nbsp;width=&amp;quot;1&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;img&amp;nbsp;src=&amp;quot;http://www.21ido.com/bbs/images/tbr.jpg&amp;quot;&amp;nbsp;width=&amp;quot;6&amp;quot;&amp;nbsp;height=&amp;quot;6&amp;quot;&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;td&amp;nbsp;class=&amp;quot;lineh15&amp;quot;&amp;nbsp;colspan=&amp;quot;3&amp;quot;&amp;gt;&amp;lt;div&amp;nbsp;align=&amp;quot;center&amp;quot;&amp;gt;&amp;lt;span&amp;nbsp;class=&amp;quot;title-16px120b-B00000&amp;quot;&amp;gt;&amp;lt;a&amp;nbsp;href=&amp;quot;movie2.jsp?sTypeId=164&amp;amp;sPgmId=176&amp;quot;&amp;gt;北纬17度线&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/td&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/tr&amp;gt; &amp;nbsp;&amp;nbsp;&amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt;&amp;lt;/td&amp;gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 七. 修订记录 2006年7月3日 星期三 创建文档，整理《实例分析》1．、2．、3． 实例 2006年7月4日 星期四 《实例分析》增加4．实例，撰写《优化原则》、《优化技巧》等章节 2006年7月7日 星期五 撰写《SEO》、《关于网页标准》章节 八. 附录 A. 参考文档  《优化网页代码提高网页访问速度》作者：Cheney  《网页Title的优化的原则》 B. 相关资源  《Robots.txt指南》 http://www.17google.com.cn/article.asp?articleid=404 &nbsp; 网页设计师 http://www.w3cn.org]]></content>
+    <content type="text"><![CDATA[刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员其中6.5节可能因为文件覆盖而不全 HTML代码优化作者：梦游的猫（猫大叔） 最后修改时间 2006年7月7日 16:40:37 目录一. 为什么要优化？二. 优化原则三. 优化技巧四. SEO五. 关于网页标准 何谓标准？ 使用标准价值在哪？ 团队合作流程 如何实现六. 实例分析 删除空标签 合并标签 合理安排表格布局 表格列表优化 利用&lt;div&gt;简化代码七. 修订记录八. 附录A. 参考文档B. 相关资源 一. 为什么要优化？1. 节省带宽服务器带宽是有限制的，为了支持更多在线人数，可以租用更多带宽，也可以增加服务器，但如果能通过优化代码减小网页体积，例如减少50%，那原本支持1000人同时在线的带宽现在就可以支持2000人了，这样就节省了昂贵的带宽费用 2. 于程序员编写代码静态页面转为动态页面时，经常要分析结构，把重复代码改为循环，因此简洁的代码有利用提高效率 3. 减少页面下载及解析时间虽然现在大部分都是宽带，带宽非常充足，但一般访客都不只打开一个页面，而是同时访问多个网站，加上聊天、下载等工具占用一定带宽，这样带宽就显得拥挤了，减少页面体积可以缩短下载时间，同时也能减少客户端浏览器的解析时间 二. 优化原则 不影响原外观 不要把整个页面放到一个table里面 不要嵌套太多表格，因为表格需要代码全部下载才能显示出来 不要用太大、太多Flash动画 不要用太多JavaScript特效，用户是来看内容不是看特效 尽量把大图切成小图，可以再次利用的图片就无需再另切图了 三. 优化技巧 使用静态页面可以有效减少服务器资源占用 重复使用的样式写到外部CSS文件，一般是整站一个共用CSS文件，各独立栏目共用一个CSS文件，某页面特有的可以写在本页面内 需要从数据库读取但又不经常更换的内容，写到单独JS文件，例如各个栏目，内容是从数据库获取的，但又不会频繁更换 需要链接外部的Flash、图片等，可以用iframe标签，避免外部网络延迟而拖慢整体页面显示 四. SEOSEO全称是Search Engine Optimization，即针对搜索的优化。网站在推出之后，最大的难点莫过于推广，而通过搜索引擎带来的流量是不可忽视的，如何通过优化代码使搜索引擎最大限度的收录，也就成为重要课题。 1. 明确的标题，即&lt;title&gt;标签例如搜索&ldquo;电脑&rdquo;，搜索结果有2个页面，一个标题包含&ldquo;电脑&rdquo;，另一个只包含在正文&lt;body&gt;标签中，第一个页面会排第一位。 根据观察，各搜索引擎都会对标题进行截断，具体为baidu20字、google30字、Yahoo20字、MSN Search25字（均为中文） 所以标题不能过长，要跟正文内容符合，例如一个《碟中碟》电影页面，标题可以为&ldquo;碟中碟 汤姆克鲁斯 酷娱乐 91Q.com&rdquo; 2. META标记12&lt;meta name="description" content="网页简述"&gt;&lt;meta name="keywords" content="关键字"&gt; 3. 链接文本文章、新闻经常标题过长，为了页面美观而不得不截短，加入title属性，一来有利于访客阅读完整标题，也有利于搜索引擎的收录 1&lt;a href="test.htm" title="浅谈Flash ActionScript代码优化"&gt;浅谈Flash ActionScr…&lt;/a&gt; 4. 图像同上，相应属性为alt 5. 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字SEO还包括其它方面的内容，以上只是在代码方面的优化 五. 关于网页标准1. 何谓标准？网页标准是进2年流行的话题，简单的说，就是抛弃HTML+Table改用XHTML+CSS来写网页，做到结构和样式分离。XHTML标准分过渡型和严格型，其中过渡型可以使用table，而严格型只能用div来进行布局。 2. 使用标准价值在哪？1. 易于维护HTML代码发展到现在，已经变得十分臃肿，这对网页设计师来说是非常不利的，特别在重构大型网站的时候，经常显得力不从心 2. 加速开发通过结构与表现层分离，可以优化团队工作流程，提高工作效率 3. 拓展访问渠不需做大改动即可在PDA等掌上设备浏览 4. 节约带宽成本一般运用网页标准进行网站重构之后，代码可以减少一半以上，每页面如果能减少几十K，乘以访问量，一个月下来，就可以节约昂贵的带宽费用了 5. 提高用户体验干净简介的代码，总比臃肿复杂代码显示得快，用户不必再忍受缓慢的访问速度 3. 团队合作流程 4. 如何实现 XHTML标签和属性全部要小写，比如&lt;BODY&gt;&lt;HEAD&gt;&lt;BR /&gt; 标签注意要关闭，常见的比如 &lt;br /&gt;&lt;input /&gt; 别把alt属性忘记了 不用 &lt;font&gt; 标签，可以用 &lt;span&gt; 标签加CSS定义 XHTML不具备HTML标签所有属性和值，例如居中align=&#39;absmiddle&#39;，在XHTML里面是没有absmiddle值的，只有top/bottom/right/left/center，某些属性例如onload也被废除了 公用函数 &lt;script&gt;&lt;/script&gt; 放在 &lt;head&gt;&lt;/head&gt; 之间，共有的写在单独文件再在网页导入 尽量用div布局而不用table，但table还是可以用的 六. 实例分析1. 删除空标签123456&lt;td height="23"&gt; &lt;div align="left" class="lineh15 style4"&gt; &lt;a href="#"&gt;剧情看点： &lt;/a&gt;&lt;%=exStr1%&gt; &lt;/div&gt; &lt;div align="left"&gt;&lt;/div&gt;&lt;/td&gt; &lt;div align=&quot;left&quot;&gt;&lt;/div&gt; 是可以去掉的 2. 合并标签123&lt;td height="23"&gt; &lt;div align="left"&gt;&lt;strong&gt;&lt;%=sShowName%&gt;&lt;/strong&gt;&lt;/div&gt;&lt;/td&gt; div太多，不仅影响浏览器解析，还可能因为未关闭标签造成错乱，也给编辑带来困难，例如用DW打开，如下图 表格和div密密麻麻的N多线 &lt;div align=&quot;left&quot;&gt; 的作用是左对其，其实在表格设置水平左对其也一样，修改后为 123&lt;td height="23" align="left"&gt; &lt;strong&gt;&lt;%=sShowName%&gt;&lt;/strong&gt;&lt;/td&gt; 3. 合理安排表格布局 上图红色表示表格，绿色表示div层，可以看出里面嵌套了4层表格，同时也用了div来使文字靠左，其实&lt;td&gt;标签也有水平位置的align属性，而且表格默认就是左对齐，所以div标签完全可以取消，整理一下，结果如下图 4. 表格列表优化 如上图，红色表示表格，绿色是DIV，可以看出套了很多表格，整理一下所要的效果，无非是外面圆角边框加里面数据，其中数据又分上下两部分，上面是图片加文字，而下面是文字。 下图是优化后，可以看出只有2个表格嵌套，结构很简洁。 优化过程： 将【本类排行】表格，放到外面表格中，作为一行而不是单独表格 排行第一的电影，原先用了几个表格嵌套，现改用div将图片浮动左边，文字会自动插入到右边空白处3. 下面的2－10排行不再用表格分割，改用&lt;li&gt;标签，再用css进行修饰 代码片段： CSS部分 123456789#test&#123; color:#000000; list-style:none; line-height:200%; margin:5px 0 0 10px;&#125;#test li&#123; border-bottom:1px dotted #FFFFFF;&#125; 排行列表 123456789&lt;li&gt;2.新精武门&lt;/li&gt;&lt;li&gt;3.赌圣2之街头赌圣&lt;/li&gt;&lt;li&gt;4.流氓状元&lt;/li&gt;&lt;li&gt;5.韩2005爆笑性喜..&lt;/li&gt;&lt;li&gt;6.我的野蛮本色&lt;/li&gt;&lt;li&gt;7.捣蛋三人组-整蛊王&lt;/li&gt;&lt;li&gt;8.笑林小子2之乌龙院&lt;/li&gt;&lt;li&gt;9.妓女竞选总统记&lt;/li&gt;&lt;li&gt;10.一见钟性&lt;/li&gt; 优化后代码字数为原来32% 5. 利用&lt;div&gt;简化代码&nbsp; (该节不全) 如上图，五部影片所在的表格，先是用&lt;td&gt;分割，再用&lt;div&gt;定义样式（主要是定义字体大小），其中影片截图，为了显示圆边框，又套了一个表格，表格采用九宫格布置。单个电影代码如下： 12345678910111213141516171819202122&lt;td height="52" align="center" class="lineh15"&gt;&lt;div align="left" class="size14"&gt; &lt;table border="0" cellspacing="0" cellpadding="0"&gt; &lt;tr&gt; &lt;td width="6" height="6"&gt;&lt;img src="/images/ttl.jpg" width="6" height="6"&gt;&lt;/td&gt; &lt;td background="/images/tt.jpg"&gt;&lt;img src="/images/tt.jpg" width="1" height="6"&gt;&lt;/td&gt; &lt;td width="6" height="6"&gt;&lt;img src="/images/ttr.jpg" width="6" height="6"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td background="/images/tl.jpg"&gt;&lt;img src="/images/tl.jpg" width="6" height="1"&gt;&lt;/td&gt; &lt;td width="65" height="75"&gt;&lt;a href="mo vie2.jsp?sTypeId=164&amp;sPgmId=176"&gt;&lt;img src="http://cqmovie.bqol.com.cn:8092/logo/凤凰大视野：天空铁路01.jpg" width="92" height="124" border="0"&gt;&lt;/a&gt;&lt;/td&gt; &lt;td background="/images/tr.jpg"&gt;&lt;img src="/images/tr.jpg" width="6" height="1"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td width="6" height="6"&gt;&lt;img src="/images/tbl.jpg" width="6" height="6"&gt;&lt;/td&gt; &lt;td background="/images/tb.jpg"&gt;&lt;img src="/images/tb.jpg" width="1" height="6"&gt;&lt;/td&gt; &lt;td width="6" height="6"&gt;&lt;img src="/images/tbr.jpg" width="6" height="6"&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td class="lineh15" colspan="3"&gt;&lt;div align="center"&gt;&lt;span class="title-16px120b-B00000"&gt;&lt;a href="movie2.jsp?sTypeId=164&amp;sPgmId=176"&gt;北纬17度线&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;&lt;/div&gt;&lt;/td&gt; 七. 修订记录 2006年7月3日 创建文档，整理《实例分析》1．、2．、3． 实例 2006年7月4日 《实例分析》增加4．实例，撰写《优化原则》、《优化技巧》等章节 2006年7月7日 撰写《SEO》、《关于网页标准》章节 八. 附录A. 参考文档 《优化网页代码提高网页访问速度》作者：Cheney 《网页Title的优化的原则》 B. 相关资源 《Robots.txt指南》 网页设计师 http://www.w3cn.org]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3865,7 +3865,6 @@
         <tag>html</tag>
         <tag>seo</tag>
         <tag>web</tag>
-        <tag>优化</tag>
       </tags>
   </entry>
   <entry>
@@ -4319,8 +4318,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>book</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4878,8 +4877,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
