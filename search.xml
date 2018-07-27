@@ -378,8 +378,8 @@
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>琼海</tag>
         <tag>蜜月</tag>
+        <tag>琼海</tag>
         <tag>万宁</tag>
       </tags>
   </entry>
@@ -394,11 +394,11 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
+        <tag>海南</tag>
+        <tag>蜜月</tag>
         <tag>大致坡</tag>
         <tag>文昌</tag>
-        <tag>海南</tag>
         <tag>琼海</tag>
-        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -411,10 +411,10 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
-        <tag>大致坡</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
+        <tag>大致坡</tag>
       </tags>
   </entry>
   <entry>
@@ -428,8 +428,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -515,8 +515,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>广水</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -531,8 +531,8 @@
         <tag>孝感</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>安陆</tag>
         <tag>广水</tag>
+        <tag>安陆</tag>
       </tags>
   </entry>
   <entry>
@@ -628,7 +628,6 @@
       </categories>
       <tags>
         <tag>木兰山</tag>
-        <tag>骑行</tag>
       </tags>
   </entry>
   <entry>
@@ -652,8 +651,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西宁</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
         <tag>水井巷</tag>
         <tag>莫家街</tag>
       </tags>
@@ -668,8 +667,8 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>西宁</tag>
         <tag>青海湖</tag>
+        <tag>西宁</tag>
         <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
@@ -717,9 +716,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>西宁</tag>
-        <tag>青海湖</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
@@ -733,10 +732,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>西宁</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
+        <tag>西宁</tag>
       </tags>
   </entry>
   <entry>
@@ -748,9 +747,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>大雁塔</tag>
       </tags>
   </entry>
@@ -765,8 +764,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>钟楼</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -901,9 +900,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
       </tags>
@@ -918,9 +917,9 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>小摊</tag>
         <tag>金鸡号</tag>
-        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -933,8 +932,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>罗家渡</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -947,8 +946,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -961,10 +960,10 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>深圳</tag>
         <tag>潮州</tag>
         <tag>揭阳</tag>
         <tag>梅陇</tag>
+        <tag>深圳</tag>
         <tag>陆丰</tag>
       </tags>
   </entry>
@@ -1164,8 +1163,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
         <tag>60km</tag>
       </tags>
   </entry>
@@ -1232,8 +1231,8 @@
         <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>旅游</tag>
         <tag>寮步广场</tag>
+        <tag>旅游</tag>
       </tags>
   </entry>
   <entry>
@@ -1247,9 +1246,9 @@
         <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>小楼</tag>
         <tag>旅游</tag>
         <tag>运动</tag>
+        <tag>小楼</tag>
       </tags>
   </entry>
   <entry>
@@ -1263,9 +1262,9 @@
         <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>寮步广场</tag>
         <tag>旅游</tag>
         <tag>运动</tag>
-        <tag>寮步广场</tag>
       </tags>
   </entry>
   <entry>
@@ -1440,8 +1439,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>西丽</tag>
         <tag>南山66</tag>
+        <tag>西丽</tag>
       </tags>
   </entry>
   <entry>
@@ -1485,8 +1484,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>户外</tag>
         <tag>惠州</tag>
+        <tag>户外</tag>
         <tag>红花湖</tag>
         <tag>陈江</tag>
       </tags>
@@ -1501,9 +1500,9 @@
       <tags>
         <tag>单车</tag>
         <tag>运动</tag>
+        <tag>磨房</tag>
         <tag>户外</tag>
         <tag>百公里</tag>
-        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1514,11 +1513,11 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>登山</tag>
         <tag>徒步</tag>
         <tag>梅林</tag>
         <tag>户外</tag>
         <tag>塘郎山</tag>
-        <tag>爬山</tag>
       </tags>
   </entry>
   <entry>
@@ -1542,8 +1541,6 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>版画村</tag>
-        <tag>观澜</tag>
       </tags>
   </entry>
   <entry>
@@ -1702,8 +1699,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
         <tag>马峦山</tag>
       </tags>
   </entry>
@@ -1716,8 +1713,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1730,7 +1727,7 @@
       <tags>
         <tag>轮滑</tag>
         <tag>运动</tag>
-        <tag>爬山</tag>
+        <tag>登山</tag>
         <tag>整理</tag>
       </tags>
   </entry>
@@ -1884,12 +1881,12 @@
       </categories>
       <tags>
         <tag>book</tag>
+        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
-        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1903,12 +1900,12 @@
       </categories>
       <tags>
         <tag>book</tag>
+        <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>Adobe</tag>
         <tag>flash</tag>
         <tag>flex</tag>
         <tag>Macromedia</tag>
-        <tag>xml</tag>
         <tag>书</tag>
         <tag>笔记</tag>
       </tags>
@@ -1948,8 +1945,8 @@
       <tags>
         <tag>南山</tag>
         <tag>运动</tag>
+        <tag>登山</tag>
         <tag>户外</tag>
-        <tag>爬山</tag>
       </tags>
   </entry>
   <entry>
@@ -2104,8 +2101,8 @@
         <tag>javascript</tag>
         <tag>html</tag>
         <tag>ajax</tag>
-        <tag>zblog</tag>
         <tag>highlight</tag>
+        <tag>zblog</tag>
       </tags>
   </entry>
   <entry>
@@ -2212,9 +2209,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
+        <tag>xml</tag>
         <tag>paypal</tag>
         <tag>网银</tag>
       </tags>
@@ -2388,7 +2385,7 @@
   <entry>
     <title><![CDATA[3月16日 白石洲 -> 莲花山]]></title>
     <url>%2F2008%2F03%2F662f0e4a%2F</url>
-    <content type="text"><![CDATA[参加人员：猫、安安、西西、恋季、KK和KK老公、凡人、游鱼、艾文、麦兜、凡、阳光、King、晓麦(+4) 照片已打包发到各位QQ邮箱 KK在干嘛？ 大家要向KK看齐，垃圾掉了一定要捡起来 吃得干干净净，一点都不能浪费！]]></content>
+    <content type="text"><![CDATA[海拔106米 第二次刷上莲花山，第一次用了近半小时，这次用了20分钟，而且感觉没那么累了 从山顶刷下来很爽的说参加人员：猫、安安、西西、恋季、KK和KK老公、凡人、游鱼、艾文、麦兜、凡、阳光、King、晓麦(+4) 照片已打包发到各位QQ邮箱 KK在干嘛？ 大家要向KK看齐，垃圾掉了一定要捡起来 吃得干干净净，一点都不能浪费！]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -2410,23 +2407,8 @@
         <tag>轮滑</tag>
         <tag>运动</tag>
         <tag>大梅沙</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3月16日·白石洲到莲花山]]></title>
-    <url>%2F2008%2F03%2F35a45d55%2F</url>
-    <content type="text"><![CDATA[海拔106米 第二次刷上莲花山，第一次用了近半小时，这次用了20分钟，而且感觉没那么累了 从山顶刷下来很爽的说 更多照片点这里]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>刷街</tag>
-        <tag>轮滑</tag>
-        <tag>运动</tag>
-        <tag>莲花山</tag>
-        <tag>户外</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -2528,10 +2510,10 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>asp</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
+        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -2593,8 +2575,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>西丽</tag>
         <tag>南山66</tag>
+        <tag>西丽</tag>
       </tags>
   </entry>
   <entry>
@@ -2619,8 +2601,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
         <tag>排牙山</tag>
       </tags>
   </entry>
@@ -2845,8 +2827,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
         <tag>梧桐山</tag>
       </tags>
   </entry>
@@ -2999,8 +2981,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>西丽</tag>
         <tag>南山66</tag>
+        <tag>西丽</tag>
         <tag>白石洲</tag>
       </tags>
   </entry>
@@ -3259,7 +3241,7 @@
   <entry>
     <title><![CDATA[3G豆豆页面设计]]></title>
     <url>%2F2007%2F07%2Fff1d6635%2F</url>
-    <content type="text"><![CDATA[3G豆豆是公司一个项目，最近搞了一个内部员工的设计比赛，老猫也搭船参加了，结果是一等奖空缺、二等奖三人，老猫不幸得了二等奖 P.S.我对这个项目一点也不看好，因为看不到亮点]]></content>
+    <content type="text"><![CDATA[] 3G豆豆是公司一个项目，最近搞了一个内部员工的设计比赛，老猫也搭船参加了，结果是一等奖空缺、二等奖三人，老猫不幸得了二等奖 P.S.我对这个项目一点也不看好，因为看不到亮点]]></content>
       <categories>
         <category>Web</category>
       </categories>

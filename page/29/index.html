@@ -337,168 +337,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/11/208d647d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2006/11/208d647d/" itemprop="url">SQL 2005导入Access和Excel文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2006-11-03T01:03:43+08:00">
-                2006-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>晚上在给SQL 2005导入Access数据库，语句如下</p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);"><span style="color: rgb(0, 0, 255);">INSERT</span>&nbsp;<span style="color: rgb(0, 0, 255);">INTO</span>&nbsp;[dbo].[ixunlei]……&nbsp;<br><br>&nbsp;<span style="color: rgb(0, 0, 255);">SELECT</span>&nbsp;……&nbsp;<br><br>&nbsp;<span style="color: rgb(0, 0, 255);">FROM</span>&nbsp;OPENDATASOURCE(<span style="color: rgb(255, 0, 255);">‘Microsoft.Jet.OLEDB.4.0’</span>,<span style="color: rgb(255, 0, 255);">‘Data&nbsp;Source=&quot;….mdb&quot;’</span>)…[…..]<br><br></div>
-
-<p>然后提示出错</p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);">SQL&nbsp;Server&nbsp;阻止了对组件&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>&nbsp;的&nbsp;STATEMENT<span style="color: rgb(255, 0, 255);">‘OpenRowset/OpenDatasource’</span>&nbsp;的访问，因为此组件已作为此服务器安全配置的一部分而被关闭。系统管理员可以通过使用&nbsp;sp_configure&nbsp;启用&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>。有关启用&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>&nbsp;的详细信息，请参阅&nbsp;SQL&nbsp;Server&nbsp;联机丛书中的&nbsp;&quot;外围应用配置器&quot;。&nbsp;</div>
-
-<p>因为SQL2005默认是没有开启<font face="Verdana"><font color="#ff0000"><strong>‘Ad Hoc Distributed Queries’</strong></font> 组件，开启方法如下</font></p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);">EXEC&nbsp;sp_configure&nbsp;<span style="color: rgb(255, 0, 255);">‘show&nbsp;advanced&nbsp;options’</span>,&nbsp;1<br><br>GO<br><br>RECONFIGURE<br><br>GO<br><br>EXEC&nbsp;sp_configure&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>,&nbsp;1<br><br>GO<br><br>RECONFIGURE<br><br>GO</div>
-
-<p>接着就可以导入Access了，导入Excel也一样需要开启</p>
-
-          
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/sql/" rel="tag"># sql</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/11/f01d6cb2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2105,6 +1943,164 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/06/6fa76946/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2006/06/6fa76946/" itemprop="url">上海之行的PP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2006-06-07T04:46:47+08:00">
+                2006-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/images/2006/06/07_042413_12732.jpg"><img src="/images/2006/06/07_042413_12732.jpg" alt="深圳"></a></p>
+<p>1。告别深圳<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2006/06/6fa76946/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/上海/" rel="tag"># 上海</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2155,7 +2151,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">399</span>
+                <span class="site-state-item-count">398</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2177,7 +2173,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">349</span>
+                <span class="site-state-item-count">345</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
