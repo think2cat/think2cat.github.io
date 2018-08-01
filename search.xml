@@ -194,8 +194,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>bower</tag>
         <tag>nodejs</tag>
+        <tag>bower</tag>
       </tags>
   </entry>
   <entry>
@@ -206,15 +206,15 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>flex</tag>
         <tag>css</tag>
+        <tag>flex</tag>
         <tag>html</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[ES6箭头函数]]></title>
     <url>%2F2017%2F06%2F5b0ab7b9%2F</url>
-    <content type="text"><![CDATA[第一次见到这箭头=&gt;，我觉得这是很奇葩的写法，因为作为一个老男人来说，会影响阅读和理解代码的速度=_=|| 作为ES6新特性之一，箭头函数特点如下 a）简洁b）this指向c）rest取代arguments 1. 简洁123var showTips = function(d)&#123; $("#Tip").text(d).show();&#125; 这段代码换成箭头写法是这样1var showTips = (d) =&gt; &#123;$("#Tip").text(d).show()&#125;; 因为只有一个参数 d 所以括号可以省去，因为function只有一句所以花括号也可以省去，如下1var showTips = d =&gt; $("#Tip").text(d).show(); 但是这2个function并不完全相同，去掉花括号后，其实等价于123var showTips = function(d)&#123; return $("#Tip").text(d).show();&#125; 也就是带花括号的是原汁原味的code，而省了花括号后会自动加上return，比如做价格运算时123function getTotalPrice(price, count)&#123; return price * count;&#125; 用箭头函数写法就是1var getTotalPrice = (price,count) =&gt; price * count; 确实相当简洁 2. this指向1234567function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;,2000);&#125; 这段代码看起来没大问题，甚至直接执行Test()也没问题，不报错，2秒后dom也会自动隐藏，但是这里面的this指向了window，也就是本来应该局部变量却提升到全局变量，造成污染了所以一般采用闭包或是实例化，例如1var t = new Test("Hi Function"); 此时function里的this指向对象 t 本身，但是setTimeout里面的this却指向window，会导致2秒后找不到dom对象正常做法是setTimeout前var一个变量来保存this123456789function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); var self = this; setTimeout(function()&#123; self.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 这是比较常见但也比较丑陋的写法，还有一种是这样12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;.bind(this),2000);&#125;var t = new Test("Hi Function"); 把外面的this强行绑定到里面去，这样里面调用this则会变成调外面到了ES6箭头函数，this并不会指向函数本身，而且往上层查找this，包括arguments所以用箭头函数可以这样写12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout( () =&gt; &#123; this.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 3. argumengts如上面说的，箭头函数里arguments会往上层查找arguments，所以下面这个最后输出Hi，而不是Hello123456function Test(s)&#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello");&#125;Test("Hi"); 再修改一下多套一层箭头函数12345678function Test(s)&#123; return () =&gt; &#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello"); &#125;&#125;Test("Hi")(); 一样打印Hi，因为会顺着作用域链往上查找，套了2个return看着有点乱，换个写法123456function Test(s)&#123; setTimeout( () =&gt; &#123; console.log(arguments) &#125;,200);&#125;Test(4,5,6); // -&gt; [4,5,6] 如果想用arguments怎么办，可以用ES6新特征rest12345678function Test(s)&#123; return (() =&gt; &#123; return (...r) =&gt; &#123; console.log(r) &#125;; &#125;)(1,2,3)&#125;Test(4,5,6)(7,8); // -&gt; [7,8] 所以有个面试经常用到的题目，写个计时器每一秒打印个数字，并递增1，就可以不用闭包写法了1234var i =0;setInterval( () =&gt; &#123; if(i&lt;10) console.log(i++);&#125;,1000);]]></content>
+    <content type="text"><![CDATA[第一次见到这箭头=&gt;，我觉得这是很奇葩的写法，因为作为一个老男人来说，会影响阅读和理解代码的速度=_=|| 作为ES6新特性之一，箭头函数特点如下 a）简洁b）this指向c）rest取代arguments 1. 简洁123var showTips = function(d)&#123; $("#Tip").text(d).show();&#125; 这段代码换成箭头写法是这样1var showTips = (d) =&gt; &#123;$("#Tip").text(d).show()&#125;; 因为只有一个参数 d 所以括号可以省去，因为function只有一句所以花括号也可以省去，如下1var showTips = d =&gt; $("#Tip").text(d).show(); 但是这2个function并不完全相同，去掉花括号后，其实等价于123var showTips = function(d)&#123; return $("#Tip").text(d).show();&#125; 也就是带花括号的是原汁原味的code，而省了花括号后会自动加上return，比如做价格运算时123function getTotalPrice(price, count)&#123; return price * count;&#125; 用箭头函数写法就是1var getTotalPrice = (price,count) =&gt; price * count; 确实相当简洁 2. this指向1234567function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;,2000);&#125; 这段代码看起来没大问题，甚至直接执行123所以一般采用闭包或是实例化，例如```jsvar t = new Test(&quot;Hi Function&quot;); 此时function里的this指向对象 t 本身，但是setTimeout里面的this却指向window，会导致2秒后找不到dom对象正常做法是setTimeout前var一个变量来保存this123456789function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); var self = this; setTimeout(function()&#123; self.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 这是比较常见但也比较丑陋的写法，还有一种是这样12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;.bind(this),2000);&#125;var t = new Test("Hi Function"); 把外面的this强行绑定到里面去，这样里面调用this则会变成调外面到了ES6箭头函数，this并不会指向函数本身，而且往上层查找this，包括arguments所以用箭头函数可以这样写12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout( () =&gt; &#123; this.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 3. argumengts如上面说的，箭头函数里arguments会往上层查找arguments，所以下面这个最后输出Hi，而不是Hello123456function Test(s)&#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello");&#125;Test("Hi"); 再修改一下多套一层箭头函数12345678function Test(s)&#123; return () =&gt; &#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello"); &#125;&#125;Test("Hi")(); 一样打印Hi，因为会顺着作用域链往上查找，套了2个return看着有点乱，换个写法123456function Test(s)&#123; setTimeout( () =&gt; &#123; console.log(arguments) &#125;,200);&#125;Test(4,5,6); // -&gt; [4,5,6] 如果想用arguments怎么办，可以用ES6新特征rest12345678function Test(s)&#123; return (() =&gt; &#123; return (...r) =&gt; &#123; console.log(r) &#125;; &#125;)(1,2,3)&#125;Test(4,5,6)(7,8); // -&gt; [7,8] 所以有个面试经常用到的题目，写个计时器每一秒打印个数字，并递增1，就可以不用闭包写法了1234var i =0;setInterval( () =&gt; &#123; if(i&lt;10) console.log(i++);&#125;,1000);]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -231,9 +231,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>nodejs</tag>
         <tag>javascript</tag>
         <tag>grunt</tag>
+        <tag>nodejs</tag>
       </tags>
   </entry>
   <entry>
@@ -273,7 +273,7 @@
   <entry>
     <title><![CDATA[ECMAScript6笔记（1）]]></title>
     <url>%2F2017%2F03%2F1768cee0%2F</url>
-    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let用在花括号{ }里面在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 function(i){return i+1}简洁的无法接受！跟ES5不同的是function中的this指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的1234var self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无聊的写法123var a = 123, b = 456;var c = &#123;a,b&#125;;//c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;//a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");//--&gt; [1, 3, 5, 6, "a", "b"]//--&gt; [1, 3, 5, 6, "a", "b"]]]></content>
+    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let用在花括号{ }里面在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 i+1&#125;```1234567简洁的无法接受！跟ES5不同的是function中的this指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的```jsvar self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无聊的写法123var a = 123, b = 456;var c = &#123;a,b&#125;;//c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;//a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");//--&gt; [1, 3, 5, 6, "a", "b"]//--&gt; [1, 3, 5, 6, "a", "b"]]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -290,10 +290,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>旅行</tag>
         <tag>跑步</tag>
         <tag>马拉松</tag>
         <tag>巴厘岛</tag>
+        <tag>旅行</tag>
         <tag>潜水</tag>
       </tags>
   </entry>
@@ -339,11 +339,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
+        <tag>国庆</tag>
         <tag>英州</tag>
       </tags>
   </entry>
@@ -355,11 +355,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
+        <tag>国庆</tag>
         <tag>万宁</tag>
         <tag>英州</tag>
         <tag>陵水</tag>
@@ -373,11 +373,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
+        <tag>国庆</tag>
         <tag>琼海</tag>
         <tag>万宁</tag>
       </tags>
@@ -390,12 +390,12 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
         <tag>大致坡</tag>
+        <tag>国庆</tag>
         <tag>文昌</tag>
         <tag>琼海</tag>
       </tags>
@@ -408,8 +408,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>海口</tag>
         <tag>蜜月</tag>
@@ -424,8 +424,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>海南</tag>
         <tag>海口</tag>
         <tag>蜜月</tag>
@@ -467,9 +467,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>户外</tag>
         <tag>元旦</tag>
         <tag>庐山</tag>
-        <tag>户外</tag>
       </tags>
   </entry>
   <entry>
@@ -493,11 +493,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
-        <tag>信阳</tag>
+        <tag>旅行</tag>
         <tag>武汉</tag>
+        <tag>国庆</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -508,9 +508,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
+        <tag>国庆</tag>
         <tag>信阳</tag>
         <tag>广水</tag>
       </tags>
@@ -523,11 +523,11 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>孝感</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
+        <tag>孝感</tag>
         <tag>安陆</tag>
+        <tag>国庆</tag>
         <tag>广水</tag>
       </tags>
   </entry>
@@ -539,12 +539,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>东西湖</tag>
-        <tag>国庆</tag>
-        <tag>孝感</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
-        <tag>董永</tag>
+        <tag>旅行</tag>
+        <tag>孝感</tag>
+        <tag>国庆</tag>
       </tags>
   </entry>
   <entry>
@@ -555,12 +553,12 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>东西湖</tag>
-        <tag>国庆</tag>
-        <tag>孝感</tag>
-        <tag>旅行</tag>
         <tag>单车</tag>
+        <tag>旅行</tag>
         <tag>武汉</tag>
+        <tag>孝感</tag>
+        <tag>国庆</tag>
+        <tag>东西湖</tag>
       </tags>
   </entry>
   <entry>
@@ -608,9 +606,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>孝感</tag>
         <tag>安陆</tag>
-        <tag>徒步</tag>
         <tag>钱冲</tag>
         <tag>银杏</tag>
       </tags>
@@ -634,8 +632,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>孝感</tag>
         <tag>单车</tag>
+        <tag>孝感</tag>
       </tags>
   </entry>
   <entry>
@@ -661,8 +659,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
@@ -679,13 +677,13 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -699,8 +697,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>151基地</tag>
-        <tag>江西沟</tag>
         <tag>黑马河</tag>
+        <tag>江西沟</tag>
       </tags>
   </entry>
   <entry>
@@ -714,8 +712,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>华山</tag>
-        <tag>151基地</tag>
         <tag>西宁</tag>
+        <tag>151基地</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -757,8 +755,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>武汉</tag>
+        <tag>国庆</tag>
         <tag>西安</tag>
         <tag>钟楼</tag>
         <tag>青海湖</tag>
@@ -993,11 +991,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>spider</tag>
-        <tag>actionscript</tag>
         <tag>javascript</tag>
-        <tag>cctv</tag>
-        <tag>json</tag>
+        <tag>actionscript</tag>
+        <tag>spider</tag>
       </tags>
   </entry>
   <entry>
@@ -1307,8 +1303,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>javascript</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1319,8 +1315,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>javascript</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1355,8 +1351,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1432,10 +1428,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>测试</tag>
         <tag>优惠多</tag>
         <tag>威猛先生</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1446,10 +1442,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
         <tag>大梅沙</tag>
         <tag>大鹏</tag>
+        <tag>单车</tag>
         <tag>杨梅坑</tag>
         <tag>鹅公湾</tag>
       </tags>
@@ -1462,8 +1458,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>惠州</tag>
         <tag>红花湖</tag>
         <tag>陈江</tag>
@@ -1477,8 +1473,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>磨房</tag>
         <tag>百公里</tag>
       </tags>
@@ -1606,8 +1602,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>南山</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
@@ -1634,8 +1630,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>轮滑</tag>
+        <tag>单车</tag>
         <tag>南山</tag>
         <tag>刷街</tag>
         <tag>沙井</tag>
@@ -1836,45 +1832,41 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>户外</tag>
         <tag>装备</tag>
         <tag>跑步</tag>
+        <tag>户外</tag>
         <tag>松拓</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[《ActionScript 3殿堂之路》学习笔记(2)]]></title>
     <url>%2F2008%2F09%2F85f5a119%2F</url>
-    <content type="text"><![CDATA[作者：SK猫创建时间：2008年9月2日最后修改时间：2008年9月10日 8:20:51 AM &nbsp; 三、ActionScript 3 流程控制&nbsp; 1.&nbsp;条件判断 判断结果只有2种：true和false，AS3中允许表达式的值不是布尔值，如果一个条件表达式的值不是布尔值，会自动执行类型转换，转换成相应布尔值a)&nbsp;if-elseb)&nbsp;if&hellip;else if&hellip;else&nbsp; 2.&nbsp;循环 a)&nbsp;while b)&nbsp;do-while c)&nbsp;for d)&nbsp;for&hellip;in 和 for each&hellip;infor&hellip;in输出对象成员的名字（键）for. each&hellip;in输出对象成员的值 e)&nbsp;break 和 continue配合在循环加标签，可退出某个子或父循环 3.&nbsp;switch跟其它语言一样，不加break的话，会继续执行语句&nbsp; &nbsp; 四、&nbsp;ActionScript 3 的函数&nbsp; &nbsp; 1.&nbsp;定义函数2种方法 函数语句定义法 function xxx():int{} 函数表达式定义法 var xxx:function = function():int{} 区别在于语句定义法编译时会提升到最起码，而表达式定义法不会，如果定义之前执行不会成功， 2.&nbsp;参数&nbsp; AS3中如果参数是基元数据类型，可以看做是传值，如果不是基元数据类型，就是传引用，函数内部的操作将直接函数中传入的参数被保留在一个arguments数组对象，AS2可以无视函数定义传入任意多参数，AS3则不可以，但可以用新关键字&hellip;(rest)接受任意多参数，rest可以另外命名&nbsp; &nbsp; 3.&nbsp;函数本质 ActionScrip 3 中，一切皆对象（Everything is an Object）。函数本身是Function类型的对象，一旦执行将建立一个特殊对象Active Object，该对象是不可访问的，同时每个函数都有一个内置的范围链（Scopes chain）。]]></content>
+    <content type="text"><![CDATA[创建时间：2008年9月2日 最后修改时间：2008年9月10日 8:20:51 AM 三、ActionScript 3 流程控制1.条件判断判断结果只有2种：true和false，AS3中允许表达式的值不是布尔值，如果一个条件表达式的值不是布尔值，会自动执行类型转换，转换成相应布尔值a)if-elseb)if&hellip;else if&hellip;else 2.循环 a)while b)do-while c)for d)for&hellip;in 和 for each&hellip;infor&hellip;in输出对象成员的名字（键）for. each&hellip;in输出对象成员的值 e)break 和 continue配合在循环加标签，可退出某个子或父循环 3.switch跟其它语言一样，不加break的话，会继续执行语句 四、ActionScript 3 的函数1.定义函数2种方法 函数语句定义法 xxx():int&#123;&#125;```1* 函数表达式定义法 ```var xxx:function = function():int&#123;&#125; 区别在于语句定义法编译时会提升到最起码，而表达式定义法不会，如果定义之前执行不会成功， 2.参数AS3中如果参数是基元数据类型，可以看做是传值，如果不是基元数据类型，就是传引用，函数内部的操作将直接函数中传入的参数被保留在一个arguments数组对象，AS2可以无视函数定义传入任意多参数，AS3则不可以，但可以用新关键字&hellip;(rest)接受任意多参数，rest可以另外命名 3.函数本质ActionScrip 3 中，一切皆对象（Everything is an Object）。函数本身是Function类型的对象，一旦执行将建立一个特殊对象Active Object，该对象是不可访问的，同时每个函数都有一个内置的范围链（Scopes chain）。]]></content>
       <categories>
         <category>Flash</category>
       </categories>
       <tags>
         <tag>xml</tag>
         <tag>actionscript</tag>
-        <tag>Adobe</tag>
-        <tag>书</tag>
         <tag>flash</tag>
+        <tag>书</tag>
         <tag>flex</tag>
-        <tag>Macromedia</tag>
         <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[《ActionScript 3殿堂之路》学习笔记(1)]]></title>
     <url>%2F2008%2F09%2Faed8f2da%2F</url>
-    <content type="text"><![CDATA[作者：SK猫创建时间：2008年9月2日最后修改时间：2008年9月3日 10:18:58 PM &nbsp; 一、ActionScript 3 语言介绍&nbsp; ActionScript 3基本是ActionScript引擎的完全重写，代码执行效率最快可以比原有快10倍。AVM2（ActionScript Virutal Machine 2）支持AS3，并向前兼容。&nbsp; 1.新特性 运行时异常处理机制 运行时类型 密封类 闭包方法 使用E4X理论处理XML数据 正则表达式 命名空间 新基元数据类型 &nbsp; 2.AS3开发工具 Flash CS3 Flex 2、Flex 3、Flex SDK &nbsp; 3.编译&nbsp; AS3被编译成ActionScript bytecode，简称ABC文件，ABC文件放入SWF方可被Flash Player执行。SWF是Flash文件格式，容纳媒体资源和ABC字节码。Flash CS3源文件后缀名为 .fla，Flex Builder使用了MXML语言 &nbsp; 二、ActionScript 3 基本元素 1.AS3中的数据类型&nbsp; 基本数据类型Boolean、int、Numbers、String、uint 复杂数据类型Array、Date、Error、Function、RegExp、XML、XMLList、自定义类 &nbsp; 2.变量命名规则 使用有含义的英文单词作为变量名 采用骆驼式命名法 命名符合 min-length &amp;&amp; max-information 原则 尽量避免变量名出现数字符号 3.值类型和引用类型&nbsp; 基本类型都是值类型，其余则为引用类型。值类型不用new来创建，必须用new创建的为引用类型。AS3变量本身是不能持有值的，值类型变量持有的是指向值类型数据的引用，引用类型变量持有的是指向引用类型数据的引用。不论值类型数据还是引用类型数据，实质都是对象。&nbsp; 4.使用int、uint、Number注意事项 整数值有正负之分时，使用int，只处理正整数或颜色相关数值时，使用uint 有小数点时使用Number 当心整型数值的边界 小数相加不一定能得到证书，可以用Math.round()修正 不要让数值差距过大的浮点数相加减，结果可能有偏差 &nbsp; 5.运算符 赋值运算符：= 算术运算符：加、减、乘、除、模运算、求反运算 算术赋值运算符：+=、-=、*=、/=、%= 关系运算符：==、!=、===、!== 关系运算符：&gt;=、&lt;=、&gt;、&lt; 逻辑运算符：&amp;&amp;、||、! 三元if-else运算符：?: typeof、is、as（is返回布尔值，as直接返回值） in&nbsp;]]></content>
+    <content type="text"><![CDATA[创建时间：2008年9月2日 最后修改时间：2008年9月3日 10:18:58 PM 一、ActionScript 3 语言介绍ActionScript 3基本是ActionScript引擎的完全重写，代码执行效率最快可以比原有快10倍。AVM2（ActionScript Virutal Machine 2）支持AS3，并向前兼容。 1.新特性 运行时异常处理机制 运行时类型 密封类 闭包方法 使用E4X理论处理XML数据 正则表达式 命名空间 新基元数据类型 2.AS3开发工具 Flash CS3 Flex 2、Flex 3、Flex SDK 3.编译AS3被编译成ActionScript bytecode，简称ABC文件，ABC文件放入SWF方可被Flash Player执行。SWF是Flash文件格式，容纳媒体资源和ABC字节码。Flash CS3源文件后缀名为 .fla，Flex Builder使用了MXML语言 二、ActionScript 3 基本元素1.AS3中的数据类型 基本数据类型 Boolean、int、Numbers、String、uint 复杂数据类型 Array、Date、Error、Function、RegExp、XML、XMLList、自定义类 2.变量命名规则 使用有含义的英文单词作为变量名 采用骆驼式命名法 命名符合 min-length &amp;&amp; max-information 原则 尽量避免变量名出现数字符号 3.值类型和引用类型基本类型都是值类型，其余则为引用类型。值类型不用new来创建，必须用new创建的为引用类型。AS3变量本身是不能持有值的，值类型变量持有的是指向值类型数据的引用，引用类型变量持有的是指向引用类型数据的引用。不论值类型数据还是引用类型数据，实质都是对象。 4.使用int、uint、Number注意事项 整数值有正负之分时，使用int，只处理正整数或颜色相关数值时，使用uint 有小数点时使用Number 当心整型数值的边界 小数相加不一定能得到证书，可以用Math.round()修正 不要让数值差距过大的浮点数相加减，结果可能有偏差 5.运算符 赋值运算符：= 算术运算符：加、减、乘、除、模运算、求反运算 算术赋值运算符：+=、-=、*=、/=、%= 关系运算符：==、!=、===、!== 关系运算符：&gt;=、&lt;=、&gt;、&lt; 逻辑运算符：&amp;&amp;、||、! 三元if-else运算符：?: typeof、is、as（is返回布尔值，as直接返回值） in]]></content>
       <categories>
         <category>Flash</category>
       </categories>
       <tags>
         <tag>xml</tag>
         <tag>actionscript</tag>
-        <tag>Adobe</tag>
-        <tag>书</tag>
         <tag>flash</tag>
+        <tag>书</tag>
         <tag>flex</tag>
-        <tag>Macromedia</tag>
         <tag>笔记</tag>
       </tags>
   </entry>
@@ -1952,11 +1944,11 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>笔记本</tag>
         <tag>测试</tag>
         <tag>CPU</tag>
         <tag>散热</tag>
         <tag>淘宝</tag>
+        <tag>笔记本</tag>
       </tags>
   </entry>
   <entry>
@@ -1982,8 +1974,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -2090,8 +2082,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -2595,8 +2587,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>Acer</tag>
         <tag>AMD</tag>
         <tag>评测</tag>
       </tags>
@@ -2890,8 +2882,8 @@
         <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -2943,9 +2935,6 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>diy</tag>
-        <tag>V500</tag>
-        <tag>无限慧貂</tag>
         <tag>罗技</tag>
         <tag>鼠标</tag>
       </tags>
@@ -3229,9 +3218,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
-        <tag>笔记本</tag>
         <tag>CPU</tag>
+        <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -3242,8 +3231,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -3449,10 +3438,10 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>蓝牙</tag>
         <tag>mobile</tag>
         <tag>同步</tag>
         <tag>多普达</tag>
+        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3531,9 +3520,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>EXCEL</tag>
         <tag>VBA</tag>
+        <tag>vbs</tag>
         <tag>宏</tag>
         <tag>批量</tag>
       </tags>
@@ -3546,8 +3535,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>书</tag>
         <tag>css</tag>
+        <tag>书</tag>
         <tag>web</tag>
         <tag>读后感</tag>
         <tag>div</tag>
@@ -3586,10 +3575,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
-        <tag>diy</tag>
-        <tag>笔记本</tag>
         <tag>淘宝</tag>
+        <tag>笔记本</tag>
+        <tag>Acer</tag>
         <tag>wifi</tag>
         <tag>无线</tag>
         <tag>二奶</tag>
@@ -3628,8 +3616,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>笔记本</tag>
         <tag>淘宝</tag>
+        <tag>笔记本</tag>
         <tag>ONEPOLAR</tag>
         <tag>背包</tag>
       </tags>
@@ -3642,8 +3630,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -3774,10 +3762,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
-        <tag>diy</tag>
-        <tag>笔记本</tag>
         <tag>蓝牙</tag>
+        <tag>笔记本</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -3799,10 +3786,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Acer</tag>
-        <tag>笔记本</tag>
         <tag>节日</tag>
+        <tag>笔记本</tag>
         <tag>生日</tag>
+        <tag>Acer</tag>
       </tags>
   </entry>
   <entry>
@@ -3812,9 +3799,6 @@
       <categories>
         <category>Life</category>
       </categories>
-      <tags>
-        <tag>diy</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[七年一痒]]></title>
@@ -3936,8 +3920,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>javascript</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -4096,9 +4080,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>spider</tag>
-        <tag>vb</tag>
         <tag>vbs</tag>
+        <tag>vb</tag>
+        <tag>spider</tag>
       </tags>
   </entry>
   <entry>
@@ -4128,14 +4112,14 @@
   <entry>
     <title><![CDATA[0768114.net网址大全爬行脚本]]></title>
     <url>%2F2006%2F02%2Fafb4ae18%2F</url>
-    <content type="text"><![CDATA[跟昨晚的768.cc爬行差不多，因为昨晚已经爬了一些数据，所以插入数据库函数做了点修改 2个脚本其实大同小异，用到的函数并不多 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108'0768114.net网址大全爬行脚本'For WebSpider2'梦游的猫'创建时间 2006年02月25日 01:11:01'最后修改 2006年02月25日 02:29:31'Option ExplicitSet conn = CreateObject("ADODB.Connection")MyConn="Provider=SQLOLEDB.1;Persist Security InFso=true;Data Source=127.0.0.1;Initial Catalog='WebSpider';User ID='spider';Password='spider';CONNect Timeout=30"Conn.Open MyConnSub Main urlMain = "http://0768114.net/" CLSLog() CLSTMPXML() Call Spider.OpenURL(Document,urlMain) tempI = 0 For Each it in Document.getElementsByTagName("table") if it.id = "AutoNumber7" then if tempI = 1 then For Each itA in it.getElementsByTagName("a") if instr(itA.href,"sc.asp?classid") &gt; 0 then showlog trim(itA.innerHtml) myUrl = myUrl &amp; "||" &amp; itA.href myType = myType &amp; "||" &amp; trim(itA.innerHtml) end if next exit for end if tempI = tempI + 1 end if next urlArr = split(myUrl,"||") typeArr = split(myType,"||") for i = 0 to ubound(urlArr) if instr(urlArr(i) , "http://0768114.net/") &gt; 0 then getPage urlArr(i),typeArr(i) nextEnd SubFunction getPage(myUrl,myType) Call Spider.OpenURL(Document,myUrl) html = document.body.innerHtml type2 = trim(getStr(html,"本分类的下级分类:** ","**"))' if type2 = "无下级分类" then type2 = null page = trim(getStr(html,"页/共","页 总计")) for i = 1 to page if i &gt; 1 then Call Spider.OpenURL(Document,myUrl &amp; "&amp;pn=" &amp; i) tempI = 0 For Each it in Document.getElementsByTagName("table") if it.id = "AutoNumber7" then if tempI = 3 then For Each itA in it.getElementsByTagName("a") writeTMPXML myType &amp; " &gt;&gt; " &amp; type2 &amp; " : " &amp; trim(itA.innerHtml) &amp; chr(9) &amp; itA.href &amp; vbCrlf saveDate myType,type2,trim(itA.innerHtml),itA.href next exit for end if tempI = tempI + 1 end if next nextEnd FunctionFunction getStr(str,str1,str2) '返回str1和str2之间的字符串 if isNull(str1) then str1 = "" if isNull(str2) then str2 = "" pStart = instr(str,str1) + len(str1) if pStart &gt; 0 then pEnd = instr(pStart,str,str2) if str2 = "" then getStr = mid(str,pStart) elseif pEnd &gt; 0 then getStr = mid(str,pStart,pEnd – pStart) else getStr = mid(str,pStart) end if else pEnd = instr(str,str2) if pEnd &gt; 0 then getStr = mid(str,0,pEnd – len(str)) else getStr = getStr end if end ifend functionfunction saveDate(type1,type2,name,url) url = replace(url,"'","") if left(url,7) &lt;&gt; "http://" then url = "http://" &amp; url set rs = CreateObject("ADODB.RecordSet") sql = "select * from czNetURL where url = '" &amp; url &amp; "'" rs.open sql,conn,1,3 if rs.eof then rs.addNew end if if isNull(rs("type1")) or isEmpty(rs("type1")) then rs("type1") = trim(type1) if isNull(rs("type2")) or isEmpty(rs("type2")) then rs("type2") = trim(type2) if isNull(rs("name")) or isEmpty(rs("name")) then rs("name") = trim(name) rs("url") = trim(url) rs.update rs.close set rs = Nothingend Function]]></content>
+    <content type="text"><![CDATA[跟昨晚的768.cc爬行差不多，因为昨晚已经爬了一些数据，所以插入数据库函数做了点修改 2个脚本其实大同小异，用到的函数并不多123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108'0768114.net网址大全爬行脚本'For WebSpider2'梦游的猫'创建时间 2006年02月25日 01:11:01'最后修改 2006年02月25日 02:29:31'Option ExplicitSet conn = CreateObject("ADODB.Connection")MyConn="Provider=SQLOLEDB.1;Persist Security InFso=true;Data Source=127.0.0.1;Initial Catalog='WebSpider';User ID='spider';Password='spider';CONNect Timeout=30"Conn.Open MyConnSub Main urlMain = "http://0768114.net/" CLSLog() CLSTMPXML() Call Spider.OpenURL(Document,urlMain) tempI = 0 For Each it in Document.getElementsByTagName("table") if it.id = "AutoNumber7" then if tempI = 1 then For Each itA in it.getElementsByTagName("a") if instr(itA.href,"sc.asp?classid") &gt; 0 then showlog trim(itA.innerHtml) myUrl = myUrl &amp; "||" &amp; itA.href myType = myType &amp; "||" &amp; trim(itA.innerHtml) end if next exit for end if tempI = tempI + 1 end if next urlArr = split(myUrl,"||") typeArr = split(myType,"||") for i = 0 to ubound(urlArr) if instr(urlArr(i) , "http://0768114.net/") &gt; 0 then getPage urlArr(i),typeArr(i) nextEnd SubFunction getPage(myUrl,myType) Call Spider.OpenURL(Document,myUrl) html = document.body.innerHtml type2 = trim(getStr(html,"本分类的下级分类:** ","**"))' if type2 = "无下级分类" then type2 = null page = trim(getStr(html,"页/共","页 总计")) for i = 1 to page if i &gt; 1 then Call Spider.OpenURL(Document,myUrl &amp; "&amp;pn=" &amp; i) tempI = 0 For Each it in Document.getElementsByTagName("table") if it.id = "AutoNumber7" then if tempI = 3 then For Each itA in it.getElementsByTagName("a") writeTMPXML myType &amp; " &gt;&gt; " &amp; type2 &amp; " : " &amp; trim(itA.innerHtml) &amp; chr(9) &amp; itA.href &amp; vbCrlf saveDate myType,type2,trim(itA.innerHtml),itA.href next exit for end if tempI = tempI + 1 end if next nextEnd FunctionFunction getStr(str,str1,str2) '返回str1和str2之间的字符串 if isNull(str1) then str1 = "" if isNull(str2) then str2 = "" pStart = instr(str,str1) + len(str1) if pStart &gt; 0 then pEnd = instr(pStart,str,str2) if str2 = "" then getStr = mid(str,pStart) elseif pEnd &gt; 0 then getStr = mid(str,pStart,pEnd – pStart) else getStr = mid(str,pStart) end if else pEnd = instr(str,str2) if pEnd &gt; 0 then getStr = mid(str,0,pEnd – len(str)) else getStr = getStr end if end ifend functionfunction saveDate(type1,type2,name,url) url = replace(url,"'","") if left(url,7) &lt;&gt; "http://" then url = "http://" &amp; url set rs = CreateObject("ADODB.RecordSet") sql = "select * from czNetURL where url = '" &amp; url &amp; "'" rs.open sql,conn,1,3 if rs.eof then rs.addNew end if if isNull(rs("type1")) or isEmpty(rs("type1")) then rs("type1") = trim(type1) if isNull(rs("type2")) or isEmpty(rs("type2")) then rs("type2") = trim(type2) if isNull(rs("name")) or isEmpty(rs("name")) then rs("name") = trim(name) rs("url") = trim(url) rs.update rs.close set rs = Nothingend Function]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
-        <tag>spider</tag>
-        <tag>vb</tag>
         <tag>vbs</tag>
+        <tag>vb</tag>
+        <tag>spider</tag>
       </tags>
   </entry>
   <entry>
@@ -4146,9 +4130,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>spider</tag>
-        <tag>vb</tag>
         <tag>vbs</tag>
+        <tag>vb</tag>
+        <tag>spider</tag>
       </tags>
   </entry>
   <entry>
@@ -4177,9 +4161,6 @@
       <categories>
         <category>IT</category>
       </categories>
-      <tags>
-        <tag>Macromedia</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[今年过节不收礼，收礼还收咖啡啊]]></title>
@@ -4217,7 +4198,6 @@
       </categories>
       <tags>
         <tag>书</tag>
-        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
@@ -4389,17 +4369,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Adobe公司以34亿美元收购Macromedia!]]></title>
-    <url>%2F2005%2F04%2F3059015a%2F</url>
-    <content type="text"><![CDATA[之前传言微软要收购MM,没想到突然被ADOBE收购了 4月18日消息，著名图形软件开发商Adobe公司本周一表示，他们已经与互联网及媒体内容应用公司Macromedia达成了收购协议。根据协议规定，Adobe将以价值34亿美元的股票收购Macromedia。 据marketwatch报道，Adobe以股票总价值34亿美元，全部股票交易形式收购了Macromedia。Adobe已经宣称他们和Macromedia达成协议。根据协议，此项收购必须得到全部股东们的同意。Macromedia的股东们，接受以0.69的 Adobe 普通股换取Macromedia的每股普通股的免税交易。2005年4约15日周五，Adobe和Macromedia的收盘价格接近，Macromedia 的普通股每股为41.86美元。据悉，该收购计划已经得到了双方股东的批准，并有望于今年秋季完成。届时，Adobe现任首席执行官（CEO）Bruce Chizen将继续担任新公司CEO之职。同时，Adobe公司还表示，由于其旗舰产品“Adobe Acrobat”需求旺盛，公司在截至6月3日的本季度营收和销售额将达到此前预期的高位。此前，Adobe预计本季度营收额有望达到4.75亿美元－4.95亿美元，每股赢利51美分－55美分。Adobe以静态电脑平面设计见长，而Macromedia则专注动态多媒体电子出版。 Adobe官方站上的消息 | Macromedia官方站上的消息]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>Macromedia</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[一起Google]]></title>
     <url>%2F2005%2F04%2F1a53b3e5%2F</url>
     <content type="text"><![CDATA[新弄了个网站，主要搜集关于Google的资料，也有其它搜索引擎的http://www.17google.com.cn 写了个小程序，把Google8.net的文章全偷过来了，再次表示对Google8的站长感谢！ 网站还在调试中。。。敬请期待！]]></content>
@@ -4419,8 +4388,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>书</tag>
         <tag>flash</tag>
+        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4494,8 +4463,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>书</tag>
         <tag>flash</tag>
+        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4809,8 +4778,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>flash</tag>
         <tag>金子</tag>
+        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
