@@ -511,8 +511,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>国庆</tag>
-        <tag>信阳</tag>
         <tag>广水</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -555,8 +555,8 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
-        <tag>孝感</tag>
         <tag>武汉</tag>
+        <tag>孝感</tag>
         <tag>国庆</tag>
         <tag>东西湖</tag>
       </tags>
@@ -710,8 +710,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -726,9 +726,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -741,10 +741,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -758,8 +758,8 @@
         <tag>武汉</tag>
         <tag>国庆</tag>
         <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>钟楼</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -1322,7 +1322,7 @@
   <entry>
     <title><![CDATA[Flex练习：日期 整型 互转]]></title>
     <url>%2F2009%2F07%2Fd680d32d%2F</url>
-    <content type="text"><![CDATA[&nbsp; 公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/ 里面用到Lite3写的一个字符串处理的类，他的博客 http://www.lite3.cn/ 源文件打包下载 1234567891011121314151617181920&lt;?xml version=”1.0” encoding=”utf-8”?&gt;&lt;br&gt; &lt;mx:Application xmlns:mx=”&lt;a href="http://www.adobe.com/2006/mxml"" target="_blank" rel="noopener"&gt;http://www.adobe.com/2006/mxml"&lt;/a&gt; layout=”absolute” width=”600” height=”384”&gt;&lt;br&gt; &lt;mx:TextArea id=”text1” x=”10” y=”73” width=”224” height=”301” change=”doit()” borderThickness=”2” borderColor=”#00ACAE”&gt; &lt;br&gt; &lt;/mx:TextArea&gt; &lt;br&gt; &lt;mx:TextArea id=”text2” x=”360” y=”73” width=”224” height=”301” editable=”false”/&gt; &lt;br&gt; &lt;mx:Button x=”242” y=”155” label=”&lt;== 清空 ==&gt;” width=”110” height=”74” fontFamily=”Arial” fontSize=”12” click=”text1.text=’’;text2.text=’’”/&gt;&lt;br&gt; &lt;a href="mx:Script" target="_blank" rel="noopener"&gt;mx:Script&lt;/a&gt; &lt;br&gt; &lt;![CDATA[&lt;br&gt; import mx.formatters.DateFormatter;&lt;br&gt; import cn.StringUtil;&lt;br&gt; import mx.effects.easing.Exponential;&lt;br&gt; function doit():void&#123;&lt;br&gt; text2.text = “”;&lt;br&gt; var str:Array = text1.text.split(“\r”);&lt;br&gt; for(var i:int=0;i&lt;str.length;i++)&#123;&lt;br&gt; str[i] = cn.StringUtil.trim(str[i]);&lt;br&gt; var myDate:Date = new Date();&lt;br&gt; try&#123;&lt;br&gt; if(str[i].indexOf(“-“) != -1)&#123;&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],” “,”,”);&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],”-“,”,”);&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],”:”,”,”);&lt;br&gt; var strArr:Array = new Array();&lt;br&gt; strArr = str[i].split(“,”);&lt;br&gt; if(str[i].toString().indexOf(“NaN”) == -1 &amp;&amp; strArr.length&gt;=3)&#123;&lt;br&gt; for(var j:int=0;j&lt;strArr.length;j++)&#123;&lt;br&gt; strArr[j] = Number(strArr[j]);&lt;br&gt; if(strArr[j].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt; if(j==0)&#123;&lt;br&gt; myDate.setFullYear(strArr[j]);&lt;br&gt; &#125;else if(j==1)&#123;&lt;br&gt; myDate.setMonth(strArr[j]-1);&lt;br&gt; &#125;else if(j==2)&#123;&lt;br&gt; myDate.setDate(strArr[j]);&lt;br&gt; &#125;else if(j==3)&#123;&lt;br&gt; myDate.setHours(strArr[j]);&lt;br&gt; &#125;else if(j==4)&#123;&lt;br&gt; myDate.setMinutes(strArr[j]);&lt;br&gt; &#125;else if(j==5)&#123;&lt;br&gt; myDate.setSeconds(strArr[j]);&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; text2.text += int(myDate.getTime()/1000);&lt;br&gt; &#125;&lt;br&gt; &#125;else if(str[i] !=””)&#123;&lt;br&gt; str[i] = Number(str[i]);&lt;br&gt; if(str[i].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt; myDate.setTime(str[i]*1000);&lt;br&gt; text2.text += myDate.getFullYear() + “-“ + (myDate.getMonth()+1) + “-“ + myDate.getDate() + “ “ + myDate.getHours() + “:” + myDate.getMinutes() + “:” + myDate.getSeconds()&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; &#125;catch(err:Error)&#123;&lt;br&gt; text2.text += err.toString();&lt;br&gt; &#125;&lt;br&gt; text2.text += “\n”;&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; ]]&gt; &lt;br&gt; &lt;/mx:Script&gt; &lt;br&gt; &lt;mx:Text x=”37” y=”10” text=”== 日期 &lt;=&gt; 整型 互转 ==输入日期（格式为 2004-7-20 13:29:4），或者秒数（距离1970年1月1日以来的秒数）” width=”505” height=”55” fontSize=”12” color=”#FFFFFF” textAlign=”left”/&gt;&lt;br&gt; &lt;/mx:Application&gt;]]></content>
+    <content type="text"><![CDATA[公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/ 里面用到Lite3写的一个字符串处理的类，他的博客 http://www.lite3.cn/ 源文件打包下载1234567891011121314151617181920&lt;?xml version=”1.0” encoding=”utf-8”?&gt;&lt;br&gt; &lt;mx:Application xmlns:mx=”&lt;a href="http://www.adobe.com/2006/mxml"" target="_blank" rel="noopener"&gt;http://www.adobe.com/2006/mxml"&lt;/a&gt; layout=”absolute” width=”600” height=”384”&gt;&lt;br&gt; &lt;mx:TextArea id=”text1” x=”10” y=”73” width=”224” height=”301” change=”doit()” borderThickness=”2” borderColor=”#00ACAE”&gt; &lt;br&gt; &lt;/mx:TextArea&gt; &lt;br&gt; &lt;mx:TextArea id=”text2” x=”360” y=”73” width=”224” height=”301” editable=”false”/&gt; &lt;br&gt; &lt;mx:Button x=”242” y=”155” label=”&lt;== 清空 ==&gt;” width=”110” height=”74” fontFamily=”Arial” fontSize=”12” click=”text1.text=’’;text2.text=’’”/&gt;&lt;br&gt; &lt;a href="mx:Script" target="_blank" rel="noopener"&gt;mx:Script&lt;/a&gt; &lt;br&gt; &lt;![CDATA[&lt;br&gt; import mx.formatters.DateFormatter;&lt;br&gt; import cn.StringUtil;&lt;br&gt; import mx.effects.easing.Exponential;&lt;br&gt; function doit():void&#123;&lt;br&gt; text2.text = “”;&lt;br&gt; var str:Array = text1.text.split(“\r”);&lt;br&gt; for(var i:int=0;i&lt;str.length;i++)&#123;&lt;br&gt; str[i] = cn.StringUtil.trim(str[i]);&lt;br&gt; var myDate:Date = new Date();&lt;br&gt; try&#123;&lt;br&gt; if(str[i].indexOf(“-“) != -1)&#123;&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],” “,”,”);&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],”-“,”,”);&lt;br&gt; str[i] = cn.StringUtil.replace(str[i],”:”,”,”);&lt;br&gt; var strArr:Array = new Array();&lt;br&gt; strArr = str[i].split(“,”);&lt;br&gt; if(str[i].toString().indexOf(“NaN”) == -1 &amp;&amp; strArr.length&gt;=3)&#123;&lt;br&gt; for(var j:int=0;j&lt;strArr.length;j++)&#123;&lt;br&gt; strArr[j] = Number(strArr[j]);&lt;br&gt; if(strArr[j].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt; if(j==0)&#123;&lt;br&gt; myDate.setFullYear(strArr[j]);&lt;br&gt; &#125;else if(j==1)&#123;&lt;br&gt; myDate.setMonth(strArr[j]-1);&lt;br&gt; &#125;else if(j==2)&#123;&lt;br&gt; myDate.setDate(strArr[j]);&lt;br&gt; &#125;else if(j==3)&#123;&lt;br&gt; myDate.setHours(strArr[j]);&lt;br&gt; &#125;else if(j==4)&#123;&lt;br&gt; myDate.setMinutes(strArr[j]);&lt;br&gt; &#125;else if(j==5)&#123;&lt;br&gt; myDate.setSeconds(strArr[j]);&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; text2.text += int(myDate.getTime()/1000);&lt;br&gt; &#125;&lt;br&gt; &#125;else if(str[i] !=””)&#123;&lt;br&gt; str[i] = Number(str[i]);&lt;br&gt; if(str[i].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt; myDate.setTime(str[i]*1000);&lt;br&gt; text2.text += myDate.getFullYear() + “-“ + (myDate.getMonth()+1) + “-“ + myDate.getDate() + “ “ + myDate.getHours() + “:” + myDate.getMinutes() + “:” + myDate.getSeconds()&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; &#125;catch(err:Error)&#123;&lt;br&gt; text2.text += err.toString();&lt;br&gt; &#125;&lt;br&gt; text2.text += “\n”;&lt;br&gt; &#125;&lt;br&gt; &#125;&lt;br&gt; ]]&gt; &lt;br&gt; &lt;/mx:Script&gt; &lt;br&gt; &lt;mx:Text x=”37” y=”10” text=”== 日期 &lt;=&gt; 整型 互转 ==输入日期（格式为 2004-7-20 13:29:4），或者秒数（距离1970年1月1日以来的秒数）” width=”505” height=”55” fontSize=”12” color=”#FFFFFF” textAlign=”left”/&gt;&lt;br&gt; &lt;/mx:Application&gt;]]></content>
       <categories>
         <category>Flash</category>
       </categories>
@@ -1497,13 +1497,12 @@
   <entry>
     <title><![CDATA[Firefox插件整理[更新为Firefox3]]]></title>
     <url>%2F2009%2F03%2F6b0a8a78%2F</url>
-    <content type="text"><![CDATA[Firefox2时代已经过去，Firefox3时代已经到来，吼吼 经过几天试用，3确实比2快了很多，常用插件也基本升级兼容 Adblock Plus屏蔽广告，我经常用来屏蔽论坛帖子签名处图片 Add to Search Bar随意定制搜索栏 Aging Tabs高亮显示当前Tab All-in-One Sidebar在右侧添加一竖排按钮，可以很方便的在侧板查看插件、历史、下载。。。等信息 Basics类型IE7，在Tab最左边添加一按钮，一点就New一个Tab出来，不用再Ctrl+T了 del.icio.us Bookmarksdelicious的插件 Download Statusbar在状态栏显示下载状态 Easy DragToGo超级拖拽，Super DragAndGo代替品，但更灵活 Firebug显示网页错误，方便调试JS之类 FireGestures鼠标手势控制，All-in-One Gestures的代替品，更stronger！ Foxmark Bookmark Synchronizerfoxmark的书签同步插件 FoxyTunes在状态栏显示播放器，新版已经支持千千静听，可惜不支持酷狗 Google Toolbar不用多说，Google工具条，翻译很好用 Gmail Notifier在状态栏右下角显示Gmail邮件提示 IE Tab在FF里用IE内核浏览网页 MediaWrap纠正媒体播放代码，使其能在FF里正常播放 Searchbar Autosizer搜索栏自动缩放，平时搜索栏会很短减少界面空间占用，一旦输入长长的搜索字符串，搜索栏会相应变长 SearchStatus在状态栏显示GooglePR和Alexa Source Viewer Tab查看源码不再弹新窗，而是弹标签页 Speed Dial跟Opera差不多的东东，新建标签的时候用缩列图显示常去网址，一点就上 Split Browser分割窗口，2边可以浏览2个网页 Tab Mix Plus增强标签页功能 TabRenamizer自定义Tab的名称图标等，我经常逛淘宝的时候，把Tab改成google的样式 Thunder Extension迅雷插件 TimeTracker右下角显示你浏览网页花费时间 Tiny Menu把菜单缩小成一个，其它变成弹出，扩大网页浏览区域 Web DeveloperWeb开发工具栏，功能强大&nbsp; 最后更新：2009-03-16 &nbsp; &nbsp; &nbsp; 五&middot;一重装系统，忘记备份FF，插件都要重装下了，最糟糕的是记不清之前有什么插件 Adblock Plus屏蔽广告，我经常用来屏蔽论坛帖子签名处图片 Add to Search Bar随意定制搜索栏 Aging Tabs高亮显示当前Tab All-in-One Gestures手势，用鼠标控制上一页下一页刷新之类 Copy Plain Text无格式复制文本 del.icio.us Bookmarksdelicious的插件 Download Statusbar在状态栏显示下载状态 Firebug显示网页错误，方便调试JS之类 FoxyTunes在状态栏显示播放器，新版已经支持千千静听 Gmail Notifier在状态栏右下角显示Gmail邮件提示 IE Tab在FF里用IE内核浏览网页 Resizeable Textarea随意调整输入框大小 Router Status查看路由器状况 SearchStatus在状态栏显示GooglePR和Alexa SeoQuakeSEO查询，不是很常用 Split Browser在一个窗口浏览2个网页，适合经常切换窗口复制黏贴的人用 Speed Dial新建标签的时候显示常去网址，一点就上 Super DragAndGo拖拽，不是很灵活的说 Tiny Menu把菜单缩小成一个，其它变成弹出，扩大网页浏览区域 Firefox Extension Backup ExtensionFirefox备份工具，不是很好用滴说 Web DeveloperWeb开发工具栏，功能强大 Wizz RSS News ReaderRSS阅读器&nbsp; 最后更新日期：2007-12-22]]></content>
+    <content type="text"><![CDATA[Firefox2时代已经过去，Firefox3时代已经到来，吼吼 经过几天试用，3确实比2快了很多，常用插件也基本升级兼容 Adblock Plus屏蔽广告，我经常用来屏蔽论坛帖子签名处图片 Add to Search Bar随意定制搜索栏 Aging Tabs高亮显示当前Tab All-in-One Sidebar在右侧添加一竖排按钮，可以很方便的在侧板查看插件、历史、下载。。。等信息 Basics类型IE7，在Tab最左边添加一按钮，一点就New一个Tab出来，不用再Ctrl+T了 del.icio.us Bookmarksdelicious的插件 Download Statusbar在状态栏显示下载状态 Easy DragToGo超级拖拽，Super DragAndGo代替品，但更灵活 Firebug显示网页错误，方便调试JS之类 FireGestures鼠标手势控制，All-in-One Gestures的代替品，更stronger！ Foxmark Bookmark Synchronizerfoxmark的书签同步插件 FoxyTunes在状态栏显示播放器，新版已经支持千千静听，可惜不支持酷狗 Google Toolbar不用多说，Google工具条，翻译很好用 Gmail Notifier在状态栏右下角显示Gmail邮件提示 IE Tab在FF里用IE内核浏览网页 MediaWrap纠正媒体播放代码，使其能在FF里正常播放 Searchbar Autosizer搜索栏自动缩放，平时搜索栏会很短减少界面空间占用，一旦输入长长的搜索字符串，搜索栏会相应变长 SearchStatus在状态栏显示GooglePR和Alexa Source Viewer Tab查看源码不再弹新窗，而是弹标签页 Speed Dial跟Opera差不多的东东，新建标签的时候用缩列图显示常去网址，一点就上 Split Browser分割窗口，2边可以浏览2个网页 Tab Mix Plus增强标签页功能 TabRenamizer自定义Tab的名称图标等，我经常逛淘宝的时候，把Tab改成google的样式 Thunder Extension迅雷插件 TimeTracker右下角显示你浏览网页花费时间 Tiny Menu把菜单缩小成一个，其它变成弹出，扩大网页浏览区域 Web DeveloperWeb开发工具栏，功能强大 最后更新：2009-03-16 五&middot;一重装系统，忘记备份FF，插件都要重装下了，最糟糕的是记不清之前有什么插件 Adblock Plus屏蔽广告，我经常用来屏蔽论坛帖子签名处图片 Add to Search Bar随意定制搜索栏 Aging Tabs高亮显示当前Tab All-in-One Gestures手势，用鼠标控制上一页下一页刷新之类 Copy Plain Text无格式复制文本 del.icio.us Bookmarksdelicious的插件 Download Statusbar在状态栏显示下载状态 Firebug显示网页错误，方便调试JS之类 FoxyTunes在状态栏显示播放器，新版已经支持千千静听 Gmail Notifier在状态栏右下角显示Gmail邮件提示 IE Tab在FF里用IE内核浏览网页 Resizeable Textarea随意调整输入框大小 Router Status查看路由器状况 SearchStatus在状态栏显示GooglePR和Alexa SeoQuakeSEO查询，不是很常用 Split Browser在一个窗口浏览2个网页，适合经常切换窗口复制黏贴的人用 Speed Dial新建标签的时候显示常去网址，一点就上 Super DragAndGo拖拽，不是很灵活的说 Tiny Menu把菜单缩小成一个，其它变成弹出，扩大网页浏览区域 Firefox Extension Backup ExtensionFirefox备份工具，不是很好用滴说 Web DeveloperWeb开发工具栏，功能强大 Wizz RSS News ReaderRSS阅读器 最后更新日期：2007-12-22]]></content>
       <categories>
         <category>IT</category>
       </categories>
       <tags>
         <tag>firefox</tag>
-        <tag>插件</tag>
       </tags>
   </entry>
   <entry>
@@ -1846,11 +1845,11 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
         <tag>书</tag>
-        <tag>笔记</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -1862,11 +1861,11 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>xml</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
         <tag>书</tag>
-        <tag>笔记</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -2055,9 +2054,9 @@
       </categories>
       <tags>
         <tag>javascript</tag>
-        <tag>html</tag>
         <tag>ajax</tag>
         <tag>highlight</tag>
+        <tag>html</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2163,10 +2162,10 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>paypal</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>xml</tag>
-        <tag>paypal</tag>
         <tag>网银</tag>
       </tags>
   </entry>
@@ -2246,8 +2245,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>读后感</tag>
         <tag>sql</tag>
       </tags>
@@ -2432,8 +2431,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2457,10 +2456,10 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>xml</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3167,8 +3166,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>html</tag>
         <tag>mobile</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -3203,8 +3202,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sp2</tag>
         <tag>win2003</tag>
+        <tag>sp2</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3252,12 +3251,10 @@
     <url>%2F2007%2F05%2Ff1a2a654%2F</url>
     <content type="text"><![CDATA[程序如下：12345678910Dim oFCKeditorIntroSet oFCKeditorIntro = New FCKeditoroFCKeditorIntro.BasePath = "../FCKeditor/"oFCKeditorIntro.ToolbarSet = "Default"oFCKeditorIntro.Width = "100%"oFCKeditorIntro.Height = "350"oFCKeditorIntro.Value = rs("Info")oFCKeditorIntro.Create "Info" 无情滴出错了 Microsoft VBScript 运行时错误 错误 ‘800a000d’类型不匹配: ‘Server.HTMLEncode’/fckeditor.asp，行97网上搜了一下，大都说是 rs(“Info”)内容有问题，然后提供了类似防SQL注入的解决方法，把xxxx非法字符做过滤处理 自己试了下，解决方法很简单 1234567891011Dim oFCKeditorIntro,InfoText '多定义个变量InfoText = rs("Info") 'lookSet oFCKeditorIntro = New FCKeditoroFCKeditorIntro.BasePath = "../FCKeditor/"oFCKeditorIntro.ToolbarSet = "Default"oFCKeditorIntro.Width = "100%"oFCKeditorIntro.Height = "350"oFCKeditorIntro.Value = InfoText 'lookoFCKeditorIntro.Create "Info"]]></content>
       <categories>
-        <category>IT</category>
+        <category>Web</category>
       </categories>
       <tags>
         <tag>asp</tag>
-        <tag>FCKEditor</tag>
-        <tag>解决</tag>
       </tags>
   </entry>
   <entry>
@@ -3287,8 +3284,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3375,8 +3372,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>javascript</tag>
+        <tag>blog</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3425,9 +3422,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
-        <tag>css</tag>
         <tag>javascript</tag>
+        <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3520,10 +3517,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>EXCEL</tag>
-        <tag>VBA</tag>
         <tag>vbs</tag>
-        <tag>宏</tag>
+        <tag>EXCEL</tag>
         <tag>批量</tag>
       </tags>
   </entry>
@@ -3535,11 +3530,11 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
-        <tag>书</tag>
-        <tag>web</tag>
         <tag>读后感</tag>
+        <tag>书</tag>
+        <tag>css</tag>
         <tag>div</tag>
+        <tag>web</tag>
         <tag>xhtml</tag>
       </tags>
   </entry>
@@ -3673,8 +3668,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3722,8 +3717,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>Spider</tag>
+        <tag>vbs</tag>
       </tags>
   </entry>
   <entry>
@@ -3734,8 +3729,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>XUL</tag>
         <tag>XUL指南</tag>
       </tags>
@@ -3749,8 +3744,8 @@
       </categories>
       <tags>
         <tag>html</tag>
-        <tag>seo</tag>
         <tag>web</tag>
+        <tag>seo</tag>
         <tag>优化</tag>
       </tags>
   </entry>
@@ -4029,7 +4024,7 @@
   <entry>
     <title><![CDATA[Blue Blog开发历程]]></title>
     <url>%2F2006%2F03%2F21ca53d9%2F</url>
-    <content type="text"><![CDATA[应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。 03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。 04年10月，开始学习网页标准，并应用到Blog中，CSS是通过W3C验证了，网页由于某些页面用了不符合XHTML的属性，没通过 05年12月，开始改版，开发真正支持多用户Blog 06年2月，终于放弃开发，采用Oblog系统架设Blue Blog 目前已运行一个来月，问题多多，不知所谓的&ldquo;经过Oblog＆LeadBBS开发人员共同审核&rdquo;的说法是怎么来的，于是自己在改，凡事还是靠自己的好。 补充一下Oblog to LEADBBS Access版转SQL的修改方法 oBlog to Leadbbs 3.1 Access changeTo MSSQLconn.asp 第10行Const is_sqldata=0改为Const is_sqldata=1在29行，自行配置数据库的连接参数oBlogConn.asp 第4行Const is_sqldata=0改为Const is_sqldata=1同样在下面配置连接参数inc/class_blog.asp 第673行logdate = c_year &amp; &quot;-&quot; &amp; c_month改为logdate = c_year &amp; &quot;-&quot; &amp; c_month &amp; &quot;-&quot; &amp; c_day]]></content>
+    <content type="text"><![CDATA[应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。 03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。 04年10月，开始学习网页标准，并应用到Blog中，CSS是通过W3C验证了，网页由于某些页面用了不符合XHTML的属性，没通过 05年12月，开始改版，开发真正支持多用户Blog 06年2月，终于放弃开发，采用Oblog系统架设Blue Blog 目前已运行一个来月，问题多多，不知所谓的&ldquo;经过Oblog＆LeadBBS开发人员共同审核&rdquo;的说法是怎么来的，于是自己在改，凡事还是靠自己的好。 补充一下Oblog to LEADBBS Access版转SQL的修改方法 oBlog to Leadbbs 3.1 Access changeTo MSSQL conn.asp 第10行1Const is_sqldata=0 改为1Const is_sqldata=1 在29行，自行配置数据库的连接参数 oBlogConn.asp 第4行1Const is_sqldata=0 改为1Const is_sqldata=1 同样在下面配置连接参数 inc/class_blog.asp 第673行1logdate = c_year &amp; &quot;-&quot; &amp; c_month 改为1logdate = c_year &amp; &quot;-&quot; &amp; c_month &amp; &quot;-&quot; &amp; c_day]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -4080,8 +4075,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4117,8 +4112,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4130,8 +4125,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4315,17 +4310,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[CSS迷宫，CSS也可以玩的这么炫！]]></title>
-    <url>%2F2005%2F06%2F3e398c50%2F</url>
-    <content type="text"><![CDATA[/* ================================================================ This copyright notice must be untouched at all times.This stylesheet and the associated (x)htmlis available at http://www.cssplay.co.uk/menu/pyramid.htmlCopyright (c) 2005-2007 Stu Nicholls. All rights reserved.Please do not copy without permission of Stu Nicholls.=================================================================== */#road {position:relative; width:380px; height:360px; background:#888 url(http://www.cssplay.co.uk/img/road.gif); z-index:5; margin:0 auto;}#road a {position:absolute; width:20px; height:20px; background:#eee url(http://www.cssplay.co.uk/img/pave.gif); z-index:10; cursor:crosshair; overflow:hidden;}#road a#lose {position:absolute; width:380px; height:360px; background:#888 url(http://www.cssplay.co.uk/img/road.gif); top:0; left:0; z-index:5;}#road a:hover {z-index:15;}a#ja, a#jb {top:0;}a#ha, a#hb, a#hc, a#hd {top:40px;} a#ga, a#gb, a#gc, a#gd, a#ge, a#gf {top:80px;} a#fa, a#fb, a#fc, a#fd, a#fe, a#ff, a#fg, a#fh {top:120px;} a#ea, a#eb, a#ec, a#ed, a#ee, a#ef, a#eg, a#eh, a#ej, a#ek {top:160px;} a#da, a#db, a#dc, a#dd, a#de, a#df, a#dg, a#dh, a#dj, a#dk, a#dl, a#dm {top:200px;} a#ca, a#cb, a#cc, a#cd, a#ce, a#cf, a#cg, a#ch, a#cj, a#ck, a#cl, a#cm, a#cn, a#co {top:240px;} a#ba, a#bb, a#bc, a#bd, a#be, a#bf, a#bg, a#bh, a#bj, a#bk, a#bl, a#bm, a#bn, a#bo, a#bp, a#bq {top:280px;} a#aa, a#ab, a#ac, a#ad, a#ae, a#af, a#ag, a#ah, a#aj, a#ak, a#al, a#am, a#an, a#ao, a#ap, a#aq, a#ar, a#as {top:320px;}a#aa {left:10px;}a#ab, a#ba {left:30px;}a#ac, a#bb, a#ca {left:50px;}a#ad, a#bc, a#cb, a#da {left:70px;}a#ae, a#bd, a#cc, a#db, a#ea {left:90px;}a#af, a#be, a#cd, a#dc, a#eb, a#fa {left:110px;}a#ag, a#bf, a#ce, a#dd, a#ec, a#fb, a#ga {left:130px;}a#ah, a#bg, a#cf, a#de, a#ed, a#fc, a#gb, a#ha {left:150px;}a#aj, a#bh, a#cg, a#df, a#ee, a#fd, a#gc, a#hb, a#ja {left:170px;}a#ak, a#bj, a#ch, a#dg, a#ef, a#fe, a#gd, a#hc, a#jb {left:190px;}a#al, a#bk, a#cj, a#dh, a#eg, a#ff, a#ge, a#hd {left:210px;}a#am, a#bl, a#ck, a#dj, a#eh, a#fg, a#gf {left:230px;}a#an, a#bm, a#cl, a#dk, a#ej, a#fh {left:250px;}a#ao, a#bn, a#cm, a#dl, a#ek {left:270px;}a#ap, a#bo, a#cn, a#dm {left:290px;}a#aq, a#bp, a#co {left:310px;}a#ar, a#bq {left:330px;}a#as {left:350px;}a#aj, a#ak, a#ja, a#jb {background-image:url(http://www.cssplay.co.uk/img/fence.gif);}a#ja:hover, a#jb:hover, a#ha:hover, a#hd:hover, a#ga:hover, a#gf:hover, a#fa:hover, a#fe:hover, a#fh:hover, a#ea:hover, a#ek:hover, a#dc:hover, a#dg:hover, a#dj:hover, a#cb:hover, a#ce:hover, a#cn:hover, a#ba:hover, a#gc:hover, a#fc:hover, a#ec:hover, a#dd:hover, a#cf:hover, a#bj:hover {height:40px;}a#gc:hover {top:60px;}a#fc:hover {top:100px;}a#ec:hover {top:140px;}a#dd:hover {top:180px;}a#cf:hover {top:220px;}a#bj:hover {top:260px;}a#bc:hover, a#bf:hover {left:30px;}a#bo:hover {left:50px;}a#hb:hover, a#ef:hover, a#ej:hover {left:150px;}a#hc:hover, a#fg:hover {left:170px;}a#fd:hover {width:40px;}a#hb:hover, a#hc:hover, a#gd:hover, a#bc:hover {width:60px;}a#fg:hover, a#bn:hover {width:80px;}a#dh:hover {width:100px;}a#ee:hover, a#ef:hover, a#cj:hover, a#bf:hover {width:120px;}a#ej:hover {width:140px;}a#bo:hover {width:260px;}a#aj:hover, a#ak:hover {height:40px;}#road a#lose:hover {height:359px; z-index:50;} CSS也可以玩花样，真佩服作者，可以把样式表玩成这样，那是多么高的境界啊！ 玩法很简单，从顶部的橙色入口进入&ldquo;金字塔&rdquo;，控制鼠标移动，注意不要移出方格，否则就得重新开始，找到每一层之间的&ldquo;通道&rdquo;，直到最后到达底部的橙色出口。作者提示: 注意八块砖的那层。 原地址：a frustrating puzzle | 出处：the CSS playground]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[六月的期待，周杰伦《头文字D》]]></title>
     <url>%2F2005%2F06%2F2241f68b%2F</url>
     <content type="text"><![CDATA[六月到了，电影版《头文字D》即将上映！ 玩短跑，玩旱冰，玩单车，无非为了追求那速度带来的快感，如今却只能呆在小房间里玩NFS。 六月是繁忙的，为了更快达到目标，加速吧！把身体的马达全部发动起来！ 电影官方网站：http://www.initialdthemovie.com/ PS：《头文字D》改编自日本同名畅销漫画。该漫画受到众多漫画迷和车迷的喜爱，曾经创下2500万册的销量。故事讲述了一个18岁青年腾原拓海（周杰伦饰）每天开着父亲（黄秋生饰）的旧丰天AE86送豆腐，无意间练就了出神入化的&ldquo;飘移&rdquo;技术（车辆急速转弯时车轮横向滑动）。《头文字D》原名是《InitialD》，意思是&ldquo;D字第一名&rdquo;，&ldquo;D&rdquo;是Drift的简写，就是车迷们平时说的&ldquo;甩尾&rdquo;（汽车用语，指车疾速行驶时疾速拐弯，车轮横向滑动的状态），全部的意思就是&ldquo;甩尾第一&rdquo;． 点击下载 曲名：飘移 词：未知 曲：周杰伦 唱：周杰伦 歌词： 找只笔写下日记 纪录勇气 我可以跟着墙壁 绕全球半里 呼吸 节奏不理 在看我的身体 这里已经 是在象征一种阶级 所以 风呼啸而过刺激 所以 我只冲过表而已 加足了马力 开到底 看仔细 零到一百公里 谁敢与我为敌 我用自己的车 我现在要启程 我努力在看着 我车厢打开了 我车厢在关了 我现在要启程 我手中的魔灯 在演自己了 得儿飘~得儿飘~得意的飘~ 我绕过山腰 雨声悄悄 得儿飘~得儿飘~得意的飘~ 在开进隧道 风声萧萧]]></content>
@@ -4336,7 +4320,7 @@
   <entry>
     <title><![CDATA[Flash ActionScript 1.0 学习笔记(2)]]></title>
     <url>%2F2005%2F05%2Fd67478ac%2F</url>
-    <content type="text"><![CDATA[19.鼠标双击拖动123456789Mouse.doubleClick = function(clickTime)&#123;if(!clickTime)&#123;clickTime = 500;&#125;if(Mouse.lastClickTime-(Mouse.lastClickTime=getTimer()+clickTime&amp;gt;0))&#123;return ture;&#125;&#125;` 20.鼠标移动速度123456789101112131415161718192021222324252627282930function mouseSpeedObj(fps) &#123;this.fps = fps;this.distArray = [];for (var i = 0; i&lt;FPS; i++) &#123; this.distArray[i] = 0;&#125;this.distSum = 0;this.distArrayId = 0;&#125;mouseSpeedObj.prototype.speed = function() &#123;var xdiff = xold-(xold=_root._xmouse);var ydiff = yold-(yold=_root._ymouse);var dist = Math.sqrt(xdiff*xdiff+ydiff*ydiff);if (dist == 0) &#123;return 0;&#125;this.distSum -= this.distArray[this.distArrayId];this.distArray[this.distArrayId] = dist;this.distSum += dist;this.distArrayId = ++this.distArrayId%this.fps;return Math.round(this.distSum*0.127044)/100;&#125;;//调用onClipEvent (load) &#123;foo = new _parent.mouseSpeedObj(12);&#125;onClipEvent (enterFrame) &#123;ms = foo.speed();&#125; 21.mouseDown事件只能检查鼠标左键，要检查右键、中键应用enterFrame12345678910111213141516171819if (Mouse.checkBtnClicked(1)) &#123;// 按下左键if (!hitTest(_root._xmouse, _root._ymouse, true)) &#123;_visible = 0;&#125;trace("左");&#125; else if (Mouse.checkBtnClicked(2)) &#123;// 按下右键_visible = 1;_x = _root._xmouse;_y = _root._ymouse;trace("右");&#125; else if (Mouse.checkBtnClicked(4)) &#123;// 按下中键_visible = 1;_x = _root._xmouse;_y = _root._ymouse;trace("中");&#125; 22.keyPress有一个特点，当键盘被按下不释放时，里面的程序连续执行。Flash最多支持同时按下三个键 23.让网页中的Flash得到焦点，(只支持WinIE) 24.麦克风对象123myMic = Microphone.get(); //创建Mic对象createEmptyMovieClip("micMC",100); //创建空剪辑micMC.attachAudio(myMic); //将Mic对象附加到剪辑上 activityLevel属性，返回声音音量，int类型0～100onActivity事件，开始说话或停止说话时触发一次，默认值是10和2s，表示连续2秒音量都低于10，可以利用setSilenceLevel修改setSilenceLevel()方法，setSilenceLevel(level,timeout)，level在0～100间，timeout以ms为单位 25.摄像头同样有activityLevel属性，setMotionLevel()跟setSilenceLevel()相同 26.TextField的_alpha属性只有嵌入了字符的动态文本才支持，获取颜色时得到的是十进制格式，修改颜色相关属性时，仍需用十六进制的格式，如0xRRGGBB 27.多种字段格式，TextField.setTextFormat(起始索引,完结索引,TextFormat)索引由0记起，在字符与字符间计算，第一个字符前为0，第一个字符与第二个字符间为1 28.getTimer()函数返回的是Flash自播放起累计时间，单位msDate对象返回1970年1月1日午夜以来时间，单位ms1var myTimer = new Date().getTimer();]]></content>
+    <content type="text"><![CDATA[19.鼠标双击拖动123456789Mouse.doubleClick = function(clickTime)&#123;if(!clickTime)&#123;clickTime = 500;&#125;if(Mouse.lastClickTime-(Mouse.lastClickTime=getTimer()+clickTime &gt; 0))&#123;return ture;&#125;&#125;` 20.鼠标移动速度123456789101112131415161718192021222324252627282930function mouseSpeedObj(fps) &#123;this.fps = fps;this.distArray = [];for (var i = 0; i&lt;FPS; i++) &#123; this.distArray[i] = 0;&#125;this.distSum = 0;this.distArrayId = 0;&#125;mouseSpeedObj.prototype.speed = function() &#123;var xdiff = xold-(xold=_root._xmouse);var ydiff = yold-(yold=_root._ymouse);var dist = Math.sqrt(xdiff*xdiff+ydiff*ydiff);if (dist == 0) &#123;return 0;&#125;this.distSum -= this.distArray[this.distArrayId];this.distArray[this.distArrayId] = dist;this.distSum += dist;this.distArrayId = ++this.distArrayId%this.fps;return Math.round(this.distSum*0.127044)/100;&#125;;//调用onClipEvent (load) &#123;foo = new _parent.mouseSpeedObj(12);&#125;onClipEvent (enterFrame) &#123;ms = foo.speed();&#125; 21.mouseDown事件只能检查鼠标左键，要检查右键、中键应用enterFrame12345678910111213141516171819if (Mouse.checkBtnClicked(1)) &#123;// 按下左键if (!hitTest(_root._xmouse, _root._ymouse, true)) &#123;_visible = 0;&#125;trace("左");&#125; else if (Mouse.checkBtnClicked(2)) &#123;// 按下右键_visible = 1;_x = _root._xmouse;_y = _root._ymouse;trace("右");&#125; else if (Mouse.checkBtnClicked(4)) &#123;// 按下中键_visible = 1;_x = _root._xmouse;_y = _root._ymouse;trace("中");&#125; 22.keyPress有一个特点，当键盘被按下不释放时，里面的程序连续执行。Flash最多支持同时按下三个键 23.让网页中的Flash得到焦点，(只支持WinIE) 24.麦克风对象123myMic = Microphone.get(); //创建Mic对象createEmptyMovieClip("micMC",100); //创建空剪辑micMC.attachAudio(myMic); //将Mic对象附加到剪辑上 activityLevel属性，返回声音音量，int类型0～100onActivity事件，开始说话或停止说话时触发一次，默认值是10和2s，表示连续2秒音量都低于10，可以利用setSilenceLevel修改setSilenceLevel()方法，setSilenceLevel(level,timeout)，level在0～100间，timeout以ms为单位 25.摄像头同样有activityLevel属性，setMotionLevel()跟setSilenceLevel()相同 26.TextField的_alpha属性只有嵌入了字符的动态文本才支持，获取颜色时得到的是十进制格式，修改颜色相关属性时，仍需用十六进制的格式，如0xRRGGBB 27.多种字段格式，TextField.setTextFormat(起始索引,完结索引,TextFormat)索引由0记起，在字符与字符间计算，第一个字符前为0，第一个字符与第二个字符间为1 28.getTimer()函数返回的是Flash自播放起累计时间，单位msDate对象返回1970年1月1日午夜以来时间，单位ms1var myTimer = new Date().getTimer();]]></content>
       <categories>
         <category>Flash</category>
       </categories>
@@ -4359,7 +4343,7 @@
   <entry>
     <title><![CDATA[Flash ActionScript 1.0 学习笔记(1)]]></title>
     <url>%2F2005%2F04%2Ffd592b6f%2F</url>
-    <content type="text"><![CDATA[Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好 enterFrame 不管play还是stop，都会不停执行 this.loadVariables(“test.txt”);载入变量时用 onClipEvent(data){…}事件可以判断变量是否已经载入 尽量避免多个 if ,改用 if…else if … else同事最可能匹配的条件放前面 测试代码执行速度 12345678var i = 0;var loopCount = 2000; //程序循环次数t = getTimer();while(i&lt;LOOPCOUNT)&#123; //代码i++;&#125;trace(getTimer()-t); //0.001 s为单位 _global需要FlashPlayer6或以上版本才支持 1_global..myVar = 1000 //定义全局变量并赋值1000 加载到Root用loadMovie()，加载到level用loadMovieNum()最底层是_level0，数字越大越靠上如果加载到_level0就会取代原来的影片，同时原影片中的所有数据（变量、属性、方法、子影片、事件函数）除定义为_global的变量和函数，其它均被删除加载到target ，是加载swf到目标影片取代原影片，原影片的数据均会被删除 动态路径 12345678910this.mc1._visible = 0;this.mc0._visible = 0;…...this.mc100._visible = 0;//==&gt;for(i=1;i&amp;lt;=100;i++)&#123;this["mc"+i]._visible=0;&#125; random(x)产生 0～(x-1)间的随机数从Flash5起，建议使用Math.random()代替，Math.random()产生0～0.9999…之间的随机数Math.floor()取下限值（等于或小于指定数最接近的整数） sort()默认排序是先将数组各元素第一个字符转成ASCII码再比较 1234567891011121314//数字排序专用函数function scrtno(a,b)&#123;if(a&amp;gt;b)&#123;return 1;&#125;else if(a&lt;B)&#123; return -1;&#125;else&#123;return 0;&#125; &#125;//用法foo=[50,1,5,100,10];foo.sort(sortno); hitTest()不支持不规则形状碰撞检查无论影片剪辑的形状是如何不规则，hitTest()是以一个矩形包围着影片边框做检查范围的点对不规则形状检查可用movieClip.hitTest(x,y,true)，x,y是全局座标 随机产生-1和1 1Math.pow(-1,random(2)); 函数执行时，所有参数储存在数组arguments内，所以在函数内可以用arguments[i]来引用参数，0&lt;I&lt;ARGUMENTS.LENGTH 当执行return后，之后的程序不再执行，函数结束 将数字转换成货币格式，每千位以“,”分隔 1234567891011121314151617181920212223242526272829303132333435363738394041424344function formatno(n) &#123;n = String(n);if (n.indexOf(".") != -1) &#123;Num = n.substring(0, n.indexOf("."));&#125; else &#123;Num = n;&#125;var arr = new Array('0'), i = 0;if (n.indexOf(",") == -1) &#123;while (Num&amp;gt;0) &#123;arr[i] = ''+Num%1000;Num = Math.floor(Num/1000);i++;&#125;arr = arr.reverse();for (var i in arr) &#123;if (i&amp;gt;0) &#123;while (arr[i].length&amp;lt;3) &#123;arr[i] = '0'+arr[i];&#125;&#125;&#125;&#125; else &#123;trace("d");arr[i] = Num;&#125;if (n.indexOf(".") != -1) &#123;Dec = n.substring(n.indexOf("."));&#125; else &#123;Dec = "";&#125;if (Dec.length == 0 or Number(Dec == 0)) &#123;arr += ".00";&#125; else if (Dec.length == 2) &#123;arr += Dec+"0";&#125; else &#123;arr += Dec;&#125;delete Num, Dec, i;return arr;&#125;var1 =1234567.8;var2 = formatno(var1);trace(var2); #include “gavin.as” 后面没有“;”发布后外部as文件已经包括在swf里面，无须再上传 静态对象Key,Math,Mouse,Selection不能利用原形来扩建方法 ScrollPane绑定的对象，无论之前什么名称，绑定之后都位tmp_mc，例如ScrollPane名称为sp，绑定myMC影片剪辑后，myMC路径为sp.tmp_mc 要知道该影片剪辑的路径，用 1mcfc = this._parent[this._targetInstanceName] 将路径存储在变量mcfc中，以后mcfc调用]]></content>
+    <content type="text"><![CDATA[Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好 enterFrame 不管play还是stop，都会不停执行 123载入变量时用 onClipEvent(data)&#123;…&#125;事件可以判断变量是否已经载入3. 尽量避免多个 if ,改用 ```if…else if … else 同事最可能匹配的条件放前面 测试代码执行速度12345678var i = 0;var loopCount = 2000; // 程序循环次数t = getTimer();while(i&lt;LOOPCOUNT)&#123; // 代码 i++;&#125;trace(getTimer()-t); // 0.001 s为单位 _global需要FlashPlayer6或以上版本才支持 1_global..myVar = 1000 // 定义全局变量并赋值1000 加载到Root用12345678910111213141516最底层是_level0，数字越大越靠上如果加载到_level0就会取代原来的影片，同时原影片中的所有数据（变量、属性、方法、子影片、事件函数）除定义为_global的变量和函数，其它均被删除加载到target ，是加载swf到目标影片取代原影片，原影片的数据均会被删除7. 动态路径```asthis.mc1._visible = 0;this.mc0._visible = 0;…...this.mc100._visible = 0;//==&gt;for (i = 1; i &lt; =100; i++) &#123; this[&quot;mc&quot;+i]._visible = 0;&#125; 0～(x-1)间的随机数12345678910111213141516171819从Flash5起，建议使用```Math.random()```代替，```Math.random()```产生0～0.9999…之间的随机数```Math.floor()```取下限值（等于或小于指定数最接近的整数）9. ```sort()```默认排序是先将数组各元素第一个字符转成ASCII码再比较```as//数字排序专用函数function scrtno(a,b)&#123;if(a &gt; b)&#123; return 1;&#125;else if(a&lt;B)&#123; return -1;&#125;else&#123; return 0;&#125;&#125;//用法foo=[50,1,5,100,10];foo.sort(sortno); 123456无论影片剪辑的形状是如何不规则，```hitTest()```是以一个矩形包围着影片边框做检查范围的点对不规则形状检查可用```movieClip.hitTest(x,y,true)```，x,y是全局座标11. 随机产生-1和1```asMath.pow(-1,random(2)); 函数执行时，所有参数储存在数组arguments内，所以在函数内可以用 arguments[i] 来引用参数，0 &lt; I &lt; arguments.length 当执行return后，之后的程序不再执行，函数结束 将数字转换成货币格式，每千位以“,”分隔 1234567891011121314151617181920212223242526272829303132333435363738394041424344function formatno(n) &#123; n = String(n); if (n.indexOf(".") != -1) &#123; Num = n.substring(0, n.indexOf(".")); &#125; else &#123; Num = n; &#125;var arr = new Array('0'), i = 0;if (n.indexOf(",") == -1) &#123;while (Num &gt; 0) &#123;arr[i] = ''+Num%1000;Num = Math.floor(Num/1000);i++;&#125;arr = arr.reverse();for (var i in arr) &#123;if (i &gt; 0) &#123;while (arr[i].length &lt; 3) &#123;arr[i] = '0'+arr[i];&#125;&#125;&#125;&#125; else &#123;trace("d");arr[i] = Num;&#125;if (n.indexOf(".") != -1) &#123;Dec = n.substring(n.indexOf("."));&#125; else &#123;Dec = "";&#125;if (Dec.length == 0 or Number(Dec == 0)) &#123;arr += ".00";&#125; else if (Dec.length == 2) &#123;arr += Dec+"0";&#125; else &#123;arr += Dec;&#125;delete Num, Dec, i;return arr;&#125;var1 =1234567.8;var2 = formatno(var1);trace(var2); "gavin.as"``` 后面没有 “;”123456789 发布后外部as文件已经包括在swf里面，无须再上传16. 静态对象Key,Math,Mouse,Selection不能利用原形来扩建方法17. ScrollPane绑定的对象，无论之前什么名称，绑定之后都位tmp_mc，例如ScrollPane名称为sp，绑定myMC影片剪辑后，myMC路径为sp.tmp_mc18. 要知道该影片剪辑的路径，用```asmcfc = this._parent[this._targetInstanceName] 将路径存储在变量mcfc中，以后mcfc调用]]></content>
       <categories>
         <category>Flash</category>
       </categories>
@@ -4511,8 +4495,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4675,8 +4659,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>书</tag>
         <tag>java</tag>
+        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4859,8 +4843,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>xml</tag>
+        <tag>blog</tag>
         <tag>rss</tag>
       </tags>
   </entry>
@@ -4891,8 +4875,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>

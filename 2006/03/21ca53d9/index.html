@@ -103,21 +103,21 @@
 
 
 
-<meta name="description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。  03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
+<meta name="description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。   03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Blue Blog开发历程">
 <meta property="og:url" content="http://21ido.com/2006/03/21ca53d9/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。  03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
+<meta property="og:description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。   03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://21ido.com/images/2006/03/20_2006-3-321494776_12719.gif">
 <meta property="og:image" content="http://21ido.com/images/2006/03/20_2006-3-321254079_12720.gif">
 <meta property="og:image" content="http://21ido.com/images/2006/03/20_2006-3-321112864_12721.gif">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.205Z">
+<meta property="og:updated_time" content="2018-08-02T02:42:19.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blue Blog开发历程">
-<meta name="twitter:description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。  03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
+<meta name="twitter:description" content="应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。 当时只是几个简单的页面，自己可以发发日记，如此而已。   03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。">
 <meta name="twitter:image" content="http://21ido.com/images/2006/03/20_2006-3-321494776_12719.gif">
 
 
@@ -435,14 +435,32 @@
 <p>应该没人记得这个Banner吧，这是最初的博客，程序写于03年9月。</p>
 <p>当时只是几个简单的页面，自己可以发发日记，如此而已。</p>
 <p><img src="/images/2006/03/20_2006-3-321254079_12720.gif" alt=""></p>
-<p>03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。<br><a id="more"></a></p>
+<ul>
+<li>03年12月，把Blog跟论坛数据库整合一起，所有论坛注册用户均可发表日志。上面是当时的Banner。<a id="more"></a>
+</li>
+</ul>
 <p><img src="/images/2006/03/20_2006-3-321112864_12721.gif" alt=""></p>
-<p>04年10月，开始学习网页标准，并应用到Blog中，CSS是通过W3C验证了，网页由于某些页面用了不符合XHTML的属性，没通过</p>
-<p>05年12月，开始改版，开发真正支持多用户Blog</p>
-<p>06年2月，终于放弃开发，采用Oblog系统架设Blue Blog</p>
+<ul>
+<li><p>04年10月，开始学习网页标准，并应用到Blog中，CSS是通过W3C验证了，网页由于某些页面用了不符合XHTML的属性，没通过</p>
+</li>
+<li><p>05年12月，开始改版，开发真正支持多用户Blog</p>
+</li>
+<li><p>06年2月，终于放弃开发，采用Oblog系统架设Blue Blog</p>
 <p>目前已运行一个来月，问题多多，不知所谓的&ldquo;经过Oblog＆LeadBBS开发人员共同审核&rdquo;的说法是怎么来的，于是自己在改，凡事还是靠自己的好。</p>
+</li>
+</ul>
+<hr>
 <p>补充一下Oblog to LEADBBS Access版转SQL的修改方法</p>
-<div style="border: 1px solid rgb(204, 204, 204); margin: 5px 20px; padding: 5px; background: rgb(243, 243, 243) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><br><br>oBlog to Leadbbs 3.1 Access changeTo MSSQL<br><br>conn.asp 第10行<br><br>Const is_sqldata=0<br><br>改为<br><br>Const is_sqldata=1<br><br>在29行，自行配置数据库的连接参数<br><br>oBlogConn.asp 第4行<br><br>Const is_sqldata=0<br><br>改为<br><br>Const is_sqldata=1<br><br>同样在下面配置连接参数<br><br>inc/class_blog.asp 第673行<br><br>logdate = c_year &amp; &quot;-&quot; &amp; c_month<br><br>改为<br><br>logdate = c_year &amp; &quot;-&quot; &amp; c_month &amp; &quot;-&quot; &amp; c_day<br></div>
+<p><strong>oBlog to Leadbbs 3.1 Access changeTo MSSQL</strong></p>
+<p>conn.asp 第10行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Const is_sqldata=0</span><br></pre></td></tr></table></figure></p>
+<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Const is_sqldata=1</span><br></pre></td></tr></table></figure></p>
+<p>在29行，自行配置数据库的连接参数</p>
+<p>oBlogConn.asp 第4行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Const is_sqldata=0</span><br></pre></td></tr></table></figure></p>
+<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Const is_sqldata=1</span><br></pre></td></tr></table></figure></p>
+<p>同样在下面配置连接参数</p>
+<p>inc/class_blog.asp 第673行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logdate = c_year &amp; &quot;-&quot; &amp; c_month</span><br></pre></td></tr></table></figure></p>
+<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logdate = c_year &amp; &quot;-&quot; &amp; c_month &amp; &quot;-&quot; &amp; c_day</span><br></pre></td></tr></table></figure></p>
+
       
       
         <div class="post-tags">
@@ -454,7 +472,7 @@
 
       
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2003/10/c6843e45/" title="对Blog的界面进行了一些修改" rel="bookmark">对Blog的界面进行了一些修改</a></li><li class="related-posts-item"><a href="/2003/09/72c63f76/" title="Cat's Blog基本完成" rel="bookmark">Cat's Blog基本完成</a></li><li class="related-posts-item"><a href="/2006/12/777ce3ae/" title="oBlog v3.12 转 pjBlog2 v2.6" rel="bookmark">oBlog v3.12 转 pjBlog2 v2.6</a></li><li class="related-posts-item"><a href="/2004/09/786b2ee7/" title="Weekday()" rel="bookmark">Weekday()</a></li><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2008/01/bc26559d/" title="做个记号，博客换了样式并升级到1.8" rel="bookmark">做个记号，博客换了样式并升级到1.8</a></li><li class="related-posts-item"><a href="/2004/10/dd77d29d/" title="修改了UBB等" rel="bookmark">修改了UBB等</a></li><li class="related-posts-item"><a href="/2004/01/878da584/" title="修正BlueBlog一些问题" rel="bookmark">修正BlueBlog一些问题</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2003/12/8709a4b5/" title="数据库合并完成" rel="bookmark">数据库合并完成</a></li><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2004/09/786b2ee7/" title="Weekday()" rel="bookmark">Weekday()</a></li><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2004/10/dd77d29d/" title="修改了UBB等" rel="bookmark">修改了UBB等</a></li><li class="related-posts-item"><a href="/2004/01/878da584/" title="修正BlueBlog一些问题" rel="bookmark">修正BlueBlog一些问题</a></li><li class="related-posts-item"><a href="/2008/01/bc26559d/" title="做个记号，博客换了样式并升级到1.8" rel="bookmark">做个记号，博客换了样式并升级到1.8</a></li><li class="related-posts-item"><a href="/2003/10/b95f2ab8/" title="增加了友情链接" rel="bookmark">增加了友情链接</a></li></ul>
       
 
     </div>
@@ -617,7 +635,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../../archives/">
-                <span class="site-state-item-count">396</span>
+                <span class="site-state-item-count">395</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -639,7 +657,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../../tags/index.html">
-                <span class="site-state-item-count">305</span>
+                <span class="site-state-item-count">300</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
