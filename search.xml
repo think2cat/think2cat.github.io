@@ -112,7 +112,7 @@
   <entry>
     <title><![CDATA[javascript事件委托]]></title>
     <url>%2F2018%2F01%2Fc1495b93%2F</url>
-    <content type="text"><![CDATA[本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt; &lt;ul&gt; &lt;li&gt;AA &lt;span&gt;A1&lt;/span&gt; &lt;span&gt;A2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;BB &lt;span&gt;B1&lt;/span&gt; &lt;span&gt;B2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;CC &lt;span&gt;C1&lt;/span&gt; &lt;span&gt;C2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;DD &lt;span&gt;D1&lt;/span&gt; &lt;span&gt;D2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;EE &lt;span&gt;E1&lt;/span&gt; &lt;span&gt;E2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;FF &lt;span&gt;F1&lt;/span&gt; &lt;span&gt;F2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如12345678910111213141516171819202122232425let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125;let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125; 这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错 这时就需要事件委托，把事件绑定在父级元素 浏览器的事件冒泡看这里， 因为LI和SPAN都在DIV里面，所以只需绑定DIV即可12345678document.getElementsByTagName("div")[0].addEventListener("click",(evt)=&gt;&#123; console.log(evt); if("span" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a span", evt.target.innerText); &#125;else if("li" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a li", evt.target.innerText); &#125;&#125;); 在参数即event事件可以找到是哪个DOM触发了事件 看起来跟一般事件一样，多了一个触发元素的判断 为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的 $.on() 和 $.click() 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会 on的语法，$.on( events [, selector ] [, data ], handler ) 选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素 对于本例来说，改成jquery.on也没啥变化 12345678$("div").on("click", "li, span", (evt) =&gt; &#123; console.log("span", evt); if ("span" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a span", evt.target.innerText); &#125; else if ("li" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a li", evt.target.innerText); &#125;&#125;);]]></content>
+    <content type="text"><![CDATA[本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt; &lt;ul&gt; &lt;li&gt;AA &lt;span&gt;A1&lt;/span&gt; &lt;span&gt;A2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;BB &lt;span&gt;B1&lt;/span&gt; &lt;span&gt;B2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;CC &lt;span&gt;C1&lt;/span&gt; &lt;span&gt;C2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;DD &lt;span&gt;D1&lt;/span&gt; &lt;span&gt;D2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;EE &lt;span&gt;E1&lt;/span&gt; &lt;span&gt;E2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;FF &lt;span&gt;F1&lt;/span&gt; &lt;span&gt;F2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如12345678910111213141516171819202122232425let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125;let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125; 这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错 这时就需要事件委托，把事件绑定在父级元素 浏览器的事件冒泡看这里， 因为LI和SPAN都在DIV里面，所以只需绑定DIV即可12345678document.getElementsByTagName("div")[0].addEventListener("click",(evt)=&gt;&#123; console.log(evt); if("span" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a span", evt.target.innerText); &#125;else if("li" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a li", evt.target.innerText); &#125;&#125;); 在参数即event事件可以找到是哪个DOM触发了事件 看起来跟一般事件一样，多了一个触发元素的判断 为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的 和 ```$.click()``` 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会12on的语法，```$.on( events [, selector ] [, data ], handler ) 选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素 对于本例来说，改成jquery.on也没啥变化 12345678$("div").on("click", "li, span", (evt) =&gt; &#123; console.log("span", evt); if ("span" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a span", evt.target.innerText); &#125; else if ("li" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a li", evt.target.innerText); &#125;&#125;);]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -194,8 +194,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>nodejs</tag>
         <tag>bower</tag>
+        <tag>nodejs</tag>
       </tags>
   </entry>
   <entry>
@@ -226,14 +226,14 @@
   <entry>
     <title><![CDATA[grunt入门笔记（1）]]></title>
     <url>%2F2017%2F05%2Fb722d741%2F</url>
-    <content type="text"><![CDATA[1. 安装grunt依赖node.js，需要先安装node.js，官网https://nodejs.org/安装后敲node -v会打印版本号，则安装成功接着安装grunt， -g表示全局，不带则安装到当前目录npm install -g grunt-cli 2. 初始化package.jsonpackage.json是node.js项目描述文件，在项目根目录下执行1npm init 根据提示输入即可，生成文件大概是这样子的12345678910111213141516171819202122&#123; "name": "grunt-test", "version": "1.0.0", "description": "only for grunt test", "main": "index.js", "scripts": &#123; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1" &#125;, "repository": &#123; "type": "git", "url": "git+https://github.com/think2cat/AdminLTE.git" &#125;, "keywords": [ "grunt" ], "author": "", "license": "MIT", "bugs": &#123; "url": "https://github.com/think2cat/AdminLTE/issues" &#125;, "homepage": "https://github.com/think2cat/AdminLTE#readme"&#125; 3. 安装grunt和常用插件1npm install grunt --save-dev 安装后package.json多出一个字段123"devDependencies": &#123; "grunt": "^1.0.1"&#125; 这里devDependencies表示开发环境所依赖的库，如果是发布后需要的库则用 –save，对应package.json中的dependencies属性，如果只是安装库而不改动package.json则无须加参数grunt常用插件 合并文件：grunt-contrib-concat 语法检查：grunt-contrib-jshint CSS压缩： grunt-contrib-cssmin Scss 编译：grunt-contrib-sass 压缩文件：grunt-contrib-uglify 监听文件变动：grunt-contrib-watch 建立本地服务器：grunt-contrib-connect 4. 配置gruntgrunt为js文件，遵循node.js模块语法123module.exports = function(grunt) &#123; //grunt code&#125;; grunt代码分为3部分，1）config配置，2）task任务，3）插件加载config和task是卸载initConfig函数内，如下1234567grunt.initConfig(&#123; pkg: grunt.file.readJSON('package.json'), build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); pkg从package.json读取配置，后面可以直接使用&lt;%= pkg.name %&gt;.来引用常量还有另一种常见配置1234567891011var config = &#123; name: "test", author: "Gavin"&#125;;grunt.initConfig(&#123; pkg: config, build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); 5. 配置taskgrunt只是一个框架，实际干活的是众多插件，在安装完插件后，会在 node_modules 目录下生成对应插件目录，使用时在grunt.js里加载插件并编写相应task比如常见的grunt-contrib-uglify通过这样载入1grunt.loadNpmTasks('grunt-contrib-uglify'); 并对应到grunt.initConfig的 uglift 任务，如下1234567891011uglify: &#123; options: &#123; mangle: true, preserveComments: 'some' &#125;, my_target: &#123; files: &#123; 'dist/js/app.min.js': ['dist/js/app.js'] &#125; &#125;&#125;, 任务的名称uglify是跟插件名称对应的，不可改，完成上面配置后，再注册默认任务1grunt.registerTask('default', ['uglify']); 此时执行grunt则会默认执行uglify任务，如果有多个任务，可以依次添加1grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); 执行时用命令1grunt lint]]></content>
+    <content type="text"><![CDATA[1. 安装grunt依赖node.js，需要先安装node.js，官网https://nodejs.org/安装后敲node -v会打印版本号，则安装成功接着安装grunt， -g表示全局，不带则安装到当前目录npm install -g grunt-cli 2. 初始化package.jsonpackage.json是node.js项目描述文件，在项目根目录下执行1npm init 根据提示输入即可，生成文件大概是这样子的12345678910111213141516171819202122&#123; "name": "grunt-test", "version": "1.0.0", "description": "only for grunt test", "main": "index.js", "scripts": &#123; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1" &#125;, "repository": &#123; "type": "git", "url": "git+https://github.com/think2cat/AdminLTE.git" &#125;, "keywords": [ "grunt" ], "author": "", "license": "MIT", "bugs": &#123; "url": "https://github.com/think2cat/AdminLTE/issues" &#125;, "homepage": "https://github.com/think2cat/AdminLTE#readme"&#125; 3. 安装grunt和常用插件1npm install grunt --save-dev 安装后package.json多出一个字段123"devDependencies": &#123; "grunt": "^1.0.1"&#125; 这里 表示开发环境所依赖的库，如果是发布后需要的库则用 --save，对应package.json中的 ```dependencies```属性，如果只是安装库而不改动package.json则无须加参数1234567891011121314151617grunt常用插件* 合并文件：[grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)* 语法检查：[grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)* CSS压缩： [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)* Scss 编译：[grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass)* 压缩文件：[grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)* 监听文件变动：[grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)* 建立本地服务器：[grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)#### 4. 配置gruntgrunt为js文件，遵循node.js模块语法```jsmodule.exports = function(grunt) &#123; //grunt code&#125;; grunt代码分为3部分，1）config配置，2）task任务，3）插件加载config和task是卸载initConfig函数内，如下 1234567grunt.initConfig(&#123; pkg: grunt.file.readJSON('package.json'), build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); pkg从package.json读取配置，后面可以直接使用12345678910111213还有另一种常见配置```jsvar config = &#123; name: &quot;test&quot;, author: &quot;Gavin&quot;&#125;;grunt.initConfig(&#123; pkg: config, build: &#123; src: &apos;src/&lt;%= pkg.name %&gt;.js&apos;, dest: &apos;build/&lt;%= pkg.name %&gt;.min.js&apos; &#125;&#125;); 5. 配置taskgrunt只是一个框架，实际干活的是众多插件，在安装完插件后，会在 node_modules 目录下生成对应插件目录，使用时在grunt.js里加载插件并编写相应task比如常见的 grunt-contrib-uglify通过这样载入 1grunt.loadNpmTasks('grunt-contrib-uglify'); 并对应到grunt.initConfig的 uglift 任务，如下1234567891011uglify: &#123; options: &#123; mangle: true, preserveComments: 'some' &#125;, my_target: &#123; files: &#123; 'dist/js/app.min.js': ['dist/js/app.js'] &#125; &#125;&#125;, 任务的名称uglify是跟插件名称对应的，不可改，完成上面配置后，再注册默认任务1grunt.registerTask('default', ['uglify']); 此时执行grunt则会默认执行uglify任务，如果有多个任务，可以依次添加1grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); 执行时用命令1grunt lint]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
         <tag>javascript</tag>
-        <tag>grunt</tag>
         <tag>nodejs</tag>
+        <tag>grunt</tag>
       </tags>
   </entry>
   <entry>
@@ -663,10 +663,10 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
-        <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
+        <tag>西海镇</tag>
       </tags>
   </entry>
   <entry>
@@ -1428,9 +1428,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>测试</tag>
         <tag>优惠多</tag>
         <tag>威猛先生</tag>
+        <tag>测试</tag>
         <tag>单车</tag>
       </tags>
   </entry>
@@ -1563,9 +1563,8 @@
       </categories>
       <tags>
         <tag>装备</tag>
-        <tag>GPS</tag>
         <tag>测试</tag>
-        <tag>轨迹仪</tag>
+        <tag>GPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1845,11 +1844,11 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>xml</tag>
+        <tag>笔记</tag>
+        <tag>书</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
-        <tag>书</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -1861,11 +1860,11 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>xml</tag>
+        <tag>笔记</tag>
+        <tag>书</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
-        <tag>书</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -2245,8 +2244,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>xml</tag>
+        <tag>笔记</tag>
         <tag>读后感</tag>
         <tag>sql</tag>
       </tags>
@@ -2404,10 +2403,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>QBQ</tag>
         <tag>工作</tag>
         <tag>态度</tag>
+        <tag>笔记</tag>
         <tag>读后感</tag>
       </tags>
   </entry>
@@ -2881,8 +2880,8 @@
         <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -3166,8 +3165,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>mobile</tag>
         <tag>html</tag>
+        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
@@ -3202,8 +3201,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3242,8 +3241,7 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>微软</tag>
-        <tag>认证</tag>
+        <tag>microsoft</tag>
       </tags>
   </entry>
   <entry>
@@ -3279,7 +3277,7 @@
   <entry>
     <title><![CDATA[NB文章系统2.0 转 Z-Blog1.7]]></title>
     <url>%2F2007%2F04%2F4d80ea3f%2F</url>
-    <content type="text"><![CDATA[17google是在05年制作的，现有文章1630篇，基本是人工整理进去的，后来因时间有限，一直搁着没更新，实在有点遗憾 今天写了个程序把数据库转为Z-Blog 1.7，以后应该会不定期更新下的NB文章系统2.0 MSSQL数据库&nbsp;&gt;&gt; Z-Blog 1.7 Access数据库123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282283284285286287288289290291292293294295296297298299300301302303304305306307308309310311312313314315&lt;%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%&gt;&lt;%Response.Charset="UTF-8"Session.CodePage="65001"Response.buffer=Falseserver.ScriptTimeout = 999999'NB文章系统2.0 change to Z-Blog 1.7'梦游的猫'建立时间 2007年4月10日 15:53:49'最后修改 2007年4月10日 22:53:41%&gt;&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8"&gt;&lt;head&gt; &lt;style&gt; body &#123;FONT-FAMILY: 宋体; FONT-SIZE: 12px;padding:30px 0 0 30px;&#125; #title &#123;border:1px solid #EAEAEA;padding:10px;&#125; &lt;/style&gt;&lt;/head&gt;NB文章系统2.0 change to Z-Blog 1.7&lt;br /&gt;作者：梦游的猫&lt;br /&gt;http://www.21ido.com&lt;br /&gt;&lt;div id = "title"&gt;&lt;/div&gt;&amp;nbsp;&lt;div id = "log"&gt;&lt;/div&gt;&lt;%db1 = "cat|pass|daName|(local)" 'NB文章系统数据库链接，Access的请参考下面设置db2 = "data/cat.mdb" '博客数据库地址'进行替换，可自行定义Function filtContent(str) If IsNull(str) Or str = "" Then filtContent = "" Else str = Replace(str,"=""/UserFiles/","=""/UPLOAD/") str = Replace(str,"=""/editor/UploadFile/","=""/UPLOAD/") Do While InStr(str,"&lt;IFRAME") &gt; 0 p1 = InStr(str,"&lt;IFRAME") p2 = InStr(p1,str,"&lt;/IFRAME&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/IFRAME&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop Do While InStr(str,"&lt;SCRIPT") &gt; 0 p1 = InStr(str,"&lt;SCRIPT") p2 = InStr(p1,str,"&lt;/SCRIPT&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/SCRIPT&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop filtContent = str End ifEnd Function'以下部分一般不用修改'=========================================================================timeStart = timerdbArr = Split(db1,"|")showTitle "开始"Set conn1 = CreateObject("ADODB.Connection")Set conn2 = CreateObject("ADODB.Connection")If UBound(dbArr) &gt; 0 then ConnStr = "Provider = Sqloledb; User ID = " &amp; dbArr(0) &amp; "; Password = " &amp; dbArr(1) &amp; "; Initial Catalog = " &amp; dbArr(2) &amp; "; Data Source = " &amp; dbArr(3) &amp; ";"Else ConnStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db1)End ifconn1.Open connstrconnstr="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db2)conn2.Open connstrSet rs = Server.CreateObject("adodb.recordset")Set rsTemp = Server.CreateObject("adodb.recordset")'---------------------------------------------------------------转换文章showTitle "正在转换文章。。。"sql = "select T1.id,T2.title as className,T1.title,T1.addDate,T1.content,T1.keyword,T1.viewNum,T1.author,T1.source,T1.sourceUrl,T1.summary from NB_Content T1 inner join NB_Column T2 on T1.columnId = T2.id order by T1.adddate"rs.open sql,conn1,1,1sql = "select top 1 * from [blog_Article]"rsTemp.open sql,conn2,1,3For i = 1 To rs.recordCount showLog "正在添加 [" &amp; rs("className") &amp; "] &lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; Replace(rs("title"),"&amp;nbsp;"," ") &amp; "&lt;/span&gt; 。。。" rsTemp.Addnew rsTemp("log_CateID") = findCatID(rs("className")) rsTemp("log_AuthorID") = 1 rsTemp("log_Level") = 4 rsTemp("log_Title") = replace(rs("title"),"&amp;nbsp;"," ") content = filtContent(rs("content")) summary = rs("summary") If IsNull(summary) or Len(summary) &lt; 10 Then summary = Left(noHTML(content),150) rsTemp("log_Intro") = summary author = rs("author") source = rs("source") sourceUrl = rs("sourceUrl") If Not IsNull(source) And source &lt;&gt; "" Then If Not IsNull(sourceUrl) And sourceUrl &lt;&gt; "" Then content = "转自：[" &amp; source &amp; "]()" &amp; vbCrlf &amp; content else content = "转自：" &amp; source &amp; "" &amp; vbCrlf &amp; content End if End if If Not IsNull(author) And author &lt;&gt; "17google.com.cn" And author &lt;&gt; "" Then content = "作者：" &amp; author &amp; "" &amp; vbCrlf &amp; content End if rsTemp("log_content") = content rsTemp("log_ip") = "127.0.0.1" rsTemp("log_postTime") = rs("addDate") rsTemp("log_viewNums") = rs("viewNum") rsTemp("log_Tag") = addTag(rs("keyword")) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" rsTemp.update If i Mod 20 = 0 Then Call clsLog rs.movenextnextrsTemp.closers.closeCall clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------转换评论showTitle "转换评论。。。"sql = "select T1.addDate,T1.content,T1.username,T2.title,T1.ip from [NB_Review] T1 inner join [NB_Content] T2 on T1.id = T2.id order by T1.adddate"rs.open sql,conn1,1,1For i = 1 To rs.recordCount str=Replace(rs("title"),"&amp;nbsp;"," ") str=replace(str,"'","''") showLog "正在添加 [&lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; str &amp; "&lt;/span&gt;]。。。" sql = "select top 1 log_ID from [blog_Article] where log_title = '" &amp; str &amp; "'" rsTemp.open sql,conn2,1,1 If Not rsTemp.eof Then blog_ID = rsTemp("log_ID") rsTemp.close sql = "select top 1 * from [blog_comment]" rsTemp.open sql,conn2,1,3 rsTemp.addnew rsTemp("log_id") = blog_id rsTemp("comm_authorID") = 0 rsTemp("comm_author") = rs("username") rsTemp("comm_content") = rs("content") rsTemp("comm_postTime") = rs("adddate") rsTemp("comm_IP") = rs("ip") rsTemp.update sql = "update [blog_Article] set log_commNums = log_commNums + 1 where log_ID = " &amp; blog_ID conn2.execute(sql) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" Else showLog "&lt;span style='color:red'&gt;出错，跳过&lt;/span&gt; " &amp; sql &amp; "" End If rsTemp.close If i Mod 20 = 0 Then Call clsLog rs.movenextnextrs.close'Call clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------重新统计博客数据showTitle "重新统计博客数据。。。"sql = "select log_cateid,count(1) from [blog_article] group by log_cateid"rs.open sql,conn2,1,1cateCount = rs.getrowsrs.closeFor i = 0 To UBound(cateCount,2) sql = "select cate_id,cate_name,cate_count from [blog_Category] where cate_id = " &amp; cateCount(0,i) rs.open sql,conn2,1,3 rs("cate_count") = cateCount(1,i) rs.update showLog "[" &amp; rs("cate_name") &amp; "]有文章数：" &amp; cateCount(1,i) &amp; "" rs.closenextSet rs = NothingshowLog "转换完成，请登录博客后台[初始化数据]"showTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;，耗时 " &amp; Int((timer - timeStart)*10)/10 &amp; " 秒"%&gt;&lt;%'----------------------------------------------------------------------------------------------------------------------------'----------------------------------------------------------------------------------------------------------------------------Function findCatID(str) If isnull(str) Or str = "" Then catID = 0 Else Set rsT = server.CreateObject("adodb.recordset") sql = "select top 1 cate_id,cate_name from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then catID = rsT("cate_id") Else rsT.addNew rsT("cate_name") = str rsT.update rsT.close showLog "创建类别 [" &amp; str &amp; "]。。" sql = "select top 1 cate_id from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,1 catID = rsT("cate_id") End If rsT.close Set rsT = Nothing End If findCatID = catIDEnd FunctionFunction addTag(str) If IsNull(str) Or Trim(str) = "" Then addTag = "" else str = Trim(str) str = Replace(str,",","|") str = Replace(str,"，","|") str = Replace(str," ","|") Do While InStr(str,"||") &gt; 0 str = Replace(str,"||","|") Loop If Left(str,1) = "|" Then str = Right(str,Len(str)-1) If Right(str,1) = "|" Then str = left(str,Len(str)-1) tagArr = Split(str,"|") addTag = "" Set rsT = server.CreateObject("Adodb.recordset") For iTag = 0 To UBound(tagArr) tagArr(iTag) = Trim(tagArr(iTag)) sql = "select top 1 * from [blog_Tag] where tag_name = '" &amp; tagArr(iTag) &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then rsT("tag_count") = rsT("tag_count") + 1 rsT.update Else showlog " [" &amp; tagArr(iTag) &amp; "]" rsT.addNew rsT("tag_name") = tagArr(iTag) rsT("tag_count") = 1 rsT.update showlog "创建标签[" &amp; tagArr(iTag) &amp; "]" rsT.close sql = "select top 1 * from [blog_tag] where tag_name = '" &amp; tagArr(iTag) &amp; "' order by tag_id desc" rsT.open sql,conn2,1,1 End If If InStr(addTag,"&#123;" &amp; rsT("tag_id") &amp; "&#125;") &gt; 0 Then 'skin else addTag = addTag &amp; "&#123;" &amp; rsT("tag_id") &amp; "&#125;" End if rsT.close Next Set rsT = Nothing showlog addTag &amp; "。。" End ifEnd FunctionSub showLog(str) response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub showtitle(str) response.write "&lt;script language='javascript'&gt;document.all.title.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub clsLog response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML = '';&lt;/script&gt;"End Subfunction noHTML(str) dim re Set re=new RegExp re.IgnoreCase =true re.Global=True re.Pattern="(\&lt;.[^\&lt;]*\&gt;)" str=re.replace(str," ") re.Pattern="(\&lt;\/[^\&lt;]*\&gt;)" str=re.replace(str," ") nohtml=str set re=nothingend function%&gt;]]></content>
+    <content type="text"><![CDATA[17google是在05年制作的，现有文章1630篇，基本是人工整理进去的，后来因时间有限，一直搁着没更新，实在有点遗憾 今天写了个程序把数据库转为Z-Blog 1.7，以后应该会不定期更新下的NB文章系统2.0 MSSQL数据库&nbsp;&gt;&gt; Z-Blog 1.7 Access数据库123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201202203204205206207208209210211212213214215216217218219220221222223224225226227228229230231232233234235236237238239240241242243244245246247248249250251252253254255256257258259260261262263264265266267268269270271272273274275276277278279280281282283284285286287288289290291292293294295296297298299300301302303304305306307308309310311312313314&lt;%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%&gt;&lt;%Response.Charset="UTF-8"Session.CodePage="65001"Response.buffer=Falseserver.ScriptTimeout = 999999'NB文章系统2.0 change to Z-Blog 1.7'梦游的猫'建立时间 2007年4月10日 15:53:49'最后修改 2007年4月10日 22:53:41%&gt;&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="UTF-8"&gt;&lt;head&gt; &lt;style&gt; body &#123;FONT-FAMILY: 宋体; FONT-SIZE: 12px;padding:30px 0 0 30px;&#125; #title &#123;border:1px solid #EAEAEA;padding:10px;&#125; &lt;/style&gt;&lt;/head&gt;NB文章系统2.0 change to Z-Blog 1.7&lt;br /&gt;作者：梦游的猫&lt;br /&gt;http://www.21ido.com&lt;br /&gt;&lt;div id = "title"&gt;&lt;/div&gt;&lt;div id = "log"&gt;&lt;/div&gt;&lt;%db1 = "cat|pass|daName|(local)" 'NB文章系统数据库链接，Access的请参考下面设置db2 = "data/cat.mdb" '博客数据库地址'进行替换，可自行定义Function filtContent(str) If IsNull(str) Or str = "" Then filtContent = "" Else str = Replace(str,"=""/UserFiles/","=""/UPLOAD/") str = Replace(str,"=""/editor/UploadFile/","=""/UPLOAD/") Do While InStr(str,"&lt;IFRAME") &gt; 0 p1 = InStr(str,"&lt;IFRAME") p2 = InStr(p1,str,"&lt;/IFRAME&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/IFRAME&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop Do While InStr(str,"&lt;SCRIPT") &gt; 0 p1 = InStr(str,"&lt;SCRIPT") p2 = InStr(p1,str,"&lt;/SCRIPT&gt;") If p2 &gt; p1 then p2 = p2 + Len("&lt;/SCRIPT&gt;") Else p2 = InStr(p1,str,"&gt;") End If If p2 &gt; p1 then strTemp = Mid(str,p1,p2-p1) str = Replace(str,strTemp,"") End if loop filtContent = str End ifEnd Function'以下部分一般不用修改'=========================================================================timeStart = timerdbArr = Split(db1,"|")showTitle "开始"Set conn1 = CreateObject("ADODB.Connection")Set conn2 = CreateObject("ADODB.Connection")If UBound(dbArr) &gt; 0 then ConnStr = "Provider = Sqloledb; User ID = " &amp; dbArr(0) &amp; "; Password = " &amp; dbArr(1) &amp; "; Initial Catalog = " &amp; dbArr(2) &amp; "; Data Source = " &amp; dbArr(3) &amp; ";"Else ConnStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db1)End ifconn1.Open connstrconnstr="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" &amp; server.MapPath(db2)conn2.Open connstrSet rs = Server.CreateObject("adodb.recordset")Set rsTemp = Server.CreateObject("adodb.recordset")'---------------------------------------------------------------转换文章showTitle "正在转换文章。。。"sql = "select T1.id,T2.title as className,T1.title,T1.addDate,T1.content,T1.keyword,T1.viewNum,T1.author,T1.source,T1.sourceUrl,T1.summary from NB_Content T1 inner join NB_Column T2 on T1.columnId = T2.id order by T1.adddate"rs.open sql,conn1,1,1sql = "select top 1 * from [blog_Article]"rsTemp.open sql,conn2,1,3For i = 1 To rs.recordCount showLog "正在添加 [" &amp; rs("className") &amp; "] &lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; Replace(rs("title"),"&amp;nbsp;"," ") &amp; "&lt;/span&gt; 。。。" rsTemp.Addnew rsTemp("log_CateID") = findCatID(rs("className")) rsTemp("log_AuthorID") = 1 rsTemp("log_Level") = 4 rsTemp("log_Title") = replace(rs("title"),"&amp;nbsp;"," ") content = filtContent(rs("content")) summary = rs("summary") If IsNull(summary) or Len(summary) &lt; 10 Then summary = Left(noHTML(content),150) rsTemp("log_Intro") = summary author = rs("author") source = rs("source") sourceUrl = rs("sourceUrl") If Not IsNull(source) And source &lt;&gt; "" Then If Not IsNull(sourceUrl) And sourceUrl &lt;&gt; "" Then content = "转自：[" &amp; source &amp; "]()" &amp; vbCrlf &amp; content else content = "转自：" &amp; source &amp; "" &amp; vbCrlf &amp; content End if End if If Not IsNull(author) And author &lt;&gt; "17google.com.cn" And author &lt;&gt; "" Then content = "作者：" &amp; author &amp; "" &amp; vbCrlf &amp; content End if rsTemp("log_content") = content rsTemp("log_ip") = "127.0.0.1" rsTemp("log_postTime") = rs("addDate") rsTemp("log_viewNums") = rs("viewNum") rsTemp("log_Tag") = addTag(rs("keyword")) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" rsTemp.update If i Mod 20 = 0 Then Call clsLog rs.movenextnextrsTemp.closers.closeCall clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------转换评论showTitle "转换评论。。。"sql = "select T1.addDate,T1.content,T1.username,T2.title,T1.ip from [NB_Review] T1 inner join [NB_Content] T2 on T1.id = T2.id order by T1.adddate"rs.open sql,conn1,1,1For i = 1 To rs.recordCount str=Replace(rs("title"),"&amp;nbsp;"," ") str=replace(str,"'","''") showLog "正在添加 [&lt;span style='color:blue;bold-weight:bolder;'&gt;" &amp; str &amp; "&lt;/span&gt;]。。。" sql = "select top 1 log_ID from [blog_Article] where log_title = '" &amp; str &amp; "'" rsTemp.open sql,conn2,1,1 If Not rsTemp.eof Then blog_ID = rsTemp("log_ID") rsTemp.close sql = "select top 1 * from [blog_comment]" rsTemp.open sql,conn2,1,3 rsTemp.addnew rsTemp("log_id") = blog_id rsTemp("comm_authorID") = 0 rsTemp("comm_author") = rs("username") rsTemp("comm_content") = rs("content") rsTemp("comm_postTime") = rs("adddate") rsTemp("comm_IP") = rs("ip") rsTemp.update sql = "update [blog_Article] set log_commNums = log_commNums + 1 where log_ID = " &amp; blog_ID conn2.execute(sql) showLog "&lt;span style='color:red'&gt;完成&lt;/span&gt;" Else showLog "&lt;span style='color:red'&gt;出错，跳过&lt;/span&gt; " &amp; sql &amp; "" End If rsTemp.close If i Mod 20 = 0 Then Call clsLog rs.movenextnextrs.close'Call clsLogshowTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;"'---------------------------------------------------------------重新统计博客数据showTitle "重新统计博客数据。。。"sql = "select log_cateid,count(1) from [blog_article] group by log_cateid"rs.open sql,conn2,1,1cateCount = rs.getrowsrs.closeFor i = 0 To UBound(cateCount,2) sql = "select cate_id,cate_name,cate_count from [blog_Category] where cate_id = " &amp; cateCount(0,i) rs.open sql,conn2,1,3 rs("cate_count") = cateCount(1,i) rs.update showLog "[" &amp; rs("cate_name") &amp; "]有文章数：" &amp; cateCount(1,i) &amp; "" rs.closenextSet rs = NothingshowLog "转换完成，请登录博客后台[初始化数据]"showTitle "&lt;span style='color:red'&gt;完成&lt;/span&gt;，耗时 " &amp; Int((timer - timeStart)*10)/10 &amp; " 秒"%&gt;&lt;%'----------------------------------------------------------------------------------------------------------------------------'----------------------------------------------------------------------------------------------------------------------------Function findCatID(str) If isnull(str) Or str = "" Then catID = 0 Else Set rsT = server.CreateObject("adodb.recordset") sql = "select top 1 cate_id,cate_name from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then catID = rsT("cate_id") Else rsT.addNew rsT("cate_name") = str rsT.update rsT.close showLog "创建类别 [" &amp; str &amp; "]。。" sql = "select top 1 cate_id from [blog_Category] where cate_name = '" &amp; str &amp; "'" rsT.open sql,conn2,1,1 catID = rsT("cate_id") End If rsT.close Set rsT = Nothing End If findCatID = catIDEnd FunctionFunction addTag(str) If IsNull(str) Or Trim(str) = "" Then addTag = "" else str = Trim(str) str = Replace(str,",","|") str = Replace(str,"，","|") str = Replace(str," ","|") Do While InStr(str,"||") &gt; 0 str = Replace(str,"||","|") Loop If Left(str,1) = "|" Then str = Right(str,Len(str)-1) If Right(str,1) = "|" Then str = left(str,Len(str)-1) tagArr = Split(str,"|") addTag = "" Set rsT = server.CreateObject("Adodb.recordset") For iTag = 0 To UBound(tagArr) tagArr(iTag) = Trim(tagArr(iTag)) sql = "select top 1 * from [blog_Tag] where tag_name = '" &amp; tagArr(iTag) &amp; "'" rsT.open sql,conn2,1,3 If Not rsT.eof Then rsT("tag_count") = rsT("tag_count") + 1 rsT.update Else showlog " [" &amp; tagArr(iTag) &amp; "]" rsT.addNew rsT("tag_name") = tagArr(iTag) rsT("tag_count") = 1 rsT.update showlog "创建标签[" &amp; tagArr(iTag) &amp; "]" rsT.close sql = "select top 1 * from [blog_tag] where tag_name = '" &amp; tagArr(iTag) &amp; "' order by tag_id desc" rsT.open sql,conn2,1,1 End If If InStr(addTag,"&#123;" &amp; rsT("tag_id") &amp; "&#125;") &gt; 0 Then 'skin else addTag = addTag &amp; "&#123;" &amp; rsT("tag_id") &amp; "&#125;" End if rsT.close Next Set rsT = Nothing showlog addTag &amp; "。。" End ifEnd FunctionSub showLog(str) response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub showtitle(str) response.write "&lt;script language='javascript'&gt;document.all.title.innerHTML += '" &amp; Replace(Replace(str,"'","\'"),"""","\""") &amp; "';&lt;/script&gt;" 'response.write strEnd SubSub clsLog response.write "&lt;script language='javascript'&gt;document.all.log.innerHTML = '';&lt;/script&gt;"End Subfunction noHTML(str) dim re Set re=new RegExp re.IgnoreCase =true re.Global=True re.Pattern="(\&lt;.[^\&lt;]*\&gt;)" str=re.replace(str," ") re.Pattern="(\&lt;\/[^\&lt;]*\&gt;)" str=re.replace(str," ") nohtml=str set re=nothingend function%&gt;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3325,15 +3323,15 @@
   <entry>
     <title><![CDATA[NetBeans 6 M8已放出]]></title>
     <url>%2F2007%2F04%2Fe0fce1c6%2F</url>
-    <content type="text"><![CDATA[Tomcat 6 在出了多个测试版之后，终于推出正式版 6.0.10 http://tomcat.apache.org/ NetBeans 6 Milestone 8 (M8)已放出，M9估计本月底放出，这里可以看发布日历表 http://wiki.netbeans.org/wiki/view/MilestoneDownloads Eclipse 3.3 M6 http://download.eclipse.org/eclipse/downloads/花心的老猫也已经装上NetBeans5.5，不过开发仍会在IDEA6进行，有空再去淘本Tomcat 6.0 的书翻翻 附上相关链接： 《Java IDE实用对比：Eclipse、NetBeans、IntelliJ》 英文原文 NetBeans 5.5 视频演示 NetBeans 6 视频教程 &gt;&gt; netbeans_6_gui_builder &gt;&gt; Ruby on Rails in NetBeans &gt;&gt; Advanced Ruby editing features in NetBeans NetBeans 6 新版本 加入Ruby 动态语言支持 Java 之父谈NetBeans：Ruby、Ajax一个都不能少！ Ruby程序设计语言快速入门]]></content>
+    <content type="text"><![CDATA[Tomcat 6 在出了多个测试版之后，终于推出正式版 6.0.10http://tomcat.apache.org/ NetBeans 6 Milestone 8 (M8)已放出，M9估计本月底放出，这里可以看发布日历表http://wiki.netbeans.org/wiki/view/MilestoneDownloads Eclipse 3.3 M6http://download.eclipse.org/eclipse/downloads/花心的老猫也已经装上NetBeans5.5，不过开发仍会在IDEA6进行，有空再去淘本Tomcat 6.0 的书翻翻 附上相关链接： 《Java IDE实用对比：Eclipse、NetBeans、IntelliJ》 英文原文 NetBeans 5.5 视频演示 NetBeans 6 视频教程&gt;&gt; netbeans_6_gui_builder&gt;&gt; Ruby on Rails in NetBeans&gt;&gt; Advanced Ruby editing features in NetBeans NetBeans 6 新版本 加入Ruby 动态语言支持 Java 之父谈NetBeans：Ruby、Ajax一个都不能少！ Ruby程序设计语言快速入门]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
         <tag>java</tag>
+        <tag>netbeans</tag>
         <tag>tomcat</tag>
         <tag>eclipse</tag>
-        <tag>netbeans</tag>
         <tag>ruby</tag>
       </tags>
   </entry>
@@ -3345,8 +3343,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>mobile</tag>
         <tag>google</tag>
+        <tag>mobile</tag>
         <tag>同步</tag>
         <tag>多普达</tag>
         <tag>日历</tag>
@@ -3408,8 +3406,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>网银</tag>
+        <tag>java</tag>
         <tag>淘宝</tag>
         <tag>jsp</tag>
       </tags>
@@ -3464,15 +3462,12 @@
   <entry>
     <title><![CDATA[MSN里名字的i'm图标]]></title>
     <url>%2F2007%2F03%2F41bfbc2e%2F</url>
-    <content type="text"><![CDATA[中午看到penzi的MSN加了N多图标，原来是微软的一个慈善活动只要你使用的是Windows Live Messenger 8.1+，在加入相应代码之后，每次聊天，微软就会把MSN部分广告收入捐给相应机构相应代码如下 &nbsp; 代码 说明 red+u American Red Cross 美国红十字会 bgca Boys &amp; Girls Club 儿童群益会 naf National AIDS Fund 美国国家爱滋基金 mssoc National Multiple Sclerosis Society 国家多发性硬化症学会 9mil ninemillion.org 国际儿童难民援助组织 sierra Sierra Club 山峦协会(保护自然生态的)/地球环境协会 help StopGlobalWarming.org 防止全球温室效应恶化的机构 komen Susan G. Komen for the Cure 乳癌基金会 unicef The US fund for UNICEF 美国地区联合国儿童基金会 wwf World Wildlife Fund for Nature 世界自然基金会 oxfam The Oxford Committee for Famine Relief 乐施会(协助解决当时世界各地饥荒及贫穷问题) care 国际关怀协会 hsus The Humane Society of the United States 美国人道协会 acs American Cancer Society 美国癌症协会 *one ONE Campaign-全球消除贫困与对抗爱滋的组织(GCAP) 另外还提供了相应网页代码，例如本站首页下面的图标，点这里查看]]></content>
+    <content type="text"><![CDATA[中午看到penzi的MSN加了N多图标，原来是微软的一个慈善活动只要你使用的是Windows Live Messenger 8.1+，在加入相应代码之后，每次聊天，微软就会把MSN部分广告收入捐给相应机构相应代码如下 代码 说明 *red+u American Red Cross 美国红十字会 *bgca Boys &amp; Girls Club 儿童群益会 *naf National AIDS Fund 美国国家爱滋基金 *mssoc National Multiple Sclerosis Society 国家多发性硬化症学会 *9mil ninemillion.org 国际儿童难民援助组织 *sierra Sierra Club 山峦协会(保护自然生态的)/地球环境协会 *help StopGlobalWarming.org 防止全球温室效应恶化的机构 *komen Susan G. Komen for the Cure 乳癌基金会 *unicef The US fund for UNICEF 美国地区联合国儿童基金会 *wwf World Wildlife Fund for Nature 世界自然基金会 *oxfam The Oxford Committee for Famine Relief 乐施会(协助解决当时世界各地饥荒及贫穷问题) *care 国际关怀协会 *hsus The Humane Society of the United States 美国人道协会 *acs American Cancer Society 美国癌症协会 *one ONE Campaign-全球消除贫困与对抗爱滋的组织(GCAP) 另外还提供了相应网页代码，例如本站首页下面的图标，点这里查看]]></content>
       <categories>
         <category>IT</category>
       </categories>
       <tags>
-        <tag>MSN</tag>
-        <tag>微软</tag>
-        <tag>慈善</tag>
-        <tag>捐赠</tag>
+        <tag>microsoft</tag>
       </tags>
   </entry>
   <entry>
@@ -3547,8 +3542,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>jdk</tag>
         <tag>tomcat</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -3729,8 +3724,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>xml</tag>
+        <tag>笔记</tag>
         <tag>XUL</tag>
         <tag>XUL指南</tag>
       </tags>
@@ -3782,8 +3777,8 @@
       </categories>
       <tags>
         <tag>节日</tag>
-        <tag>笔记本</tag>
         <tag>生日</tag>
+        <tag>笔记本</tag>
         <tag>Acer</tag>
       </tags>
   </entry>
@@ -3910,7 +3905,7 @@
   <entry>
     <title><![CDATA[《JavaScript权威指南》学习笔记(1)]]></title>
     <url>%2F2006%2F04%2Fd5ef69c5%2F</url>
-    <content type="text"><![CDATA[一直很想系统的学习下JS，这次有幸在公司借到本《JavaScript权威指南(第四版)》，看了1天，还不错，但借的终究要还，好书还是希望自己手头有的好，决定自己去买一本。原价99大洋，打折后也要七、八十，真的蛮贵，相比之下，第三版就便宜多了，淘宝上三十多块就可以买了，比第四版便宜了50大洋，不过正好明天发工资，干脆买第四版好了，毕竟书中自有黄金屋，知识带来的价值是远大于书本身的价格的。 一、概述JavaScript是一种轻型的、解析型语言，具有面向对象能力。最先由Netscape开发，而并非SUN公司，但JavaScript和Java在语法上有很多相似之处。 JavaScript最新版是1.5，解析器有Mozilla组织维护，其中一个版本使用C语言编写，称为SpiderMonkey，另一个用Java编写，称为Rhino 1.主要特性 控制文档外观和内容 对浏览器控制 与表单数据交互 与用户交互（通过定义事件例如submit、onclick） 读写cookie数据 2.安全性JavaScript本身是无法读本地文件和执行网络操作，但可以利用XPCOM进行操作 二、语法结构 编码JavaScript程序是用16位的Unicode字符集编写，可以表示地球上每一种书面语言 大小写敏感JavaScript和Java都是区分大小写的语言，例如HTML里面通常用onClick，但在JavaScript里面只能用onclick 空白符JavaScript会忽略程序中记号之间的空格、制表符和换行符，除非是字符串或正则表达式的一部分，但为了使代码容易阅读和理解，请合理使用制表符和换行符 句末分号跟C、C++、Java一样，JavaScript在语句末尾通常带有分号&rdquo;;&rdquo;，主要为了分割语句，但在JavaScript，如果语句位于不同行，分号可以省略，但推荐养成句末加分号的编程习惯 注释JavaScript跟C、C++、Java一样，支持使用&rdquo;//&rdquo;作为注释标记，也可以用&rdquo;/&rdquo;和&rdquo;/&rdquo;注释多行文本，但不能嵌套注释。 识标符用来命名变量和函数，或是某些循环的标签。识标符第一个字符必须使字母或下划线，在JavaScript1.1版本后可以使用 $ 作为第一个字符，但尽量避免使用美元字符，接下来的字符可以是字母、数字、下划线或美元符号 保留字以下的保留字不可以用作变量，函数名，对象名等，其中有的保留字是为以后 JavaScrip 扩展用的 123456break delete function return typeofcase do if switch varcatch else in this voidcontinue false instanceof throw whiledebugger finally new true withdefault for null try JavaScript还有一些未来保留字，这些字虽然现在没有用到JavaScrip语言中，但是将来有可能用到 JavaScrip未来保留字列表： 123456abstract double goto native staticboolean enum implements package superbyte export import private synchronizedchar extends int protected throwsclass final interface public transientconst float long short volatile 此外，每个特定JavaScript嵌入的客户端或服务器端会有自己的全局属性，也不能作为识标符。 其它避免使用的识标符 123456arguments encodeURI Infinity Object StringArray Error isFinite parseFloat SyntaxErrorBoonean escape iNaN parseInt TypeErrorDate eval Math RangeError undefineddecodeURI EvalError NaN ReferenceError unescapedecodeURIomponent Function Number RegExp URIError 三、数据类型JavaScript支持基本数据类型－数字、文本字符串和布尔值，小数据类型null和undefined，复合型数据类型－函数、对象（数组、已命名的值的无序集合）。 1.数字 整型，包括-253和253之间所有整数（包括-253和253），但是要注意JavaScript中某些整数运算（例如逐位运算符）范围从-231和231-1 八进制和十六进制，十六进制以&rdquo;0X&rdquo;或&rdquo;0x&rdquo;开头，例如 0xfff、0XCAE3；八进制以0开头，例如0377 浮点型，最大可以到&plusmn;1.7976931348623157x10308，最小到&plusmn;5x10-324可以采用传统科学记数法，例如3.14、.333，也可以使用指数记数法，例如6.02e23、1.43E-32 特殊数值，大于浮点值所能表示范围时JavaScript输出Infinity，当负无穷大比所能表示负值还小时输出-Infinity，另外还有非数字特殊值NaN，例如一个数除与0将返回NaN，它和任何数值不相等，包括本身，可以使用isNaN()函数来检测这个值 使用方法12sine_of_x = Math.sin(x);var x = 26; 2.字符串有单引号或双引号括起来的unicode字符序列，但字符串包括单引号或双引号时，要用反斜线符号()进行转移，例如&rdquo;O&rsquo;Reilly&rsquo;s&rdquo;应写为&rdquo;O\&rsquo;Reilly\&rsquo;s&rdquo; JavaScript 转移序列 \0 NUL字符\b 退格\f 走纸换页\n 换行\r 回车\t 水平制表符\v 垂直制表符\’ 单引号\&quot; 双引号\ 反斜杠变量\xXX 2位十六进制指定Lation-1字符\uXXXX 4位十六进制指定Unicode字符 使用方法 Msg = &ldquo;Hello,&rdquo; + &ldquo;world&rdquo;; myColor = &ldquo;Blue&rdquo; 3.布尔值数据类型只有true和false，表示真或假，常用在if 判断。 有时可以看作on和off，0和1 4.函数函数是一个可执行的JavaScript代码段，定义一次就可以被多次调用执行。 JavaScript中的函数是一个真正的数据类型，所以函数可以被存储在变量、数组和对象中，还可以作为参数传递给其它函数。 5.对象对象是已命名的数据集合，数据通常作为对象的属性来引用。 例如1var a = image.width; 对象里面包含方法，例如1document.write("Hello, world"); 6.数组JavaScript中数组下标值是从0开始的，例如a[3]表示a数组中第四个元素 使用方法：1234var a = new Array(3); //创建3个元素的数组a[0] = 3;a[1] = true;a[2] = &quot;hello&quot;; 也可以这样创建1var a = new Array(3, true, "hello"); 四、变量变量是一个和数值相关的名字。 1.类型在C、C++、Java中，变量只能存放所声明的数据类型，但在JavaScript中，变量是无类型的，你可以先把一个数值赋给变量，然后再把字符串赋给它，这是合法的。 基本类型和引用类型，&hellip;&hellip; 2.声明使用一个变量之前必须先声明，如果没有指定初始值那变量初始值是undefined，重复使用var声明同一个变量是合法的。 如果给一个未声明的变量赋值，JavaScript会隐式声明该变量，并且该变量会被创建为全局变量，但如果程序读取一个未声明的变量，将会报错。]]></content>
+    <content type="text"><![CDATA[一直很想系统的学习下JS，这次有幸在公司借到本《JavaScript权威指南(第四版)》，看了1天，还不错，但借的终究要还，好书还是希望自己手头有的好，决定自己去买一本。原价99大洋，打折后也要七、八十，真的蛮贵，相比之下，第三版就便宜多了，淘宝上三十多块就可以买了，比第四版便宜了50大洋，不过正好明天发工资，干脆买第四版好了，毕竟书中自有黄金屋，知识带来的价值是远大于书本身的价格的。 一、概述JavaScript是一种轻型的、解析型语言，具有面向对象能力。最先由Netscape开发，而并非SUN公司，但JavaScript和Java在语法上有很多相似之处。 JavaScript最新版是1.5，解析器有Mozilla组织维护，其中一个版本使用C语言编写，称为SpiderMonkey，另一个用Java编写，称为Rhino 1.主要特性 控制文档外观和内容 对浏览器控制 与表单数据交互 与用户交互（通过定义事件例如submit、onclick） 读写cookie数据 2.安全性JavaScript本身是无法读本地文件和执行网络操作，但可以利用XPCOM进行操作 二、语法结构 编码JavaScript程序是用16位的Unicode字符集编写，可以表示地球上每一种书面语言 大小写敏感JavaScript和Java都是区分大小写的语言，例如HTML里面通常用onClick，但在JavaScript里面只能用onclick 空白符JavaScript会忽略程序中记号之间的空格、制表符和换行符，除非是字符串或正则表达式的一部分，但为了使代码容易阅读和理解，请合理使用制表符和换行符 句末分号跟C、C++、Java一样，JavaScript在语句末尾通常带有分号&rdquo;;&rdquo;，主要为了分割语句，但在JavaScript，如果语句位于不同行，分号可以省略，但推荐养成句末加分号的编程习惯 注释JavaScript跟C、C++、Java一样，支持使用&rdquo;//&rdquo;作为注释标记，也可以用&rdquo;/&rdquo;和&rdquo;/&rdquo;注释多行文本，但不能嵌套注释。 识标符用来命名变量和函数，或是某些循环的标签。识标符第一个字符必须使字母或下划线，在JavaScript1.1版本后可以使用 $ 作为第一个字符，但尽量避免使用美元字符，接下来的字符可以是字母、数字、下划线或美元符号 保留字以下的保留字不可以用作变量，函数名，对象名等，其中有的保留字是为以后 JavaScrip 扩展用的 123456break delete function return typeofcase do if switch varcatch else in this voidcontinue false instanceof throw whiledebugger finally new true withdefault for null try JavaScript还有一些未来保留字，这些字虽然现在没有用到JavaScrip语言中，但是将来有可能用到 JavaScrip未来保留字列表： 123456abstract double goto native staticboolean enum implements package superbyte export import private synchronizedchar extends int protected throwsclass final interface public transientconst float long short volatile 此外，每个特定JavaScript嵌入的客户端或服务器端会有自己的全局属性，也不能作为识标符。 其它避免使用的识标符 123456arguments encodeURI Infinity Object StringArray Error isFinite parseFloat SyntaxErrorBoonean escape iNaN parseInt TypeErrorDate eval Math RangeError undefineddecodeURI EvalError NaN ReferenceError unescapedecodeURIomponent Function Number RegExp URIError 三、数据类型JavaScript支持基本数据类型－数字、文本字符串和布尔值，小数据类型null和undefined，复合型数据类型－函数、对象（数组、已命名的值的无序集合）。 1.数字 整型，包括-253和253之间所有整数（包括-253和253），但是要注意JavaScript中某些整数运算（例如逐位运算符）范围从-231和231-1 八进制和十六进制，十六进制以&rdquo;0X&rdquo;或&rdquo;0x&rdquo;开头，例如 0xfff、0XCAE3；八进制以0开头，例如0377 浮点型，最大可以到&plusmn;1.7976931348623157x10308，最小到&plusmn;5x10-324可以采用传统科学记数法，例如3.14、.333，也可以使用指数记数法，例如6.02e23、1.43E-32 特殊数值，大于浮点值所能表示范围时JavaScript输出Infinity，当负无穷大比所能表示负值还小时输出-Infinity，另外还有非数字特殊值NaN，例如一个数除与0将返回NaN，它和任何数值不相等，包括本身，可以使用isNaN()函数来检测这个值 使用方法12sine_of_x = Math.sin(x);var x = 26; 2.字符串有单引号或双引号括起来的unicode字符序列，但字符串包括单引号或双引号时，要用反斜线符号()进行转移，例如&rdquo;O&rsquo;Reilly&rsquo;s&rdquo;应写为&rdquo;O\&rsquo;Reilly\&rsquo;s&rdquo; JavaScript 转移序列 \0 NUL字符\b 退格\f 走纸换页\n 换行\r 回车\t 水平制表符\v 垂直制表符\’ 单引号\&quot; 双引号\ 反斜杠变量\xXX 2位十六进制指定Lation-1字符\uXXXX 4位十六进制指定Unicode字符 使用方法 12Msg = "Hello," + "world";myColor = "Blue" 3.布尔值数据类型只有true和false，表示真或假，常用在if 判断。 有时可以看作on和off，0和1 4.函数函数是一个可执行的JavaScript代码段，定义一次就可以被多次调用执行。 JavaScript中的函数是一个真正的数据类型，所以函数可以被存储在变量、数组和对象中，还可以作为参数传递给其它函数。 5.对象对象是已命名的数据集合，数据通常作为对象的属性来引用。 例如1var a = image.width; 对象里面包含方法，例如1document.write("Hello, world"); 6.数组JavaScript中数组下标值是从0开始的，例如a[3]表示a数组中第四个元素 使用方法：1234var a = new Array(3); //创建3个元素的数组a[0] = 3;a[1] = true;a[2] = "hello"; 也可以这样创建1var a = new Array(3, true, "hello"); 四、变量变量是一个和数值相关的名字。 1.类型在C、C++、Java中，变量只能存放所声明的数据类型，但在JavaScript中，变量是无类型的，你可以先把一个数值赋给变量，然后再把字符串赋给它，这是合法的。 基本类型和引用类型，&hellip;&hellip; 2.声明使用一个变量之前必须先声明，如果没有指定初始值那变量初始值是undefined，重复使用var声明同一个变量是合法的。 如果给一个未声明的变量赋值，JavaScript会隐式声明该变量，并且该变量会被创建为全局变量，但如果程序读取一个未声明的变量，将会报错。]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -4083,14 +4078,14 @@
   <entry>
     <title><![CDATA[mFancy手机动画学习笔记]]></title>
     <url>%2F2006%2F03%2Fa4c7a9f0%2F</url>
-    <content type="text"><![CDATA[&lt;STYLE type=text/css&gt;.table,.table td{border:1px #999999 solid;} 这是去年在公司的学习笔记，现在看来这个格式的手机动画似乎没啥用了，Flash Lite 2已经出来很久，支持Flash Lite Player 2的手机也逐渐增多 &nbsp; 最后修改：2005-8-5 一、手机动画简介mFancy是北京数码超智推出的手机上Flash播放软件，基于J2ME架构 mFlash是紫移通推出的手机Flash动画服务，其产品包括VIS播放器(Vector Image Solution)、VIS内容制作工具、VIS平台解决方案 CimPublisher是北京数码超智信息技术有限公司推出的，一款基于WIVG(Wireless Interactive Vector Graphics)技术的手机动画制作软件 数码超智 http://www.chaotex.com/ 紫移通 http://www.ziyitong.com/ 二、mFancy对Flash的要求 手机 Flash AS对应 数字键0-9 数字键0-9 号键 号键 #号键 #号键 OK键 Enter回车键 &rarr;&larr;&uarr;&darr;方向键 &rarr;&larr;&uarr;&darr;方向键 三、各类型文件说明支持Wave、Midi、GSM、AMR格式， 其中WAV可以直接加在Flash里面，Midi、GSM、AMR需要通过&ldquo;手机动画发布工具Publisher&rdquo;与Flash进行合成 Midi最大支持16和弦 Wav采样率为44200Hz，位深16Bit，双声道或单声道 GSM、AMR采样率为800Hz，位深16Bit，单声道 SWF，Flash播放文件 TXT文本，卡拉OK和MTV的歌词文件 CIM为WIVG动画文件，即在测试机上进行测试的文件 CPK为产品完整打包文件，包含WIVG动画文件及作品信息（标题、分类、2张GIF截图、文字说明、作者信息、公司信息等），是最终上传到数据库的文件 四、MFancy技术参数 图形技术 二维矢量图形技术，兼容光栅图象技术 实现方式 C/C++ 声音支持 设备音效：MIDI/AMR/GSM/MSF&hellip;软件音效：WAV/MP3/ADPCM，效果：震动/声音与图象/文字完美同步 交互支持 完全兼容Macromedia Flash 5 Action Script及 Flahs Lite 1.1，并扩展电话拨出、短信外发等功能 反走样支持 高质量渲染，支持4&times;4反走样，充分消除边缘锯齿 文件后缀 Cim 内容文件 声音长度：30秒50KB（AMR），1分钟5K（MIDI） 动画长度：取决于内容复杂度（矢量图形技术下，文件尺寸取决于对象数目，通常，总文件尺寸控制在100K以内，必要时，可以完全控制在50K以内） 播放器尺寸 Symbian/Smartphone/Linux平台安装包220K(提供完整网络支持和脚本支持)其他平台预装，核心模块50K(提供裁减的网络支持和脚本支持 运行时最低内存需求 150K以上 CPU要求 CPU要求 20MHz以上 内容下载 1、支持MMS下载/转发（通过内嵌对象方法实现） 2、支持WAP下载 3、支持WAP Push转发 4、支持断点续传（OMA Download） 播放器安装 1、支持WAP下载安装，可两阶段下载及端点续传 2、PC端直接安装 五、MFlash技术参数 项目项目 需求 CPU ARM7 TDMI(26 MHZ) , 推荐 30MHz 以上 色彩 最低4,096色(12 bit)，推荐 65,000 色 (16bit) 以上 LCD 尺寸 推荐大于或等于128 X 128 像素 LCD 类型 TFT 代码尺寸 250 KB （包含组件：Raster, Vector, VOD） 内存需求 推荐大于等于350 KB Vocoder AMR 或 FR MIDI Yamaha MA 系列，General MIDI 等 存储空间 推荐至少1MB，建议大于2MB 内存分配类型 动态内存调用 WAP 相关特征 需求 传输协议 WTP-SAR 终端支持特性 建议支持 UAProf (User Agent Profile) 新MIME 类型注册 推荐支持在WAP 浏览器中注册新的MIME类型 WAP Push 建议支持WAP Push 功能 其他特征 需求 SMS + callback URL SMS + callback URL 文件系统 EFS (Embedded File System) TCP 连接 推荐支持TCP，用于基于TCP协议的流媒体应用 &nbsp;#### 六、J2ME vs. Flash Lite 内容 J2ME Flash Lite 规范 基础规范（MIDP/CLDC）上相对统一，但是大量的可选包使得程序的兼容性下降。更何况各个厂商的KVM实现还有众多Bug 统一的Flash Lite Player规范 编译运行 需要用专门的Publisher进行编译 任何安装了Flash Lite Player的设备都可以播放Flash Lite文件而不需要加以编译修改 图像格式 需要人为解决分辨率问题，因此为了适应各种平台而进行的工作就变得十分繁琐了 支持矢量及SVG等矢量格式，可以适用各类分辨率的屏幕 服务器端 可以与任何一种服务器技术整合 需要.FlashCom或Flash Cast等服务器技术支持，目前该类服务器应用较少 客服端 目前手机普遍支持K-Java程序 目前仍以native方式存于手机，即以应用程序扩展的方式，需安装一个sis文件 综合应用 比较强，特别是众多API的支持，使得 不适合作复杂的应用，包括商务和娱乐方面，从安全机制，存储能力，网络连接等层面，都是比较薄弱 推广运营 并未正式运营(或刚刚开始)，收费性质使得普及速度满 基本免费，以及MM发布了SDK并与三星、诺基亚签订软件捆绑协议]]></content>
+    <content type="text"><![CDATA[这是去年在公司的学习笔记，现在看来这个格式的手机动画似乎没啥用了，Flash Lite 2已经出来很久，支持Flash Lite Player 2的手机也逐渐增多 最后修改：2005-8-5 一、手机动画简介mFancy是北京数码超智推出的手机上Flash播放软件，基于J2ME架构 mFlash是紫移通推出的手机Flash动画服务，其产品包括VIS播放器(Vector Image Solution)、VIS内容制作工具、VIS平台解决方案 CimPublisher是北京数码超智信息技术有限公司推出的，一款基于WIVG(Wireless Interactive Vector Graphics)技术的手机动画制作软件 数码超智 http://www.chaotex.com/ 紫移通 http://www.ziyitong.com/ 二、mFancy对Flash的要求 手机 Flash AS对应 数字键0-9 数字键0-9 *号键 *号键 #号键 #号键 OK键 Enter回车键 &rarr;&larr;&uarr;&darr;方向键 &rarr;&larr;&uarr;&darr;方向键 三、各类型文件说明支持Wave、Midi、GSM、AMR格式， 其中WAV可以直接加在Flash里面，Midi、GSM、AMR需要通过&ldquo;手机动画发布工具Publisher&rdquo;与Flash进行合成 Midi最大支持16和弦 Wav采样率为44200Hz，位深16Bit，双声道或单声道 GSM、AMR采样率为800Hz，位深16Bit，单声道 SWF，Flash播放文件 TXT文本，卡拉OK和MTV的歌词文件 CIM为WIVG动画文件，即在测试机上进行测试的文件 CPK为产品完整打包文件，包含WIVG动画文件及作品信息（标题、分类、2张GIF截图、文字说明、作者信息、公司信息等），是最终上传到数据库的文件 四、MFancy技术参数 图形技术 二维矢量图形技术，兼容光栅图象技术 实现方式 C/C++ 声音支持 设备音效：MIDI/AMR/GSM/MSF&hellip;软件音效：WAV/MP3/ADPCM，效果：震动/声音与图象/文字完美同步 交互支持 完全兼容Macromedia Flash 5 Action Script及 Flahs Lite 1.1，并扩展电话拨出、短信外发等功能 反走样支持 高质量渲染，支持4&times;4反走样，充分消除边缘锯齿 文件后缀 Cim 内容文件 声音长度：30秒50KB（AMR），1分钟5K（MIDI） 动画长度 取决于内容复杂度（矢量图形技术下，文件尺寸取决于对象数目，通常，总文件尺寸控制在100K以内，必要时，可以完全控制在50K以内） 播放器尺寸 Symbian/Smartphone/Linux平台安装包220K(提供完整网络支持和脚本支持)其他平台预装，核心模块50K(提供裁减的网络支持和脚本支持 运行时最低内存需求 150K以上 CPU要求 CPU要求 20MHz以上 内容下载 1、支持MMS下载/转发（通过内嵌对象方法实现）2、支持WAP下载3、支持WAP Push转发4、支持断点续传（OMA Download） 播放器安装 1、支持WAP下载安装，可两阶段下载及端点续传2、PC端直接安装 五、MFlash技术参数 项目 需求 CPU ARM7 TDMI(26 MHZ) , 推荐 30MHz 以上 色彩 最低4,096色(12 bit)，推荐 65,000 色 (16bit) 以上 LCD 尺寸 推荐大于或等于128 X 128 像素 LCD 类型 TFT 代码尺寸 250 KB （包含组件：Raster, Vector, VOD） 内存需求 推荐大于等于350 KB Vocoder AMR 或 FR MIDI Yamaha MA 系列，General MIDI 等 存储空间 推荐至少1MB，建议大于2MB 内存分配类型 动态内存调用 WAP 相关特征 需求 传输协议 WTP-SAR 终端支持特性 建议支持 UAProf (User Agent Profile) 新MIME 类型注册 推荐支持在WAP 浏览器中注册新的MIME类型 WAP Push 建议支持WAP Push 功能 其他特征 需求 SMS + callback URL SMS + callback URL 文件系统 EFS (Embedded File System) TCP 连接 推荐支持TCP，用于基于TCP协议的流媒体应用 六、J2ME vs. Flash Lite 内容 J2ME Flash Lite 规范 基础规范（MIDP/CLDC）上相对统一，但是大量的可选包使得程序的兼容性下降。更何况各个厂商的KVM实现还有众多Bug 统一的Flash Lite Player规范 编译运行 需要用专门的Publisher进行编译 任何安装了Flash Lite Player的设备都可以播放Flash Lite文件而不需要加以编译修改 图像格式 需要人为解决分辨率问题，因此为了适应各种平台而进行的工作就变得十分繁琐了 支持矢量及SVG等矢量格式，可以适用各类分辨率的屏幕 服务器 可以与任何一种服务器技术整 需要.FlashCom或Flash Cast等服务器技术支持，目前该类服务器应用较少 客服 目前手机普遍支持K-Java程序 目前仍以native方式存于手机，即以应用程序扩展的方式，需安装一个sis文件 综合应用 比较强，特别是众多API的支持，使 不适合作复杂的应用，包括商务和娱乐方面，从安全机制，存储能力，网络连接等层面，都是比较薄弱 推广运营 并未正式运营(或刚刚开始)，收费性质使得普及速度满 基本免费，以及MM发布了SDK并与三星、诺基亚签订软件捆绑协议]]></content>
       <categories>
         <category>Flash</category>
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>mFancy</tag>
         <tag>mobile</tag>
+        <tag>mFancy</tag>
       </tags>
   </entry>
   <entry>
@@ -4371,9 +4366,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>书</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
-        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4446,9 +4441,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>书</tag>
         <tag>actionscript</tag>
         <tag>flash</tag>
-        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4603,8 +4598,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>认证</tag>
         <tag>Macromedia</tag>
+        <tag>认证</tag>
       </tags>
   </entry>
   <entry>
@@ -4659,8 +4654,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>书</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -4684,14 +4679,6 @@
       <tags>
         <tag>金子</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[I'm a C.a.T.!]]></title>
-    <url>%2F2004%2F01%2Fbf97d2a4%2F</url>
-    <content type="text"><![CDATA[Good Good Study , Day Day Up!]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[没有阳光]]></title>
@@ -4815,17 +4802,6 @@
       <categories>
         <category>Life</category>
       </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[NVIDIA发布GeForce FX Go5700]]></title>
-    <url>%2F2003%2F11%2F3e401322%2F</url>
-    <content type="text"><![CDATA[刚刚收到NVIDIA的新闻邮件，NVIDIA在移动GPU方面一直比ATI逊色，这个新产品不晓得会不会打破这种局面，不过相信不久ATI也会发布新产品的，拭目以待吧。 Announcing GeForce FX Go5700Revolutionizing notebook PC entertainment, the new GeForce FX Go5700 delivers unprecedented cinematic graphics and video performance to consumer notebooks with the compatibility, stability and reliability you’ve come to expect from NVIDIA. You can get the GeForce FX Go5700 from PC manufacturers around the world, including Toshiba and Alienware. Click here for more.]]></content>
-      <categories>
-        <category>IT</category>
-      </categories>
-      <tags>
-        <tag>NVIDIA</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[猫猫回来了！]]></title>
