@@ -112,7 +112,7 @@
 <meta property="og:description" content="SS小飞机文件夹有个pac.txt，打开会发现是一个JS格式的文件，这就是自动代理配置文件PAC全称Proxy Auto Config File，用于根据URL选择不同代理服务器或是不代理直接访问，相比于传统代理可以加快速度，也减少代理服务器的流量">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://21ido.com/images/2017/12/pac.png">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.226Z">
+<meta property="og:updated_time" content="2018-08-05T16:09:16.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ShadowSocks PAC过滤规则说明">
 <meta name="twitter:description" content="SS小飞机文件夹有个pac.txt，打开会发现是一个JS格式的文件，这就是自动代理配置文件PAC全称Proxy Auto Config File，用于根据URL选择不同代理服务器或是不代理直接访问，相比于传统代理可以加快速度，也减少代理服务器的流量">
@@ -437,7 +437,7 @@
 <li>@@ 例外，比如上面的||匹配了所有21ido.com，如果其中blog.21ido.com不希望被匹配，则加一行 @@blog.21ido.com</li>
 <li>| 开头或结束，上面的例外规则，如果遇到 blog.21ido.com.cn其实还是会被例外放行，如果不希望.com外的域名也被匹配到，改为 @@blog.21ido.com|，同理也可以放在开头如@@|blog.21ido.com|</li>
 <li>^ 标记分隔符，跟结束符 | 相似，但^表示非字母数字及_ - . %外的字符，比如 21ido.com^ 除了匹配 21ido.com/ 外，还可以匹配 21ido.com:8080/ 或是 21ido.com?t=2017</li>
-<li>正则，斜杠/开头并斜杠/结束，比如/^https?:\/\/[^\/]+blogspot\.(.*)/</li>
+<li>正则，斜杠/开头并斜杠/结束，比如<code>/^https?:\\/\\/[^\\/]+blogspot\\.(.*)/</code></li>
 </ol>
 
       
