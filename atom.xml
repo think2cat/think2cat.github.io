@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-07-21T15:35:38.930Z</updated>
+  <updated>2018-08-05T15:51:22.583Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2018-07-21T15:35:38.930Z</updated>
+    <updated>2018-08-05T15:51:22.583Z</updated>
     
     <summary type="html">
     
@@ -43,7 +43,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2018-07-15T11:56:53.454Z</updated>
+    <updated>2018-08-05T15:51:12.202Z</updated>
     
     <summary type="html">
     
@@ -75,7 +75,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2018-07-14T16:45:33.800Z</updated>
+    <updated>2018-08-05T15:51:01.188Z</updated>
     
     <summary type="html">
     
@@ -99,7 +99,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2018-07-24T02:35:21.053Z</updated>
+    <updated>2018-08-05T15:50:28.783Z</updated>
     
     <summary type="html">
     
@@ -145,9 +145,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
   </entry>
   
@@ -174,9 +174,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
   </entry>
   
