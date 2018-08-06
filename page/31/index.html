@@ -584,37 +584,15 @@
 
       
         
-          
-            <p>笔记就先写到这，今天起开始翻译XUL Planet的《XUL指南》，哈</p>
-<h3 id="四、XUL常用元素"><a href="#四、XUL常用元素" class="headerlink" title="四、XUL常用元素"></a>四、XUL常用元素</h3><h4 id="4-1-创建窗体"><a href="#4-1-创建窗体" class="headerlink" title="4.1 创建窗体"></a>4.1 创建窗体</h4><p>当准备好开发工具之后，就可以开始写XUL了。先看一段XUL文件</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;?xml version=”1.0” encoding=”GB2312”?&gt;<br>&lt;?xml-stylesheet href=””chrome://chrome/skin” type=”text/css”?&gt;<br>&lt;?xml-stylesheet href=””chrome://chrome/skin/contact.css” type=”text/css”?&gt;<br>&lt;window<br>id=”QQ_setup”<br>class=”sb_faceplate”<br>title=”QQ2006设置”<br>xmlns:html=”<a href="http://www.w3.org/1999/xhtml&quot;" target="_blank" rel="noopener">http://www.w3.org/1999/xhtml&quot;</a><br>xmlns=”<a href="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;" target="_blank" rel="noopener">http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul&quot;</a><br>&gt;</div>
-
-<p>解释一下</p>
-<h4 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h4><h4 id="4-2-按钮-lt-button-gt"><a href="#4-2-按钮-lt-button-gt" class="headerlink" title="4.2 按钮 &lt;button&gt;"></a>4.2 按钮 &lt;button&gt;</h4><div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;button id=”button” label=”Find” default=”true”/&gt;</div>
-
-<p>按钮比较简单，label是显示的文字，如果有多种语言版本，就要在文件头载入DTD文件，然后用引用形式显示文字，后面将做介绍，default是布尔值，表示窗口打开时按回车所触发的按钮</p>
-<h4 id="nbsp-1"><a href="#nbsp-1" class="headerlink" title="&nbsp;"></a>&nbsp;</h4><h4 id="4-3-文本标签-lt-label-gt-和-lt-description-gt"><a href="#4-3-文本标签-lt-label-gt-和-lt-description-gt" class="headerlink" title="4.3 文本标签&lt;label&gt;和&lt;description&gt;"></a>4.3 文本标签&lt;label&gt;和&lt;description&gt;</h4><div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;label value=” DisplayName “ class=”label”/&gt;</div>
-
-<p>Value是显示文本，同时可以用class来为标签定义样式</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;description value=” DisplayName “ class=”label”/&gt;</div>
-
-<p>Description基本上跟label是相同的，比如上面2行代码显示效果是一样的，但description标签可以显示多行文字，例如</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;description&gt;<br>This is a multi-line description.<br>It should wrap if there isn’t enough room to put it in one line.<br>Let’s put in another sentence for good measure.<br>&lt;/description&gt;</div>
-
-<p>跟html一样，多个空格将被当成一个空格，回车和’\n’也是不起作用的，只有当文本宽度超过上级元素围的宽度了，才会换行，但是也可以用width属性来定义宽度，例如</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;description style=”max-width:20px;”&gt;<br>This is a multi-line description.<br>It should wrap if there isn’t enough room to put it in one line.<br>Let’s put in another sentence for good measure.<br>&lt;/description&gt;</div>
-
-<p>例外，文本标签可以使用control属性来跟按钮、输入框之类的元素绑定，下面代码点击label后会触发button，accesskey是快捷键，用Alt+D即可使该label为当前焦点</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;label control=”DisplayName” value=” DisplayName “ accesskey=”d” class=”label”/&gt;<br>&lt;button id=” DisplayName “ label=”MyName”/&gt;</div>
-
-<h4 id="nbsp-2"><a href="#nbsp-2" class="headerlink" title="&nbsp;"></a>&nbsp;</h4><h4 id="4-4-图片-lt-image-gt"><a href="#4-4-图片-lt-image-gt" class="headerlink" title="4.4 图片&lt;image&gt;"></a>4.4 图片&lt;image&gt;</h4><div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;image src=”snow.png” width=”20” height=”26”/&gt;</div>
-
-<p>Image标签跟html一样，不过这不是常用的作法。常用的作法是放在skin目录下，通过样式表来控制。例如：</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">&lt;image id=”snow” /&gt;<br>同时在CSS里面指定属性<br>#snow{<br>height: 20px;<br>width: 26px;<br>background-image: url(images/snow.gif);<br>}</div>
-
-<p>当然，你也可以用这样显示图片，但我觉得这样并不灵活，有时会撑大图片，比较难控制</p>
-<div style="BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; MARGIN: 5px 20px; BORDER-LEFT: #cccccc 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid">#snow{<br>height: 20px;<br>width: 26px;<br>list-style-image: url(images/snow.gif);<br>}</div>
-          
+          <p>笔记就先写到这，今天起开始翻译XUL Planet的《XUL指南》，哈</p>
+<h3 id="四、XUL常用元素"><a href="#四、XUL常用元素" class="headerlink" title="四、XUL常用元素"></a>四、XUL常用元素</h3><h4 id="4-1-创建窗体"><a href="#4-1-创建窗体" class="headerlink" title="4.1 创建窗体"></a>4.1 创建窗体</h4><p>当准备好开发工具之后，就可以开始写XUL了。先看一段XUL文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="GB2312"?&gt;</span><br><span class="line">&lt;?xml-stylesheet href=""chrome://chrome/skin" type="text/css"?&gt;</span><br><span class="line">&lt;?xml-stylesheet href=""chrome://chrome/skin/contact.css" type="text/css"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">window</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"QQ_setup"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"sb_faceplate"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">"QQ2006设置"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:html</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns</span>=<span class="string">"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"</span></span></span><br><span class="line"><span class="tag"> &gt;</span></span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2006/03/3f28914c/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
       
@@ -764,12 +742,30 @@
 
       
         
-          
-            <p>该节讲的是扩展开发的，代码很多，这里跳过，简单说一下就好了，哈</p>
+          <p>该节讲的是扩展开发的，代码很多，这里跳过，简单说一下就好了，哈</p>
 <h3 id="三、目录和文件结构"><a href="#三、目录和文件结构" class="headerlink" title="三、目录和文件结构"></a>三、目录和文件结构</h3><h4 id="3-1-目录结构"><a href="#3-1-目录结构" class="headerlink" title="3.1 目录结构"></a>3.1 目录结构</h4><p>一个标准的扩展程序，解压后有几个目录</p>
+<ul>
+<li><strong>Chrome</strong>：必备目录，底下有一个JAR文件，保存着扩展外观和逻辑功能代码。解压缩此 JAR 文件之后，一般会生成以下 3 个目录。<ul>
+<li><strong>content</strong>：用于存储负责描述扩展界面的 XUL 文件和完成实际逻辑功能的 JS 文件；</li>
+<li><strong>locale</strong>：录下还会有针对不同语言的子目录，这些子目录会被起成如”en-US”，”zh-CN”这种用来区分”语言-国家/地区” 的名称。通过这种国际上标准的语言区分方式，Mozilla 会根据其自身的语言，选择一个最合适的语言目录让 content 中的文件进行引用；</li>
+<li><strong>skin</strong>：用于存储负责美化界面外观的样式表文件和图片文件，这些文件中的样式和图片会被 content 目录中的文件所引用，如”classic”，”modern”等。不过，一般情况下，我们只创建针对 classic 的”皮肤”。如果扩展没有使用单独的样式表文件和图片，那么它也是可以被省略的；</li>
+</ul>
+</li>
+<li><strong>Components</strong>：存放自定义XPCOM组件，在没自定义XPCOM组件情况下，改目录不存在</li>
+<li><strong>defaults</strong>：存放默认数据，其下还有子目录</li>
+</ul>
 <p>另外，有3个必备的特殊文件</p>
-<p></p>
-          
+<ul>
+<li><strong>install.rdf</strong>：它是一个 RDF/XML 格式的文件，用于描述当前扩展的注册信息和附加信息等。扩展在安装时，负责安装扩展的程序会自动分析此文件的信息，然后将这些信息注册到 Mozilla 系统下。此文件必须被命名为 install.rdf，并置于扩展压缩包的顶级目录下；</li>
+<li><strong>install.js</strong>：负责安装扩展的脚本，此文件可选。一般情况下，install.rdf 完全可以胜任扩展的安装注册工作。但是，如果有些扩展要在安装时做一些额外的准备工作，则要通过一个称为 XPInstall 的机制来完成，那些负责额外工作的代码则要被固定地写到此文件中；</li>
+<li><strong>chrome.manifest</strong>：负责将扩展的各种包注册到 Mozilla 的 chrome 系统中。Gecko 1.8 内核新引入的机制，用来代替原有的 contents.rdf 文件；
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2006/03/7069078b/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
       
@@ -1070,16 +1066,17 @@
 
       
         
-          
-            <h4 id="1-3-XUL可以做什么"><a href="#1-3-XUL可以做什么" class="headerlink" title="1.3 XUL可以做什么"></a>1.3 XUL可以做什么</h4><p>先补充一下，XUL发音为：zool<br>XUL可以创建图形界面的绝大多数元素，像Firefox、Thunderbird界面都是XUL的应用。</p>
+          <h4 id="1-3-XUL可以做什么"><a href="#1-3-XUL可以做什么" class="headerlink" title="1.3 XUL可以做什么"></a>1.3 XUL可以做什么</h4><p>先补充一下，XUL发音为：zool<br>XUL可以创建图形界面的绝大多数元素，像Firefox、Thunderbird界面都是XUL的应用。</p>
 <h4 id="1-4-XUL相关资料"><a href="#1-4-XUL相关资料" class="headerlink" title="1.4 XUL相关资料"></a>1.4 XUL相关资料</h4><p>目前XUL应用并不多，相关资料(无论中文或英文)非常的少，大多仅有一些简单的介绍而已，下面是几个相关网站<br><a href="http://www.xulplanet.com/" target="_blank" rel="noopener">http://www.xulplanet.com</a><br><a href="http://developer.mozilla.com/" target="_blank" rel="noopener">http://developer.mozilla.com</a></p>
 <h3 id="二、开发平台"><a href="#二、开发平台" class="headerlink" title="二、开发平台"></a>二、开发平台</h3><h4 id="2-1-开发工具"><a href="#2-1-开发工具" class="headerlink" title="2.1 开发工具"></a>2.1 开发工具</h4><p>以下为扩展开发所需工具，可以在下面的两上网站下载和获取到帮助信息：<br><a href="https://addons.mozilla.org/extensions/?application=firefox" target="_blank" rel="noopener">https://addons.mozilla.org/extensions/?application=firefox</a><br><a href="http://www.extensionsmirror.nl/" target="_blank" rel="noopener">http://www.extensionsmirror.nl/</a></p>
-<h4 id="2-2-配置环境变量"><a href="#2-2-配置环境变量" class="headerlink" title="2.2 配置环境变量"></a>2.2 配置环境变量</h4><p>Firefox 是一个允许创建多个 Profile 的浏览器，不同的 Profile 被分别进行管理。由于在开发扩展时，我们希望一个 Profile 用来做开发，一个 Profile 用来测试扩展的发布版本。所以，我们要配置不同的 Profile 来满足这种要求。<br>操作系统 Proile 对应的目录<br>Windows 9x/Me C:\Windows\Application Data\Mozilla\Firefox\Profiles\&lt;Profile name&gt;\<br>Windows 9x/Me, alternate C:\Windows\Profiles\&lt;Windows login/user name&gt;\Application Data\Mozilla\Firefox\Profiles\&lt;Profile name&gt;\<br>Windows NT 4.x C:\Winnt\Profiles\&lt;Windows login/user name&gt;\Application Data\Mozilla\Firefox\Profiles\&lt;Profile name&gt;\<br>Windows 2000/XP C:\Documents and Settings\&lt;Windows login/user name&gt;\Application Data\Mozilla\Firefox\Profiles\&lt;Profile name&gt;\ 或<br>%APPDATA%\Mozilla\Firefox\Profiles\&lt;Profile name&gt;\<br>Unix ~/.mozilla/firefox/&lt;Profile name&gt;/<br>Mac OS X ~/Library/Mozilla/Firefox/Profiles/&lt;Profile name&gt;/ 或<br>~/Library/Application Support/Firefox/Profiles/&lt;Profile name&gt;/</p>
-<p>一般把默认的 Profile 做为开发的 Profile，所以，我们不用做什么特殊的设置。你可以把上面提到的那些扩展，全部安装到此 Profile 下。<br>那么，我们还要创建一个新的 Profile 来完成扩展的安装，或者说是发布测试工作。通过下面的两个步骤，你可以实现这种需求。</p>
-<p>首先，我们需要在命令行方式下，定位到 Firefox 的安装目录，通过运行<br>firefox -P<br>启动 Firefox 的 Profile 管理器窗口，建立一个负责测试安装的 Profile。当然，也可以建立更多的 Profile。<br>假设你建立了一个名为“test”的 Profile，想启用这个 Profile，你需要通过<br>set MOZ_NO_REMOTE=1<br>firefox -P test<br>这两行命令来启用这个非默认启动状态的 Profile。为了方便测试，这两条命令可以写成一个 Shell 脚本或做成一个批处理文件。<br>下面列出Profile几个需要更改的设置项。</p>
-<p>通过在地址栏中键入 about:config，你可以打开 Mozilla 内置的配置界面，这样你就可以更改那些设置项的值。在更改完这些设置项之后，我们会在以后的开发中更加得心应手。</p>
-
-          
+<h4 id="2-2-配置环境变量"><a href="#2-2-配置环境变量" class="headerlink" title="2.2 配置环境变量"></a>2.2 配置环境变量</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2006/03/697236ca/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
       
@@ -1988,7 +1985,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">295</span>
+                <span class="site-state-item-count">293</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
