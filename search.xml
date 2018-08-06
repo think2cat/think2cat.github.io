@@ -481,8 +481,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>马拉松</tag>
         <tag>上海</tag>
+        <tag>马拉松</tag>
       </tags>
   </entry>
   <entry>
@@ -710,8 +710,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>151基地</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
@@ -726,9 +726,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -741,10 +741,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>大雁塔</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>华山</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -758,8 +758,8 @@
         <tag>武汉</tag>
         <tag>国庆</tag>
         <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>钟楼</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -991,9 +991,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>javascript</tag>
         <tag>spider</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -1830,10 +1830,10 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>装备</tag>
-        <tag>跑步</tag>
         <tag>户外</tag>
         <tag>松拓</tag>
+        <tag>装备</tag>
+        <tag>跑步</tag>
       </tags>
   </entry>
   <entry>
@@ -1844,11 +1844,11 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>书</tag>
-        <tag>actionscript</tag>
-        <tag>flash</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>书</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -1860,11 +1860,11 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>书</tag>
-        <tag>actionscript</tag>
-        <tag>flash</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>书</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>flex</tag>
       </tags>
   </entry>
@@ -2880,8 +2880,8 @@
         <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -3201,8 +3201,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sp2</tag>
         <tag>win2003</tag>
+        <tag>sp2</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3312,7 +3312,7 @@
   <entry>
     <title><![CDATA[Skype欺骗消费者，老猫来揭露真实资费标准]]></title>
     <url>%2F2007%2F04%2Fffe3c094%2F</url>
-    <content type="text"><![CDATA[右图是3月12日至4月2日，老猫skype通话记录 之前帐户余额为1.36欧元，根据Skype费率，中国资费为每分钟&euro; 0.017，即余额可正常通话80分钟 而根据通话记录加起来，仅为41分钟，不足一分钟的算一分钟，而且最后通话10分08秒，其实那8秒是skype自动断开的，如此算来，实际资费为每分钟&euro; 0.034，为标称资费的2倍。 觉得skype打电话钱花得很快的朋友可以检查下 从今天起不用skype了，换UUCall，每分钟才0.1元人民币 P.S.刚刚发现skype网页上好多处把孙燕姿，打错成孙艳姿，BS一下]]></content>
+    <content type="text"><![CDATA[右图是3月12日至4月2日，skype通话记录 之前帐户余额为1.36欧元，根据Skype费率，中国资费为每分钟&euro; 0.017，即余额可正常通话80分钟 而根据通话记录加起来，仅为41分钟，不足一分钟的算一分钟，而且最后通话10分08秒，其实那8秒是skype自动断开的，如此算来，实际资费为每分钟&euro; 0.034，为标称资费的2倍 觉得skype打电话钱花得很快的朋友可以检查下 从今天起不用skype了，换UUCall，每分钟才0.1元人民币 P.S.刚刚发现skype网页上好多处把孙燕姿，打错成孙艳姿，BS一下]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -3525,9 +3525,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>书</tag>
         <tag>读后感</tag>
         <tag>css</tag>
+        <tag>书</tag>
         <tag>div</tag>
         <tag>web</tag>
         <tag>xhtml</tag>
@@ -3857,8 +3857,8 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -3885,9 +3885,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
-        <tag>flash</tag>
         <tag>vbs</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4320,8 +4320,8 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4343,8 +4343,8 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4367,8 +4367,8 @@
       </categories>
       <tags>
         <tag>书</tag>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4442,8 +4442,8 @@
       </categories>
       <tags>
         <tag>书</tag>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4586,8 +4586,8 @@
         <category>IT</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4621,7 +4621,7 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>flash</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4643,7 +4643,7 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>flash</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4654,8 +4654,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>书</tag>
         <tag>java</tag>
+        <tag>书</tag>
       </tags>
   </entry>
   <entry>
@@ -4749,8 +4749,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>flash</tag>
         <tag>金子</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4780,7 +4780,7 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>flash</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
