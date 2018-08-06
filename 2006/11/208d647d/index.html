@@ -103,18 +103,18 @@
 
 
 
-<meta name="description" content="晚上在给SQL 2005导入Access数据库，语句如下 INSERT&amp;nbsp;INTO&amp;nbsp;[dbo].[ixunlei]……&amp;nbsp;&amp;nbsp;SELECT&amp;nbsp;……&amp;nbsp;&amp;nbsp;FROM&amp;nbsp;OPENDATASOURCE(‘Microsoft.Jet.OLEDB.4.0’,‘Data&amp;nbsp;Source=&amp;quot;….mdb&amp;quot;’)…[…..]">
+<meta name="description" content="晚上在给SQL 2005导入Access数据库，语句如下 1234INSERT INTO [dbo].[ixunlei]...... SELECT ...... FROM OPENDATASOURCE(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;Data Source=&quot;....mdb&quot;&apos;)...[.....] 然后提示出错 SQL Server 阻止了对组件 &amp;apos;Ad Hoc">
 <meta name="keywords" content="sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL 2005导入Access和Excel文件">
 <meta property="og:url" content="http://21ido.com/2006/11/208d647d/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="晚上在给SQL 2005导入Access数据库，语句如下 INSERT&amp;nbsp;INTO&amp;nbsp;[dbo].[ixunlei]……&amp;nbsp;&amp;nbsp;SELECT&amp;nbsp;……&amp;nbsp;&amp;nbsp;FROM&amp;nbsp;OPENDATASOURCE(‘Microsoft.Jet.OLEDB.4.0’,‘Data&amp;nbsp;Source=&amp;quot;….mdb&amp;quot;’)…[…..]">
+<meta property="og:description" content="晚上在给SQL 2005导入Access数据库，语句如下 1234INSERT INTO [dbo].[ixunlei]...... SELECT ...... FROM OPENDATASOURCE(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;Data Source=&quot;....mdb&quot;&apos;)...[.....] 然后提示出错 SQL Server 阻止了对组件 &amp;apos;Ad Hoc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.226Z">
+<meta property="og:updated_time" content="2018-08-06T05:51:58.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL 2005导入Access和Excel文件">
-<meta name="twitter:description" content="晚上在给SQL 2005导入Access数据库，语句如下 INSERT&amp;nbsp;INTO&amp;nbsp;[dbo].[ixunlei]……&amp;nbsp;&amp;nbsp;SELECT&amp;nbsp;……&amp;nbsp;&amp;nbsp;FROM&amp;nbsp;OPENDATASOURCE(‘Microsoft.Jet.OLEDB.4.0’,‘Data&amp;nbsp;Source=&amp;quot;….mdb&amp;quot;’)…[…..]">
+<meta name="twitter:description" content="晚上在给SQL 2005导入Access数据库，语句如下 1234INSERT INTO [dbo].[ixunlei]...... SELECT ...... FROM OPENDATASOURCE(&apos;Microsoft.Jet.OLEDB.4.0&apos;,&apos;Data Source=&quot;....mdb&quot;&apos;)...[.....] 然后提示出错 SQL Server 阻止了对组件 &amp;apos;Ad Hoc">
 
 
 
@@ -428,14 +428,11 @@
 
       
         <p>晚上在给SQL 2005导入Access数据库，语句如下</p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);"><span style="color: rgb(0, 0, 255);">INSERT</span>&nbsp;<span style="color: rgb(0, 0, 255);">INTO</span>&nbsp;[dbo].[ixunlei]……&nbsp;<br><br>&nbsp;<span style="color: rgb(0, 0, 255);">SELECT</span>&nbsp;……&nbsp;<br><br>&nbsp;<span style="color: rgb(0, 0, 255);">FROM</span>&nbsp;OPENDATASOURCE(<span style="color: rgb(255, 0, 255);">‘Microsoft.Jet.OLEDB.4.0’</span>,<span style="color: rgb(255, 0, 255);">‘Data&nbsp;Source=&quot;….mdb&quot;’</span>)…[…..]<br><br></div>
-
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [dbo].[ixunlei]......</span><br><span class="line"> <span class="keyword">SELECT</span> ......</span><br><span class="line"></span><br><span class="line"> <span class="keyword">FROM</span> OPENDATASOURCE(<span class="string">'Microsoft.Jet.OLEDB.4.0'</span>,<span class="string">'Data Source="....mdb"'</span>)...[.....]</span><br></pre></td></tr></table></figure>
 <p>然后提示出错</p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);">SQL&nbsp;Server&nbsp;阻止了对组件&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>&nbsp;的&nbsp;STATEMENT<span style="color: rgb(255, 0, 255);">‘OpenRowset/OpenDatasource’</span>&nbsp;的访问，因为此组件已作为此服务器安全配置的一部分而被关闭。系统管理员可以通过使用&nbsp;sp_configure&nbsp;启用&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>。有关启用&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>&nbsp;的详细信息，请参阅&nbsp;SQL&nbsp;Server&nbsp;联机丛书中的&nbsp;&quot;外围应用配置器&quot;。&nbsp;</div>
-
-<p>因为SQL2005默认是没有开启<font face="Verdana"><font color="#ff0000"><strong>‘Ad Hoc Distributed Queries’</strong></font> 组件，开启方法如下</font></p>
-<div style="border: 1px solid rgb(138, 138, 138); margin: 1px; padding: 6px; overflow: auto; font-size: 12px; font-family: Courier New; background-color: rgb(238, 238, 238);">EXEC&nbsp;sp_configure&nbsp;<span style="color: rgb(255, 0, 255);">‘show&nbsp;advanced&nbsp;options’</span>,&nbsp;1<br><br>GO<br><br>RECONFIGURE<br><br>GO<br><br>EXEC&nbsp;sp_configure&nbsp;<span style="color: rgb(255, 0, 255);">‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’</span>,&nbsp;1<br><br>GO<br><br>RECONFIGURE<br><br>GO</div>
-
+<pre><code>SQL Server 阻止了对组件 &apos;Ad Hoc Distributed Queries&apos; 的 STATEMENT&apos;OpenRowset/OpenDatasource&apos; 的访问，因为此组件已作为此服务器安全配置的一部分而被关闭。系统管理员可以通过使用 sp_configure 启用 &apos;Ad Hoc Distributed Queries&apos;。有关启用 &apos;Ad Hoc Distributed Queries&apos; 的详细信息，请参阅 SQL Server 联机丛书中的 &quot;外围应用配置器&quot;。
+</code></pre><p>因为SQL2005默认是没有开启 <strong>‘Ad Hoc Distributed Queries’</strong> 组件，开启方法如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">EXEC sp_configure '<span class="keyword">show</span> <span class="keyword">advanced</span> options<span class="string">', 1</span></span><br><span class="line"><span class="string">GO</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">RECONFIGURE</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">GO</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">EXEC sp_configure '</span>Ad Hoc <span class="keyword">Distributed</span> Queries<span class="string">', 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">GO</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">RECONFIGURE</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">GO</span></span><br></pre></td></tr></table></figure>
 <p>接着就可以导入Access了，导入Excel也一样需要开启</p>
 
       

@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="今晚在重新写月历代码，没有了表格的&amp;lt;TR&amp;gt;&amp;lt;TD&amp;gt;似乎变简单了，反正调整好宽度，然后一直response.write就行了，会自动换行，嘿嘿 之后在写Weekday()发现week老是对不上，用的函数是weekday(date())，日期格式明明是mm/dd/yyyy，可是却不行，然后用1-7替换day，发现weekday()返回的数是没有规律的，便用了yyyy-mm-dd">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.228Z">
+<meta property="og:updated_time" content="2018-08-06T09:48:10.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Weekday()">
 <meta name="twitter:description" content="今晚在重新写月历代码，没有了表格的&amp;lt;TR&amp;gt;&amp;lt;TD&amp;gt;似乎变简单了，反正调整好宽度，然后一直response.write就行了，会自动换行，嘿嘿 之后在写Weekday()发现week老是对不上，用的函数是weekday(date())，日期格式明明是mm/dd/yyyy，可是却不行，然后用1-7替换day，发现weekday()返回的数是没有规律的，便用了yyyy-mm-dd">
@@ -427,9 +427,9 @@
       
 
       
-        <p>今晚在重新写月历代码，没有了表格的&lt;TR&gt;&lt;TD&gt;似乎变简单了，反正调整好宽度，然后一直response.write就行了，会自动换行，嘿嘿</p>
-<p>之后在写Weekday()发现week老是对不上，用的函数是<strong>weekday(date())</strong>，日期格式明明是mm/dd/yyyy，可是却不行，然后用1-7替换day，发现weekday()返回的数是没有规律的，便用了yyyy-mm-dd格式，还是不行，最后试了mm/dd/yy，居然行了，太麻烦了，正确的函数<br><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weeks = <span class="built_in">Weekday</span>(<span class="built_in">Month</span>() &amp; <span class="string">"/"</span> &amp; <span class="built_in">Day</span>() &amp; <span class="string">"/"</span> &amp; <span class="built_in">Right</span>(<span class="built_in">Year</span>(),<span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
-<p>还有个问题，用Monthname()返回的是月份的中文名称，比如”2004年九月”，这样看起来怪怪的，或许是因为我系统用的是中文版吧，如果服务器也是中文版那要输出”September 2004”就要再多建个数组了，真是麻烦<br>明天是周五了，要是工作还没有消息，我会疯掉的</p>
+        <p>今晚在重新写月历代码，没有了表格的&lt;TR&gt;&lt;TD&gt;似乎变简单了，反正调整好宽度，然后一直<code>response.write</code>就行了，会自动换行，嘿嘿</p>
+<p>之后在写<code>Weekday()</code>发现week老是对不上，用的函数是<code>weekday(date())</code>，日期格式明明是mm/dd/yyyy，可是却不行，然后用1-7替换day，发现weekday()返回的数是没有规律的，便用了yyyy-mm-dd格式，还是不行，最后试了mm/dd/yy，居然行了，太麻烦了，正确的函数<br><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weeks = <span class="built_in">Weekday</span>(<span class="built_in">Month</span>() &amp; <span class="string">"/"</span> &amp; <span class="built_in">Day</span>() &amp; <span class="string">"/"</span> &amp; <span class="built_in">Right</span>(<span class="built_in">Year</span>(),<span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
+<p>还有个问题，用<code>Monthname()</code>返回的是月份的中文名称，比如”2004年九月”，这样看起来怪怪的，或许是因为我系统用的是中文版吧，如果服务器也是中文版那要输出”September 2004”就要再多建个数组了，真是麻烦<br>明天是周五了，要是工作还没有消息，我会疯掉的</p>
 <p>ps:<a href="http://www.w3cn.org/dwws/2004/71.html" target="_blank" rel="noopener">《网站重构》勘误表</a></p>
 
       
@@ -445,7 +445,7 @@
 
       
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2006/12/777ce3ae/" title="oBlog v3.12 转 pjBlog2 v2.6" rel="bookmark">oBlog v3.12 转 pjBlog2 v2.6</a></li><li class="related-posts-item"><a href="/2008/01/a60b2e49/" title="ASP调SOAP接口注意事项" rel="bookmark">ASP调SOAP接口注意事项</a></li><li class="related-posts-item"><a href="/2007/05/f1a2a654/" title="FCKEditor出现类型不匹配: 'Server.HTMLEncode' 解决方法" rel="bookmark">FCKEditor出现类型不匹配: 'Server.HTMLEncode' 解决方法</a></li><li class="related-posts-item"><a href="/2004/08/90b85a16/" title="Blue Blog 0.3 发布" rel="bookmark">Blue Blog 0.3 发布</a></li><li class="related-posts-item"><a href="/2007/01/dad92421/" title="爱潮州 i-cz.cn" rel="bookmark">爱潮州 i-cz.cn</a></li><li class="related-posts-item"><a href="/2004/10/dd77d29d/" title="修改了UBB等" rel="bookmark">修改了UBB等</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2008/02/da1c3810/" title="zblog文章归档修改" rel="bookmark">zblog文章归档修改</a></li><li class="related-posts-item"><a href="/2006/12/777ce3ae/" title="oBlog v3.12 转 pjBlog2 v2.6" rel="bookmark">oBlog v3.12 转 pjBlog2 v2.6</a></li><li class="related-posts-item"><a href="/2007/04/4d80ea3f/" title="NB文章系统2.0 转 Z-Blog1.7" rel="bookmark">NB文章系统2.0 转 Z-Blog1.7</a></li><li class="related-posts-item"><a href="/2008/01/a60b2e49/" title="ASP调SOAP接口注意事项" rel="bookmark">ASP调SOAP接口注意事项</a></li><li class="related-posts-item"><a href="/2007/05/f1a2a654/" title="FCKEditor出现类型不匹配: 'Server.HTMLEncode' 解决方法" rel="bookmark">FCKEditor出现类型不匹配: 'Server.HTMLEncode' 解决方法</a></li><li class="related-posts-item"><a href="/2003/12/7c5a34cc/" title="BlueBlog快好了" rel="bookmark">BlueBlog快好了</a></li><li class="related-posts-item"><a href="/2007/01/dad92421/" title="爱潮州 i-cz.cn" rel="bookmark">爱潮州 i-cz.cn</a></li><li class="related-posts-item"><a href="/2008/01/bc26559d/" title="做个记号，博客换了样式并升级到1.8" rel="bookmark">做个记号，博客换了样式并升级到1.8</a></li></ul>
       
 
     </div>

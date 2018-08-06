@@ -1257,34 +1257,25 @@
           
             <p><a href="http://www.douban.com/subject/1144051/" target="_blank" rel="noopener"><img src="http://otho.douban.com/mpic/s2226371.jpg" alt=""></a></p>
 <p>SQL Server 2000存储过程与XML编程（第2版）<br>又名: SQL Server 2000 Stored Procedure &amp; XML Programming,Second Editon</p>
-<p>译者: 石朝江 / 谢俊 / 陈浩奎<br>作者: [美]桑德里克<br>ISBN: 9787302077343</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><strong><span style="color: rgb(0,0,255)">去年的时候拿着同事的借书证有幸一读，无奈没多久同事就去了外地，匆匆还了书取消了借书证，还没读完，有点遗憾，只留下几句笔记</span></strong></p>
-<p>创建于：2007年6月13日星期三<br>最后更新：2007年7月8日星期日<br>&nbsp;</p>
-<p><span style="font-size: x-large">一、&nbsp;&nbsp;&nbsp; 什么是存储过程</span></p>
-<p>&nbsp;</p>
-<p>一个T-SQL语法集，被编译并存储为一个单一的数据库对象，供以后重复使用</p>
-<p>&nbsp;</p>
-<p><span style="font-size: large">1.&nbsp;&nbsp;&nbsp; 组成</span></p>
-<ul>
+<pre><code>译者: 石朝江 / 谢俊 / 陈浩奎
+作者: [美]桑德里克
+ISBN: 9787302077343
+</code></pre><p>去年的时候拿着同事的借书证有幸一读，无奈没多久同事就去了外地，匆匆还了书取消了借书证，还没读完，有点遗憾，只留下几句笔记</p>
+<p>创建于：2007年6月13日星期三<br>最后更新：2007年7月8日星期日</p>
+<h2 id="一、-什么是存储过程"><a href="#一、-什么是存储过程" class="headerlink" title="一、 什么是存储过程"></a>一、 什么是存储过程</h2><p>一个T-SQL语法集，被编译并存储为一个单一的数据库对象，供以后重复使用</p>
+<h3 id="1-组成"><a href="#1-组成" class="headerlink" title="1. 组成"></a>1. 组成</h3><ul>
 <li>头部，定义名称、输入参数和输出参数，以及其它处理选项</li>
 <li>主体，包含一个或多个T-SQL语句</li>
-<li>例子：<br>Create Procedure prGetBookList<br>&nbsp;&nbsp;&nbsp; @booktype int<br>AS<br>&nbsp;&nbsp;&nbsp; Select *<br>&nbsp;&nbsp;&nbsp; From book<br>&nbsp;&nbsp;&nbsp; Where type = @booktype</li>
+<li>例子：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Create</span> <span class="keyword">Procedure</span> prGetBookList</span><br><span class="line"> @booktype <span class="built_in">int</span></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"> <span class="keyword">Select</span> *</span><br><span class="line"> <span class="keyword">From</span> book</span><br><span class="line"> <span class="keyword">Where</span> <span class="keyword">type</span> = @booktype</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>&nbsp;</p>
-<p><span style="font-size: large">2.&nbsp;&nbsp;&nbsp; 命名规范</span></p>
-<p>通常用pr开通表示存储过程，再结合动词和名次，用于描述该存储过程，例如 proGetBookList</p>
-<p>&nbsp;</p>
-<p><span style="font-size: large">3.&nbsp;&nbsp;&nbsp; 限制</span></p>
-<ol>
+<h3 id="2-命名规范"><a href="#2-命名规范" class="headerlink" title="2. 命名规范"></a>2. 命名规范</h3><p>通常用pr开通表示存储过程，再结合动词和名次，用于描述该存储过程，例如 proGetBookList</p>
+<h3 id="3-限制"><a href="#3-限制" class="headerlink" title="3. 限制"></a>3. 限制</h3><ol>
 <li>过程名称最大长度128个字符</li>
 <li>最多可以包含2100个输入参数和输出参数</li>
 <li>主体最大不超过128MB</li>
 </ol>
-<p>&nbsp;</p>
-<p><span style="font-size: large">4.</span><span style="font-size: large">&nbsp;&nbsp;&nbsp; 功能</span></p>
-<ol>
+<h3 id="4-功能"><a href="#4-功能" class="headerlink" title="4. 功能"></a>4. 功能</h3><ol>
 <li>返回信息给调用者</li>
 <li>修改数据库中的数据</li>
 <li>在数据层实现业务逻辑</li>
@@ -1293,72 +1284,57 @@
 <li>降低网络流量</li>
 <li>执行其它动作和操作（比如处理电子邮件、执行各类操作系统命令和进程、管理其它的SQL Server对象）</li>
 </ol>
-<p>&nbsp;</p>
-<p><span style="font-size: large">5.&nbsp;&nbsp;&nbsp; 执行</span></p>
-<p>运行任何T-SQL语句时，SQL Server都要执行以下3步</p>
+<h3 id="5-执行"><a href="#5-执行" class="headerlink" title="5. 执行"></a>5. 执行</h3><p>运行任何T-SQL语句时，SQL Server都要执行以下3步</p>
 <ol>
 <li>解析批处理</li>
 <li>编译批处理</li>
 <li>执行批处理</li>
 </ol>
 <p>与查询相比，存储过程效率更好的原因就是执行计划可以重用，因为如果执行3次查询，那么SQL Server就要3次对它进行解析、重新编译并执行，而存储过程只需重新编译一次。</p>
-<p>执行存储过程语句为：<br>Ececute prGetBooklist 2<br>&nbsp;</p>
-<p>如果存储过程在批处理第一条语句执行，关键字Execute可以省略，但建议使用该关键字，如以下2句是一样的<br>prGetBooklist 2<br>Ecec prGetBooklist 2<br>&nbsp;</p>
-<p>&nbsp;</p>
-<p><span style="font-size: x-large">二、&nbsp;&nbsp;&nbsp; T-SQL基本编程结构</span><br>&nbsp;</p>
-<p>&nbsp;</p>
-<p><span style="font-size: large">1.&nbsp;&nbsp;&nbsp; 变量</span></p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: medium">局部变量</span></strong></p>
+<p>执行存储过程语句为：<br><code>Ececute prGetBooklist 2</code></p>
+<p>如果存储过程在批处理第一条语句执行，关键字<code>Execute</code>可以省略，但建议使用该关键字，如以下2句是一样的<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prGetBooklist 2</span><br><span class="line">Ecec prGetBooklist 2</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、-T-SQL基本编程结构"><a href="#二、-T-SQL基本编程结构" class="headerlink" title="二、 T-SQL基本编程结构"></a>二、 T-SQL基本编程结构</h2><h3 id="1-变量"><a href="#1-变量" class="headerlink" title="1. 变量"></a>1. 变量</h3><p><strong>局部变量</strong></p>
 <p>作用域位于批处理中，一个存储过程不能访问其它存储过程中定义的变量</p>
 <p><strong>声明</strong></p>
-<p>变量以@开头，例如 Declare @LastName varchar(50)<br>Declare语句可以一次声明多个变量，中间用逗号分开，例如<br>Declare @LastName varchar(50), @FirstName varchar(50), @BirthDate smalldatetime</p>
+<p>变量以@开头，例如 <code>Declare @LastName varchar(50)</code><br>Declare语句可以一次声明多个变量，中间用逗号分开，例如<br><code>Declare @LastName varchar(50), @FirstName varchar(50), @BirthDate smalldatetime</code></p>
 <p><strong>赋值</strong></p>
-<p>早期SQL Server唯一赋值方法就是select，一个select语句可以同时给多个变量赋值，例如<br>Select @LastName = &lsquo;Kuo&rsquo;, @FirstName=&rsquo;Gavin&rsquo;, @BirthDate=&rsquo;6/13/2007&rsquo;<br>早期只可以使用Set语句声明游标变量，现在微软推荐使用set语句来声明变量，例如<br>Set @LastName = &lsquo;Kuo&rsquo;<br>但是Set语句一次只能声明一个变量</p>
-<p>&nbsp;</p>
-<p><strong><span style="font-size: medium">全局变量</span></strong></p>
-<p>可以从任何位置（存储过程或批处理中）对它们进行分析。<br>全局变量名称以@@ 开头，它们属于系统定义的函数，不能对它们进行声明。</p>
+<p>早期SQL Server唯一赋值方法就是select，一个select语句可以同时给多个变量赋值，例如<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> @LastName = ‘Kuo’, @FirstName=’Gavin’, @BirthDate=’<span class="number">6</span>/<span class="number">13</span>/<span class="number">2007</span></span><br></pre></td></tr></table></figure></p>
+<p>早期只可以使用Set语句声明游标变量，现在微软推荐使用set语句来声明变量，例如<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Set</span> @LastName = ‘Kuo’</span><br></pre></td></tr></table></figure></p>
+<p>但是Set语句一次只能声明一个变量</p>
+<p><strong>全局变量</strong></p>
+<p>可以从任何位置（存储过程或批处理中）对它们进行分析。<br>全局变量名称以 <code>@@</code> 开头，它们属于系统定义的函数，不能对它们进行声明。</p>
 <p>最重要的几个全局变量</p>
 <ul>
-<li>@@identity<br>每个表都有一个可以定义为Identity列的列，值为编号，并且在表里面是唯一的。<br>该变量允许你获取当前对话中生成的最后一个标示值。例如在insert一条或若干条记录之后可以用 select @@identity获取最后一条记录的标示值</li>
-<li>@@error<br>返回整型值，每执行一个SQL语句后系统都会重置该值<br>0表示执行成功</li>
-<li>@@rowcount<br>每执行一个SQL语句后系统将该值设置为语句所影响的总记录数，可以用来确认操作的成功与否<br>&nbsp;</li>
+<li><code>@@identity</code><br>每个表都有一个可以定义为Identity列的列，值为编号，并且在表里面是唯一的。<br>该变量允许你获取当前对话中生成的最后一个标示值。例如在insert一条或若干条记录之后可以用 select <code>@@identity</code>获取最后一条记录的标示值</li>
+<li><code>@@error</code><br>返回整型值，每执行一个SQL语句后系统都会重置该值<br>0表示执行成功</li>
+<li><code>@@rowcount</code><br>每执行一个SQL语句后系统将该值设置为语句所影响的总记录数，可以用来确认操作的成功与否</li>
 </ul>
-<p><span style="font-size: x-large">2.&nbsp;&nbsp;&nbsp; 流控制语法</span></p>
-<p>&nbsp;</p>
-<p><strong>注释</strong></p>
-<p>单行注释 –<br>多行注释 /<em>&hellip;&hellip;</em>/<br>多行注释不可相互嵌套，但可以嵌套单行注释<br>多行注释里面，一般开头使用 ** 表示，表示该行为注释，便于阅读</p>
-<p>&nbsp;</p>
+<h3 id="2-流控制语法"><a href="#2-流控制语法" class="headerlink" title="2. 流控制语法"></a>2. 流控制语法</h3><p><strong>注释</strong></p>
+<p>单行注释 <code>--</code><br>多行注释 <code>/……/</code><br>多行注释不可相互嵌套，但可以嵌套单行注释<br>多行注释里面，一般开头使用 <code>**</code> 表示，表示该行为注释，便于阅读</p>
 <p><strong>语句块Begin&hellip;end</strong></p>
 <p>主要对逻辑单元进行分组，可以嵌套使用，但最好是使用缩进避免出错。</p>
-<p>&nbsp;</p>
-<p><span style="font-size: medium"><strong>If&hellip;else</strong></span></p>
+<p><strong>If&hellip;else</strong></p>
 <p>根据条件值确定代码流向，else为可选，if语句可以相互嵌套<br>注意，if语句并没有end if结尾</p>
-<p>&nbsp;</p>
-<p><span style="font-size: medium"><strong>While&hellip;break</strong></span></p>
+<p><strong>While&hellip;break</strong></p>
 <p>T-SQL唯一一个循环语句，中间可以使用break中断循环，或continue跳过下面语句重新循环，一般跟begin&hellip;end配套使用</p>
-<p>&nbsp;</p>
-<p><span style="font-size: medium"><strong>Goto</strong></span></p>
-<p>强制跳到某一label，例如<br>Goto label2<br>&hellip;<br>Label2&rdquo;<br>&hellip;</p>
-<p>&nbsp;</p>
-<p><span style="font-size: medium"><strong>Waitfor</strong></span></p>
-<p>延时，参数有两种变量<br>Waitfor delay &rsquo;00:01:00&rsquo;&nbsp;&nbsp;&nbsp; 表示等待1分钟后再执行下面语句，时间参数必须小于24小时<br>Waitfor time &rsquo;17:55&rsquo;&nbsp;&nbsp;&nbsp; 表示直到17:55才执行下面语句<br>&nbsp;</p>
-<p><span style="font-size: large">3.&nbsp;&nbsp;&nbsp; 游标</span></p>
-<p>&nbsp;</p>
-
+<p><strong>Goto</strong></p>
+<p>强制跳到某一label，例如<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Goto label2</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Label2:</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p><strong>Waitfor</strong></p>
+<p>延时，参数有两种变量<br><code>Waitfor delay &#39;00:01:00&#39;</code> 表示等待1分钟后再执行下面语句，时间参数必须小于24小时<br><code>Waitfor time &#39;17:55&#39;</code> 表示直到17:55才执行下面语句</p>
+<h3 id="3-游标"><a href="#3-游标" class="headerlink" title="3. 游标"></a>3. 游标</h3>
           
         
       
       
         <div class="post-tags">
           
-            <a href="../../tags/sql/" rel="tag"># sql</a>
+            <a href="../../tags/笔记/" rel="tag"># 笔记</a>
           
             <a href="../../tags/xml/" rel="tag"># xml</a>
           
-            <a href="../../tags/笔记/" rel="tag"># 笔记</a>
-          
             <a href="../../tags/读后感/" rel="tag"># 读后感</a>
+          
+            <a href="../../tags/sql/" rel="tag"># sql</a>
           
         </div>
       

@@ -56,8 +56,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>typescript</tag>
         <tag>javascript</tag>
+        <tag>typescript</tag>
       </tags>
   </entry>
   <entry>
@@ -68,14 +68,14 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>typescript</tag>
         <tag>javascript</tag>
+        <tag>typescript</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[WebSocket入门（3）心跳检测]]></title>
     <url>%2F2018%2F05%2F30381c3b%2F</url>
-    <content type="text"><![CDATA[websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close最好就是加一个心跳检测来判断网络异常websocket有一个readyState状态值，代表的状态如下（摘自阮一峰博客） CONNECTING：值为0，表示正在连接 OPEN：值为1，表示连接成功，可以通信了 CLOSING：值为2，表示连接正在关闭 CLOSED：值为3，表示连接已经关闭，或者打开连接失败 当成功建立连接后，即启动心跳检测，大概的流程如下图画完图觉得很简单，就花了十分钟敲完代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758var heartCheck = &#123; timer: 0, _obj : null, _callback:null, init: function(wsObj, callback) &#123; console.log("init"); this._obj = wsObj; callback &amp;&amp; (this._callback = callback); this.sayHi(); &#125;, sayHi: function() &#123; clearTimeout(this.timer); this.timer = setTimeout(() =&gt; &#123; this.onError(); &#125;, 10000); this._obj.send("hi," + this.timer); console.log("sayHi:" + this.timer); &#125;, clear: function(flag) &#123; console.log("clear:" + this.timer); clearTimeout(this.timer); if(true === flag)&#123; console.log("heartCheck finished"); return; &#125; setTimeout(()=&gt;&#123; this.sayHi(); &#125;, 3000); &#125;, onError: function() &#123; console.log("onError:",this.timer); clearTimeout(this.timer); this._callback &amp;&amp; this._callback(); &#125;&#125;;//let hc = new heartCheck();let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); ws.send('from client: hello'); heartCheck.init(ws);&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage'); console.log('from server: ', event); showLog(event.data); heartCheck.clear();&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event); console.log(ws); heartCheck.clear(true);&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event); console.log(ws);&#125;; 调试一下发现一些问题1）每次发心跳都是重复2次2）心跳结束后还在发心跳3）未考虑多个事物连续发信息的优化 重新理下思路，首先模拟一个正常的Socket通讯 1234567891011121314151617181920212223let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); MsgBegin &amp;&amp; MsgBegin();&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage', event); showLog(event.data);&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event, ws);&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event, ws);&#125;;let MsgBegin = ()=&gt;&#123; let n = Math.random() * 100000; setTimeout(()=&gt;&#123; ws.send("send:" + n); MsgBegin(); &#125;,n);&#125; WebSocket建立成功后，随机发送消息，服务端收到后返回（服务端实际设置了延迟1秒返回）123456789websocket server is listening...server: receive connection.server: received: send:17534.353070269426server: received: send:80161.1894501739server: received: send:84509.49454040357server: received: send:29288.908671059355server: received: send:8404.852392415196server: received: send:45471.163768915server: received: send:16825.41444159582 加入心跳检测，设为间隔10秒12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364var heartCheck = &#123; timer: 0, _obj : null, _callback:null, _time: 10000, //心跳间隔10秒 init: function(wsObj, callback) &#123; console.log("init"); this._obj = wsObj; callback &amp;&amp; (this._callback = callback); this.sayHi(); &#125;, sayHi: function() &#123; clearTimeout(this.timer); this.timer = setTimeout(() =&gt; &#123; if(1 == this._obj.readyState)&#123; this._obj.send("check : " + this.timer); &#125; &#125;, this._time); console.log("sayHi:" + this.timer); &#125;, clear: function(flag) &#123; console.log("clear:" + this.timer); clearTimeout(this.timer); &#125;, onError: function() &#123; console.log("onError:",this.timer); this.clear(); this._callback &amp;&amp; this._callback(); &#125;&#125;;let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); showLog("go~"); MsgBegin &amp;&amp; MsgBegin(); heartCheck.init(ws, ()=&gt;&#123; console.log("reconnect..."); ws = new WebSocket(uri); &#125;);&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage1', event,ws.readyState); showLog(event.data); heartCheck.sayHi();&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event, ws); heartCheck.clear();&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event, ws); heartCheck.onError();&#125;;let MsgBegin = ()=&gt;&#123; let n = Math.random() * 100000; setTimeout(()=&gt;&#123; if(1 == ws.readyState)&#123; ws.send("send:" + n); &#125; MsgBegin(); &#125;,n);&#125; 再来看服务端打印1234567891011121314151617websocket server is listening...server: receive connection.server: received: send:4723.126142686907server: received: check : 4server: received: check : 5server: received: send:29661.621846562404server: received: check : 8server: received: check : 9server: received: check : 10server: received: check : 11server: received: check : 12server: received: check : 13server: received: check : 14server: received: check : 15server: received: send:97094.08453462382server: received: check : 16server: received: send:26387.016092298032 好像可以了哦，本例代码在 Github有空闲了再写个断线重连的]]></content>
+    <content type="text"><![CDATA[websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close最好就是加一个心跳检测来判断网络异常websocket有一个readyState状态值，代表的状态如下（摘自阮一峰博客） CONNECTING：值为0，表示正在连接 OPEN：值为1，表示连接成功，可以通信了 CLOSING：值为2，表示连接正在关闭 CLOSED：值为3，表示连接已经关闭，或者打开连接失败 当成功建立连接后，即启动心跳检测，大概的流程如下图画完图觉得很简单，就花了十分钟敲完代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758var heartCheck = &#123; timer: 0, _obj : null, _callback:null, init: function(wsObj, callback) &#123; console.log("init"); this._obj = wsObj; callback &amp;&amp; (this._callback = callback); this.sayHi(); &#125;, sayHi: function() &#123; clearTimeout(this.timer); this.timer = setTimeout(() =&gt; &#123; this.onError(); &#125;, 10000); this._obj.send("hi," + this.timer); console.log("sayHi:" + this.timer); &#125;, clear: function(flag) &#123; console.log("clear:" + this.timer); clearTimeout(this.timer); if(true === flag)&#123; console.log("heartCheck finished"); return; &#125; setTimeout(()=&gt;&#123; this.sayHi(); &#125;, 3000); &#125;, onError: function() &#123; console.log("onError:",this.timer); clearTimeout(this.timer); this._callback &amp;&amp; this._callback(); &#125;&#125;;//let hc = new heartCheck();let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); ws.send('from client: hello'); heartCheck.init(ws);&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage'); console.log('from server: ', event); showLog(event.data); heartCheck.clear();&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event); console.log(ws); heartCheck.clear(true);&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event); console.log(ws);&#125;; 调试一下发现一些问题1）每次发心跳都是重复2次2）心跳结束后还在发心跳3）未考虑多个事物连续发信息的优化 重新理下思路，首先模拟一个正常的Socket通讯 1234567891011121314151617181920212223let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); MsgBegin &amp;&amp; MsgBegin();&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage', event); showLog(event.data);&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event, ws);&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event, ws);&#125;;let MsgBegin = ()=&gt;&#123; let n = Math.random() * 100000; setTimeout(()=&gt;&#123; ws.send("send:" + n); MsgBegin(); &#125;,n);&#125; WebSocket建立成功后，随机发送消息，服务端收到后返回（服务端实际设置了延迟1秒返回） websocket server is listening… server: receive connection. server: received: send:17534.353070269426 server: received: send:80161.1894501739 server: received: send:84509.49454040357 server: received: send:29288.908671059355 server: received: send:8404.852392415196 server: received: send:45471.163768915 server: received: send:16825.41444159582 加入心跳检测，设为间隔10秒12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364var heartCheck = &#123; timer: 0, _obj : null, _callback:null, _time: 10000, //心跳间隔10秒 init: function(wsObj, callback) &#123; console.log("init"); this._obj = wsObj; callback &amp;&amp; (this._callback = callback); this.sayHi(); &#125;, sayHi: function() &#123; clearTimeout(this.timer); this.timer = setTimeout(() =&gt; &#123; if(1 == this._obj.readyState)&#123; this._obj.send("check : " + this.timer); &#125; &#125;, this._time); console.log("sayHi:" + this.timer); &#125;, clear: function(flag) &#123; console.log("clear:" + this.timer); clearTimeout(this.timer); &#125;, onError: function() &#123; console.log("onError:",this.timer); this.clear(); this._callback &amp;&amp; this._callback(); &#125;&#125;;let uri = "ws://localhost:8080";var ws = new WebSocket(uri);ws.onopen = (event) =&gt; &#123; console.log('ws onopen', event); showLog("go~"); MsgBegin &amp;&amp; MsgBegin(); heartCheck.init(ws, ()=&gt;&#123; console.log("reconnect..."); ws = new WebSocket(uri); &#125;);&#125;;ws.onmessage = (event) =&gt; &#123; console.log('ws onmessage1', event,ws.readyState); showLog(event.data); heartCheck.sayHi();&#125;;ws.onclose = (event) =&gt; &#123; console.log("ws close", event, ws); heartCheck.clear();&#125;;ws.onerror = (event) =&gt; &#123; console.log("ws error", event, ws); heartCheck.onError();&#125;;let MsgBegin = ()=&gt;&#123; let n = Math.random() * 100000; setTimeout(()=&gt;&#123; if(1 == ws.readyState)&#123; ws.send("send:" + n); &#125; MsgBegin(); &#125;,n);&#125; 再来看服务端打印 websocket server is listening… server: receive connection. server: received: send:4723.126142686907 server: received: check : 4 server: received: check : 5 server: received: send:29661.621846562404 server: received: check : 8 server: received: check : 9 server: received: check : 10 server: received: check : 11 server: received: check : 12 server: received: check : 13 server: received: check : 14 server: received: check : 15 server: received: send:97094.08453462382 server: received: check : 16 server: received: send:26387.016092298032 好像可以了哦，本例代码在 Github有空闲了再写个断线重连的]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -255,8 +255,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>svn</tag>
         <tag>GIT</tag>
+        <tag>svn</tag>
       </tags>
   </entry>
   <entry>
@@ -359,8 +359,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>国庆</tag>
         <tag>万宁</tag>
+        <tag>国庆</tag>
         <tag>英州</tag>
         <tag>陵水</tag>
       </tags>
@@ -377,9 +377,9 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
+        <tag>万宁</tag>
         <tag>国庆</tag>
         <tag>琼海</tag>
-        <tag>万宁</tag>
       </tags>
   </entry>
   <entry>
@@ -392,12 +392,12 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
+        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>大致坡</tag>
         <tag>国庆</tag>
-        <tag>文昌</tag>
         <tag>琼海</tag>
+        <tag>文昌</tag>
       </tags>
   </entry>
   <entry>
@@ -410,10 +410,10 @@
       <tags>
         <tag>单车</tag>
         <tag>旅行</tag>
+        <tag>大致坡</tag>
         <tag>海南</tag>
         <tag>海口</tag>
         <tag>蜜月</tag>
-        <tag>大致坡</tag>
       </tags>
   </entry>
   <entry>
@@ -439,8 +439,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>跑步</tag>
         <tag>扬州</tag>
+        <tag>跑步</tag>
         <tag>马拉松</tag>
       </tags>
   </entry>
@@ -481,8 +481,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>上海</tag>
         <tag>马拉松</tag>
+        <tag>上海</tag>
       </tags>
   </entry>
   <entry>
@@ -511,8 +511,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>国庆</tag>
-        <tag>广水</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -663,10 +663,10 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
-        <tag>西海镇</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
+        <tag>西海镇</tag>
       </tags>
   </entry>
   <entry>
@@ -680,8 +680,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>刚察县</tag>
+        <tag>黑马河</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
       </tags>
@@ -710,11 +710,11 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
-        <tag>151基地</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
+        <tag>151基地</tag>
       </tags>
   </entry>
   <entry>
@@ -726,9 +726,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -741,10 +741,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -758,8 +758,8 @@
         <tag>武汉</tag>
         <tag>国庆</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -783,8 +783,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>户外</tag>
         <tag>徒步</tag>
+        <tag>户外</tag>
         <tag>新乡</tag>
         <tag>溯溪</tag>
         <tag>西沟</tag>
@@ -1291,8 +1291,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tomcat</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,8 +1442,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>户外</tag>
         <tag>大梅沙</tag>
+        <tag>户外</tag>
         <tag>大鹏</tag>
         <tag>单车</tag>
         <tag>杨梅坑</tag>
@@ -1487,8 +1487,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>户外</tag>
         <tag>徒步</tag>
+        <tag>户外</tag>
         <tag>登山</tag>
         <tag>梅林</tag>
         <tag>塘郎山</tag>
@@ -1562,8 +1562,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>装备</tag>
         <tag>测试</tag>
+        <tag>装备</tag>
         <tag>GPS</tag>
       </tags>
   </entry>
@@ -1748,8 +1748,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>装备</tag>
         <tag>跑步</tag>
+        <tag>装备</tag>
       </tags>
   </entry>
   <entry>
@@ -1816,9 +1816,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>户外</tag>
         <tag>东西冲</tag>
         <tag>大鹿港</tag>
+        <tag>户外</tag>
         <tag>大鹏</tag>
       </tags>
   </entry>
@@ -1830,10 +1830,10 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>户外</tag>
-        <tag>松拓</tag>
-        <tag>装备</tag>
         <tag>跑步</tag>
+        <tag>户外</tag>
+        <tag>装备</tag>
+        <tag>松拓</tag>
       </tags>
   </entry>
   <entry>
@@ -1844,8 +1844,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>Flash</tag>
         <tag>actionscript</tag>
@@ -1860,8 +1860,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>书</tag>
         <tag>Flash</tag>
         <tag>actionscript</tag>
@@ -2052,11 +2052,11 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
+        <tag>zblog</tag>
         <tag>ajax</tag>
         <tag>highlight</tag>
         <tag>html</tag>
-        <tag>zblog</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -2239,15 +2239,15 @@
   <entry>
     <title><![CDATA[《SQL Server 2000存储过程与XML编程》学习笔记]]></title>
     <url>%2F2008%2F04%2Fe5b237f1%2F</url>
-    <content type="text"><![CDATA[SQL Server 2000存储过程与XML编程（第2版）又名: SQL Server 2000 Stored Procedure &amp; XML Programming,Second Editon 译者: 石朝江 / 谢俊 / 陈浩奎作者: [美]桑德里克ISBN: 9787302077343 &nbsp; &nbsp; 去年的时候拿着同事的借书证有幸一读，无奈没多久同事就去了外地，匆匆还了书取消了借书证，还没读完，有点遗憾，只留下几句笔记 创建于：2007年6月13日星期三最后更新：2007年7月8日星期日&nbsp; 一、&nbsp;&nbsp;&nbsp; 什么是存储过程 &nbsp; 一个T-SQL语法集，被编译并存储为一个单一的数据库对象，供以后重复使用 &nbsp; 1.&nbsp;&nbsp;&nbsp; 组成 头部，定义名称、输入参数和输出参数，以及其它处理选项 主体，包含一个或多个T-SQL语句 例子：Create Procedure prGetBookList&nbsp;&nbsp;&nbsp; @booktype intAS&nbsp;&nbsp;&nbsp; Select *&nbsp;&nbsp;&nbsp; From book&nbsp;&nbsp;&nbsp; Where type = @booktype &nbsp; 2.&nbsp;&nbsp;&nbsp; 命名规范 通常用pr开通表示存储过程，再结合动词和名次，用于描述该存储过程，例如 proGetBookList &nbsp; 3.&nbsp;&nbsp;&nbsp; 限制 过程名称最大长度128个字符 最多可以包含2100个输入参数和输出参数 主体最大不超过128MB &nbsp; 4.&nbsp;&nbsp;&nbsp; 功能 返回信息给调用者 修改数据库中的数据 在数据层实现业务逻辑 控制数据访问权限 改善系统性能 降低网络流量 执行其它动作和操作（比如处理电子邮件、执行各类操作系统命令和进程、管理其它的SQL Server对象） &nbsp; 5.&nbsp;&nbsp;&nbsp; 执行 运行任何T-SQL语句时，SQL Server都要执行以下3步 解析批处理 编译批处理 执行批处理 与查询相比，存储过程效率更好的原因就是执行计划可以重用，因为如果执行3次查询，那么SQL Server就要3次对它进行解析、重新编译并执行，而存储过程只需重新编译一次。 执行存储过程语句为：Ececute prGetBooklist 2&nbsp; 如果存储过程在批处理第一条语句执行，关键字Execute可以省略，但建议使用该关键字，如以下2句是一样的prGetBooklist 2Ecec prGetBooklist 2&nbsp; &nbsp; 二、&nbsp;&nbsp;&nbsp; T-SQL基本编程结构&nbsp; &nbsp; 1.&nbsp;&nbsp;&nbsp; 变量 &nbsp; 局部变量 作用域位于批处理中，一个存储过程不能访问其它存储过程中定义的变量 声明 变量以@开头，例如 Declare @LastName varchar(50)Declare语句可以一次声明多个变量，中间用逗号分开，例如Declare @LastName varchar(50), @FirstName varchar(50), @BirthDate smalldatetime 赋值 早期SQL Server唯一赋值方法就是select，一个select语句可以同时给多个变量赋值，例如Select @LastName = &lsquo;Kuo&rsquo;, @FirstName=&rsquo;Gavin&rsquo;, @BirthDate=&rsquo;6/13/2007&rsquo;早期只可以使用Set语句声明游标变量，现在微软推荐使用set语句来声明变量，例如Set @LastName = &lsquo;Kuo&rsquo;但是Set语句一次只能声明一个变量 &nbsp; 全局变量 可以从任何位置（存储过程或批处理中）对它们进行分析。全局变量名称以@@ 开头，它们属于系统定义的函数，不能对它们进行声明。 最重要的几个全局变量 @@identity每个表都有一个可以定义为Identity列的列，值为编号，并且在表里面是唯一的。该变量允许你获取当前对话中生成的最后一个标示值。例如在insert一条或若干条记录之后可以用 select @@identity获取最后一条记录的标示值 @@error返回整型值，每执行一个SQL语句后系统都会重置该值0表示执行成功 @@rowcount每执行一个SQL语句后系统将该值设置为语句所影响的总记录数，可以用来确认操作的成功与否&nbsp; 2.&nbsp;&nbsp;&nbsp; 流控制语法 &nbsp; 注释 单行注释 –多行注释 /&hellip;&hellip;/多行注释不可相互嵌套，但可以嵌套单行注释多行注释里面，一般开头使用 ** 表示，表示该行为注释，便于阅读 &nbsp; 语句块Begin&hellip;end 主要对逻辑单元进行分组，可以嵌套使用，但最好是使用缩进避免出错。 &nbsp; If&hellip;else 根据条件值确定代码流向，else为可选，if语句可以相互嵌套注意，if语句并没有end if结尾 &nbsp; While&hellip;break T-SQL唯一一个循环语句，中间可以使用break中断循环，或continue跳过下面语句重新循环，一般跟begin&hellip;end配套使用 &nbsp; Goto 强制跳到某一label，例如Goto label2&hellip;Label2&rdquo;&hellip; &nbsp; Waitfor 延时，参数有两种变量Waitfor delay &rsquo;00:01:00&rsquo;&nbsp;&nbsp;&nbsp; 表示等待1分钟后再执行下面语句，时间参数必须小于24小时Waitfor time &rsquo;17:55&rsquo;&nbsp;&nbsp;&nbsp; 表示直到17:55才执行下面语句&nbsp; 3.&nbsp;&nbsp;&nbsp; 游标 &nbsp;]]></content>
+    <content type="text"><![CDATA[SQL Server 2000存储过程与XML编程（第2版）又名: SQL Server 2000 Stored Procedure &amp; XML Programming,Second Editon 译者: 石朝江 / 谢俊 / 陈浩奎 作者: [美]桑德里克 ISBN: 9787302077343 去年的时候拿着同事的借书证有幸一读，无奈没多久同事就去了外地，匆匆还了书取消了借书证，还没读完，有点遗憾，只留下几句笔记 创建于：2007年6月13日星期三最后更新：2007年7月8日星期日 一、 什么是存储过程一个T-SQL语法集，被编译并存储为一个单一的数据库对象，供以后重复使用 1. 组成 头部，定义名称、输入参数和输出参数，以及其它处理选项 主体，包含一个或多个T-SQL语句 例子：123456Create Procedure prGetBookList @booktype intAS Select * From book Where type = @booktype 2. 命名规范通常用pr开通表示存储过程，再结合动词和名次，用于描述该存储过程，例如 proGetBookList 3. 限制 过程名称最大长度128个字符 最多可以包含2100个输入参数和输出参数 主体最大不超过128MB 4. 功能 返回信息给调用者 修改数据库中的数据 在数据层实现业务逻辑 控制数据访问权限 改善系统性能 降低网络流量 执行其它动作和操作（比如处理电子邮件、执行各类操作系统命令和进程、管理其它的SQL Server对象） 5. 执行运行任何T-SQL语句时，SQL Server都要执行以下3步 解析批处理 编译批处理 执行批处理 与查询相比，存储过程效率更好的原因就是执行计划可以重用，因为如果执行3次查询，那么SQL Server就要3次对它进行解析、重新编译并执行，而存储过程只需重新编译一次。 执行存储过程语句为：Ececute prGetBooklist 2 如果存储过程在批处理第一条语句执行，关键字Execute可以省略，但建议使用该关键字，如以下2句是一样的12prGetBooklist 2Ecec prGetBooklist 2 二、 T-SQL基本编程结构1. 变量局部变量 作用域位于批处理中，一个存储过程不能访问其它存储过程中定义的变量 声明 变量以@开头，例如 Declare @LastName varchar(50)Declare语句可以一次声明多个变量，中间用逗号分开，例如Declare @LastName varchar(50), @FirstName varchar(50), @BirthDate smalldatetime 赋值 早期SQL Server唯一赋值方法就是select，一个select语句可以同时给多个变量赋值，例如1Select @LastName = ‘Kuo’, @FirstName=’Gavin’, @BirthDate=’6/13/2007 早期只可以使用Set语句声明游标变量，现在微软推荐使用set语句来声明变量，例如1Set @LastName = ‘Kuo’ 但是Set语句一次只能声明一个变量 全局变量 可以从任何位置（存储过程或批处理中）对它们进行分析。全局变量名称以 @@ 开头，它们属于系统定义的函数，不能对它们进行声明。 最重要的几个全局变量 @@identity每个表都有一个可以定义为Identity列的列，值为编号，并且在表里面是唯一的。该变量允许你获取当前对话中生成的最后一个标示值。例如在insert一条或若干条记录之后可以用 select @@identity获取最后一条记录的标示值 @@error返回整型值，每执行一个SQL语句后系统都会重置该值0表示执行成功 @@rowcount每执行一个SQL语句后系统将该值设置为语句所影响的总记录数，可以用来确认操作的成功与否 2. 流控制语法注释 单行注释 --多行注释 /……/多行注释不可相互嵌套，但可以嵌套单行注释多行注释里面，一般开头使用 ** 表示，表示该行为注释，便于阅读 语句块Begin&hellip;end 主要对逻辑单元进行分组，可以嵌套使用，但最好是使用缩进避免出错。 If&hellip;else 根据条件值确定代码流向，else为可选，if语句可以相互嵌套注意，if语句并没有end if结尾 While&hellip;break T-SQL唯一一个循环语句，中间可以使用break中断循环，或continue跳过下面语句重新循环，一般跟begin&hellip;end配套使用 Goto 强制跳到某一label，例如12345Goto label2...Label2:... Waitfor 延时，参数有两种变量Waitfor delay &#39;00:01:00&#39; 表示等待1分钟后再执行下面语句，时间参数必须小于24小时Waitfor time &#39;17:55&#39; 表示直到17:55才执行下面语句 3. 游标]]></content>
       <categories>
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sql</tag>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>读后感</tag>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -2533,9 +2533,9 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>cvs</tag>
-        <tag>svn</tag>
         <tag>管理</tag>
+        <tag>svn</tag>
+        <tag>cvs</tag>
       </tags>
   </entry>
   <entry>
@@ -3177,8 +3177,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>装备</tag>
         <tag>跑步</tag>
+        <tag>装备</tag>
       </tags>
   </entry>
   <entry>
@@ -3201,8 +3201,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>win2003</tag>
         <tag>sp2</tag>
+        <tag>win2003</tag>
         <tag>冲突</tag>
         <tag>卡巴斯基</tag>
         <tag>蓝屏</tag>
@@ -3294,8 +3294,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tomcat</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -3328,9 +3328,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>tomcat</tag>
         <tag>java</tag>
         <tag>netbeans</tag>
-        <tag>tomcat</tag>
         <tag>eclipse</tag>
         <tag>ruby</tag>
       </tags>
@@ -3370,8 +3370,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3406,8 +3406,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>淘宝</tag>
+        <tag>java</tag>
         <tag>网银</tag>
         <tag>jsp</tag>
       </tags>
@@ -3420,9 +3420,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>css</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3525,12 +3525,12 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>读后感</tag>
         <tag>css</tag>
         <tag>书</tag>
         <tag>div</tag>
         <tag>web</tag>
         <tag>xhtml</tag>
+        <tag>读后感</tag>
       </tags>
   </entry>
   <entry>
@@ -3541,8 +3541,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tomcat</tag>
+        <tag>java</tag>
         <tag>jdk</tag>
       </tags>
   </entry>
@@ -3582,8 +3582,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ajax</tag>
+        <tag>javascript</tag>
         <tag>prototype</tag>
       </tags>
   </entry>
@@ -3675,8 +3675,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>XUL</tag>
+        <tag>xml</tag>
         <tag>XUL指南</tag>
       </tags>
   </entry>
@@ -3688,15 +3688,15 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>XUL</tag>
+        <tag>xml</tag>
         <tag>XUL指南</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[SQL 2005导入Access和Excel文件]]></title>
     <url>%2F2006%2F11%2F208d647d%2F</url>
-    <content type="text"><![CDATA[晚上在给SQL 2005导入Access数据库，语句如下 INSERT&nbsp;INTO&nbsp;[dbo].[ixunlei]……&nbsp;&nbsp;SELECT&nbsp;……&nbsp;&nbsp;FROM&nbsp;OPENDATASOURCE(‘Microsoft.Jet.OLEDB.4.0’,‘Data&nbsp;Source=&quot;….mdb&quot;’)…[…..] 然后提示出错 SQL&nbsp;Server&nbsp;阻止了对组件&nbsp;‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’&nbsp;的&nbsp;STATEMENT‘OpenRowset/OpenDatasource’&nbsp;的访问，因为此组件已作为此服务器安全配置的一部分而被关闭。系统管理员可以通过使用&nbsp;sp_configure&nbsp;启用&nbsp;‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’。有关启用&nbsp;‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’&nbsp;的详细信息，请参阅&nbsp;SQL&nbsp;Server&nbsp;联机丛书中的&nbsp;&quot;外围应用配置器&quot;。&nbsp; 因为SQL2005默认是没有开启‘Ad Hoc Distributed Queries’ 组件，开启方法如下 EXEC&nbsp;sp_configure&nbsp;‘show&nbsp;advanced&nbsp;options’,&nbsp;1GORECONFIGUREGOEXEC&nbsp;sp_configure&nbsp;‘Ad&nbsp;Hoc&nbsp;Distributed&nbsp;Queries’,&nbsp;1GORECONFIGUREGO 接着就可以导入Access了，导入Excel也一样需要开启]]></content>
+    <content type="text"><![CDATA[晚上在给SQL 2005导入Access数据库，语句如下 1234INSERT INTO [dbo].[ixunlei]...... SELECT ...... FROM OPENDATASOURCE('Microsoft.Jet.OLEDB.4.0','Data Source="....mdb"')...[.....] 然后提示出错 SQL Server 阻止了对组件 &apos;Ad Hoc Distributed Queries&apos; 的 STATEMENT&apos;OpenRowset/OpenDatasource&apos; 的访问，因为此组件已作为此服务器安全配置的一部分而被关闭。系统管理员可以通过使用 sp_configure 启用 &apos;Ad Hoc Distributed Queries&apos;。有关启用 &apos;Ad Hoc Distributed Queries&apos; 的详细信息，请参阅 SQL Server 联机丛书中的 &quot;外围应用配置器&quot;。 因为SQL2005默认是没有开启 ‘Ad Hoc Distributed Queries’ 组件，开启方法如下 1234567891011121314EXEC sp_configure 'show advanced options', 1GORECONFIGUREGOEXEC sp_configure 'Ad Hoc Distributed Queries', 1GORECONFIGUREGO 接着就可以导入Access了，导入Excel也一样需要开启]]></content>
       <categories>
         <category>IT</category>
       </categories>
@@ -3724,9 +3724,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
-        <tag>笔记</tag>
         <tag>XUL</tag>
+        <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>XUL指南</tag>
       </tags>
   </entry>
@@ -3933,8 +3933,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>XUL</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4057,9 +4057,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>win2003</tag>
         <tag>安装</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -4654,8 +4654,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>书</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -4715,8 +4715,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
