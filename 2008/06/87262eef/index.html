@@ -85,7 +85,7 @@
 <link href="../../../css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="zblog,ajax,highlight,html,javascript," />
+  <meta name="keywords" content="html,javascript,ajax,zblog," />
 
 
 
@@ -104,14 +104,14 @@
 
 
 <meta name="description" content="代码高亮，我所知道的方法有3种  直接改模板，目前所使用的，好处就是无须修改源码，升级方便，缺点就是修改文章的时候，代码里的换行会被编辑器搞掉 改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便 新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修">
-<meta name="keywords" content="zblog,ajax,highlight,html,javascript">
+<meta name="keywords" content="html,javascript,ajax,zblog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="z-blog 1.8 加入代码高亮">
 <meta property="og:url" content="http://21ido.com/2008/06/87262eef/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="代码高亮，我所知道的方法有3种  直接改模板，目前所使用的，好处就是无须修改源码，升级方便，缺点就是修改文章的时候，代码里的换行会被编辑器搞掉 改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便 新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.229Z">
+<meta property="og:updated_time" content="2018-08-07T01:53:00.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="z-blog 1.8 加入代码高亮">
 <meta name="twitter:description" content="代码高亮，我所知道的方法有3种  直接改模板，目前所使用的，好处就是无须修改源码，升级方便，缺点就是修改文章的时候，代码里的换行会被编辑器搞掉 改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便 新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修">
@@ -433,42 +433,34 @@
 <li>改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便</li>
 <li>新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修改，同样日后程序升级不方便</li>
 </ol>
-<p>&nbsp;</p>
 <p>这里说的是第一种方法</p>
 <p>Z-blog 1.8</p>
 <p><a href="http://code.google.com/p/syntaxhighlighter/" target="_blank" rel="noopener">syntaxhighlighter 1.5.1</a> 下载后解压放好，我是分别把JS和CSS放到script和images目录</p>
-<p>&nbsp;</p>
 <p>以首页为例，打开default.html</p>
-<p>在&lt;/head&gt;之前加入</p>
-<textarea name="code" class="xml" rows="15" cols="100"><link type="text/css" rel="stylesheet" href="<#ZC_BLOG_HOST#>image/styles/SyntaxHighlighter.css"><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shCore.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushCpp.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushCss.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushJava.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushJScript.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushSql.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushVb.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushXml.js"></script></textarea>
-
-<p>在文件最后一个 &lt;/script&gt;之前加入</p>
-<textarea name="code" class="js" rows="15" cols="100">dp.SyntaxHighlighter.ClipboardSwf = “/SCRIPT/Highlighter/clipboard.swf”;<br><br>dp.SyntaxHighlighter.BloggerMode();<br><br>dp.SyntaxHighlighter.HighlightAll(‘code’);</textarea>
-
-<p>&nbsp;</p>
+<p>在 <code>&lt;/head&gt;</code> 之前加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;image/styles/SyntaxHighlighter.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shCore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCpp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCss.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJava.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJScript.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushSql.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushVb.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushXml.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在文件最后一个 <code>&lt;/script&gt;</code> 之前加入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp.SyntaxHighlighter.ClipboardSwf = <span class="string">"/SCRIPT/Highlighter/clipboard.swf"</span>;</span><br><span class="line">dp.SyntaxHighlighter.BloggerMode();</span><br><span class="line">dp.SyntaxHighlighter.HighlightAll(<span class="string">'code'</span>);</span><br></pre></td></tr></table></figure></p>
 <p>single.html 文件用上面方法同样处理，注意路径</p>
-<p>使用方法还是一样</p>
-<textarea name="code" class="xml" rows="15" cols="100">&lt;textarea name=&quot;code&quot; class=&quot;java&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;Java代码&lt;/textarea&gt;<br><br>&lt;textarea name=&quot;code&quot; class=&quot;vb:firstline[26]&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;VB代码&lt;/textarea&gt;</textarea>
+<p>使用方法还是一样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"java"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>Java代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"vb:firstline[26]"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>VB代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
       
       
         <div class="post-tags">
           
-            <a href="../../../tags/zblog/" rel="tag"># zblog</a>
-          
-            <a href="../../../tags/ajax/" rel="tag"># ajax</a>
-          
-            <a href="../../../tags/highlight/" rel="tag"># highlight</a>
-          
             <a href="../../../tags/html/" rel="tag"># html</a>
           
             <a href="../../../tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="../../../tags/ajax/" rel="tag"># ajax</a>
+          
+            <a href="../../../tags/zblog/" rel="tag"># zblog</a>
           
         </div>
       
 
       
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/01/9daab76b/" title="Prototype 1.5.0" rel="bookmark">Prototype 1.5.0</a></li><li class="related-posts-item"><a href="/2017/03/1768cee0/" title="ECMAScript6笔记（1）" rel="bookmark">ECMAScript6笔记（1）</a></li><li class="related-posts-item"><a href="/2005/01/934b503e/" title="可访问性测试" rel="bookmark">可访问性测试</a></li><li class="related-posts-item"><a href="/2004/08/9539b47d/" title="学习XHTML的进展很慢" rel="bookmark">学习XHTML的进展很慢</a></li><li class="related-posts-item"><a href="/2006/04/5f65db97/" title="设计师教程序员做开发" rel="bookmark">设计师教程序员做开发</a></li><li class="related-posts-item"><a href="/2004/09/3e66892c/" title="让DIV不换行" rel="bookmark">让DIV不换行</a></li><li class="related-posts-item"><a href="/2005/05/39227cd3/" title="谁说Web标准下的网页无设计可言" rel="bookmark">谁说Web标准下的网页无设计可言</a></li><li class="related-posts-item"><a href="/2007/07/ff1d6635/" title="3G豆豆页面设计" rel="bookmark">3G豆豆页面设计</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2007/01/9daab76b/" title="Prototype 1.5.0" rel="bookmark">Prototype 1.5.0</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2006/04/5f65db97/" title="设计师教程序员做开发" rel="bookmark">设计师教程序员做开发</a></li><li class="related-posts-item"><a href="/2005/05/39227cd3/" title="谁说Web标准下的网页无设计可言" rel="bookmark">谁说Web标准下的网页无设计可言</a></li><li class="related-posts-item"><a href="/2004/09/3e66892c/" title="让DIV不换行" rel="bookmark">让DIV不换行</a></li><li class="related-posts-item"><a href="/2007/07/ff1d6635/" title="3G豆豆页面设计" rel="bookmark">3G豆豆页面设计</a></li><li class="related-posts-item"><a href="/2017/08/d15bd75e/" title="Flex布局学习笔记" rel="bookmark">Flex布局学习笔记</a></li><li class="related-posts-item"><a href="/2006/10/ca0f1096/" title="HTML代码优化" rel="bookmark">HTML代码优化</a></li></ul>
       
 
     </div>
@@ -653,7 +645,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../../tags/index.html">
-                <span class="site-state-item-count">293</span>
+                <span class="site-state-item-count">283</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

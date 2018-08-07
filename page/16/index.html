@@ -597,37 +597,29 @@
 <li>改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便</li>
 <li>新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修改，同样日后程序升级不方便</li>
 </ol>
-<p>&nbsp;</p>
 <p>这里说的是第一种方法</p>
 <p>Z-blog 1.8</p>
 <p><a href="http://code.google.com/p/syntaxhighlighter/" target="_blank" rel="noopener">syntaxhighlighter 1.5.1</a> 下载后解压放好，我是分别把JS和CSS放到script和images目录</p>
-<p>&nbsp;</p>
 <p>以首页为例，打开default.html</p>
-<p>在&lt;/head&gt;之前加入</p>
-<textarea name="code" class="xml" rows="15" cols="100"><link type="text/css" rel="stylesheet" href="<#ZC_BLOG_HOST#>image/styles/SyntaxHighlighter.css"><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shCore.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushCpp.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushCss.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushJava.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushJScript.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushSql.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushVb.js"></script><br><br><script class="javascript" src="<#ZC_BLOG_HOST#>SCRIPT/Highlighter/shBrushXml.js"></script></textarea>
-
-<p>在文件最后一个 &lt;/script&gt;之前加入</p>
-<textarea name="code" class="js" rows="15" cols="100">dp.SyntaxHighlighter.ClipboardSwf = “/SCRIPT/Highlighter/clipboard.swf”;<br><br>dp.SyntaxHighlighter.BloggerMode();<br><br>dp.SyntaxHighlighter.HighlightAll(‘code’);</textarea>
-
-<p>&nbsp;</p>
+<p>在 <code>&lt;/head&gt;</code> 之前加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;image/styles/SyntaxHighlighter.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shCore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCpp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCss.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJava.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJScript.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushSql.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushVb.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushXml.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在文件最后一个 <code>&lt;/script&gt;</code> 之前加入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp.SyntaxHighlighter.ClipboardSwf = <span class="string">"/SCRIPT/Highlighter/clipboard.swf"</span>;</span><br><span class="line">dp.SyntaxHighlighter.BloggerMode();</span><br><span class="line">dp.SyntaxHighlighter.HighlightAll(<span class="string">'code'</span>);</span><br></pre></td></tr></table></figure></p>
 <p>single.html 文件用上面方法同样处理，注意路径</p>
-<p>使用方法还是一样</p>
-<textarea name="code" class="xml" rows="15" cols="100">&lt;textarea name=&quot;code&quot; class=&quot;java&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;Java代码&lt;/textarea&gt;<br><br>&lt;textarea name=&quot;code&quot; class=&quot;vb:firstline[26]&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;VB代码&lt;/textarea&gt;</textarea>
+<p>使用方法还是一样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"java"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>Java代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"vb:firstline[26]"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>VB代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
           
         
       
       
         <div class="post-tags">
           
-            <a href="../../tags/zblog/" rel="tag"># zblog</a>
-          
-            <a href="../../tags/ajax/" rel="tag"># ajax</a>
-          
-            <a href="../../tags/highlight/" rel="tag"># highlight</a>
-          
             <a href="../../tags/html/" rel="tag"># html</a>
           
             <a href="../../tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="../../tags/ajax/" rel="tag"># ajax</a>
+          
+            <a href="../../tags/zblog/" rel="tag"># zblog</a>
           
         </div>
       
@@ -1963,7 +1955,7 @@
 </ul>
 <p><strong>Paypal重定向地址</strong></p>
 <ul>
-<li>Live<br><a href="https://www" target="_blank" rel="noopener">https://www</a>. Paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=</li>
+<li>Live<br><a href="https://www.Paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=" target="_blank" rel="noopener">https://www.Paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=</a></li>
 <li>SandBox<br><a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=value" target="_blank" rel="noopener">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=value</a></li>
 </ul>
 <h3 id="2-网址"><a href="#2-网址" class="headerlink" title="2.网址"></a>2.网址</h3><ul>
@@ -2102,7 +2094,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">293</span>
+                <span class="site-state-item-count">283</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
