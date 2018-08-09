@@ -360,8 +360,8 @@
         <tag>海南</tag>
         <tag>蜜月</tag>
         <tag>国庆</tag>
-        <tag>万宁</tag>
         <tag>英州</tag>
+        <tag>万宁</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -511,8 +511,8 @@
         <tag>旅行</tag>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>广水</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -662,9 +662,9 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>刚察县</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
+        <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
       </tags>
@@ -937,8 +937,8 @@
         <tag>轮滑</tag>
         <tag>刷街</tag>
         <tag>深圳</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1473,8 +1473,8 @@
       <tags>
         <tag>单车</tag>
         <tag>户外</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1641,9 +1641,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>圣诞节</tag>
         <tag>溜冰</tag>
         <tag>益田广场</tag>
-        <tag>圣诞节</tag>
       </tags>
   </entry>
   <entry>
@@ -1788,9 +1788,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>凤凰山</tag>
-        <tag>叫水坑</tag>
         <tag>徒步</tag>
+        <tag>凤凰山</tag>
         <tag>露营</tag>
       </tags>
   </entry>
@@ -1846,8 +1845,8 @@
         <tag>书</tag>
         <tag>actionscript</tag>
         <tag>笔记</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -1862,8 +1861,8 @@
         <tag>书</tag>
         <tag>actionscript</tag>
         <tag>笔记</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -1887,8 +1886,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>生日</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -2049,8 +2048,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>javascript</tag>
+        <tag>html</tag>
         <tag>ajax</tag>
         <tag>zblog</tag>
       </tags>
@@ -2241,8 +2240,8 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>xml</tag>
         <tag>sql</tag>
+        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -2348,8 +2347,8 @@
         <tag>轮滑</tag>
         <tag>刷街</tag>
         <tag>大梅沙</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2435,8 +2434,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>咖啡</tag>
         <tag>节日</tag>
+        <tag>咖啡</tag>
       </tags>
   </entry>
   <entry>
@@ -2577,8 +2576,8 @@
       </categories>
       <tags>
         <tag>Acer</tag>
-        <tag>笔记本</tag>
         <tag>AMD</tag>
+        <tag>笔记本</tag>
         <tag>评测</tag>
       </tags>
   </entry>
@@ -3155,9 +3154,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>mobile</tag>
         <tag>css</tag>
         <tag>html</tag>
-        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
@@ -3180,8 +3179,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3332,8 +3331,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
         <tag>google</tag>
       </tags>
   </entry>
@@ -3345,8 +3344,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3370,8 +3369,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3408,8 +3407,8 @@
       </categories>
       <tags>
         <tag>blog</tag>
-        <tag>css</tag>
         <tag>javascript</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -3420,8 +3419,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
         <tag>蓝牙</tag>
       </tags>
   </entry>
@@ -3441,8 +3440,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3486,8 +3485,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>刷机</tag>
         <tag>多普达</tag>
+        <tag>刷机</tag>
       </tags>
   </entry>
   <entry>
@@ -3697,8 +3696,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>Spider</tag>
         <tag>vbs</tag>
+        <tag>Spider</tag>
       </tags>
   </entry>
   <entry>
@@ -3723,8 +3722,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>web</tag>
+        <tag>html</tag>
         <tag>seo</tag>
         <tag>优化</tag>
       </tags>
@@ -3761,10 +3760,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>Acer</tag>
         <tag>笔记本</tag>
         <tag>生日</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -3918,8 +3917,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>XUL</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4055,8 +4054,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4092,8 +4091,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4105,8 +4104,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>vbs</tag>
         <tag>vb</tag>
+        <tag>vbs</tag>
         <tag>spider</tag>
       </tags>
   </entry>
@@ -4700,8 +4699,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>金子</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
