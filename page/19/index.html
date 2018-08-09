@@ -337,6 +337,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2008/02/da1c3810/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2008/02/da1c3810/" itemprop="url">zblog文章归档修改</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2008-02-18T17:26:12+08:00">
+                2008-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/blog/upload/200802181731042353.gif" alt=""></p>
+<p>默认是按月划分的，时间久了就一大堆，占空间也影响美观，改了一下，本想用中文，发现文字很难对齐（下图），只好用英文缩写，其实用阿拉伯数字是最漂亮的，对的最整齐</p>
+<p><img src="/blog/upload/200802181731114031.gif" alt=""></p>
+<p>修改后的效果看右侧【文章归档】</p>
+<p>以zblog 1.8(080201)为例，修改如下，打开 <strong>function/c_system_event.asp</strong>，搜索 <code>Function BlogReBuild_Archives()</code>，完整代码如下，需根据自己使用的样式对代码进行修改<br><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Function</span> BlogReBuild_Archives()</span><br><span class="line">	<span class="keyword">Dim</span> firstTime,lastTime</span><br><span class="line">	<span class="keyword">Dim</span> sql,objRS,objStream</span><br><span class="line">	sql = <span class="string">"SELECT [log_PostTime] FROM [blog_Article] WHERE ([log_Level]&gt;1) ORDER BY [log_PostTime]"</span></span><br><span class="line">	<span class="keyword">Set</span> objRS = <span class="built_in">Server</span>.<span class="built_in">CreateObject</span>(<span class="string">"adodb.recordset"</span>)</span><br><span class="line">	objRS.open sql,objConn,<span class="number">1</span>,<span class="number">1</span></span><br><span class="line">	<span class="keyword">If</span> (<span class="keyword">Not</span> objRS.bof) <span class="keyword">And</span> (<span class="keyword">Not</span> objRS.eof) <span class="keyword">Then</span></span><br><span class="line">		firstTime = objRS(<span class="string">"log_PostTime"</span>)</span><br><span class="line">		objRS.movelast</span><br><span class="line">		lastTime = objRS(<span class="string">"log_PostTime"</span>)</span><br><span class="line">	<span class="keyword">End</span> <span class="keyword">if</span></span><br><span class="line">	objRS.Close</span><br><span class="line">	<span class="keyword">Set</span> objRS=<span class="literal">Nothing</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">Dim</span> i,j,strArchives</span><br><span class="line">	<span class="keyword">For</span> i = <span class="built_in">Year</span>(lastTime) <span class="keyword">To</span> <span class="built_in">Year</span>(firstTime) <span class="keyword">step</span> <span class="number">-1</span></span><br><span class="line">		strArchives = strArchives &amp; <span class="string">"&lt;li&gt;&lt;span class="</span><span class="string">"year"</span><span class="string">"&gt;"</span> &amp; i &amp; <span class="string">"&lt;/span&gt;</span></span><br><span class="line"><span class="string">"</span> &amp; vbCrlf</span><br><span class="line">		<span class="keyword">For</span> j = <span class="number">1</span> <span class="keyword">To</span> <span class="number">12</span></span><br><span class="line">			<span class="keyword">If</span> i&gt;= <span class="built_in">Year</span>(<span class="built_in">Now</span>()) <span class="keyword">And</span> j &gt; <span class="built_in">Month</span>(<span class="built_in">Now</span>()) <span class="keyword">Then</span> <span class="keyword">Exit</span> <span class="keyword">For</span></span><br><span class="line">			<span class="keyword">If</span> i = <span class="built_in">Year</span>(firstTime) <span class="keyword">And</span>  j &lt; <span class="built_in">Month</span>(firstTime) <span class="keyword">Then</span> j = <span class="built_in">Month</span>(firstTime)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">Set</span> objRS=objConn.<span class="keyword">Execute</span>(<span class="string">"SELECT COUNT([log_ID]) FROM [blog_Article] WHERE ([log_Level]&gt;1) AND year(log_PostTime) = "</span> &amp; i &amp; <span class="string">" and month(log_PostTime) = "</span> &amp; j)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">If</span> (<span class="keyword">Not</span> objRS.bof) <span class="keyword">And</span> (<span class="keyword">Not</span> objRS.eof) <span class="keyword">Then</span></span><br><span class="line">				<span class="keyword">If</span> objRS(<span class="number">0</span>) &gt; <span class="number">0</span> <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">					<span class="keyword">If</span> ZC_MOONSOFT_PLUGIN_ENABLE=<span class="literal">True</span> <span class="keyword">Then</span></span><br><span class="line">						strArchives = strArchives &amp; <span class="string">"["</span> &amp; <span class="built_in">Left</span>(ZVA_Month(j),<span class="number">3</span>) &amp; <span class="string">".]() "</span></span><br><span class="line">						<span class="keyword">Call</span> BuildCategory(<span class="literal">Empty</span>,<span class="literal">Empty</span>,<span class="literal">Empty</span>,i &amp; <span class="string">"-"</span> &amp; j,<span class="literal">Empty</span>,ZC_DISPLAY_MODE_ALL,ZC_STATIC_DIRECTORY,i &amp; <span class="string">"_"</span> &amp; j&amp; <span class="string">"."</span> &amp; ZC_STATIC_TYPE)</span><br><span class="line">					<span class="keyword">Else</span></span><br><span class="line">						strArchives = strArchives &amp; <span class="string">"["</span> &amp; <span class="built_in">Left</span>(ZVA_Month(j),<span class="number">3</span>) &amp; <span class="string">".]() "</span></span><br><span class="line">					<span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">				<span class="keyword">Else</span></span><br><span class="line">					strArchives = strArchives &amp; <span class="string">"&lt;span&gt;"</span> &amp; <span class="built_in">Left</span>(ZVA_Month(j),<span class="number">3</span>) &amp; <span class="string">".&lt;/span&gt; "</span></span><br><span class="line">				<span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">			<span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line">			objRS.Close</span><br><span class="line">			<span class="keyword">Set</span> objRS=<span class="literal">Nothing</span></span><br><span class="line">		<span class="keyword">next</span></span><br><span class="line">		strArchives = strArchives &amp; <span class="string">"&lt;/li&gt;"</span> &amp; vbCrlf</span><br><span class="line">	<span class="keyword">Next</span></span><br><span class="line"></span><br><span class="line">	strArchives=TransferHTML(strArchives,<span class="string">"[no-asp]"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">Call</span> SaveToFile(BlogPath &amp; <span class="string">"/include/archives.asp"</span>,strArchives,<span class="string">"utf-8"</span>,<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">	BlogReBuild_Archives=<span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/blog/" rel="tag"># blog</a>
+          
+            <a href="../../tags/asp/" rel="tag"># asp</a>
+          
+            <a href="../../tags/zblog/" rel="tag"># zblog</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2008/02/9fb2c44/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1784,169 +1945,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2007/12/a90154a6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2007/12/a90154a6/" itemprop="url">12月23日 周日南山刷华强北</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2007-12-24T13:07:28+08:00">
-                2007-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <embed src="//player.56.com/v_MjU4NDU2MTM.swf" type="application/x-shockwave-flash" width="480" height="395">
-
-<p><strong>时间标签</strong><br>0 捐衣服<br>2:30 科技园<br>7:10 侨城东?<br>12:20 特区报社 吃午餐<br>13:50 市民中心<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="../../2007/12/a90154a6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/轮滑/" rel="tag"># 轮滑</a>
-          
-            <a href="../../tags/刷街/" rel="tag"># 刷街</a>
-          
-            <a href="../../tags/世界之窗/" rel="tag"># 世界之窗</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1997,7 +1995,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">393</span>
+                <span class="site-state-item-count">394</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

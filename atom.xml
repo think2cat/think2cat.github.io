@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-08-05T15:51:22.583Z</updated>
+  <updated>2018-08-09T16:29:09.039Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Promise入门指南(5)</title>
+    <link href="http://21ido.com/2018/08/33ad2a19/"/>
+    <id>http://21ido.com/2018/08/33ad2a19/</id>
+    <published>2018-08-09T16:26:24.000Z</published>
+    <updated>2018-08-09T16:29:09.039Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Promise-catch&quot;&gt;&lt;a href=&quot;#Promise-catch&quot; class=&quot;headerlink&quot; title=&quot;Promise.catch&quot;&gt;&lt;/a&gt;Promise.catch&lt;/h3&gt;&lt;p&gt;&lt;code&gt;catch&lt;/code&gt; 是用来捕获异常的，但是网上很多教程代码把 &lt;code&gt;catch&lt;/code&gt; 当 &lt;code&gt;rejected&lt;/code&gt; 使用，这是不当的&lt;/p&gt;
+&lt;p&gt;前面说了 Promise 有3种状态， pending, fulffilled, rejected&lt;br&gt;并没有一种状态叫异常，实际使用中，能确定的状态用 resolve / reject 来回调，而不是丢到 catch&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 错误示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// try something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;something error&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p1.then(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;p2&#39;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).catch(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;p3&#39;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样当报错时，会抛到 catch 去执行，而实际有些错误是可预见的，所以当可预见和不可预见的错误，都往 catch 报的时候，就没法判断了，因此建议用 reject 来处理可预见性的错误&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise入门指南(4)</title>
@@ -539,31 +564,6 @@
       <category term="nodejs" scheme="http://21ido.com/tags/nodejs/"/>
     
       <category term="grunt" scheme="http://21ido.com/tags/grunt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yeoman入门笔记</title>
-    <link href="http://21ido.com/2017/04/b3a22ac5/"/>
-    <id>http://21ido.com/2017/04/b3a22ac5/</id>
-    <published>2017-04-19T08:23:26.000Z</published>
-    <updated>2018-08-07T01:50:59.136Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;yeoman官网 &lt;a href=&quot;http://yeoman.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://yeoman.io/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;yeoman是一个脚手架工具，用来初始化项目目录结构，便于部署项目&lt;br&gt;早期的web项目基本目录接口大概是这样子&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/2017/04/yeoman_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;随着web技术发展，各种前端框架的广泛应用，现在的目录结构大概是这样子&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/2017/04/yeoman_2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;根据不同框架、不同编译环境、不同测试环境，以及发布部署，结构更是千变万化，而这些都是比较耗时间去考虑的，现在有了yeoman，可以自动化生成这些结构，只需选好模板，一条命令几个回车即可搞定&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="yeoman" scheme="http://21ido.com/tags/yeoman/"/>
     
   </entry>
   
