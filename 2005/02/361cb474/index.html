@@ -103,17 +103,17 @@
 
 
 
-<meta name="description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.123456GOinsert into">
+<meta name="description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.12345GOinsert into">
 <meta property="og:type" content="article">
 <meta property="og:title" content="当批量导入数据时">
 <meta property="og:url" content="http://21ido.com/2005/02/361cb474/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.123456GOinsert into">
+<meta property="og:description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.12345GOinsert into">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.275Z">
+<meta property="og:updated_time" content="2018-08-10T08:33:47.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="当批量导入数据时">
-<meta name="twitter:description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.123456GOinsert into">
+<meta name="twitter:description" content="如果我们有大批量的数据要导入数据库大家都遇见过这样的问题,导入要花很长的时间,有的时候机器如同死机一样,其实是我们执行 1EXEC sp_dboption &apos;pubs&apos;, &apos;select into/bulkcopy&apos;, &apos;true&apos; 这个语句的意思是,通知sql之后将有大批量数据批量导入,请sql 不要给每个数据创建回滚记录,这样sql就会很快的进行插入操作.12345GOinsert into">
 
 
 
@@ -428,7 +428,8 @@
       
         <p>如果我们有大批量的数据要导入数据库<br>大家都遇见过这样的问题,<br>导入要花很长的时间,<br>有的时候机器如同死机一样,<br>其实是我们执行</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXEC sp_dboption 'pubs', '<span class="keyword">select</span> <span class="keyword">into</span>/bulkcopy<span class="string">', '</span><span class="literal">true</span><span class="string">'</span></span><br></pre></td></tr></table></figure>
-<p>这个语句的意思是,通知sql之后将有大批量数据批量导入,<br>请sql 不要给每个数据创建回滚记录,<br>这样sql就会很快的进行插入操作.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GO</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> ......</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC sp_dboption <span class="string">'pubs'</span>, <span class="string">'select into/bulkcopy'</span>, <span class="string">'false'</span></span><br><span class="line">等插入完成后,再通知<span class="keyword">sql</span>重新进入数据安全记录状态.</span><br></pre></td></tr></table></figure></p>
+<p>这个语句的意思是,通知sql之后将有大批量数据批量导入,<br>请sql 不要给每个数据创建回滚记录,<br>这样sql就会很快的进行插入操作.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GO</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> ......</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"></span><br><span class="line">EXEC sp_dboption <span class="string">'pubs'</span>, <span class="string">'select into/bulkcopy'</span>, <span class="string">'false'</span></span><br></pre></td></tr></table></figure></p>
+<p>等插入完成后,再通知sql重新进入数据安全记录状态.</p>
 
       
       
