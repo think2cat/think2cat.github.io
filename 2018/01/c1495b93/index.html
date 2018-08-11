@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&amp;lt;div&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;AA &amp;lt;span&amp;gt;A1&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;A2&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-10T01:32:25.663Z">
+<meta property="og:updated_time" content="2018-08-11T08:04:50.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript事件委托">
 <meta name="twitter:description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&amp;lt;div&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;AA &amp;lt;span&amp;gt;A1&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;A2&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li">
@@ -439,7 +439,8 @@
 <p>在参数即event事件可以找到是哪个DOM触发了事件</p>
 <p>看起来跟一般事件一样，多了一个触发元素的判断</p>
 <p>为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的</p>
-<figure class="highlight plain"><figcaption><span>和 ```$.click()``` 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">on的语法，```$.on( events [, selector ] [, data ], handler )</span><br></pre></td></tr></table></figure>
+<p><code>$.on()</code> 和 <code>$.click()</code> 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会</p>
+<p>on的语法，<code>$.on( events [, selector ] [, data ], handler )</code></p>
 <p>选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素</p>
 <p>对于本例来说，改成jquery.on也没啥变化</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click"</span>, <span class="string">"li, span"</span>, (evt) =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"span"</span>, evt);</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"span"</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a span"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"li"</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a li"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -456,7 +457,7 @@
 
       
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2018/08/33ad2a19/" title="Promise入门指南(5)" rel="bookmark">Promise入门指南(5)</a></li><li class="related-posts-item"><a href="/2007/03/d4672af4/" title="给Z-Blog加上代码高亮显示" rel="bookmark">给Z-Blog加上代码高亮显示</a></li><li class="related-posts-item"><a href="/2009/08/75f744fe/" title="认识Javascript数组(2)" rel="bookmark">认识Javascript数组(2)</a></li><li class="related-posts-item"><a href="/2009/07/5eda173d/" title="认识Javascript数组(1)" rel="bookmark">认识Javascript数组(1)</a></li><li class="related-posts-item"><a href="/2017/03/1768cee0/" title="ECMAScript6笔记（1）" rel="bookmark">ECMAScript6笔记（1）</a></li><li class="related-posts-item"><a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数" rel="bookmark">Capture和Bubble，简明解读addEventListener的第三个参数</a></li><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数" rel="bookmark">Capture和Bubble，简明解读addEventListener的第三个参数</a></li><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li><li class="related-posts-item"><a href="/2018/05/1f5ada0a/" title="TypeScript学习笔记(1)" rel="bookmark">TypeScript学习笔记(1)</a></li></ul>
       
 
     </div>
@@ -619,7 +620,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../../archives/">
-                <span class="site-state-item-count">393</span>
+                <span class="site-state-item-count">392</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -641,7 +642,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../../tags/index.html">
-                <span class="site-state-item-count">270</span>
+                <span class="site-state-item-count">269</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -291,7 +291,7 @@
     <link href="http://21ido.com/2018/01/c1495b93/"/>
     <id>http://21ido.com/2018/01/c1495b93/</id>
     <published>2018-01-17T09:43:52.000Z</published>
-    <updated>2018-08-10T01:32:25.663Z</updated>
+    <updated>2018-08-11T08:04:50.461Z</updated>
     
     <summary type="html">
     
@@ -507,9 +507,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="html" scheme="http://21ido.com/tags/html/"/>
-    
       <category term="flex" scheme="http://21ido.com/tags/flex/"/>
+    
+      <category term="html" scheme="http://21ido.com/tags/html/"/>
     
       <category term="css" scheme="http://21ido.com/tags/css/"/>
     
@@ -559,9 +559,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="nodejs" scheme="http://21ido.com/tags/nodejs/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="grunt" scheme="http://21ido.com/tags/grunt/"/>
     

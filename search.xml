@@ -124,7 +124,7 @@
   <entry>
     <title><![CDATA[javascript事件委托]]></title>
     <url>%2F2018%2F01%2Fc1495b93%2F</url>
-    <content type="text"><![CDATA[本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt; &lt;ul&gt; &lt;li&gt;AA &lt;span&gt;A1&lt;/span&gt; &lt;span&gt;A2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;BB &lt;span&gt;B1&lt;/span&gt; &lt;span&gt;B2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;CC &lt;span&gt;C1&lt;/span&gt; &lt;span&gt;C2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;DD &lt;span&gt;D1&lt;/span&gt; &lt;span&gt;D2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;EE &lt;span&gt;E1&lt;/span&gt; &lt;span&gt;E2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;FF &lt;span&gt;F1&lt;/span&gt; &lt;span&gt;F2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如12345678910111213141516171819202122232425let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125;let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125; 这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错 这时就需要事件委托，把事件绑定在父级元素 浏览器的事件冒泡看这里， 因为LI和SPAN都在DIV里面，所以只需绑定DIV即可12345678document.getElementsByTagName("div")[0].addEventListener("click",(evt)=&gt;&#123; console.log(evt); if("span" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a span", evt.target.innerText); &#125;else if("li" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a li", evt.target.innerText); &#125;&#125;); 在参数即event事件可以找到是哪个DOM触发了事件 看起来跟一般事件一样，多了一个触发元素的判断 为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的 和 ```$.click()``` 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会12on的语法，```$.on( events [, selector ] [, data ], handler ) 选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素 对于本例来说，改成jquery.on也没啥变化 12345678$("div").on("click", "li, span", (evt) =&gt; &#123; console.log("span", evt); if ("span" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a span", evt.target.innerText); &#125; else if ("li" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a li", evt.target.innerText); &#125;&#125;);]]></content>
+    <content type="text"><![CDATA[本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt; &lt;ul&gt; &lt;li&gt;AA &lt;span&gt;A1&lt;/span&gt; &lt;span&gt;A2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;BB &lt;span&gt;B1&lt;/span&gt; &lt;span&gt;B2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;CC &lt;span&gt;C1&lt;/span&gt; &lt;span&gt;C2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;DD &lt;span&gt;D1&lt;/span&gt; &lt;span&gt;D2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;EE &lt;span&gt;E1&lt;/span&gt; &lt;span&gt;E2&lt;/span&gt;&lt;/li&gt; &lt;li&gt;FF &lt;span&gt;F1&lt;/span&gt; &lt;span&gt;F2&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如12345678910111213141516171819202122232425let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125;let liArr = document.getElementsByTagName("li");for(let i = 0; i &lt; liArr.length; i++)&#123; liArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click li"); &#125;);&#125;let spanArr = document.getElementsByTagName("span");for(let i = 0; i &lt; spanArr.length; i++)&#123; spanArr[i].addEventListener("click",(evt)=&gt;&#123; console.log("click span"); evt.stopPropagation(); &#125;);&#125; 这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错 这时就需要事件委托，把事件绑定在父级元素 浏览器的事件冒泡看这里， 因为LI和SPAN都在DIV里面，所以只需绑定DIV即可12345678document.getElementsByTagName("div")[0].addEventListener("click",(evt)=&gt;&#123; console.log(evt); if("span" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a span", evt.target.innerText); &#125;else if("li" == evt.target.nodeName.toLocaleLowerCase())&#123; console.log("is a li", evt.target.innerText); &#125;&#125;); 在参数即event事件可以找到是哪个DOM触发了事件 看起来跟一般事件一样，多了一个触发元素的判断 为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的 $.on() 和 $.click() 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会 on的语法，$.on( events [, selector ] [, data ], handler ) 选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素 对于本例来说，改成jquery.on也没啥变化 12345678$("div").on("click", "li, span", (evt) =&gt; &#123; console.log("span", evt); if ("span" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a span", evt.target.innerText); &#125; else if ("li" == evt.target.nodeName.toLocaleLowerCase()) &#123; console.log("is a li", evt.target.innerText); &#125;&#125;);]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -218,8 +218,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>flex</tag>
+        <tag>html</tag>
         <tag>css</tag>
       </tags>
   </entry>
@@ -243,8 +243,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>nodejs</tag>
+        <tag>javascript</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -264,7 +264,7 @@
     <url>%2F2017%2F04%2F9f28229e%2F</url>
     <content type="text"><![CDATA[下午终于把SVN搬到NAS上，然后又把SVN迁移到GIT群晖的套件有SVN和GIT，直接安装即可SVN安装完后，磁盘会多出svn文件夹，如果有完整的版本库，直接拷进去然后在群晖管理页面的SVN套件刷新就可以看到，登录用户名什么都照原来的，根本不用设置如果需要新建版本库，则在SVN套件点新建即可 群晖的GIT套件安装完后，建议新建一个git用户专门来管理GIT目录，然后在GIT套件设置该用户的权限即可GIT不像SVN可以直接在面板新建库，需要打开SSH然后登录，登录账户必须是administrator群组里的账户，登录后新建目录，然后执行git初始化1git init --bare 接着本地再进行clone1git clone ssh://git@192.168.1.2/volume1/git/test 因为是空库，可能会提示错误什么，不用管，反正搞完push上去就OK 如果跟我一样是从svn迁移过来的，git有个svn命令1git svn svn://192.168.1.2/test/ 可以做整库迁移，保留commit信息迁移后的git库再push到remote即可]]></content>
       <categories>
-        <category>Web</category>
+        <category>Digital</category>
       </categories>
       <tags>
         <tag>GIT</tag>
@@ -303,10 +303,10 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>巴厘岛</tag>
         <tag>旅行</tag>
-        <tag>潜水</tag>
         <tag>马拉松</tag>
+        <tag>巴厘岛</tag>
+        <tag>潜水</tag>
       </tags>
   </entry>
   <entry>
@@ -351,8 +351,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
@@ -367,8 +367,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
@@ -385,8 +385,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
@@ -402,8 +402,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
@@ -490,8 +490,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>上海</tag>
         <tag>跑步</tag>
+        <tag>上海</tag>
         <tag>马拉松</tag>
       </tags>
   </entry>
@@ -503,10 +503,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>武汉</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
+        <tag>武汉</tag>
         <tag>信阳</tag>
       </tags>
   </entry>
@@ -518,8 +518,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
+        <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>广水</tag>
         <tag>信阳</tag>
@@ -533,10 +533,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
-        <tag>旅行</tag>
         <tag>孝感</tag>
+        <tag>国庆</tag>
+        <tag>旅行</tag>
         <tag>安陆</tag>
         <tag>广水</tag>
       </tags>
@@ -549,10 +549,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
         <tag>单车</tag>
-        <tag>旅行</tag>
         <tag>孝感</tag>
+        <tag>国庆</tag>
+        <tag>旅行</tag>
       </tags>
   </entry>
   <entry>
@@ -563,12 +563,12 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>国庆</tag>
-        <tag>武汉</tag>
         <tag>单车</tag>
-        <tag>旅行</tag>
         <tag>孝感</tag>
         <tag>东西湖</tag>
+        <tag>国庆</tag>
+        <tag>旅行</tag>
+        <tag>武汉</tag>
       </tags>
   </entry>
   <entry>
@@ -669,12 +669,12 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
         <tag>刚察县</tag>
-        <tag>单车</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
       </tags>
@@ -687,13 +687,13 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
-        <tag>单车</tag>
         <tag>鸟岛</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -707,8 +707,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>151基地</tag>
-        <tag>江西沟</tag>
         <tag>黑马河</tag>
+        <tag>江西沟</tag>
       </tags>
   </entry>
   <entry>
@@ -780,8 +780,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>武汉</tag>
         <tag>单车</tag>
+        <tag>武汉</tag>
         <tag>东湖</tag>
       </tags>
   </entry>
@@ -821,8 +821,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>武汉</tag>
         <tag>单车</tag>
+        <tag>武汉</tag>
         <tag>长江</tag>
       </tags>
   </entry>
@@ -834,9 +834,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
+        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -875,9 +875,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>羊台山</tag>
         <tag>徒步</tag>
         <tag>露营</tag>
-        <tag>羊台山</tag>
       </tags>
   </entry>
   <entry>
@@ -889,8 +889,8 @@
       </categories>
       <tags>
         <tag>登山</tag>
-        <tag>徒步</tag>
         <tag>塘朗山</tag>
+        <tag>徒步</tag>
         <tag>梅林</tag>
       </tags>
   </entry>
@@ -903,8 +903,8 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>露营</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
         <tag>乐昌</tag>
         <tag>大源</tag>
       </tags>
@@ -918,9 +918,9 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>露营</tag>
         <tag>京广线</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -932,8 +932,8 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>露营</tag>
         <tag>京广线</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -945,25 +945,25 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>深圳</tag>
         <tag>刷街</tag>
         <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>深圳</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[骑车回家过大年，深圳-潮州，2天420公里]]></title>
     <url>%2F2010%2F02%2F74f5798e%2F</url>
-    <content type="text"><![CDATA[2月11日，第一天：深圳世界之窗 -&nbsp; 海丰梅陇&nbsp; 200.8公里，累计爬坡1905.0米 2月12日，第二天：梅陇 -&nbsp; 潮州西荣&nbsp; 218.7公里，累计爬坡1086.2米 合影一张 第一天烈日当头，第二天雨袭风挡，而我总是朝着家的方向前进 爆胎算什么，掉链算什么，没有什么可以动摇我回家的决心 等掉队的队友，不抛弃，不放弃！ 回家的包袱，很沉重，满载着对家人的思念 2个三明治维持了140公里，为了早点到家，争分夺秒，舍不得休息，甚至舍不得停下了吃饭，此时是下午3点，我们到达稔山镇，终于停下了吃午饭 150公里后，惠东吉隆镇，有队友因为体力不支抽筋，还好他是陆丰的，直接让家人开车接回去了 或许也是种幸福，因为可以早点回家团聚，而我离家，还有260公里 因为背的是单反，沿途都不方便拿出来照相，照的很少 第二天阵雨，没照相，一直以为骑车最怕下雨，原来最怕的，是刮风，逆风骑行，速度连15km/h都不到，骑得很辛苦更痛苦的是到了揭阳就剩下我一人了，急着回家，在出揭东的时候没注意路牌，忘记转弯，结果往炮台方向骑了近10公里才发现走错，那时又下雨，心情真是无比郁闷 2天骑行时间约23小时，大概420公里，如果不走弯路，不走错路，应该400公里，公路车一天就可以搞定]]></content>
+    <content type="text"><![CDATA[2月11日，第一天：深圳世界之窗 - 海丰梅陇 200.8公里，累计爬坡1905.0米 2月12日，第二天：梅陇 - 潮州西荣 218.7公里，累计爬坡1086.2米 合影一张 第一天烈日当头，第二天雨袭风挡，而我总是朝着家的方向前进 爆胎算什么，掉链算什么，没有什么可以动摇我回家的决心 等掉队的队友，不抛弃，不放弃！ 回家的包袱，很沉重，满载着对家人的思念 2个三明治维持了140公里，为了早点到家，争分夺秒，舍不得休息，甚至舍不得停下了吃饭，此时是下午3点，我们到达稔山镇，终于停下了吃午饭 150公里后，惠东吉隆镇，有队友因为体力不支抽筋，还好他是陆丰的，直接让家人开车接回去了 或许也是种幸福，因为可以早点回家团聚，而我离家，还有260公里 因为背的是单反，沿途都不方便拿出来照相，照的很少 第二天阵雨，没照相，一直以为骑车最怕下雨，原来最怕的，是刮风，逆风骑行，速度连15km/h都不到，骑得很辛苦更痛苦的是到了揭阳就剩下我一人了，急着回家，在出揭东的时候没注意路牌，忘记转弯，结果往炮台方向骑了近10公里才发现走错，那时又下雨，心情真是无比郁闷 2天骑行时间约23小时，大概420公里，如果不走弯路，不走错路，应该400公里，公路车一天就可以搞定]]></content>
       <categories>
         <category>Life</category>
       </categories>
       <tags>
         <tag>单车</tag>
+        <tag>潮州</tag>
+        <tag>深圳</tag>
         <tag>揭阳</tag>
         <tag>梅陇</tag>
-        <tag>深圳</tag>
-        <tag>潮州</tag>
         <tag>陆丰</tag>
       </tags>
   </entry>
@@ -1002,8 +1002,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>javascript</tag>
         <tag>spider</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1055,8 +1055,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>马拉松</tag>
         <tag>厦门</tag>
+        <tag>马拉松</tag>
       </tags>
   </entry>
   <entry>
@@ -1140,8 +1140,8 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,9 +1153,9 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
+        <tag>刷街</tag>
         <tag>徒步</tag>
         <tag>惠州</tag>
-        <tag>刷街</tag>
         <tag>磨房</tag>
       </tags>
   </entry>
@@ -1181,8 +1181,8 @@
       </categories>
       <tags>
         <tag>登山</tag>
-        <tag>徒步</tag>
         <tag>塘朗山</tag>
+        <tag>徒步</tag>
         <tag>梅林</tag>
       </tags>
   </entry>
@@ -1261,8 +1261,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1288,8 +1288,8 @@
       </categories>
       <tags>
         <tag>登山</tag>
-        <tag>南山</tag>
         <tag>户外</tag>
+        <tag>南山</tag>
         <tag>磨房</tag>
       </tags>
   </entry>
@@ -1361,8 +1361,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1426,8 +1426,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1438,8 +1438,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>评测</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1450,8 +1450,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>大梅沙</tag>
         <tag>大鹏</tag>
         <tag>杨梅坑</tag>
@@ -1466,8 +1466,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>惠州</tag>
         <tag>红花湖</tag>
         <tag>陈江</tag>
@@ -1481,8 +1481,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>户外</tag>
+        <tag>单车</tag>
         <tag>磨房</tag>
         <tag>百公里</tag>
       </tags>
@@ -1596,8 +1596,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1608,9 +1608,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
-        <tag>南山</tag>
         <tag>户外</tag>
+        <tag>南山</tag>
+        <tag>单车</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1637,10 +1637,10 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>单车</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
         <tag>沙井</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1798,9 +1798,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>凤凰山</tag>
         <tag>徒步</tag>
         <tag>露营</tag>
+        <tag>凤凰山</tag>
       </tags>
   </entry>
   <entry>
@@ -1852,8 +1852,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1868,8 +1868,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1896,8 +1896,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>生日</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -1909,8 +1909,8 @@
       </categories>
       <tags>
         <tag>登山</tag>
-        <tag>南山</tag>
         <tag>户外</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1921,9 +1921,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>评测</tag>
         <tag>淘宝</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -2277,8 +2277,8 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2393,8 +2393,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>工作</tag>
         <tag>笔记</tag>
+        <tag>工作</tag>
       </tags>
   </entry>
   <entry>
@@ -2467,7 +2467,6 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>生活</tag>
         <tag>鼠</tag>
       </tags>
   </entry>
@@ -2493,8 +2492,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>记录</tag>
         <tag>blog</tag>
+        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -2507,8 +2506,8 @@
       <tags>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2722,7 +2721,7 @@
   <entry>
     <title><![CDATA[飞来横祸，被敲诈近2万，遭遇无良民警]]></title>
     <url>%2F2007%2F10%2F4698f709%2F</url>
-    <content type="text"><![CDATA[这是上周三的事了 10月17日（十七大召开的第二天），晚上7:40左右，我跟同事下班回家，自北往南步行至白石洲沙河街江南百货段时（马路对面是新记大排档），有一男子（自称阿龙）从后面拍同事肩膀，说刚被他踢到脚了，此时他们有2人，我们道了歉，可是他们不让我们走，称自己是赌场的头，最忌讳被绑到脚，要我们敬茶赔礼道歉，此时又来了3个人，他们管阿龙叫老大，威胁我们说不敬茶就活不过今晚。 随后我们提出到对面新记大排档喝茶赔礼，当时一楼已经人满，我们上了二楼，二楼当时是空无一人，连灯都没开，然后我们在二楼包厢被威胁说出银行卡密码，之后阿龙拿着我们银行卡出去取钱，剩下4人在包厢看着我们，十几分钟之后回来，用手机给我们拍了照，还被拍了身份证，之后阿龙称有兄弟在楼下闹事，把我们钱包的现金、手机，加上我的背包（内有笔记本电脑和其它物品）一起拿走，还是剩下4人看着我们，过了几分钟后其他四人的手机响了，借口说下去看看，也走了。当时是8:45左右。 我们让服务员帮忙报警，服务员找了主管，然后跟我们说自己去报，随后我们2人去了金三角大厦那边的派出所，等了十几分钟，被2名巡警带到江南百货后面3楼一个巡警休息室做笔录。做完笔录离开时已经11:50，那里的队长给了我们名片，叫刘银平。 （以上为案发过程，完全按笔录方式写，未加个人推断和感情因素） 第二天（18日）早上，在公司打了电话询问案情，说还在调查，问何时能调银行取款机录像去辨认，也说还没好，然后问何时能拿报案回执，说下午可以去拿。下午下班后我跟几个同事（一行四人）去拿回执，说还没好，我们留了电话说可以拿了通知我们。 又过了4天，23日早上我再次拨通值班室电话，询问何时可以拿回执，那边说随时可以，于是我当天下午下班后又去了，只有一个人在值班（正是当时给我们做笔录的），他说他不知道，也没人告诉他这事，争执一番之后我气愤的离开值班室。 24日早上，打投诉电话（84462570 ?），对方叫我打给警查指挥中心（84464050），打去警查指挥中心，说让我再去走几次，拿不到后再给他们打电话。然后打那警察的手机，干脆不接了，打办公电话也没人接。 11月5日，公司决定以公司名义进行报案，并向上级投诉白石洲派出所拿不出回执的问题，初稿已完成，公司老总说放我跟同事半天假去拿回执，再拿不到就让公司行政部门去处理了。 当天下午我又跟同事2人去了值班室，民警正在里面开会，我们在外面等了半个多钟终于等到结束，找到刘队长之后说明来意，他就给派出所打了电话，说给要开回执，然后又叫了一个民警去拿，10来分钟之后我们拿到了回执，回执的报案日期是11月5日，并不是案发日期。刘跟我们说了什么回执没用什么，我们要去调出案发时段的银行取款机录像辨别，又说金额太小没法调录像（他说的话我用手机全录下来了，差不多一个小时）。 我们就回去了，也没去投诉了，反正靠这样的民警，肯定抓不到人的。 补充一下，我去了几次，民警都在玩QQ游戏、QQ视频，我报案那天晚上，刘在询问案情的时候还一边聊QQ。 我们只是普通市民，只是个纳税人，辛苦赚钱给国家纳税，国家却养了这样一帮人，当我们生命财产受到侵犯时，不仅不为民办事，还这样子欺负老百姓，唉！ 我整个背包都被拿去了（内有笔记本电脑等贵重物品），加上手机、现金和银行卡里面的钱，共计1w4，加上同事的损失，差不多2w了 最心疼的莫过于二奶的离去，笔记本购于06年8月20日（我生日当天），默默为我服务了423天，型号是宏碁Aspire3642（U2400、X200M芯片组、60G硬盘、2G内存、蓝牙2.0、108M无线、Combo），庆幸的是丢失前一周刚好做了备份，所以资料基本都在，而且笔记本硬盘上的重要资料（个人密码、照片、文档等）都做了EPS加密，所以也不会泄漏出去，倒是好多程序源码没加密，不过那些源码估计也没人回去研究吧。 这是笔记本丢失前的最后一张照片，照于10月13日凌晨。]]></content>
+    <content type="text"><![CDATA[这是上周三的事了 10月17日（十七大召开的第二天），晚上7:40左右，我跟同事下班回家，自北往南步行至白石洲沙河街江南百货段时（马路对面是新记大排档），有一男子（自称阿龙）从后面拍同事肩膀，说刚被他踢到脚了，此时他们有2人，我们道了歉，可是他们不让我们走，称自己是赌场的头，最忌讳被绑到脚，要我们敬茶赔礼道歉，此时又来了3个人，他们管阿龙叫老大，威胁我们说不敬茶就活不过今晚。 随后我们提出到对面新记大排档喝茶赔礼，当时一楼已经人满，我们上了二楼，二楼当时是空无一人，连灯都没开，然后我们在二楼包厢被威胁说出银行卡密码，之后阿龙拿着我们银行卡出去取钱，剩下4人在包厢看着我们，十几分钟之后回来，用手机给我们拍了照，还被拍了身份证，之后阿龙称有兄弟在楼下闹事，把我们钱包的现金、手机，加上我的背包（内有笔记本电脑和其它物品）一起拿走，还是剩下4人看着我们，过了几分钟后其他四人的手机响了，借口说下去看看，也走了。当时是8:45左右。 我们让服务员帮忙报警，服务员找了主管，然后跟我们说自己去报，随后我们2人去了金三角大厦那边的派出所，等了十几分钟，被2名巡警带到江南百货后面3楼一个巡警休息室做笔录。做完笔录离开时已经11:50，那里的队长给了我们名片，叫刘银平。 （以上为案发过程，完全按笔录方式写，未加个人推断和感情因素） 第二天（18日）早上，在公司打了电话询问案情，说还在调查，问何时能调银行取款机录像去辨认，也说还没好，然后问何时能拿报案回执，说下午可以去拿。下午下班后我跟几个同事（一行四人）去拿回执，说还没好，我们留了电话说可以拿了通知我们。又过了4天，23日早上我再次拨通值班室电话，询问何时可以拿回执，那边说随时可以，于是我当天下午下班后又去了，只有一个人在值班（正是当时给我们做笔录的），他说他不知道，也没人告诉他这事，争执一番之后我气愤的离开值班室。 24日早上，打投诉电话（84462570 ?），对方叫我打给警查指挥中心（84464050），打去警查指挥中心，说让我再去走几次，拿不到后再给他们打电话。然后打那警察的手机，干脆不接了，打办公电话也没人接。 11月5日，公司决定以公司名义进行报案，并向上级投诉白石洲派出所拿不出回执的问题，初稿已完成，公司老总说放我跟同事半天假去拿回执，再拿不到就让公司行政部门去处理了。 当天下午我又跟同事2人去了值班室，民警正在里面开会，我们在外面等了半个多钟终于等到结束，找到刘队长之后说明来意，他就给派出所打了电话，说给要开回执，然后又叫了一个民警去拿，10来分钟之后我们拿到了回执，回执的报案日期是11月5日，并不是案发日期。刘跟我们说了什么回执没用什么，我们要去调出案发时段的银行取款机录像辨别，又说金额太小没法调录像（他说的话我用手机全录下来了，差不多一个小时）。 我们就回去了，也没去投诉了，反正靠这样的民警，肯定抓不到人的。 补充一下，我去了几次，民警都在玩QQ游戏、QQ视频，我报案那天晚上，刘在询问案情的时候还一边聊QQ。 我们只是普通市民，只是个纳税人，辛苦赚钱给国家纳税，国家却养了这样一帮人，当我们生命财产受到侵犯时，不仅不为民办事，还这样子欺负老百姓，唉！ 我整个背包都被拿去了（内有笔记本电脑等贵重物品），加上手机、现金和银行卡里面的钱，共计1w4，加上同事的损失，差不多2w了 最心疼的莫过于二奶的离去，笔记本购于06年8月20日（我生日当天），默默为我服务了423天，型号是宏碁Aspire3642（U2400、X200M芯片组、60G硬盘、2G内存、蓝牙2.0、108M无线、Combo），庆幸的是丢失前一周刚好做了备份，所以资料基本都在，而且笔记本硬盘上的重要资料（个人密码、照片、文档等）都做了EPS加密，所以也不会泄漏出去，倒是好多程序源码没加密，不过那些源码估计也没人回去研究吧。 这是笔记本丢失前的最后一张照片，照于10月13日凌晨。]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -2809,9 +2808,9 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>潮州</tag>
         <tag>刷街</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -2866,8 +2865,8 @@
         <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>刷街</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -2892,8 +2891,8 @@
       <tags>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
         <tag>市民中心</tag>
       </tags>
   </entry>
@@ -2907,14 +2906,14 @@
       <tags>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[罗技V500完全肢解]]></title>
     <url>%2F2007%2F09%2F1948c30%2F</url>
-    <content type="text"><![CDATA[用了快3年了，左键开始失灵，于是拆开换微动开关，一波三折，总算可以正常使用 准备换的欧姆龙开关，没想到还是买大了 拆的好辛苦，基本是暴力拆的，划伤多处，还弄折了一块，还好无伤大碍，真不知道罗技是怎么把这鬼东西装起来的 &nbsp; 因为没元件更换，没办法只好把左右互换了，顶一阵子再说吧]]></content>
+    <content type="text"><![CDATA[用了快3年了，左键开始失灵，于是拆开换微动开关，一波三折，总算可以正常使用 准备换的欧姆龙开关，没想到还是买大了 拆的好辛苦，基本是暴力拆的，划伤多处，还弄折了一块，还好无伤大碍，真不知道罗技是怎么把这鬼东西装起来的 因为没元件更换，没办法只好把左右互换了，顶一阵子再说吧]]></content>
       <categories>
         <category>Digital</category>
       </categories>
@@ -3017,8 +3016,8 @@
       </categories>
       <tags>
         <tag>轮滑</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3031,8 +3030,8 @@
       <tags>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3125,8 +3124,8 @@
       <tags>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>南山</tag>
         <tag>刷街</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3150,8 +3149,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>mobile</tag>
+        <tag>html</tag>
         <tag>css</tag>
       </tags>
   </entry>
@@ -3175,8 +3174,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3327,8 +3326,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
         <tag>google</tag>
       </tags>
   </entry>
@@ -3340,8 +3339,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3365,8 +3364,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3388,8 +3387,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>网银</tag>
         <tag>淘宝</tag>
+        <tag>网银</tag>
         <tag>java</tag>
         <tag>jsp</tag>
       </tags>
@@ -3403,8 +3402,8 @@
       </categories>
       <tags>
         <tag>blog</tag>
-        <tag>javascript</tag>
         <tag>css</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3415,8 +3414,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
         <tag>蓝牙</tag>
       </tags>
   </entry>
@@ -3436,8 +3435,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>多普达</tag>
         <tag>mobile</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3508,8 +3507,8 @@
       <tags>
         <tag>Book</tag>
         <tag>css</tag>
-        <tag>div</tag>
         <tag>web</tag>
+        <tag>div</tag>
         <tag>xhtml</tag>
       </tags>
   </entry>
@@ -3522,8 +3521,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>tomcat</tag>
         <tag>jdk</tag>
+        <tag>tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -3714,8 +3713,8 @@
       </categories>
       <tags>
         <tag>html</tag>
-        <tag>web</tag>
         <tag>seo</tag>
+        <tag>web</tag>
         <tag>优化</tag>
       </tags>
   </entry>
@@ -3727,9 +3726,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>蓝牙</tag>
         <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3739,9 +3738,6 @@
       <categories>
         <category>Life</category>
       </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[庆祝第二个本本入手]]></title>
@@ -3753,8 +3749,8 @@
       <tags>
         <tag>Acer</tag>
         <tag>笔记本</tag>
-        <tag>节日</tag>
         <tag>生日</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -3784,9 +3780,9 @@
         <category>Digital</category>
       </categories>
       <tags>
+        <tag>淘宝</tag>
         <tag>工行</tag>
         <tag>网银</tag>
-        <tag>淘宝</tag>
       </tags>
   </entry>
   <entry>
@@ -3803,7 +3799,7 @@
   <entry>
     <title><![CDATA[飞了1343公里]]></title>
     <url>%2F2006%2F05%2Fc4f812b3%2F</url>
-    <content type="text"><![CDATA[7:35 起床9:00 到公司11:00 到饭堂吃饭12:00 搬行礼12:22 开车12:58 到达宝安机场13:10 办理托运13:34 拿登机证13:45 通过检查口13:50 达到6号登机口13:56 飞机达到14:21 登机检查14:27 找到座位15:33 起飞16:00 送来饮料17:22 到达上海浦东机场18:09 终于拿到行礼,坐上公司专车18:17 车上发了张房卡＆饭卡18:56 达到公司19:07 到达饭堂19:36 到达宿舍 航班号:MU5332 因为下暴雨导致飞机延时起飞，不过总算到了上海。上海这边环境真不错，就是暂时不能上网有点遗憾。更多照片稍后再传，哈~~~]]></content>
+    <content type="text"><![CDATA[7:35 起床9:00 到公司11:00 到饭堂吃饭12:00 搬行礼12:22 开车12:58 到达宝安机场13:10 办理托运13:34 拿登机证13:45 通过检查口13:50 达到6号登机口13:56 飞机达到14:21 登机检查14:27 找到座位15:33 起飞16:00 送来饮料17:22 到达上海浦东机场18:09 终于拿到行礼,坐上公司专车18:17 车上发了张房卡＆饭卡18:56 达到公司19:07 到达饭堂19:36 到达宿舍 航班号:MU5332 因为下暴雨导致飞机延时起飞，不过总算到了上海。上海这边环境真不错，就是暂时不能上网有点遗憾。更多照片稍后再传，哈~]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -3820,14 +3816,11 @@
       <categories>
         <category>Life</category>
       </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[计算容量为整数的分区]]></title>
     <url>%2F2006%2F05%2F7198219f%2F</url>
-    <content type="text"><![CDATA[&nbsp; 早上实在无聊的慌，写了这么一个小东西，哈MM的组件真是重量级啊，才用了2个组件就几百KB了，要找找其它组件了 下载：SWF | FLA]]></content>
+    <content type="text"><![CDATA[早上实在无聊的慌，写了这么一个小东西，哈MM的组件真是重量级啊，才用了2个组件就几百KB了，要找找其它组件了 下载：SWF | FLA]]></content>
       <categories>
         <category>Flash</category>
       </categories>
@@ -4046,8 +4039,8 @@
       </categories>
       <tags>
         <tag>vbs</tag>
-        <tag>vb</tag>
         <tag>spider</tag>
+        <tag>vb</tag>
       </tags>
   </entry>
   <entry>
@@ -4083,8 +4076,8 @@
       </categories>
       <tags>
         <tag>vbs</tag>
-        <tag>vb</tag>
         <tag>spider</tag>
+        <tag>vb</tag>
       </tags>
   </entry>
   <entry>
@@ -4096,8 +4089,8 @@
       </categories>
       <tags>
         <tag>vbs</tag>
-        <tag>vb</tag>
         <tag>spider</tag>
+        <tag>vb</tag>
       </tags>
   </entry>
   <entry>
@@ -4342,8 +4335,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4417,8 +4410,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4448,14 +4441,6 @@
         <tag>html</tag>
         <tag>css</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[龟龟死了！]]></title>
-    <url>%2F2004%2F09%2Fa0adc259%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[Weekday()]]></title>
@@ -4690,8 +4675,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>金子</tag>
         <tag>blog</tag>
+        <tag>金子</tag>
       </tags>
   </entry>
   <entry>
