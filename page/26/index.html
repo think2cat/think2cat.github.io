@@ -444,9 +444,9 @@
       
         <div class="post-tags">
           
-            <a href="../../tags/mobile/" rel="tag"># mobile</a>
-          
             <a href="../../tags/多普达/" rel="tag"># 多普达</a>
+          
+            <a href="../../tags/mobile/" rel="tag"># mobile</a>
           
         </div>
       
@@ -774,9 +774,9 @@
       
         <div class="post-tags">
           
-            <a href="../../tags/mobile/" rel="tag"># mobile</a>
-          
             <a href="../../tags/多普达/" rel="tag"># 多普达</a>
+          
+            <a href="../../tags/mobile/" rel="tag"># mobile</a>
           
         </div>
       
@@ -1097,9 +1097,9 @@
       
         <div class="post-tags">
           
-            <a href="../../tags/淘宝/" rel="tag"># 淘宝</a>
-          
             <a href="../../tags/网银/" rel="tag"># 网银</a>
+          
+            <a href="../../tags/淘宝/" rel="tag"># 淘宝</a>
           
             <a href="../../tags/java/" rel="tag"># java</a>
           
@@ -1249,18 +1249,18 @@
         
           
             <p>用的是dp.SyntaxHighlighter ，JS+CSS实现的，很不错的东东</p>
-<p><strong>版本信息</strong><br><a href="http://www.dreamprojections.com/SyntaxHighlighter/" target="_blank" rel="noopener">dp.SyntaxHighlighter 1.4.1</a><br>Z-Blog 1.7 Laputa Build 70216<br>&nbsp;</p>
+<p><strong>版本信息</strong><br><a href="http://www.dreamprojections.com/SyntaxHighlighter/" target="_blank" rel="noopener">dp.SyntaxHighlighter 1.4.1</a><br>Z-Blog 1.7 Laputa Build 70216</p>
 <ol>
 <li>下载<a href="/blog/upload/2007/3/dp.SyntaxHighlighter.rar">dp.SyntaxHighlighter.rar</a>，解压到Z-Blog根目录，每种语言都有单独JS文件，把需要用到的传到WEB空间即可</li>
-<li>打开z-Blog模板文件\TEMPLATE\single.html，在&lt;head&gt;标签里加<br><font color="#ff0000">&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;&lt;#ZC_BLOG_HOST#&gt;css/SyntaxHighlighter.css&quot;&gt;&lt;/link&gt;</font><br>如果首页等其它页面也要实现语法高亮显示，在相应模板重复2、3步骤</li>
-<li>在&lt;/body&gt;前面加下面代码，根据自己需要选择性的加<textarea name="code" cols="100" rows="15" class="xml"><script class="javascript" src="/SCRIPT/shCore.js"></script><br><script class="javascript" src="/SCRIPT/shBrushCSharp.js"></script><br><script class="javascript" src="/SCRIPT/shBrushPhp.js"></script><br><script class="javascript" src="/SCRIPT/shBrushJScript.js"></script><br><script class="javascript" src="/SCRIPT/shBrushJava.js"></script><br><script class="javascript" src="/SCRIPT/shBrushVb.js"></script><br><script class="javascript" src="/SCRIPT/shBrushSql.js"></script><br><script class="javascript" src="/SCRIPT/shBrushXml.js"></script><br><script class="javascript" src="/SCRIPT/shBrushDelphi.js"></script><br><script class="javascript" src="/SCRIPT/shBrushPython.js"></script><br><script class="javascript" src="/SCRIPT/shBrushRuby.js"></script><br><script class="javascript" src="/SCRIPT/shBrushCss.js"></script><br><script class="javascript" src="/SCRIPT/shBrushCpp.js"></script><br><script class="javascript">dp.SyntaxHighlighter.HighlightAll(‘code’);</script></textarea></li>
-<li>打开/function/c_system_event.asp，266行<textarea name="code" cols="100" rows="15" class="javascript">Case “fckeditor”<br>objArticle.Content=Request.Form(“txaContent”)<br>‘objArticle.Content=Replace(objArticle.Content,vbCrLf,””)<br>‘objArticle.Content=Replace(objArticle.Content,vbLf,””)<br>If objArticle.Intro=”” Then<pre><code>s=objArticle.Content
-s=TransferHTML(s,&quot;[nohtml]&quot;)
-s=Left(s,ZC_TB_EXCERPT_MAX) &amp; &quot;...&quot;
-objArticle.Intro=s
-</code></pre>End If</textarea></li>
-<li>打开/function/c_system_lib.asp，380行最后的<strong>&quot;[html-japan][vbCrlf][upload]&quot;</strong>，去掉<font color="#ff0000">[vbCrlf]</font>，改后代码如下<textarea name="code" cols="100" rows="15" class="vb:firstline[379]">Public Property Get HtmlContent<br>HtmlContent=TransferHTML(UBBCode(Content,”[face][link][autolink][font][code][image][typeset][media][flash=500, 400, true][key]”),”[html-japan][upload]”)<br>End Property</textarea></li>
-<li>使用加亮实例<textarea name="code" cols="100" rows="15" class="xml">&lt;textarea name=&quot;code&quot; class=&quot;java&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;Java代码&lt;/textarea&gt;<br>&lt;textarea name=&quot;code&quot; class=&quot;vb:firstline[26]&quot; rows=&quot;15&quot; cols=&quot;100&quot;&gt;VB代码&lt;/textarea&gt;</textarea></li>
+<li>打开z-Blog模板文件\TEMPLATE\single.html，在 <code>&lt;head&gt;</code> 标签里加<br><code>&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;&lt;#ZC_BLOG_HOST#&gt;css/SyntaxHighlighter.css&quot;&gt;&lt;/link&gt;`</code><br>如果首页等其它页面也要实现语法高亮显示，在相应模板重复2、3步骤</li>
+<li><p>在 <code>&lt;/body&gt;</code> 前面加下面代码，根据自己需要选择性的加</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shCore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushCSharp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushPhp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushJScript.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushJava.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushVb.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushSql.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushXml.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushDelphi.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushPython.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushRuby.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushCss.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"/SCRIPT/shBrushCpp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span>&gt;</span><span class="actionscript">dp.SyntaxHighlighter.HighlightAll(<span class="string">'code'</span>);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  ```<span class="comment">&lt;!--more--&gt;</span></span><br><span class="line">4.  打开/function/c_system_event.asp，266行</span><br><span class="line">  ```js</span><br><span class="line">  Case "fckeditor"</span><br><span class="line">	objArticle.Content=Request.Form("txaContent")</span><br><span class="line">	'objArticle.Content=Replace(objArticle.Content,vbCrLf,"")</span><br><span class="line">	'objArticle.Content=Replace(objArticle.Content,vbLf,"")</span><br><span class="line">	If objArticle.Intro="" Then</span><br><span class="line">		s=objArticle.Content</span><br><span class="line">		s=TransferHTML(s,"[nohtml]")</span><br><span class="line">		s=Left(s,ZC_TB_EXCERPT_MAX) &amp; "..."</span><br><span class="line">		objArticle.Intro=s</span><br><span class="line">	End If</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开/function/c_system_lib.asp，380行最后的 <code>[html-japan][vbCrlf][upload]</code> ，去掉 <code>[vbCrlf]</code> ，改后代码如下</p>
+<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="keyword">Get</span> HtmlContent</span><br><span class="line">  HtmlContent=TransferHTML(UBBCode(Content,<span class="string">"[face][link][autolink][font][code][image][typeset][media][flash=500, 400, true][key]"</span>),<span class="string">"[html-japan][upload]"</span>)</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Property</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用加亮实例<br><code>`</code>html</p>
+<textarea name="code" class="java" rows="15" cols="100">Java代码</textarea><br><textarea name="code" class="vb:firstline[26]" rows="15" cols="100">VB代</textarea></li>
 </ol>
 
           
@@ -1271,9 +1271,9 @@ objArticle.Intro=s
           
             <a href="../../tags/blog/" rel="tag"># blog</a>
           
-            <a href="../../tags/css/" rel="tag"># css</a>
-          
             <a href="../../tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="../../tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -1434,9 +1434,9 @@ objArticle.Intro=s
       
         <div class="post-tags">
           
-            <a href="../../tags/mobile/" rel="tag"># mobile</a>
-          
             <a href="../../tags/多普达/" rel="tag"># 多普达</a>
+          
+            <a href="../../tags/mobile/" rel="tag"># mobile</a>
           
             <a href="../../tags/蓝牙/" rel="tag"># 蓝牙</a>
           
@@ -1758,9 +1758,9 @@ objArticle.Intro=s
       
         <div class="post-tags">
           
-            <a href="../../tags/mobile/" rel="tag"># mobile</a>
-          
             <a href="../../tags/多普达/" rel="tag"># 多普达</a>
+          
+            <a href="../../tags/mobile/" rel="tag"># mobile</a>
           
         </div>
       
@@ -2094,7 +2094,7 @@ objArticle.Intro=s
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">276</span>
+                <span class="site-state-item-count">270</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -507,11 +507,11 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="css" scheme="http://21ido.com/tags/css/"/>
-    
       <category term="html" scheme="http://21ido.com/tags/html/"/>
     
       <category term="flex" scheme="http://21ido.com/tags/flex/"/>
+    
+      <category term="css" scheme="http://21ido.com/tags/css/"/>
     
   </entry>
   
