@@ -337,161 +337,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2005/10/e092cfac/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2005/10/e092cfac/" itemprop="url">偶老了</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2005-10-17T23:31:49+08:00">
-                2005-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="/images/2005/10/17_27_2504139201_12700.gif" alt=""></p>
-<p>国庆回家，听说高中有个同学嫁人了，老妖好像是后天结婚吧，今天又听说Skirts同学下月要结婚，真是快啊，身边朋友一个个都喜结连理，不知不觉也感叹，偶老咯</p>
-<p>祝愿结婚的同志永结同心、早生贵子，哈哈</p>
-
-          
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/节日/" rel="tag"># 节日</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2005/10/dcbe6bb6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1049,12 +894,13 @@
 
       
         
-          <p>企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下</p>
+          
+            <p>企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下</p>
 <blockquote>
-<p>Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’ </p>
-<p>/iisHelp/common/500-100.asp，行242 </p>
-<p>Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’ </p>
-<p>[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。 </p>
+<p>Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’</p>
+<p>/iisHelp/common/500-100.asp，行242</p>
+<p>Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’</p>
+<p>[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。</p>
 <p>/conn.asp，行7</p>
 </blockquote>
 <p>该错误产生的原因是由于SQL Server使用了”仅 Windows”的身份验证方式，因此用户无法使用SQL Server的登录帐户（如 sa ）进行连接。解决方法如下所示：</p>
@@ -1062,14 +908,19 @@
 <li>在服务器端使用企业管理器，并且选择”使用 Windows 身份验证”连接上 SQL Server；</li>
 <li>展开”SQL Server组”，鼠标右键点击SQL Server服务器的名称，选择”属性”，再选择”安全性”选项卡；</li>
 <li>在”身份验证”下，选择”SQL Server和 Windows “。</li>
-<li>重新启动SQL Server服务。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="../../2005/07/9bdb9439/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<li>重新启动SQL Server服务。</li>
+</ol>
+<p><img src="/images/2005/07/28_12753.gif" alt="MSSQL"></p>
+<p>在以上解决方法中，如果在第 1 步中使用”使用 Windows 身份验证”连接 SQL Server 失败，那么我们将遇到一个两难的境地：首先，服务器只允许了 Windows 的身份验证；其次，即使使用了 Windows 身份验证仍然无法连接上服务器。这种情形被形象地称之为”自己把自己锁在了门外”，因为无论用何种方式，用户均无法使用进行连接。实际上，我们可以通过修改一个注册表键值来将身份验证方式改为 SQL Server 和 Windows 混合验证，步骤如下所示：</p>
+<ol>
+<li>点击”开始”-“运行”，输入regedit，回车进入注册表编辑器；</li>
+<li>依次展开注册表项，浏览到以下注册表键：<br><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer]</code></li>
+<li>在屏幕右方找到名称”LoginMode”，双击编辑双字节值；</li>
+<li>将原值从1改为2，点击”确定”；</li>
+<li>关闭注册表编辑器</li>
+</ol>
+
+          
         
       
       
@@ -1383,9 +1234,9 @@
       
         <div class="post-tags">
           
-            <a href="../../tags/Flash/" rel="tag"># Flash</a>
-          
             <a href="../../tags/actionscript/" rel="tag"># actionscript</a>
+          
+            <a href="../../tags/Flash/" rel="tag"># Flash</a>
           
         </div>
       
@@ -1709,9 +1560,9 @@
       
         <div class="post-tags">
           
-            <a href="../../tags/Flash/" rel="tag"># Flash</a>
-          
             <a href="../../tags/actionscript/" rel="tag"># actionscript</a>
+          
+            <a href="../../tags/Flash/" rel="tag"># Flash</a>
           
         </div>
       
@@ -1904,6 +1755,166 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2005/04/4be010de/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2005/04/4be010de/" itemprop="url">《RIA应用程序开发》大陆出版了！</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2005-04-02T22:07:00+08:00">
+                2005-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Flash/" itemprop="url" rel="index">
+                    <span itemprop="name">Flash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>刚刚收到通知邮件，《Flash MX 2004 ActionScript 2.0与RIA应用程序开发》大陆简体中文版已经出版，兴奋死了</p>
+<p><img src="/images/2005/04/02_12748.jpg" alt="RIA应用程序开发"> <img src="http://www.luar.com.hk/flashbook/upload/flashria_bookcover_cn_v2_2s.jpg" alt="RIA应用程序开发"></p>
+<p>作者：颜金桫 KCLY小土豆工作室<br>出版社：电子工业出版社<br>ISBN号：7-121-00914-5<br>定价：￥49.00元<br>页码：538<br>开本：16开 </p>
+<p>价格还可以，第二书店还没有，忧郁，《Essential ActionScript 2.0》台湾繁体已经出来很久了，大陆也没有，唉，等到出来差不多到8Ball了</p>
+
+          
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/书/" rel="tag"># 书</a>
+          
+            <a href="../../tags/actionscript/" rel="tag"># actionscript</a>
+          
+            <a href="../../tags/Flash/" rel="tag"># Flash</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1954,7 +1965,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">394</span>
+                <span class="site-state-item-count">393</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1976,7 +1987,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">280</span>
+                <span class="site-state-item-count">276</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -103,18 +103,18 @@
 
 
 
-<meta name="description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’  /iisHelp/common/500-100.asp，行242  Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’  [Microsoft">
+<meta name="description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’ /iisHelp/common/500-100.asp，行242 Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’ [Microsoft][O">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[未与信任 SQL Server 连接相关联]解决方法">
 <meta property="og:url" content="http://21ido.com/2005/07/9bdb9439/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’  /iisHelp/common/500-100.asp，行242  Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’  [Microsoft">
+<meta property="og:description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’ /iisHelp/common/500-100.asp，行242 Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’ [Microsoft][O">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://21ido.com/images/2005/07/28_12753.gif">
-<meta property="og:updated_time" content="2018-07-13T03:55:52.284Z">
+<meta property="og:updated_time" content="2018-08-11T03:19:26.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[未与信任 SQL Server 连接相关联]解决方法">
-<meta name="twitter:description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’  /iisHelp/common/500-100.asp，行242  Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’  [Microsoft">
+<meta name="twitter:description" content="企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下  Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’ /iisHelp/common/500-100.asp，行242 Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’ [Microsoft][O">
 <meta name="twitter:image" content="http://21ido.com/images/2005/07/28_12753.gif">
 
 
@@ -430,10 +430,10 @@
       
         <p>企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下</p>
 <blockquote>
-<p>Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’ </p>
-<p>/iisHelp/common/500-100.asp，行242 </p>
-<p>Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’ </p>
-<p>[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。 </p>
+<p>Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’</p>
+<p>/iisHelp/common/500-100.asp，行242</p>
+<p>Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’</p>
+<p>[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。</p>
 <p>/conn.asp，行7</p>
 </blockquote>
 <p>该错误产生的原因是由于SQL Server使用了”仅 Windows”的身份验证方式，因此用户无法使用SQL Server的登录帐户（如 sa ）进行连接。解决方法如下所示：</p>
@@ -441,13 +441,13 @@
 <li>在服务器端使用企业管理器，并且选择”使用 Windows 身份验证”连接上 SQL Server；</li>
 <li>展开”SQL Server组”，鼠标右键点击SQL Server服务器的名称，选择”属性”，再选择”安全性”选项卡；</li>
 <li>在”身份验证”下，选择”SQL Server和 Windows “。</li>
-<li>重新启动SQL Server服务。<a id="more"></a>
-<img src="/images/2005/07/28_12753.gif" alt="MSSQL"></li>
+<li>重新启动SQL Server服务。</li>
 </ol>
+<p><img src="/images/2005/07/28_12753.gif" alt="MSSQL"></p>
 <p>在以上解决方法中，如果在第 1 步中使用”使用 Windows 身份验证”连接 SQL Server 失败，那么我们将遇到一个两难的境地：首先，服务器只允许了 Windows 的身份验证；其次，即使使用了 Windows 身份验证仍然无法连接上服务器。这种情形被形象地称之为”自己把自己锁在了门外”，因为无论用何种方式，用户均无法使用进行连接。实际上，我们可以通过修改一个注册表键值来将身份验证方式改为 SQL Server 和 Windows 混合验证，步骤如下所示：</p>
 <ol>
 <li>点击”开始”-“运行”，输入regedit，回车进入注册表编辑器；</li>
-<li>依次展开注册表项，浏览到以下注册表键：<br> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer]</li>
+<li>依次展开注册表项，浏览到以下注册表键：<br><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer]</code></li>
 <li>在屏幕右方找到名称”LoginMode”，双击编辑双字节值；</li>
 <li>将原值从1改为2，点击”确定”；</li>
 <li>关闭注册表编辑器</li>
@@ -621,7 +621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../../archives/">
-                <span class="site-state-item-count">394</span>
+                <span class="site-state-item-count">393</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -643,7 +643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../../tags/index.html">
-                <span class="site-state-item-count">280</span>
+                <span class="site-state-item-count">276</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
