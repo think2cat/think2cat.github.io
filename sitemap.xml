@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://21ido.com/about/index.html</loc>
+    
+    <lastmod>2018-08-20T07:27:26.147Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://21ido.com/2008/11/d1693fa6/</loc>
     
     <lastmod>2018-08-17T09:21:14.964Z</lastmod>
@@ -149,35 +156,7 @@
   </url>
   
   <url>
-    <loc>http://21ido.com/2010/10/b3c07929/</loc>
-    
-    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://21ido.com/2010/10/c3aa8da6/</loc>
-    
-    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://21ido.com/2010/10/b4adbd30/</loc>
-    
-    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://21ido.com/2010/10/2da4ec8a/</loc>
-    
-    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://21ido.com/2010/10/5aa3dc1c/</loc>
     
     <lastmod>2018-08-11T07:58:17.424Z</lastmod>
     
@@ -191,7 +170,21 @@
   </url>
   
   <url>
-    <loc>http://21ido.com/2010/10/c4c749bf/</loc>
+    <loc>http://21ido.com/2010/10/5aa3dc1c/</loc>
+    
+    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://21ido.com/2010/10/b4adbd30/</loc>
+    
+    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://21ido.com/2010/10/c3aa8da6/</loc>
     
     <lastmod>2018-08-11T07:58:17.424Z</lastmod>
     
@@ -199,6 +192,20 @@
   
   <url>
     <loc>http://21ido.com/2010/10/f2ea806e/</loc>
+    
+    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://21ido.com/2010/10/b3c07929/</loc>
+    
+    <lastmod>2018-08-11T07:58:17.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://21ido.com/2010/10/c4c749bf/</loc>
     
     <lastmod>2018-08-11T07:58:17.424Z</lastmod>
     
@@ -2756,13 +2763,6 @@
     <loc>http://21ido.com/tags/index.html</loc>
     
     <lastmod>2018-07-13T03:55:57.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://21ido.com/about/index.html</loc>
-    
-    <lastmod>2018-07-13T03:55:52.307Z</lastmod>
     
   </url>
   
