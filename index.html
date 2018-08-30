@@ -337,6 +337,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com2018/08/e16c0619/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="2018/08/e16c0619/" itemprop="url">Axios笔记1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T13:02:03+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行<br>其中浏览器使用XMLHttpRequests对象进行请求<br><a href="https://github.com/axios/axios/" target="_blank" rel="noopener">Github地址</a></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>支持服务端和客户端</li>
+<li>基于Promise</li>
+<li>支持请求和响应拦截</li>
+<li>支持JSON格式转换</li>
+<li>支持取消请求</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install axios</span><br></pre></td></tr></table></figure></p>
+<p>或者直接引入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//raw.githubusercontent.com/axios/axios/9005a54a8b42be41ca49a31dcfda915d1a91c388/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/info'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果需要传参数，可以直接加在 url ，也可以用params<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/info'</span>,&#123;</span><br><span class="line">        params: &#123; <span class="attr">id</span>: <span class="number">123</span>, <span class="attr">time</span>: <span class="number">12345</span>&#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="post"><a href="#post" class="headerlink" title="post"></a>post</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axios.post(<span class="string">'/info'</span>,&#123;</span><br><span class="line">        id: <span class="number">123</span>, </span><br><span class="line">        name: <span class="string">'Gavin'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><p>get和post都是简化的请求，同时axios提供类似了jQuery.ajax的api，可以直接配config<br>上面2个改下如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">axios.request(&#123;</span><br><span class="line">    url: <span class="string">'/info'</span>,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    params: &#123; <span class="attr">id</span>: <span class="number">123</span>, <span class="attr">time</span>: <span class="number">12345</span>&#125;</span><br><span class="line">    &#125;.then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios.request(&#123;</span><br><span class="line">    url: <span class="string">'/info'</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        id: <span class="number">123</span>, </span><br><span class="line">        name: <span class="string">'Gavin'</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#125;.then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p>这个主要在RESTful规范API会用到<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.delete(<span class="string">'/user/123'</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="put"><a href="#put" class="headerlink" title="put"></a>put</h3><p>同delete方法，主要用于修改接口<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.put(<span class="string">'/user/123'</span>, jsonObj)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><p>head用法同get，但是只返回header信息，不会有response body<br>可以节省很多带宽，主要用途</p>
+<ol>
+<li>测试连接可用性</li>
+<li>检验页面有没改动</li>
+<li>藏在header的数据检验<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axios.head(<span class="string">"/info"</span>, &#123; <span class="attr">params</span>: &#123;<span class="string">"id"</span>: <span class="number">123</span>&#125;&#125;)</span><br><span class="line">    .then(</span><br><span class="line">        response =&gt; <span class="built_in">console</span>.info(<span class="string">"headers:"</span>, response.headers)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="all"><a href="#all" class="headerlink" title="all"></a>all</h3><p>同Promise的all，可以传入请求数组，当请求全部完成时执行回调<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">axios.all([</span><br><span class="line">  axios.get(<span class="string">'//google.com'</span>),</span><br><span class="line">  axios.get(<span class="string">'//163.com'</span>),</span><br><span class="line">  axios.get(<span class="string">'//qq.com'</span>)</span><br><span class="line">  ]).then(</span><br><span class="line">      res =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></p>
+<p><code>all</code> 传入数组，回调返回的 <code>response</code> 其实也是数组<br><img src="/images/2018/08/axios1.png" alt="image"></p>
+<h3 id="spread"><a href="#spread" class="headerlink" title="spread"></a>spread</h3><p>这个方法用来展开多个response返回值，我自己没实际用过，谷歌了也没发现具体用途，不知道跟数组是什么优势，有知道的麻烦说一下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">axios.all([</span><br><span class="line">  axios.get(<span class="string">'//google.com'</span>),</span><br><span class="line">  axios.get(<span class="string">'//163.com'</span>),</span><br><span class="line">  axios.get(<span class="string">'//qq.com'</span>)</span><br><span class="line">  ]).then(</span><br><span class="line">    axios.spread(<span class="function">(<span class="params">res1,res2,res3</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res1)</span><br><span class="line">      <span class="built_in">console</span>.log(res2)</span><br><span class="line">      <span class="built_in">console</span>.log(res3)</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="tags/axios/" rel="tag"># axios</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com2018/08/33ad2a19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1800,170 +1981,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com2018/02/83090531/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/02/83090531/" itemprop="url">WebSocket入门（1）TCP基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T18:18:15+08:00">
-                2018-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>WebSocket是html5的产物，跟socket相似，但是前期通讯是基于http，而http又是基于TCP<br>先说下TCP的三次握手</p>
-<p><img src="/images/2018/02/tcp3.png" alt=""></p>
-<p>翻译成人话就是这样</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">客户端：老哥你在吗</span><br><span class="line">服务端：老弟找我啥事</span><br><span class="line">服务端：太好了是这样的</span><br><span class="line">然后传输开始巴拉巴拉巴拉</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/02/83090531/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="tags/http/" rel="tag"># http</a>
-          
-            <a href="tags/socket/" rel="tag"># socket</a>
-          
-            <a href="tags/tcp/" rel="tag"># tcp</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2014,7 +2031,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">391</span>
+                <span class="site-state-item-count">392</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2036,7 +2053,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="tags/index.html">
-                <span class="site-state-item-count">268</span>
+                <span class="site-state-item-count">269</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

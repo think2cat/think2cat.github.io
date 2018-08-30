@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-08-09T16:30:15.961Z</updated>
+  <updated>2018-08-30T12:33:54.492Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Axios笔记1</title>
+    <link href="http://21ido.com/2018/08/e16c0619/"/>
+    <id>http://21ido.com/2018/08/e16c0619/</id>
+    <published>2018-08-24T05:02:03.000Z</published>
+    <updated>2018-08-30T12:33:54.492Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行&lt;br&gt;其中浏览器使用XMLHttpRequests对象进行请求&lt;br&gt;&lt;a href=&quot;https://github.com/axios/axios/&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="axios" scheme="http://21ido.com/tags/axios/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise入门指南(5)</title>
@@ -538,32 +566,6 @@
       <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>grunt入门笔记（1）</title>
-    <link href="http://21ido.com/2017/05/b722d741/"/>
-    <id>http://21ido.com/2017/05/b722d741/</id>
-    <published>2017-05-14T16:14:47.000Z</published>
-    <updated>2018-08-02T07:09:26.939Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/2017/05/gruntjs.jpg&quot; alt=&quot;grunt.js&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1-安装&quot;&gt;&lt;a href=&quot;#1-安装&quot; class=&quot;headerlink&quot; title=&quot;1. 安装&quot;&gt;&lt;/a&gt;1. 安装&lt;/h4&gt;&lt;p&gt;grunt依赖node.js，需要先安装node.js，官网&lt;a href=&quot;https://nodejs.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://nodejs.org/&lt;/a&gt;&lt;br&gt;安装后敲node -v会打印版本号，则安装成功&lt;br&gt;接着安装grunt， -g表示全局，不带则安装到当前目录&lt;br&gt;npm install -g grunt-cli&lt;/p&gt;
-&lt;h4 id=&quot;2-初始化package-json&quot;&gt;&lt;a href=&quot;#2-初始化package-json&quot; class=&quot;headerlink&quot; title=&quot;2. 初始化package.json&quot;&gt;&lt;/a&gt;2. 初始化package.json&lt;/h4&gt;&lt;p&gt;package.json是node.js项目描述文件，在项目根目录下执行&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm init&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="nodejs" scheme="http://21ido.com/tags/nodejs/"/>
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="grunt" scheme="http://21ido.com/tags/grunt/"/>
     
   </entry>
   
