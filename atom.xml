@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-08-30T12:33:54.492Z</updated>
+  <updated>2018-08-31T06:14:24.980Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2018-08-30T12:33:54.492Z</updated>
+    <updated>2018-08-31T06:14:24.980Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行&lt;br&gt;其中浏览器使用XMLHttpRequests对象进行请求&lt;br&gt;&lt;a href=&quot;https://github.com/axios/axios/&quot;
-        
-      
+      &lt;p&gt;Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行&lt;br&gt;其中浏览器使用XMLHttpRequests对象进行请求&lt;br&gt;&lt;a href=&quot;https://github.com/axios/axios/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot; title=&quot;特点&quot;&gt;&lt;/a&gt;特点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;支持服务端和客户端&lt;/li&gt;
+&lt;li&gt;基于Promise&lt;/li&gt;
+&lt;li&gt;支持请求和响应拦截&lt;/li&gt;
+&lt;li&gt;支持JSON格式转换&lt;/li&gt;
+&lt;li&gt;支持取消请求
     
     </summary>
     
