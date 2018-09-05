@@ -106,16 +106,16 @@
 <meta name="description" content="实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&amp;#123;  baseURL: &apos;/api1.0/&apos;  timeout: 5000 // request timeout&amp;#125;)function list(query) &amp;#123;">
 <meta name="keywords" content="javascript,http,axios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Axios笔记2">
+<meta property="og:title" content="Axios笔记(2)">
 <meta property="og:url" content="http://21ido.com/2018/08/786557a3/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&amp;#123;  baseURL: &apos;/api1.0/&apos;  timeout: 5000 // request timeout&amp;#125;)function list(query) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://21ido.com/images/2018/08/axios2.png">
 <meta property="og:image" content="http://21ido.com/images/2018/08/axios3.png">
-<meta property="og:updated_time" content="2018-09-05T11:28:23.519Z">
+<meta property="og:updated_time" content="2018-09-05T11:39:57.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Axios笔记2">
+<meta name="twitter:title" content="Axios笔记(2)">
 <meta name="twitter:description" content="实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&amp;#123;  baseURL: &apos;/api1.0/&apos;  timeout: 5000 // request timeout&amp;#125;)function list(query) &amp;#123;">
 <meta name="twitter:image" content="http://21ido.com/images/2018/08/axios2.png">
 
@@ -152,7 +152,7 @@
 
 
 
-  <title>Axios笔记2 | 猫大叔</title>
+  <title>Axios笔记(2) | 猫大叔</title>
   
 
 
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Axios笔记2</h1>
+          <h1 class="post-title" itemprop="name headline">Axios笔记(2)</h1>
         
 
         <div class="post-meta">
@@ -432,13 +432,13 @@
       
         <h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象<br>并配置好基本参数，然后所有请求走实例化对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'/api1.0/'</span></span><br><span class="line">  timeout: <span class="number">5000</span> <span class="comment">// request timeout</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span>(<span class="params">query</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service(&#123;</span><br><span class="line">    url: <span class="string">'getList'</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: query</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用示例</span></span><br><span class="line">list(query).then()</span><br></pre></td></tr></table></figure></p>
 <p>配置参数较多，参照 <a href="https://github.com/axios/axios" target="_blank" rel="noopener">Axios官网</a></p>
-<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>axios支持拦截器，可以在请求和返回时进行拦截处理<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> config, error =&gt; error);</span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">response</span> =&gt;</span> response, error =&gt; error);</span><br></pre></td></tr></table></figure></p>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>axios支持拦截器，可以在请求和返回时进行拦截处理<a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> config, error =&gt; error);</span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">response</span> =&gt;</span> response, error =&gt; error);</span><br></pre></td></tr></table></figure></p>
 <p>拦截器同样是符合Promise标准<br>一般用的较多的是在请求时加入 <code>token</code> ，返回数据时进行数据过滤和权限判断</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">service.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 让每个请求携带token</span></span><br><span class="line">  config.headers[<span class="string">'token'</span>] = <span class="string">'xxxx'</span></span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error) <span class="comment">// for debug</span></span><br><span class="line">  <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  response =&gt; response,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request.err'</span> + error)<span class="comment">// for debug</span></span><br><span class="line">    <span class="keyword">if</span> (error.response &amp;&amp; error.response.status === <span class="number">401</span>) &#123;</span><br><span class="line">      <span class="comment">// session失效</span></span><br><span class="line">      <span class="comment">// 登录超时，请重新登录</span></span><br><span class="line">      <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>Axios默认把 <code>200 &lt;= status &lt; 300</code> 归为 resolve，其它则为 reject<br>可以修改参数中 <code>validateStatus</code> 来进行修改<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">validateStatus: <span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> status &gt;= <span class="number">200</span> &amp;&amp; status &lt; <span class="number">300</span>; <span class="comment">// default</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
 <p>reject 时返回error对象，可以从 error.response 获取http对象<br><img src="/images/2018/08/axios2.png" alt="error.response"></p>
 <p>如果是本地发生的异常，还没到请求阶段，则没有 response 对象</p>
-<h2 id="取消请求"><a href="#取消请求" class="headerlink" title="取消请求"></a>取消请求</h2><p>调用定时器 <code>setTimeout()</code> 会返回一个整形token，然后用 <code>clearTimeout()</code> 传入返回的token即可清除定时器<br>axios 的取消也是一样道理，只是不是请求时返回token，而是把token在请求时<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = axios.CancelToken.source()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'cancelToken'</span>, source)</span><br></pre></td></tr></table></figure></p>
+<h2 id="取消请求"><a href="#取消请求" class="headerlink" title="取消请求"></a>取消请求</h2><p>调用定时器 <code>setTimeout()</code> 会返回一个整形token，然后用 <code>clearTimeout()</code> 传入返回的token即可清除定时器<br>axios 的取消也是一样道理，只是不是在请求时返回token，而是把token附加到请求参数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> source = axios.CancelToken.source()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'cancelToken'</span>, source)</span><br></pre></td></tr></table></figure></p>
 <p>初始化一个 <code>CancelToken</code> 对象<br><img src="/images/2018/08/axios3.png" alt="axios.CancelToken"><br>里面有个 <code>cancel()</code> 方法和名为 <code>token</code> 的 Promise对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求时传入 cancelToken</span></span><br><span class="line">request(&#123;</span><br><span class="line">    url: <span class="string">'list'</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: query,</span><br><span class="line">    cancelToken: source.token</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.message)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 取消请求</span></span><br><span class="line">source.cancel(<span class="string">'some request is cancel'</span>)</span><br></pre></td></tr></table></figure>
 <p>此时 <code>catch</code> 会打印 <code>some request is cancel</code></p>
@@ -458,7 +458,7 @@
 
       
         <h3>相关文章推荐</h3>
-        <ul class="related-posts"><li class="related-posts-item"><a href="/2018/08/e16c0619/" title="Axios笔记1" rel="bookmark">Axios笔记1</a></li><li class="related-posts-item"><a href="/2010/01/64fe6205/" title="cntv.cn视频绝对地址分析" rel="bookmark">cntv.cn视频绝对地址分析</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/08/33ad2a19/" title="Promise入门指南(5)" rel="bookmark">Promise入门指南(5)</a></li><li class="related-posts-item"><a href="/2018/07/65f78d9f/" title="Promise入门指南(3)" rel="bookmark">Promise入门指南(3)</a></li></ul>
+        <ul class="related-posts"><li class="related-posts-item"><a href="/2018/08/e16c0619/" title="Axios笔记(1)" rel="bookmark">Axios笔记(1)</a></li><li class="related-posts-item"><a href="/2017/05/b722d741/" title="grunt入门笔记（1）" rel="bookmark">grunt入门笔记（1）</a></li><li class="related-posts-item"><a href="/2017/06/5b0ab7b9/" title="ES6箭头函数" rel="bookmark">ES6箭头函数</a></li><li class="related-posts-item"><a href="/2006/04/d5ef69c5/" title="《JavaScript权威指南》学习笔记(1)" rel="bookmark">《JavaScript权威指南》学习笔记(1)</a></li><li class="related-posts-item"><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach" rel="bookmark">Javascript数组的every、some、map、filter、forEach</a></li><li class="related-posts-item"><a href="/2018/06/57c1ef1d/" title="Promise入门指南(1)" rel="bookmark">Promise入门指南(1)</a></li><li class="related-posts-item"><a href="/2018/07/7cecbcde/" title="Promise入门指南(2)" rel="bookmark">Promise入门指南(2)</a></li><li class="related-posts-item"><a href="/2018/07/2ab61b58/" title="Promise入门指南(4)" rel="bookmark">Promise入门指南(4)</a></li></ul>
       
 
     </div>
@@ -503,7 +503,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://21ido.com/2018/08/786557a3/" title="Axios笔记2">http://21ido.com/2018/08/786557a3/</a>
+    <a href="http://21ido.com/2018/08/786557a3/" title="Axios笔记(2)">http://21ido.com/2018/08/786557a3/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -541,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../e16c0619/" rel="next" title="Axios笔记1">
-                <i class="fa fa-chevron-left"></i> Axios笔记1
+              <a href="../e16c0619/" rel="next" title="Axios笔记(1)">
+                <i class="fa fa-chevron-left"></i> Axios笔记(1)
               </a>
             
           </div>

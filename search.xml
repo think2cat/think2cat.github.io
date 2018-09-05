@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Axios笔记2]]></title>
+    <title><![CDATA[Axios笔记(2)]]></title>
     <url>%2F2018%2F08%2F786557a3%2F</url>
-    <content type="text"><![CDATA[实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&#123; baseURL: '/api1.0/' timeout: 5000 // request timeout&#125;)function list(query) &#123; return service(&#123; url: 'getList', method: 'post', data: query &#125;)&#125;// 调用示例list(query).then() 配置参数较多，参照 Axios官网 拦截器axios支持拦截器，可以在请求和返回时进行拦截处理12axios.interceptors.request.use(config =&gt; config, error =&gt; error);axios.interceptors.response.use(response =&gt; response, error =&gt; error); 拦截器同样是符合Promise标准一般用的较多的是在请求时加入 token ，返回数据时进行数据过滤和权限判断 1234567891011121314151617181920service.interceptors.request.use(config =&gt; &#123; // 让每个请求携带token config.headers['token'] = 'xxxx' return config&#125;, error =&gt; &#123; console.log(error) // for debug Promise.reject(error)&#125;)service.interceptors.response.use( response =&gt; response, error =&gt; &#123; console.log('request.err' + error)// for debug if (error.response &amp;&amp; error.response.status === 401) &#123; // session失效 // 登录超时，请重新登录 // do something &#125; return Promise.reject(error) &#125;) 错误处理Axios默认把 200 &lt;= status &lt; 300 归为 resolve，其它则为 reject可以修改参数中 validateStatus 来进行修改123validateStatus: function (status) &#123; return status &gt;= 200 &amp;&amp; status &lt; 300; // default&#125;, reject 时返回error对象，可以从 error.response 获取http对象 如果是本地发生的异常，还没到请求阶段，则没有 response 对象 取消请求调用定时器 setTimeout() 会返回一个整形token，然后用 clearTimeout() 传入返回的token即可清除定时器axios 的取消也是一样道理，只是不是请求时返回token，而是把token在请求时12const source = axios.CancelToken.source()console.log('cancelToken', source) 初始化一个 CancelToken 对象里面有个 cancel() 方法和名为 token 的 Promise对象 1234567891011// 请求时传入 cancelTokenrequest(&#123; url: 'list', method: 'post', data: query, cancelToken: source.token&#125;).catch(e =&gt; &#123; console.log(e.message)&#125;)// 取消请求source.cancel('some request is cancel') 此时 catch 会打印 some request is cancel]]></content>
+    <content type="text"><![CDATA[实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&#123; baseURL: '/api1.0/' timeout: 5000 // request timeout&#125;)function list(query) &#123; return service(&#123; url: 'getList', method: 'post', data: query &#125;)&#125;// 调用示例list(query).then() 配置参数较多，参照 Axios官网 拦截器axios支持拦截器，可以在请求和返回时进行拦截处理12axios.interceptors.request.use(config =&gt; config, error =&gt; error);axios.interceptors.response.use(response =&gt; response, error =&gt; error); 拦截器同样是符合Promise标准一般用的较多的是在请求时加入 token ，返回数据时进行数据过滤和权限判断 1234567891011121314151617181920service.interceptors.request.use(config =&gt; &#123; // 让每个请求携带token config.headers['token'] = 'xxxx' return config&#125;, error =&gt; &#123; console.log(error) // for debug Promise.reject(error)&#125;)service.interceptors.response.use( response =&gt; response, error =&gt; &#123; console.log('request.err' + error)// for debug if (error.response &amp;&amp; error.response.status === 401) &#123; // session失效 // 登录超时，请重新登录 // do something &#125; return Promise.reject(error) &#125;) 错误处理Axios默认把 200 &lt;= status &lt; 300 归为 resolve，其它则为 reject可以修改参数中 validateStatus 来进行修改123validateStatus: function (status) &#123; return status &gt;= 200 &amp;&amp; status &lt; 300; // default&#125;, reject 时返回error对象，可以从 error.response 获取http对象 如果是本地发生的异常，还没到请求阶段，则没有 response 对象 取消请求调用定时器 setTimeout() 会返回一个整形token，然后用 clearTimeout() 传入返回的token即可清除定时器axios 的取消也是一样道理，只是不是在请求时返回token，而是把token附加到请求参数12const source = axios.CancelToken.source()console.log('cancelToken', source) 初始化一个 CancelToken 对象里面有个 cancel() 方法和名为 token 的 Promise对象 1234567891011// 请求时传入 cancelTokenrequest(&#123; url: 'list', method: 'post', data: query, cancelToken: source.token&#125;).catch(e =&gt; &#123; console.log(e.message)&#125;)// 取消请求source.cancel('some request is cancel') 此时 catch 会打印 some request is cancel]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -14,7 +14,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Axios笔记1]]></title>
+    <title><![CDATA[Axios笔记(1)]]></title>
     <url>%2F2018%2F08%2Fe16c0619%2F</url>
     <content type="text"><![CDATA[Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行其中浏览器使用XMLHttpRequests对象进行请求Github地址 特点 支持服务端和客户端 基于Promise 支持请求和响应拦截 支持JSON格式转换 支持取消请求 安装1npm install axios 或者1bower install axios 或者直接引入1&lt;script src="//raw.githubusercontent.com/axios/axios/9005a54a8b42be41ca49a31dcfda915d1a91c388/dist/axios.min.js"&gt;&lt;/script&gt; 使用get1234567axios.get('/info') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); 如果需要传参数，可以直接加在 url ，也可以用params123456789axios.get('/info',&#123; params: &#123; id: 123, time: 12345&#125; &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); post12345678910axios.post('/info',&#123; id: 123, name: 'Gavin' &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); requestget和post都是简化的请求，同时axios提供类似了jQuery.ajax的api，可以直接配config上面2个改下如下12345678910111213141516171819202122axios.request(&#123; url: '/info', method: 'get', params: &#123; id: 123, time: 12345&#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;);axios.request(&#123; url: '/info', method: 'post', data: &#123; id: 123, name: 'Gavin' &#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;); delete这个主要在RESTful规范API会用到1234567axios.delete('/user/123') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); put同delete方法，主要用于修改接口1234567axios.put('/user/123', jsonObj) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); headhead用法同get，但是只返回header信息，不会有response body可以节省很多带宽，主要用途 测试连接可用性 检验页面有没改动 藏在header的数据检验1234axios.head("/info", &#123; params: &#123;"id": 123&#125;&#125;) .then( response =&gt; console.info("headers:", response.headers) ) all同Promise的all，可以传入请求数组，当请求全部完成时执行回调123456789axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( res =&gt; &#123; console.log(res) &#125; ); all 传入数组，回调返回的 response 其实也是数组 spread这个方法用来展开多个response返回值，我自己没实际用过，谷歌了也没发现具体用途，不知道跟数组是什么优势，有知道的麻烦说一下1234567891011axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( axios.spread((res1,res2,res3) =&gt; &#123; console.log(res1) console.log(res2) console.log(res3) &#125;) );]]></content>
       <categories>
@@ -245,8 +245,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -269,8 +269,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>nodejs</tag>
+        <tag>javascript</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -329,8 +329,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -415,8 +415,8 @@
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>琼海</tag>
+        <tag>蜜月</tag>
         <tag>万宁</tag>
       </tags>
   </entry>
@@ -431,10 +431,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>文昌</tag>
+        <tag>海南</tag>
         <tag>琼海</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -448,8 +448,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>海口</tag>
         <tag>蜜月</tag>
+        <tag>海口</tag>
       </tags>
   </entry>
   <entry>
@@ -463,8 +463,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>海口</tag>
         <tag>蜜月</tag>
+        <tag>海口</tag>
       </tags>
   </entry>
   <entry>
@@ -532,8 +532,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>武汉</tag>
         <tag>信阳</tag>
+        <tag>武汉</tag>
       </tags>
   </entry>
   <entry>
@@ -591,10 +591,10 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
-        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>武汉</tag>
+        <tag>东西湖</tag>
       </tags>
   </entry>
   <entry>
@@ -716,10 +716,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
+        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
-        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -733,8 +733,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>151基地</tag>
-        <tag>黑马河</tag>
         <tag>江西沟</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -746,8 +746,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -762,9 +762,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -777,10 +777,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -794,8 +794,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -972,8 +972,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1181,8 +1181,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1220,8 +1220,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,9 +1245,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1259,10 +1259,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1273,9 +1273,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1287,8 +1287,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
         <tag>单车</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1451,8 +1451,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
         <tag>单车</tag>
+        <tag>南山</tag>
         <tag>南山66</tag>
       </tags>
   </entry>
@@ -1509,8 +1509,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -1635,8 +1635,8 @@
       </categories>
       <tags>
         <tag>户外</tag>
-        <tag>南山</tag>
         <tag>单车</tag>
+        <tag>南山</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1662,10 +1662,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>刷街</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
-        <tag>单车</tag>
         <tag>轮滑</tag>
       </tags>
   </entry>
@@ -1717,8 +1717,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1878,8 +1878,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1894,8 +1894,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -2082,8 +2082,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>html</tag>
+        <tag>javascript</tag>
         <tag>ajax</tag>
         <tag>zblog</tag>
       </tags>
@@ -2370,8 +2370,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>大梅沙</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -2382,8 +2382,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2443,8 +2443,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2456,8 +2456,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>咖啡</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -2768,8 +2768,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -3164,8 +3164,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -3279,8 +3279,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3327,9 +3327,9 @@
       <tags>
         <tag>java</tag>
         <tag>netbeans</tag>
+        <tag>tomcat</tag>
         <tag>eclipse</tag>
         <tag>ruby</tag>
-        <tag>tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -3365,8 +3365,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3415,9 +3415,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3535,8 +3535,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>tomcat</tag>
         <tag>jdk</tag>
+        <tag>tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -3651,8 +3651,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4066,8 +4066,8 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>mFancy</tag>
         <tag>mobile</tag>
+        <tag>mFancy</tag>
       </tags>
   </entry>
   <entry>
@@ -4349,8 +4349,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4424,8 +4424,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4452,8 +4452,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4464,8 +4464,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4476,8 +4476,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4825,8 +4825,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>

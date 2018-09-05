@@ -356,7 +356,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="2018/08/786557a3/" itemprop="url">Axios笔记2</a></h1>
+                <a class="post-title-link" href="2018/08/786557a3/" itemprop="url">Axios笔记(2)</a></h1>
         
 
         <div class="post-meta">
@@ -432,7 +432,7 @@
         
           <h2 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h2><p>上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象<br>并配置好基本参数，然后所有请求走实例化对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'/api1.0/'</span></span><br><span class="line">  timeout: <span class="number">5000</span> <span class="comment">// request timeout</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span>(<span class="params">query</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> service(&#123;</span><br><span class="line">    url: <span class="string">'getList'</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: query</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用示例</span></span><br><span class="line">list(query).then()</span><br></pre></td></tr></table></figure></p>
 <p>配置参数较多，参照 <a href="https://github.com/axios/axios" target="_blank" rel="noopener">Axios官网</a></p>
-<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>axios支持拦截器，可以在请求和返回时进行拦截处理<br>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>axios支持拦截器，可以在请求和返回时进行拦截处理
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="2018/08/786557a3/#more" rel="contents">
@@ -519,7 +519,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="2018/08/e16c0619/" itemprop="url">Axios笔记1</a></h1>
+                <a class="post-title-link" href="2018/08/e16c0619/" itemprop="url">Axios笔记(1)</a></h1>
         
 
         <div class="post-meta">

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-09-05T11:28:23.519Z</updated>
+  <updated>2018-09-05T11:39:57.542Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Axios笔记2</title>
+    <title>Axios笔记(2)</title>
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2018-09-05T11:28:23.519Z</updated>
+    <updated>2018-09-05T11:39:57.542Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;实例化&quot;&gt;&lt;a href=&quot;#实例化&quot; class=&quot;headerlink&quot; title=&quot;实例化&quot;&gt;&lt;/a&gt;实例化&lt;/h2&gt;&lt;p&gt;上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象&lt;br&gt;并配置好基本参数，然后所有请求走实例化对象&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; service = axios.create(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  baseURL: &lt;span class=&quot;string&quot;&gt;&#39;/api1.0/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  timeout: &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// request timeout&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;query&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; service(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    url: &lt;span class=&quot;string&quot;&gt;&#39;getList&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    method: &lt;span class=&quot;string&quot;&gt;&#39;post&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    data: query&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 调用示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;list(query).then()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;配置参数较多，参照 &lt;a href=&quot;https://github.com/axios/axios&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Axios官网&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;拦截器&quot;&gt;&lt;a href=&quot;#拦截器&quot; class=&quot;headerlink&quot; title=&quot;拦截器&quot;&gt;&lt;/a&gt;拦截器&lt;/h2&gt;&lt;p&gt;axios支持拦截器，可以在请求和返回时进行拦截处理&lt;br&gt;
+&lt;h2 id=&quot;拦截器&quot;&gt;&lt;a href=&quot;#拦截器&quot; class=&quot;headerlink&quot; title=&quot;拦截器&quot;&gt;&lt;/a&gt;拦截器&lt;/h2&gt;&lt;p&gt;axios支持拦截器，可以在请求和返回时进行拦截处理
     
     </summary>
     
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>Axios笔记1</title>
+    <title>Axios笔记(1)</title>
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2018-09-05T11:28:26.076Z</updated>
+    <updated>2018-09-05T11:38:33.811Z</updated>
     
     <summary type="html">
     
@@ -565,9 +565,9 @@
     
       <category term="flex" scheme="http://21ido.com/tags/flex/"/>
     
-      <category term="css" scheme="http://21ido.com/tags/css/"/>
-    
       <category term="html" scheme="http://21ido.com/tags/html/"/>
+    
+      <category term="css" scheme="http://21ido.com/tags/css/"/>
     
   </entry>
   
