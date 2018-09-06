@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[Axios笔记(1)]]></title>
     <url>%2F2018%2F08%2Fe16c0619%2F</url>
-    <content type="text"><![CDATA[Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行其中浏览器使用XMLHttpRequests对象进行请求Github地址 特点 支持服务端和客户端 基于Promise 支持请求和响应拦截 支持JSON格式转换 支持取消请求 安装1npm install axios 或者1bower install axios 或者直接引入1&lt;script src="//raw.githubusercontent.com/axios/axios/9005a54a8b42be41ca49a31dcfda915d1a91c388/dist/axios.min.js"&gt;&lt;/script&gt; 使用get1234567axios.get('/info') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); 如果需要传参数，可以直接加在 url ，也可以用params123456789axios.get('/info',&#123; params: &#123; id: 123, time: 12345&#125; &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); post12345678910axios.post('/info',&#123; id: 123, name: 'Gavin' &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); requestget和post都是简化的请求，同时axios提供类似了jQuery.ajax的api，可以直接配config上面2个改下如下12345678910111213141516171819202122axios.request(&#123; url: '/info', method: 'get', params: &#123; id: 123, time: 12345&#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;);axios.request(&#123; url: '/info', method: 'post', data: &#123; id: 123, name: 'Gavin' &#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;); delete这个主要在RESTful规范API会用到1234567axios.delete('/user/123') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); put同delete方法，主要用于修改接口1234567axios.put('/user/123', jsonObj) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); headhead用法同get，但是只返回header信息，不会有response body可以节省很多带宽，主要用途 测试连接可用性 检验页面有没改动 藏在header的数据检验1234axios.head("/info", &#123; params: &#123;"id": 123&#125;&#125;) .then( response =&gt; console.info("headers:", response.headers) ) all同Promise的all，可以传入请求数组，当请求全部完成时执行回调123456789axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( res =&gt; &#123; console.log(res) &#125; ); all 传入数组，回调返回的 response 其实也是数组 spread这个方法用来展开多个response返回值，我自己没实际用过，谷歌了也没发现具体用途，不知道跟数组是什么优势，有知道的麻烦说一下1234567891011axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( axios.spread((res1,res2,res3) =&gt; &#123; console.log(res1) console.log(res2) console.log(res3) &#125;) );]]></content>
+    <content type="text"><![CDATA[Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行其中浏览器使用XMLHttpRequests对象进行请求Github地址 特点 支持服务端和客户端 基于Promise 支持请求和响应拦截 支持JSON格式转换 支持取消请求 安装1npm install axios 或者1bower install axios 或者直接引入1&lt;script src="//raw.githubusercontent.com/axios/axios/9005a54a8b42be41ca49a31dcfda915d1a91c388/dist/axios.min.js"&gt;&lt;/script&gt; 使用get1234567axios.get('/info') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); 如果需要传参数，可以直接加在 url ，也可以用params123456789axios.get('/info',&#123; params: &#123; id: 123, time: 12345&#125; &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); post12345678910axios.post('/info',&#123; id: 123, name: 'Gavin' &#125;) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); requestget和post都是简化的请求，同时axios提供类似了jQuery.ajax的api，可以直接配config上面2个改下如下12345678910111213141516171819202122axios.request(&#123; url: '/info', method: 'get', params: &#123; id: 123, time: 12345&#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;);axios.request(&#123; url: '/info', method: 'post', data: &#123; id: 123, name: 'Gavin' &#125; &#125;.then(response =&gt; &#123; console.log(response); &#125;).catch(error =&gt; &#123; console.log(error);&#125;); delete这个主要在RESTful规范API会用到1234567axios.delete('/user/123') .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); put同delete方法，主要用于修改接口1234567axios.put('/user/123', jsonObj) .then(response =&gt; &#123; console.log(response); &#125;) .catch(error =&gt; &#123; console.log(error);&#125;); headhead用法同get，但是只返回header信息，不会有response body可以节省很多带宽，主要用途 测试连接可用性 检验页面有没改动 藏在header的数据检验 1234axios.head("/info", &#123; params: &#123;"id": 123&#125;&#125;) .then( response =&gt; console.info("headers:", response.headers) ) all同Promise的all，可以传入请求数组，当请求全部完成时执行回调123456789axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( res =&gt; &#123; console.log(res) &#125; ); all 传入数组，回调返回的 response 其实也是数组 spread这个方法用来展开多个response返回值，我自己没实际用过，谷歌了也没发现具体用途，不知道跟数组是什么优势，有知道的麻烦说一下1234567891011axios.all([ axios.get('//google.com'), axios.get('//163.com'), axios.get('//qq.com') ]).then( axios.spread((res1,res2,res3) =&gt; &#123; console.log(res1) console.log(res2) console.log(res3) &#125;) );]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -245,8 +245,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -257,8 +257,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -316,8 +316,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -329,8 +329,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>马拉松</tag>
         <tag>旅行</tag>
+        <tag>马拉松</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -415,8 +415,8 @@
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>琼海</tag>
         <tag>蜜月</tag>
+        <tag>琼海</tag>
         <tag>万宁</tag>
       </tags>
   </entry>
@@ -431,10 +431,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>文昌</tag>
         <tag>海南</tag>
-        <tag>琼海</tag>
         <tag>蜜月</tag>
+        <tag>文昌</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -448,8 +448,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -463,8 +463,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -532,8 +532,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>信阳</tag>
         <tag>武汉</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -591,10 +591,10 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>武汉</tag>
-        <tag>东西湖</tag>
       </tags>
   </entry>
   <entry>
@@ -748,8 +748,8 @@
         <tag>国庆</tag>
         <tag>华山</tag>
         <tag>青海湖</tag>
-        <tag>西宁</tag>
         <tag>151基地</tag>
+        <tag>西宁</tag>
         <tag>西海镇</tag>
       </tags>
   </entry>
@@ -929,10 +929,10 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>乐昌</tag>
+        <tag>京广线</tag>
         <tag>大源</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,9 +1245,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1259,10 +1259,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
-        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1273,9 +1273,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1287,8 +1287,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1451,8 +1451,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
         <tag>南山66</tag>
       </tags>
   </entry>
@@ -1635,8 +1635,8 @@
       </categories>
       <tags>
         <tag>户外</tag>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1662,10 +1662,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>刷街</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
+        <tag>单车</tag>
         <tag>轮滑</tag>
       </tags>
   </entry>
@@ -1877,12 +1877,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>Book</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1893,12 +1893,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>Book</tag>
         <tag>flex</tag>
-        <tag>xml</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1947,9 +1947,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>评测</tag>
         <tag>淘宝</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -2162,8 +2162,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>市民中心</tag>
         <tag>平花</tag>
+        <tag>市民中心</tag>
       </tags>
   </entry>
   <entry>
@@ -2190,8 +2190,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>网银</tag>
+        <tag>xml</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>paypal</tag>
@@ -2262,9 +2262,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
         <tag>sql</tag>
+        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -2443,8 +2443,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2544,9 +2544,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>svn</tag>
         <tag>cvs</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -2879,8 +2879,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -3164,8 +3164,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -3279,8 +3279,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3365,8 +3365,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>javascript</tag>
+        <tag>blog</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3415,9 +3415,9 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
         <tag>javascript</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3428,9 +3428,9 @@
         <category>Digital</category>
       </categories>
       <tags>
+        <tag>蓝牙</tag>
         <tag>mobile</tag>
         <tag>多普达</tag>
-        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3651,8 +3651,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3712,8 +3712,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>xml</tag>
         <tag>XUL</tag>
         <tag>XUL指南</tag>
       </tags>
@@ -3839,8 +3839,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -3867,8 +3867,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>vbs</tag>
       </tags>
   </entry>
@@ -3880,8 +3880,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>笔记</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4065,8 +4065,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>mobile</tag>
+        <tag>笔记</tag>
         <tag>mFancy</tag>
       </tags>
   </entry>
@@ -4302,8 +4302,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4325,8 +4325,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4348,8 +4348,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>Book</tag>
       </tags>
   </entry>
@@ -4423,8 +4423,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>Book</tag>
       </tags>
   </entry>
@@ -4452,8 +4452,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -4464,8 +4464,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4476,8 +4476,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -4560,8 +4560,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4628,8 +4628,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>java</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4825,8 +4825,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
