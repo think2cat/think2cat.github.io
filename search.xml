@@ -257,14 +257,14 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
         <tag>javascript</tag>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[grunt入门笔记（1）]]></title>
     <url>%2F2017%2F05%2Fb722d741%2F</url>
-    <content type="text"><![CDATA[1. 安装grunt依赖node.js，需要先安装node.js，官网https://nodejs.org/安装后敲node -v会打印版本号，则安装成功接着安装grunt， -g表示全局，不带则安装到当前目录npm install -g grunt-cli 2. 初始化package.jsonpackage.json是node.js项目描述文件，在项目根目录下执行1npm init 根据提示输入即可，生成文件大概是这样子的12345678910111213141516171819202122&#123; "name": "grunt-test", "version": "1.0.0", "description": "only for grunt test", "main": "index.js", "scripts": &#123; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1" &#125;, "repository": &#123; "type": "git", "url": "git+https://github.com/think2cat/AdminLTE.git" &#125;, "keywords": [ "grunt" ], "author": "", "license": "MIT", "bugs": &#123; "url": "https://github.com/think2cat/AdminLTE/issues" &#125;, "homepage": "https://github.com/think2cat/AdminLTE#readme"&#125; 3. 安装grunt和常用插件1npm install grunt --save-dev 安装后package.json多出一个字段123"devDependencies": &#123; "grunt": "^1.0.1"&#125; 这里 表示开发环境所依赖的库，如果是发布后需要的库则用 --save，对应package.json中的 ```dependencies```属性，如果只是安装库而不改动package.json则无须加参数1234567891011121314151617grunt常用插件* 合并文件：[grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)* 语法检查：[grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)* CSS压缩： [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)* Scss 编译：[grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass)* 压缩文件：[grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)* 监听文件变动：[grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)* 建立本地服务器：[grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)#### 4. 配置gruntgrunt为js文件，遵循node.js模块语法```jsmodule.exports = function(grunt) &#123; //grunt code&#125;; grunt代码分为3部分，1）config配置，2）task任务，3）插件加载config和task是卸载initConfig函数内，如下 1234567grunt.initConfig(&#123; pkg: grunt.file.readJSON('package.json'), build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); pkg从package.json读取配置，后面可以直接使用12345678910111213还有另一种常见配置```jsvar config = &#123; name: &quot;test&quot;, author: &quot;Gavin&quot;&#125;;grunt.initConfig(&#123; pkg: config, build: &#123; src: &apos;src/&lt;%= pkg.name %&gt;.js&apos;, dest: &apos;build/&lt;%= pkg.name %&gt;.min.js&apos; &#125;&#125;); 5. 配置taskgrunt只是一个框架，实际干活的是众多插件，在安装完插件后，会在 node_modules 目录下生成对应插件目录，使用时在grunt.js里加载插件并编写相应task比如常见的 grunt-contrib-uglify通过这样载入 1grunt.loadNpmTasks('grunt-contrib-uglify'); 并对应到grunt.initConfig的 uglift 任务，如下1234567891011uglify: &#123; options: &#123; mangle: true, preserveComments: 'some' &#125;, my_target: &#123; files: &#123; 'dist/js/app.min.js': ['dist/js/app.js'] &#125; &#125;&#125;, 任务的名称uglify是跟插件名称对应的，不可改，完成上面配置后，再注册默认任务1grunt.registerTask('default', ['uglify']); 此时执行grunt则会默认执行uglify任务，如果有多个任务，可以依次添加1grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); 执行时用命令1grunt lint]]></content>
+    <content type="text"><![CDATA[1. 安装grunt依赖node.js，需要先安装node.js，官网https://nodejs.org/安装后敲 node -v 会打印版本号，则安装成功接着安装grunt， -g表示全局，不带则安装到当前目录1npm install -g grunt-cli 2. 初始化package.jsonpackage.json是node.js项目描述文件，在项目根目录下执行1npm init 根据提示输入即可，生成文件大概是这样子的12345678910111213141516171819202122&#123; "name": "grunt-test", "version": "1.0.0", "description": "only for grunt test", "main": "index.js", "scripts": &#123; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1" &#125;, "repository": &#123; "type": "git", "url": "git+https://github.com/think2cat/AdminLTE.git" &#125;, "keywords": [ "grunt" ], "author": "", "license": "MIT", "bugs": &#123; "url": "https://github.com/think2cat/AdminLTE/issues" &#125;, "homepage": "https://github.com/think2cat/AdminLTE#readme"&#125; 3. 安装grunt和常用插件1npm install grunt --save-dev 安装后package.json多出一个字段123"devDependencies": &#123; "grunt": "^1.0.1"&#125; 这里 devDependencies 表示开发环境所依赖的库，如果是发布后需要的库则用 –save，对应 package.json 中的 dependencies属性，如果只是安装库而不改动 package.json 则无须加参数 grunt常用插件 合并文件：grunt-contrib-concat 语法检查：grunt-contrib-jshint CSS压缩： grunt-contrib-cssmin Scss 编译：grunt-contrib-sass 压缩文件：grunt-contrib-uglify 监听文件变动：grunt-contrib-watch 建立本地服务器：grunt-contrib-connect 4. 配置gruntgrunt为js文件，遵循node.js模块语法123module.exports = function(grunt) &#123; //grunt code&#125;; grunt代码分为3部分，1）config配置，2）task任务，3）插件加载config和task是卸载initConfig函数内，如下 1234567grunt.initConfig(&#123; pkg: grunt.file.readJSON('package.json'), build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); pkg从package.json读取配置，后面可以直接使用 &lt;%= pkg.name %&gt; 来引用常量还有另一种常见配置1234567891011var config = &#123; name: "test", author: "Gavin"&#125;;grunt.initConfig(&#123; pkg: config, build: &#123; src: 'src/&lt;%= pkg.name %&gt;.js', dest: 'build/&lt;%= pkg.name %&gt;.min.js' &#125;&#125;); 5. 配置taskgrunt只是一个框架，实际干活的是众多插件，在安装完插件后，会在 node_modules 目录下生成对应插件目录，使用时在grunt.js里加载插件并编写相应task比如常见的 grunt-contrib-uglify通过这样载入 1grunt.loadNpmTasks('grunt-contrib-uglify'); 并对应到grunt.initConfig的 uglift 任务，如下1234567891011uglify: &#123; options: &#123; mangle: true, preserveComments: 'some' &#125;, my_target: &#123; files: &#123; 'dist/js/app.min.js': ['dist/js/app.js'] &#125; &#125;&#125;, 任务的名称uglify是跟插件名称对应的，不可改，完成上面配置后，再注册默认任务1grunt.registerTask('default', ['uglify']); 此时执行grunt则会默认执行uglify任务，如果有多个任务，可以依次添加1grunt.registerTask('lint', ['jshint', 'csslint', 'bootlint']); 执行时用命令1grunt lint]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -316,8 +316,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
         <tag>javascript</tag>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
@@ -522,6 +522,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[浅谈Javascript架构]]></title>
+    <url>%2F2011%2F10%2F7f6ece31%2F</url>
+    <content type="text"><![CDATA[1. 交互模式以往的交互模式，用户一旦点击链接、或者提交表单，都将重定向到服务器，待服务器处理完返回 完整html代码，而且此时浏览器需要重新载入相关JS、CSS、Image，对服务器和浏览器资源消耗都比较大而ajax技术流行之后，B/S交互模式产生变化，最主要是产生了中间层 增加ajax中间层之后，交互产生了变化 异步请求，改善用户体验 减少http请求量和数据量（HTML、CSS、Image、JS都无需重新载入） 2.架构模式得益于ajax异步请求技术，大部分复杂的页面，都可以使用模块化架构当然没有数据交换的页面也可以模块化，但是在如今网络数据请求频繁的操作面前，ajax异步请求显得尤为重要 a) 类库(Base Lib)类库是最基本的的类，通常只有应用知道加载了哪些类库类库的任务 解决浏览器兼容性 DOM等对象操作 XML、JSON数据操作 AJAX对象 扩展性 b) 模块(Modules)一切皆为模块，模块本身并不知道外面环境，模块必须运行在沙箱，模块间要解耦模块设计原则 不创建全局变量 不访问非内置全局变量 不访问无关DOM节点 只能调用自己，或者沙箱里的方法 不直接引用其它模块，需要时先向沙箱申请 c) 沙箱(Sandbox)沙箱是模块运行的安全环境沙箱的责任 安全性，当模块调用方法时，确保接口有该方法访问权利 交互性，及时把模块请求发给系统 d) 应用(App Core)应用的任务 管理模块生命周期，创建、销毁模块 处理模块间交互，尽可能解耦 异常处理，检测、报告错误 扩展性]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2011国庆，追寻阳光，一路向北，Day5(end)]]></title>
     <url>%2F2011%2F10%2F9e5242e6%2F</url>
     <content type="text"><![CDATA[10月6日，Day 5 信阳 - 武汉 本来想一直骑到驻马店再坐车回武汉的，可到了早上又不想起床了，然后就看手机新闻看到乔布斯挂了，很是惊讶 再者就是担心明天是国庆长假最后一天，回武汉的车票可能比较难买，于是跟虫子商量要不今天就回武汉克算了 骑到信阳火车站留影，就奔汽车站买票了，可恶的是本来到汉口的车，居然在离车站还有十几公里的硚口就赶我们下车，还好才下午四点多，装车骑了一小时才过长江大桥 国庆旅行宣告结束，感谢虫子一路相伴！]]></content>
@@ -547,8 +558,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>信阳</tag>
         <tag>广水</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -563,8 +574,8 @@
         <tag>孝感</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>广水</tag>
         <tag>安陆</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -595,6 +606,18 @@
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>武汉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NPAPI使用指南]]></title>
+    <url>%2F2011%2F09%2Fd9859d53%2F</url>
+    <content type="text"><![CDATA[1.什么是NPAPINPAPI是基于OWB的扩展插件，相当于IE的ActiveX控件 目前可分为2类1). 功能性插件，如播放器、e视通、bulletin2). 数据传输类，如爱音乐、我的好友，这类插件用于http网络数据传输，类似AJAX，区别在于不会暴露请求地址，以及可对数据进行加密处理 2.NPAPI组成A. 插件的组成插件一般为后缀名 so 的库文件，一个插件有一个主so文件，同时可能附带其它文件（库或者配置文件），这跟插件本身所调用的库有关，类似java的import B. 插件的存放目录1). 系统插件的基本存放于 /vendor/lib比如播放器、bulletin等，这类跟系统结合紧密、版本更新相对少 2). 动态加载插件存放于widget下面的 npapi 目录，如下图 这类插件是跟widget打包在一起的，安装时也随widget一起解压，当运行widget时OWB会自动映射虚拟目录，这样npapi目录下的so就可以为系统所识别，这一过程是OWB自动实现的 so的命名规范，{lib库名}-{widget id}-plugin.so，例如 libimusic-20301-plugin.so库名是自定义的，推荐使用模块名或跟业务相关名称，方便识别，id为申请widget时的id，必须匹配，不然无法上传 3.NPAPI使用首先需要在html页面加入相应库的html代码，例如爱音乐1&lt;embed id="bboImusic" type="application/bq-imusic-plugin" width="0" height="0"&gt; 其中 type 属性为插件指定，每个插件均不同，id可自定义，调用插件接口时用到 在页面加载的时候，会自动载入库文件，然后可以用js来调用接口，例如1var r = bboImusic.getChannelList(-1, 0, 50); getChannelList() 为插件自定义方法，该方法返回爱音乐频道列表，类型为字符串，然后JS可以自行对返回进行处理 需要强调的是，因为调用的是外部接口，这些插件跟底层target版本、关联的库等使用环境都有很大关系，所以有可能会出现不兼容，甚至coredump等问题，也就是说随时可能出错所以调用插件接口时，必须加上 try{}catch(){}，上面的调用必须这么写12345try&#123; var r = bboImusic.getChannelList(-1, 0, 50);&#125;catch(e)&#123; alert(“bboImusic.getChannelList() err:” + e);&#125; 这样可以保证插件出错的情况下，不会导致JS出错 4.技巧 动态加载插件如果把 &lt;embed&gt; 标签放到html页面，这样在载入页面的时候，就会初始化这个插件，必将延长加载时间，而且大部分插件仍是单线程，会导致页面假死。所以可以利用JS来动态记载插件，比如在页面载入完成之后，先显示LOADING，然后动态将 &lt;embed&gt; 标签插入到页面，此时插件才进行初始化，或者是在需要使用到该插件时再载入，也可以起到优化的目的 隐藏插件不可用display因为插件会在页面留下一块黑色方块，1是影响美观，2是大部分时候需要隐掉，如果用CSS样式 display = none，会导致插件初始化失败，也就无法调用插件方法而用 visibility = hidden 则可以正常加载，也达到隐藏的目的，需显示可以用 visibility = visible 5.附录目前用到的NPAPI 八宝好友 1&lt;embed id="npUserManage" type="application/bq-usermanage-plugin" width="0" height="0"&gt; 播放器 1&lt;embed style="visibility:hidden; position:absolute; left:0; top:0;z-index:-1" id="MediaPlayer" type="application/bq_music-plugin" width="1360" height="768"&gt;&lt;/embed&gt; 无线传屏 1&lt;embed id="dlna_plugin" style="visibility:hidden" type="application/babao-dlna-plugin" width="0" height="0"&gt; VOIP 1&lt;embed id="VoipClient" type="application/vvoip-plugin" width="454" height="340" style="margin-top:-340px;"&gt; Bulletin 1&lt;embed style="visibility:hidden;" id="bboBulletin" type="application/bq-bulletin-plugin"&gt;&lt;/embed&gt; CAE 1&lt;embed style="visibility:hidden;" id="bboCAE" type="application/bq-cae-plugin"&gt;&lt;/embed&gt; 优朋电影 1&lt;embed id="npVoole" type="application/bq-voole-plugin" width="1" height="1"&gt;&lt;/embed&gt;]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>npapi</tag>
       </tags>
   </entry>
   <entry>
@@ -681,8 +704,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>青海湖</tag>
         <tag>水井巷</tag>
         <tag>莫家街</tag>
       </tags>
@@ -697,9 +720,9 @@
       <tags>
         <tag>单车</tag>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
+        <tag>青海湖</tag>
         <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
@@ -731,8 +754,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>151基地</tag>
+        <tag>青海湖</tag>
         <tag>江西沟</tag>
         <tag>黑马河</tag>
       </tags>
@@ -746,11 +769,11 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>华山</tag>
-        <tag>青海湖</tag>
         <tag>151基地</tag>
+        <tag>华山</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -763,9 +786,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>西宁</tag>
+        <tag>青海湖</tag>
+        <tag>西安</tag>
       </tags>
   </entry>
   <entry>
@@ -778,9 +801,9 @@
       <tags>
         <tag>国庆</tag>
         <tag>华山</tag>
-        <tag>大雁塔</tag>
-        <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>西安</tag>
+        <tag>大雁塔</tag>
       </tags>
   </entry>
   <entry>
@@ -793,8 +816,8 @@
       <tags>
         <tag>国庆</tag>
         <tag>武汉</tag>
-        <tag>西安</tag>
         <tag>青海湖</tag>
+        <tag>西安</tag>
         <tag>钟楼</tag>
       </tags>
   </entry>
@@ -929,10 +952,10 @@
       </categories>
       <tags>
         <tag>徒步</tag>
-        <tag>乐昌</tag>
         <tag>京广线</tag>
-        <tag>大源</tag>
         <tag>露营</tag>
+        <tag>乐昌</tag>
+        <tag>大源</tag>
       </tags>
   </entry>
   <entry>
@@ -945,8 +968,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>露营</tag>
         <tag>金鸡号</tag>
+        <tag>露营</tag>
       </tags>
   </entry>
   <entry>
@@ -1877,12 +1900,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>笔记</tag>
-        <tag>xml</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
+        <tag>xml</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1893,12 +1916,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
-        <tag>笔记</tag>
-        <tag>xml</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
+        <tag>xml</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1947,9 +1970,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>Book</tag>
         <tag>评测</tag>
         <tag>淘宝</tag>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -2162,8 +2185,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>平花</tag>
         <tag>市民中心</tag>
+        <tag>平花</tag>
       </tags>
   </entry>
   <entry>
@@ -2190,8 +2213,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>网银</tag>
         <tag>xml</tag>
+        <tag>网银</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>paypal</tag>
@@ -2262,9 +2285,9 @@
         <category>IT</category>
       </categories>
       <tags>
+        <tag>xml</tag>
         <tag>笔记</tag>
         <tag>sql</tag>
-        <tag>xml</tag>
       </tags>
   </entry>
   <entry>
@@ -2544,9 +2567,9 @@
         <category>IT</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>svn</tag>
         <tag>cvs</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -2879,8 +2902,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>海滨广场</tag>
         <tag>市民中心</tag>
+        <tag>海滨广场</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -3365,8 +3388,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3416,8 +3439,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3428,8 +3451,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>蓝牙</tag>
         <tag>mobile</tag>
+        <tag>蓝牙</tag>
         <tag>多普达</tag>
       </tags>
   </entry>
@@ -3712,8 +3735,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>xml</tag>
+        <tag>笔记</tag>
         <tag>XUL</tag>
         <tag>XUL指南</tag>
       </tags>
@@ -3839,8 +3862,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -3867,8 +3890,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
         <tag>vbs</tag>
       </tags>
   </entry>
@@ -3880,8 +3903,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>Book</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -4065,9 +4088,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>mobile</tag>
         <tag>笔记</tag>
         <tag>mFancy</tag>
+        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
@@ -4302,8 +4325,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4325,8 +4348,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4348,9 +4371,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4423,9 +4446,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4560,8 +4583,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4628,8 +4651,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>Book</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
