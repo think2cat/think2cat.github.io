@@ -337,6 +337,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com2018/09/a91bebb6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="2018/09/a91bebb6/" itemprop="url">element-ui upload组件覆写默认上传行为</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T11:15:35+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-upload</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ref</span>=<span class="string">"upload"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:show-file-list</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:action</span>=<span class="string">"uploadUrl"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:before-upload</span>=<span class="string">"handleBeforeUpload"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:on-progress</span>=<span class="string">"handleUploading"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:on-success</span>=<span class="string">"handleUpload"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:on-error</span>=<span class="string">"handleUploadError"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">accept</span>=<span class="string">".apk"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:auto-upload</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">slot</span>=<span class="string">"trigger"</span> <span class="attr">:loading</span>=<span class="string">"uploadLoading"</span> <span class="attr">size</span>=<span class="string">"mini"</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span>上传<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"tips"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时也提供了 <code>http-request</code> 参数来自定义上传行为<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="2018/09/a91bebb6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="tags/axios/" rel="tag"># axios</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com2018/08/786557a3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1802,172 +1963,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com2018/05/30381c3b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="2018/05/30381c3b/" itemprop="url">WebSocket入门（3）心跳检测</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T10:41:26+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html" target="_blank" rel="noopener">阮一峰博客</a>）</p>
-<ul>
-<li>CONNECTING：值为0，表示正在连接</li>
-<li>OPEN：值为1，表示连接成功，可以通信了</li>
-<li>CLOSING：值为2，表示连接正在关闭</li>
-<li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
-</ul>
-<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="2018/05/30381c3b/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="tags/http/" rel="tag"># http</a>
-          
-            <a href="tags/socket/" rel="tag"># socket</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2018,7 +2013,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">396</span>
+                <span class="site-state-item-count">397</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

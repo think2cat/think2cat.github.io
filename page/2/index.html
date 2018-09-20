@@ -337,6 +337,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2018/05/30381c3b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2018/05/30381c3b/" itemprop="url">WebSocket入门（3）心跳检测</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T10:41:26+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html" target="_blank" rel="noopener">阮一峰博客</a>）</p>
+<ul>
+<li>CONNECTING：值为0，表示正在连接</li>
+<li>OPEN：值为1，表示连接成功，可以通信了</li>
+<li>CLOSING：值为2，表示连接正在关闭</li>
+<li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
+</ul>
+<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2018/05/30381c3b/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/http/" rel="tag"># http</a>
+          
+            <a href="../../tags/socket/" rel="tag"># socket</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2018/03/8e1b4ab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1794,187 +1960,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2017/08/d15bd75e/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2017/08/d15bd75e/" itemprop="url">Flex布局学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T16:47:05+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮大的教程</a> | <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">实战篇</a></p>
-<p><a href="https://github.com/Coffcer/flex-layout" target="_blank" rel="noopener">Flex布局的开源库</a></p>
-<p>CSS传统布局基于盒子模型，依靠display + position + float属性进行定位，在一些特殊布局显得不灵活</p>
-<p>Flex布局，容器内的元素自动成为flex item，容器基于XY轴进行布局</p>
-<p>其容器属性有</p>
-<ul>
-<li>flex-direction X主轴排列方向</li>
-<li>flex-wrap 元素换行</li>
-<li>flex-flow 上面2个的简写</li>
-<li>justify-content 主轴对齐方式</li>
-<li>align-items Y轴对齐方式</li>
-<li>align-content 多轴线对齐方式</li>
-</ul>
-<p>item属性有</p>
-<ul>
-<li>order 排列顺序</li>
-<li>flex-grow 剩余空间膨胀值</li>
-<li>flex-shrink 空间不足缩小值</li>
-<li>flex-basis 预分配大小值</li>
-<li>flex 以上3个的简写</li>
-<li>align-self 对齐方式
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="../../2017/08/d15bd75e/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/flex/" rel="tag"># flex</a>
-          
-            <a href="../../tags/css/" rel="tag"># css</a>
-          
-            <a href="../../tags/html/" rel="tag"># html</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2025,7 +2010,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">396</span>
+                <span class="site-state-item-count">397</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

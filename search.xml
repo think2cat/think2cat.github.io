@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[element-ui upload组件覆写默认上传行为]]></title>
+    <url>%2F2018%2F09%2Fa91bebb6%2F</url>
+    <content type="text"><![CDATA[element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便 12345678910111213&lt;el-upload ref="upload" :show-file-list="false" :action="uploadUrl" :before-upload="handleBeforeUpload" :on-progress="handleUploading" :on-success="handleUpload" :on-error="handleUploadError" accept=".apk" :auto-upload="true"&gt; &lt;el-button slot="trigger" :loading="uploadLoading" size="mini" type="primary"&gt;上传&lt;/el-button&gt; &lt;span v-html="tips"&gt;&lt;/span&gt;&lt;/el-upload&gt; 同时也提供了 http-request 参数来自定义上传行为12345678910&lt;el-upload ref="upload" :show-file-list="false" action="" :http-request="upload" :before-upload="handleBeforeUpload" :on-progress="handleUploading" accept=".apk" :auto-upload="true"&gt;&lt;/el-upload&gt; action 虽然不再生效，但删掉这个参数会提示 Missing required prop: &quot;action&quot;，所以这里留空处理 覆写默认上传行为后，钩子除了 before-upload 其它都不起作用了，但依然可以在 html 保留指定，后面调用 http-request 指定的方法时会把整个文件对象作为参数传入 传入 upload() 的参数，为upload组件对象，除了文件对象本身，还有3个钩子 12345678910upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData &#125;).then(this.handleUpload, this.handleUploadError)&#125; 调用axios执行上传，把 file对象塞到 data 即可 axios自带上传时钩子 onUploadProgress，如果需要显示上传进度，可把 upload组件的 onProgress 传给axiox，修改如下 1234567891011121314upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData, onUploadProgress: progressEvent =&gt; &#123; const complete = (progressEvent.loaded / progressEvent.total * 100 | 0) fileObj.onProgress(&#123; percent: complete &#125;) &#125;, &#125;).then(this.handleUpload, this.handleUploadError)&#125; onUploadProgress 传入是 event 事件，如下图 因为 upload组件 onProgress 钩子有个 percent 百分比属性，所以直接计算后传回 上传完成回调，组件默认是返回 response 响应内容，而覆写后是返回 axios 对象，axios使用可以看 Axios笔记(1) 和 Axios笔记(2) 最后提一下，一般接口会配置共用config，并设置超时时间，而在上传大文件的时候很容易发生超时，则需要在 request 时加入 timeout: undefined 来防止]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Axios笔记(2)]]></title>
     <url>%2F2018%2F08%2F786557a3%2F</url>
     <content type="text"><![CDATA[实例化上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象并配置好基本参数，然后所有请求走实例化对象1234567891011121314const service = axios.create(&#123; baseURL: '/api1.0/' timeout: 5000 // request timeout&#125;)function list(query) &#123; return service(&#123; url: 'getList', method: 'post', data: query &#125;)&#125;// 调用示例list(query).then() 配置参数较多，参照 Axios官网 拦截器axios支持拦截器，可以在请求和返回时进行拦截处理12axios.interceptors.request.use(config =&gt; config, error =&gt; error);axios.interceptors.response.use(response =&gt; response, error =&gt; error); 拦截器同样是符合Promise标准一般用的较多的是在请求时加入 token ，返回数据时进行数据过滤和权限判断 1234567891011121314151617181920service.interceptors.request.use(config =&gt; &#123; // 让每个请求携带token config.headers['token'] = 'xxxx' return config&#125;, error =&gt; &#123; console.log(error) // for debug Promise.reject(error)&#125;)service.interceptors.response.use( response =&gt; response, error =&gt; &#123; console.log('request.err' + error)// for debug if (error.response &amp;&amp; error.response.status === 401) &#123; // session失效 // 登录超时，请重新登录 // do something &#125; return Promise.reject(error) &#125;) 错误处理Axios默认把 200 &lt;= status &lt; 300 归为 resolve，其它则为 reject可以修改参数中 validateStatus 来进行修改123validateStatus: function (status) &#123; return status &gt;= 200 &amp;&amp; status &lt; 300; // default&#125;, reject 时返回error对象，可以从 error.response 获取http对象 如果是本地发生的异常，还没到请求阶段，则没有 response 对象 取消请求调用定时器 setTimeout() 会返回一个整形token，然后用 clearTimeout() 传入返回的token即可清除定时器axios 的取消也是一样道理，只是不是在请求时返回token，而是把token附加到请求参数12const source = axios.CancelToken.source()console.log('cancelToken', source) 初始化一个 CancelToken 对象里面有个 cancel() 方法和名为 token 的 Promise对象 1234567891011// 请求时传入 cancelTokenrequest(&#123; url: 'list', method: 'post', data: query, cancelToken: source.token&#125;).catch(e =&gt; &#123; console.log(e.message)&#125;)// 取消请求source.cancel('some request is cancel') 此时 catch 会打印 some request is cancel]]></content>
@@ -257,8 +269,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -316,8 +328,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -428,8 +440,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>琼海</tag>
         <tag>万宁</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -445,8 +457,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>文昌</tag>
         <tag>琼海</tag>
+        <tag>文昌</tag>
       </tags>
   </entry>
   <entry>
@@ -751,8 +763,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>刚察县</tag>
+        <tag>黑马河</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
       </tags>
@@ -980,8 +992,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>金鸡号</tag>
         <tag>露营</tag>
+        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -1007,8 +1019,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1216,8 +1228,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1544,8 +1556,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,8 +1750,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
         <tag>马峦山</tag>
       </tags>
   </entry>
@@ -1752,8 +1764,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1912,12 +1924,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>xml</tag>
-        <tag>笔记</tag>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
+        <tag>xml</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1928,12 +1940,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>xml</tag>
-        <tag>笔记</tag>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
+        <tag>xml</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -2297,9 +2309,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>sql</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -2405,8 +2417,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>大梅沙</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2592,8 +2604,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
       </tags>
   </entry>
   <entry>
@@ -2802,8 +2814,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>登山</tag>
         <tag>南山66</tag>
+        <tag>登山</tag>
         <tag>梧桐山</tag>
       </tags>
   </entry>
@@ -3463,9 +3475,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>蓝牙</tag>
         <tag>mobile</tag>
         <tag>多普达</tag>
+        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3874,8 +3886,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -3902,8 +3914,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
         <tag>vbs</tag>
       </tags>
   </entry>
@@ -3915,8 +3927,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>Book</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -4337,8 +4349,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4360,8 +4372,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4383,9 +4395,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4458,9 +4470,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4595,8 +4607,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>Flash</tag>
         <tag>actionscript</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4663,8 +4675,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>Book</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>

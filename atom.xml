@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-09-05T11:39:57.542Z</updated>
+  <updated>2018-09-20T10:21:02.717Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>element-ui upload组件覆写默认上传行为</title>
+    <link href="http://21ido.com/2018/09/a91bebb6/"/>
+    <id>http://21ido.com/2018/09/a91bebb6/</id>
+    <published>2018-09-20T03:15:35.000Z</published>
+    <updated>2018-09-20T10:21:02.717Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;el-upload&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;upload&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:show-file-list&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:action&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;uploadUrl&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:before-upload&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;handleBeforeUpload&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-progress&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;handleUploading&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-success&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;handleUpload&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-error&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;handleUploadError&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;accept&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;.apk&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:auto-upload&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;el-button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;slot&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;trigger&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;:loading&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;uploadLoading&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;size&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;mini&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;primary&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;上传&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;el-button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;v-html&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;tips&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;el-upload&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;同时也提供了 &lt;code&gt;http-request&lt;/code&gt; 参数来自定义上传行为&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="axios" scheme="http://21ido.com/tags/axios/"/>
+    
+  </entry>
   
   <entry>
     <title>Axios笔记(2)</title>
@@ -524,50 +548,6 @@
       <category term="bower" scheme="http://21ido.com/tags/bower/"/>
     
       <category term="nodejs" scheme="http://21ido.com/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flex布局学习笔记</title>
-    <link href="http://21ido.com/2017/08/d15bd75e/"/>
-    <id>http://21ido.com/2017/08/d15bd75e/</id>
-    <published>2017-08-18T08:47:05.000Z</published>
-    <updated>2018-08-02T02:59:20.106Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;阮大的教程&lt;/a&gt; | &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-examples.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;实战篇&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/Coffcer/flex-layout&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Flex布局的开源库&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;CSS传统布局基于盒子模型，依靠display + position + float属性进行定位，在一些特殊布局显得不灵活&lt;/p&gt;
-&lt;p&gt;Flex布局，容器内的元素自动成为flex item，容器基于XY轴进行布局&lt;/p&gt;
-&lt;p&gt;其容器属性有&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;flex-direction X主轴排列方向&lt;/li&gt;
-&lt;li&gt;flex-wrap 元素换行&lt;/li&gt;
-&lt;li&gt;flex-flow 上面2个的简写&lt;/li&gt;
-&lt;li&gt;justify-content 主轴对齐方式&lt;/li&gt;
-&lt;li&gt;align-items Y轴对齐方式&lt;/li&gt;
-&lt;li&gt;align-content 多轴线对齐方式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;item属性有&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;order 排列顺序&lt;/li&gt;
-&lt;li&gt;flex-grow 剩余空间膨胀值&lt;/li&gt;
-&lt;li&gt;flex-shrink 空间不足缩小值&lt;/li&gt;
-&lt;li&gt;flex-basis 预分配大小值&lt;/li&gt;
-&lt;li&gt;flex 以上3个的简写&lt;/li&gt;
-&lt;li&gt;align-self 对齐方式
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="flex" scheme="http://21ido.com/tags/flex/"/>
-    
-      <category term="css" scheme="http://21ido.com/tags/css/"/>
-    
-      <category term="html" scheme="http://21ido.com/tags/html/"/>
     
   </entry>
   
