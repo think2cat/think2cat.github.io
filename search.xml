@@ -77,7 +77,7 @@
   <entry>
     <title><![CDATA[Promise入门指南(2)]]></title>
     <url>%2F2018%2F07%2F7cecbcde%2F</url>
-    <content type="text"><![CDATA[1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;); 前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面new Promise示例并return1234567891011var getUrl = param =&gt; &#123; return new Promise(resolve =&gt; &#123; //do something $.ajax(url, response =&gt; &#123; resolve(response); &#125;); &#125;);&#125;getUrl(1).then(response =&gt; &#123; render(response);&#125;); 这是比较标准的写法，还有比较偷懒的写法123var getUrl = Promise.resolve();getUrl.then(response =&gt; &#123;&#125;); 前面的resolv()中传什么东西，到了then中的 response 就是前面传入的东西如果为空，则 12345678910```jsvar getUrl = Promise.resolve(() =&gt; &#123; console.log(&quot;hello&quot;);&#125;);getUrl.then(cb =&gt; &#123; console.log(&quot;It&apos;s raining day&quot;); cb();&#125;);// =&gt; It&apos;s raining day// =&gt; hello 而在实例化Promise时，回调 resolve 和 reject 传入的参数，只能是一个，多出的是获取不到的123456789var getUrl = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve("a", "b"); &#125;,2000);&#125;);getUrl.then((i, k) =&gt; &#123; console.log(i, k);&#125;);// =&gt; a undefined 在 then 传入的参数，也必须是 function，如果非 function 则忽略，而传入的 function 最多2个，分别为 onFulfilled 和 onRejected 时调用，也可以不传 前面说到状态一旦变为 fulfilled 或 rejected 则不会再改变，那如果已经执行 then 中的 resolve，此时再调用 then 是否不会执行 resolve，测试一下12345678910111213141516var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,2000);&#125;);p.then((v) =&gt; &#123; console.log(v);&#125;);setTimeout(() =&gt; &#123; p.then((v) =&gt; &#123; console.log(v); &#125;);&#125;,4000);// =&gt; 99// =&gt; 1531586556347// =&gt; 1531586556347 在第二次调用 then 时，resolve 依然再次执行了]]></content>
+    <content type="text"><![CDATA[1234567var p = new Promise(function(resolve, reject)&#123; //do something setTimeout(function()&#123; console.log('finished'); resolve('someone'); &#125;, 2000);&#125;); 前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面 new Promise 示例并return1234567891011var getUrl = param =&gt; &#123; return new Promise(resolve =&gt; &#123; //do something $.ajax(url, response =&gt; &#123; resolve(response); &#125;); &#125;);&#125;getUrl(1).then(response =&gt; &#123; render(response);&#125;); 这是比较标准的写法，还有比较偷懒的写法123var getUrl = Promise.resolve();getUrl.then(response =&gt; &#123;&#125;); 前面的 resolv() 中传什么东西，到了 then 中的 response 就是前面传入的东西如果为空，则 response = undefined，如果是 function 则 response = function123456789var getUrl = Promise.resolve(() =&gt; &#123; console.log("hello");&#125;);getUrl.then(cb =&gt; &#123; console.log("It's raining day"); cb();&#125;);// =&gt; It's raining day// =&gt; hello 而在实例化Promise时，回调 resolve 和 reject 传入的参数，只能是一个，多出的是获取不到的123456789var getUrl = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve("a", "b"); &#125;,2000);&#125;);getUrl.then((i, k) =&gt; &#123; console.log(i, k);&#125;);// =&gt; a undefined 在 then 传入的参数，也必须是 function，如果非 function 则忽略，而传入的 function 最多2个，分别为 onFulfilled 和 onRejected 时调用，也可以不传 前面说到状态一旦变为 fulfilled 或 rejected 则不会再改变，那如果已经执行 then 中的 resolve，此时再调用 then 是否不会执行 resolve，测试一下12345678910111213141516var p = new Promise(resolve =&gt; &#123; setTimeout( () =&gt; &#123; resolve(new Date().getTime()); &#125;,2000);&#125;);p.then((v) =&gt; &#123; console.log(v);&#125;);setTimeout(() =&gt; &#123; p.then((v) =&gt; &#123; console.log(v); &#125;);&#125;,4000);// =&gt; 99// =&gt; 1531586556347// =&gt; 1531586556347 在第二次调用 then 时，resolve 依然再次执行了]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -269,8 +269,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
         <tag>javascript</tag>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
@@ -323,13 +323,13 @@
   <entry>
     <title><![CDATA[ECMAScript6笔记（1）]]></title>
     <url>%2F2017%2F03%2F1768cee0%2F</url>
-    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let用在花括号{ }里面在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 i+1&#125;```1234567简洁的无法接受！跟ES5不同的是function中的this指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的```jsvar self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无聊的写法123var a = 123, b = 456;var c = &#123;a,b&#125;;//c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;//a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");//--&gt; [1, 3, 5, 6, "a", "b"]//--&gt; [1, 3, 5, 6, "a", "b"]]]></content>
+    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let用在花括号{ }里面在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 function(i){return i+1}简洁的无法接受！跟ES5不同的是function中的this指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的1234var self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无法适应的写法，但确实简洁123var a = 123, b = 456;var c = &#123;a,b&#125;;//c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;//a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");//--&gt; [1, 3, 5, 6, "a", "b"]//--&gt; [1, 3, 5, 6, "a", "b"]]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
         <tag>javascript</tag>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
@@ -422,8 +422,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>英州</tag>
         <tag>万宁</tag>
+        <tag>英州</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -582,8 +582,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>信阳</tag>
         <tag>广水</tag>
+        <tag>信阳</tag>
       </tags>
   </entry>
   <entry>
@@ -598,8 +598,8 @@
         <tag>孝感</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>广水</tag>
         <tag>安陆</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -635,7 +635,7 @@
   <entry>
     <title><![CDATA[NPAPI使用指南]]></title>
     <url>%2F2011%2F09%2Fd9859d53%2F</url>
-    <content type="text"><![CDATA[1.什么是NPAPINPAPI是基于OWB的扩展插件，相当于IE的ActiveX控件 目前可分为2类1). 功能性插件，如播放器、e视通、bulletin2). 数据传输类，如爱音乐、我的好友，这类插件用于http网络数据传输，类似AJAX，区别在于不会暴露请求地址，以及可对数据进行加密处理 2.NPAPI组成A. 插件的组成插件一般为后缀名 so 的库文件，一个插件有一个主so文件，同时可能附带其它文件（库或者配置文件），这跟插件本身所调用的库有关，类似java的import B. 插件的存放目录1). 系统插件的基本存放于 /vendor/lib比如播放器、bulletin等，这类跟系统结合紧密、版本更新相对少 2). 动态加载插件存放于widget下面的 npapi 目录，如下图 这类插件是跟widget打包在一起的，安装时也随widget一起解压，当运行widget时OWB会自动映射虚拟目录，这样npapi目录下的so就可以为系统所识别，这一过程是OWB自动实现的 so的命名规范，{lib库名}-{widget id}-plugin.so，例如 libimusic-20301-plugin.so库名是自定义的，推荐使用模块名或跟业务相关名称，方便识别，id为申请widget时的id，必须匹配，不然无法上传 3.NPAPI使用首先需要在html页面加入相应库的html代码，例如爱音乐1&lt;embed id="bboImusic" type="application/bq-imusic-plugin" width="0" height="0"&gt; 其中 type 属性为插件指定，每个插件均不同，id可自定义，调用插件接口时用到 在页面加载的时候，会自动载入库文件，然后可以用js来调用接口，例如1var r = bboImusic.getChannelList(-1, 0, 50); getChannelList() 为插件自定义方法，该方法返回爱音乐频道列表，类型为字符串，然后JS可以自行对返回进行处理 需要强调的是，因为调用的是外部接口，这些插件跟底层target版本、关联的库等使用环境都有很大关系，所以有可能会出现不兼容，甚至coredump等问题，也就是说随时可能出错所以调用插件接口时，必须加上 try{}catch(){}，上面的调用必须这么写12345try&#123; var r = bboImusic.getChannelList(-1, 0, 50);&#125;catch(e)&#123; alert(“bboImusic.getChannelList() err:” + e);&#125; 这样可以保证插件出错的情况下，不会导致JS出错 4.技巧 动态加载插件如果把 &lt;embed&gt; 标签放到html页面，这样在载入页面的时候，就会初始化这个插件，必将延长加载时间，而且大部分插件仍是单线程，会导致页面假死。所以可以利用JS来动态记载插件，比如在页面载入完成之后，先显示LOADING，然后动态将 &lt;embed&gt; 标签插入到页面，此时插件才进行初始化，或者是在需要使用到该插件时再载入，也可以起到优化的目的 隐藏插件不可用display因为插件会在页面留下一块黑色方块，1是影响美观，2是大部分时候需要隐掉，如果用CSS样式 display = none，会导致插件初始化失败，也就无法调用插件方法而用 visibility = hidden 则可以正常加载，也达到隐藏的目的，需显示可以用 visibility = visible 5.附录目前用到的NPAPI 八宝好友 1&lt;embed id="npUserManage" type="application/bq-usermanage-plugin" width="0" height="0"&gt; 播放器 1&lt;embed style="visibility:hidden; position:absolute; left:0; top:0;z-index:-1" id="MediaPlayer" type="application/bq_music-plugin" width="1360" height="768"&gt;&lt;/embed&gt; 无线传屏 1&lt;embed id="dlna_plugin" style="visibility:hidden" type="application/babao-dlna-plugin" width="0" height="0"&gt; VOIP 1&lt;embed id="VoipClient" type="application/vvoip-plugin" width="454" height="340" style="margin-top:-340px;"&gt; Bulletin 1&lt;embed style="visibility:hidden;" id="bboBulletin" type="application/bq-bulletin-plugin"&gt;&lt;/embed&gt; CAE 1&lt;embed style="visibility:hidden;" id="bboCAE" type="application/bq-cae-plugin"&gt;&lt;/embed&gt; 优朋电影 1&lt;embed id="npVoole" type="application/bq-voole-plugin" width="1" height="1"&gt;&lt;/embed&gt;]]></content>
+    <content type="text"><![CDATA[1.什么是NPAPINPAPI是基于OWB的扩展插件，相当于IE的ActiveX控件 目前可分为2类1). 功能性插件，如播放器、e视通、bulletin2). 数据传输类，如爱音乐、我的好友，这类插件用于http网络数据传输，类似AJAX，区别在于不会暴露请求地址，以及可对数据进行加密处理 2.NPAPI组成A. 插件的组成插件一般为后缀名 so 的库文件，一个插件有一个主so文件，同时可能附带其它文件（库或者配置文件），这跟插件本身所调用的库有关，类似java的import B. 插件的存放目录1). 系统插件的基本存放于 /vendor/lib比如播放器、bulletin等，这类跟系统结合紧密、版本更新相对少 2). 动态加载插件存放于widget下面的 npapi 目录，如下图 这类插件是跟widget打包在一起的，安装时也随widget一起解压，当运行widget时OWB会自动映射虚拟目录，这样npapi目录下的so就可以为系统所识别，这一过程是OWB自动实现的 so的命名规范，{lib库名}-{widget id}-plugin.so，例如 libimusic-20301-plugin.so库名是自定义的，推荐使用模块名或跟业务相关名称，方便识别，id为申请widget时的id，必须匹配，不然无法上传 3.NPAPI使用首先需要在html页面加入相应库的html代码，例如爱音乐1&lt;embed id="bboImusic" type="application/bq-imusic-plugin" width="0" height="0"&gt; 其中 type 属性为插件指定，每个插件均不同，id可自定义，调用插件接口时用到 在页面加载的时候，会自动载入库文件，然后可以用js来调用接口，例如1var r = bboImusic.getChannelList(-1, 0, 50); getChannelList() 为插件自定义方法，该方法返回爱音乐频道列表，类型为字符串，然后JS可以自行对返回进行处理 需要强调的是，因为调用的是外部接口，这些插件跟底层target版本、关联的库等使用环境都有很大关系，所以有可能会出现不兼容，甚至coredump等问题，也就是说随时可能出错所以调用插件接口时，必须加上 try{}catch(){}，上面的调用必须这么写12345try&#123; var r = bboImusic.getChannelList(-1, 0, 50);&#125;catch(e)&#123; alert(“bboImusic.getChannelList() err:" + e);&#125; 这样可以保证插件出错的情况下，不会导致JS出错 4.技巧 动态加载插件如果把 &lt;embed&gt; 标签放到html页面，这样在载入页面的时候，就会初始化这个插件，必将延长加载时间，而且大部分插件仍是单线程，会导致页面假死。所以可以利用JS来动态记载插件，比如在页面载入完成之后，先显示LOADING，然后动态将 &lt;embed&gt; 标签插入到页面，此时插件才进行初始化，或者是在需要使用到该插件时再载入，也可以起到优化的目的 隐藏插件不可用display因为插件会在页面留下一块黑色方块，1是影响美观，2是大部分时候需要隐掉，如果用CSS样式 display = none，会导致插件初始化失败，也就无法调用插件方法而用 visibility = hidden 则可以正常加载，也达到隐藏的目的，需显示可以用 visibility = visible 5.附录目前用到的NPAPI 八宝好友 1&lt;embed id="npUserManage" type="application/bq-usermanage-plugin" width="0" height="0"&gt; 播放器 1&lt;embed style="visibility:hidden; position:absolute; left:0; top:0;z-index:-1" id="MediaPlayer" type="application/bq_music-plugin" width="1360" height="768"&gt;&lt;/embed&gt; 无线传屏 1&lt;embed id="dlna_plugin" style="visibility:hidden" type="application/babao-dlna-plugin" width="0" height="0"&gt; VOIP 1&lt;embed id="VoipClient" type="application/vvoip-plugin" width="454" height="340" style="margin-top:-340px;"&gt; Bulletin 1&lt;embed style="visibility:hidden;" id="bboBulletin" type="application/bq-bulletin-plugin"&gt;&lt;/embed&gt; CAE 1&lt;embed style="visibility:hidden;" id="bboCAE" type="application/bq-cae-plugin"&gt;&lt;/embed&gt; 优朋电影 1&lt;embed id="npVoole" type="application/bq-voole-plugin" width="1" height="1"&gt;&lt;/embed&gt;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -763,10 +763,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
+        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
-        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -780,8 +780,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>151基地</tag>
-        <tag>黑马河</tag>
         <tag>江西沟</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -907,9 +907,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
+        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -948,8 +948,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>羊台山</tag>
+        <tag>徒步</tag>
         <tag>露营</tag>
       </tags>
   </entry>
@@ -1019,8 +1019,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1228,8 +1228,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1267,8 +1267,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1556,8 +1556,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -1669,8 +1669,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>汕头</tag>
         <tag>潮州</tag>
+        <tag>汕头</tag>
       </tags>
   </entry>
   <entry>
@@ -1764,8 +1764,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1925,8 +1925,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1941,8 +1941,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -2020,8 +2020,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>评测</tag>
         <tag>笔记本</tag>
+        <tag>评测</tag>
         <tag>CPU</tag>
         <tag>淘宝</tag>
       </tags>
@@ -2267,8 +2267,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>寮步</tag>
         <tag>南山66</tag>
+        <tag>寮步</tag>
         <tag>东莞</tag>
         <tag>松岗</tag>
       </tags>
@@ -2417,8 +2417,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>大梅沙</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -2429,8 +2429,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2490,8 +2490,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2503,8 +2503,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>节日</tag>
         <tag>咖啡</tag>
+        <tag>节日</tag>
       </tags>
   </entry>
   <entry>
@@ -2591,8 +2591,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>svn</tag>
+        <tag>笔记</tag>
         <tag>cvs</tag>
       </tags>
   </entry>
@@ -2643,9 +2643,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>评测</tag>
         <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>评测</tag>
         <tag>AMD</tag>
       </tags>
   </entry>
@@ -2815,8 +2815,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2870,8 +2870,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>汕头</tag>
         <tag>潮州</tag>
+        <tag>汕头</tag>
       </tags>
   </entry>
   <entry>
@@ -3326,8 +3326,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3457,7 +3457,7 @@
   <entry>
     <title><![CDATA[给Z-Blog加上代码高亮显示]]></title>
     <url>%2F2007%2F03%2Fd4672af4%2F</url>
-    <content type="text"><![CDATA[用的是dp.SyntaxHighlighter ，JS+CSS实现的，很不错的东东 版本信息dp.SyntaxHighlighter 1.4.1Z-Blog 1.7 Laputa Build 70216 下载dp.SyntaxHighlighter.rar，解压到Z-Blog根目录，每种语言都有单独JS文件，把需要用到的传到WEB空间即可 打开z-Blog模板文件\TEMPLATE\single.html，在 &lt;head&gt; 标签里加&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;&lt;#ZC_BLOG_HOST#&gt;css/SyntaxHighlighter.css&quot;&gt;&lt;/link&gt;`如果首页等其它页面也要实现语法高亮显示，在相应模板重复2、3步骤 在 &lt;/body&gt; 前面加下面代码，根据自己需要选择性的加 123456789101112131415161718192021222324252627 &lt;script class="javascript" src="/SCRIPT/shCore.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCSharp.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushPhp.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushJScript.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushJava.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushVb.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushSql.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushXml.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushDelphi.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushPython.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushRuby.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCss.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCpp.js"&gt;&lt;/script&gt; &lt;script class="javascript"&gt;dp.SyntaxHighlighter.HighlightAll('code');&lt;/script&gt; ```&lt;!--more--&gt;4. 打开/function/c_system_event.asp，266行 ```js Case "fckeditor" objArticle.Content=Request.Form("txaContent") 'objArticle.Content=Replace(objArticle.Content,vbCrLf,"") 'objArticle.Content=Replace(objArticle.Content,vbLf,"") If objArticle.Intro="" Then s=objArticle.Content s=TransferHTML(s,"[nohtml]") s=Left(s,ZC_TB_EXCERPT_MAX) &amp; "..." objArticle.Intro=s End If 打开/function/c_system_lib.asp，380行最后的 [html-japan][vbCrlf][upload] ，去掉 [vbCrlf] ，改后代码如下 123Public Property Get HtmlContent HtmlContent=TransferHTML(UBBCode(Content,"[face][link][autolink][font][code][image][typeset][media][flash=500, 400, true][key]"),"[html-japan][upload]")End Property 使用加亮实例`html Java代码VB代]]></content>
+    <content type="text"><![CDATA[用的是dp.SyntaxHighlighter ，JS+CSS实现的，很不错的东东 版本信息dp.SyntaxHighlighter 1.4.1Z-Blog 1.7 Laputa Build 70216 下载dp.SyntaxHighlighter.rar，解压到Z-Blog根目录，每种语言都有单独JS文件，把需要用到的传到WEB空间即可 打开z-Blog模板文件\TEMPLATE\single.html，在 &lt;head&gt; 标签里加&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;&lt;#ZC_BLOG_HOST#&gt;css/SyntaxHighlighter.css&quot;&gt;&lt;/link&gt;`如果首页等其它页面也要实现语法高亮显示，在相应模板重复2、3步骤 在 &lt;/body&gt; 前面加下面代码，根据自己需要选择性的加 123456789101112131415161718192021222324252627 &lt;script class="javascript" src="/SCRIPT/shCore.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCSharp.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushPhp.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushJScript.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushJava.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushVb.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushSql.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushXml.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushDelphi.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushPython.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushRuby.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCss.js"&gt;&lt;/script&gt; &lt;script class="javascript" src="/SCRIPT/shBrushCpp.js"&gt;&lt;/script&gt; &lt;script class="javascript"&gt;dp.SyntaxHighlighter.HighlightAll('code');&lt;/script&gt; ```&lt;!--more--&gt;4. 打开/function/c_system_event.asp，266行 ```js Case "fckeditor" objArticle.Content=Request.Form("txaContent") 'objArticle.Content=Replace(objArticle.Content,vbCrLf,"") 'objArticle.Content=Replace(objArticle.Content,vbLf,"") If objArticle.Intro="" Then s=objArticle.Content s=TransferHTML(s,"[nohtml]") s=Left(s,ZC_TB_EXCERPT_MAX) &amp; "..." objArticle.Intro=s End If 打开/function/c_system_lib.asp，380行最后的 [html-japan][vbCrlf][upload] ，去掉 [vbCrlf] ，改后代码如下 123Public Property Get HtmlContent HtmlContent=TransferHTML(UBBCode(Content,"[face][link][autolink][font][code][image][typeset][media][flash=500, 400, true][key]"),"[html-japan][upload]")End Property 使用加亮实例 12&lt;textarea name="code" class="java" rows="15" cols="100"&gt;Java代码&lt;/textarea&gt;&lt;textarea name="code" class="vb:firstline[26]" rows="15" cols="100"&gt;VB代&lt;/textarea&gt;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3698,8 +3698,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3957,7 +3957,7 @@
   <entry>
     <title><![CDATA[XUL+CSS做弹出菜单]]></title>
     <url>%2F2006%2F04%2F4867d35e%2F</url>
-    <content type="text"><![CDATA[很多软件都用这种效果，使用的时候很简单，给标签加上css定义就可以了，如下面代码所示菜单我挑了一个代码少的，效果一样哈 123456 &lt;popup id=”emailAddressPopup” popupanchor=”bottomleft” onpopupshowing=”goUpdateCommand(‘cmd_createFilterFromPopup’);” class=”popMunu”&gt; &lt;menuitem label=”&amp;amp;SendMailTo.label;” accesskey=”&amp;amp;SendMailTo.accesskey;” oncommand=”SendMailToNode(document.popupNode)”/&gt; &lt;menuitem label=”&amp;amp;CreateFilterFrom.label;” accesskey=”&amp;amp;CreateFilterFrom.accesskey;” command=”cmd_createFilterFromPopup”/&gt; &lt;menuitem label=”&amp;amp;AddToAddressBook.label;” accesskey=”&amp;amp;AddToAddressBook.accesskey;” oncommand=”AddNodeToAddressBook(document.popupNode)”/&gt; &lt;menuitem label=”&amp;amp;CopyEmailAddress.label;” accesskey=”&amp;amp;CopyEmailAddress.accesskey;” oncommand=”CopyEmailAddress(document.popupNode)”/&gt;&lt;/popup&gt; 下面是CSS文件部分，其中popmune_left.png是蓝色的渐变图 123456789101112131415161718.popMunu&#123; border: 1px solid #A0A0A0; background-color: #FAFAFA; padding: 0 2px 0 26px;; margin: 0; color: Black; line-height: 1.5em; background-image: url(images/popmune_left.png); background-repeat: repeat-y;&#125;.popMunu menuitem&#123; margin:1px 0; padding: 2px 0;&#125;.popMunu menuitem:hover&#123; background-color: #D5DFF1; color: Black;&#125;]]></content>
+    <content type="text"><![CDATA[很多软件都用这种效果，使用的时候很简单，给标签加上css定义就可以了，如下面代码所示菜单我挑了一个代码少的，效果一样哈 123456 &lt;popup id="emailAddressPopup" popupanchor="bottomleft" onpopupshowing="goUpdateCommand(‘cmd_createFilterFromPopup’);" class="popMunu"&gt; &lt;menuitem label="&amp;amp;SendMailTo.label;" accesskey="&amp;amp;SendMailTo.accesskey;" oncommand="SendMailToNode(document.popupNode)"/&gt; &lt;menuitem label="&amp;amp;CreateFilterFrom.label;" accesskey="&amp;amp;CreateFilterFrom.accesskey;" command="cmd_createFilterFromPopup"/&gt; &lt;menuitem label="&amp;amp;AddToAddressBook.label;" accesskey="&amp;amp;AddToAddressBook.accesskey;" oncommand="AddNodeToAddressBook(document.popupNode)"/&gt; &lt;menuitem label="&amp;amp;CopyEmailAddress.label;" accesskey="&amp;amp;CopyEmailAddress.accesskey;" oncommand="CopyEmailAddress(document.popupNode)"/&gt;&lt;/popup&gt; 下面是CSS文件部分，其中popmune_left.png是蓝色的渐变图 123456789101112131415161718.popMunu&#123; border: 1px solid #A0A0A0; background-color: #FAFAFA; padding: 0 2px 0 26px;; margin: 0; color: Black; line-height: 1.5em; background-image: url(images/popmune_left.png); background-repeat: repeat-y;&#125;.popMunu menuitem&#123; margin:1px 0; padding: 2px 0;&#125;.popMunu menuitem:hover&#123; background-color: #D5DFF1; color: Black;&#125;]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -3985,7 +3985,7 @@
   <entry>
     <title><![CDATA[XUL学习笔记(4)]]></title>
     <url>%2F2006%2F03%2F3f28914c%2F</url>
-    <content type="text"><![CDATA[笔记就先写到这，今天起开始翻译XUL Planet的《XUL指南》，哈 四、XUL常用元素4.1 创建窗体当准备好开发工具之后，就可以开始写XUL了。先看一段XUL文件12345678910&lt;?xml version="1.0" encoding="GB2312"?&gt;&lt;?xml-stylesheet href=""chrome://chrome/skin" type="text/css"?&gt;&lt;?xml-stylesheet href=""chrome://chrome/skin/contact.css" type="text/css"?&gt;&lt;window id="QQ_setup" class="sb_faceplate" title="QQ2006设置" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" &gt; 解释一下 &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;XUL也是XML文件，每个XML都必须有一个声明，这里声明了版本和编码 &lt;?xml-stylesheet href=&quot;&quot;chrome://chrome/skin&quot; type=&quot;text/css&quot;?&gt;&lt;?xml-stylesheet href=&quot;&quot;chrome://chrome/skin/contact.css&quot; type=&quot;text/css&quot;?&gt;指明样式表所在位置，chrome是Mozilla一种协议，就像http一样，只有当包被注册到Mozilla后才可以通过chrome访问资源，所以在测试XUL时，可以用相对或绝对路径，比如&lt;?xml-stylesheet href=&quot;../skin/contact.css&quot; type=&quot;text/css&quot;?&gt;作用是一样的 &lt;window 每个文件只能有一个window标签，相当于html的bodyid=&quot;QQ_setup&quot; 用于唯一识别元素，可以为JS所调用class=&quot;sb_faceplate&quot; 引用的样式表类名title=&quot;QQ2006设置&quot; 窗体标题 12xmlns:html=http://www.w3.org/1999/xhtmlxmlns=http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul 引入XUL所用的名字空间。照抄就行。 除了上面，还有其它属性，常用的有 hidechrome=&quot;true&quot; 窗口标题栏是否隐藏 height=&quot;200&quot; 窗口高度 sizemode=&quot;maximized | minimized| normal&quot; 窗口初始化模式，最大化、最小化和普通 4.2按钮 &lt;button id=&quot;button&quot; label=&quot;Find&quot; default=&quot;true&quot;/&gt; 按钮比较简单，label是显示的文字，如果有多种语言版本，就要在文件头载入DTD文件，然后用引用形式显示文字，后面将做介绍，default是布尔值，表示窗口打开时按回车所触发的按钮 4.3文本标签和&lt;label value=&quot; DisplayName &quot; class=&quot;label&quot;/&gt; Value是显示文本，同时可以用class来为标签定义样式 &lt;description value=&quot; DisplayName &quot; class=&quot;label&quot;/&gt; Description基本上跟label是相同的，比如上面2行代码显示效果是一样的，但description标签可以显示多行文字，例如12345&lt;description&gt; This is a multi-line description. It should wrap if there isn't enough room to put it in one line. Let's put in another sentence for good measure.&lt;/description&gt; 跟html一样，多个空格将被当成一个空格，回车和’\n’也是不起作用的，只有当文本宽度超过上级元素围的宽度了，才会换行，但是也可以用width属性来定义宽度，例如12345&lt;description style="max-width:20px;"&gt; This is a multi-line description. It should wrap if there isn't enough room to put it in one line. Let's put in another sentence for good measure.&lt;/description&gt; 例外，文本标签可以使用control属性来跟按钮、输入框之类的元素绑定，下面代码点击label后会触发button，accesskey是快捷键，用Alt+D即可使该label为当前焦点12&lt;label control="DisplayName" value=" DisplayName " accesskey="d" class="label"/&gt;&lt;button id=" DisplayName " label="MyName"/&gt; 4.4图片&lt;image src=”cat.png” width=”20” height=”26”/&gt; Image标签跟html一样，不过这不是常用的作法。常用的作法是放在skin目录下，通过样式表来控制。例如：&lt;image id=&quot;cat&quot; /&gt; 同时在CSS里面指定属性12345#cat&#123; height: 20px; width: 26px; background-image: url(images/cat.gif);&#125; 当然，你也可以用这样显示图片，但我觉得这样并不灵活，比较难控制12345#cat&#123; height: 20px; width: 26px; list-style-image: url(images/cat.gif);&#125; 4.5输入组件、和]]></content>
+    <content type="text"><![CDATA[笔记就先写到这，今天起开始翻译XUL Planet的《XUL指南》，哈 四、XUL常用元素4.1 创建窗体当准备好开发工具之后，就可以开始写XUL了。先看一段XUL文件12345678910&lt;?xml version="1.0" encoding="GB2312"?&gt;&lt;?xml-stylesheet href=""chrome://chrome/skin" type="text/css"?&gt;&lt;?xml-stylesheet href=""chrome://chrome/skin/contact.css" type="text/css"?&gt;&lt;window id="QQ_setup" class="sb_faceplate" title="QQ2006设置" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" &gt; 解释一下 &lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;?&gt;XUL也是XML文件，每个XML都必须有一个声明，这里声明了版本和编码 &lt;?xml-stylesheet href=&quot;&quot;chrome://chrome/skin&quot; type=&quot;text/css&quot;?&gt;&lt;?xml-stylesheet href=&quot;&quot;chrome://chrome/skin/contact.css&quot; type=&quot;text/css&quot;?&gt;指明样式表所在位置，chrome是Mozilla一种协议，就像http一样，只有当包被注册到Mozilla后才可以通过chrome访问资源，所以在测试XUL时，可以用相对或绝对路径，比如&lt;?xml-stylesheet href=&quot;../skin/contact.css&quot; type=&quot;text/css&quot;?&gt;作用是一样的 &lt;window 每个文件只能有一个window标签，相当于html的bodyid=&quot;QQ_setup&quot; 用于唯一识别元素，可以为JS所调用class=&quot;sb_faceplate&quot; 引用的样式表类名title=&quot;QQ2006设置&quot; 窗体标题 12xmlns:html=http://www.w3.org/1999/xhtmlxmlns=http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul 引入XUL所用的名字空间。照抄就行。 除了上面，还有其它属性，常用的有 hidechrome=&quot;true&quot; 窗口标题栏是否隐藏 height=&quot;200&quot; 窗口高度 sizemode=&quot;maximized | minimized| normal&quot; 窗口初始化模式，最大化、最小化和普通 4.2按钮 &lt;button&gt;&lt;button id=&quot;button&quot; label=&quot;Find&quot; default=&quot;true&quot;/&gt; 按钮比较简单，label是显示的文字，如果有多种语言版本，就要在文件头载入DTD文件，然后用引用形式显示文字，后面将做介绍，default是布尔值，表示窗口打开时按回车所触发的按钮 4.3文本标签和&lt;label value=&quot; DisplayName &quot; class=&quot;label&quot;/&gt; Value是显示文本，同时可以用class来为标签定义样式 &lt;description value=&quot; DisplayName &quot; class=&quot;label&quot;/&gt; Description基本上跟label是相同的，比如上面2行代码显示效果是一样的，但description标签可以显示多行文字，例如12345&lt;description&gt; This is a multi-line description. It should wrap if there isn't enough room to put it in one line. Let's put in another sentence for good measure.&lt;/description&gt; 跟html一样，多个空格将被当成一个空格，回车和 \n 也是不起作用的，只有当文本宽度超过上级元素围的宽度了，才会换行，但是也可以用width属性来定义宽度，例如12345&lt;description style="max-width:20px;"&gt; This is a multi-line description. It should wrap if there isn't enough room to put it in one line. Let's put in another sentence for good measure.&lt;/description&gt; 例外，文本标签可以使用control属性来跟按钮、输入框之类的元素绑定，下面代码点击label后会触发button，accesskey是快捷键，用Alt+D即可使该label为当前焦点12&lt;label control="DisplayName" value=" DisplayName " accesskey="d" class="label"/&gt;&lt;button id=" DisplayName " label="MyName"/&gt; 4.4图片 &lt;image&gt;&lt;image src=&quot;cat.png&quot; width=&quot;20&quot; height=&quot;26&quot;/&gt; Image标签跟html一样，不过这不是常用的作法。常用的作法是放在skin目录下，通过样式表来控制。例如：&lt;image id=&quot;cat&quot; /&gt; 同时在CSS里面指定属性12345#cat&#123; height: 20px; width: 26px; background-image: url(images/cat.gif);&#125; 当然，你也可以用这样显示图片，但我觉得这样并不灵活，比较难控制12345#cat&#123; height: 20px; width: 26px; list-style-image: url(images/cat.gif);&#125; 4.5输入组件、和]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -4396,8 +4396,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4471,8 +4471,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Book</tag>
         <tag>Flash</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4511,8 +4511,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
