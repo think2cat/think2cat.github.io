@@ -257,8 +257,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -323,7 +323,7 @@
   <entry>
     <title><![CDATA[ECMAScript6笔记（1）]]></title>
     <url>%2F2017%2F03%2F1768cee0%2F</url>
-    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let用在花括号{ }里面在用let声明之前，变量不可用，会报错，而var声明之前的变量则返回undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 function(i){return i+1}简洁的无法接受！跟ES5不同的是function中的this指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的1234var self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无法适应的写法，但确实简洁123var a = 123, b = 456;var c = &#123;a,b&#125;;//c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;//a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");//--&gt; [1, 3, 5, 6, "a", "b"]//--&gt; [1, 3, 5, 6, "a", "b"]]]></content>
+    <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let 用在花括号 { }里面在用 let 声明之前，变量不可用，会报错，而 var 声明之前的变量则返回 undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 function(i){return i+1}简洁的无法接受！跟ES5不同的是function中的 this 指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的1234var self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无法适应的写法，但确实简洁123var a = 123, b = 456;var c = &#123;a,b&#125;;// c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;// a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");// --&gt; [1, 3, 5, 6, "a", "b"]// --&gt; [1, 3, 5, 6, "a", "b"]]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -793,8 +793,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -809,9 +809,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -824,10 +824,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -841,8 +841,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -907,9 +907,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
-        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -1051,12 +1051,13 @@
         <tag>跑步</tag>
         <tag>东莞</tag>
         <tag>松山湖</tag>
+        <tag>我们</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[1月31日·横岗美利达杯园山爬坡赛]]></title>
     <url>%2F2010%2F01%2Fedb2490%2F</url>
-    <content type="text"><![CDATA[从去年10月骑行南昆山和珠海之后，好像就没骑过车了（上下班除外），要么徒步，要么轮滑 看着车子日趋残旧，自己也越骑越慢，25km时速都挺费力，因为打算春节骑车回家，所以打算找个周末出去骑车，想叫小8童鞋去骑三洲田，可是人家忙啊，最近周末不是看阿凡达，就是相亲，十年童鞋要加班，非洲童鞋更被迫到阳江喂蚊子，可怜我只能单骑 偶然看到【骑行吧】举报了园山爬坡赛，跟塘朗山一样的长度，4.5公里，而塘朗山海拔只是上升了200多米，而园山却上升400多米，如此BT让我欣喜若狂 正愁怎么去横岗，意外发现莲塘臻骑的BOYBOY也报名了，那就万事俱备了，反正去横岗要经过莲塘，到时正好跟他们一起去，也不会迷路了 早上6点半出门，晃悠到华强北，偶然看到一起车祸现场，无奈带了单反不方便下车拍，只得往前赶 7点40抵达罗沙公路的莲塘派出所，时间尚早，停下来吃了盘肠粉，挺难吃的，挑了鸡蛋吃，闪人，8点出抵达臻骑，远远看到个人，以为是慢哥，原来是榔头，真够早的 BOYBOY和晓武因为骑了公路车，不方便走二线关，就分了2路，我实在不想爬2个坡，就跟榔头走了二线关，因为背着单反，怕抖坏，基本是站着骑，这可够呛的，4km的搓板路，抖了半小时比赛起点的检录，此时已经骑了40km 榔头，跟我一样报了体验组，成绩42:34 静月，女子组，成绩37:22 又拍到一个美女，忘记叫什么了 这就素偶常说的美少女BOYBOY，这次拿了第二名，成绩30:07 臻骑合影 我的车，体验组19号，成绩是。。。。。不说了，唉 10点半，比赛开始，先是女子组，然后是体验组，因为体验组参赛人很多，所以就分了2批，我19号自然是排第一批，吼吼 据说塘朗山路平均坡度6.7%，而梧桐山是8%，而园山平均坡度是。。。。9.4%！ 开始坡度，只有8.7%，凭借马拉松经验，慢慢晃上去，看着别人冲山，看着被超车，我不急，反正我是来玩的，而且往往开始跑最快的，就是最快下来推车的，哈哈 1.4km后抵达小庙，坡度剧增，达到14%！没关系，我继续晃，开始看到有人下来推车，我得意地笑，慢悠悠的超过去，此时基本是S型前进，因为太陡了，又背了东西，加上天气炎热，实在难受，22分钟的时候，大概是骑了3km，实在不行了，只好下来推车，o(╯□╰)o 推了几分钟，心跳平缓一点，刚好坡度也比较缓了，再骑了上去，这时刚好有个小下坡，哇，那个风吹的真舒服，可惜好路不长，又开始了上坡 看着路边突然冒出个牌子，写着1km，哇靠，加油！接着是500m&hellip;&hellip;200m&hellip;&hellip;就这样慢慢晃到了终点 此时终点已经聚集了很多人，BOYBOY看到我，也开始为我加油&ldquo;猫猫加油！&rdquo;，想摇车，可是当时用的是1-2档啊，太轻了，摇不起来，摇两下又坐下去，唉，真是囧，不是没力气，是变速没调好，虽然冲刺的时候不怎么华丽，不过也总算到了，哈哈 成绩是42:18，大概52名吧，呵呵 感谢为我拍下这张照片的摄影师，这是终点位置 这位是公路组第一名，18:28 右边是公路组第二名，18:43 公路组第三名，18:59 终点海拔590米，起点处为140米，爬坡450米！ 这是女子组第一名，26:21 终点处的人群 车友7菜，现在转为色友 女子组的颁奖，不知道左边为啥会有个GG =_=|| 回来经过梧桐山盘山路，捡到个正在修车的车友，就停下来帮忙，顺便拍了几张 今天骑行102km，GPS显示累计爬坡2802米]]></content>
+    <content type="text"><![CDATA[从去年10月骑行南昆山和珠海之后，好像就没骑过车了（上下班除外），要么徒步，要么轮滑 看着车子日趋残旧，自己也越骑越慢，25km时速都挺费力，因为打算春节骑车回家，所以打算找个周末出去骑车，想叫小8童鞋去骑三洲田，可是人家忙啊，最近周末不是看阿凡达，就是相亲，十年童鞋要加班，非洲童鞋更被迫到阳江喂蚊子，可怜我只能单骑 偶然看到【骑行吧】举报了园山爬坡赛，跟塘朗山一样的长度，4.5公里，而塘朗山海拔只是上升了200多米，而园山却上升400多米，如此BT让我欣喜若狂 正愁怎么去横岗，意外发现莲塘臻骑的BOYBOY也报名了，那就万事俱备了，反正去横岗要经过莲塘，到时正好跟他们一起去，也不会迷路了 早上6点半出门，晃悠到华强北，偶然看到一起车祸现场，无奈带了单反不方便下车拍，只得往前赶 7点40抵达罗沙公路的莲塘派出所，时间尚早，停下来吃了盘肠粉，挺难吃的，挑了鸡蛋吃，闪人，8点出抵达臻骑，远远看到个人，以为是慢哥，原来是榔头，真够早的 BOYBOY和晓武因为骑了公路车，不方便走二线关，就分了2路，我实在不想爬2个坡，就跟榔头走了二线关，因为背着单反，怕抖坏，基本是站着骑，这可够呛的，4km的搓板路，抖了半小时比赛起点的检录，此时已经骑了40km 榔头，跟我一样报了体验组，成绩42:34 静月，女子组，成绩37:22 又拍到一个美女，忘记叫什么了 这就素偶常说的美少女BOYBOY，这次拿了第二名，成绩30:07 臻骑合影 我的车，体验组19号，成绩是。。。。。不说了，唉 10点半，比赛开始，先是女子组，然后是体验组，因为体验组参赛人很多，所以就分了2批，我19号自然是排第一批，吼吼 据说塘朗山路平均坡度6.7%，而梧桐山是8%，而园山平均坡度是。。。。9.4%！ 开始坡度，只有8.7%，凭借马拉松经验，慢慢晃上去，看着别人冲山，看着被超车，我不急，反正我是来玩的，而且往往开始跑最快的，就是最快下来推车的，哈哈 1.4km后抵达小庙，坡度剧增，达到14%！没关系，我继续晃，开始看到有人下来推车，我得意地笑，慢悠悠的超过去，此时基本是S型前进，因为太陡了，又背了东西，加上天气炎热，实在难受，22分钟的时候，大概是骑了3km，实在不行了，只好下来推车，o(╯□╰)o 推了几分钟，心跳平缓一点，刚好坡度也比较缓了，再骑了上去，这时刚好有个小下坡，哇，那个风吹的真舒服，可惜好路不长，又开始了上坡 看着路边突然冒出个牌子，写着1km，哇靠，加油！接着是500m&hellip;&hellip;200m&hellip;&hellip;就这样慢慢晃到了终点 此时终点已经聚集了很多人，BOYBOY看到我，也开始为我加油&ldquo;老猫加油！&rdquo;，想摇车，可是当时用的是1-2档啊，太轻了，摇不起来，摇两下又坐下去，唉，真是囧，不是没力气，是变速没调好，虽然冲刺的时候不怎么华丽，不过也总算到了，哈哈 成绩是42:18，大概52名吧，呵呵 感谢为我拍下这张照片的摄影师，这是终点位置 这位是公路组第一名，18:28 右边是公路组第二名，18:43 公路组第三名，18:59 终点海拔590米，起点处为140米，爬坡450米！ 这是女子组第一名，26:21 终点处的人群 车友7菜，现在转为色友 女子组的颁奖，不知道左边为啥会有个GG =_=|| 回来经过梧桐山盘山路，捡到个正在修车的车友，就停下来帮忙，顺便拍了几张 今天骑行102km，GPS显示累计爬坡2802米]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -1103,6 +1104,7 @@
       <tags>
         <tag>厦门</tag>
         <tag>鼓浪屿</tag>
+        <tag>我们</tag>
       </tags>
   </entry>
   <entry>
@@ -1194,7 +1196,7 @@
   <entry>
     <title><![CDATA[12月6日·威斯跑山赛深圳站]]></title>
     <url>%2F2009%2F12%2F736a80ba%2F</url>
-    <content type="text"><![CDATA[难度完全出乎预料，原以为5小时18km很轻松，结果强度非常大，除了1km的石板路，其余全在山上，不是上山就是下山，4月12日的线路是18km18座山，而这次听说三签后改了路线，增加了几座山，所以路程应该远不只20km，强度也大大提高 不管成绩如何，能坚持到终点都是胜者，特别是十年，在双膝拉伤的情况下，仍坚持走完，实在佩服！ 昨天在比赛的时候，一直想着再也不参加了，再也不爬山了，不过现在，我想说，明年跑山赛再相见吧 == 成绩 == 猫 4小时45分 114名十年 6小时24分 第一名依旧是深大的牛人，1小时57分第二名，斯国松，2小时1分 这大哥也是第一次参加这种比赛，在出发前聊了一下，他说年纪大了怕是跑不完，我说我也是，准备能跑就跑，跑不了就走完算了 刚开始一段就一直一起跑，上了一会山后，就把距离拉开了，结果被他追上，还塞了酸梅糖给我们，真是好人 然后就一直跟他跑，一签过后我们就把十年甩了，二签的时候等了十年一会，喝了2杯水，吃了2截香蕉，还不见十年，我们就先走了 三签过后，在翻山的时候，这大哥就彻底把我甩了，一直到终点才见到他，太强悍了 终点处发放礼品，只要在规定时间（说是5小时，后来差不多6小时到的也拿到了）到达，就可以拿一份，还有一张成绩证书 里面有一本《户外》杂志，一个700ml的PE塑料水壶，一本台历，一瓶益力矿泉水，一个面包 回来看照片，才发现我的号码布好歪，好邪恶呀 下面是十年的跑后感言 惭愧！为这次跑山准备了一个月的时间，在12月2日早上跑南山的时候，感觉到左膝不适，为了不影响6日的比赛，不敢再拉练了。因为南山66就我跟猫报了名，我又不放心猫一人去参加比赛。再加上我自认为可以完成这次比赛，当然同样也低估了这次比赛的强度。前2小时基本跟猫一起在说笑中度过的，但是不幸的是在下了一段乱石坡之后，明显感觉到左膝疼痛。到了一签之后看了一下猫的背影后，我就一直落后面了。到了二签（后来才知道这是本次跑山赛中唯一的一处下撤点），问了义工有没有活络油，被告知没有，只有消肿水，更好笑的是，有一义工GG问我说清凉油可不可以。二签简单处理后，想了想这应该有一半的路了吧，坚持一下吧。 但是，我错了，我这次是彻底地错了。我的左膝疼痛加剧，稍一发力，就撕心裂肺滴那种痛，而且每个山坡都是那样陡，上下都不便，又有沙石，鞋子也不合适，相当滑！ 终于在12：36分挨到了三签，我提出下撤，义工也都劝我下撤。然后我问如何下撤，义工MM说只有回到二签才可以下撤，听完后直接晕S，NND，让我倒回去啊？这可是我忍着痛苦一步步挪过来的啊！自己思想斗争之后，决定继续前行（这其中是有原因的：一是听义工说前面都是下坡了，就还5公里了，二是我以为四签就是终点了），从三签挪走之后，找了根树枝，这时我的左腿基本不可以再发力了，只能用树枝撑着，右腿迈一下，左腿就住前拖一步，根本就没法抬起左腿。看着身边队员一个个地路过，心里相当不是滋味！其中有一段路近一个多小时没见到一个人影，在这莫大的深山之中，下撤无门，只好前行。想打个电话，手机没带身上；想看看时间，手表没带；想喝口水，水也没带而且路边的空瓶竟然是那样的空；这时我真正体验了一回什么叫绝望！因为休息过一次之后，再走的时候左膝更痛了，所以我就不敢再停下来了，依旧是BT的上坡、下坡。。。。。。。。 因为左腿发不上力，我的右腿承受了更多的负担，此时右腿也有反应了，NND，一个字，惨啊！就这样，又挨到了四签，当听说后面还有近5KM的路的时候我都快崩溃了！真想这时能有直升飞机把我运出去啊！后来，好心的威斯员工（一个腼腆的小DD）一直跟在我后面陪我下山，不断地跟我聊天给我打气。就这样，我们终于回到了起跑的地方，也是本次跑山的终点。人散的差不多了，守候多时的猫在终点迎接一瘸一拐的我跨过终点线，好感动！ 总结本次活动，有批评、有表扬的地方如下：一、本次活动主办方，将线路长度严重缩水，18KM的路程，绝对不少于25KM！二、签到点间隔太远，水准备的也不足，到了补给点，竟然没水喝！三、活动结束，我去存包处领包时，义工MM没关心滴问候一句，竟然还说了一句&ldquo;就只还有你一人没拿走了&rdquo;听后伤心中。。。。。四、自己不会适时放弃，该下撤时不下撤，得批评一下。 当然也有表扬的：一、威斯小DD不错，陪我走完最后一段艰难的下坡。二、猫猫不抛弃、不放弃，一直等我回到终点为。三、还有我自己了，负伤走完全程。告诫朋友们，以后活动还要量力而行啊，要学会适时选择放弃才是。直至发贴之时，我的腿还在疼痛之中。。。。。。]]></content>
+    <content type="text"><![CDATA[难度完全出乎预料，原以为5小时18km很轻松，结果强度非常大，除了1km的石板路，其余全在山上，不是上山就是下山，4月12日的线路是18km18座山，而这次听说三签后改了路线，增加了几座山，所以路程应该远不只20km，强度也大大提高 不管成绩如何，能坚持到终点都是胜者，特别是十年，在双膝拉伤的情况下，仍坚持走完，实在佩服！ 昨天在比赛的时候，一直想着再也不参加了，再也不爬山了，不过现在，我想说，明年跑山赛再相见吧 == 成绩 == 猫 4小时45分 114名十年 6小时24分 第一名依旧是深大的牛人，1小时57分第二名，斯国松，2小时1分 这大哥也是第一次参加这种比赛，在出发前聊了一下，他说年纪大了怕是跑不完，我说我也是，准备能跑就跑，跑不了就走完算了 刚开始一段就一直一起跑，上了一会山后，就把距离拉开了，结果被他追上，还塞了酸梅糖给我们，真是好人 然后就一直跟他跑，一签过后我们就把十年甩了，二签的时候等了十年一会，喝了2杯水，吃了2截香蕉，还不见十年，我们就先走了 三签过后，在翻山的时候，这大哥就彻底把我甩了，一直到终点才见到他，太强悍了 终点处发放礼品，只要在规定时间（说是5小时，后来差不多6小时到的也拿到了）到达，就可以拿一份，还有一张成绩证书 里面有一本《户外》杂志，一个700ml的PE塑料水壶，一本台历，一瓶益力矿泉水，一个面包 回来看照片，才发现我的号码布好歪，好邪恶呀 下面是十年的跑后感言 惭愧！为这次跑山准备了一个月的时间，在12月2日早上跑南山的时候，感觉到左膝不适，为了不影响6日的比赛，不敢再拉练了。因为南山66就我跟猫报了名，我又不放心猫一人去参加比赛。再加上我自认为可以完成这次比赛，当然同样也低估了这次比赛的强度。前2小时基本跟猫一起在说笑中度过的，但是不幸的是在下了一段乱石坡之后，明显感觉到左膝疼痛。到了一签之后看了一下猫的背影后，我就一直落后面了。到了二签（后来才知道这是本次跑山赛中唯一的一处下撤点），问了义工有没有活络油，被告知没有，只有消肿水，更好笑的是，有一义工GG问我说清凉油可不可以。二签简单处理后，想了想这应该有一半的路了吧，坚持一下吧。 但是，我错了，我这次是彻底地错了。我的左膝疼痛加剧，稍一发力，就撕心裂肺滴那种痛，而且每个山坡都是那样陡，上下都不便，又有沙石，鞋子也不合适，相当滑！ 终于在12：36分挨到了三签，我提出下撤，义工也都劝我下撤。然后我问如何下撤，义工MM说只有回到二签才可以下撤，听完后直接晕S，NND，让我倒回去啊？这可是我忍着痛苦一步步挪过来的啊！自己思想斗争之后，决定继续前行（这其中是有原因的：一是听义工说前面都是下坡了，就还5公里了，二是我以为四签就是终点了），从三签挪走之后，找了根树枝，这时我的左腿基本不可以再发力了，只能用树枝撑着，右腿迈一下，左腿就住前拖一步，根本就没法抬起左腿。看着身边队员一个个地路过，心里相当不是滋味！其中有一段路近一个多小时没见到一个人影，在这莫大的深山之中，下撤无门，只好前行。想打个电话，手机没带身上；想看看时间，手表没带；想喝口水，水也没带而且路边的空瓶竟然是那样的空；这时我真正体验了一回什么叫绝望！因为休息过一次之后，再走的时候左膝更痛了，所以我就不敢再停下来了，依旧是BT的上坡、下坡。。。。。。。。 因为左腿发不上力，我的右腿承受了更多的负担，此时右腿也有反应了，NND，一个字，惨啊！就这样，又挨到了四签，当听说后面还有近5KM的路的时候我都快崩溃了！真想这时能有直升飞机把我运出去啊！后来，好心的威斯员工（一个腼腆的小DD）一直跟在我后面陪我下山，不断地跟我聊天给我打气。就这样，我们终于回到了起跑的地方，也是本次跑山的终点。人散的差不多了，守候多时的猫在终点迎接一瘸一拐的我跨过终点线，好感动！ 总结本次活动，有批评、有表扬的地方如下：一、本次活动主办方，将线路长度严重缩水，18KM的路程，绝对不少于25KM！二、签到点间隔太远，水准备的也不足，到了补给点，竟然没水喝！三、活动结束，我去存包处领包时，义工MM没关心滴问候一句，竟然还说了一句&ldquo;就只还有你一人没拿走了&rdquo;听后伤心中。。。。。四、自己不会适时放弃，该下撤时不下撤，得批评一下。 当然也有表扬的：一、威斯小DD不错，陪我走完最后一段艰难的下坡。二、老猫不抛弃、不放弃，一直等我回到终点为。三、还有我自己了，负伤走完全程。告诫朋友们，以后活动还要量力而行啊，要学会适时选择放弃才是。直至发贴之时，我的腿还在疼痛之中。。。。。。]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -1213,8 +1215,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
         <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1292,9 +1294,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1306,10 +1308,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1320,9 +1322,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
+        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1334,8 +1336,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
         <tag>单车</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1458,8 +1460,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山66</tag>
+        <tag>单车</tag>
         <tag>虎门</tag>
       </tags>
   </entry>
@@ -1485,9 +1487,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1498,9 +1500,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
-        <tag>单车</tag>
         <tag>南山66</tag>
+        <tag>单车</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,8 +1633,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>莲花山</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1669,8 +1671,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -1682,9 +1684,9 @@
       </categories>
       <tags>
         <tag>户外</tag>
-        <tag>南山</tag>
-        <tag>单车</tag>
         <tag>莲花山</tag>
+        <tag>单车</tag>
+        <tag>南山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
       </tags>
@@ -1710,10 +1712,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
+        <tag>单车</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
-        <tag>单车</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,8 +1740,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1789,8 +1791,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -1803,8 +1805,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>东部华侨城</tag>
       </tags>
   </entry>
@@ -1842,10 +1844,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
         <tag>莲花山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1857,9 +1859,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -1925,8 +1927,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1941,8 +1943,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -2008,8 +2010,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2104,8 +2106,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -2207,10 +2209,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>平花</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
+        <tag>平花</tag>
       </tags>
   </entry>
   <entry>
@@ -2266,8 +2268,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>寮步</tag>
         <tag>东莞</tag>
         <tag>松岗</tag>
@@ -2282,9 +2284,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2350,8 +2352,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
         <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2402,8 +2404,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>莲花山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2453,9 +2455,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>莲花山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2490,8 +2492,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2552,8 +2554,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>罗湖</tag>
       </tags>
   </entry>
@@ -2578,9 +2580,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2630,8 +2632,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2670,8 +2672,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -2683,8 +2685,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2708,8 +2710,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2736,8 +2738,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2760,8 +2762,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>东门</tag>
       </tags>
   </entry>
@@ -2774,8 +2776,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2800,8 +2802,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2827,8 +2829,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2854,8 +2856,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2870,8 +2872,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>潮州</tag>
         <tag>汕头</tag>
+        <tag>潮州</tag>
       </tags>
   </entry>
   <entry>
@@ -2882,8 +2884,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2896,8 +2898,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2924,10 +2926,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>海滨广场</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
+        <tag>海滨广场</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -2951,10 +2953,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2966,9 +2968,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2992,8 +2994,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -3007,8 +3009,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3020,8 +3022,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -3034,8 +3036,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3049,8 +3051,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>华侨城</tag>
       </tags>
   </entry>
@@ -3062,9 +3064,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -3077,8 +3079,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
         <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3090,9 +3092,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3104,8 +3106,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -3116,8 +3118,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3131,8 +3133,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3145,8 +3147,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>深大</tag>
       </tags>
   </entry>
@@ -3159,8 +3161,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3184,9 +3186,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山</tag>
-        <tag>轮滑</tag>
         <tag>南山66</tag>
+        <tag>轮滑</tag>
+        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -3211,8 +3213,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -3326,8 +3328,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3462,8 +3464,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3475,9 +3477,9 @@
         <category>Digital</category>
       </categories>
       <tags>
+        <tag>蓝牙</tag>
         <tag>mobile</tag>
         <tag>多普达</tag>
-        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3698,8 +3700,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4396,8 +4398,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4471,8 +4473,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4499,8 +4501,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4511,8 +4513,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4523,8 +4525,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4825,9 +4827,9 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[猫猫回来了！]]></title>
-    <url>%2F2003%2F11%2F49429ada%2F</url>
-    <content type="text"><![CDATA[回家快一周了，一直不知道在忙什么，收拾东西，收拾心情。。。开始好了。。。开始进入正常状态。。。。超级无敌的猫猫回来咯。。。打算离开Studio，一直以来都是孤军混战，这样的Studio犹如一盘散沙，离不离开对我都没影响，而且在Studio的日子很不开心，所以还是走了好，以后有时间或许会组建自己的工作室吧，那是以后的事，现在只想多学点东西，这一年浪费了好多时间，应该是这辈子浪费了很多时间，快21岁了，还是一事无成，所以我得珍惜时间，好好学习！最近打算把这个Blog继续写下去，还有在广州买了JSP和MySQL的书，打算学学，其实玩Java只是兴趣而已，我觉得M$的.NET应该更强大，管它呢，学了再说，先走这一步，以后的路，还很长。。。]]></content>
+    <title><![CDATA[回来了！]]></title>
+    <url>%2F2003%2F11%2F96cbc0c%2F</url>
+    <content type="text"><![CDATA[回家快一周了，一直不知道在忙什么，收拾东西，收拾心情。。。开始好了。。。开始进入正常状态。。。。超级无敌的猫回来咯。。。打算离开Studio，一直以来都是孤军混战，这样的Studio犹如一盘散沙，离不离开对我都没影响，而且在Studio的日子很不开心，所以还是走了好，以后有时间或许会组建自己的工作室吧，那是以后的事，现在只想多学点东西，这一年浪费了好多时间，应该是这辈子浪费了很多时间，快21岁了，还是一事无成，所以我得珍惜时间，好好学习！最近打算把这个Blog继续写下去，还有在广州买了JSP和MySQL的书，打算学学，其实玩Java只是兴趣而已，我觉得M$的.NET应该更强大，管它呢，学了再说，先走这一步，以后的路，还很长。。。]]></content>
       <categories>
         <category>Life</category>
       </categories>
@@ -4872,8 +4874,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
