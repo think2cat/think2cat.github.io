@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>异步回调之generator（1）入门篇</title>
+    <link href="http://21ido.com/2018/09/ddbd4da6/"/>
+    <id>http://21ido.com/2018/09/ddbd4da6/</id>
+    <published>2018-09-11T09:39:39.000Z</published>
+    <updated>2018-09-30T10:09:22.203Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是Generator&quot;&gt;&lt;a href=&quot;#什么是Generator&quot; class=&quot;headerlink&quot; title=&quot;什么是Generator&quot;&gt;&lt;/a&gt;什么是Generator&lt;/h3&gt;&lt;p&gt;Generator 是ES6新特性，是另一种异步编程解决方案，提供了与之前传统函数不一样的语法行为&lt;br&gt;如果说Promise解决了回调函数的地狱式嵌套，Generator则解决了Promise.then()的多级链式调用&lt;/p&gt;
+&lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;p&gt;&lt;code&gt;function* Generator()&lt;/code&gt; Generator写法跟普通函数一样，&lt;code&gt;function&lt;/code&gt; 和函数名 &lt;code&gt;Generator&lt;/code&gt; 中间多了个&lt;code&gt;*&lt;/code&gt;号，同时函数内部可以使用 &lt;code&gt;yield&lt;/code&gt; 进行暂停并输出值&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// *号可随意放置，推荐使用第一种写法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;* &lt;span class=&quot;title&quot;&gt;Generator&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; * &lt;span class=&quot;title&quot;&gt;Generator&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; *&lt;span class=&quot;title&quot;&gt;Generator&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;*&lt;span class=&quot;title&quot;&gt;Generator&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="generator" scheme="http://21ido.com/tags/generator/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Axios笔记(2)</title>
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
@@ -524,30 +548,6 @@
       <category term="vue" scheme="http://21ido.com/tags/vue/"/>
     
       <category term="vue-cli" scheme="http://21ido.com/tags/vue-cli/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bower学习笔记</title>
-    <link href="http://21ido.com/2017/08/cf44a887/"/>
-    <id>http://21ido.com/2017/08/cf44a887/</id>
-    <published>2017-08-21T07:17:19.000Z</published>
-    <updated>2018-08-01T07:20:45.186Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/2017/08/bower.png&quot; alt=&quot;bower&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1-bower是什么&quot;&gt;&lt;a href=&quot;#1-bower是什么&quot; class=&quot;headerlink&quot; title=&quot;1. bower是什么&quot;&gt;&lt;/a&gt;1. bower是什么&lt;/h4&gt;&lt;p&gt;bower是基于node.js的包管理工具，可以方便的安装和卸载web开发资源，诸如jQuery、bootstrap之类&lt;br&gt;而像yeoman和grunt则是在bower基础上的开发工具&lt;/p&gt;
-&lt;h4 id=&quot;2-bower和npm的区别&quot;&gt;&lt;a href=&quot;#2-bower和npm的区别&quot; class=&quot;headerlink&quot; title=&quot;2. bower和npm的区别&quot;&gt;&lt;/a&gt;2. bower和npm的区别&lt;/h4&gt;&lt;p&gt;都是包管理工具，但是bower是for web，npm的包依赖是一种独特的嵌套依赖关系树，依赖包层层嵌套树杈非常坑长，打开node_modules可以看到里面密密麻麻的包，但对于前端库来说，这些基本是多余的，往往需要的只是一个未压缩或者压缩后的js和css而已，而bower正是管理js/css/模板的一个工具&lt;br&gt;&lt;a href=&quot;https://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Stack上有相关评论点这里&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="bower" scheme="http://21ido.com/tags/bower/"/>
-    
-      <category term="nodejs" scheme="http://21ido.com/tags/nodejs/"/>
     
   </entry>
   

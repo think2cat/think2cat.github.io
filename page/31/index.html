@@ -337,6 +337,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/04/8c91055b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="猫大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猫大叔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="../../2006/04/8c91055b/" itemprop="url">计算某天是当月第几周</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2006-04-28T17:20:53+08:00">
+                2006-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../categories/Flash/" itemprop="url" rel="index">
+                    <span itemprop="name">Flash</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在网上看到这样文章，是用VBS写的，觉得有些麻烦，于是想自己写一个，才发现VBS本来就有类似的函数，于是很容易得实现了</p>
+<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Function</span> weekOfMonth(myDate)</span><br><span class="line">   monthWeek = <span class="built_in">DatePart</span>(<span class="string">"ww"</span>,<span class="built_in">DateAdd</span>(<span class="string">"d"</span>,-<span class="built_in">day</span>(myDate)+<span class="number">1</span>,myDate)) <span class="comment">'取得该月1号是本年第几周</span></span><br><span class="line">   dayWeek = <span class="built_in">DatePart</span>(<span class="string">"ww"</span>,myDate) <span class="comment">'取得该日期是本年第几周</span></span><br><span class="line">   weekOfMonth = dayWeek - monthWeek + <span class="number">1</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
+<p>返回是整数，可以这样调用：<br><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MsgBox</span> weekOfMonth(<span class="string">"2006-8-20"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>写完觉得太简单了，再用Flash写一个，在Flash里面找不到关于周计算的函数，只能自己写算法了<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="../../2006/04/8c91055b/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+      
+        <div class="post-tags">
+          
+            <a href="../../tags/actionscript/" rel="tag"># actionscript</a>
+          
+            <a href="../../tags/Flash/" rel="tag"># Flash</a>
+          
+            <a href="../../tags/vbs/" rel="tag"># vbs</a>
+          
+        </div>
+      
+
+      
+
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/04/28897a50/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1784,166 +1948,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://21ido.com../../2006/03/697236ca/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="猫大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="../../images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="猫大叔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="../../2006/03/697236ca/" itemprop="url">XUL学习笔记(2)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2006-03-23T22:20:59+08:00">
-                2006-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="1-3-XUL可以做什么"><a href="#1-3-XUL可以做什么" class="headerlink" title="1.3 XUL可以做什么"></a>1.3 XUL可以做什么</h4><p>先补充一下，XUL发音为：zool<br>XUL可以创建图形界面的绝大多数元素，像Firefox、Thunderbird界面都是XUL的应用。</p>
-<h4 id="1-4-XUL相关资料"><a href="#1-4-XUL相关资料" class="headerlink" title="1.4 XUL相关资料"></a>1.4 XUL相关资料</h4><p>目前XUL应用并不多，相关资料(无论中文或英文)非常的少，大多仅有一些简单的介绍而已，下面是几个相关网站<br><a href="http://www.xulplanet.com/" target="_blank" rel="noopener">http://www.xulplanet.com</a><br><a href="http://developer.mozilla.com/" target="_blank" rel="noopener">http://developer.mozilla.com</a></p>
-<h3 id="二、开发平台"><a href="#二、开发平台" class="headerlink" title="二、开发平台"></a>二、开发平台</h3><h4 id="2-1-开发工具"><a href="#2-1-开发工具" class="headerlink" title="2.1 开发工具"></a>2.1 开发工具</h4><p>以下为扩展开发所需工具，可以在下面的两上网站下载和获取到帮助信息：<br><a href="https://addons.mozilla.org/extensions/?application=firefox" target="_blank" rel="noopener">https://addons.mozilla.org/extensions/?application=firefox</a><br><a href="http://www.extensionsmirror.nl/" target="_blank" rel="noopener">http://www.extensionsmirror.nl/</a></p>
-<h4 id="2-2-配置环境变量"><a href="#2-2-配置环境变量" class="headerlink" title="2.2 配置环境变量"></a>2.2 配置环境变量</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="../../2006/03/697236ca/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-      
-        <div class="post-tags">
-          
-            <a href="../../tags/XUL/" rel="tag"># XUL</a>
-          
-        </div>
-      
-
-      
-
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1994,7 +1998,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="../../archives/">
-                <span class="site-state-item-count">397</span>
+                <span class="site-state-item-count">398</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2016,7 +2020,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="../../tags/index.html">
-                <span class="site-state-item-count">272</span>
+                <span class="site-state-item-count">273</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
