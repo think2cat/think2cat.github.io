@@ -293,8 +293,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>nodejs</tag>
+        <tag>javascript</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -365,8 +365,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -434,8 +434,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>英州</tag>
         <tag>万宁</tag>
+        <tag>英州</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -452,8 +452,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>琼海</tag>
         <tag>万宁</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -469,8 +469,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>文昌</tag>
         <tag>琼海</tag>
+        <tag>文昌</tag>
       </tags>
   </entry>
   <entry>
@@ -919,9 +919,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
-        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -1281,8 +1281,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1657,9 +1657,9 @@
         <category>Digital</category>
       </categories>
       <tags>
+        <tag>装备</tag>
         <tag>GPS</tag>
         <tag>评测</tag>
-        <tag>装备</tag>
       </tags>
   </entry>
   <entry>
@@ -1924,9 +1924,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>装备</tag>
         <tag>户外</tag>
         <tag>松拓</tag>
+        <tag>装备</tag>
         <tag>跑步</tag>
       </tags>
   </entry>
@@ -1938,12 +1938,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
-        <tag>Book</tag>
-        <tag>Flash</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>Book</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -1954,12 +1954,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
-        <tag>Book</tag>
-        <tag>Flash</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>Book</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -2036,8 +2036,8 @@
       <tags>
         <tag>笔记本</tag>
         <tag>评测</tag>
-        <tag>淘宝</tag>
         <tag>CPU</tag>
+        <tag>淘宝</tag>
       </tags>
   </entry>
   <entry>
@@ -2323,9 +2323,9 @@
         <category>IT</category>
       </categories>
       <tags>
+        <tag>sql</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
-        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -2443,8 +2443,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2829,8 +2829,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -3476,8 +3476,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3489,9 +3489,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>蓝牙</tag>
         <tag>mobile</tag>
         <tag>多普达</tag>
+        <tag>蓝牙</tag>
       </tags>
   </entry>
   <entry>
@@ -3855,8 +3855,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>工行</tag>
         <tag>淘宝</tag>
+        <tag>工行</tag>
         <tag>网银</tag>
       </tags>
   </entry>
@@ -3900,8 +3900,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -3928,8 +3928,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>vbs</tag>
       </tags>
   </entry>
@@ -3941,8 +3941,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>笔记</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4363,8 +4363,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4386,8 +4386,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4409,9 +4409,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
-        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4484,9 +4484,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
-        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4621,8 +4621,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4689,8 +4689,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>java</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4886,8 +4886,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
