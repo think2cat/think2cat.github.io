@@ -170,6 +170,117 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/z_blog_1.8_加入代码高亮" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2008/06/87262eef/">z-blog 1.8 加入代码高亮</a>
+    </h1>
+  
+
+        
+        <a href="../../2008/06/87262eef/" class="archive-article-date">
+  	<time datetime="2008-06-17T11:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码高亮，我所知道的方法有3种</p>
+<ol>
+<li>直接改模板，目前所使用的，好处就是无须修改源码，升级方便，缺点就是修改文章的时候，代码里的换行会被编辑器搞掉</li>
+<li>改FCKEditor，直接作为插件使用，用JS直接把高亮后的代码插入正文，优点是无需改模板，缺点是需要改FCKEditor，而且日后修改文章同样不方便</li>
+<li>新增UBB标签，例如[code=html]，需改源码和模板，优点是修改文章特方便，缺点是需要对程序大量修改，同样日后程序升级不方便</li>
+</ol>
+<p>这里说的是第一种方法</p>
+<p>Z-blog 1.8</p>
+<p><a href="http://code.google.com/p/syntaxhighlighter/" target="_blank" rel="noopener">syntaxhighlighter 1.5.1</a> 下载后解压放好，我是分别把JS和CSS放到script和images目录</p>
+<p>以首页为例，打开default.html</p>
+<p>在 <code>&lt;/head&gt;</code> 之前加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;image/styles/SyntaxHighlighter.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shCore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCpp.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushCss.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJava.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushJScript.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushSql.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushVb.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">class</span>=<span class="string">"javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;#ZC_BLOG_HOST#&gt;SCRIPT/Highlighter/shBrushXml.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在文件最后一个 <code>&lt;/script&gt;</code> 之前加入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp.SyntaxHighlighter.ClipboardSwf = <span class="string">"/SCRIPT/Highlighter/clipboard.swf"</span>;</span><br><span class="line">dp.SyntaxHighlighter.BloggerMode();</span><br><span class="line">dp.SyntaxHighlighter.HighlightAll(<span class="string">'code'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>single.html 文件用上面方法同样处理，注意路径</p>
+<p>使用方法还是一样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"java"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>Java代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"code"</span> <span class="attr">class</span>=<span class="string">"vb:firstline[26]"</span> <span class="attr">rows</span>=<span class="string">"15"</span> <span class="attr">cols</span>=<span class="string">"100"</span>&gt;</span>VB代码<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">zblog</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2008/06/87262eef/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Life/6月15日桂庙路口刷街东门文化宫" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1076,113 +1187,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2008/05/e45fa03d/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/5月1日爆刷72公里_南山到东莞寮步" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2008/05/5eaf13af/">5月1日 爆刷72公里，南山到东莞寮步</a>
-    </h1>
-  
-
-        
-        <a href="../../2008/05/5eaf13af/" class="archive-article-date">
-  	<time datetime="2008-05-02T07:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="480" height="400"><param name="movie" value="http://www.56.com/n_v48_/c38_/4_/29_/ruller66_/zhajm_120971776778_/261000_/0_/34034231.swf"><param name="quality" value="high"><param name="play" value="true"><embed src="http://www.56.com/n_v48_/c38_/4_/29_/ruller66_/zhajm_120971776778_/261000_/0_/34034231.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="400" play="true"></object>
-
-<h3 id="72公里，又一个里程碑，南山66，我们很黄很强大！"><a href="#72公里，又一个里程碑，南山66，我们很黄很强大！" class="headerlink" title="72公里，又一个里程碑，南山66，我们很黄很强大！"></a>72公里，又一个里程碑，南山66，我们很黄很强大！</h3>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">寮步</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">东莞</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">松岗</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2008/05/5eaf13af/">展开全文 >></a>
         </p>
       
 
@@ -2386,6 +2390,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
             
             <div class="clearfix"></div>

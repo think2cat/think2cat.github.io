@@ -170,6 +170,103 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IT/未与信任SQL Server连接相关联_解决方法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2005/07/9bdb9439/">[未与信任 SQL Server 连接相关联]解决方法</a>
+    </h1>
+  
+
+        
+        <a href="../../2005/07/9bdb9439/" class="archive-article-date">
+  	<time datetime="2005-07-27T16:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2005-07-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>企业管理器可以正常登陆，可是ASP页面却出错，无论怎么改用户/密码、别名，都没用，出错信息如下</p>
+<blockquote>
+<p>Microsoft VBScript 编译器错误 错误 ‘800a03f6’ 缺少 ‘End’</p>
+<p>/iisHelp/common/500-100.asp，行242</p>
+<p>Microsoft OLE DB Provider for ODBC Drivers 错误 ‘80040e4d’</p>
+<p>[Microsoft][ODBC SQL Server Driver][SQL Server]用户 ‘sa’ 登录失败。原因: 未与信任 SQL Server 连接相关联。</p>
+<p>/conn.asp，行7</p>
+</blockquote>
+<p>该错误产生的原因是由于SQL Server使用了”仅 Windows”的身份验证方式，因此用户无法使用SQL Server的登录帐户（如 sa ）进行连接。解决方法如下所示：</p>
+<ol>
+<li>在服务器端使用企业管理器，并且选择”使用 Windows 身份验证”连接上 SQL Server；</li>
+<li>展开”SQL Server组”，鼠标右键点击SQL Server服务器的名称，选择”属性”，再选择”安全性”选项卡；</li>
+<li>在”身份验证”下，选择”SQL Server和 Windows “。</li>
+<li>重新启动SQL Server服务。</li>
+</ol>
+<p><img src="/images/2005/07/28_12753.gif" alt="MSSQL"></p>
+<p>在以上解决方法中，如果在第 1 步中使用”使用 Windows 身份验证”连接 SQL Server 失败，那么我们将遇到一个两难的境地：首先，服务器只允许了 Windows 的身份验证；其次，即使使用了 Windows 身份验证仍然无法连接上服务器。这种情形被形象地称之为”自己把自己锁在了门外”，因为无论用何种方式，用户均无法使用进行连接。实际上，我们可以通过修改一个注册表键值来将身份验证方式改为 SQL Server 和 Windows 混合验证，步骤如下所示：</p>
+<ol>
+<li>点击”开始”-“运行”，输入regedit，回车进入注册表编辑器；</li>
+<li>依次展开注册表项，浏览到以下注册表键：<br><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer]</code></li>
+<li>在屏幕右方找到名称”LoginMode”，双击编辑双字节值；</li>
+<li>将原值从1改为2，点击”确定”；</li>
+<li>关闭注册表编辑器</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/IT//" class="article-tag-list-link color3">IT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2005/07/9bdb9439/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Life/六月的期待_周杰伦_头文字D" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -927,93 +1024,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2005/01/10998e14/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/修改了UBB等" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2004/10/dd77d29d/">修改了UBB等</a>
-    </h1>
-  
-
-        
-        <a href="../../2004/10/dd77d29d/" class="archive-article-date">
-  	<time datetime="2004-10-20T16:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2004-10-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2004/10/21_12746.gif" alt=""></p>
-<p>修改了UBB编码，基本按照XHTML标准改的，但没有改Flash和Media/RM的标签，所以还是不能通过W3C验证，CSS倒是通过了，Blog表格增加一个字段，用以显示首页显示多少行，基本解决了首页截取一般HTML代码造成页面错误的情况</p>
-<p>PS:晚上去买咖啡，在<a href="http://blog.sea-bug.3322.org/blogview.asp?logID=136" target="_blank" rel="noopener">海阳Blog</a>看到新的雀巢冰咖啡有送杯子，可是这里两个超市都没有，也没有麦斯威尔，最后买了雀巢冰咖啡和纯咖啡各一盒</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2004/10/dd77d29d/">展开全文 >></a>
         </p>
       
 
@@ -2217,6 +2227,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
             
             <div class="clearfix"></div>

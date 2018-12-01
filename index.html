@@ -170,6 +170,98 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/Canvas填坑[1]_实时透明线" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/11/4d59cb14/">Canvas填坑(1)实时透明线</a>
+    </h1>
+  
+
+        
+        <a href="2018/11/4d59cb14/" class="archive-article-date">
+  	<time datetime="2018-11-23T08:51:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/2018/11/canvasOpacity_1.png" alt="canvasOpacity_1"></p>
+<p>Canvas画线算是最基础的操作，涉及的方法也比较简单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">_cv = _canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">_cv.lineWidth = <span class="number">20</span></span><br><span class="line">_cv.strokeStyle = <span class="string">'red'</span></span><br><span class="line">_cv.beginPath()</span><br><span class="line">_cv.moveTo(point.x, point.y)</span><br><span class="line">_cv.lineTo(<span class="keyword">new</span>.x, <span class="keyword">new</span>.y)</span><br><span class="line">_cv.stroke()</span><br></pre></td></tr></table></figure>
+<p>点很多的话，加个 <code>for</code> 循环也轻松搞定，如果画的是透明线，只需用 RGBA 格式即可，比如上图颜色为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_cv.strokeStyle = <span class="string">'rgba(253, 150, 38, 0.41)'</span></span><br></pre></td></tr></table></figure></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/11/4d59cb14/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/upload组件覆写默认上传行为" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -989,96 +1081,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="2018/06/57c1ef1d/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/TypeScript学习笔记_2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/05/383e290e/">TypeScript学习笔记(2)</a>
-    </h1>
-  
-
-        
-        <a href="2018/05/383e290e/" class="archive-article-date">
-  	<time datetime="2018-05-16T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="表示法"><a href="#表示法" class="headerlink" title="[]表示法"></a>[]表示法</h4><p>在类型定义后面加上[]即表示数组<br>定义的数组不允许出现其它类型，同时支持联合类型<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catArr: <span class="built_in">number</span>[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> catName: <span class="built_in">string</span>[] = [<span class="string">"one"</span>,<span class="string">"tow"</span>,<span class="string">"three"</span>];</span><br><span class="line"><span class="keyword">let</span> catColor: (<span class="built_in">string</span>|<span class="built_in">number</span>)[] = [<span class="number">1</span>,<span class="string">"tow"</span>,<span class="number">0xFFF</span>];</span><br><span class="line">catColor.push(<span class="string">"four"</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="泛型表示法"><a href="#泛型表示法" class="headerlink" title="泛型表示法"></a>泛型表示法</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catArr: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> catName: <span class="built_in">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">"one"</span>,<span class="string">"tow"</span>,<span class="string">"three"</span>];</span><br><span class="line"><span class="keyword">let</span> catColor: <span class="built_in">Array</span>&lt;<span class="built_in">boolean</span>|<span class="built_in">number</span>&gt; = [<span class="number">0</span>,<span class="number">1</span>, <span class="literal">true</span>];</span><br><span class="line">catColor.push(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2018/05/383e290e/">展开全文 >></a>
         </p>
       
 
@@ -2282,6 +2284,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-09-20T10:21:02.717Z</updated>
+  <updated>2018-12-01T08:58:02.311Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Canvas填坑(1)实时透明线</title>
+    <link href="http://21ido.com/2018/11/4d59cb14/"/>
+    <id>http://21ido.com/2018/11/4d59cb14/</id>
+    <published>2018-11-23T08:51:24.000Z</published>
+    <updated>2018-12-01T08:58:02.311Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/2018/11/canvasOpacity_1.png&quot; alt=&quot;canvasOpacity_1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Canvas画线算是最基础的操作，涉及的方法也比较简单&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;_cv = _canvas.getContext(&lt;span class=&quot;string&quot;&gt;&#39;2d&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.lineWidth = &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.strokeStyle = &lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.beginPath()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.moveTo(point.x, point.y)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.lineTo(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt;.x, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt;.y)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.stroke()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;点很多的话，加个 &lt;code&gt;for&lt;/code&gt; 循环也轻松搞定，如果画的是透明线，只需用 RGBA 格式即可，比如上图颜色为&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;_cv.strokeStyle = &lt;span class=&quot;string&quot;&gt;&#39;rgba(253, 150, 38, 0.41)&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="canvas" scheme="http://21ido.com/tags/canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>element-ui upload组件覆写默认上传行为</title>
@@ -521,33 +546,6 @@
       <category term="PAC" scheme="http://21ido.com/tags/PAC/"/>
     
       <category term="ShadowSocks" scheme="http://21ido.com/tags/ShadowSocks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-cli下解决跨域sessionid问题</title>
-    <link href="http://21ido.com/2017/09/33570702/"/>
-    <id>http://21ido.com/2017/09/33570702/</id>
-    <published>2017-09-12T15:31:00.000Z</published>
-    <updated>2018-08-06T09:46:40.683Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/2017/09/sessionid.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;项目开始为了方便直接把页面包在Java容器里面，而实际设计应该是前后端分离的&lt;br&gt;最近在做分离时api请求发现，因为前端web和后端portal不在一个容器，存在跨域，会造成每次ajax请求都生成不同sessionid，而portal是通过session来识别用户，从而控制权限，这将导致登录后依旧无法获取数据，因为sessionid变了，portal认为没有权限并302重定向到首页&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="node.js" scheme="http://21ido.com/tags/node-js/"/>
-    
-      <category term="vue" scheme="http://21ido.com/tags/vue/"/>
-    
-      <category term="vue-cli" scheme="http://21ido.com/tags/vue-cli/"/>
     
   </entry>
   
