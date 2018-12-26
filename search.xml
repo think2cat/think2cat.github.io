@@ -286,15 +286,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ES6箭头函数]]></title>
+    <title><![CDATA[ES6笔记(2)箭头函数]]></title>
     <url>%2F2017%2F06%2F5b0ab7b9%2F</url>
     <content type="text"><![CDATA[第一次见到这箭头=&gt;，我觉得这是很奇葩的写法，因为作为一个老男人来说，会影响阅读和理解代码的速度=_=|| 作为ES6新特性之一，箭头函数特点如下 a）简洁b）this指向c）rest取代arguments 1. 简洁123var showTips = function(d)&#123; $("#Tip").text(d).show();&#125; 这段代码换成箭头写法是这样1var showTips = (d) =&gt; &#123;$("#Tip").text(d).show()&#125;; 因为只有一个参数 d 所以括号可以省去，因为function只有一句所以花括号也可以省去，如下1var showTips = d =&gt; $("#Tip").text(d).show(); 但是这2个function并不完全相同，去掉花括号后，其实等价于123var showTips = function(d)&#123; return $("#Tip").text(d).show();&#125; 也就是带花括号的是原汁原味的code，而省了花括号后会自动加上return，比如做价格运算时123function getTotalPrice(price, count)&#123; return price * count;&#125; 用箭头函数写法就是1var getTotalPrice = (price,count) =&gt; price * count; 确实相当简洁 2. this指向1234567function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;,2000);&#125; 这段代码看起来没大问题，甚至直接执行123所以一般采用闭包或是实例化，例如```jsvar t = new Test(&quot;Hi Function&quot;); 此时function里的this指向对象 t 本身，但是setTimeout里面的this却指向window，会导致2秒后找不到dom对象正常做法是setTimeout前var一个变量来保存this123456789function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); var self = this; setTimeout(function()&#123; self.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 这是比较常见但也比较丑陋的写法，还有一种是这样12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout(function()&#123; this.dom.hide(); &#125;.bind(this),2000);&#125;var t = new Test("Hi Function"); 把外面的this强行绑定到里面去，这样里面调用this则会变成调外面到了ES6箭头函数，this并不会指向函数本身，而且往上层查找this，包括arguments所以用箭头函数可以这样写12345678function Test(s)&#123; this.dom = $("#Tip"); this.dom.text(s).show(); setTimeout( () =&gt; &#123; this.dom.hide(); &#125;,2000);&#125;var t = new Test("Hi Function"); 3. argumengts如上面说的，箭头函数里arguments会往上层查找arguments，所以下面这个最后输出Hi，而不是Hello123456function Test(s)&#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello");&#125;Test("Hi"); 再修改一下多套一层箭头函数12345678function Test(s)&#123; return () =&gt; &#123; return (() =&gt; &#123; console.log(arguments) &#125;)("Hello"); &#125;&#125;Test("Hi")(); 一样打印Hi，因为会顺着作用域链往上查找，套了2个return看着有点乱，换个写法123456function Test(s)&#123; setTimeout( () =&gt; &#123; console.log(arguments) &#125;,200);&#125;Test(4,5,6); // -&gt; [4,5,6] 如果想用arguments怎么办，可以用ES6新特征rest12345678function Test(s)&#123; return (() =&gt; &#123; return (...r) =&gt; &#123; console.log(r) &#125;; &#125;)(1,2,3)&#125;Test(4,5,6)(7,8); // -&gt; [7,8] 所以有个面试经常用到的题目，写个计时器每一秒打印个数字，并递增1，就可以不用闭包写法了1234var i =0;setInterval( () =&gt; &#123; if(i&lt;10) console.log(i++);&#125;,1000);]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -305,8 +305,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>nodejs</tag>
+        <tag>javascript</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -345,15 +345,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[ECMAScript6笔记（1）]]></title>
+    <title><![CDATA[ES6笔记(1)语法]]></title>
     <url>%2F2017%2F03%2F1768cee0%2F</url>
     <content type="text"><![CDATA[阮老师的《ECMAScript6入门》 let声明块级作用域变量let 用在花括号 { }里面在用 let 声明之前，变量不可用，会报错，而 var 声明之前的变量则返回 undefined class更接近传统OOP的写法123456789101112class Cat&#123; constructor()&#123; this.name = "cat"; this.color = "black"; &#125;&#125;class YellowCat extends Cat&#123; constructor()&#123; super(); this.color = 'yellow'; &#125;&#125; 箭头函数 =&gt;i =&gt; i+1;等于ES5的 function(i){return i+1}简洁的无法接受！跟ES5不同的是function中的 this 指向定义function时的对象，而不是运行时的所在对象比如ES5经常用的1234var self = this;setTimeout(function(str)&#123; self.hello(str);&#125;,1000); 到了ES6就没必要定义self，而是1setTimeout( (str) =&gt; this.hello(str) , 1000) destructuring这是我见过最无法适应的写法，但确实简洁123var a = 123, b = 456;var c = &#123;a,b&#125;;// c = &#123;a:123, b:456&#125; 还可以倒过来赋值123var d = &#123;a:"cat", b:"monkey"&#125;var &#123;a, b&#125; = d;// a = "cat", b = "monkey" default设置默认值，比如常见的这个1234function say(str)&#123; str || str = "hello"; console.log(str);&#125; 到了ES6，就可以这么写123function say(str = "hello")&#123; console.log(str);&#125; rest相当于arguments，比如1234567function test(...types)&#123; console.log(types); console.log(arguments);&#125;test(1,3,5,6,"a","b");// --&gt; [1, 3, 5, 6, "a", "b"]// --&gt; [1, 3, 5, 6, "a", "b"]]]></content>
       <categories>
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>ES6</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -463,8 +463,8 @@
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>琼海</tag>
         <tag>蜜月</tag>
+        <tag>琼海</tag>
         <tag>万宁</tag>
       </tags>
   </entry>
@@ -479,10 +479,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>文昌</tag>
         <tag>海南</tag>
-        <tag>琼海</tag>
         <tag>蜜月</tag>
+        <tag>文昌</tag>
+        <tag>琼海</tag>
       </tags>
   </entry>
   <entry>
@@ -496,8 +496,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -511,8 +511,8 @@
         <tag>单车</tag>
         <tag>旅行</tag>
         <tag>海南</tag>
-        <tag>蜜月</tag>
         <tag>海口</tag>
+        <tag>蜜月</tag>
       </tags>
   </entry>
   <entry>
@@ -591,8 +591,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>武汉</tag>
         <tag>信阳</tag>
+        <tag>武汉</tag>
       </tags>
   </entry>
   <entry>
@@ -650,10 +650,10 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
-        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
         <tag>武汉</tag>
+        <tag>东西湖</tag>
       </tags>
   </entry>
   <entry>
@@ -787,10 +787,10 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>青海湖</tag>
-        <tag>黑马河</tag>
         <tag>刚察县</tag>
         <tag>石乃亥</tag>
         <tag>鸟岛</tag>
+        <tag>黑马河</tag>
       </tags>
   </entry>
   <entry>
@@ -802,10 +802,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>151基地</tag>
-        <tag>江西沟</tag>
         <tag>青海湖</tag>
+        <tag>151基地</tag>
         <tag>黑马河</tag>
+        <tag>江西沟</tag>
       </tags>
   </entry>
   <entry>
@@ -817,9 +817,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>151基地</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
+        <tag>151基地</tag>
         <tag>西宁</tag>
         <tag>西海镇</tag>
       </tags>
@@ -833,9 +833,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>西安</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -848,10 +848,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
         <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -864,8 +864,8 @@
       <tags>
         <tag>国庆</tag>
         <tag>武汉</tag>
-        <tag>青海湖</tag>
         <tag>西安</tag>
+        <tag>青海湖</tag>
         <tag>钟楼</tag>
       </tags>
   </entry>
@@ -1016,8 +1016,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>金鸡号</tag>
         <tag>露营</tag>
+        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -1043,8 +1043,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1100,8 +1100,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>javascript</tag>
         <tag>spider</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1239,8 +1239,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1254,8 +1254,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1511,9 +1511,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,8 +1525,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>南山66</tag>
         <tag>南山</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1582,8 +1582,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1669,9 +1669,9 @@
         <category>Digital</category>
       </categories>
       <tags>
+        <tag>装备</tag>
         <tag>GPS</tag>
         <tag>评测</tag>
-        <tag>装备</tag>
       </tags>
   </entry>
   <entry>
@@ -1709,8 +1709,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>莲花山</tag>
         <tag>南山</tag>
+        <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
       </tags>
@@ -1737,9 +1737,9 @@
       <tags>
         <tag>单车</tag>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1764,8 +1764,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,8 +1790,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>惠州</tag>
         <tag>磨房</tag>
+        <tag>惠州</tag>
       </tags>
   </entry>
   <entry>
@@ -1815,8 +1815,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -1829,8 +1829,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>东部华侨城</tag>
       </tags>
   </entry>
@@ -1868,10 +1868,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
         <tag>莲花山</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -1883,9 +1883,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -1936,9 +1936,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>装备</tag>
         <tag>户外</tag>
         <tag>松拓</tag>
+        <tag>装备</tag>
         <tag>跑步</tag>
       </tags>
   </entry>
@@ -1950,12 +1950,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
-        <tag>Book</tag>
-        <tag>Flash</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>Book</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -1966,12 +1966,12 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
-        <tag>Book</tag>
-        <tag>Flash</tag>
-        <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
+        <tag>Flash</tag>
+        <tag>actionscript</tag>
+        <tag>Book</tag>
+        <tag>flex</tag>
       </tags>
   </entry>
   <entry>
@@ -2034,8 +2034,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2046,8 +2046,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>评测</tag>
         <tag>笔记本</tag>
+        <tag>评测</tag>
         <tag>CPU</tag>
         <tag>淘宝</tag>
       </tags>
@@ -2130,8 +2130,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>世界之窗</tag>
       </tags>
   </entry>
@@ -2233,9 +2233,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -2292,8 +2292,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>寮步</tag>
         <tag>东莞</tag>
         <tag>松岗</tag>
@@ -2308,9 +2308,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2335,9 +2335,9 @@
         <category>IT</category>
       </categories>
       <tags>
+        <tag>sql</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
-        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -2376,8 +2376,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2428,8 +2428,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>莲花山</tag>
         <tag>轮滑</tag>
+        <tag>莲花山</tag>
       </tags>
   </entry>
   <entry>
@@ -2443,8 +2443,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>大梅沙</tag>
-        <tag>磨房</tag>
         <tag>百公里</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2479,9 +2479,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>莲花山</tag>
-        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -2516,8 +2516,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -2529,8 +2529,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>咖啡</tag>
         <tag>节日</tag>
+        <tag>咖啡</tag>
       </tags>
   </entry>
   <entry>
@@ -2578,8 +2578,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>罗湖</tag>
       </tags>
   </entry>
@@ -2604,9 +2604,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2617,8 +2617,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>svn</tag>
+        <tag>笔记</tag>
         <tag>cvs</tag>
       </tags>
   </entry>
@@ -2656,8 +2656,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2669,9 +2669,9 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>评测</tag>
         <tag>Acer</tag>
         <tag>笔记本</tag>
+        <tag>评测</tag>
         <tag>AMD</tag>
       </tags>
   </entry>
@@ -2696,8 +2696,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>市民中心</tag>
         <tag>轮滑</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -2709,8 +2709,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2734,8 +2734,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2762,8 +2762,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -2786,8 +2786,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>东门</tag>
       </tags>
   </entry>
@@ -2800,8 +2800,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -2826,8 +2826,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2853,8 +2853,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2880,8 +2880,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2908,8 +2908,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -2922,8 +2922,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -2950,9 +2950,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
         <tag>海滨广场</tag>
         <tag>红树林</tag>
       </tags>
@@ -2977,10 +2977,10 @@
       </categories>
       <tags>
         <tag>刷街</tag>
+        <tag>南山</tag>
+        <tag>轮滑</tag>
         <tag>南山66</tag>
         <tag>市民中心</tag>
-        <tag>轮滑</tag>
-        <tag>南山</tag>
       </tags>
   </entry>
   <entry>
@@ -2992,9 +2992,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -3018,8 +3018,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>海滨广场</tag>
       </tags>
@@ -3033,8 +3033,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3046,8 +3046,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -3060,8 +3060,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3075,8 +3075,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>华侨城</tag>
       </tags>
   </entry>
@@ -3088,9 +3088,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
       </tags>
   </entry>
@@ -3103,8 +3103,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
       </tags>
   </entry>
   <entry>
@@ -3116,9 +3116,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -3130,8 +3130,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -3142,8 +3142,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>平花</tag>
         <tag>深大</tag>
       </tags>
@@ -3157,8 +3157,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3171,8 +3171,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>深大</tag>
       </tags>
   </entry>
@@ -3185,8 +3185,8 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
         <tag>轮滑</tag>
+        <tag>南山66</tag>
         <tag>海滨广场</tag>
       </tags>
   </entry>
@@ -3210,9 +3210,9 @@
       </categories>
       <tags>
         <tag>刷街</tag>
-        <tag>南山66</tag>
-        <tag>轮滑</tag>
         <tag>南山</tag>
+        <tag>轮滑</tag>
+        <tag>南山66</tag>
       </tags>
   </entry>
   <entry>
@@ -3352,8 +3352,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3438,8 +3438,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
         <tag>ligntbox</tag>
       </tags>
   </entry>
@@ -3489,8 +3489,8 @@
       </categories>
       <tags>
         <tag>css</tag>
-        <tag>javascript</tag>
         <tag>blog</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -3724,8 +3724,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3912,8 +3912,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -3940,8 +3940,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
         <tag>vbs</tag>
       </tags>
   </entry>
@@ -3953,8 +3953,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>笔记</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -4375,8 +4375,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4398,8 +4398,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4421,9 +4421,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
-        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4496,9 +4496,9 @@
         <category>Flash</category>
       </categories>
       <tags>
+        <tag>Flash</tag>
         <tag>actionscript</tag>
         <tag>Book</tag>
-        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4537,8 +4537,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4633,8 +4633,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>actionscript</tag>
         <tag>Flash</tag>
+        <tag>actionscript</tag>
       </tags>
   </entry>
   <entry>
@@ -4701,8 +4701,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Book</tag>
         <tag>java</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
