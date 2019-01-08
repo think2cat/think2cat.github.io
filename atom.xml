@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2018-12-21T15:07:20.384Z</updated>
+  <updated>2019-01-08T08:21:12.542Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Canvas踩坑(2)马克笔效果</title>
+    <link href="http://21ido.com/2018/12/27f27d32/"/>
+    <id>http://21ido.com/2018/12/27f27d32/</id>
+    <published>2018-12-24T11:52:27.000Z</published>
+    <updated>2019-01-08T08:21:12.542Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/2018/12/markerpen0.png&quot; alt=&quot;Marker Pen&quot;&gt;&lt;/p&gt;
+&lt;p&gt;画笔里面，马克笔算是比较简单，比较难的是铅笔和毛笔&lt;/p&gt;
+&lt;p&gt;一般的线是由点连起来的，设置好 &lt;code&gt;lineCap&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="canvas" scheme="http://21ido.com/tags/canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>Canvas踩坑(1)实时绘制透明线</title>
@@ -523,29 +553,6 @@
       <category term="UEFI" scheme="http://21ido.com/tags/UEFI/"/>
     
       <category term="WIN10" scheme="http://21ido.com/tags/WIN10/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ShadowSocks PAC过滤规则说明</title>
-    <link href="http://21ido.com/2017/12/7868958c/"/>
-    <id>http://21ido.com/2017/12/7868958c/</id>
-    <published>2017-12-07T06:48:48.000Z</published>
-    <updated>2018-08-05T16:09:16.253Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;SS小飞机文件夹有个pac.txt，打开会发现是一个JS格式的文件，这就是自动代理配置文件&lt;br&gt;PAC全称Proxy Auto Config File，用于根据URL选择不同代理服务器或是不代理直接访问，相比于传统代理可以加快速度，也减少代理服务器的流量&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/2017/12/pac.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="PAC" scheme="http://21ido.com/tags/PAC/"/>
-    
-      <category term="ShadowSocks" scheme="http://21ido.com/tags/ShadowSocks/"/>
     
   </entry>
   
