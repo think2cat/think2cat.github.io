@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2019-01-08T08:21:12.542Z</updated>
+  <updated>2019-01-10T15:04:12.770Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,19 +21,14 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2019-01-08T08:21:12.542Z</updated>
+    <updated>2019-01-10T15:04:12.770Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;/images/2018/12/markerpen0.png&quot; alt=&quot;Marker Pen&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/images/2018/12/markerpen0.png&quot; alt=&quot;Marker Pen&quot;&gt;&lt;/p&gt;
 &lt;p&gt;画笔里面，马克笔算是比较简单，比较难的是铅笔和毛笔&lt;/p&gt;
-&lt;p&gt;一般的线是由点连起来的，设置好 &lt;code&gt;lineCap&lt;/code&gt;
-        
-      
+&lt;p&gt;一般的线是由点连起来的，设置好 &lt;code&gt;lineCap&lt;/code&gt; 和 &lt;code&gt;lineJoin&lt;/code&gt; 即可，但马克笔是由&lt;strong&gt;块&lt;/strong&gt;连起来的&lt;/p&gt;
+&lt;p&gt;当我们拿到一个XY坐标点后，需进行扩大，使其变成一个矩形&lt;br&gt;
     
     </summary>
     
