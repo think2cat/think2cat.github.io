@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Canvas踩坑(2)马克笔效果]]></title>
     <url>%2F2018%2F12%2F27f27d32%2F</url>
-    <content type="text"><![CDATA[画笔里面，马克笔算是比较简单，比较难的是铅笔和毛笔 一般的线是由点连起来的，设置好 lineCap 和 lineJoin 即可，但马克笔是由块连起来的 当我们拿到一个XY坐标点后，需进行扩大，使其变成一个矩形 每个点转成矩形后，会形成这样的效果 所以还需要依次将各个矩形连起来 连起来需要6个点，这6个点还需要根据2个坐标点的相对位置来判断如果是上下或左右的移动，则只需4个点 将每2个坐标点连起来后是这样 然后 fill() 进行填充 然后我就懵逼 放大看，会发现有些重叠的区域并没有被填充 没有填充是因为canvas把那些区域判断为线外区域，这涉及到nonzero和evenodd填充规则，可以看下 张鑫旭的这篇 《搞懂SVG/Canvas中nonzero和evenodd填充规则》 简单说就是连点方式顺时针和逆时针的差异，导致了填充时把内部区域判断为外部区域 测试发现只有在点往右下方画的时候会出现这个问题，于是单独把往右下角的连线方式改为逆时针，问题就解决了比如已上图为例，默认连线是 A1 -&gt; B1 -&gt; B2 -&gt; C2 -&gt; D2 -&gt; D1 -&gt; A1则逆时针反过来连，这跟交叉线夹角有关]]></content>
+    <content type="text"><![CDATA[画笔里面，马克笔算是比较简单，比较难的是铅笔和毛笔 一般的线是由点连起来的，设置好 lineCap 和 lineJoin 即可，但马克笔是由块连起来的 当我们拿到一个XY坐标点后，需进行扩大，使其变成一个矩形 每个点转成矩形后，会形成这样的效果 所以还需要依次将各个矩形连起来 连起来需要6个点，这6个点还需要根据2个坐标点的相对位置来判断如果是上下或左右的移动，则只需4个点 将每2个坐标点连起来后是这样 然后 fill() 进行填充 然后我就懵逼 放大看，会发现有些重叠的区域并没有被填充 没有填充是因为canvas把那些区域判断为线外区域，这涉及到nonzero和evenodd填充规则，可以看下 张鑫旭的这篇 《搞懂SVG/Canvas中nonzero和evenodd填充规则》 简单说就是连点方式顺时针和逆时针的差异，导致了填充时把内部区域判断为外部区域 测试发现只有在点往左下方画的时候会出现这个问题，于是单独把往右下角的连线方式改为逆时针，问题就解决了比如已上图为例，默认连线是 A1 -&gt; B1 -&gt; B2 -&gt; C2 -&gt; D2 -&gt; D1 -&gt; A1则逆时针反过来连，这跟交叉线夹角有关]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -317,8 +317,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>nodejs</tag>
         <tag>javascript</tag>
+        <tag>nodejs</tag>
         <tag>grunt</tag>
       </tags>
   </entry>
@@ -389,8 +389,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -458,8 +458,8 @@
         <tag>旅行</tag>
         <tag>海南</tag>
         <tag>蜜月</tag>
-        <tag>万宁</tag>
         <tag>英州</tag>
+        <tag>万宁</tag>
         <tag>陵水</tag>
       </tags>
   </entry>
@@ -662,9 +662,9 @@
       <tags>
         <tag>单车</tag>
         <tag>孝感</tag>
+        <tag>东西湖</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>东西湖</tag>
         <tag>武汉</tag>
       </tags>
   </entry>
@@ -782,8 +782,8 @@
         <tag>国庆</tag>
         <tag>青海湖</tag>
         <tag>西宁</tag>
-        <tag>刚察县</tag>
         <tag>西海镇</tag>
+        <tag>刚察县</tag>
         <tag>原子城</tag>
         <tag>哈格尔</tag>
       </tags>
@@ -829,8 +829,8 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
+        <tag>青海湖</tag>
         <tag>西宁</tag>
         <tag>151基地</tag>
         <tag>西海镇</tag>
@@ -845,9 +845,9 @@
       </categories>
       <tags>
         <tag>国庆</tag>
+        <tag>华山</tag>
         <tag>西安</tag>
         <tag>青海湖</tag>
-        <tag>华山</tag>
         <tag>西宁</tag>
       </tags>
   </entry>
@@ -860,10 +860,10 @@
       </categories>
       <tags>
         <tag>国庆</tag>
-        <tag>西安</tag>
-        <tag>青海湖</tag>
         <tag>华山</tag>
         <tag>大雁塔</tag>
+        <tag>西安</tag>
+        <tag>青海湖</tag>
       </tags>
   </entry>
   <entry>
@@ -877,8 +877,8 @@
         <tag>国庆</tag>
         <tag>武汉</tag>
         <tag>西安</tag>
-        <tag>钟楼</tag>
         <tag>青海湖</tag>
+        <tag>钟楼</tag>
       </tags>
   </entry>
   <entry>
@@ -1305,8 +1305,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1330,9 +1330,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1344,10 +1344,10 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
         <tag>小楼</tag>
-        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1358,9 +1358,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>单车</tag>
         <tag>南昆山</tag>
         <tag>增城</tag>
-        <tag>单车</tag>
         <tag>寮步</tag>
       </tags>
   </entry>
@@ -1372,8 +1372,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
       </tags>
   </entry>
   <entry>
@@ -1536,8 +1536,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
         <tag>南山66</tag>
       </tags>
   </entry>
@@ -1707,8 +1707,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>汕头</tag>
         <tag>潮州</tag>
+        <tag>汕头</tag>
       </tags>
   </entry>
   <entry>
@@ -1720,8 +1720,8 @@
       </categories>
       <tags>
         <tag>户外</tag>
-        <tag>单车</tag>
         <tag>南山</tag>
+        <tag>单车</tag>
         <tag>莲花山</tag>
         <tag>梧桐山</tag>
         <tag>仙湖</tag>
@@ -1747,10 +1747,10 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>单车</tag>
         <tag>刷街</tag>
         <tag>南山</tag>
         <tag>沙井</tag>
+        <tag>单车</tag>
         <tag>轮滑</tag>
       </tags>
   </entry>
@@ -1963,8 +1963,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -1979,8 +1979,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
         <tag>flex</tag>
         <tag>xml</tag>
         <tag>笔记</tag>
@@ -2032,9 +2032,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>Book</tag>
         <tag>评测</tag>
         <tag>淘宝</tag>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -2247,8 +2247,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>市民中心</tag>
         <tag>平花</tag>
+        <tag>市民中心</tag>
       </tags>
   </entry>
   <entry>
@@ -2275,8 +2275,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>网银</tag>
         <tag>xml</tag>
+        <tag>网银</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>paypal</tag>
@@ -2467,8 +2467,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2541,8 +2541,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>咖啡</tag>
         <tag>节日</tag>
+        <tag>咖啡</tag>
       </tags>
   </entry>
   <entry>
@@ -2629,8 +2629,8 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>svn</tag>
         <tag>笔记</tag>
+        <tag>svn</tag>
         <tag>cvs</tag>
       </tags>
   </entry>
@@ -2853,8 +2853,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2908,8 +2908,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>汕头</tag>
         <tag>潮州</tag>
+        <tag>汕头</tag>
       </tags>
   </entry>
   <entry>
@@ -2964,8 +2964,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>南山66</tag>
-        <tag>市民中心</tag>
         <tag>海滨广场</tag>
+        <tag>市民中心</tag>
         <tag>红树林</tag>
       </tags>
   </entry>
@@ -4150,8 +4150,8 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>mobile</tag>
         <tag>笔记</tag>
+        <tag>mobile</tag>
         <tag>mFancy</tag>
       </tags>
   </entry>
@@ -4434,8 +4434,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
@@ -4509,8 +4509,8 @@
       </categories>
       <tags>
         <tag>actionscript</tag>
-        <tag>Flash</tag>
         <tag>Book</tag>
+        <tag>Flash</tag>
       </tags>
   </entry>
   <entry>
