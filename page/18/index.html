@@ -170,6 +170,173 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/Paypal支付" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2008/05/7d8cd342/">Paypal支付 - ExpressCheckout接口文档</a>
+    </h1>
+  
+
+        
+        <a href="../../2008/05/7d8cd342/" class="archive-article-date">
+  	<time datetime="2008-05-14T11:01:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近公司有个网站需要用到paypal支付接口，看了下支付方式，ExpressCheckout比较符合需求，于是写了这文档</p>
+<p>创建时间：5/5/2008 2:47 PM<br>最后修改：5/5/2008 4:09 PM</p>
+<h2 id="一、支付流程"><a href="#一、支付流程" class="headerlink" title="一、支付流程"></a>一、支付流程</h2><p><img src="/images/2008/05/14_200805141816580111_12766.gif" alt=""></p>
+<h2 id="二、SOAP运作方式"><a href="#二、SOAP运作方式" class="headerlink" title="二、SOAP运作方式"></a>二、SOAP运作方式</h2><h3 id="1-SetExpressCheckoutRequest"><a href="#1-SetExpressCheckoutRequest" class="headerlink" title="1.SetExpressCheckoutRequest"></a>1.SetExpressCheckoutRequest</h3><p><strong>Request内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span> <span class="attr">:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="attr">:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">ENV:encodingStyle</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Username</span>&gt;</span>gavin2_1207532001_biz_api1.hotmail.com<span class="tag">&lt;/<span class="name">Username</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Password</span>&gt;</span>xxxxxxxxxx<span class="tag">&lt;/<span class="name">Password</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Signature</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Subject</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">SetExpressCheckoutReq</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">SetExpressCheckoutRequest</span> <span class="attr">xsi:type</span>=<span class="string">"ns:SetExpressCheckoutRequestType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"xsd:string"</span>&gt;</span>1.0</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">SetExpressCheckoutRequestDetails</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">OrderTotal</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">currencyID</span>=<span class="string">"USD"</span> <span class="attr">xsi:type</span>=<span class="string">"cc:BasicAmountType"</span>&gt;</span>58.00</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">OrderTotal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">OrderDescription</span>&gt;</span>2008-5-5 14:58:34<span class="tag">&lt;/<span class="name">OrderDescription</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">ReturnURL</span> <span class="attr">xsi:type</span>=<span class="string">"xsd:string"</span>&gt;</span>http://www.21ido.com/paypal/returnorder.asp<span class="tag">&lt;/<span class="name">ReturnURL</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">CancelURL</span> <span class="attr">xsi:type</span>=<span class="string">"xsd:string"</span>&gt;</span>http://www.21ido.com/paypal/cancelorder.asp<span class="tag">&lt;/<span class="name">CancelURL</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">SetExpressCheckoutRequestDetails</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">SetExpressCheckoutRequest</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">PaymentAction</span>&gt;</span>Sale<span class="tag">&lt;/<span class="name">PaymentAction</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SetExpressCheckoutReq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>参数介绍：</strong></p>
+<ul>
+<li>Head里面的Username、Password、Signature为API验证信息，需在paypal获取，下同</li>
+<li>OrderTotal：currencyID=&quot;USD&quot;表示美元，其它货币单位参照paypal文档（PP_APIReference.pdf），数值必须带2位小数</li>
+<li>OrderDescription：商品描述，可选</li>
+<li>ReturnURL：返回地址，购买者填写帐号信息确认后会返回该地址</li>
+<li>CancelURL：当购买者取消订单后返回的地址</li>
+</ul>
+<p>OrderTotal在第三步要用到，需传递或保存Session</p>
+<p><strong>Response内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xs</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:cc</span>=<span class="string">"urn:ebay:apis:CoreComponentTypes"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsu</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/07/utility"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:saml</span>=<span class="string">"urn:oasis:names:tc:SAML:1.0:assertion"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ds</span>=<span class="string">"http://www.w3.org/2000/09/xmldsig#"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:market</span>=<span class="string">"urn:ebay:apis:Market"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:auction</span>=<span class="string">"urn:ebay:apis:Auction"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:sizeship</span>=<span class="string">"urn:ebay:api:PayPalAPI/sizeship.xsd"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ship</span>=<span class="string">"urn:ebay:apis:ship"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:skype</span>=<span class="string">"urn:ebay:apis:skype"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsse</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ebl</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Security</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span> <span class="attr">xsi:type</span>=<span class="string">"wsse:SecurityType"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:CustomSecurityHeaderType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:UserIdPasswordType"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Username</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Password</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Signature</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Subject</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span> <span class="attr">id</span>=<span class="string">"_0"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">SetExpressCheckoutResponse</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Timestamp</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>2008-05-04T03:22:02Z</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Timestamp</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Ack</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>Success</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Ack</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">CorrelationID</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>134cf1c8d6faf</span><br><span class="line">                <span class="tag">&lt;/<span class="name">CorrelationID</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>1.000000</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Build</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>548868</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Build</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Token</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:ExpressCheckoutTokenType"</span>&gt;</span>EC-4F193608SG720004S<span class="tag">&lt;/<span class="name">Token</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">SetExpressCheckoutResponse</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>当Ack值为Seccess时为请求成功，下同</strong></p>
+<p>取回 Token ，并重定向到paypal，例如<br><code>https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=EC-4F193608SG720004S</code></p>
+<h3 id="2-GetExpressCheckoutDetailsRequest"><a href="#2-GetExpressCheckoutDetailsRequest" class="headerlink" title="2.GetExpressCheckoutDetailsRequest"></a>2.GetExpressCheckoutDetailsRequest</h3><p>用户在paypal填写完帐户信息后，点continue 后将跳转回之前设置的ReturnUrl地址，并带上参数，例如<br><code>http://www.21ido.com/paypal/return.asp?token=EC-4F193608SG720004S&amp;PayerID=WS8QWH5MLUK6C</code></p>
+<p>当ReturnUrl地址本身已带参数时，如 <code>return.asp?id=212121</code>，跳转地址将为<br><code>return.asp?id=212121&amp;token=EC-4F193608SG720004S&amp;PayerID=WS8QWH5MLUK6C</code></p>
+<p>此时需调用GetExpressCheckoutDetailsRequest方法取回用户填写的信息，例如帐号、地址</p>
+<p><strong>Request内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8 "?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">SOAP-ENV:encodingStyle</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Username</span>&gt;</span>gavin2_1207532001_biz_api1.hotmail.com<span class="tag">&lt;/<span class="name">Username</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Password</span>&gt;</span>xxxxxxxxxx<span class="tag">&lt;/<span class="name">Password</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Signature</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Subject</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">GetExpressCheckoutDetailsReq</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">GetExpressCheckoutDetailsRequest</span> <span class="attr">xsi:type</span>=<span class="string">"ns:SetExpressCheckoutRequestType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"xsd:string"</span>&gt;</span>1.0</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Token</span>&gt;</span>EC-15361037RR099961G<span class="tag">&lt;/<span class="name">Token</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">GetExpressCheckoutDetailsRequest</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">GetExpressCheckoutDetailsReq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中Token 为paypal传回的数值，传回的PayerID此步无作用，但下一步确认支付时需要提交给paypal，可用参数方式或session方式传递给下一步</p>
+<p><strong>Response内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xs</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:cc</span>=<span class="string">"urn:ebay:apis:CoreComponentTypes"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsu</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/07/utility"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:saml</span>=<span class="string">"urn:oasis:names:tc:SAML:1.0:assertion"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ds</span>=<span class="string">"http://www.w3.org/2000/09/xmldsig#"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:market</span>=<span class="string">"urn:ebay:apis:Market"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:auction</span>=<span class="string">"urn:ebay:apis:Auction"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:sizeship</span>=<span class="string">"urn:ebay:api:PayPalAPI/sizeship.xsd"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ship</span>=<span class="string">"urn:ebay:apis:ship"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:skype</span>=<span class="string">"urn:ebay:apis:skype"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsse</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ebl</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Security</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span> <span class="attr">xsi:type</span>=<span class="string">"wsse:SecurityType"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:CustomSecurityHeaderType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:UserIdPasswordType"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Username</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Password</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Signature</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Subject</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span> <span class="attr">id</span>=<span class="string">"_0"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">GetExpressCheckoutDetailsResponse</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Timestamp</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>2008-05-05T07:37:23Z</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Timestamp</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Ack</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>Success</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Ack</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">CorrelationID</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>a8bf169692ef0</span><br><span class="line">                <span class="tag">&lt;/<span class="name">CorrelationID</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>1.000000</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Build</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>548868</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Build</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">GetExpressCheckoutDetailsResponseDetails</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:GetExpressCheckoutDetailsResponseDetailsType"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Token</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:ExpressCheckoutTokenType"</span>&gt;</span>EC-15361037RR099961G<span class="tag">&lt;/<span class="name">Token</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">PayerInfo</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PayerInfoType"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">Payer</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:EmailAddressType"</span>&gt;</span>gavin2_1207532695_per@hotmail.com<span class="tag">&lt;/<span class="name">Payer</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PayerID</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:UserIDType"</span>&gt;</span>WS8QWH5MLUK6C<span class="tag">&lt;/<span class="name">PayerID</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PayerStatus</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PayPalUserStatusCodeType"</span>&gt;</span>verified<span class="tag">&lt;/<span class="name">PayerStatus</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PayerName</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PersonNameType"</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">Salutation</span></span></span><br><span class="line"><span class="tag">                                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>/&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">FirstName</span></span></span><br><span class="line"><span class="tag">                                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>Test</span><br><span class="line">                                <span class="tag">&lt;/<span class="name">FirstName</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">MiddleName</span></span></span><br><span class="line"><span class="tag">                                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>/&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">LastName</span></span></span><br><span class="line"><span class="tag">                                        <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>User</span><br><span class="line">                                    <span class="tag">&lt;/<span class="name">LastName</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">Suffix</span></span></span><br><span class="line"><span class="tag">                                        <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>/&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;/<span class="name">PayerName</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">PayerCountry</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:CountryCodeType"</span>&gt;</span>US<span class="tag">&lt;/<span class="name">PayerCountry</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">PayerBusiness</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">Address</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:AddressType"</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">Name</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>Test User<span class="tag">&lt;/<span class="name">Name</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">Street1</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>1 Main St<span class="tag">&lt;/<span class="name">Street1</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">Street2</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">CityName</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>San Jose<span class="tag">&lt;/<span class="name">CityName</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">StateOrProvince</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>CA<span class="tag">&lt;/<span class="name">StateOrProvince</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">Country</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:CountryCodeType"</span>&gt;</span>US<span class="tag">&lt;/<span class="name">Country</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">CountryName</span>/&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">PostalCode</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>95131<span class="tag">&lt;/<span class="name">PostalCode</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">AddressOwner</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:AddressOwnerCodeType"</span>&gt;</span>PayPal<span class="tag">&lt;/<span class="name">AddressOwner</span>&gt;</span></span><br><span class="line">                                        <span class="tag">&lt;<span class="name">AddressStatus</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:AddressStatusCodeType"</span>&gt;</span>Confirmed<span class="tag">&lt;/<span class="name">AddressStatus</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;/<span class="name">Address</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">PayerInfo</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">GetExpressCheckoutDetailsResponseDetails</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">GetExpressCheckoutDetailsResponse</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>购买者信息，参数具体介绍参照SOAP文档（PP_APIReference.pdf）</p>
+<h3 id="3-DoExpressCheckoutPaymentRequest"><a href="#3-DoExpressCheckoutPaymentRequest" class="headerlink" title="3.DoExpressCheckoutPaymentRequest"></a>3.DoExpressCheckoutPaymentRequest</h3><p>确认支付，这一步返回Completed的话表示钱已经打到商家帐户</p>
+<p><strong>Request内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span> <span class="attr">:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="attr">:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">ENV:encodingStyle</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Username</span>&gt;</span>gavin2_1207532001_biz_api1.hotmail.com<span class="tag">&lt;/<span class="name">Username</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Password</span>&gt;</span>xxxxxxxxxx<span class="tag">&lt;/<span class="name">Password</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Signature</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Subject</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">DoExpressCheckoutPaymentReq</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">DoExpressCheckoutPaymentRequest</span> <span class="attr">xsi:type</span>=<span class="string">"ns:SetExpressCheckoutRequestType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"xsd:string"</span>&gt;</span>1.0</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">DoExpressCheckoutPaymentRequestDetails</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Token</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:ExpressCheckoutTokenType"</span>&gt;</span>EC-15361037RR099961G<span class="tag">&lt;/<span class="name">Token</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">PayerID</span>&gt;</span>WS8QWH5MLUK6C<span class="tag">&lt;/<span class="name">PayerID</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">PaymentAction</span>&gt;</span>Sale<span class="tag">&lt;/<span class="name">PaymentAction</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">PaymentDetails</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">OrderTotal</span></span></span><br><span class="line"><span class="tag">                            <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">currencyID</span>=<span class="string">"USD"</span> <span class="attr">xsi:type</span>=<span class="string">"cc:BasicAmountType"</span>&gt;</span>29.00</span><br><span class="line">                        <span class="tag">&lt;/<span class="name">OrderTotal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">PaymentDetails</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">DoExpressCheckoutPaymentRequestDetails</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">DoExpressCheckoutPaymentRequest</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">DoExpressCheckoutPaymentReq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Token、PayerID、PaymentAction、OrderTotal等各参数均为之前提交或获取到的</p>
+<p><strong>Response内容</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">SOAP-ENV:Envelope</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENV</span>=<span class="string">"http://schemas.xmlsoap.org/soap/envelope/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:SOAP-ENC</span>=<span class="string">"http://schemas.xmlsoap.org/soap/encoding/"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xs</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:cc</span>=<span class="string">"urn:ebay:apis:CoreComponentTypes"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsu</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/07/utility"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:saml</span>=<span class="string">"urn:oasis:names:tc:SAML:1.0:assertion"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ds</span>=<span class="string">"http://www.w3.org/2000/09/xmldsig#"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:market</span>=<span class="string">"urn:ebay:apis:Market"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:auction</span>=<span class="string">"urn:ebay:apis:Auction"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:sizeship</span>=<span class="string">"urn:ebay:api:PayPalAPI/sizeship.xsd"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ship</span>=<span class="string">"urn:ebay:apis:ship"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:skype</span>=<span class="string">"urn:ebay:apis:skype"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:wsse</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ebl</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Security</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"http://schemas.xmlsoap.org/ws/2002/12/secext"</span> <span class="attr">xsi:type</span>=<span class="string">"wsse:SecurityType"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RequesterCredentials</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:CustomSecurityHeaderType"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Credentials</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:UserIdPasswordType"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Username</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Password</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Signature</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="tag">&lt;/<span class="name">Signature</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Subject</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">Credentials</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RequesterCredentials</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SOAP-ENV:Header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">SOAP-ENV:Body</span> <span class="attr">id</span>=<span class="string">"_0"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">DoExpressCheckoutPaymentResponse</span></span></span><br><span class="line"><span class="tag">                <span class="attr">xmlns</span>=<span class="string">"urn:ebay:api:PayPalAPI"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Timestamp</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>2008-05-05T07:56:38Z</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Timestamp</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Ack</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>Success</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Ack</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">CorrelationID</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>167cc5fc71e87</span><br><span class="line">                <span class="tag">&lt;/<span class="name">CorrelationID</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Version</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>1.000000</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Build</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span>&gt;</span>548868</span><br><span class="line">                <span class="tag">&lt;/<span class="name">Build</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">DoExpressCheckoutPaymentResponseDetails</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">xmlns</span>=<span class="string">"urn:ebay:apis:eBLBaseComponents"</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:DoExpressCheckoutPaymentResponseDetailsType"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">Token</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:ExpressCheckoutTokenType"</span>&gt;</span>EC-60499907HA323812X<span class="tag">&lt;/<span class="name">Token</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">PaymentInfo</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PaymentInfoType"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">TransactionID</span>&gt;</span>84V49327HA333602X<span class="tag">&lt;/<span class="name">TransactionID</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">ParentTransactionID</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:TransactionId"</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">ReceiptID</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">TransactionType</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PaymentTransactionCodeType"</span>&gt;</span>express-checkout<span class="tag">&lt;/<span class="name">TransactionType</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PaymentType</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PaymentCodeType"</span>&gt;</span>instant<span class="tag">&lt;/<span class="name">PaymentType</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PaymentDate</span> <span class="attr">xsi:type</span>=<span class="string">"xs:dateTime"</span>&gt;</span>2008-05-05T07:56:37Z<span class="tag">&lt;/<span class="name">PaymentDate</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">GrossAmount</span> <span class="attr">xsi:type</span>=<span class="string">"cc:BasicAmountType"</span> <span class="attr">currencyID</span>=<span class="string">"USD"</span>&gt;</span>55.00<span class="tag">&lt;/<span class="name">GrossAmount</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">FeeAmount</span> <span class="attr">xsi:type</span>=<span class="string">"cc:BasicAmountType"</span> <span class="attr">currencyID</span>=<span class="string">"USD"</span>&gt;</span>1.90<span class="tag">&lt;/<span class="name">FeeAmount</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">TaxAmount</span> <span class="attr">xsi:type</span>=<span class="string">"cc:BasicAmountType"</span> <span class="attr">currencyID</span>=<span class="string">"USD"</span>&gt;</span>0.00<span class="tag">&lt;/<span class="name">TaxAmount</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">ExchangeRate</span> <span class="attr">xsi:type</span>=<span class="string">"xs:string"</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PaymentStatus</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PaymentStatusCodeType"</span>&gt;</span>Completed<span class="tag">&lt;/<span class="name">PaymentStatus</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">PendingReason</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:PendingStatusCodeType"</span>&gt;</span>none<span class="tag">&lt;/<span class="name">PendingReason</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">ReasonCode</span> <span class="attr">xsi:type</span>=<span class="string">"ebl:ReversalReasonCodeType"</span>&gt;</span>none<span class="tag">&lt;/<span class="name">ReasonCode</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">PaymentInfo</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">DoExpressCheckoutPaymentResponseDetails</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">DoExpressCheckoutPaymentResponse</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">SOAP-ENV:Body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SOAP-ENV:Envelope</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>参数介绍：</strong></p>
+<ul>
+<li>TransactionIDpaypal流水号</li>
+<li>GrossAmount收取金额</li>
+<li>FeeAmount手续费，从商家扣除</li>
+<li>PaymentStatus支付状态</li>
+<li>其它参数请参考SOAP文档</li>
+</ul>
+<h2 id="三、附录"><a href="#三、附录" class="headerlink" title="三、附录"></a>三、附录</h2><h3 id="1-各接口地址"><a href="#1-各接口地址" class="headerlink" title="1.各接口地址"></a>1.各接口地址</h3><ul>
+<li>Environment Authentication Calling Endpoint Live API Certificate Name-Value Pair <a href="https://api.paypal.com/nvp" target="_blank" rel="noopener">https://api.paypal.com/nvp</a></li>
+<li>Live API Signature Name-Value Pair <a href="https://api-3t.paypal.com/nvp" target="_blank" rel="noopener">https://api-3t.paypal.com/nvp</a></li>
+<li>Live API Certificate SOAP <a href="https://api.paypal.com/2.0/" target="_blank" rel="noopener">https://api.paypal.com/2.0/</a></li>
+<li>Live API Signature SOAP <a href="https://api-3t.paypal.com/2.0/" target="_blank" rel="noopener">https://api-3t.paypal.com/2.0/</a></li>
+<li>Sandbox API Certificate Name-Value Pair <a href="https://api.sandbox.paypal.com/nvp" target="_blank" rel="noopener">https://api.sandbox.paypal.com/nvp</a></li>
+<li>Sandbox API Signature Name-Value Pair <a href="https://api-3t.sandbox.paypal.com/nvp" target="_blank" rel="noopener">https://api-3t.sandbox.paypal.com/nvp</a></li>
+<li>Sandbox API Certificate SOAP <a href="https://api.sandbox.paypal.com/2.0/" target="_blank" rel="noopener">https://api.sandbox.paypal.com/2.0/</a></li>
+<li>Sandbox API Signature SOAP <a href="https://api-3t.sandbox.paypal.com/2.0" target="_blank" rel="noopener">https://api-3t.sandbox.paypal.com/2.0</a></li>
+</ul>
+<p><strong>Paypal重定向地址</strong></p>
+<ul>
+<li>Live<br><a href="https://www.Paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=" target="_blank" rel="noopener">https://www.Paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=</a></li>
+<li>SandBox<br><a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=value" target="_blank" rel="noopener">https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=value</a></li>
+</ul>
+<h3 id="2-网址"><a href="#2-网址" class="headerlink" title="2.网址"></a>2.网址</h3><ul>
+<li>开发者中心 <a href="https://developer.paypal.com/" target="_blank" rel="noopener">https://developer.paypal.com/</a></li>
+<li>各种源码下载 <a href="https://www.paypal.com/IntegrationCenter/ic_downloads.html" target="_blank" rel="noopener">https://www.paypal.com/IntegrationCenter/ic_downloads.html</a></li>
+<li>API Error <a href="https://www.paypal.com/IntegrationCenter/ic_api-errors.html" target="_blank" rel="noopener">https://www.paypal.com/IntegrationCenter/ic_api-errors.html</a></li>
+</ul>
+<h3 id="3-测试帐号"><a href="#3-测试帐号" class="headerlink" title="3.测试帐号"></a>3.测试帐号</h3><ul>
+<li>Developer主帐号<br><a href="https://developer.paypal.com/" target="_blank" rel="noopener">https://developer.paypal.com/</a></li>
+<li>Seller</li>
+<li>Buye</li>
+<li>API验证信息</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网银</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">soap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wsdl</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">paypal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2008/05/7d8cd342/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Digital/mx460" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1131,107 +1298,9 @@ ISBN: 9787302077343
 
 
   
-    <article id="post-Life/3月29日周六晚宝安海滨广场" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2008/03/45e5787b/">3月29日 周六晚宝安海滨广场</a>
-    </h1>
-  
-
-        
-        <a href="../../2008/03/45e5787b/" class="archive-article-date">
-  	<time datetime="2008-03-31T04:48:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人太多了，不一样列举了</p>
-<p><img src="/images/2008/03/31_31_124821_9693.jpg" alt=""><br>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">平花</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">海滨广场</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2008/03/45e5787b/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="../17/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../16/">16</a><a class="page-number" href="../17/">17</a><span class="page-number current">18</span><a class="page-number" href="../19/">19</a><a class="page-number" href="../20/">20</a><span class="space">&hellip;</span><a class="page-number" href="../40/">40</a><a class="extend next" rel="next" href="../19/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="../17/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../16/">16</a><a class="page-number" href="../17/">17</a><span class="page-number current">18</span><a class="page-number" href="../19/">19</a><a class="page-number" href="../20/">20</a><span class="space">&hellip;</span><a class="page-number" href="../41/">41</a><a class="extend next" rel="next" href="../19/">Next &raquo;</a>
     </nav>
   
 
@@ -1314,43 +1383,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">actionscript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">flex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mFancy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,6 +1427,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MX460</a>
               </li>
              
@@ -1410,7 +1451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,19 +1463,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1447,6 +1476,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">移动硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,7 +1507,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">actionscript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">flex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mFancy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1486,11 +1563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,10 +1595,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">win2003</a>
               </li>
              
@@ -1542,19 +1611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1566,11 +1627,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1586,19 +1647,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">bower</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1607,6 +1664,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">批量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">bower</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1630,6 +1695,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">module</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
              
@@ -1646,19 +1723,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">paypal</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">XUL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,6 +1740,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">tcp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XUL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1702,11 +1775,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">yeoman</a>
+                <a href="javascript:void(0)" class="js-tag color4">PAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">zblog</a>
+                <a href="javascript:void(0)" class="js-tag color2">ShadowSocks</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1722,19 +1795,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PAC</a>
+                <a href="javascript:void(0)" class="js-tag color2">yeoman</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ShadowSocks</a>
+                <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1743,6 +1812,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1758,26 +1831,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷街</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">南山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">沙井</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单车</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">轮滑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
               </li>
              
@@ -1790,23 +1843,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">南山66</a>
+                <a href="javascript:void(0)" class="js-tag color3">单车</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">平花</a>
+                <a href="javascript:void(0)" class="js-tag color3">刷街</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">海滨广场</a>
+                <a href="javascript:void(0)" class="js-tag color3">南山</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">市民中心</a>
+                <a href="javascript:void(0)" class="js-tag color3">沙井</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+                <a href="javascript:void(0)" class="js-tag color3">轮滑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1818,7 +1871,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">南山66</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">市民中心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">寮步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">平花</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">海滨广场</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1838,6 +1911,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">塘朗山</a>
               </li>
              
@@ -1847,14 +1924,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">梅林</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1878,6 +1947,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">深大</a>
               </li>
              
@@ -1886,11 +1959,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
+                <a href="javascript:void(0)" class="js-tag color4">马峦山</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">马峦山</a>
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1902,11 +1975,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">孝感</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">天鹅堡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东莞</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">松山湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">仙湖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1922,15 +2011,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">天鹅堡</a>
+                <a href="javascript:void(0)" class="js-tag color3">汕头</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">孝感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗湖</a>
+                <a href="javascript:void(0)" class="js-tag color3">潮州</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1942,19 +2027,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">潮州</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">金子</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汕头</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">仙湖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1978,15 +2051,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">国庆</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西湖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2006,15 +2079,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">塘郎山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元旦</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">庐山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">塘郎山</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2034,11 +2107,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2050,7 +2127,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
+                <a href="javascript:void(0)" class="js-tag color4">杨梅坑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2074,15 +2155,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">杨梅坑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2094,7 +2171,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">skype</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2106,7 +2183,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">skype</a>
+                <a href="javascript:void(0)" class="js-tag color3">扬州</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2114,7 +2191,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">扬州</a>
+                <a href="javascript:void(0)" class="js-tag color3">咖啡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2123,10 +2200,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">节日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">咖啡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2158,6 +2231,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GTD</a>
               </li>
              
@@ -2166,7 +2243,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
+                <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">潜水</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2175,14 +2256,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爷爷</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">潜水</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2210,6 +2283,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">长江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">钱冲</a>
               </li>
              
@@ -2230,11 +2307,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">长江</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文昌</a>
+                <a href="javascript:void(0)" class="js-tag color3">万宁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2242,23 +2315,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">文昌</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">英州</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">万宁</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">陵水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">时间</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2274,7 +2343,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">时间</a>
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2298,11 +2371,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">拍拍</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拍拍</a>
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2314,15 +2387,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2330,7 +2399,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2354,15 +2427,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">水井巷</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">莫家街</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">石乃亥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2374,11 +2447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color4">水井巷</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东湖</a>
+                <a href="javascript:void(0)" class="js-tag color4">莫家街</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2387,6 +2460,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">敲诈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">东湖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2402,11 +2479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">石乃亥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
               </li>
             
             <div class="clearfix"></div>
