@@ -27,7 +27,7 @@
   <entry>
     <title><![CDATA[element-ui upload组件覆写默认上传行为]]></title>
     <url>%2F2018%2F09%2Fa91bebb6%2F</url>
-    <content type="text"><![CDATA[element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便 12345678910111213&lt;el-upload ref="upload" :show-file-list="false" :action="uploadUrl" :before-upload="handleBeforeUpload" :on-progress="handleUploading" :on-success="handleUpload" :on-error="handleUploadError" accept=".apk" :auto-upload="true"&gt; &lt;el-button slot="trigger" :loading="uploadLoading" size="mini" type="primary"&gt;上传&lt;/el-button&gt; &lt;span v-html="tips"&gt;&lt;/span&gt;&lt;/el-upload&gt; 同时也提供了 http-request 参数来自定义上传行为12345678910&lt;el-upload ref="upload" :show-file-list="false" action="" :http-request="upload" :before-upload="handleBeforeUpload" :on-progress="handleUploading" accept=".apk" :auto-upload="true"&gt;&lt;/el-upload&gt; action 虽然不再生效，但删掉这个参数会提示 Missing required prop: &quot;action&quot;，所以这里留空处理 覆写默认上传行为后，钩子除了 before-upload 其它都不起作用了，但依然可以在 html 保留指定，后面调用 http-request 指定的方法时会把整个文件对象作为参数传入 传入 upload() 的参数，为upload组件对象，除了文件对象本身，还有3个钩子 12345678910upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData &#125;).then(this.handleUpload, this.handleUploadError)&#125; 调用axios执行上传，把 file对象塞到 data 即可 axios自带上传时钩子 onUploadProgress，如果需要显示上传进度，可把 upload组件的 onProgress 传给axiox，修改如下 1234567891011121314upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData, onUploadProgress: progressEvent =&gt; &#123; const complete = (progressEvent.loaded / progressEvent.total * 100 | 0) fileObj.onProgress(&#123; percent: complete &#125;) &#125;, &#125;).then(this.handleUpload, this.handleUploadError)&#125; onUploadProgress 传入是 event 事件，如下图 因为 upload组件 onProgress 钩子有个 percent 百分比属性，所以直接计算后传回 上传完成回调，组件默认是返回 response 响应内容，而覆写后是返回 axios 对象，axios使用可以看 Axios笔记(1) 和 Axios笔记(2) 最后提一下，一般接口会配置共用config，并设置超时时间，而在上传大文件的时候很容易发生超时，则需要在 request 时加入 timeout: undefined 来防止]]></content>
+    <content type="text"><![CDATA[element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便 12345678910111213&lt;el-upload ref="upload" :show-file-list="false" :action="uploadUrl" :before-upload="handleBeforeUpload" :on-progress="handleUploading" :on-success="handleUpload" :on-error="handleUploadError" accept=".apk" :auto-upload="true"&gt; &lt;el-button slot="trigger" :loading="uploadLoading" size="mini" type="primary"&gt;上传&lt;/el-button&gt; &lt;span v-html="tips"&gt;&lt;/span&gt;&lt;/el-upload&gt; 同时也提供了 http-request 参数来自定义上传行为12345678910&lt;el-upload ref="upload" :show-file-list="false" action="" :http-request="upload" :before-upload="handleBeforeUpload" :on-progress="handleUploading" accept=".apk" :auto-upload="true"&gt;&lt;/el-upload&gt; action 虽然不再生效，但删掉这个参数会提示 Missing required prop: &quot;action&quot;，所以这里留空处理 覆写默认上传行为后，钩子除了 before-upload 其它都不起作用了，但依然可以在 html 保留指定，后面调用 http-request 指定的方法时会把整个文件对象作为参数传入 传入 upload() 的参数，为upload组件对象，除了文件对象本身，还有3个钩子 12345678910upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData &#125;).then(this.handleUpload, this.handleUploadError)&#125; 调用axios执行上传，把 file对象塞到 data 即可 axios自带上传时钩子 onUploadProgress，如果需要显示上传进度，可把 upload组件的 onProgress 传给axios，修改如下 1234567891011121314upload(fileObj) &#123; const formData = new FormData() formData.append('file', fileObj.file) formData.append('type', fileObj.file.type) return axios.request(&#123; url: 'api/upload', method: 'post', data: formData, onUploadProgress: progressEvent =&gt; &#123; const complete = (progressEvent.loaded / progressEvent.total * 100 | 0) fileObj.onProgress(&#123; percent: complete &#125;) &#125;, &#125;).then(this.handleUpload, this.handleUploadError)&#125; onUploadProgress 传入是 event 事件，如下图 因为 upload组件 onProgress 钩子有个 percent 百分比属性，所以直接计算后传回 上传完成回调，组件默认是返回 response 响应内容，而覆写后是返回 axios 对象，axios使用可以看 Axios笔记(1) 和 Axios笔记(2) 最后提一下，一般接口会配置共用config，并设置超时时间，而在上传大文件的时候很容易发生超时，则需要在 request 时加入 timeout: undefined 来防止]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -341,8 +341,8 @@
         <category>Digital</category>
       </categories>
       <tags>
-        <tag>GIT</tag>
         <tag>svn</tag>
+        <tag>GIT</tag>
       </tags>
   </entry>
   <entry>
@@ -401,8 +401,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>旅行</tag>
         <tag>马拉松</tag>
+        <tag>旅行</tag>
         <tag>巴厘岛</tag>
         <tag>潜水</tag>
       </tags>
@@ -548,8 +548,8 @@
       </categories>
       <tags>
         <tag>跑步</tag>
-        <tag>扬州</tag>
         <tag>马拉松</tag>
+        <tag>扬州</tag>
       </tags>
   </entry>
   <entry>
@@ -630,8 +630,8 @@
         <tag>单车</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>广水</tag>
         <tag>信阳</tag>
+        <tag>广水</tag>
       </tags>
   </entry>
   <entry>
@@ -646,8 +646,8 @@
         <tag>孝感</tag>
         <tag>国庆</tag>
         <tag>旅行</tag>
-        <tag>安陆</tag>
         <tag>广水</tag>
+        <tag>安陆</tag>
       </tags>
   </entry>
   <entry>
@@ -955,9 +955,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>徒步</tag>
         <tag>三洲田</tag>
         <tag>大梅沙</tag>
+        <tag>徒步</tag>
       </tags>
   </entry>
   <entry>
@@ -996,9 +996,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>羊台山</tag>
         <tag>徒步</tag>
         <tag>露营</tag>
-        <tag>羊台山</tag>
       </tags>
   </entry>
   <entry>
@@ -1040,8 +1040,8 @@
       <tags>
         <tag>徒步</tag>
         <tag>京广线</tag>
-        <tag>金鸡号</tag>
         <tag>露营</tag>
+        <tag>金鸡号</tag>
       </tags>
   </entry>
   <entry>
@@ -1067,8 +1067,8 @@
       <tags>
         <tag>刷街</tag>
         <tag>轮滑</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
         <tag>深圳</tag>
       </tags>
   </entry>
@@ -1278,8 +1278,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>徒步</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -1317,8 +1317,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -1606,8 +1606,8 @@
       <tags>
         <tag>户外</tag>
         <tag>单车</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -1814,8 +1814,8 @@
       </categories>
       <tags>
         <tag>单车</tag>
-        <tag>磨房</tag>
         <tag>惠州</tag>
+        <tag>磨房</tag>
       </tags>
   </entry>
   <entry>
@@ -2044,9 +2044,9 @@
         <category>Life</category>
       </categories>
       <tags>
+        <tag>Book</tag>
         <tag>评测</tag>
         <tag>淘宝</tag>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -2287,8 +2287,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>网银</tag>
         <tag>xml</tag>
+        <tag>网银</tag>
         <tag>soap</tag>
         <tag>wsdl</tag>
         <tag>paypal</tag>
@@ -2467,8 +2467,8 @@
         <tag>刷街</tag>
         <tag>轮滑</tag>
         <tag>大梅沙</tag>
-        <tag>百公里</tag>
         <tag>磨房</tag>
+        <tag>百公里</tag>
       </tags>
   </entry>
   <entry>
@@ -2479,8 +2479,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -2641,9 +2641,9 @@
         <category>IT</category>
       </categories>
       <tags>
-        <tag>svn</tag>
         <tag>笔记</tag>
         <tag>cvs</tag>
+        <tag>svn</tag>
       </tags>
   </entry>
   <entry>
@@ -2865,8 +2865,8 @@
       </categories>
       <tags>
         <tag>南山66</tag>
-        <tag>梧桐山</tag>
         <tag>登山</tag>
+        <tag>梧桐山</tag>
       </tags>
   </entry>
   <entry>
@@ -3498,9 +3498,9 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>淘宝</tag>
         <tag>网银</tag>
-        <tag>java</tag>
         <tag>jsp</tag>
       </tags>
   </entry>
@@ -3526,8 +3526,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>多普达</tag>
         <tag>蓝牙</tag>
+        <tag>多普达</tag>
       </tags>
   </entry>
   <entry>
@@ -3618,8 +3618,8 @@
       <tags>
         <tag>Book</tag>
         <tag>css</tag>
-        <tag>div</tag>
         <tag>web</tag>
+        <tag>div</tag>
         <tag>xhtml</tag>
       </tags>
   </entry>
@@ -3824,8 +3824,8 @@
       </categories>
       <tags>
         <tag>html</tag>
-        <tag>web</tag>
         <tag>seo</tag>
+        <tag>web</tag>
         <tag>优化</tag>
       </tags>
   </entry>
@@ -3915,8 +3915,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>工作</tag>
         <tag>上海</tag>
+        <tag>工作</tag>
         <tag>记录</tag>
       </tags>
   </entry>
@@ -4162,9 +4162,9 @@
         <category>Flash</category>
       </categories>
       <tags>
-        <tag>mobile</tag>
         <tag>笔记</tag>
         <tag>mFancy</tag>
+        <tag>mobile</tag>
       </tags>
   </entry>
   <entry>
