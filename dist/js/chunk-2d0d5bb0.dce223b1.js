@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d5bb0"],{7012:function(n,t,e){"use strict";e.r(t);var s=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"top"},[n._v(" 办公设备能耗分析 ")])},c=[],l=e("2877"),u={},a=Object(l["a"])(u,s,c,!1,null,null,null);t["default"]=a.exports}}]);
+//# sourceMappingURL=chunk-2d0d5bb0.dce223b1.js.map
