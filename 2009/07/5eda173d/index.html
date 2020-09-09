@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>认识Javascript数组(1) | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.认识数组数组就是某类数据的集合，数据类型可以是整型、字符串、甚至是对象Javascript不支持多维数组，但是因为数组里面可以包含对象（数组也是一个对象），所以数组可以通过相互嵌套实现类似多维数组的功能 1.1 定义数组声明有10个元素的数组1var a = new Array(10); 此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未">
-<meta name="keywords" content="笔记,javascript">
+  <meta name="description" content="1.认识数组数组就是某类数据的集合，数据类型可以是整型、字符串、甚至是对象Javascript不支持多维数组，但是因为数组里面可以包含对象（数组也是一个对象），所以数组可以通过相互嵌套实现类似多维数组的功能 1.1 定义数组声明有10个元素的数组1var a &#x3D; new Array(10); 此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未">
 <meta property="og:type" content="article">
 <meta property="og:title" content="认识Javascript数组(1)">
 <meta property="og:url" content="http://21ido.com/2009/07/5eda173d/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="1.认识数组数组就是某类数据的集合，数据类型可以是整型、字符串、甚至是对象Javascript不支持多维数组，但是因为数组里面可以包含对象（数组也是一个对象），所以数组可以通过相互嵌套实现类似多维数组的功能 1.1 定义数组声明有10个元素的数组1var a = new Array(10); 此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T06:53:34.814Z">
+<meta property="og:description" content="1.认识数组数组就是某类数据的集合，数据类型可以是整型、字符串、甚至是对象Javascript不支持多维数组，但是因为数组里面可以包含对象（数组也是一个对象），所以数组可以通过相互嵌套实现类似多维数组的功能 1.1 定义数组声明有10个元素的数组1var a &#x3D; new Array(10); 此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-07-30T12:20:33.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.984Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="认识Javascript数组(1)">
-<meta name="twitter:description" content="1.认识数组数组就是某类数据的集合，数据类型可以是整型、字符串、甚至是对象Javascript不支持多维数组，但是因为数组里面可以包含对象（数组也是一个对象），所以数组可以通过相互嵌套实现类似多维数组的功能 1.1 定义数组声明有10个元素的数组1var a = new Array(10); 此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -50,8 +51,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,13 +62,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -91,15 +90,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +116,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,15 +133,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -170,7 +167,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/认识Javascript数组_1" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/认识Javascript数组_1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -194,49 +191,21 @@ ga('send', 'pageview');
 <h3 id="1-1-定义数组"><a href="#1-1-定义数组" class="headerlink" title="1.1 定义数组"></a>1.1 定义数组</h3><p>声明有10个元素的数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
 <p>此时为a已经开辟了内存空间，包含10个元素，用数组名称加 [下标] 来调用，例如 a[2] 但此时元素并未初始化，调用将返回 <strong> undefined </strong></p>
 <p>以下代码定义了个可变数组，并进行赋值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="string">"aaa"</span>;</span><br><span class="line">a[<span class="number">2</span>] = <span class="number">12.6</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="string">&quot;aaa&quot;</span>;</span><br><span class="line">a[<span class="number">2</span>] = <span class="number">12.6</span>;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>上面提过了，数组里面可以放对象，例如下面代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="built_in">document</span>.getElementById(<span class="string">"text"</span>);</span><br><span class="line">a[<span class="number">2</span>] = &#123;<span class="attr">x</span>:<span class="number">11</span>, <span class="attr">y</span>:<span class="number">22</span>&#125;;</span><br><span class="line">a[<span class="number">3</span>] = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure></p>
-<p>数组可以实例化的时候直接赋值，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br></pre></td></tr></table></figure></p>
-<p>a 和 b 都是数组，只不过b用了隐性声明，创建了另一个实例，此时如果用 <code>alert(a==b)</code> 将弹出false</p>
+<p>上面提过了，数组里面可以放对象，例如下面代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="built_in">document</span>.getElementById(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">a[<span class="number">2</span>] = &#123;<span class="attr">x</span>:<span class="number">11</span>, <span class="attr">y</span>:<span class="number">22</span>&#125;;</span><br><span class="line">a[<span class="number">3</span>] = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure></p>
+<p>数组可以实例化的时候直接赋值，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br></pre></td></tr></table></figure><br>a 和 b 都是数组，只不过b用了隐性声明，创建了另一个实例，此时如果用 <code>alert(a==b)</code> 将弹出false</p>
 <h3 id="1-2-多维数组"><a href="#1-2-多维数组" class="headerlink" title="1.2 多维数组"></a>1.2 多维数组</h3><p>其实Javascript是不支持多维数组的，在asp里面可以用 <code>dim a(10,3)</code> 来定义多维数组，在Javascript里面，如果用 <code>var a = new Array(10,3)</code> 将报错<br>但是之前说过，数组里面可以包含对象，所以可以把数组里面的某个元素再声明为数组，例如</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>] = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">a[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">alert(a[<span class="number">0</span>][<span class="number">0</span>]);  <span class="comment">//弹出 1</span></span><br></pre></td></tr></table></figure>
-<p>声明的时候赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]);</span><br><span class="line"><span class="keyword">var</span> b = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]];</span><br></pre></td></tr></table></figure></p>
-<p>效果一样，a采用常规实例化，b是隐性声明，结果都是生成一个多维数组</p>
+<p>声明的时候赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]);</span><br><span class="line"><span class="keyword">var</span> b = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]];</span><br></pre></td></tr></table></figure><br>效果一样，a采用常规实例化，b是隐性声明，结果都是生成一个多维数组</p>
 <h3 id="1-3-Array-literals"><a href="#1-3-Array-literals" class="headerlink" title="1.3 Array literals"></a>1.3 Array literals</h3><p>这个还真不知中文怎么叫，文字数组？<br>说到数组，不得不说到Array Literals，数组其实是特殊的对象，对象有特有属性和方法，通过 <strong>对象名.属性</strong> 、<strong>对象.方法()</strong> 来取值和调用，而数组是通过下标来取值，Array Literals跟数组有很多相似，都是某数据类型的集合，但是Array Literals从根本来说，是个对象，声明和调用，跟数组是有区别</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">aa.x = <span class="string">"cat"</span>;</span><br><span class="line">aa.y = <span class="string">"think"</span>;</span><br><span class="line">alert(aa.x);      <span class="comment">//弹出cat</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">aa.x = <span class="string">&quot;cat&quot;</span>;</span><br><span class="line">aa.y = <span class="string">&quot;think&quot;</span>;</span><br><span class="line">alert(aa.x);      <span class="comment">//弹出cat</span></span><br></pre></td></tr></table></figure>
 <p>创建一个简单的对象，一般调用是通过aa.x，而如果当成Array literals的话，用 <code>alert(aa[&quot;x&quot;])</code> 一样会弹出cat</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="string">"cat"</span>, <span class="attr">y</span>:<span class="string">"think"</span>&#125;;</span><br><span class="line">alert(a[<span class="string">"y"</span>]);   <span class="comment">// 弹出 think</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="string">&quot;cat&quot;</span>, <span class="attr">y</span>:<span class="string">&quot;think&quot;</span>&#125;;</span><br><span class="line">alert(a[<span class="string">&quot;y&quot;</span>]);   <span class="comment">// 弹出 think</span></span><br></pre></td></tr></table></figure>
 <p>这是另一种创建对象的方法，结果是一样的</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -370,7 +339,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-认识数组"><span class="toc-number">1.</span> <span class="toc-text">1.认识数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-定义数组"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 定义数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-多维数组"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 多维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Array-literals"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Array literals</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%A4%E8%AF%86%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">1.认识数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 定义数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 多维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Array-literals"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 Array literals</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -432,7 +401,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -522,75 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,18 +500,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,10 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -658,15 +543,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,23 +567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,7 +583,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -738,14 +719,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -767,10 +740,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,15 +767,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,15 +791,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,18 +855,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -907,10 +864,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -954,18 +907,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -975,6 +916,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1026,11 +979,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1170,7 +1123,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,7 +1131,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,11 +1147,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,15 +1163,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1227,6 +1176,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,23 +1207,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1283,6 +1228,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,15 +1295,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,6 +1383,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1443,14 +1404,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1490,15 +1443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1506,7 +1455,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,14 +1475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1539,6 +1484,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1570,6 +1523,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1582,7 +1539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1590,7 +1551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

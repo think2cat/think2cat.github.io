@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>javascript事件委托 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&amp;lt;div&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;AA &amp;lt;span&amp;gt;A1&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;A2&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li">
-<meta name="keywords" content="javascript,delegate">
+  <meta name="description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt;  &lt;ul&gt;    &lt;li&gt;AA &lt;span&gt;A1&lt;&#x2F;span&gt; &lt;span&gt;A2&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;    &lt;li">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript事件委托">
 <meta property="og:url" content="http://21ido.com/2018/01/c1495b93/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&amp;lt;div&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;AA &amp;lt;span&amp;gt;A1&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;A2&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T09:24:07.900Z">
+<meta property="og:description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&lt;div&gt;  &lt;ul&gt;    &lt;li&gt;AA &lt;span&gt;A1&lt;&#x2F;span&gt; &lt;span&gt;A2&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;    &lt;li">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-17T09:43:52.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.973Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="delegate">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript事件委托">
-<meta name="twitter:description" content="本例代码在Github 事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理 先看个例子123456789101112&amp;lt;div&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li&amp;gt;AA &amp;lt;span&amp;gt;A1&amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;A2&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;    &amp;lt;li">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -50,8 +51,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,13 +62,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -91,15 +90,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +116,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,15 +133,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -170,7 +167,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/javascript事件委托" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/javascript事件委托" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -190,51 +187,21 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本例代码在<a href="https://github.com/think2cat/practice/tree/master/delegate" target="_blank" rel="noopener">Github</a></p>
+        <p>本例代码在<a target="_blank" rel="noopener" href="https://github.com/think2cat/practice/tree/master/delegate">Github</a></p>
 <p>事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理</p>
-<p>先看个例子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>AA <span class="tag">&lt;<span class="name">span</span>&gt;</span>A1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>A2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>BB <span class="tag">&lt;<span class="name">span</span>&gt;</span>B1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>B2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>CC <span class="tag">&lt;<span class="name">span</span>&gt;</span>C1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>C2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>DD <span class="tag">&lt;<span class="name">span</span>&gt;</span>D1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>D2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>EE <span class="tag">&lt;<span class="name">span</span>&gt;</span>E1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>E2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>FF <span class="tag">&lt;<span class="name">span</span>&gt;</span>F1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>F2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
- <a id="more"></a>
-<p>假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> liArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; liArr.length; i++)&#123;</span><br><span class="line"> liArr[i].addEventListener(<span class="string">"click"</span>,(evt)=&gt;&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"click li"</span>);</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> spanArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"span"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; spanArr.length; i++)&#123;</span><br><span class="line"> spanArr[i].addEventListener(<span class="string">"click"</span>,(evt)=&gt;&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"click span"</span>);</span><br><span class="line"> evt.stopPropagation();</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;<span class="keyword">let</span> liArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; liArr.length; i++)&#123;</span><br><span class="line">	liArr[i].addEventListener(<span class="string">"click"</span>,(evt)=&gt;&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"click li"</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> spanArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"span"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; spanArr.length; i++)&#123;</span><br><span class="line">	spanArr[i].addEventListener(<span class="string">"click"</span>,(evt)=&gt;&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"click span"</span>);</span><br><span class="line">		evt.stopPropagation();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错</p>
+<p>先看个例子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>AA <span class="tag">&lt;<span class="name">span</span>&gt;</span>A1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>A2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>BB <span class="tag">&lt;<span class="name">span</span>&gt;</span>B1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>B2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>CC <span class="tag">&lt;<span class="name">span</span>&gt;</span>C1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>C2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>DD <span class="tag">&lt;<span class="name">span</span>&gt;</span>D1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>D2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>EE <span class="tag">&lt;<span class="name">span</span>&gt;</span>E1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>E2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>FF <span class="tag">&lt;<span class="name">span</span>&gt;</span>F1<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;<span class="name">span</span>&gt;</span>F2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><br> <a id="more"></a><br>假设这个列表的LI和SPAN均需要加上click事件，常规做法是在每个DOM都绑定事件，比如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> liArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; liArr.length; i++)&#123;</span><br><span class="line"> liArr[i].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function">(<span class="params">evt</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">&quot;click li&quot;</span>);</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> spanArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;span&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; spanArr.length; i++)&#123;</span><br><span class="line"> spanArr[i].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function">(<span class="params">evt</span>)=&gt;</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">&quot;click span&quot;</span>);</span><br><span class="line"> evt.stopPropagation();</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;<span class="keyword">let</span> liArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; liArr.length; i++)&#123;</span><br><span class="line">	liArr[i].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function">(<span class="params">evt</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&quot;click li&quot;</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> spanArr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;span&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; spanArr.length; i++)&#123;</span><br><span class="line">	spanArr[i].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function">(<span class="params">evt</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&quot;click span&quot;</span>);</span><br><span class="line">		evt.stopPropagation();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这种做法，简单页面还挺适用，遇到DOM元素多的，或者需要有删除增加需求的，就需要不断执行绑定操作，这样一来是会消耗很多内存，二来是容易出错</p>
 <p>这时就需要事件委托，把事件绑定在父级元素</p>
 <p>浏览器的事件冒泡看这里，<a href="/2013/03/aea23e72/" title="Capture和Bubble，简明解读addEventListener的第三个参数">Capture和Bubble，简明解读addEventListener的第三个参数</a></p>
-<p>因为LI和SPAN都在DIV里面，所以只需绑定DIV即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>)[<span class="number">0</span>].addEventListener(<span class="string">"click"</span>,(evt)=&gt;&#123;</span><br><span class="line"> 	<span class="built_in">console</span>.log(evt);</span><br><span class="line"> 	<span class="keyword">if</span>(<span class="string">"span"</span> == evt.target.nodeName.toLocaleLowerCase())&#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a span"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"li"</span> == evt.target.nodeName.toLocaleLowerCase())&#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a li"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>在参数即event事件可以找到是哪个DOM触发了事件</p>
+<p>因为LI和SPAN都在DIV里面，所以只需绑定DIV即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;div&quot;</span>)[<span class="number">0</span>].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function">(<span class="params">evt</span>)=&gt;</span>&#123;</span><br><span class="line"> 	<span class="built_in">console</span>.log(evt);</span><br><span class="line"> 	<span class="keyword">if</span>(<span class="string">&quot;span&quot;</span> == evt.target.nodeName.toLocaleLowerCase())&#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">&quot;is a span&quot;</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;li&quot;</span> == evt.target.nodeName.toLocaleLowerCase())&#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">&quot;is a li&quot;</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>在参数即event事件可以找到是哪个DOM触发了事件</p>
 <p>看起来跟一般事件一样，多了一个触发元素的判断</p>
 <p>为此jQuery从1.4.2新增了delegate函数，但到了1.7版本就换成 on函数，用法是一样的</p>
 <p><code>$.on()</code> 和 <code>$.click()</code> 最大的区别是执行语句之后，新增加的DOM元素，只要符合选择器，也会绑定on函数指定的事件，而click则不会</p>
 <p>on的语法，<code>$.on( events [, selector ] [, data ], handler )</code></p>
 <p>选择器用于选择后代元素，所以事件的触发来自于后代元素，而非绑定on的元素</p>
 <p>对于本例来说，改成jquery.on也没啥变化</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click"</span>, <span class="string">"li, span"</span>, (evt) =&gt; &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"span"</span>, evt);</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"span"</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a span"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">"li"</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">"is a li"</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;div&quot;</span>).on(<span class="string">&quot;click&quot;</span>, <span class="string">&quot;li, span&quot;</span>, <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;span&quot;</span>, evt);</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">&quot;span&quot;</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">&quot;is a span&quot;</span>, evt.target.innerText);</span><br><span class="line"> 	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;li&quot;</span> == evt.target.nodeName.toLocaleLowerCase()) &#123;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">&quot;is a li&quot;</span>, evt.target.innerText);</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -430,7 +397,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -520,75 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,18 +496,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -656,15 +539,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,23 +563,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +579,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,14 +715,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -765,10 +736,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,15 +763,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,15 +787,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,18 +851,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -905,10 +860,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,18 +903,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -973,6 +912,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1024,11 +975,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,7 +1119,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,7 +1127,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,11 +1143,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1208,15 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1225,6 +1172,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,23 +1203,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,6 +1224,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1291,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1428,6 +1379,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1441,14 +1400,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1488,15 +1439,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,7 +1451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1520,14 +1471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1537,6 +1480,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1568,6 +1519,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1580,7 +1535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1588,7 +1547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

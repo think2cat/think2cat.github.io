@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>XUL学习笔记(3) | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="该节讲的是扩展开发的，代码很多，这里跳过，简单说一下就好了，哈 三、目录和文件结构3.1 目录结构一个标准的扩展程序，解压后有几个目录  Chrome：必备目录，底下有一个JAR文件，保存着扩展外观和逻辑功能代码。解压缩此 JAR 文件之后，一般会生成以下 3 个目录。 content：用于存储负责描述扩展界面的 XUL 文件和完成实际逻辑功能的 JS 文件； locale：录下还会有针对不同语言">
-<meta name="keywords" content="XUL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XUL学习笔记(3)">
 <meta property="og:url" content="http://21ido.com/2006/03/7069078b/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="该节讲的是扩展开发的，代码很多，这里跳过，简单说一下就好了，哈 三、目录和文件结构3.1 目录结构一个标准的扩展程序，解压后有几个目录  Chrome：必备目录，底下有一个JAR文件，保存着扩展外观和逻辑功能代码。解压缩此 JAR 文件之后，一般会生成以下 3 个目录。 content：用于存储负责描述扩展界面的 XUL 文件和完成实际逻辑功能的 JS 文件； locale：录下还会有针对不同语言">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-06T15:50:08.652Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2006-03-29T15:56:20.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.970Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="XUL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XUL学习笔记(3)">
-<meta name="twitter:description" content="该节讲的是扩展开发的，代码很多，这里跳过，简单说一下就好了，哈 三、目录和文件结构3.1 目录结构一个标准的扩展程序，解压后有几个目录  Chrome：必备目录，底下有一个JAR文件，保存着扩展外观和逻辑功能代码。解压缩此 JAR 文件之后，一般会生成以下 3 个目录。 content：用于存储负责描述扩展界面的 XUL 文件和完成实际逻辑功能的 JS 文件； locale：录下还会有针对不同语言">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -50,8 +50,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,13 +61,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -91,15 +89,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +115,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,15 +132,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -170,7 +166,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/XUL学习笔记_3" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/XUL学习笔记_3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -211,38 +207,26 @@ ga('send', 'pageview');
 </ul>
 <p>content，locale，skin 这三个目录都被称为包（package），包是一组文件集合，包注册到Mozilla系统后，就可以通过chrome地址协议进行访问，包可以包含任何类型的文件，包通常是jar文件，但也可以是目录。</p>
 <p>contents.rdf文件就是用来分别描述这些包，包括每种包的结构和功能，当安装扩展时，系统会分析这些contents.rdf文件，根据内容注册到Mozilla系统中。</p>
-<p>基于Gecko 1.8内核的Mozilla程序采用一种新的方式来进行包的注册，所以contents.rdf 其实已经被废弃掉了。新的注册是通过chrome目录下chrome.manifest完成同样功能，它是一个纯文本文件，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">content contact file:content/</span><br><span class="line">locale contact en-US file:locale/en-US/</span><br><span class="line">skin contact contact skin/</span><br></pre></td></tr></table></figure></p>
+<p>基于Gecko 1.8内核的Mozilla程序采用一种新的方式来进行包的注册，所以contents.rdf 其实已经被废弃掉了。新的注册是通过chrome目录下chrome.manifest完成同样功能，它是一个纯文本文件，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">content contact file:content&#x2F;</span><br><span class="line">locale contact en-US file:locale&#x2F;en-US&#x2F;</span><br><span class="line">skin contact contact skin&#x2F;</span><br></pre></td></tr></table></figure></p>
 <p>但为了兼容Gecko 1.8以前的版本，还是建议在扩展中使用 contents.rdf 文件格式。</p>
-<h4 id="3-2-1-适用于-content-包的-contents-rdf-文件"><a href="#3-2-1-适用于-content-包的-contents-rdf-文件" class="headerlink" title="3.2.1 适用于 content 包的 contents.rdf 文件"></a>3.2.1 适用于 content 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">"http://www.mozilla.org/rdf/chrome#"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- list all the packages being supplied by this directory --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:package:root"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:package:sampleext"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span> <span class="attr">package</span> <span class="attr">information</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">"urn:mozilla:package:sampleext"</span> <span class="attr">chrome:name</span>=<span class="string">"sampleext"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span>  <span class="attr">additionally</span> <span class="attr">for</span> <span class="attr">Mozilla</span> <span class="attr">Suite</span> <span class="attr">and</span> <span class="attr">old</span> <span class="attr">Firefox</span>/<span class="attr">Thunderbird</span> <span class="attr">versions</span> <span class="attr">include:</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:extension</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:displayName</span>=<span class="string">"Sample Extension"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:author</span>=<span class="string">"Your Name Here"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:authorURL</span>=<span class="string">"http://sampleextension.mozdev.org/"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:description</span>=<span class="string">"A sample extension with advanced features"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:settingsURL</span>=<span class="string">"chrome://sampleext/content/settings.xul"</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span> <span class="attr">overlay</span> <span class="attr">information</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:overlays"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"chrome://browser/content/browser.xul"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"chrome://browser/content/browser.xul"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>下面对以上的一些格式做解释说明，先看一下它的文件头部。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">"http://www.mozilla.org/rdf/chrome#"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>上面这一段格式相对固定，它主要是用来引入 RDF 和 chrome 命名空间。接下来<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- list all the packages being supplied by this directory --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:package:root"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:package:sampleext"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这里的 package 和 sampleext 都需要注意。首先，package 用来说明它描述的是一个 content 类型的包。对于 locale 和 skin 类型的包，应把它替换成 locale 和 skin，虽然这看上去与包目录的命名有些不一致。sampleext 是用来唯一标识扩展的名称，Mozilla 系统靠它来识别是哪个扩展的注册信息。后面还有好几处出现了同样的内容，你都需要注意。对于 locale 和 skin 则不能写能 locale:sampleext 或 skin:sampleext 这种”类推”出来的格式，它们的格式后面做说明。</p>
+<h4 id="3-2-1-适用于-content-包的-contents-rdf-文件"><a href="#3-2-1-适用于-content-包的-contents-rdf-文件" class="headerlink" title="3.2.1 适用于 content 包的 contents.rdf 文件"></a>3.2.1 适用于 content 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">&quot;http://www.mozilla.org/rdf/chrome#&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- list all the packages being supplied by this directory --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:package:root&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:package:sampleext&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span> <span class="attr">package</span> <span class="attr">information</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">&quot;urn:mozilla:package:sampleext&quot;</span> <span class="attr">chrome:name</span>=<span class="string">&quot;sampleext&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span>  <span class="attr">additionally</span> <span class="attr">for</span> <span class="attr">Mozilla</span> <span class="attr">Suite</span> <span class="attr">and</span> <span class="attr">old</span> <span class="attr">Firefox</span>/<span class="attr">Thunderbird</span> <span class="attr">versions</span> <span class="attr">include:</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:extension</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:displayName</span>=<span class="string">&quot;Sample Extension&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:author</span>=<span class="string">&quot;Your Name Here&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:authorURL</span>=<span class="string">&quot;http://sampleextension.mozdev.org/&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:description</span>=<span class="string">&quot;A sample extension with advanced features&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">chrome:settingsURL</span>=<span class="string">&quot;chrome://sampleext/content/settings.xul&quot;</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">!–</span> <span class="attr">overlay</span> <span class="attr">information</span> –&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:overlays&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;chrome://browser/content/browser.xul&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;chrome://browser/content/browser.xul&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure><br>下面对以上的一些格式做解释说明，先看一下它的文件头部。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">&quot;http://www.mozilla.org/rdf/chrome#&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><br>上面这一段格式相对固定，它主要是用来引入 RDF 和 chrome 命名空间。接下来<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- list all the packages being supplied by this directory --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:package:root&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:package:sampleext&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure><br>这里的 package 和 sampleext 都需要注意。首先，package 用来说明它描述的是一个 content 类型的包。对于 locale 和 skin 类型的包，应把它替换成 locale 和 skin，虽然这看上去与包目录的命名有些不一致。sampleext 是用来唯一标识扩展的名称，Mozilla 系统靠它来识别是哪个扩展的注册信息。后面还有好几处出现了同样的内容，你都需要注意。对于 locale 和 skin 则不能写能 locale:sampleext 或 skin:sampleext 这种”类推”出来的格式，它们的格式后面做说明。</p>
 <p>文件的中间部分</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">"urn:mozilla:package:sampleext"</span> <span class="attr">chrome:name</span>=<span class="string">"sampleext"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!–</span>  <span class="attr">additionally</span> <span class="attr">for</span> <span class="attr">Mozilla</span> <span class="attr">Suite</span> <span class="attr">and</span> <span class="attr">old</span> <span class="attr">Firefox</span>/<span class="attr">Thunderbird</span> <span class="attr">versions</span> <span class="attr">include:</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:extension</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:displayName</span>=<span class="string">"Sample Extension"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:author</span>=<span class="string">"Your Name Here"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:authorURL</span>=<span class="string">"http://sampleextension.mozdev.org/"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:description</span>=<span class="string">"A sample extension with advanced features"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:settingsURL</span>=<span class="string">"chrome://sampleext/content/settings.xul"</span> –&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>&lt;!– –&gt;</code> 标识中的内容已经说明，它是适用于 Mozilla Suite 和老版本 Firefox/Thunderbird 的附加信息，所以对于内核较老的 Mozilla 必须被写成：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">"urn:mozilla:package:sampleext"</span> <span class="attr">chrome:name</span>=<span class="string">"sampleext"</span>&gt;</span></span><br><span class="line">      chrome:extension="true"</span><br><span class="line">      chrome:displayName="Sample Extension"</span><br><span class="line">      chrome:author="Your Name Here"</span><br><span class="line">      chrome:authorURL="http://sampleextension.mozdev.org/"</span><br><span class="line">      chrome:description="A sample extension with advanced features"</span><br><span class="line">      chrome:settingsURL="chrome://sampleext/content/settings.xul"&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">&quot;urn:mozilla:package:sampleext&quot;</span> <span class="attr">chrome:name</span>=<span class="string">&quot;sampleext&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!–</span>  <span class="attr">additionally</span> <span class="attr">for</span> <span class="attr">Mozilla</span> <span class="attr">Suite</span> <span class="attr">and</span> <span class="attr">old</span> <span class="attr">Firefox</span>/<span class="attr">Thunderbird</span> <span class="attr">versions</span> <span class="attr">include:</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:extension</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:displayName</span>=<span class="string">&quot;Sample Extension&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:author</span>=<span class="string">&quot;Your Name Here&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:authorURL</span>=<span class="string">&quot;http://sampleextension.mozdev.org/&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:description</span>=<span class="string">&quot;A sample extension with advanced features&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">chrome:settingsURL</span>=<span class="string">&quot;chrome://sampleext/content/settings.xul&quot;</span> –&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;!– –&gt;</code> 标识中的内容已经说明，它是适用于 Mozilla Suite 和老版本 Firefox/Thunderbird 的附加信息，所以对于内核较老的 Mozilla 必须被写成：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">RDF:about</span>=<span class="string">&quot;urn:mozilla:package:sampleext&quot;</span> <span class="attr">chrome:name</span>=<span class="string">&quot;sampleext&quot;</span>&gt;</span></span><br><span class="line">      chrome:extension=&quot;true&quot;</span><br><span class="line">      chrome:displayName=&quot;Sample Extension&quot;</span><br><span class="line">      chrome:author=&quot;Your Name Here&quot;</span><br><span class="line">      chrome:authorURL=&quot;http://sampleextension.mozdev.org/&quot;</span><br><span class="line">      chrome:description=&quot;A sample extension with advanced features&quot;</span><br><span class="line">      chrome:settingsURL=&quot;chrome://sampleext/content/settings.xul&quot;&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>对于新版本的 Mozilla，<code>&lt;!– –&gt;</code> 中的内容可以忽略。这段内容主要用来描述扩展的一些附加信息，如作者和扩展的显示名称等。其实在 install.rdf 文件中，存在同样的一段描述信息。因而，这里再做描述显得有些罗嗦，作者也不建议你在 contents.rdf 中加入那些附加的信息。</p>
-<p>文件的结尾部分<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:overlays"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"chrome://browser/content/browser.xul"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"chrome://browser/content/browser.xul"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这是 content 类型的 contents.rdf 文件所描述的关键部分。Mozilla 下的扩展之所以能够和浏览器整合在一起，像一个程序一样工作，是因为它采用了一种被称为”覆盖（Overlays）”的技术。你的扩展可以在 Mozilla 的某个已有界面上，再组合上另外的 XUL 界面元素，而不会与之产生任何的冲突和不协调。这种技术与其说是”覆盖”，不如说是”合并”更合适。因为，原有的界面元素会根据加上去的界面元素自动调整自己的位置，以适应变化。同时,”覆盖”技术还为扩展程序的运行提供了”入口点”，这也正是我们编写的扩展能够运行的原因。</p>
-<p>在上面的内容中，第一个 <code>RDF:Seq</code> 标记指明要对 Mozilla 的界面进行覆盖；而要对哪些界面进行覆盖，则通过它的子标记 RDF:li 标记进行描述，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;RDF:li resource=&quot;chrome://browser/content/browser.xul&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>它意思是要覆盖负责描述浏览器界面的 browser.xul 文件，这个文件就是通过 chrome 地址协议进行指定的，后面你还将看到在许多情况下，我们都需要通过 chrome 地址协议来访问注册到 Mozilla 系统下的包资源。如果你还想覆盖其它的界面文件，你只需像上面一样指定多个 RDF:li 标识。</p>
-<p>第二个 <code>RDF:Seq</code> 对那些被覆盖的文件做更进一步的描述，它描述了指定的目标文件会被当前包下的哪几个文件所覆盖。如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"chrome://browser/content/browser.xul"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>意思是用 overlay.xul 覆盖 browser.xul 文件，并且 overlay.xul 也是以 chrome 方式进行定位的，或者说是以已经注册后的地址进行定位的。如果还有更多的界面文件要覆盖到 browser.xul 上，照上面格式书写即可。</p>
-<h4 id="3-2-2-适用于-locale-包的-contents-rdf-文件"><a href="#3-2-2-适用于-locale-包的-contents-rdf-文件" class="headerlink" title="3.2.2 适用于 locale 包的 contents.rdf 文件"></a>3.2.2 适用于 locale 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:chrome</span>=<span class="string">"http://www.mozilla.org/rdf/chrome#"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:RDF</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:locale:root"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:locale:en-US"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:locale:en-US"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:author</span>=<span class="string">"Me"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:displayName</span>=<span class="string">"English(US)"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:name</span>=<span class="string">"en-US"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:locale:en-US:packages"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:locale:en-US:sampleext"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>我们可以看到，locale 包的 contents.rdf 文件的与 content 包的 contents.rdf 文件没有什么太大的区别，只有文件前面的 <code>RDF:li</code>，其 resource 中写的是 locale:en-US，注意区别前面 content 中的 package:sampleext。后面的 RDF:Description 格式相对固定，只是你要注意将 RDF:li 中的 sampleext 替换成与上面一致的扩展名称。另外，由于这一类型的 contents.rdf 是用来描述语言包的，所以，你必须要处理好相应的语言描述信息。</p>
-<h4 id="3-2-3-适用于-skin-包的-contents-rdf-文件"><a href="#3-2-3-适用于-skin-包的-contents-rdf-文件" class="headerlink" title="3.2.3 适用于 skin 包的 contents.rdf 文件"></a>3.2.3 适用于 skin 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">"http://www.mozilla.org/rdf/chrome#"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:skin:root"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:skin:classic/1.0"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:skin:classic/1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:skin:classic/1.0:packages"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">"urn:mozilla:skin:classic/1.0:sampleext"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>我们可以看到，它与 locale 包的 contents.rdf 文件差不多，格式也很相近，只是 <code>RDF:Description</code> 标记中的属性少了一些。因为，这两种资源的描述几乎是采用一致的格式进行注册的，你只要注意 skin:classic/1.0 即可。</p>
+<p>文件的结尾部分<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:overlays&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;chrome://browser/content/browser.xul&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;chrome://browser/content/browser.xul&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure><br>这是 content 类型的 contents.rdf 文件所描述的关键部分。Mozilla 下的扩展之所以能够和浏览器整合在一起，像一个程序一样工作，是因为它采用了一种被称为”覆盖（Overlays）”的技术。你的扩展可以在 Mozilla 的某个已有界面上，再组合上另外的 XUL 界面元素，而不会与之产生任何的冲突和不协调。这种技术与其说是”覆盖”，不如说是”合并”更合适。因为，原有的界面元素会根据加上去的界面元素自动调整自己的位置，以适应变化。同时,”覆盖”技术还为扩展程序的运行提供了”入口点”，这也正是我们编写的扩展能够运行的原因。</p>
+<p>在上面的内容中，第一个 <code>RDF:Seq</code> 标记指明要对 Mozilla 的界面进行覆盖；而要对哪些界面进行覆盖，则通过它的子标记 RDF:li 标记进行描述，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;RDF:li resource&#x3D;&quot;chrome:&#x2F;&#x2F;browser&#x2F;content&#x2F;browser.xul&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure><br>它意思是要覆盖负责描述浏览器界面的 browser.xul 文件，这个文件就是通过 chrome 地址协议进行指定的，后面你还将看到在许多情况下，我们都需要通过 chrome 地址协议来访问注册到 Mozilla 系统下的包资源。如果你还想覆盖其它的界面文件，你只需像上面一样指定多个 RDF:li 标识。</p>
+<p>第二个 <code>RDF:Seq</code> 对那些被覆盖的文件做更进一步的描述，它描述了指定的目标文件会被当前包下的哪几个文件所覆盖。如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;chrome://browser/content/browser.xul&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:li</span>&gt;</span>chrome://sampleext/content/overlay.xul<span class="tag">&lt;/<span class="name">RDF:li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br></pre></td></tr></table></figure><br>意思是用 overlay.xul 覆盖 browser.xul 文件，并且 overlay.xul 也是以 chrome 方式进行定位的，或者说是以已经注册后的地址进行定位的。如果还有更多的界面文件要覆盖到 browser.xul 上，照上面格式书写即可。</p>
+<h4 id="3-2-2-适用于-locale-包的-contents-rdf-文件"><a href="#3-2-2-适用于-locale-包的-contents-rdf-文件" class="headerlink" title="3.2.2 适用于 locale 包的 contents.rdf 文件"></a>3.2.2 适用于 locale 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:chrome</span>=<span class="string">&quot;http://www.mozilla.org/rdf/chrome#&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:RDF</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:locale:root&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:locale:en-US&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:locale:en-US&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:author</span>=<span class="string">&quot;Me&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:displayName</span>=<span class="string">&quot;English(US)&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">chrome:name</span>=<span class="string">&quot;en-US&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:locale:en-US:packages&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:locale:en-US:sampleext&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure><br>我们可以看到，locale 包的 contents.rdf 文件的与 content 包的 contents.rdf 文件没有什么太大的区别，只有文件前面的 <code>RDF:li</code>，其 resource 中写的是 locale:en-US，注意区别前面 content 中的 package:sampleext。后面的 RDF:Description 格式相对固定，只是你要注意将 RDF:li 中的 sampleext 替换成与上面一致的扩展名称。另外，由于这一类型的 contents.rdf 是用来描述语言包的，所以，你必须要处理好相应的语言描述信息。</p>
+<h4 id="3-2-3-适用于-skin-包的-contents-rdf-文件"><a href="#3-2-3-适用于-skin-包的-contents-rdf-文件" class="headerlink" title="3.2.3 适用于 skin 包的 contents.rdf 文件"></a>3.2.3 适用于 skin 包的 contents.rdf 文件</h4><p>示例格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF:RDF</span> <span class="attr">xmlns:RDF</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:chrome</span>=<span class="string">&quot;http://www.mozilla.org/rdf/chrome#&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:skin:root&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:skin:classic/1.0&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">RDF:Description</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:skin:classic/1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RDF:Seq</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:skin:classic/1.0:packages&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RDF:li</span> <span class="attr">resource</span>=<span class="string">&quot;urn:mozilla:skin:classic/1.0:sampleext&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RDF:Seq</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">chrome:packages</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RDF:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure><br>我们可以看到，它与 locale 包的 contents.rdf 文件差不多，格式也很相近，只是 <code>RDF:Description</code> 标记中的属性少了一些。因为，这两种资源的描述几乎是采用一致的格式进行注册的，你只要注意 skin:classic/1.0 即可。</p>
 <p>以上只是给出一些标准的格式，随着你对扩展开发的深入，你会发现一些特殊的格式及应用。另外，由于这个文件是 XML 的，所以作者提醒你保存成不带文件头标记（BOM）的 UTF-8 格式，并且建议你在创建完此文件之后，用浏览器再验证一下文件的格式和编码问题。</p>
-<h4 id="3-3-install-rdf-文件"><a href="#3-3-install-rdf-文件" class="headerlink" title="3.3 install.rdf 文件"></a>3.3 install.rdf 文件</h4><p>install.rdf 文件位于扩展的顶级目录下，用于描述当前扩展的作者信息，升级地址，设置入口，版本兼容信息等。在安装扩展时，Mozilla 会分析其中的信息。它的标准格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns:em</span>=<span class="string">"http://www.mozilla.org/2004/em-rdf#"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Description</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:install-manifest"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:id</span>&gt;</span>&#123;XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&#125;<span class="tag">&lt;/<span class="name">em:id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:name</span>&gt;</span>Sample Extension<span class="tag">&lt;/<span class="name">em:name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:type</span>&gt;</span>2<span class="tag">&lt;/<span class="name">em:type</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- optional items --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:creator</span>&gt;</span>Your Name Here<span class="tag">&lt;/<span class="name">em:creator</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:description</span>&gt;</span>A sample extension with advanced features<span class="tag">&lt;/<span class="name">em:description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:contributor</span>&gt;</span>A person who helped you<span class="tag">&lt;/<span class="name">em:contributor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:contributor</span>&gt;</span>Another one<span class="tag">&lt;/<span class="name">em:contributor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:homepageURL</span>&gt;</span>http://sampleextension.mozdev.org/<span class="tag">&lt;/<span class="name">em:homepageURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:updateURL</span>&gt;</span>http://sampleextension.mozdev.org/update.rdf<span class="tag">&lt;/<span class="name">em:updateURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:optionsURL</span>&gt;</span>chrome://sampleext/content/settings.xul<span class="tag">&lt;/<span class="name">em:optionsURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:aboutURL</span>&gt;</span>chrome://sampleext/content/about.xul<span class="tag">&lt;/<span class="name">em:aboutURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:iconURL</span>&gt;</span>chrome://sampleext/skin/mainicon.png<span class="tag">&lt;/<span class="name">em:iconURL</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Firefox --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:targetApplication</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Description</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:id</span>&gt;</span>&#123;ec8030f7-c20a-464f-9b0e-13a3a9e97384&#125;<span class="tag">&lt;/<span class="name">em:id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:minVersion</span>&gt;</span>0.9<span class="tag">&lt;/<span class="name">em:minVersion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:maxVersion</span>&gt;</span>1.5.0.1<span class="tag">&lt;/<span class="name">em:maxVersion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">em:targetApplication</span>&gt;</span></span><br><span class="line"></span><br><span class="line">         <span class="comment">&lt;!-- This is not needed for Firefox 1.1 and later. Only include this</span></span><br><span class="line"><span class="comment">              if you want to make your extension compatible with older versions --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:file</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Description</span> <span class="attr">about</span>=<span class="string">"urn:mozilla:extension:file:sampleext.jar"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:package</span>&gt;</span>content/<span class="tag">&lt;/<span class="name">em:package</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- optional items --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:skin</span>&gt;</span>skin/classic/<span class="tag">&lt;/<span class="name">em:skin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:locale</span>&gt;</span>locale/en-US/<span class="tag">&lt;/<span class="name">em:locale</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:locale</span>&gt;</span>locale/zh-CN/<span class="tag">&lt;/<span class="name">em:locale</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">em:file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>我们先看一下此文件的头部分：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">RDF</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns:em</span>=<span class="string">"http://www.mozilla.org/2004/em-rdf#"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>同 contents.rdf 文件的头部分一样，它也是负责引入命名空间。而位于头部分下面的 Description 标记，则是此文件的实质性描述。下面对 Description 下的子标功能给予说明。</p>
+<h4 id="3-3-install-rdf-文件"><a href="#3-3-install-rdf-文件" class="headerlink" title="3.3 install.rdf 文件"></a>3.3 install.rdf 文件</h4><p>install.rdf 文件位于扩展的顶级目录下，用于描述当前扩展的作者信息，升级地址，设置入口，版本兼容信息等。在安装扩展时，Mozilla 会分析其中的信息。它的标准格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns:em</span>=<span class="string">&quot;http://www.mozilla.org/2004/em-rdf#&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Description</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:install-manifest&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:id</span>&gt;</span>&#123;XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX&#125;<span class="tag">&lt;/<span class="name">em:id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:name</span>&gt;</span>Sample Extension<span class="tag">&lt;/<span class="name">em:name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:type</span>&gt;</span>2<span class="tag">&lt;/<span class="name">em:type</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- optional items --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:creator</span>&gt;</span>Your Name Here<span class="tag">&lt;/<span class="name">em:creator</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:description</span>&gt;</span>A sample extension with advanced features<span class="tag">&lt;/<span class="name">em:description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:contributor</span>&gt;</span>A person who helped you<span class="tag">&lt;/<span class="name">em:contributor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:contributor</span>&gt;</span>Another one<span class="tag">&lt;/<span class="name">em:contributor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:homepageURL</span>&gt;</span>http://sampleextension.mozdev.org/<span class="tag">&lt;/<span class="name">em:homepageURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:updateURL</span>&gt;</span>http://sampleextension.mozdev.org/update.rdf<span class="tag">&lt;/<span class="name">em:updateURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:optionsURL</span>&gt;</span>chrome://sampleext/content/settings.xul<span class="tag">&lt;/<span class="name">em:optionsURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:aboutURL</span>&gt;</span>chrome://sampleext/content/about.xul<span class="tag">&lt;/<span class="name">em:aboutURL</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:iconURL</span>&gt;</span>chrome://sampleext/skin/mainicon.png<span class="tag">&lt;/<span class="name">em:iconURL</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Firefox --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:targetApplication</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Description</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:id</span>&gt;</span>&#123;ec8030f7-c20a-464f-9b0e-13a3a9e97384&#125;<span class="tag">&lt;/<span class="name">em:id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:minVersion</span>&gt;</span>0.9<span class="tag">&lt;/<span class="name">em:minVersion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:maxVersion</span>&gt;</span>1.5.0.1<span class="tag">&lt;/<span class="name">em:maxVersion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">em:targetApplication</span>&gt;</span></span><br><span class="line"></span><br><span class="line">         <span class="comment">&lt;!-- This is not needed for Firefox 1.1 and later. Only include this</span></span><br><span class="line"><span class="comment">              if you want to make your extension compatible with older versions --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">em:file</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Description</span> <span class="attr">about</span>=<span class="string">&quot;urn:mozilla:extension:file:sampleext.jar&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:package</span>&gt;</span>content/<span class="tag">&lt;/<span class="name">em:package</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- optional items --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:skin</span>&gt;</span>skin/classic/<span class="tag">&lt;/<span class="name">em:skin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:locale</span>&gt;</span>locale/en-US/<span class="tag">&lt;/<span class="name">em:locale</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">em:locale</span>&gt;</span>locale/zh-CN/<span class="tag">&lt;/<span class="name">em:locale</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">em:file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RDF</span>&gt;</span></span><br></pre></td></tr></table></figure><br>我们先看一下此文件的头部分：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RDF</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">xmlns:em</span>=<span class="string">&quot;http://www.mozilla.org/2004/em-rdf#&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><br>同 contents.rdf 文件的头部分一样，它也是负责引入命名空间。而位于头部分下面的 Description 标记，则是此文件的实质性描述。下面对 Description 下的子标功能给予说明。</p>
 <h4 id="3-3-1-必需的标记"><a href="#3-3-1-必需的标记" class="headerlink" title="3.3.1 必需的标记"></a>3.3.1 必需的标记</h4><p><strong>em:id</strong></p>
-<p>它用来唯一的标识某个扩展，此标记内容的要求在 Firefox 1.5 版本的前后还发生了变化。在 1.5 以前的版本中，em:id 标记的内容被要求必须以 GUID 格式进行表示；而在 1.5 及后续版本中，你还可以使用一种格式为 extension@domain 的 id。如下示例了两种不同的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;em:id&gt;myextension@mysite.com&lt;/em:id&gt;</span><br><span class="line">&lt;em:id&gt;&#123;daf44bf7-a45e-4450-979c-91cf07434c3d&#125;&lt;/em:id&gt;</span><br></pre></td></tr></table></figure></p>
-<p>对于 GUID 格式的 id，我们可以通过一些工具来生成。在 Windows 下，我们可以用微软的 guidgen.exe 工具来生成。如果你在类 Unix 的系统下做开发，你可以用系统自带的 uuidgen 工具来生成。</p>
+<p>它用来唯一的标识某个扩展，此标记内容的要求在 Firefox 1.5 版本的前后还发生了变化。在 1.5 以前的版本中，em:id 标记的内容被要求必须以 GUID 格式进行表示；而在 1.5 及后续版本中，你还可以使用一种格式为 extension@domain 的 id。如下示例了两种不同的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;em:id&gt;myextension@mysite.com&lt;&#x2F;em:id&gt;</span><br><span class="line">&lt;em:id&gt;&#123;daf44bf7-a45e-4450-979c-91cf07434c3d&#125;&lt;&#x2F;em:id&gt;</span><br></pre></td></tr></table></figure><br>对于 GUID 格式的 id，我们可以通过一些工具来生成。在 Windows 下，我们可以用微软的 guidgen.exe 工具来生成。如果你在类 Unix 的系统下做开发，你可以用系统自带的 uuidgen 工具来生成。</p>
 <p><strong>em:name</strong></p>
 <p>此标记的内容会被显示在扩展管理器中。它被允许由多个单词组成，且中间可以包含空格。</p>
 <p><strong>em:version</strong></p>
-<p>此标记的内容是一个版本字符串，用来表示扩展的当前版本，它会被显示在扩展管理器中。示例如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>1.0.2<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>0.4.1.2005090112<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>同时，Mozilla 还对版本字符串的格式做出了规定。如果这对这方面感兴趣，请你查阅 Mozilla 文档。</p>
+<p>此标记的内容是一个版本字符串，用来表示扩展的当前版本，它会被显示在扩展管理器中。示例如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>1.0.2<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em:version</span>&gt;</span>0.4.1.2005090112<span class="tag">&lt;/<span class="name">em:version</span>&gt;</span></span><br></pre></td></tr></table></figure><br>同时，Mozilla 还对版本字符串的格式做出了规定。如果这对这方面感兴趣，请你查阅 Mozilla 文档。</p>
 <p><strong>em:type</strong></p>
 <p>从 Firefox 1.5 版本以后，此标记被引入，它主要用来表示当前安装包的安装类型 (注意不要和包 [package] 弄混）。其实，在 Firefox 的 Theme 包结构里，同样要用 install.rdf 文件来描述其安装信息。而安装程序在处理安装时，要根据安装包的类型做不同的处理，此标记正是为区别安装包的类型设计的。<br>它的内容是一个整型值，并且只允许以下几个值出现：</p>
 <p>  2    Extensions<br>  4    Themes<br>  8    Locale<br>  16    Plugin</p>
@@ -298,8 +282,7 @@ ga('send', 'pageview');
 <p>此标记的内容用来指明扩展或作者的主页地址。</p>
 <p><strong>em:updateURL</strong></p>
 <p>基于 Mozilla 扩展的最大好处就是可以自动升级，此标记的内容正是用来指明版本检测时的 URL 地址。Mozilla 给扩展提供这样一种升级机制，它通过强制方式或定期检测方式请求升级描述文件，从而获取到有关扩展自身的升级信息，进而对扩展进行升级操作。</p>
-<p>为了配合扩展的升级检测操作，Mozilla 还提供了一些环境变量。虽然一般情况下，我们书写的升级检测地址都是固定的，但 Mozilla 提供了一些特殊的环境变量。通过这些环境变量，Mozilla 可以对不同的扩展生成不同的升级检测地址。下面只是一个示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;em:updateURL&gt;http://www.foo.com/update.cgi?id=%ITEM_ID%&amp;amp;version=%ITEM_VERSION%&lt;/em:updateURL&gt;</span><br></pre></td></tr></table></figure></p>
-<p>有关这些环境变量的详细用法，请到 Mozilla 网址查阅。</p>
+<p>为了配合扩展的升级检测操作，Mozilla 还提供了一些环境变量。虽然一般情况下，我们书写的升级检测地址都是固定的，但 Mozilla 提供了一些特殊的环境变量。通过这些环境变量，Mozilla 可以对不同的扩展生成不同的升级检测地址。下面只是一个示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;em:updateURL&gt;http:&#x2F;&#x2F;www.foo.com&#x2F;update.cgi?id&#x3D;%ITEM_ID%&amp;version&#x3D;%ITEM_VERSION%&lt;&#x2F;em:updateURL&gt;</span><br></pre></td></tr></table></figure><br>有关这些环境变量的详细用法，请到 Mozilla 网址查阅。</p>
 <p><strong>em:optionsURL</strong></p>
 <p>此标记的内容用来指明当前扩展的选项设置入口，并且要以 chrome:// 地址方式进行指定。由于扩展的一些选项值要由用户来设置，所以扩展的作者有必要为扩展提供一个设置窗口。在扩展管理器中，通过”右键/设置”菜单项，我们可以对不同的扩展打开不同的设置窗口，这就是此标记完成的功能。但前提是，扩展作者必须要为所开发的扩展编写设置窗口，否则此标记不是必须的。</p>
 <p><strong>em:aboutURL</strong></p>
@@ -313,32 +296,6 @@ ga('send', 'pageview');
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -468,7 +425,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#三、目录和文件结构"><span class="toc-number">1.</span> <span class="toc-text">三、目录和文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-目录结构"><span class="toc-number">1.1.</span> <span class="toc-text">3.1 目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-contents-rdf-文件"><span class="toc-number">1.2.</span> <span class="toc-text">3.2 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-适用于-content-包的-contents-rdf-文件"><span class="toc-number">1.3.</span> <span class="toc-text">3.2.1 适用于 content 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-适用于-locale-包的-contents-rdf-文件"><span class="toc-number">1.4.</span> <span class="toc-text">3.2.2 适用于 locale 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-适用于-skin-包的-contents-rdf-文件"><span class="toc-number">1.5.</span> <span class="toc-text">3.2.3 适用于 skin 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-install-rdf-文件"><span class="toc-number">1.6.</span> <span class="toc-text">3.3 install.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-必需的标记"><span class="toc-number">1.7.</span> <span class="toc-text">3.3.1 必需的标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-可选的标记"><span class="toc-number">1.8.</span> <span class="toc-text">3.3.2 可选的标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-已经废弃的标记"><span class="toc-number">1.9.</span> <span class="toc-text">3.3.3 已经废弃的标记</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%9B%AE%E5%BD%95%E5%92%8C%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">三、目录和文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">3.1 目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-contents-rdf-%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">3.2 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%80%82%E7%94%A8%E4%BA%8E-content-%E5%8C%85%E7%9A%84-contents-rdf-%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">3.2.1 适用于 content 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E9%80%82%E7%94%A8%E4%BA%8E-locale-%E5%8C%85%E7%9A%84-contents-rdf-%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">3.2.2 适用于 locale 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E9%80%82%E7%94%A8%E4%BA%8E-skin-%E5%8C%85%E7%9A%84-contents-rdf-%E6%96%87%E4%BB%B6"><span class="toc-number">1.5.</span> <span class="toc-text">3.2.3 适用于 skin 包的 contents.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-install-rdf-%E6%96%87%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">3.3 install.rdf 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%BF%85%E9%9C%80%E7%9A%84%E6%A0%87%E8%AE%B0"><span class="toc-number">1.7.</span> <span class="toc-text">3.3.1 必需的标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%8F%AF%E9%80%89%E7%9A%84%E6%A0%87%E8%AE%B0"><span class="toc-number">1.8.</span> <span class="toc-text">3.3.2 可选的标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E5%B7%B2%E7%BB%8F%E5%BA%9F%E5%BC%83%E7%9A%84%E6%A0%87%E8%AE%B0"><span class="toc-number">1.9.</span> <span class="toc-text">3.3.3 已经废弃的标记</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -530,7 +487,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -620,75 +577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,18 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,10 +609,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -756,15 +629,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,23 +653,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,7 +669,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,14 +805,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -865,10 +826,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,15 +853,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -920,15 +877,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,18 +941,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -1005,10 +950,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,18 +993,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -1073,6 +1002,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1124,11 +1065,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1268,7 +1209,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1276,7 +1217,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1292,11 +1233,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1308,15 +1249,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1325,6 +1262,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1352,23 +1293,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,6 +1314,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1440,15 +1381,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1528,6 +1469,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1541,14 +1490,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1588,15 +1529,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1604,7 +1541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1620,14 +1561,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1637,6 +1570,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1668,6 +1609,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1680,7 +1625,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1688,7 +1637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

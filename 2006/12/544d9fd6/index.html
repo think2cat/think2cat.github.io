@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>《XUL指南》第九章：RDF和模版 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="翻译时间：06年4月13日，未翻译完，不过可能不会再译了 本文件为Word格式，有兴趣接着翻译的请跟我联系 九、RDF和模版9.2 模板该节我们将认识如何使用数据扩展内容 扩展内容XUL提供使用RDF格式的数据创建内容的方法，可以是RDF文件也可以是内部数据源。Mozilla提供众 多数据源，例如书签、历史和邮件信息，在下节有详细介绍。 通常使用数据来对树状分类和菜单进行扩展，而你也可以选择其它元">
-<meta name="keywords" content="xml,XUL,XUL指南">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《XUL指南》第九章：RDF和模版">
 <meta property="og:url" content="http://21ido.com/2006/12/544d9fd6/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="翻译时间：06年4月13日，未翻译完，不过可能不会再译了 本文件为Word格式，有兴趣接着翻译的请跟我联系 九、RDF和模版9.2 模板该节我们将认识如何使用数据扩展内容 扩展内容XUL提供使用RDF格式的数据创建内容的方法，可以是RDF文件也可以是内部数据源。Mozilla提供众 多数据源，例如书签、历史和邮件信息，在下节有详细介绍。 通常使用数据来对树状分类和菜单进行扩展，而你也可以选择其它元">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2006/12/03_12764.jpg">
-<meta property="og:updated_time" content="2018-09-25T10:03:46.451Z">
+<meta property="article:published_time" content="2006-12-03T15:53:08.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.971Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="xml">
+<meta property="article:tag" content="XUL">
+<meta property="article:tag" content="XUL指南">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《XUL指南》第九章：RDF和模版">
-<meta name="twitter:description" content="翻译时间：06年4月13日，未翻译完，不过可能不会再译了 本文件为Word格式，有兴趣接着翻译的请跟我联系 九、RDF和模版9.2 模板该节我们将认识如何使用数据扩展内容 扩展内容XUL提供使用RDF格式的数据创建内容的方法，可以是RDF文件也可以是内部数据源。Mozilla提供众 多数据源，例如书签、历史和邮件信息，在下节有详细介绍。 通常使用数据来对树状分类和菜单进行扩展，而你也可以选择其它元">
 <meta name="twitter:image" content="http://21ido.com/images/2006/12/03_12764.jpg">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
@@ -52,8 +54,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,13 +65,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -93,15 +93,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -119,13 +119,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -138,15 +136,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -172,7 +170,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/XUL指南_第九章_RDF和模版" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/XUL指南_第九章_RDF和模版" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -200,31 +198,31 @@ ga('send', 'pageview');
 <p>要允许创建基于RDF数据的元素，你需要提供一个用于复制元素的简单模板，也就是说你只要提供第一个元素，剩下的元素将从第一个构造生产。</p>
 <p>模板由template元素组成，把template元素放置你想构造的元素里面。例如你想在tree容器使用模板，你必须把template放在tree里面。</p>
 <p>用一个例子比较好说明，这里我们做一个为每个顶层书签加个按钮的例子。Mozilla提供书签数据源，所以我们可以从那获取数据。这个例子只读取书签文件夹和顶层书签来创建按钮，为了分清子级书签，我们需要使用tree或menu元素来显示。</p>
-<p>基于安全着想，访问内部时Mozilla只允许使用chrome地址形式访问RDF数据源，而不允许使用其它方式访问。<br><a id="more"></a><br>预览该例子时你需要创建一个chrome包及载入文件，然后你可以在浏览器地址栏输入chrome地址。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">"rdf:bookmarks"</span> <span class="attr">ref</span>=<span class="string">"NC:BookmarksRoot"</span> <span class="attr">flex</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">uri</span>=<span class="string">"rdf:*"</span> <span class="attr">label</span>=<span class="string">"rdf:http://home.netscape.com/NC-rdf#Name"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>基于安全着想，访问内部时Mozilla只允许使用chrome地址形式访问RDF数据源，而不允许使用其它方式访问。<br><a id="more"></a><br>预览该例子时你需要创建一个chrome包及载入文件，然后你可以在浏览器地址栏输入chrome地址。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">&quot;rdf:bookmarks&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;NC:BookmarksRoot&quot;</span> <span class="attr">flex</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">uri</span>=<span class="string">&quot;rdf:*&quot;</span> <span class="attr">label</span>=<span class="string">&quot;rdf:http://home.netscape.com/NC-rdf#Name&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <p>这里创建了一个包含几行垂直排列按钮的容器，每一个按钮都是顶层书签，你可以看到template包含了一个简单的button，这个按钮用来创建其它按钮，如图显示。当这个窗口打开的时候，试试在浏览器添加一个书签，你可以注意到窗口按钮会同步更新。</p>
 <p>这个模板被放到一个垂直布置的容器（box）里面，容器有2个用于模板的特殊属性，用来指定数据来源。第一个是datasources，声明用来创建元素的RDF数据源。在例子里使用了rdf:bookmarks，你大概可以猜到这是用来指定书签数据源，因为这里由Mozilla提供数据源。如果你是使用自己创建的数据源，你必须为datasources属性指定RDF文件的URL地址，如下所示：</p>
 <p><img src="/images/2006/12/03_12764.jpg" alt="" title="xul"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">box</span> <span class="attr">datasources</span>=<span class="string">"chrome://zoo/content/animals.rdf"</span></span></span><br><span class="line"><span class="tag"><span class="attr">ref</span>=<span class="string">"http://www.some-fictitious-zoo.com/all-animals"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">box</span> <span class="attr">datasources</span>=<span class="string">&quot;chrome://zoo/content/animals.rdf&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">ref</span>=<span class="string">&quot;http://www.some-fictitious-zoo.com/all-animals&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>你甚至可以同时指定多个数据源，只需在属性里面用空格分割开来，这样可以同时显示多个数据源。</p>
 <p>ref属性指出从哪里获取数据源，在前面书签例子中，NC:BookmarksRoot用来指出书签根目录，其它属性依赖于你所使用的数据源。如果使用自己创建的RDF文件作为数据源，会经常用到about属性配合在RDF中的Bag、Seq和Alt元素。</p>
 <p>前面例子的box增加了那2个属性之后，就允许你使用模板生产元素了，不过模板里面的元素仍需要声明，你可能注意到例子里的按钮使用了uri属性，以及使用了不同以往的label属性。</p>
 <p>模板里面使用”rdf:”开头的属性值指明数据来源，就像前面例子的label属性，值是来自数据源。它使用来自数据源和附加特性用命名空间namespace生成。如果你无法理解这些，请重读前一节最后一部分，讲解了如何读取RDF中的资源。这里我们只用到书签名称，但其它众多数据源都是可调用的。</p>
 <p>因为这里需要用书签名称来设置按钮，所以按钮label用URI指定其值，我们也可以在其它元素的其它属性使用URI进行指定，这样值将从数据源获取.。</p>
 <p>下面例子演示了如何用从数据源来设置其它属性，当然，这里的数据源提供了相应的数据支持。如果缺少其中某个值，将返回一个空字符串。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"rdf:http://www.example.com/rdf#class"</span></span></span><br><span class="line"><span class="tag"><span class="attr">uri</span>=<span class="string">"rdf:*"</span></span></span><br><span class="line"><span class="tag"><span class="attr">label</span>=<span class="string">"rdf:http://www.example.com/rdf#name"</span>/&gt;</span></span><br><span class="line">crop="rdf:http://www.example.com/rdf#crop"/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;rdf:http://www.example.com/rdf#class&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">uri</span>=<span class="string">&quot;rdf:*&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">label</span>=<span class="string">&quot;rdf:http://www.example.com/rdf#name&quot;</span>/&gt;</span></span><br><span class="line">crop=&quot;rdf:http://www.example.com/rdf#crop&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p>如上所示，你可以从数据源动态生产许多元素和属性。</p>
 <p>uri属性用来指定数据从哪里开始，以前内容只能被创建一次，而现在可以利用数据源多次生成。接下来我们创建一个tree的模板来帮助理解。</p>
 <p>在box容器添加一些模板特征，然后在模板里添加一些元素，我们可以从外部数据生产各种有趣的列表。我们也可以在模板里添加更多元素然后为其指定RDF属性。如下所示。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">"rdf:bookmarks"</span> <span class="attr">ref</span>=<span class="string">"NC:BookmarksRoot"</span> <span class="attr">flex</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">vbox</span> <span class="attr">uri</span>=<span class="string">"rdf:*"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">label</span>=<span class="string">"rdf:http://home.netscape.com/NC-rdf#Name"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">value</span>=<span class="string">"rdf:http://home.netscape.com/NC-rdf#URL"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">&quot;rdf:bookmarks&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;NC:BookmarksRoot&quot;</span> <span class="attr">flex</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">vbox</span> <span class="attr">uri</span>=<span class="string">&quot;rdf:*&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">label</span>=<span class="string">&quot;rdf:http://home.netscape.com/NC-rdf#Name&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">value</span>=<span class="string">&quot;rdf:http://home.netscape.com/NC-rdf#URL&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>例子创建一个垂直排列的数据来自书签的按钮和标签，按钮显示书签名称、标签显示网址。</p>
 <p>这种创建元素的方法跟直接写到XUL文件的方法是不同的，id属性从模板添加到每个生成的元素，你可以用该属性来识别各个元素。</p>
-<p>你也可以用空格作为分割符，指定多个数据源应用到同一属性上，如下所示。<a href="http://www.xulplanet.com/tutorials/xultu/templateex.html" target="_blank" rel="noopener">More about resource syntax</a>.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">"rdf:bookmarks"</span> <span class="attr">ref</span>=<span class="string">"NC:BookmarksRoot"</span> <span class="attr">flex</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">uri</span>=<span class="string">"rdf:*"</span> <span class="attr">value</span>=<span class="string">"rdf:http://home.netscape.com/NC-rdf#Name rdf:http://home.netscape.com/NC-rdf#URL"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你也可以用空格作为分割符，指定多个数据源应用到同一属性上，如下所示。<a target="_blank" rel="noopener" href="http://www.xulplanet.com/tutorials/xultu/templateex.html">More about resource syntax</a>.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vbox</span> <span class="attr">datasources</span>=<span class="string">&quot;rdf:bookmarks&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;NC:BookmarksRoot&quot;</span> <span class="attr">flex</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">uri</span>=<span class="string">&quot;rdf:*&quot;</span> <span class="attr">value</span>=<span class="string">&quot;rdf:http://home.netscape.com/NC-rdf#Name rdf:http://home.netscape.com/NC-rdf#URL&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="如何创建模板"><a href="#如何创建模板" class="headerlink" title="如何创建模板"></a>如何创建模板</h3><p>当一个元素指定了datasources属性，说明它将由模板创建。注意构造内容的是datasources属性而不是template标签。当属性被声明之后，元素将创建一个构造对象，该对象负责从模板构造内容。在JavaScript里你可以使用builder属性访问该构造对象，不过一般只有在需要更新不会自动更新的内容的时候才需要用到它。</p>
 <p>构造对象分为两种，一种适用于大部分情况的内容构造，另一种只能用于树（tree）。</p>
 <p>构造对象将对模板元素<br>里的内容进行一对一复制生成，举个例子，在前面例子里如果用户有10个书签，那将会在vbox里创建10个label元素.如果使用DOM函数分析树（tree），你会发现每个元素都有各自的特性，这些元素都会显示出来，但template本身不显示，即使它也存在文档里。另外，每一个标签（label）的id属性都会从RDF资源获取。</p>
 <p>内容构造对象总是从声明uri=”rdf:*”开始，如果uri属性放置在元素树的底层，那上层的元素只会创建一次。在下面例子，hbox只创建一次，而label将被创建多次。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">uri</span>=<span class="string">"rdf:*"</span> <span class="attr">value</span>=<span class="string">"rdf:http://home.netscape.com/NC-rdf#Name"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">uri</span>=<span class="string">&quot;rdf:*&quot;</span> <span class="attr">value</span>=<span class="string">&quot;rdf:http://home.netscape.com/NC-rdf#Name&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hbox</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果template外面有包含datesources属性的元素，那内容也会生成，这个方法适用于创建静态文本和动态文本混合的元素。</p>
 <h2 id="十、皮肤"><a href="#十、皮肤" class="headerlink" title="十、皮肤"></a>十、皮肤</h2><h3 id="10-1-修饰Tree"><a href="#10-1-修饰Tree" class="headerlink" title="10.1 修饰Tree"></a>10.1 修饰Tree</h3><ul>
 <li>::-moz-tree-cell:：一个单元格，可以定义边框和背景</li>
@@ -243,32 +241,6 @@ ga('send', 'pageview');
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -406,7 +378,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#九、RDF和模版"><span class="toc-number">1.</span> <span class="toc-text">九、RDF和模版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-模板"><span class="toc-number">1.1.</span> <span class="toc-text">9.2 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展内容"><span class="toc-number">1.2.</span> <span class="toc-text">扩展内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何创建模板"><span class="toc-number">1.3.</span> <span class="toc-text">如何创建模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、皮肤"><span class="toc-number">2.</span> <span class="toc-text">十、皮肤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-修饰Tree"><span class="toc-number">2.1.</span> <span class="toc-text">10.1 修饰Tree</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81RDF%E5%92%8C%E6%A8%A1%E7%89%88"><span class="toc-number">1.</span> <span class="toc-text">九、RDF和模版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.1.</span> <span class="toc-text">9.2 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.</span> <span class="toc-text">扩展内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.3.</span> <span class="toc-text">如何创建模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E7%9A%AE%E8%82%A4"><span class="toc-number">2.</span> <span class="toc-text">十、皮肤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-%E4%BF%AE%E9%A5%B0Tree"><span class="toc-number">2.1.</span> <span class="toc-text">10.1 修饰Tree</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -468,7 +440,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -558,75 +530,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,18 +539,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,10 +562,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -694,15 +582,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,23 +606,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,7 +622,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,14 +758,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -803,10 +779,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -834,15 +806,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,15 +830,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,18 +894,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -943,10 +903,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -990,18 +946,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -1011,6 +955,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1062,11 +1018,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,7 +1162,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,7 +1170,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,11 +1186,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,15 +1202,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1263,6 +1215,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,23 +1246,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1319,6 +1267,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,15 +1334,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1466,6 +1422,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1479,14 +1443,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1526,15 +1482,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1542,7 +1494,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1558,14 +1514,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1575,6 +1523,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,6 +1562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1618,7 +1578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1626,7 +1590,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

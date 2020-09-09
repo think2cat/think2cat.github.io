@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>WebSocket入门（3）心跳检测 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close最好就是加一个心跳检测来判断网络异常websocket有一个readyState状态值，代表的状态如下（摘自阮一峰博客）  CONNECTING：值为0，表示正在连接 OPEN：值为1，表示连接成功，可以通信了 CLOSING：值为2，表示连接正在关闭 CLOSED：值">
-<meta name="keywords" content="http,socket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebSocket入门（3）心跳检测">
 <meta property="og:url" content="http://21ido.com/2018/05/30381c3b/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close最好就是加一个心跳检测来判断网络异常websocket有一个readyState状态值，代表的状态如下（摘自阮一峰博客）  CONNECTING：值为0，表示正在连接 OPEN：值为1，表示连接成功，可以通信了 CLOSING：值为2，表示连接正在关闭 CLOSED：值">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2018/05/websocket_heart.png">
 <meta property="og:image" content="http://21ido.com/images/2018/05/websocket_console.png">
-<meta property="og:updated_time" content="2018-08-06T09:47:32.901Z">
+<meta property="article:published_time" content="2018-05-11T02:41:26.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.968Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="socket">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebSocket入门（3）心跳检测">
-<meta name="twitter:description" content="websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close最好就是加一个心跳检测来判断网络异常websocket有一个readyState状态值，代表的状态如下（摘自阮一峰博客）  CONNECTING：值为0，表示正在连接 OPEN：值为1，表示连接成功，可以通信了 CLOSING：值为2，表示连接正在关闭 CLOSED：值">
 <meta name="twitter:image" content="http://21ido.com/images/2018/05/websocket_heart.png">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
@@ -53,8 +54,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -64,13 +65,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -94,15 +93,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -120,13 +119,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -139,15 +136,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -173,7 +170,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/WebSocket入门(3)心跳检测" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/WebSocket入门(3)心跳检测" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -193,53 +190,25 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html" target="_blank" rel="noopener">阮一峰博客</a>）</p>
+        <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮一峰博客</a>）</p>
 <ul>
 <li>CONNECTING：值为0，表示正在连接</li>
 <li>OPEN：值为1，表示连接成功，可以通信了</li>
 <li>CLOSING：值为2，表示连接正在关闭</li>
 <li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
 </ul>
-<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br><a id="more"></a><br>画完图觉得很简单，就花了十分钟敲完代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> heartCheck = &#123;</span><br><span class="line">  timer: <span class="number">0</span>,</span><br><span class="line">  _obj : <span class="literal">null</span>,</span><br><span class="line">  _callback:<span class="literal">null</span>,</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">wsObj, callback</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"init"</span>);</span><br><span class="line">	<span class="keyword">this</span>._obj = wsObj;</span><br><span class="line">	callback &amp;&amp; (<span class="keyword">this</span>._callback = callback);</span><br><span class="line">	<span class="keyword">this</span>.sayHi();</span><br><span class="line">  &#125;,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="keyword">this</span>.timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	  <span class="keyword">this</span>.onError();</span><br><span class="line">	&#125;, <span class="number">10000</span>);</span><br><span class="line">	<span class="keyword">this</span>._obj.send(<span class="string">"hi,"</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"sayHi:"</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  clear: <span class="function"><span class="keyword">function</span>(<span class="params">flag</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"clear:"</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">	clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="keyword">if</span>(<span class="literal">true</span> === flag)&#123;</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">"heartCheck finished"</span>);</span><br><span class="line">	  <span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	  <span class="keyword">this</span>.sayHi();</span><br><span class="line">	&#125;, <span class="number">3000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  onError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"onError:"</span>,<span class="keyword">this</span>.timer);</span><br><span class="line">	clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="keyword">this</span>._callback &amp;&amp; <span class="keyword">this</span>._callback();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//let hc = new heartCheck();</span></span><br><span class="line"><span class="keyword">let</span> uri = <span class="string">"ws://localhost:8080"</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onopen'</span>, event);</span><br><span class="line">  ws.send(<span class="string">'from client: hello'</span>);</span><br><span class="line">  heartCheck.init(ws);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onmessage'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'from server: '</span>, event);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">  heartCheck.clear();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws close"</span>, event);</span><br><span class="line">  <span class="built_in">console</span>.log(ws);</span><br><span class="line">  heartCheck.clear(<span class="literal">true</span>);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws error"</span>, event);</span><br><span class="line">  <span class="built_in">console</span>.log(ws);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>调试一下发现一些问题<br>1）每次发心跳都是重复2次<br>2）心跳结束后还在发心跳<br>3）未考虑多个事物连续发信息的优化</p>
+<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br><a id="more"></a><br>画完图觉得很简单，就花了十分钟敲完代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> heartCheck = &#123;</span><br><span class="line">  timer: <span class="number">0</span>,</span><br><span class="line">  _obj : <span class="literal">null</span>,</span><br><span class="line">  _callback:<span class="literal">null</span>,</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">wsObj, callback</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;init&quot;</span>);</span><br><span class="line">	<span class="built_in">this</span>._obj = wsObj;</span><br><span class="line">	callback &amp;&amp; (<span class="built_in">this</span>._callback = callback);</span><br><span class="line">	<span class="built_in">this</span>.sayHi();</span><br><span class="line">  &#125;,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">clearTimeout</span>(<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">this</span>.timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">	  <span class="built_in">this</span>.onError();</span><br><span class="line">	&#125;, <span class="number">10000</span>);</span><br><span class="line">	<span class="built_in">this</span>._obj.send(<span class="string">&quot;hi,&quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;sayHi:&quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  clear: <span class="function"><span class="keyword">function</span>(<span class="params">flag</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;clear:&quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">clearTimeout</span>(<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="keyword">if</span>(<span class="literal">true</span> === flag)&#123;</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">&quot;heartCheck finished&quot;</span>);</span><br><span class="line">	  <span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	  <span class="built_in">this</span>.sayHi();</span><br><span class="line">	&#125;, <span class="number">3000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  onError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;onError:&quot;</span>,<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">clearTimeout</span>(<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">this</span>._callback &amp;&amp; <span class="built_in">this</span>._callback();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//let hc = new heartCheck();</span></span><br><span class="line"><span class="keyword">let</span> uri = <span class="string">&quot;ws://localhost:8080&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onopen&#x27;</span>, event);</span><br><span class="line">  ws.send(<span class="string">&#x27;from client: hello&#x27;</span>);</span><br><span class="line">  heartCheck.init(ws);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onmessage&#x27;</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;from server: &#x27;</span>, event);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">  heartCheck.clear();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws close&quot;</span>, event);</span><br><span class="line">  <span class="built_in">console</span>.log(ws);</span><br><span class="line">  heartCheck.clear(<span class="literal">true</span>);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws error&quot;</span>, event);</span><br><span class="line">  <span class="built_in">console</span>.log(ws);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>调试一下发现一些问题<br>1）每次发心跳都是重复2次<br>2）心跳结束后还在发心跳<br>3）未考虑多个事物连续发信息的优化</p>
 <p><img src="/images/2018/05/websocket_console.png" alt=""></p>
 <p>重新理下思路，首先模拟一个正常的Socket通讯</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uri = <span class="string">"ws://localhost:8080"</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onopen'</span>, event);</span><br><span class="line">  MsgBegin &amp;&amp; MsgBegin();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onmessage'</span>, event);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws close"</span>, event, ws);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws error"</span>, event, ws);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> MsgBegin = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> n = <span class="built_in">Math</span>.random() * <span class="number">100000</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	ws.send(<span class="string">"send:"</span> + n);</span><br><span class="line">	MsgBegin();</span><br><span class="line">  &#125;,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uri = <span class="string">&quot;ws://localhost:8080&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onopen&#x27;</span>, event);</span><br><span class="line">  MsgBegin &amp;&amp; MsgBegin();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onmessage&#x27;</span>, event);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws close&quot;</span>, event, ws);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws error&quot;</span>, event, ws);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> MsgBegin = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> n = <span class="built_in">Math</span>.random() * <span class="number">100000</span>;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	ws.send(<span class="string">&quot;send:&quot;</span> + n);</span><br><span class="line">	MsgBegin();</span><br><span class="line">  &#125;,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>WebSocket建立成功后，随机发送消息，服务端收到后返回（服务端实际设置了延迟1秒返回）</p>
 <p>  websocket server is listening…<br>  server: receive connection.<br>  server: received: send:17534.353070269426<br>  server: received: send:80161.1894501739<br>  server: received: send:84509.49454040357<br>  server: received: send:29288.908671059355<br>  server: received: send:8404.852392415196<br>  server: received: send:45471.163768915<br>  server: received: send:16825.41444159582</p>
-<p>加入心跳检测，设为间隔10秒<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> heartCheck = &#123;</span><br><span class="line">  timer: <span class="number">0</span>,</span><br><span class="line">  _obj : <span class="literal">null</span>,</span><br><span class="line">  _callback:<span class="literal">null</span>,</span><br><span class="line">  _time: <span class="number">10000</span>, <span class="comment">//心跳间隔10秒</span></span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">wsObj, callback</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"init"</span>);</span><br><span class="line">	<span class="keyword">this</span>._obj = wsObj;</span><br><span class="line">	callback &amp;&amp; (<span class="keyword">this</span>._callback = callback);</span><br><span class="line">	<span class="keyword">this</span>.sayHi();</span><br><span class="line">  &#125;,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="keyword">this</span>.timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	  <span class="keyword">if</span>(<span class="number">1</span> == <span class="keyword">this</span>._obj.readyState)&#123;</span><br><span class="line">		<span class="keyword">this</span>._obj.send(<span class="string">"check : "</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;, <span class="keyword">this</span>._time);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"sayHi:"</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  clear: <span class="function"><span class="keyword">function</span>(<span class="params">flag</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"clear:"</span> + <span class="keyword">this</span>.timer);</span><br><span class="line">	clearTimeout(<span class="keyword">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  onError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"onError:"</span>,<span class="keyword">this</span>.timer);</span><br><span class="line">	<span class="keyword">this</span>.clear();</span><br><span class="line">	<span class="keyword">this</span>._callback &amp;&amp; <span class="keyword">this</span>._callback();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uri = <span class="string">"ws://localhost:8080"</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onopen'</span>, event);</span><br><span class="line">  showLog(<span class="string">"go~"</span>);</span><br><span class="line">  MsgBegin &amp;&amp; MsgBegin();</span><br><span class="line">  heartCheck.init(ws, ()=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"reconnect..."</span>);</span><br><span class="line">	ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws onmessage1'</span>, event,ws.readyState);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">  heartCheck.sayHi();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws close"</span>, event, ws);</span><br><span class="line">  heartCheck.clear();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"ws error"</span>, event, ws);</span><br><span class="line">  heartCheck.onError();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> MsgBegin = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> n = <span class="built_in">Math</span>.random() * <span class="number">100000</span>;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span> == ws.readyState)&#123;</span><br><span class="line">	  ws.send(<span class="string">"send:"</span> + n);</span><br><span class="line">	&#125;</span><br><span class="line">	MsgBegin();</span><br><span class="line">  &#125;,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>再来看服务端打印</p>
+<p>加入心跳检测，设为间隔10秒<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> heartCheck = &#123;</span><br><span class="line">  timer: <span class="number">0</span>,</span><br><span class="line">  _obj : <span class="literal">null</span>,</span><br><span class="line">  _callback:<span class="literal">null</span>,</span><br><span class="line">  _time: <span class="number">10000</span>, <span class="comment">//心跳间隔10秒</span></span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">wsObj, callback</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;init&quot;</span>);</span><br><span class="line">	<span class="built_in">this</span>._obj = wsObj;</span><br><span class="line">	callback &amp;&amp; (<span class="built_in">this</span>._callback = callback);</span><br><span class="line">	<span class="built_in">this</span>.sayHi();</span><br><span class="line">  &#125;,</span><br><span class="line">  sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">clearTimeout</span>(<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">this</span>.timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">	  <span class="keyword">if</span>(<span class="number">1</span> == <span class="built_in">this</span>._obj.readyState)&#123;</span><br><span class="line">		<span class="built_in">this</span>._obj.send(<span class="string">&quot;check : &quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;, <span class="built_in">this</span>._time);</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;sayHi:&quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  clear: <span class="function"><span class="keyword">function</span>(<span class="params">flag</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;clear:&quot;</span> + <span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">clearTimeout</span>(<span class="built_in">this</span>.timer);</span><br><span class="line">  &#125;,</span><br><span class="line">  onError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;onError:&quot;</span>,<span class="built_in">this</span>.timer);</span><br><span class="line">	<span class="built_in">this</span>.clear();</span><br><span class="line">	<span class="built_in">this</span>._callback &amp;&amp; <span class="built_in">this</span>._callback();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uri = <span class="string">&quot;ws://localhost:8080&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">ws.onopen = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onopen&#x27;</span>, event);</span><br><span class="line">  showLog(<span class="string">&quot;go~&quot;</span>);</span><br><span class="line">  MsgBegin &amp;&amp; MsgBegin();</span><br><span class="line">  heartCheck.init(ws, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;reconnect...&quot;</span>);</span><br><span class="line">	ws = <span class="keyword">new</span> WebSocket(uri);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">ws.onmessage = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;ws onmessage1&#x27;</span>, event,ws.readyState);</span><br><span class="line">  showLog(event.data);</span><br><span class="line">  heartCheck.sayHi();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onclose = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws close&quot;</span>, event, ws);</span><br><span class="line">  heartCheck.clear();</span><br><span class="line">&#125;;</span><br><span class="line">ws.onerror = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;ws error&quot;</span>, event, ws);</span><br><span class="line">  heartCheck.onError();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> MsgBegin = <span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> n = <span class="built_in">Math</span>.random() * <span class="number">100000</span>;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span> == ws.readyState)&#123;</span><br><span class="line">	  ws.send(<span class="string">&quot;send:&quot;</span> + n);</span><br><span class="line">	&#125;</span><br><span class="line">	MsgBegin();</span><br><span class="line">  &#125;,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>再来看服务端打印</p>
 <p>  websocket server is listening…<br>  server: receive connection.<br>  server: received: send:4723.126142686907<br>  server: received: check : 4<br>  server: received: check : 5<br>  server: received: send:29661.621846562404<br>  server: received: check : 8<br>  server: received: check : 9<br>  server: received: check : 10<br>  server: received: check : 11<br>  server: received: check : 12<br>  server: received: check : 13<br>  server: received: check : 14<br>  server: received: check : 15<br>  server: received: send:97094.08453462382<br>  server: received: check : 16<br>  server: received: send:26387.016092298032</p>
-<p>好像可以了哦，本例代码在 <a href="https://github.com/think2cat/practice/tree/master/WebSocket" target="_blank" rel="noopener">Github</a><br>有空闲了再写个断线重连的</p>
+<p>好像可以了哦，本例代码在 <a target="_blank" rel="noopener" href="https://github.com/think2cat/practice/tree/master/WebSocket">Github</a><br>有空闲了再写个断线重连的</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -435,7 +404,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -525,75 +494,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,18 +503,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,10 +526,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -661,15 +546,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,23 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,7 +586,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,14 +722,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -770,10 +743,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,15 +770,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,15 +794,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,18 +858,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -910,10 +867,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -957,18 +910,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -978,6 +919,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1029,11 +982,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1173,7 +1126,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1181,7 +1134,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1197,11 +1150,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1213,15 +1166,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,6 +1179,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1257,23 +1210,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1286,6 +1231,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1345,15 +1298,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,6 +1386,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1446,14 +1407,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1493,15 +1446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1509,7 +1458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1525,14 +1478,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1542,6 +1487,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,6 +1526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1585,7 +1542,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1593,7 +1554,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

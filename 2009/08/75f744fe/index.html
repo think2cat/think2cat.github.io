@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>认识Javascript数组(2) | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b    = new Array();b[2.2]    = &quot;XXXXX&quot;;alert(b[2.2]);  //-&amp;gt; XXXXX 此时相当于 b[&amp;quot;2.2&amp;quot;]  = &amp;quot;XXX">
-<meta name="keywords" content="笔记,javascript">
+  <meta name="description" content="2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b    &#x3D; new Array();b[2.2]    &#x3D; &quot;XXXXX&quot;;alert(b[2.2]);  &#x2F;&#x2F;-&gt; XXXXX此时相当于 b[&quot;2.2&quot;]  &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="认识Javascript数组(2)">
 <meta property="og:url" content="http://21ido.com/2009/08/75f744fe/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b    = new Array();b[2.2]    = &quot;XXXXX&quot;;alert(b[2.2]);  //-&amp;gt; XXXXX 此时相当于 b[&amp;quot;2.2&amp;quot;]  = &amp;quot;XXX">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-08T02:43:03.458Z">
+<meta property="og:description" content="2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b    &#x3D; new Array();b[2.2]    &#x3D; &quot;XXXXX&quot;;alert(b[2.2]);  &#x2F;&#x2F;-&gt; XXXXX此时相当于 b[&quot;2.2&quot;]  &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-08-10T06:44:45.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.984Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="认识Javascript数组(2)">
-<meta name="twitter:description" content="2. 数组元素的操作上面已经说过，可以通过 数组[下标] 来读写元素 下标的范围是 0 – (232-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如123var b    = new Array();b[2.2]    = &quot;XXXXX&quot;;alert(b[2.2]);  //-&amp;gt; XXXXX 此时相当于 b[&amp;quot;2.2&amp;quot;]  = &amp;quot;XXX">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -50,8 +51,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,13 +62,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -91,15 +90,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +116,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,15 +133,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -170,7 +167,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/认识Javascript数组_2" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/认识Javascript数组_2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -191,73 +188,46 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="2-数组元素的操作"><a href="#2-数组元素的操作" class="headerlink" title="2. 数组元素的操作"></a>2. 数组元素的操作</h2><p>上面已经说过，可以通过 数组[下标] 来读写元素</p>
-<p>下标的范围是 0 – (23<sup>2</sup>-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b    = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">b[<span class="number">2.2</span>]    = <span class="string">"XXXXX"</span>;</span><br><span class="line">alert(b[<span class="number">2.2</span>]);  <span class="comment">//-&gt; XXXXX</span></span><br></pre></td></tr></table></figure></p>
-<p>此时相当于 <code>b[&quot;2.2&quot;]  = &quot;XXXXX&quot;</code></p>
+<p>下标的范围是 0 – (23<sup>2</sup>-1)，当下标是负数、浮点甚至布尔值的时候，数组会自动转换为对象类型，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b    = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">b[<span class="number">2.2</span>]    = <span class="string">&quot;XXXXX&quot;</span>;</span><br><span class="line">alert(b[<span class="number">2.2</span>]);  <span class="comment">//-&gt; XXXXX</span></span><br></pre></td></tr></table></figure><br>此时相当于 <code>b[&quot;2.2&quot;]  = &quot;XXXXX&quot;</code></p>
 <h3 id="2-1-数组的循环"><a href="#2-1-数组的循环" class="headerlink" title="2.1 数组的循环"></a>2.1 数组的循环</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i&lt;a.length; i++)&#123;</span><br><span class="line">    alert(a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这是最常用的，历遍数组，代码将依次弹出1至6<br><a id="more"></a><br>还有一种常用的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> e <span class="keyword">in</span> a)&#123;</span><br><span class="line">    alert(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>还是依次弹出1至6，for…in是历遍对象（数组是特殊的对象）对象，用在数组上，因为数组没有属性名，所以直接输出值，这结构语句用在对象上，例如下面<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">z</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> e <span class="keyword">in</span> a)&#123;</span><br><span class="line">    alert(e    + <span class="string">":"</span> + a[e]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>还是依次弹出1至6，for…in是历遍对象（数组是特殊的对象）对象，用在数组上，因为数组没有属性名，所以直接输出值，这结构语句用在对象上，例如下面<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">z</span>:<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> e <span class="keyword">in</span> a)&#123;</span><br><span class="line">    alert(e    + <span class="string">&quot;:&quot;</span> + a[e]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此时e取到的是属性名，即 x、y、x，而要取得值，则采用 <code>数组名[属性]</code>，所以 <code>a[e]</code> 等同于 <code>a[&quot;x&quot;]、a[&quot;y&quot;]、a[&quot;z&quot;]</code></p>
-<h3 id="2-2-数组常用函数"><a href="#2-2-数组常用函数" class="headerlink" title="2.2 数组常用函数"></a>2.2 数组常用函数</h3><h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>在现有数组后面追加数组，并返回新数组，不影响现有数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">123</span>];</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">"sunnycat"</span>;</span><br><span class="line"><span class="keyword">var</span> c = [<span class="string">"www"</span>,<span class="number">21</span>,<span class="string">"ido"</span>];</span><br><span class="line"><span class="keyword">var</span> d = &#123;<span class="attr">x</span>:<span class="number">3.14</span>, <span class="attr">y</span>:<span class="string">"SK"</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> e = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>,<span class="number">8</span>]]];</span><br><span class="line">alert(a.concat(b));         <span class="comment">// -&gt; 123,sunnycat</span></span><br><span class="line">alert(a);   <span class="comment">//    -&gt; 123</span></span><br><span class="line">alert(b.concat(c, d));            <span class="comment">// -&gt; sunnycatwww,21,ido[object    Object]</span></span><br><span class="line">alert(c.concat(b));         <span class="comment">// -&gt; www,21,ido,sunnycat</span></span><br><span class="line">alert(e.concat(<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>).join(<span class="string">" # "</span>));            <span class="comment">// -&gt; 1 # 2 # 3    # 4 # 5,6,7,8 # 11 # 22 # 33</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-数组常用函数"><a href="#2-2-数组常用函数" class="headerlink" title="2.2 数组常用函数"></a>2.2 数组常用函数</h3><h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>在现有数组后面追加数组，并返回新数组，不影响现有数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">123</span>];</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">&quot;sunnycat&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> c = [<span class="string">&quot;www&quot;</span>,<span class="number">21</span>,<span class="string">&quot;ido&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> d = &#123;<span class="attr">x</span>:<span class="number">3.14</span>, <span class="attr">y</span>:<span class="string">&quot;SK&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> e = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>,<span class="number">8</span>]]];</span><br><span class="line">alert(a.concat(b));         <span class="comment">// -&gt; 123,sunnycat</span></span><br><span class="line">alert(a);   <span class="comment">//    -&gt; 123</span></span><br><span class="line">alert(b.concat(c, d));            <span class="comment">// -&gt; sunnycatwww,21,ido[object    Object]</span></span><br><span class="line">alert(c.concat(b));         <span class="comment">// -&gt; www,21,ido,sunnycat</span></span><br><span class="line">alert(e.concat(<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>).join(<span class="string">&quot; # &quot;</span>));            <span class="comment">// -&gt; 1 # 2 # 3    # 4 # 5,6,7,8 # 11 # 22 # 33</span></span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是只能用于数组或字符串，如果被连接（前面的a）的是数值、布尔值、对象，就会报错，字符串连接数组时，字符串会跟数组首元素拼接成新元素，而数组连接字符串则会追加新元素（这点我也不清楚原委，知情者请透露），对于数组里面包含数组、对象的，连接后保持原样</p>
-<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>用指定间隔符连起来，把数组转为字符串<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>];</span><br><span class="line">lert(a.join(<span class="string">","</span>));     <span class="comment">// -&gt; a,b,c,d,e,f,g 相当于a.toString()</span></span><br><span class="line">alert(a.join(<span class="string">" x "</span>));  <span class="comment">// -&gt; a x b x c x d x e x f x g</span></span><br></pre></td></tr></table></figure></p>
-<p>这个很容易理解，但需要注意的是只转换一维数组里面，如果数组里面还有数组，将不是采用 <code>join</code> 指定的字符串接，而是采用默认的 <code>toString()</code>，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,[<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>]];</span><br><span class="line">alert(a.join(<span class="string">" * "</span>));  <span class="comment">// -&gt; a * b * c * d * e * f * g *    11,22,33</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>用指定间隔符连起来，把数组转为字符串<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>];</span><br><span class="line">lert(a.join(<span class="string">&quot;,&quot;</span>));     <span class="comment">// -&gt; a,b,c,d,e,f,g 相当于a.toString()</span></span><br><span class="line">alert(a.join(<span class="string">&quot; x &quot;</span>));  <span class="comment">// -&gt; a x b x c x d x e x f x g</span></span><br></pre></td></tr></table></figure></p>
+<p>这个很容易理解，但需要注意的是只转换一维数组里面，如果数组里面还有数组，将不是采用 <code>join</code> 指定的字符串接，而是采用默认的 <code>toString()</code>，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,[<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>]];</span><br><span class="line">alert(a.join(<span class="string">&quot; * &quot;</span>));  <span class="comment">// -&gt; a * b * c * d * e * f * g *    11,22,33</span></span><br></pre></td></tr></table></figure></p>
 <p>数组里面的数组，并没用 * 连接</p>
-<h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><p>删除数组最后一个元素，并返回该元素<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.pop());      <span class="comment">// -&gt; cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa, bb</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><p>删除数组最后一个元素，并返回该元素<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>,<span class="string">&quot;cc&quot;</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.pop());      <span class="comment">// -&gt; cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa, bb</span></span><br></pre></td></tr></table></figure></p>
 <p>如果数组为空，则返回undefined</p>
-<h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><p>往数组后面添加数组，并返回数组新长度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.push(<span class="string">"dd"</span>));      <span class="comment">// -&gt; 4</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa,bb,cc,dd</span></span><br><span class="line"><span class="built_in">document</span>.write(a.push([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));  <span class="comment">// -&gt; 5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa,bb,cc,dd,1,2,3</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><p>往数组后面添加数组，并返回数组新长度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>,<span class="string">&quot;cc&quot;</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.push(<span class="string">&quot;dd&quot;</span>));      <span class="comment">// -&gt; 4</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa,bb,cc,dd</span></span><br><span class="line"><span class="built_in">document</span>.write(a.push([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));  <span class="comment">// -&gt; 5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; aa,bb,cc,dd,1,2,3</span></span><br></pre></td></tr></table></figure></p>
 <p>跟 <code>concat</code> 的区别在于，<code>concat</code> 不影响原数组，直接返回新数组，而 <code>push</code> 则直接修改原数组，返回的是数组新长度</p>
-<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p>数组排序，先看个例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">11</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">33445</span>,<span class="number">5654</span>,<span class="number">654</span>,<span class="string">"asd"</span>,<span class="string">"b"</span>];</span><br><span class="line">alert(a.sort()); <span class="comment">// -&gt; 11,2,3,33445,5654,654,asd,b</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p>数组排序，先看个例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">11</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">33445</span>,<span class="number">5654</span>,<span class="number">654</span>,<span class="string">&quot;asd&quot;</span>,<span class="string">&quot;b&quot;</span>];</span><br><span class="line">alert(a.sort()); <span class="comment">// -&gt; 11,2,3,33445,5654,654,asd,b</span></span><br></pre></td></tr></table></figure></p>
 <p>结果是不是很意外，没错，排序并不是按整型大小，而是字符串对比，就是取第一个字符的ANSI码对比，小的排前面，相同的话取第二个字符再比，如果要按整型数值比较，可以这样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">11</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">33445</span>,<span class="number">5654</span>,<span class="number">654</span>];</span><br><span class="line">a.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line">alert(a);   <span class="comment">//    -&gt; 2,3,11,654,5654,33445</span></span><br></pre></td></tr></table></figure></p>
 <p><code>sort()</code> 方法有个可选参数，就是代码里的function，这是个简单的例子，不可对非数字进行排序，非数字需要多做判断，这里就不多讲</p>
 <h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h4><p>对数组进行反排序跟，<code>sort()</code> 一样，取第一字符ASCII值进行比较<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">11</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">66</span>,<span class="number">4</span>];</span><br><span class="line">alert(a.reverse());   <span class="comment">// -&gt; 4,66,5,3,11</span></span><br></pre></td></tr></table></figure></p>
-<p>如果数组里面还包含数组，则当为对象处理，并不会把元素解出来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>,[<span class="number">4</span>,<span class="number">11</span>,<span class="number">33</span>]];</span><br><span class="line">alert(a.reverse());   <span class="comment">// -&gt; 4,11,33,g,f,e,d,c,b,a</span></span><br><span class="line">alert(a.join(<span class="string">" * "</span>));  <span class="comment">// -&gt; 4,11,33 * g * f * e * d * c * b * a</span></span><br></pre></td></tr></table></figure></p>
+<p>如果数组里面还包含数组，则当为对象处理，并不会把元素解出来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>,[<span class="number">4</span>,<span class="number">11</span>,<span class="number">33</span>]];</span><br><span class="line">alert(a.reverse());   <span class="comment">// -&gt; 4,11,33,g,f,e,d,c,b,a</span></span><br><span class="line">alert(a.join(<span class="string">&quot; * &quot;</span>));  <span class="comment">// -&gt; 4,11,33 * g * f * e * d * c * b * a</span></span><br></pre></td></tr></table></figure></p>
 <p>按理应该是11排最后面，因为这里把 4,11,33 当做完整的对象比较，所以被排在第一位<br>看不明白的话，用 <code>join()</code> 串起来，就明了多</p>
-<h4 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h4><p>删除数组第一个元素，并返回该元素，跟 <code>pop</code> 差不多<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.shift());     <span class="comment">// -&gt; aa</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; bb,cc</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h4><p>删除数组第一个元素，并返回该元素，跟 <code>pop</code> 差不多<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>,<span class="string">&quot;cc&quot;</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.shift());     <span class="comment">// -&gt; aa</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; bb,cc</span></span><br></pre></td></tr></table></figure></p>
 <p>当数组为空时，返回undefined</p>
-<h4 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h4><p>跟 <code>shift</code> 相反，往数组最前面添加元素，并返回数组新长度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.unshift(<span class="number">11</span>));     <span class="comment">// -&gt; 4 注：IE下返回undefined</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 11,aa,bb,cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a.unshift([<span class="number">11</span>,<span class="number">22</span>]));     <span class="comment">// -&gt; 5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 11,22,11,aa,bb,cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a.unshift(<span class="string">"cat"</span>));  <span class="comment">// -&gt; 6</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; cat,11,22,11,aa,bb,cc</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h4><p>跟 <code>shift</code> 相反，往数组最前面添加元素，并返回数组新长度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>,<span class="string">&quot;cc&quot;</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.unshift(<span class="number">11</span>));     <span class="comment">// -&gt; 4 注：IE下返回undefined</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 11,aa,bb,cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a.unshift([<span class="number">11</span>,<span class="number">22</span>]));     <span class="comment">// -&gt; 5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 11,22,11,aa,bb,cc</span></span><br><span class="line"><span class="built_in">document</span>.write(a.unshift(<span class="string">&quot;cat&quot;</span>));  <span class="comment">// -&gt; 6</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; cat,11,22,11,aa,bb,cc</span></span><br></pre></td></tr></table></figure></p>
 <p>注意该方法，在IE下将返回undefined，貌似微软的bug，我在firefox下则能正确发挥数组新长度</p>
-<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>返回数组片段<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>];</span><br><span class="line">alert(a.slice(<span class="number">1</span>,<span class="number">2</span>));   <span class="comment">// -&gt; b</span></span><br><span class="line">alert(a.slice(<span class="number">2</span>));      <span class="comment">// -&gt; c,d,e,f,g</span></span><br><span class="line">alert(a.slice(<span class="number">-4</span>));    <span class="comment">// -&gt; d,e,f,g</span></span><br><span class="line">alert(a.slice(<span class="number">-2</span>,<span class="number">-6</span>));       <span class="comment">// -&gt; 空</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>返回数组片段<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;g&#x27;</span>];</span><br><span class="line">alert(a.slice(<span class="number">1</span>,<span class="number">2</span>));   <span class="comment">// -&gt; b</span></span><br><span class="line">alert(a.slice(<span class="number">2</span>));      <span class="comment">// -&gt; c,d,e,f,g</span></span><br><span class="line">alert(a.slice(<span class="number">-4</span>));    <span class="comment">// -&gt; d,e,f,g</span></span><br><span class="line">alert(a.slice(<span class="number">-2</span>,<span class="number">-6</span>));       <span class="comment">// -&gt; 空</span></span><br></pre></td></tr></table></figure></p>
 <p><code>a.slice(1,2)</code>，从下标为1开始，到下标为2之间的数，注意并不包括下标为2的元素<br>如果只有一个参数，则默认到数组最后<br>-4是表示倒数第4个元素，所以返回倒数的四个元素<br>最后一行，从倒数第2开始，因为是往后截取，所以显然取不到前面的元素，所以返回空数组，如果改成 <code>a.slice(-6,-2)</code> 则返回b,c,d,e</p>
-<h4 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h4><p>从数组删除某片段的元素，并返回删除的元素<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">3</span>,<span class="number">2</span>));      <span class="comment">// -&gt; 4,5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 1,2,3,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">4</span>));  <span class="comment">// -&gt; 7,8,9 注：IE下返回空</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 1,2,3,6</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">0</span>,<span class="number">1</span>));      <span class="comment">// -&gt; 1</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,3,6</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">1</span>,[<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>]));    <span class="comment">// -&gt; 3</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,aa,bb,cc,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">"ee"</span>).join(<span class="string">"#"</span>)); <span class="comment">// -&gt; aa,bb,cc#6</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,ee,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">"cc"</span>,<span class="string">"aa"</span>,<span class="string">"tt"</span>).join(<span class="string">"#"</span>));  <span class="comment">// -&gt; ee#7</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,cc,aa,tt,8,9</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h4><p>从数组删除某片段的元素，并返回删除的元素<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">3</span>,<span class="number">2</span>));      <span class="comment">// -&gt; 4,5</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 1,2,3,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">4</span>));  <span class="comment">// -&gt; 7,8,9 注：IE下返回空</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 1,2,3,6</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">0</span>,<span class="number">1</span>));      <span class="comment">// -&gt; 1</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,3,6</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">1</span>,[<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>,<span class="string">&quot;cc&quot;</span>]));    <span class="comment">// -&gt; 3</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,aa,bb,cc,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">&quot;ee&quot;</span>).join(<span class="string">&quot;#&quot;</span>)); <span class="comment">// -&gt; aa,bb,cc#6</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,ee,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">&quot;cc&quot;</span>,<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;tt&quot;</span>).join(<span class="string">&quot;#&quot;</span>));  <span class="comment">// -&gt; ee#7</span></span><br><span class="line"><span class="built_in">document</span>.write(a);               <span class="comment">// -&gt; 2,cc,aa,tt,8,9</span></span><br></pre></td></tr></table></figure></p>
 <p>注意该方法在IE下，第二个参数是必须的，不填则默认为0，例如 <code>a.splice(4)</code>，在IE下则返回空，效果等同于 <code>a.splice(4,0)</code></p>
-<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>把数组转为字符串，不只数组，所有对象均可使用该方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,[<span class="string">"A"</span>,<span class="string">"BB"</span>],<span class="number">100</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.toString());       <span class="comment">// -&gt; 5,6,7,8,9,A,BB,100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">document</span>.write(b.toString());       <span class="comment">// -&gt; Sat Aug 8 17:08:32 UTC+0800    2009</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>)</span>&#123;</span><br><span class="line">	alert(s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.write(c.toString());       <span class="comment">// -&gt; function(s)&#123; alert(s); &#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>布尔值则返回true或false，对象则返回<strong>[object objectname]</strong><br>相比 <code>join()</code> 方法，<code>join()</code> 只对一维数组进行替换，而 <code>toString()</code> 则把整个数组（不管一维还是多维）完全平面化<br>同时该方法可用于10进制、2进制、8进制、16进制转换，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="string">"A"</span>,<span class="string">"BB"</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&amp;lt;a.length; i++)&#123;</span><br><span class="line">	<span class="built_in">document</span>.write(a[i].toString()    + <span class="string">" 的二进制是 "</span>    + a[i].toString(<span class="number">2</span>) + <span class="string">" ，八进制是 "</span> + a[i].toString(<span class="number">8</span>) + <span class="string">" ，十六进制是 "</span> + a[i].toString(<span class="number">16</span>));   <span class="comment">//    -&gt; 4,5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>把数组转为字符串，不只数组，所有对象均可使用该方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,[<span class="string">&quot;A&quot;</span>,<span class="string">&quot;BB&quot;</span>],<span class="number">100</span>];</span><br><span class="line"><span class="built_in">document</span>.write(a.toString());       <span class="comment">// -&gt; 5,6,7,8,9,A,BB,100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">document</span>.write(b.toString());       <span class="comment">// -&gt; Sat Aug 8 17:08:32 UTC+0800    2009</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>)</span>&#123;</span><br><span class="line">	alert(s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">document</span>.write(c.toString());       <span class="comment">// -&gt; function(s)&#123; alert(s); &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>布尔值则返回true或false，对象则返回<strong>[object objectname]</strong><br>相比 <code>join()</code> 方法，<code>join()</code> 只对一维数组进行替换，而 <code>toString()</code> 则把整个数组（不管一维还是多维）完全平面化<br>同时该方法可用于10进制、2进制、8进制、16进制转换，例如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a =    [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;BB&quot;</span>,<span class="number">100</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&amp;lt;a.length; i++)&#123;</span><br><span class="line">	<span class="built_in">document</span>.write(a[i].toString()    + <span class="string">&quot; 的二进制是 &quot;</span>    + a[i].toString(<span class="number">2</span>) + <span class="string">&quot; ，八进制是 &quot;</span> + a[i].toString(<span class="number">8</span>) + <span class="string">&quot; ，十六进制是 &quot;</span> + a[i].toString(<span class="number">16</span>));   <span class="comment">//    -&gt; 4,5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 的二进制是 101 ，八进制是 5 ，十六进制是 5</span><br><span class="line">6 的二进制是 110 ，八进制是 6 ，十六进制是 6</span><br><span class="line">7 的二进制是 111 ，八进制是 7 ，十六进制是 7</span><br><span class="line">8 的二进制是 1000 ，八进制是 10 ，十六进制是 8</span><br><span class="line">9 的二进制是 1001 ，八进制是 11 ，十六进制是 9</span><br><span class="line">A 的二进制是 A ，八进制是 A ，十六进制是 A</span><br><span class="line">BB 的二进制是 BB ，八进制是 BB ，十六进制是 BB</span><br><span class="line">100 的二进制是 1100100 ，八进制是 144 ，十六进制是 64</span><br></pre></td></tr></table></figure></p>
 <p>转换只能在元素进行，如果对整个数组进行转换，则原封不动返回该数组</p>
 <h4 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString"></a>toLocaleString</h4><p>返回本地格式字符串，主要用在Date对象上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">document</span>.write(a.toString());       <span class="comment">// -&gt; Sat Aug 8 17:28:36 UTC+0800    2009</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toLocaleString());     <span class="comment">// -&gt; 2009年8月8日 17:28:36</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toLocaleDateString());     <span class="comment">// -&gt; 2009年8月8日</span></span><br></pre></td></tr></table></figure></p>
 <p>区别在于，<code>toString()</code> 返回标准格式，<code>toLocaleString()</code> 返回本地格式完整日期（在【控制面板】&gt;&gt;【区域和语言选项】，通过修改[时间]和[长日期]格式），<code>toLocaleDateString()</code> 跟 <code>toLocaleString()</code> 一样，只是少了时间</p>
-<h4 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h4><p>根据不同对象返回不同原始值，用于输出的话跟 <code>toString()</code> 差不多，但是 <code>toString()</code> 是返回string类型，而 <code>valueOf()</code> 是返回原对象类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]];</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">"sunnycat"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.write(a.valueOf());       <span class="comment">// -&gt; 1,2,3,4,5,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> (a.valueOf()));  <span class="comment">// -&gt; object</span></span><br><span class="line"><span class="built_in">document</span>.write(b.valueOf());       <span class="comment">// -&gt; 1249874470052</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(b.valueOf()));   <span class="comment">// -&gt; numberdocument.write(c.valueOf());       // -&gt; true</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(c.valueOf()));   <span class="comment">// -&gt; boolean</span></span><br><span class="line"><span class="built_in">document</span>.write(d.valueOf());       <span class="comment">// -&gt; function () &#123;    alert("sunnycat"); &#125;</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(d.valueOf()));   <span class="comment">// -&gt; function</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h4><p>根据不同对象返回不同原始值，用于输出的话跟 <code>toString()</code> 差不多，但是 <code>toString()</code> 是返回string类型，而 <code>valueOf()</code> 是返回原对象类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]];</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">&quot;sunnycat&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">document</span>.write(a.valueOf());       <span class="comment">// -&gt; 1,2,3,4,5,6,7,8,9</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span> (a.valueOf()));  <span class="comment">// -&gt; object</span></span><br><span class="line"><span class="built_in">document</span>.write(b.valueOf());       <span class="comment">// -&gt; 1249874470052</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(b.valueOf()));   <span class="comment">// -&gt; numberdocument.write(c.valueOf());       // -&gt; true</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(c.valueOf()));   <span class="comment">// -&gt; boolean</span></span><br><span class="line"><span class="built_in">document</span>.write(d.valueOf());       <span class="comment">// -&gt; function () &#123;    alert(&quot;sunnycat&quot;); &#125;</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="keyword">typeof</span>(d.valueOf()));   <span class="comment">// -&gt; function</span></span><br></pre></td></tr></table></figure></p>
 <p>数组也是对象，所以 <code>typeof(a.valueOf())</code> 返回object，返回的依然是个多维数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]];</span><br><span class="line"><span class="keyword">var</span> aa = a.valueOf();</span><br><span class="line"><span class="built_in">document</span>.write(aa[<span class="number">3</span>][<span class="number">3</span>][<span class="number">1</span>]); <span class="comment">// -&gt; 8</span></span><br></pre></td></tr></table></figure></p>
 <p>Date对象返回的是距离1970年1月1日的毫秒数，<strong>Math</strong>和<strong>Error</strong>对象没有 <code>valueOf</code> 方法</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -391,7 +361,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数组元素的操作"><span class="toc-number">1.</span> <span class="toc-text">2. 数组元素的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-数组的循环"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 数组的循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-数组常用函数"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 数组常用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-number">1.2.1.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#join"><span class="toc-number">1.2.2.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pop"><span class="toc-number">1.2.3.</span> <span class="toc-text">pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-number">1.2.4.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort"><span class="toc-number">1.2.5.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse"><span class="toc-number">1.2.6.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shift"><span class="toc-number">1.2.7.</span> <span class="toc-text">shift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unshift"><span class="toc-number">1.2.8.</span> <span class="toc-text">unshift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slice"><span class="toc-number">1.2.9.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splice"><span class="toc-number">1.2.10.</span> <span class="toc-text">splice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toString-NaN"><span class="toc-number">1.2.11.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toLocaleString-NaN"><span class="toc-number">1.2.12.</span> <span class="toc-text">toLocaleString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#valueOf-NaN"><span class="toc-number">1.2.13.</span> <span class="toc-text">valueOf</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">2. 数组元素的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%95%B0%E7%BB%84%E7%9A%84%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 数组的循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 数组常用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-number">1.2.1.</span> <span class="toc-text">concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#join"><span class="toc-number">1.2.2.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pop"><span class="toc-number">1.2.3.</span> <span class="toc-text">pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-number">1.2.4.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort"><span class="toc-number">1.2.5.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse"><span class="toc-number">1.2.6.</span> <span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shift"><span class="toc-number">1.2.7.</span> <span class="toc-text">shift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unshift"><span class="toc-number">1.2.8.</span> <span class="toc-text">unshift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slice"><span class="toc-number">1.2.9.</span> <span class="toc-text">slice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splice"><span class="toc-number">1.2.10.</span> <span class="toc-text">splice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toString-NaN"><span class="toc-number">1.2.11.</span> <span class="toc-text">toString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toLocaleString-NaN"><span class="toc-number">1.2.12.</span> <span class="toc-text">toLocaleString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#valueOf-NaN"><span class="toc-number">1.2.13.</span> <span class="toc-text">valueOf</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -453,7 +423,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -543,75 +513,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,18 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,10 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -679,15 +565,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,23 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,7 +605,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,14 +741,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -788,10 +762,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,15 +789,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -843,15 +813,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,18 +877,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -928,10 +886,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,18 +929,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -996,6 +938,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1047,11 +1001,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,7 +1145,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,7 +1153,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,11 +1169,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,15 +1185,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1248,6 +1198,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,23 +1229,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,6 +1250,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,15 +1317,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1451,6 +1405,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1464,14 +1426,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,15 +1465,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1527,7 +1477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1543,14 +1497,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1560,6 +1506,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1591,6 +1545,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1603,7 +1561,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1611,7 +1573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

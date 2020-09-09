@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>HTML代码优化 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员其中6.5节可能因为文件覆盖而不全 HTML代码优化作者：梦游的猫（猫大叔） 最后修改时间 2006年7月7日 16:40:37 目录一. 为什么要优化？二. 优化原则三. 优化技巧四. SEO五. 关于网页标准  何谓标准？ 使用标准价值在哪？ 团队合作流程 如何实现六. 实例分析 删除空标签 合并标签 合理安排表格布局">
-<meta name="keywords" content="html,seo,web,优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML代码优化">
 <meta property="og:url" content="http://21ido.com/2006/10/ca0f1096/index.html">
 <meta property="og:site_name" content="猫大叔">
 <meta property="og:description" content="刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员其中6.5节可能因为文件覆盖而不全 HTML代码优化作者：梦游的猫（猫大叔） 最后修改时间 2006年7月7日 16:40:37 目录一. 为什么要优化？二. 优化原则三. 优化技巧四. SEO五. 关于网页标准  何谓标准？ 使用标准价值在哪？ 团队合作流程 如何实现六. 实例分析 删除空标签 合并标签 合理安排表格布局">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2006/10/23_2006-10-1023851983_12739.gif">
 <meta property="og:image" content="http://21ido.com/images/2006/10/23/002724.gif">
 <meta property="og:image" content="http://21ido.com/image/2006/10/23/002931.png">
@@ -24,10 +23,14 @@
 <meta property="og:image" content="http://21ido.com/images/2006/10/23/003207.png">
 <meta property="og:image" content="http://21ido.com/images/2006/10/23/003418.png">
 <meta property="og:image" content="http://21ido.com/images/2006/10/23/003449.jpg">
-<meta property="og:updated_time" content="2018-08-02T03:00:55.946Z">
+<meta property="article:published_time" content="2006-10-22T17:32:04.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.963Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="seo">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="优化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML代码优化">
-<meta name="twitter:description" content="刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员其中6.5节可能因为文件覆盖而不全 HTML代码优化作者：梦游的猫（猫大叔） 最后修改时间 2006年7月7日 16:40:37 目录一. 为什么要优化？二. 优化原则三. 优化技巧四. SEO五. 关于网页标准  何谓标准？ 使用标准价值在哪？ 团队合作流程 如何实现六. 实例分析 删除空标签 合并标签 合理安排表格布局">
 <meta name="twitter:image" content="http://21ido.com/images/2006/10/23_2006-10-1023851983_12739.gif">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
@@ -59,8 +62,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -70,13 +73,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -100,15 +101,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -126,13 +127,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -145,15 +144,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -179,7 +178,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/HTML代码优化" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Web/HTML代码优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -238,9 +237,9 @@ ga('send', 'pageview');
 <h3 id="1-明确的标题，即-lt-title-gt-标签"><a href="#1-明确的标题，即-lt-title-gt-标签" class="headerlink" title="1. 明确的标题，即&lt;title&gt;标签"></a>1. 明确的标题，即&lt;title&gt;标签</h3><p>例如搜索&ldquo;电脑&rdquo;，搜索结果有2个页面，一个标题包含&ldquo;电脑&rdquo;，另一个只包含在正文&lt;body&gt;标签中，第一个页面会排第一位。</p>
 <p>根据观察，各搜索引擎都会对标题进行截断，具体为baidu20字、google30字、Yahoo20字、MSN Search25字（均为中文）</p>
 <p>所以标题不能过长，要跟正文内容符合，例如一个《碟中碟》电影页面，标题可以为&ldquo;碟中碟 汤姆克鲁斯 酷娱乐 91Q.com&rdquo;</p>
-<h3 id="2-META标记"><a href="#2-META标记" class="headerlink" title="2. META标记"></a>2. META标记</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"网页简述"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"关键字"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-META标记"><a href="#2-META标记" class="headerlink" title="2. META标记"></a>2. META标记</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;网页简述&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;关键字&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-链接文本"><a href="#3-链接文本" class="headerlink" title="3. 链接文本"></a>3. 链接文本</h3><p>文章、新闻经常标题过长，为了页面美观而不得不截短，加入title属性，一来有利于访客阅读完整标题，也有利于搜索引擎的收录</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"test.htm"</span> <span class="attr">title</span>=<span class="string">"浅谈Flash ActionScript代码优化"</span>&gt;</span>浅谈Flash ActionScr…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;test.htm&quot;</span> <span class="attr">title</span>=<span class="string">&quot;浅谈Flash ActionScript代码优化&quot;</span>&gt;</span>浅谈Flash ActionScr…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="4-图像"><a href="#4-图像" class="headerlink" title="4. 图像"></a>4. 图像</h3><p>同上，相应属性为alt</p>
 <h3 id="5-另外其它如-lt-h1-gt-lt-input-gt-都可以加入关键字"><a href="#5-另外其它如-lt-h1-gt-lt-input-gt-都可以加入关键字" class="headerlink" title="5. 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字"></a>5. 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字</h3><p>SEO还包括其它方面的内容，以上只是在代码方面的优化</p>
 <h2 id="五-关于网页标准"><a href="#五-关于网页标准" class="headerlink" title="五. 关于网页标准"></a>五. 关于网页标准</h2><h3 id="1-何谓标准？"><a href="#1-何谓标准？" class="headerlink" title="1. 何谓标准？"></a>1. 何谓标准？</h3><p>网页标准是进2年流行的话题，简单的说，就是抛弃HTML+Table改用XHTML+CSS来写网页，做到结构和样式分离。XHTML标准分过渡型和严格型，其中过渡型可以使用table，而严格型只能用div来进行布局。</p>
@@ -258,14 +257,14 @@ ga('send', 'pageview');
 <li>公用函数 <code>&lt;script&gt;&lt;/script&gt;</code> 放在 <code>&lt;head&gt;&lt;/head&gt;</code> 之间，共有的写在单独文件再在网页导入</li>
 <li>尽量用div布局而不用table，但table还是可以用的</li>
 </ol>
-<h2 id="六-实例分析"><a href="#六-实例分析" class="headerlink" title="六. 实例分析"></a>六. 实例分析</h2><h3 id="1-删除空标签"><a href="#1-删除空标签" class="headerlink" title="1. 删除空标签"></a>1. 删除空标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">"23"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"lineh15 style4"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>剧情看点： <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">%=exStr1%</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="六-实例分析"><a href="#六-实例分析" class="headerlink" title="六. 实例分析"></a>六. 实例分析</h2><h3 id="1-删除空标签"><a href="#1-删除空标签" class="headerlink" title="1. 删除空标签"></a>1. 删除空标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">&quot;23&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span> <span class="attr">class</span>=<span class="string">&quot;lineh15 style4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>剧情看点： <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">%=exStr1%</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>&lt;div align=&quot;left&quot;&gt;&lt;/div&gt;</code> 是可以去掉的</p>
-<h3 id="2-合并标签"><a href="#2-合并标签" class="headerlink" title="2. 合并标签"></a>2. 合并标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">"23"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">%=sShowName%</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-合并标签"><a href="#2-合并标签" class="headerlink" title="2. 合并标签"></a>2. 合并标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">&quot;23&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">%=sShowName%</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>div太多，不仅影响浏览器解析，还可能因为未关闭标签造成错乱，也给编辑带来困难，例如用DW打开，如下图</p>
 <p><img src="/image/2006/10/23/002931.png" alt=""></p>
 <p>表格和div密密麻麻的N多线</p>
 <p><code>&lt;div align=&quot;left&quot;&gt;</code> 的作用是左对其，其实在表格设置水平左对其也一样，修改后为</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">"23"</span> <span class="attr">align</span>=<span class="string">"left"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">%=sShowName%</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">&quot;23&quot;</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">%=sShowName%</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-合理安排表格布局"><a href="#3-合理安排表格布局" class="headerlink" title="3. 合理安排表格布局"></a>3. 合理安排表格布局</h3><p><img src="/images/2006/10/23/003023.jpg" alt=""></p>
 <p>上图红色表示表格，绿色表示div层，可以看出里面嵌套了4层表格，同时也用了div来使文字靠左，其实<code>&lt;td&gt;</code>标签也有水平位置的align属性，而且表格默认就是左对齐，所以div标签完全可以取消，整理一下，结果如下图</p>
 <p><img src="/images/2006/10/23/003052.jpg" alt=""></p>
@@ -286,7 +285,7 @@ ga('send', 'pageview');
 <p>优化后代码字数为原来32%</p>
 <h3 id="5-利用-lt-div-gt-简化代码-nbsp-该节不全"><a href="#5-利用-lt-div-gt-简化代码-nbsp-该节不全" class="headerlink" title="5. 利用&lt;div&gt;简化代码&nbsp; (该节不全)"></a>5. 利用&lt;div&gt;简化代码&nbsp; (该节不全)</h3><p><img src="/images/2006/10/23/003449.jpg" alt=""></p>
 <p>如上图，五部影片所在的表格，先是用<code>&lt;td&gt;</code>分割，再用<code>&lt;div&gt;</code>定义样式（主要是定义字体大小），其中影片截图，为了显示圆边框，又套了一个表格，表格采用九宫格布置。单个电影代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">"52"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">class</span>=<span class="string">"lineh15"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"size14"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/ttl.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">"/images/tt.jpg"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tt.jpg"</span> <span class="attr">width</span>=<span class="string">"1"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/ttr.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">"/images/tl.jpg"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tl.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"65"</span> <span class="attr">height</span>=<span class="string">"75"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mo vie2.jsp?sTypeId=164&amp;sPgmId=176"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://cqmovie.bqol.com.cn:8092/logo/凤凰大视野：天空铁路01.jpg"</span> <span class="attr">width</span>=<span class="string">"92"</span> <span class="attr">height</span>=<span class="string">"124"</span> <span class="attr">border</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">"/images/tr.jpg"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tr.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tbl.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">"/images/tb.jpg"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tb.jpg"</span> <span class="attr">width</span>=<span class="string">"1"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/tbr.jpg"</span> <span class="attr">width</span>=<span class="string">"6"</span> <span class="attr">height</span>=<span class="string">"6"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"lineh15"</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"title-16px120b-B00000"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"movie2.jsp?sTypeId=164&amp;sPgmId=176"</span>&gt;</span>北纬17度线<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">&quot;52&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">class</span>=<span class="string">&quot;lineh15&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;left&quot;</span> <span class="attr">class</span>=<span class="string">&quot;size14&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/ttl.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">&quot;/images/tt.jpg&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tt.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/ttr.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">&quot;/images/tl.jpg&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tl.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;65&quot;</span> <span class="attr">height</span>=<span class="string">&quot;75&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mo vie2.jsp?sTypeId=164&amp;sPgmId=176&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://cqmovie.bqol.com.cn:8092/logo/凤凰大视野：天空铁路01.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;92&quot;</span> <span class="attr">height</span>=<span class="string">&quot;124&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">&quot;/images/tr.jpg&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tr.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tbl.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">&quot;/images/tb.jpg&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tb.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;1&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/tbr.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;6&quot;</span> <span class="attr">height</span>=<span class="string">&quot;6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;lineh15&quot;</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;title-16px120b-B00000&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;movie2.jsp?sTypeId=164&amp;sPgmId=176&quot;</span>&gt;</span>北纬17度线<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="七-修订记录"><a href="#七-修订记录" class="headerlink" title="七. 修订记录"></a>七. 修订记录</h2><ul>
 <li>2006年7月3日 创建文档，整理《实例分析》1．、2．、3． 实例</li>
 <li>2006年7月4日 《实例分析》增加4．实例，撰写《优化原则》、《优化技巧》等章节</li>
@@ -297,38 +296,12 @@ ga('send', 'pageview');
 <li>《网页Title的优化的原则》</li>
 </ul>
 <h3 id="B-相关资源"><a href="#B-相关资源" class="headerlink" title="B. 相关资源"></a>B. 相关资源</h3><ul>
-<li><del><a href="http://www.17google.com.cn/article.asp?articleid=404" target="_blank" rel="noopener">《Robots.txt指南》</a></del></li>
-<li>网页设计师 <a href="http://www.w3cn.org/" target="_blank" rel="noopener">http://www.w3cn.org</a></li>
+<li><del><a target="_blank" rel="noopener" href="http://www.17google.com.cn/article.asp?articleid=404">《Robots.txt指南》</a></del></li>
+<li>网页设计师 <a target="_blank" rel="noopener" href="http://www.w3cn.org/">http://www.w3cn.org</a></li>
 </ul>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -470,7 +443,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML代码优化"><span class="toc-number">1.</span> <span class="toc-text">HTML代码优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-为什么要优化？"><span class="toc-number">1.2.</span> <span class="toc-text">一. 为什么要优化？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-节省带宽"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 节省带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-于程序员编写代码"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 于程序员编写代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-减少页面下载及解析时间"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 减少页面下载及解析时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-优化原则"><span class="toc-number">1.3.</span> <span class="toc-text">二. 优化原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-优化技巧"><span class="toc-number">1.4.</span> <span class="toc-text">三. 优化技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-SEO"><span class="toc-number">1.5.</span> <span class="toc-text">四. SEO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-明确的标题，即-lt-title-gt-标签"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 明确的标题，即&lt;title&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-META标记"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. META标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-链接文本"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 链接文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-图像"><span class="toc-number">1.5.4.</span> <span class="toc-text">4. 图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-另外其它如-lt-h1-gt-lt-input-gt-都可以加入关键字"><span class="toc-number">1.5.5.</span> <span class="toc-text">5. 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-关于网页标准"><span class="toc-number">1.6.</span> <span class="toc-text">五. 关于网页标准</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-何谓标准？"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 何谓标准？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用标准价值在哪？"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. 使用标准价值在哪？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-易于维护"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">1. 易于维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-加速开发"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">2. 加速开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-拓展访问渠"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">3. 拓展访问渠</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-节约带宽成本"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">4. 节约带宽成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-提高用户体验"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">5. 提高用户体验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-团队合作流程"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. 团队合作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何实现"><span class="toc-number">1.6.4.</span> <span class="toc-text">4. 如何实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-实例分析"><span class="toc-number">1.7.</span> <span class="toc-text">六. 实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-删除空标签"><span class="toc-number">1.7.1.</span> <span class="toc-text">1. 删除空标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-合并标签"><span class="toc-number">1.7.2.</span> <span class="toc-text">2. 合并标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-合理安排表格布局"><span class="toc-number">1.7.3.</span> <span class="toc-text">3. 合理安排表格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-表格列表优化"><span class="toc-number">1.7.4.</span> <span class="toc-text">4. 表格列表优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-利用-lt-div-gt-简化代码-nbsp-该节不全"><span class="toc-number">1.7.5.</span> <span class="toc-text">5. 利用&lt;div&gt;简化代码  (该节不全)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-修订记录"><span class="toc-number">1.8.</span> <span class="toc-text">七. 修订记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八-附录"><span class="toc-number">1.9.</span> <span class="toc-text">八. 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-参考文档"><span class="toc-number">1.9.1.</span> <span class="toc-text">A. 参考文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-相关资源"><span class="toc-number">1.9.2.</span> <span class="toc-text">B. 相关资源</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">HTML代码优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">一. 为什么要优化？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%8A%82%E7%9C%81%E5%B8%A6%E5%AE%BD"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 节省带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BA%8E%E7%A8%8B%E5%BA%8F%E5%91%98%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 于程序员编写代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%8F%E5%B0%91%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BD%E5%8F%8A%E8%A7%A3%E6%9E%90%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 减少页面下载及解析时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E4%BC%98%E5%8C%96%E5%8E%9F%E5%88%99"><span class="toc-number">1.3.</span> <span class="toc-text">二. 优化原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="toc-number">1.4.</span> <span class="toc-text">三. 优化技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-SEO"><span class="toc-number">1.5.</span> <span class="toc-text">四. SEO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%98%8E%E7%A1%AE%E7%9A%84%E6%A0%87%E9%A2%98%EF%BC%8C%E5%8D%B3-lt-title-gt-%E6%A0%87%E7%AD%BE"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 明确的标题，即&lt;title&gt;标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-META%E6%A0%87%E8%AE%B0"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. META标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%93%BE%E6%8E%A5%E6%96%87%E6%9C%AC"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 链接文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9B%BE%E5%83%8F"><span class="toc-number">1.5.4.</span> <span class="toc-text">4. 图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%8F%A6%E5%A4%96%E5%85%B6%E5%AE%83%E5%A6%82-lt-h1-gt-lt-input-gt-%E9%83%BD%E5%8F%AF%E4%BB%A5%E5%8A%A0%E5%85%A5%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.5.5.</span> <span class="toc-text">5. 另外其它如&lt;h1&gt;&lt;input&gt;都可以加入关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E5%85%B3%E4%BA%8E%E7%BD%91%E9%A1%B5%E6%A0%87%E5%87%86"><span class="toc-number">1.6.</span> <span class="toc-text">五. 关于网页标准</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%95%E8%B0%93%E6%A0%87%E5%87%86%EF%BC%9F"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 何谓标准？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%A0%87%E5%87%86%E4%BB%B7%E5%80%BC%E5%9C%A8%E5%93%AA%EF%BC%9F"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. 使用标准价值在哪？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%98%93%E4%BA%8E%E7%BB%B4%E6%8A%A4"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">1. 易于维护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8A%A0%E9%80%9F%E5%BC%80%E5%8F%91"><span class="toc-number">1.6.2.2.</span> <span class="toc-text">2. 加速开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%8B%93%E5%B1%95%E8%AE%BF%E9%97%AE%E6%B8%A0"><span class="toc-number">1.6.2.3.</span> <span class="toc-text">3. 拓展访问渠</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%8A%82%E7%BA%A6%E5%B8%A6%E5%AE%BD%E6%88%90%E6%9C%AC"><span class="toc-number">1.6.2.4.</span> <span class="toc-text">4. 节约带宽成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%8F%90%E9%AB%98%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">1.6.2.5.</span> <span class="toc-text">5. 提高用户体验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. 团队合作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.6.4.</span> <span class="toc-text">4. 如何实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.7.</span> <span class="toc-text">六. 实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%A0%E9%99%A4%E7%A9%BA%E6%A0%87%E7%AD%BE"><span class="toc-number">1.7.1.</span> <span class="toc-text">1. 删除空标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%88%E5%B9%B6%E6%A0%87%E7%AD%BE"><span class="toc-number">1.7.2.</span> <span class="toc-text">2. 合并标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%88%E7%90%86%E5%AE%89%E6%8E%92%E8%A1%A8%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">1.7.3.</span> <span class="toc-text">3. 合理安排表格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%A8%E6%A0%BC%E5%88%97%E8%A1%A8%E4%BC%98%E5%8C%96"><span class="toc-number">1.7.4.</span> <span class="toc-text">4. 表格列表优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%88%A9%E7%94%A8-lt-div-gt-%E7%AE%80%E5%8C%96%E4%BB%A3%E7%A0%81-nbsp-%E8%AF%A5%E8%8A%82%E4%B8%8D%E5%85%A8"><span class="toc-number">1.7.5.</span> <span class="toc-text">5. 利用&lt;div&gt;简化代码&amp;nbsp; (该节不全)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E4%BF%AE%E8%AE%A2%E8%AE%B0%E5%BD%95"><span class="toc-number">1.8.</span> <span class="toc-text">七. 修订记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB-%E9%99%84%E5%BD%95"><span class="toc-number">1.9.</span> <span class="toc-text">八. 附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="toc-number">1.9.1.</span> <span class="toc-text">A. 参考文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90"><span class="toc-number">1.9.2.</span> <span class="toc-text">B. 相关资源</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -532,7 +505,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -622,75 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,18 +604,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,10 +627,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -758,15 +647,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,23 +671,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,7 +687,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,14 +823,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -867,10 +844,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,15 +871,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,15 +895,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -986,18 +959,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -1007,10 +968,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,18 +1011,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -1075,6 +1020,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,11 +1083,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,7 +1227,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1278,7 +1235,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,11 +1251,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,15 +1267,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1327,6 +1280,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1354,23 +1311,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1383,6 +1332,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,15 +1399,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,6 +1487,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1543,14 +1508,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,15 +1547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,7 +1559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1622,14 +1579,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1639,6 +1588,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1670,6 +1627,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1682,7 +1643,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1690,7 +1655,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

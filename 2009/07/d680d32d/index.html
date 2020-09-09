@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>Flex练习：日期  整型 互转 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionsc">
-<meta name="keywords" content="actionscript,flex">
+  <meta name="description" content="公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http:&#x2F;&#x2F;www.digitalpersonae.com&#x2F;blog&#x2F;2009&#x2F;02&#x2F;01&#x2F;mysql-actionsc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flex练习：日期  整型 互转">
 <meta property="og:url" content="http://21ido.com/2009/07/d680d32d/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionsc">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-02T03:00:30.461Z">
+<meta property="og:description" content="公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http:&#x2F;&#x2F;www.digitalpersonae.com&#x2F;blog&#x2F;2009&#x2F;02&#x2F;01&#x2F;mysql-actionsc">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-07-22T13:22:00.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.871Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="actionscript">
+<meta property="article:tag" content="flex">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flex练习：日期  整型 互转">
-<meta name="twitter:description" content="公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西 日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去 这边有更好的方法，http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionsc">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -50,8 +51,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -61,13 +62,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -91,15 +90,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,13 +116,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -136,15 +133,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -170,7 +167,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flash/flex练习_日期_整型互转" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Flash/flex练习_日期_整型互转" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -190,42 +187,16 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <embed width="600" height="384" tplayername="SWF" splayername="SWF" type="application/x-shockwave-flash" src="/images/2009/07/22_12787.swf" mediawrapchecked="true" name="changeTime" allowscriptaccess="sameDomain" bgcolor="#869ca7" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" id="changeTime">
+        <embed width="600" height="384" tplayername="SWF" splayername="SWF" type="application/x-shockwave-flash" src="/images/2009/07/22_12787.swf" mediawrapchecked="true" name="changeTime" allowscriptaccess="sameDomain" bgcolor="#869ca7" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" id="changeTime"></embed>
 
 <p>公司的数据库，日期多是用整型（即距离1970-1-1的秒数），查看搜索啥的都要换成一般格式，就做了这么个小东西</p>
 <p>日期转换还挺麻烦的，用的是比较笨的方法，例如 2006-2-9 23:35:56 ，用 - 切出日期，再用 : 切出时间，再set到日期对象去</p>
-<p>这边有更好的方法，<a href="http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/" target="_blank" rel="noopener">http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/</a></p>
-<p>里面用到Lite3写的一个字符串处理的类，他的博客 <a href="http://www.lite3.cn/" target="_blank" rel="noopener">http://www.lite3.cn/</a></p>
-<p><del><a href="/upload/2009/7/200907222132150351.7z">源文件打包下载</a></del><br><a id="more"></a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=”1.0” encoding=”utf-8”?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	&lt;mx:Application xmlns:mx=”&lt;a href="http://www.adobe.com/2006/mxml"" target="_blank" rel="noopener"&gt;http://www.adobe.com/2006/mxml"&lt;/a&gt; layout=”absolute” width=”600” height=”384”&gt;&lt;br&gt;</span><br><span class="line">				<span class="tag">&lt;<span class="name">mx:TextArea</span> <span class="attr">id</span>=<span class="string">”text1”</span> <span class="attr">x</span>=<span class="string">”10”</span> <span class="attr">y</span>=<span class="string">”73”</span> <span class="attr">width</span>=<span class="string">”224”</span> <span class="attr">height</span>=<span class="string">”301”</span> <span class="attr">change</span>=<span class="string">”doit()”</span> <span class="attr">borderThickness</span>=<span class="string">”2”</span> <span class="attr">borderColor</span>=<span class="string">”#00ACAE”</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">mx:TextArea</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">mx:TextArea</span> <span class="attr">id</span>=<span class="string">”text2”</span> <span class="attr">x</span>=<span class="string">”360”</span> <span class="attr">y</span>=<span class="string">”73”</span> <span class="attr">width</span>=<span class="string">”224”</span> <span class="attr">height</span>=<span class="string">”301”</span> <span class="attr">editable</span>=<span class="string">”false”/</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">							&lt;mx:Button x=”242” y=”155” label=”&lt;== 清空 ==&gt;” width=”110” height=”74” fontFamily=”Arial” fontSize=”12” click=”text1.text=’’;text2.text=’’”/&gt;&lt;br&gt;</span><br><span class="line">											<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mx:Script"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"noopener"</span>&gt;</span>mx:Script<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">												&lt;![CDATA[&lt;br&gt;            import mx.formatters.DateFormatter;&lt;br&gt;            import cn.StringUtil;&lt;br&gt;            import mx.effects.easing.Exponential;&lt;br&gt;            function doit():void&#123;&lt;br&gt;                text2.text = “”;&lt;br&gt;                var str:Array = text1.text.split(“\r”);&lt;br&gt;                for(var i:int=0;i&lt;str.length;i++)&#123;&lt;br&gt;                    str[i] = cn.StringUtil.trim(str[i]);&lt;br&gt;                    var myDate:Date = new Date();&lt;br&gt;                    try&#123;&lt;br&gt;                        if(str[i].indexOf(“-“) != -1)&#123;&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],” “,”,”);&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],”-“,”,”);&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],”:”,”,”);&lt;br&gt;                            var strArr:Array = new Array();&lt;br&gt;                            strArr = str[i].split(“,”);&lt;br&gt;                            if(str[i].toString().indexOf(“NaN”) == -1 &amp;&amp; strArr.length&gt;=3)&#123;&lt;br&gt;                                for(var j:int=0;j&lt;strArr.length;j++)&#123;&lt;br&gt;                                    strArr[j] = Number(strArr[j]);&lt;br&gt;                                    if(strArr[j].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt;                                        if(j==0)&#123;&lt;br&gt;                                            myDate.setFullYear(strArr[j]);&lt;br&gt;                                        &#125;else if(j==1)&#123;&lt;br&gt;                                            myDate.setMonth(strArr[j]-1);&lt;br&gt;                                        &#125;else if(j==2)&#123;&lt;br&gt;                                            myDate.setDate(strArr[j]);&lt;br&gt;                                        &#125;else if(j==3)&#123;&lt;br&gt;                                            myDate.setHours(strArr[j]);&lt;br&gt;                                        &#125;else if(j==4)&#123;&lt;br&gt;                                            myDate.setMinutes(strArr[j]);&lt;br&gt;                                        &#125;else if(j==5)&#123;&lt;br&gt;                                            myDate.setSeconds(strArr[j]);&lt;br&gt;                                        &#125;&lt;br&gt;                                    &#125;&lt;br&gt;                                &#125;&lt;br&gt;                                text2.text += int(myDate.getTime()/1000);&lt;br&gt;                            &#125;&lt;br&gt;                        &#125;else if(str[i] !=””)&#123;&lt;br&gt;                            str[i] = Number(str[i]);&lt;br&gt;                            if(str[i].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt;                                myDate.setTime(str[i]*1000);&lt;br&gt;                                text2.text += myDate.getFullYear() + “-“ + (myDate.getMonth()+1) + “-“ + myDate.getDate() + “ “ + myDate.getHours() + “:” + myDate.getMinutes() + “:” + myDate.getSeconds()&lt;br&gt;                            &#125;&lt;br&gt;                        &#125;&lt;br&gt;                    &#125;catch(err:Error)&#123;&lt;br&gt;                        text2.text += err.toString();&lt;br&gt;                    &#125;&lt;br&gt;                    text2.text += “\n”;&lt;br&gt;                &#125;&lt;br&gt;            &#125;&lt;br&gt;        ]]&gt;</span><br><span class="line">												<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">mx:Script</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">													&lt;mx:Text x=”37” y=”10” text=”== 日期 &lt;=&gt; 整型 互转 ==</span><br><span class="line"></span><br><span class="line">输入日期（格式为 2004-7-20 13:29:4），或者秒数（距离1970年1月1日以来的秒数）” width=”505” height=”55” fontSize=”12” color=”#FFFFFF” textAlign=”left”/&gt;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">																<span class="tag">&lt;/<span class="name">mx:Application</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这边有更好的方法，<a target="_blank" rel="noopener" href="http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/">http://www.digitalpersonae.com/blog/2009/02/01/mysql-actionscript-date-formatter/</a></p>
+<p>里面用到Lite3写的一个字符串处理的类，他的博客 <a target="_blank" rel="noopener" href="http://www.lite3.cn/">http://www.lite3.cn/</a></p>
+<p><del><a href="/upload/2009/7/200907222132150351.7z">源文件打包下载</a></del><br><a id="more"></a><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=”1.0” encoding=”utf-8”?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	&lt;mx:Application xmlns:mx=”&lt;a href=&quot;http://www.adobe.com/2006/mxml&quot;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.adobe.com/2006/mxml&quot;&lt;/a&gt; layout=”absolute” width=”600” height=”384”&gt;&lt;br&gt;</span><br><span class="line">				<span class="tag">&lt;<span class="name">mx:TextArea</span> <span class="attr">id</span>=<span class="string">”text1”</span> <span class="attr">x</span>=<span class="string">”10”</span> <span class="attr">y</span>=<span class="string">”73”</span> <span class="attr">width</span>=<span class="string">”224”</span> <span class="attr">height</span>=<span class="string">”301”</span> <span class="attr">change</span>=<span class="string">”doit()”</span> <span class="attr">borderThickness</span>=<span class="string">”2”</span> <span class="attr">borderColor</span>=<span class="string">”#00ACAE”</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">mx:TextArea</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">mx:TextArea</span> <span class="attr">id</span>=<span class="string">”text2”</span> <span class="attr">x</span>=<span class="string">”360”</span> <span class="attr">y</span>=<span class="string">”73”</span> <span class="attr">width</span>=<span class="string">”224”</span> <span class="attr">height</span>=<span class="string">”301”</span> <span class="attr">editable</span>=<span class="string">”false”/</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">							&lt;mx:Button x=”242” y=”155” label=”&lt;== 清空 ==&gt;” width=”110” height=”74” fontFamily=”Arial” fontSize=”12” click=”text1.text=’’;text2.text=’’”/&gt;&lt;br&gt;</span><br><span class="line">											<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mx:Script&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;noopener&quot;</span>&gt;</span>mx:Script<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">											<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">												&lt;![CDATA[&lt;br&gt;            import mx.formatters.DateFormatter;&lt;br&gt;            import cn.StringUtil;&lt;br&gt;            import mx.effects.easing.Exponential;&lt;br&gt;            function doit():void&#123;&lt;br&gt;                text2.text = “”;&lt;br&gt;                var str:Array = text1.text.split(“\r”);&lt;br&gt;                for(var i:int=0;i&lt;str.length;i++)&#123;&lt;br&gt;                    str[i] = cn.StringUtil.trim(str[i]);&lt;br&gt;                    var myDate:Date = new Date();&lt;br&gt;                    try&#123;&lt;br&gt;                        if(str[i].indexOf(“-“) != -1)&#123;&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],” “,”,”);&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],”-“,”,”);&lt;br&gt;                            str[i] = cn.StringUtil.replace(str[i],”:”,”,”);&lt;br&gt;                            var strArr:Array = new Array();&lt;br&gt;                            strArr = str[i].split(“,”);&lt;br&gt;                            if(str[i].toString().indexOf(“NaN”) == -1 &amp;&amp; strArr.length&gt;=3)&#123;&lt;br&gt;                                for(var j:int=0;j&lt;strArr.length;j++)&#123;&lt;br&gt;                                    strArr[j] = Number(strArr[j]);&lt;br&gt;                                    if(strArr[j].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt;                                        if(j==0)&#123;&lt;br&gt;                                            myDate.setFullYear(strArr[j]);&lt;br&gt;                                        &#125;else if(j==1)&#123;&lt;br&gt;                                            myDate.setMonth(strArr[j]-1);&lt;br&gt;                                        &#125;else if(j==2)&#123;&lt;br&gt;                                            myDate.setDate(strArr[j]);&lt;br&gt;                                        &#125;else if(j==3)&#123;&lt;br&gt;                                            myDate.setHours(strArr[j]);&lt;br&gt;                                        &#125;else if(j==4)&#123;&lt;br&gt;                                            myDate.setMinutes(strArr[j]);&lt;br&gt;                                        &#125;else if(j==5)&#123;&lt;br&gt;                                            myDate.setSeconds(strArr[j]);&lt;br&gt;                                        &#125;&lt;br&gt;                                    &#125;&lt;br&gt;                                &#125;&lt;br&gt;                                text2.text += int(myDate.getTime()/1000);&lt;br&gt;                            &#125;&lt;br&gt;                        &#125;else if(str[i] !=””)&#123;&lt;br&gt;                            str[i] = Number(str[i]);&lt;br&gt;                            if(str[i].toString().indexOf(“NaN”) == -1)&#123;&lt;br&gt;                                myDate.setTime(str[i]*1000);&lt;br&gt;                                text2.text += myDate.getFullYear() + “-“ + (myDate.getMonth()+1) + “-“ + myDate.getDate() + “ “ + myDate.getHours() + “:” + myDate.getMinutes() + “:” + myDate.getSeconds()&lt;br&gt;                            &#125;&lt;br&gt;                        &#125;&lt;br&gt;                    &#125;catch(err:Error)&#123;&lt;br&gt;                        text2.text += err.toString();&lt;br&gt;                    &#125;&lt;br&gt;                    text2.text += “\n”;&lt;br&gt;                &#125;&lt;br&gt;            &#125;&lt;br&gt;        ]]&gt;</span><br><span class="line">												<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;/<span class="name">mx:Script</span>&gt;</span></span><br><span class="line">												<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">													&lt;mx:Text x=”37” y=”10” text=”== 日期 &lt;=&gt; 整型 互转 ==</span><br><span class="line"></span><br><span class="line">输入日期（格式为 2004-7-20 13:29:4），或者秒数（距离1970年1月1日以来的秒数）” width=”505” height=”55” fontSize=”12” color=”#FFFFFF” textAlign=”left”/&gt;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">																<span class="tag">&lt;/<span class="name">mx:Application</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -421,7 +392,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -511,75 +482,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,18 +491,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,10 +514,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -647,15 +534,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,23 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,7 +574,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,14 +710,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -756,10 +731,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,15 +758,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,15 +782,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,18 +846,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -896,10 +855,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,18 +898,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -964,6 +907,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,11 +970,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,7 +1114,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1167,7 +1122,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1183,11 +1138,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,15 +1154,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1216,6 +1167,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1243,23 +1198,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,6 +1219,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1331,15 +1286,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,6 +1374,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1432,14 +1395,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1479,15 +1434,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1495,7 +1446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,14 +1466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1528,6 +1475,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1559,6 +1514,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1571,7 +1530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1579,7 +1542,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

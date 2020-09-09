@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>Flash ActionScript 1.0 学习笔记(1) | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好  enterFrame 不管play还是stop，都会不停执行  123载入变量时用 onClipEvent(data)&amp;#123;…&amp;#125;事件可以判断变量是否已经载入3. 尽量避免多个 if ,改用 ```if…else if … else   同事最可能匹配的条件放前面  测">
-<meta name="keywords" content="actionscript,Flash">
+  <meta name="description" content="Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好  enterFrame 不管play还是stop，都会不停执行  this.loadVariables(“test.txt”);载入变量时用 onClipEvent(data){…}事件可以判断变量是否已经载入  尽量避免多个 if ,改用 if…else if … else同事最可能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flash ActionScript 1.0 学习笔记(1)">
 <meta property="og:url" content="http://21ido.com/2005/04/fd592b6f/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好  enterFrame 不管play还是stop，都会不停执行  123载入变量时用 onClipEvent(data)&amp;#123;…&amp;#125;事件可以判断变量是否已经载入3. 尽量避免多个 if ,改用 ```if…else if … else   同事最可能匹配的条件放前面  测">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好  enterFrame 不管play还是stop，都会不停执行  this.loadVariables(“test.txt”);载入变量时用 onClipEvent(data){…}事件可以判断变量是否已经载入  尽量避免多个 if ,改用 if…else if … else同事最可能">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2005/04/29_12750.jpg">
-<meta property="og:updated_time" content="2018-08-06T02:25:32.910Z">
+<meta property="article:published_time" content="2005-04-29T14:35:00.000Z">
+<meta property="article:modified_time" content="2019-03-12T06:21:23.870Z">
+<meta property="article:author" content="猫大叔">
+<meta property="article:tag" content="actionscript">
+<meta property="article:tag" content="Flash">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flash ActionScript 1.0 学习笔记(1)">
-<meta name="twitter:description" content="Luar的《闪客实战》，买了好久了，都没认真看过，现在开始学习AS1.0，虽然过时了点，当为AS2.0打基础也好  enterFrame 不管play还是stop，都会不停执行  123载入变量时用 onClipEvent(data)&amp;#123;…&amp;#125;事件可以判断变量是否已经载入3. 尽量避免多个 if ,改用 ```if…else if … else   同事最可能匹配的条件放前面  测">
 <meta name="twitter:image" content="http://21ido.com/images/2005/04/29_12750.jpg">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
@@ -52,8 +53,8 @@ ga('send', 'pageview');
 
   
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,13 +64,11 @@ ga('send', 'pageview');
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.gif" class="js-avatar">
+			<img src="/images/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">猫大叔</a></h1>
+		  <h1 class="header-author"><a href="/">undefined</a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">关注前端，热爱生活</p>
 		
 
 		<nav class="header-menu">
@@ -93,15 +92,15 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -119,13 +118,11 @@ ga('send', 'pageview');
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.gif" class="js-avatar">
+				<img src="/images/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">猫大叔</h1>
+			  <h1 class="header-author js-header-author">undefined</h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>关注前端，热爱生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -138,15 +135,15 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:gavin2026[A]gmail" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -172,7 +169,7 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flash/Flash_actionScript_1.0_学习笔记_1" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Flash/Flash_actionScript_1.0_学习笔记_1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -196,65 +193,50 @@ ga('send', 'pageview');
 <ol>
 <li><p>enterFrame 不管play还是stop，都会不停执行</p>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">载入变量时用 onClipEvent(data)&#123;…&#125;事件可以判断变量是否已经载入</span><br><span class="line"></span><br><span class="line">3. 尽量避免多个 if ,改用 ```if…else if … else</span><br></pre></td></tr></table></figure>
+<li><p><code>this.loadVariables(“test.txt”);</code><br>载入变量时用 onClipEvent(data){…}事件可以判断变量是否已经载入</p>
 </li>
-</ol>
-<p>同事最可能匹配的条件放前面</p>
-<ol start="4">
-<li>测试代码执行速度<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> loopCount = <span class="number">2000</span>; <span class="comment">// 程序循环次数</span></span><br><span class="line">t = getTimer();</span><br><span class="line"><span class="keyword">while</span>(i&lt;LOOPCOUNT)&#123;</span><br><span class="line"> <span class="comment">// 代码</span></span><br><span class="line"> i++;</span><br><span class="line">&#125;</span><br><span class="line">trace(getTimer()-t); <span class="comment">// 0.001 s为单位</span></span><br></pre></td></tr></table></figure>
+<li><p>尽量避免多个 if ,改用 <code>if…else if … else</code><br>同事最可能匹配的条件放前面</p>
 </li>
-</ol>
-<a id="more"></a>
-<ol start="5">
+<li><p>测试代码执行速度</p>
+<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> loopCount = <span class="number">2000</span>; <span class="comment">// 程序循环次数</span></span><br><span class="line">t = getTimer();</span><br><span class="line"><span class="keyword">while</span>(i&lt;LOOPCOUNT)&#123;</span><br><span class="line"> <span class="comment">// 代码</span></span><br><span class="line"> i++;</span><br><span class="line">&#125;</span><br><span class="line">trace(getTimer()-t); <span class="comment">// 0.001 s为单位</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
 <li><p>_global需要FlashPlayer6或以上版本才支持</p>
 <figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_global..myVar = <span class="number">1000</span> <span class="comment">// 定义全局变量并赋值1000</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>加载到Root用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">最底层是_level0，数字越大越靠上</span><br><span class="line">如果加载到_level0就会取代原来的影片，同时原影片中的所有数据（变量、属性、方法、子影片、事件函数）除定义为_global的变量和函数，其它均被删除</span><br><span class="line">加载到target ，是加载swf到目标影片取代原影片，原影片的数据均会被删除</span><br><span class="line"></span><br><span class="line">7. 动态路径</span><br><span class="line">```as</span><br><span class="line">this.mc1._visible = 0;</span><br><span class="line">this.mc0._visible = 0;</span><br><span class="line">…...</span><br><span class="line">this.mc100._visible = 0;</span><br><span class="line"></span><br><span class="line">//==&gt;</span><br><span class="line"></span><br><span class="line">for (i = 1; i &lt; =100; i++) &#123;</span><br><span class="line">  this[&quot;mc&quot;+i]._visible = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<li><p>加载到Root用<code>loadMovie()</code>，加载到level用<code>loadMovieNum()</code><br>最底层是_level0，数字越大越靠上<br>如果加载到_level0就会取代原来的影片，同时原影片中的所有数据（变量、属性、方法、子影片、事件函数）除定义为_global的变量和函数，其它均被删除<br>加载到target ，是加载swf到目标影片取代原影片，原影片的数据均会被删除</p>
 </li>
-<li><figure class="highlight plain"><figcaption><span>0～(x-1)间的随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">从Flash5起，建议使用```Math.random()```代替，```Math.random()```产生0～0.9999…之间的随机数</span><br><span class="line">```Math.floor()```取下限值（等于或小于指定数最接近的整数）</span><br><span class="line"></span><br><span class="line">9. ```sort()```默认排序是先将数组各元素第一个字符转成ASCII码再比较</span><br><span class="line">```as</span><br><span class="line">//数字排序专用函数</span><br><span class="line">function scrtno(a,b)&#123;</span><br><span class="line">if(a &gt; b)&#123;</span><br><span class="line">  return 1;</span><br><span class="line">&#125;else if(a&lt;B)&#123;</span><br><span class="line"> return -1;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//用法</span><br><span class="line">foo=[50,1,5,100,10];</span><br><span class="line">foo.sort(sortno);</span><br></pre></td></tr></table></figure>
+<li><p>动态路径</p>
+<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.mc1._visible = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">this</span>.mc0._visible = <span class="number">0</span>;</span><br><span class="line">…...</span><br><span class="line"><span class="keyword">this</span>.mc100._visible = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//==&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; =<span class="number">100</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">this</span>[<span class="string">&quot;mc&quot;</span>+i]._visible = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">无论影片剪辑的形状是如何不规则，```hitTest()```是以一个矩形包围着影片边框做检查范围的</span><br><span class="line">点对不规则形状检查可用```movieClip.hitTest(x,y,true)```，x,y是全局座标</span><br><span class="line"></span><br><span class="line">11. 随机产生-1和1</span><br><span class="line">```as</span><br><span class="line">Math.pow(-1,random(2));</span><br></pre></td></tr></table></figure>
+<li><p><code>random(x)</code>产生 0～(x-1)间的随机数<br>从Flash5起，建议使用<code>Math.random()</code>代替，<code>Math.random()</code>产生0～0.9999…之间的随机数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">9. &#96;&#96;&#96;sort()&#96;&#96;&#96;默认排序是先将数组各元素第一个字符转成ASCII码再比较</span><br><span class="line">&#96;&#96;&#96;as</span><br><span class="line">&#x2F;&#x2F;数字排序专用函数</span><br><span class="line">function scrtno(a,b)&#123;</span><br><span class="line">if(a &gt; b)&#123;</span><br><span class="line">  return 1;</span><br><span class="line">&#125;else if(a&lt;B)&#123;</span><br><span class="line"> return -1;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;用法</span><br><span class="line">foo&#x3D;[50,1,5,100,10];</span><br><span class="line">foo.sort(sortno);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>hitTest()</code>不支持不规则形状碰撞检查<br>无论影片剪辑的形状是如何不规则，<code>hitTest()</code>是以一个矩形包围着影片边框做检查范围的<br>点对不规则形状检查可用<code>movieClip.hitTest(x,y,true)</code>，x,y是全局座标</p>
+</li>
+<li><p>随机产生-1和1</p>
+<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Math.pow(<span class="number">-1</span>,random(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>函数执行时，所有参数储存在数组arguments内，所以在函数内可以用 arguments[i] 来引用参数，0 &lt; I &lt; arguments.length</p>
 </li>
 <li><p>当执行return后，之后的程序不再执行，函数结束</p>
 </li>
 <li><p>将数字转换成货币格式，每千位以“,”分隔</p>
-<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatno</span><span class="params">(n)</span> </span>&#123;</span><br><span class="line"> n = String(n);</span><br><span class="line"> <span class="keyword">if</span> (n.indexOf(<span class="string">"."</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">  Num = n.substring(<span class="number">0</span>, n.indexOf(<span class="string">"."</span>));</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  Num = n;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> Array(<span class="string">'0'</span>), i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (n.indexOf(<span class="string">","</span>) == <span class="number">-1</span>) &#123;</span><br><span class="line"><span class="keyword">while</span> (Num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">arr[i] = <span class="string">''</span>+Num%<span class="number">1000</span>;</span><br><span class="line">Num = Math.floor(Num/<span class="number">1000</span>);</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line">arr = arr.reverse();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line"><span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">while</span> (arr[i].length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">arr[i] = <span class="string">'0'</span>+arr[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">trace(<span class="string">"d"</span>);</span><br><span class="line">arr[i] = Num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (n.indexOf(<span class="string">"."</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">Dec = n.substring(n.indexOf(<span class="string">"."</span>));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">Dec = <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Dec.length == <span class="number">0</span> or Number(Dec == <span class="number">0</span>)) &#123;</span><br><span class="line">arr += <span class="string">".00"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (Dec.length == <span class="number">2</span>) &#123;</span><br><span class="line">arr += Dec+<span class="string">"0"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">arr += Dec;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span> Num, Dec, i;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">var1 =<span class="number">1234567.8</span>;</span><br><span class="line">var2 = formatno(var1);</span><br><span class="line">trace(var2);</span><br></pre></td></tr></table></figure>
+<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatno</span><span class="params">(n)</span> </span>&#123;</span><br><span class="line"> n = String(n);</span><br><span class="line"> <span class="keyword">if</span> (n.indexOf(<span class="string">&quot;.&quot;</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">  Num = n.substring(<span class="number">0</span>, n.indexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  Num = n;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> Array(<span class="string">&#x27;0&#x27;</span>), i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (n.indexOf(<span class="string">&quot;,&quot;</span>) == <span class="number">-1</span>) &#123;</span><br><span class="line"><span class="keyword">while</span> (Num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">arr[i] = <span class="string">&#x27;&#x27;</span>+Num%<span class="number">1000</span>;</span><br><span class="line">Num = Math.floor(Num/<span class="number">1000</span>);</span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line">arr = arr.reverse();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line"><span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">while</span> (arr[i].length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">arr[i] = <span class="string">&#x27;0&#x27;</span>+arr[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">trace(<span class="string">&quot;d&quot;</span>);</span><br><span class="line">arr[i] = Num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (n.indexOf(<span class="string">&quot;.&quot;</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">Dec = n.substring(n.indexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">Dec = <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Dec.length == <span class="number">0</span> or Number(Dec == <span class="number">0</span>)) &#123;</span><br><span class="line">arr += <span class="string">&quot;.00&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (Dec.length == <span class="number">2</span>) &#123;</span><br><span class="line">arr += Dec+<span class="string">&quot;0&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">arr += Dec;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">delete</span> Num, Dec, i;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">var1 =<span class="number">1234567.8</span>;</span><br><span class="line">var2 = formatno(var1);</span><br><span class="line">trace(var2);</span><br></pre></td></tr></table></figure>
 </li>
-<li><figure class="highlight plain"><figcaption><span>"gavin.as"``` 后面没有 “;”</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  发布后外部as文件已经包括在swf里面，无须再上传</span><br><span class="line"></span><br><span class="line">16. 静态对象Key,Math,Mouse,Selection不能利用原形来扩建方法</span><br><span class="line"></span><br><span class="line">17. ScrollPane绑定的对象，无论之前什么名称，绑定之后都位tmp_mc，例如ScrollPane名称为sp，绑定myMC影片剪辑后，myMC路径为sp.tmp_mc</span><br><span class="line"></span><br><span class="line">18. 要知道该影片剪辑的路径，用</span><br><span class="line">```as</span><br><span class="line">mcfc = this._parent[this._targetInstanceName]</span><br></pre></td></tr></table></figure>
+<li><p><code>#include &quot;gavin.as&quot;</code> 后面没有 “;”<br>发布后外部as文件已经包括在swf里面，无须再上传</p>
+</li>
+<li><p>静态对象Key,Math,Mouse,Selection不能利用原形来扩建方法</p>
+</li>
+<li><p>ScrollPane绑定的对象，无论之前什么名称，绑定之后都位tmp_mc，例如ScrollPane名称为sp，绑定myMC影片剪辑后，myMC路径为sp.tmp_mc</p>
+</li>
+<li><p>要知道该影片剪辑的路径，用</p>
+<figure class="highlight as"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mcfc = <span class="keyword">this</span>._parent[<span class="keyword">this</span>._targetInstanceName]</span><br></pre></td></tr></table></figure>
+<p>将路径存储在变量mcfc中，以后mcfc调用</p>
 </li>
 </ol>
-<p>将路径存储在变量mcfc中，以后mcfc调用</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>请我喝杯咖啡可好？<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -450,7 +432,7 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -540,75 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,18 +531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">笔记本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,10 +554,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -676,15 +574,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,23 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数码伴侣</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,7 +614,111 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宏碁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,14 +750,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">罗技</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -785,10 +771,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GIT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,15 +798,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,15 +822,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,18 +886,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">zblog</a>
               </li>
              
@@ -925,10 +895,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -972,18 +938,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">增城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
@@ -993,6 +947,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">南昆山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">增城</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,11 +1010,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+                <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东门</a>
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1188,7 +1154,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1196,7 +1162,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安陆</a>
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,11 +1178,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1228,15 +1194,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">露营</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,6 +1207,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,23 +1238,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1301,6 +1259,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">skype</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Macromedia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">认证</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,15 +1326,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1448,6 +1414,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开封</a>
               </li>
              
@@ -1461,14 +1435,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">时间</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">红花湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">陈江</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1508,15 +1474,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">西安</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1524,7 +1486,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1540,14 +1506,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">刚察县</a>
               </li>
              
@@ -1557,6 +1515,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸟岛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">江西沟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1588,6 +1554,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">揭阳</a>
               </li>
              
@@ -1600,7 +1570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1608,7 +1582,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
