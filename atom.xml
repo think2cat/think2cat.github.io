@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2020-09-08T10:20:52.159Z</updated>
+  <updated>2020-09-09T03:21:53.136Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,17 +21,18 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2020-09-08T10:20:52.159Z</updated>
+    <updated>2020-09-09T03:21:53.136Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-目的&quot;&gt;&lt;a href=&quot;#1-目的&quot; class=&quot;headerlink&quot; title=&quot;1. 目的&quot;&gt;&lt;/a&gt;1.
-        
-      
+      &lt;p&gt;为规范代码特写了本文，但实际由于历史包袱，还有很多jQuery时代的代码，加上人员技术水平不齐，执行起来非常有难度&lt;/p&gt;
+&lt;h2 id=&quot;1-目的&quot;&gt;&lt;a href=&quot;#1-目的&quot; class=&quot;headerlink&quot; title=&quot;1. 目的&quot;&gt;&lt;/a&gt;1. 目的&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;易于阅读和理解&lt;/li&gt;
+&lt;li&gt;有助于debug&lt;/li&gt;
+&lt;li&gt;方便接手的人&lt;/li&gt;
+&lt;li&gt;不挖坑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;2-目录和文件规范&quot;&gt;&lt;a href=&quot;#2-目录和文件规范&quot; class=&quot;headerlink&quot; title=&quot;2. 目录和文件规范&quot;&gt;&lt;/a&gt;2. 目录和文件规范&lt;/h2&gt;&lt;h3 id=&quot;2-1-目录结构&quot;&gt;&lt;a href=&quot;#2-1-目录结构&quot; class=&quot;headerlink&quot; title=&quot;2.1 目录结构&quot;&gt;&lt;/a&gt;2.1 目录结构&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;src                                  源码目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- api                              接口，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- assets                           静态资源，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- components                       公用组件，全局文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- config                           配置信息&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- filters                          过滤器，全局工具&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- icons                            图标，全局资源&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- layout                           页面模板&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- libs                             公用工具库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- mock                             模拟接口，临时存放&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- store                            vuex, 状态管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- router                           路由，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- views                            视图目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   |-- account                      视图模块名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   |-- |-- mygroup.vue              模块入口页面&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

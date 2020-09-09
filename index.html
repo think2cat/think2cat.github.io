@@ -185,51 +185,15 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><ol>
+        <p>为规范代码特写了本文，但实际由于历史包袱，还有很多jQuery时代的代码，加上人员技术水平不齐，执行起来非常有难度</p>
+<h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><ol>
 <li>易于阅读和理解</li>
 <li>有助于debug</li>
 <li>方便接手的人</li>
 <li>不挖坑</li>
 </ol>
 <h2 id="2-目录和文件规范"><a href="#2-目录和文件规范" class="headerlink" title="2. 目录和文件规范"></a>2. 目录和文件规范</h2><h3 id="2-1-目录结构"><a href="#2-1-目录结构" class="headerlink" title="2.1 目录结构"></a>2.1 目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">src                                  源码目录</span><br><span class="line">|-- api                              接口，统一管理</span><br><span class="line">|-- assets                           静态资源，统一管理</span><br><span class="line">|-- components                       公用组件，全局文件</span><br><span class="line">|-- config                           配置信息</span><br><span class="line">|-- filters                          过滤器，全局工具</span><br><span class="line">|-- icons                            图标，全局资源</span><br><span class="line">|-- layout                           页面模板</span><br><span class="line">|-- libs                             公用工具库</span><br><span class="line">|-- mock                             模拟接口，临时存放</span><br><span class="line">|-- store                            vuex, 状态管理</span><br><span class="line">|-- router                           路由，统一管理</span><br><span class="line">|-- views                            视图目录</span><br><span class="line">|   |-- account                      视图模块名</span><br><span class="line">|   |-- |-- mygroup.vue              模块入口页面</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-vue文件结构"><a href="#2-2-vue文件结构" class="headerlink" title="2.2 vue文件结构"></a>2.2 vue文件结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- html --&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  components : &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">  &#125;，</span><br><span class="line">  methods: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--声明语言，并添加scoped--&gt;</span><br><span class="line">&lt;style lang&#x3D;&quot;less&quot; scoped&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-vue文件命名"><a href="#2-3-vue文件命名" class="headerlink" title="2.3 vue文件命名"></a>2.3 vue文件命名</h3><p>文件名遵循驼峰标准，模块+功能，所以文件名至少包含2个单词，比如 <code>userList</code>、<code>memberAdd</code></p>
-<h2 id="3-script规范"><a href="#3-script规范" class="headerlink" title="3. script规范"></a>3. script规范</h2><h3 id="3-1-对象顺序"><a href="#3-1-对象顺序" class="headerlink" title="3.1 对象顺序"></a>3.1 对象顺序</h3><p>一般来说，data和methods是使用最多，data有助于理清页面相关绑定数据，而methods是代码最多的</p>
-<p>推荐data放最前，methods放最后，这样有利于阅读和查找代码</p>
-<p>其它对象没有特殊要求，我个人习惯这样排</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- data</span><br><span class="line">- props</span><br><span class="line">- components</span><br><span class="line">- computed</span><br><span class="line">- filter</span><br><span class="line">- watch</span><br><span class="line">- mounted</span><br><span class="line">- metods</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-指令规范"><a href="#3-2-指令规范" class="headerlink" title="3.2 指令规范"></a>3.2 指令规范</h3><ol>
-<li>v-bind 和 v-on使用简写 :value 和 @click</li>
-<li>v-for需加上key，并确保key是循环体内唯一的</li>
-<li>对于大段落html使用v-if和v-else的，需加上注释标明开始和结束</li>
-<li>无需刷新的数据用v-once</li>
-<li>非必要情况不使用v-html</li>
-</ol>
-<h3 id="3-3-emit事件规范"><a href="#3-3-emit事件规范" class="headerlink" title="3.3 emit事件规范"></a>3.3 emit事件规范</h3><p>暴露给外部的回调事件，需符合html组件，使用简介明确的名称，比如 <code>click</code>、<code>onChange</code>、<code>onSuccess</code></p>
-<p>用户主动触发的事件，使用动作单词，如 <code>click</code>、<code>input</code></p>
-<p>非用户主动触发的事件，是用 on+事件名称，如 <code>onFail</code>、<code>onClose</code></p>
-<p>禁止使用复杂命名，比如 <code>goMemberDetail</code>、<code>submitComment</code>、<code>goCustomer</code></p>
-<h3 id="3-4-props规范"><a href="#3-4-props规范" class="headerlink" title="3.4 props规范"></a>3.4 props规范</h3><p>禁止不定义参数类型，<code>props: [&#39;status&#39;]</code></p>
-<p>除了类型外，建议带上注释和默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 是否显示[步骤1]</span><br><span class="line">showStep: &#123;</span><br><span class="line">  type: Boolean,</span><br><span class="line">  default: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-注释规范"><a href="#4-注释规范" class="headerlink" title="4. 注释规范"></a>4. 注释规范</h2><p>以下场景必须添加注释</p>
-<ol>
-<li>通用组件使用说明</li>
-<li>函数说明</li>
-<li>复杂业务逻辑说明</li>
-<li>存在已知问题的代码</li>
-<li>复杂 if 判断<br>6.</li>
-</ol>
-<h3 id="4-1-函数注释"><a href="#4-1-函数注释" class="headerlink" title="4.1 函数注释"></a>4.1 函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">  * 方法名称</span><br><span class="line">  * @module 从属模块</span><br><span class="line">  * @desc 描述</span><br><span class="line">  * @author 作者</span><br><span class="line">  * @date 2019-7-22 16:40:23</span><br><span class="line">  * @param &#123;Object&#125; [title]    - 参数说明</span><br><span class="line">  * @param &#123;String&#125; [columns] - 参数说明</span><br><span class="line">  * @return &#123;Object&#125; 返回数据说明</span><br><span class="line">  * @example 调用示例</span><br><span class="line">  *  getById(xxx)</span><br><span class="line">  **&#x2F;</span><br></pre></td></tr></table></figure>
-<p>简单的函数，可以描述以下具体作用即可，推荐加上参数说明和参数类型</p>
-<h3 id="4-2-TODO注释"><a href="#4-2-TODO注释" class="headerlink" title="4.2 TODO注释"></a>4.2 TODO注释</h3><p>等待完善的代码，建议加上 TODO，附上未完成的功能说明<br>如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; TODO 未加异常判断</span><br></pre></td></tr></table></figure></p>
-<p>另外还有 FIXME，在一些已知问题代码，并优先度较高的，可加此注释，每次发版本前搜一下有没遗忘</p>
-<h2 id="5-CSS规范"><a href="#5-CSS规范" class="headerlink" title="5. CSS规范"></a>5. CSS规范</h2><ol>
-<li>CSS能做的不用JS</li>
-<li>数值为0时不加单位，如<code>0px</code>应写为<code>0</code></li>
-<li>组件内用scoped作用域<br>4.</li>
-</ol>
-<p>待补充</p>
-
+        
       
 
       
