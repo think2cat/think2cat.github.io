@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2020-09-09T03:21:53.136Z</updated>
+  <updated>2020-11-20T09:14:40.215Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宏任务、微任务</title>
+    <link href="http://21ido.com/2020/09/5bd537b/"/>
+    <id>http://21ido.com/2020/09/5bd537b/</id>
+    <published>2020-09-14T02:34:10.000Z</published>
+    <updated>2020-11-20T09:14:40.215Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，JavaScript是单线程语言&lt;/p&gt;
+&lt;h3 id=&quot;1-进程和线程的关系&quot;&gt;&lt;a href=&quot;#1-进程和线程的关系&quot; class=&quot;headerlink&quot; title=&quot;1. 进程和线程的关系&quot;&gt;&lt;/a&gt;1. 进程和线程的关系&lt;/h3&gt;&lt;p&gt;一个程序至少有一个进程，而一个进程至少有一个线程&lt;br&gt;线程是进程的实体，是CPU调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位&lt;/p&gt;
+&lt;p&gt;进程如果是一个工厂，线程则是工厂里干活的工人&lt;br&gt;工人共享一个劳动空间，共享劳动工具&lt;/p&gt;
+&lt;p&gt;就是说进程里，有一个或多个线程，各线程共享同个内存空间和数据&lt;/p&gt;
+&lt;p&gt;可以看看阮一峰的&lt;a href=&quot;https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html&quot;&gt;《进程与线程的一个简单解释》&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-浏览器是多线程&quot;&gt;&lt;a href=&quot;#2-浏览器是多线程&quot; class=&quot;headerlink&quot; title=&quot;2. 浏览器是多线程&quot;&gt;&lt;/a&gt;2. 浏览器是多线程&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;GUI渲染线程&lt;/li&gt;
+&lt;li&gt;JS引擎线程&lt;/li&gt;
+&lt;li&gt;事件触发线程&lt;/li&gt;
+&lt;li&gt;定时触发线程&lt;/li&gt;
+&lt;li&gt;异步http请求线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，GUI线程和JS线程，是互斥！也就是某些页面在做JS运算时，会导致DOM刷新卡住的根源。&lt;br&gt;所以当JS线程在执行运算时，GUI线程是挂起的&lt;br&gt;早期通过在代码增加&lt;code&gt;setTimeout&lt;/code&gt;来解决渲染卡顿问题&lt;/p&gt;
+&lt;h3 id=&quot;3-Javascript是单线程&quot;&gt;&lt;a href=&quot;#3-Javascript是单线程&quot; class=&quot;headerlink&quot; title=&quot;3. Javascript是单线程&quot;&gt;&lt;/a&gt;3. Javascript是单线程&lt;/h3&gt;&lt;p&gt;JavaScript可以同时执行多个JS文件代码，看似多线程同时执行，其实还是单线程，只不过是分隔成多个任务，在不同任务跳转进行运算&lt;/p&gt;
+&lt;p&gt;Javascript的执行机制称为Event Loop&lt;/p&gt;
+&lt;p&gt;任务又分为同步和异步&lt;/p&gt;
+&lt;p&gt;同步任务都在主线程上执行，遇到异步任务，则丢到任务队列，接着继续执行同步任务，等到同步任务执行完毕，主线程空闲了，才会回过头去查看任务队列&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2020/09/task.jpg&quot; alt=&quot;event loop&quot;&gt;&lt;br&gt;（图片搜自谷歌）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
+    
+  </entry>
   
   <entry>
     <title>VUE代码规范</title>
@@ -511,35 +550,6 @@
       <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="delegate" scheme="http://21ido.com/tags/delegate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jsPlumb学习笔记（2）</title>
-    <link href="http://21ido.com/2018/01/c1587beb/"/>
-    <id>http://21ido.com/2018/01/c1587beb/</id>
-    <published>2018-01-10T09:11:38.000Z</published>
-    <updated>2019-03-12T06:21:23.974Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;完成元素拖动后，接着做连线，连线由几部分组成&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Endpoint 端点，默认为圆点&lt;/li&gt;
-&lt;li&gt;Connector 连接线，默认为贝塞尔曲线&lt;/li&gt;
-&lt;li&gt;Anchor 锚点，不可见元素，跟Endpoint是绑定的，在动态创建连接线时使用&lt;/li&gt;
-&lt;li&gt;Overlay 覆盖物，如连线上的箭头，也可以是文字或dom元素&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;当容器append了一个dom后，调用addEndpoint来增加输出和输入端点，该函数接受3个参数，分别是dom，参数以及附加参数&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="jsPlumb" scheme="http://21ido.com/tags/jsPlumb/"/>
     
   </entry>
   
