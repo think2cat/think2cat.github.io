@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://21ido.com/images/2018/01/js9.png">
 <meta property="og:image" content="http://21ido.com/images/2018/01/js10.png">
 <meta property="article:published_time" content="2018-01-10T09:11:38.000Z">
-<meta property="article:modified_time" content="2019-03-12T06:21:23.974Z">
+<meta property="article:modified_time" content="2022-10-21T00:34:19.677Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="jsPlumb">
@@ -41,23 +41,21 @@
     }
   </style>
   
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1162524-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-ga('create', 'UA-1162524-4', 'auto');
-ga('send', 'pageview');
-
+  gtag('config', 'UA-1162524-4');
 </script>
 <!-- End Google Analytics -->
 
 
   
 
-<meta name="generator" content="Hexo 5.1.1"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -98,13 +96,13 @@ ga('send', 'pageview');
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 					<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -143,13 +141,13 @@ ga('send', 'pageview');
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="../../../https:/github.com/think2cat" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/think2cat" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="../../../https:/www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://www.weibo.com/sunny4cat" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="../../../atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="../../../https:/www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/fan-hu-mao/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 						<a class="mail" target="_blank" href="../../../mailto:gavin2026%5BA%5Dgmail" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -204,12 +202,12 @@ ga('send', 'pageview');
 <li>Anchor 锚点，不可见元素，跟Endpoint是绑定的，在动态创建连接线时使用</li>
 <li>Overlay 覆盖物，如连线上的箭头，也可以是文字或dom元素</li>
 </ol>
-<p>当容器append了一个dom后，调用addEndpoint来增加输出和输入端点，该函数接受3个参数，分别是dom，参数以及附加参数<br><a id="more"></a><br>共用的参数可以写进附加参数，然后参数里相同的属性会进行覆盖 参数详细介绍在这里 <a target="_blank" rel="noopener" href="https://jsplumbtoolkit.com/community/apidocs/classes/jsPlumb.html#method_addEndpoint">addEndpoint</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.addEndpoint(newDom, &#123; <span class="attr">isTarget</span>: <span class="literal">true</span>, <span class="attr">anchor</span>: <span class="string">&quot;Left&quot;</span> &#125;); </span><br><span class="line">jsPlumb.addEndpoint(newDom, &#123; <span class="attr">isSource</span>: <span class="literal">true</span>, <span class="attr">anchor</span>: <span class="string">&quot;Right&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>当容器append了一个dom后，调用addEndpoint来增加输出和输入端点，该函数接受3个参数，分别是dom，参数以及附加参数<br><span id="more"></span><br>共用的参数可以写进附加参数，然后参数里相同的属性会进行覆盖 参数详细介绍在这里 <a target="_blank" rel="noopener" href="https://jsplumbtoolkit.com/community/apidocs/classes/jsPlumb.html#method_addEndpoint">addEndpoint</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.<span class="title function_">addEndpoint</span>(newDom, &#123; <span class="attr">isTarget</span>: <span class="literal">true</span>, <span class="attr">anchor</span>: <span class="string">&quot;Left&quot;</span> &#125;); </span><br><span class="line">jsPlumb.<span class="title function_">addEndpoint</span>(newDom, &#123; <span class="attr">isSource</span>: <span class="literal">true</span>, <span class="attr">anchor</span>: <span class="string">&quot;Right&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
 <p>增加输出和输入端点后，即可进行连线</p>
 <p><img src="/images/2018/01/js6.gif" alt=""></p>
 <p>连线操作OK，有点丑，加个样式看看</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connectorStyle = &#123;</span><br><span class="line">	<span class="comment">//端点样式</span></span><br><span class="line">	paintStyle: &#123;</span><br><span class="line">		fill: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line">		radius: <span class="number">7</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//连线类型</span></span><br><span class="line">	connector: [<span class="string">&quot;Flowchart&quot;</span>, &#123;</span><br><span class="line">			stub: [<span class="number">40</span>, <span class="number">60</span>],</span><br><span class="line">			gap: <span class="number">10</span>,</span><br><span class="line">			cornerRadius: <span class="number">5</span>,</span><br><span class="line">			alwaysRespectStubs: <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="comment">//连线样式</span></span><br><span class="line">	connectorStyle: &#123;</span><br><span class="line">		strokeWidth: <span class="number">3</span>,</span><br><span class="line">		stroke: <span class="string">&quot;#9C9DA9&quot;</span>,</span><br><span class="line">		joinstyle: <span class="string">&quot;round&quot;</span>,</span><br><span class="line">		outlineStroke: <span class="string">&quot;none&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//鼠标移上样式</span></span><br><span class="line">	hoverPaintStyle: &#123;</span><br><span class="line">		fill: <span class="string">&quot;#216477&quot;</span>,</span><br><span class="line">		stroke: <span class="string">&quot;#216477&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">jsPlumb.addEndpoint(newDom, &#123;</span><br><span class="line">	isTarget: <span class="literal">true</span>,</span><br><span class="line">	anchor: <span class="string">&quot;Left&quot;</span></span><br><span class="line">&#125;, connectorStyle);</span><br><span class="line">jsPlumb.addEndpoint(newDom, &#123;</span><br><span class="line">	isSource: <span class="literal">true</span>,</span><br><span class="line">	anchor: <span class="string">&quot;Right&quot;</span>,</span><br><span class="line">	paintStyle: &#123;</span><br><span class="line">		stroke: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line">		fill: <span class="string">&quot;transparent&quot;</span>,</span><br><span class="line">		radius: <span class="number">7</span>,</span><br><span class="line">		strokeWidth: <span class="number">2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;, connectorStyle);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connectorStyle = &#123;</span><br><span class="line">	<span class="comment">//端点样式</span></span><br><span class="line">	<span class="attr">paintStyle</span>: &#123;</span><br><span class="line">		<span class="attr">fill</span>: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line">		<span class="attr">radius</span>: <span class="number">7</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//连线类型</span></span><br><span class="line">	<span class="attr">connector</span>: [<span class="string">&quot;Flowchart&quot;</span>, &#123;</span><br><span class="line">			<span class="attr">stub</span>: [<span class="number">40</span>, <span class="number">60</span>],</span><br><span class="line">			<span class="attr">gap</span>: <span class="number">10</span>,</span><br><span class="line">			<span class="attr">cornerRadius</span>: <span class="number">5</span>,</span><br><span class="line">			<span class="attr">alwaysRespectStubs</span>: <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="comment">//连线样式</span></span><br><span class="line">	<span class="attr">connectorStyle</span>: &#123;</span><br><span class="line">		<span class="attr">strokeWidth</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="attr">stroke</span>: <span class="string">&quot;#9C9DA9&quot;</span>,</span><br><span class="line">		<span class="attr">joinstyle</span>: <span class="string">&quot;round&quot;</span>,</span><br><span class="line">		<span class="attr">outlineStroke</span>: <span class="string">&quot;none&quot;</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//鼠标移上样式</span></span><br><span class="line">	<span class="attr">hoverPaintStyle</span>: &#123;</span><br><span class="line">		<span class="attr">fill</span>: <span class="string">&quot;#216477&quot;</span>,</span><br><span class="line">		<span class="attr">stroke</span>: <span class="string">&quot;#216477&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">jsPlumb.<span class="title function_">addEndpoint</span>(newDom, &#123;</span><br><span class="line">	<span class="attr">isTarget</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">anchor</span>: <span class="string">&quot;Left&quot;</span></span><br><span class="line">&#125;, connectorStyle);</span><br><span class="line">jsPlumb.<span class="title function_">addEndpoint</span>(newDom, &#123;</span><br><span class="line">	<span class="attr">isSource</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">anchor</span>: <span class="string">&quot;Right&quot;</span>,</span><br><span class="line">	<span class="attr">paintStyle</span>: &#123;</span><br><span class="line">		<span class="attr">stroke</span>: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line">		<span class="attr">fill</span>: <span class="string">&quot;transparent&quot;</span>,</span><br><span class="line">		<span class="attr">radius</span>: <span class="number">7</span>,</span><br><span class="line">		<span class="attr">strokeWidth</span>: <span class="number">2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;, connectorStyle);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>为了区分输出和输入端点，把输出点改为空心样式</p>
 <p><img src="/images/2018/01/js7.gif" alt=""></p>
 <p>看着感觉有点怪，少了箭头，接着添加覆盖物overlay</p>
@@ -232,19 +230,19 @@ ga('send', 'pageview');
 <p>加入overlay有几种途径</p>
 <ol>
 <li><p>设置全局默认属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.importDefaults(&#123;</span><br><span class="line">	ConnectionOverlays: [</span><br><span class="line">		[<span class="string">&quot;Arrow&quot;</span>, &#123;<span class="attr">location</span>: <span class="number">1</span>&#125;]</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.<span class="title function_">importDefaults</span>(&#123;</span><br><span class="line">	<span class="title class_">ConnectionOverlays</span>: [</span><br><span class="line">		[<span class="string">&quot;Arrow&quot;</span>, &#123;<span class="attr">location</span>: <span class="number">1</span>&#125;]</span><br><span class="line">	]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建端点时，附加属性来控制，比如前面的connectorStyle</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connectorStyle = &#123;</span><br><span class="line"> 	connectorOverlays: [</span><br><span class="line"> 		[<span class="string">&quot;Arrow&quot;</span>, &#123;<span class="attr">location</span>: <span class="number">1</span>, <span class="attr">id</span>: <span class="string">&quot;arrow&quot;</span>&#125;],</span><br><span class="line"> 		[<span class="string">&quot;Label&quot;</span>, &#123;</span><br><span class="line"> 				label: <span class="string">&quot;21ido.com&quot;</span>,</span><br><span class="line"> 				location: <span class="number">0.5</span></span><br><span class="line"> 			&#125;</span><br><span class="line"> 		]</span><br><span class="line"> 	]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connectorStyle = &#123;</span><br><span class="line"> 	<span class="attr">connectorOverlays</span>: [</span><br><span class="line"> 		[<span class="string">&quot;Arrow&quot;</span>, &#123;<span class="attr">location</span>: <span class="number">1</span>, <span class="attr">id</span>: <span class="string">&quot;arrow&quot;</span>&#125;],</span><br><span class="line"> 		[<span class="string">&quot;Label&quot;</span>, &#123;</span><br><span class="line"> 				<span class="attr">label</span>: <span class="string">&quot;21ido.com&quot;</span>,</span><br><span class="line"> 				<span class="attr">location</span>: <span class="number">0.5</span></span><br><span class="line"> 			&#125;</span><br><span class="line"> 		]</span><br><span class="line"> 	]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>overlay是可以多个，这样在连线是除了箭头，还多了文字</p>
 <p><img src="/images/2018/01/js9.png" alt=""></p>
 </li>
 <li><p>connect方法动态创建</p>
 <p> 在调用jsPlumb.addEndpoint时，将返回endpoint对象，假设连线是通过JS创建，而不是鼠标拖动完成</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.connect(&#123;</span><br><span class="line"> 	source: pointSource,</span><br><span class="line"> 	target: pointTarget,</span><br><span class="line"> 	overlays: [[<span class="string">&quot;Custom&quot;</span>, &#123;</span><br><span class="line"> 		create: <span class="function"><span class="keyword">function</span> (<span class="params">component</span>) </span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> $(<span class="string">&quot;&lt;img src=&#x27;http://bpic.588ku.com/element_origin_min_pic/00/93/91/4056f2b13a70c32.jpg&#x27; /&gt;&quot;</span>);</span><br><span class="line"> 			&#125;,</span><br><span class="line"> 		id: <span class="string">&quot;smile&quot;</span></span><br><span class="line"> 		&#125;</span><br><span class="line"> 	]]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.<span class="title function_">connect</span>(&#123;</span><br><span class="line"> 	<span class="attr">source</span>: pointSource,</span><br><span class="line"> 	<span class="attr">target</span>: pointTarget,</span><br><span class="line"> 	<span class="attr">overlays</span>: [[<span class="string">&quot;Custom&quot;</span>, &#123;</span><br><span class="line"> 		<span class="attr">create</span>: <span class="keyword">function</span> (<span class="params">component</span>) &#123;</span><br><span class="line"> 			<span class="keyword">return</span> $(<span class="string">&quot;&lt;img src=&#x27;http://bpic.588ku.com/element_origin_min_pic/00/93/91/4056f2b13a70c32.jpg&#x27; /&gt;&quot;</span>);</span><br><span class="line"> 			&#125;,</span><br><span class="line"> 		<span class="attr">id</span>: <span class="string">&quot;smile&quot;</span></span><br><span class="line"> 		&#125;</span><br><span class="line"> 	]]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p> 动态创建连线，overlay是自定义html元素，一个笑脸图片</p>
 <p> 除了连线overlay，端点也可以增加overlay，比如在源端点增加一个文字</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.addEndpoint(newDom, &#123;</span><br><span class="line"> 	isSource: <span class="literal">true</span>,</span><br><span class="line"> 	anchor: <span class="string">&quot;Right&quot;</span>,</span><br><span class="line"> 	paintStyle: &#123;</span><br><span class="line"> 		stroke: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line"> 		fill: <span class="string">&quot;transparent&quot;</span>,</span><br><span class="line"> 		radius: <span class="number">7</span>,</span><br><span class="line"> 		strokeWidth: <span class="number">2</span></span><br><span class="line"> 	&#125;,</span><br><span class="line"> 	overlays: [</span><br><span class="line"> 		[<span class="string">&quot;Label&quot;</span>, &#123;</span><br><span class="line"> 				label: <span class="string">&quot;source&quot;</span>,</span><br><span class="line"> 				id: <span class="string">&quot;label&quot;</span>,</span><br><span class="line"> 				location: [<span class="number">3</span>, <span class="number">0.5</span>],</span><br><span class="line"> 				cssClass: <span class="string">&quot;endpointLabel&quot;</span></span><br><span class="line"> 			&#125;</span><br><span class="line"> 		]</span><br><span class="line"> 	]</span><br><span class="line">&#125;, connectorStyle);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">jsPlumb.<span class="title function_">addEndpoint</span>(newDom, &#123;</span><br><span class="line"> 	<span class="attr">isSource</span>: <span class="literal">true</span>,</span><br><span class="line"> 	<span class="attr">anchor</span>: <span class="string">&quot;Right&quot;</span>,</span><br><span class="line"> 	<span class="attr">paintStyle</span>: &#123;</span><br><span class="line"> 		<span class="attr">stroke</span>: <span class="string">&quot;#7AB02C&quot;</span>,</span><br><span class="line"> 		<span class="attr">fill</span>: <span class="string">&quot;transparent&quot;</span>,</span><br><span class="line"> 		<span class="attr">radius</span>: <span class="number">7</span>,</span><br><span class="line"> 		<span class="attr">strokeWidth</span>: <span class="number">2</span></span><br><span class="line"> 	&#125;,</span><br><span class="line"> 	<span class="attr">overlays</span>: [</span><br><span class="line"> 		[<span class="string">&quot;Label&quot;</span>, &#123;</span><br><span class="line"> 				<span class="attr">label</span>: <span class="string">&quot;source&quot;</span>,</span><br><span class="line"> 				<span class="attr">id</span>: <span class="string">&quot;label&quot;</span>,</span><br><span class="line"> 				<span class="attr">location</span>: [<span class="number">3</span>, <span class="number">0.5</span>],</span><br><span class="line"> 				<span class="attr">cssClass</span>: <span class="string">&quot;endpointLabel&quot;</span></span><br><span class="line"> 			&#125;</span><br><span class="line"> 		]</span><br><span class="line"> 	]</span><br><span class="line">&#125;, connectorStyle);</span><br></pre></td></tr></table></figure>
 <p> 效果如下图<br><img src="/images/2018/01/js10.png" alt=""></p>
 </li>
 </ol>
@@ -429,7 +427,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 猫大叔
+    		&copy; 2022 猫大叔
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -508,11 +506,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
+                <a href="javascript:void(0)" class="js-tag color3">actionscript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">flex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,79 +530,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">mFancy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+                <a href="javascript:void(0)" class="js-tag color2">mobile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">actionscript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,19 +554,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
+                <a href="javascript:void(0)" class="js-tag color3">蓝牙</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
+                <a href="javascript:void(0)" class="js-tag color1">MX460</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+                <a href="javascript:void(0)" class="js-tag color5">森海塞尔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多普达</a>
+                <a href="javascript:void(0)" class="js-tag color3">耳塞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,10 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蓝牙</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPS</a>
               </li>
              
@@ -652,27 +594,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MX460</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">森海塞尔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">耳塞</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">充电器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">摩登舞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,19 +626,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网银</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">希捷</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">移动硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网银</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,19 +658,87 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">flex</a>
+                <a href="javascript:void(0)" class="js-tag color3">firefox</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">mFancy</a>
+                <a href="javascript:void(0)" class="js-tag color5">microsoft</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">netbeans</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sun</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cvs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BIOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ESP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UEFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">WIN10</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">win2003</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">卡巴斯基</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蓝屏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EPS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">zonealarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,6 +747,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,14 +767,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wsdl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,18 +794,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">seo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">module</a>
               </li>
              
@@ -820,11 +806,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">npapi</a>
+                <a href="javascript:void(0)" class="js-tag color4">seo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">npapi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,10 +839,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ruby</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,6 +914,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">generator</a>
               </li>
              
@@ -932,23 +938,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷街</a>
+                <a href="javascript:void(0)" class="js-tag color5">南山66</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">南山</a>
+                <a href="javascript:void(0)" class="js-tag color3">平花</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">沙井</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单车</a>
+                <a href="javascript:void(0)" class="js-tag color5">海滨广场</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">轮滑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷街</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">市民中心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,23 +978,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">南山66</a>
+                <a href="javascript:void(0)" class="js-tag color3">单车</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">市民中心</a>
+                <a href="javascript:void(0)" class="js-tag color3">南山</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">莲花山</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">平花</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">海滨广场</a>
+                <a href="javascript:void(0)" class="js-tag color3">沙井</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1024,6 +1030,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东门</a>
               </li>
              
@@ -1045,10 +1055,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">虎门</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">世界之窗</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,15 +1086,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">孝感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">东莞</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">松山湖</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">孝感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1108,10 +1114,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">汕头</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潮州</a>
               </li>
              
@@ -1120,15 +1122,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">汕头</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">金子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">横岗</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">美利达</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">金子</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,6 +1182,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元旦</a>
               </li>
              
@@ -1184,19 +1194,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">信阳</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">塘郎山</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
+                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">松岗</a>
+                <a href="javascript:void(0)" class="js-tag color3">深圳</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1208,11 +1214,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">露营</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">金鸡号</a>
+                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,10 +1231,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">东西冲</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1252,19 +1258,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">鹅公湾</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color4">华侨城</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">skype</a>
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,6 +1275,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">skype</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1292,11 +1298,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color3">咖啡</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">咖啡</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1346,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巴厘岛</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">潜水</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">圣诞节</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1408,7 +1414,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">万宁</a>
+                <a href="javascript:void(0)" class="js-tag color3">文昌</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1416,7 +1422,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文昌</a>
+                <a href="javascript:void(0)" class="js-tag color3">万宁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1488,11 +1494,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">西安</a>
+                <a href="javascript:void(0)" class="js-tag color3">华山</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
+                <a href="javascript:void(0)" class="js-tag color3">西宁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">西安</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1500,15 +1510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">华山</a>
+                <a href="javascript:void(0)" class="js-tag color3">钟楼</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大雁塔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">西宁</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1525,6 +1531,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">黑马河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">水井巷</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">莫家街</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1548,15 +1562,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">东湖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">勒索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">敲诈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">东湖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1569,26 +1587,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">陆丰</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">鼠</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">水井巷</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">莫家街</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">paypal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spider</a>
               </li>
             
             <div class="clearfix"></div>
