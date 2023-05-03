@@ -167,6 +167,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/智能数据库链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2003/10/df8b585/">智能数据库链接</a>
+    </h1>
+  
+
+        
+        <a href="../../2003/10/df8b585/" class="archive-article-date">
+  	<time datetime="2003-10-01T12:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-10-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> DBName(<span class="number">4</span>)</span><br><span class="line">DBName(<span class="number">4</span>)=<span class="string">&quot;/Tsys/DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">1</span>)=<span class="string">&quot;DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">2</span>)=<span class="string">&quot;../DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">3</span>)=<span class="string">&quot;../../DataBase/DataBase.mdb&quot;</span></span><br><span class="line"><span class="keyword">Dim</span> DBName_Level</span><br><span class="line">DBName_Level=<span class="number">0</span></span><br><span class="line"><span class="keyword">Dim</span> Connstr</span><br><span class="line">Connstr = <span class="string">&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&quot;</span></span><br><span class="line"><span class="keyword">Dim</span> Conn</span><br><span class="line"><span class="keyword">Set</span> Conn=<span class="built_in">Server</span>.<span class="built_in">CreateObject</span>(<span class="string">&quot;ADODB.CONNECTION&quot;</span>)</span><br><span class="line"><span class="keyword">Call</span> ConnOpen()</span><br><span class="line"></span><br><span class="line"><span class="keyword">Function</span> ConnOpen()</span><br><span class="line">    <span class="keyword">On</span> <span class="keyword">Error</span> <span class="keyword">Resume</span> <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">Dim</span> I</span><br><span class="line">    <span class="keyword">For</span> I=<span class="number">1</span> <span class="keyword">To</span> <span class="built_in">UBound</span>(DBName)</span><br><span class="line">        Err.Clear</span><br><span class="line">        Conn.Open Connstr &amp; <span class="built_in">Server</span>.MapPath(DBName(I))</span><br><span class="line">        <span class="keyword">If</span> Err.Number=<span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">            DBName_Level=I</span><br><span class="line">            ConnOpen=<span class="literal">true</span></span><br><span class="line">            <span class="keyword">Exit</span> <span class="keyword">Function</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">If</span> DBName_Level=<span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">        Err.Clear</span><br><span class="line">        <span class="built_in">Response</span>.Write <span class="string">&quot;&lt;p&gt;以下数据库无法打开，请查看Conn.asp文件及*.mdb数据库的位置&lt;/p&gt;&quot;</span></span><br><span class="line">        <span class="keyword">For</span> I=<span class="number">1</span> <span class="keyword">To</span> <span class="built_in">UBound</span>(DBName)</span><br><span class="line">            <span class="comment">&#x27;打印所有数据库路径</span></span><br><span class="line">            <span class="comment">&#x27;Response.Write(&quot;&quot; &amp; DBName(I) &amp; &quot;&lt;br&gt;&quot;)</span></span><br><span class="line">        <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">asp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2003/10/df8b585/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Life/Cat_s_Blog基本完成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1182,6 +1266,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">节日</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
