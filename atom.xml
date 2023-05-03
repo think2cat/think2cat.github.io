@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>猫大叔</title>
+  
+  <subtitle>关注前端，热爱生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://21ido.com/"/>
+  <updated>2023-05-03T15:11:30.132Z</updated>
+  <id>http://21ido.com/</id>
+  
+  <author>
+    <name>猫大叔</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宏任务、微任务</title>
+    <link href="http://21ido.com/2020/09/5bd537b/"/>
+    <id>http://21ido.com/2020/09/5bd537b/</id>
+    <published>2020-09-14T02:34:10.000Z</published>
+    <updated>2023-05-03T15:11:30.132Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，JavaScript是单线程语言&lt;/p&gt;
+&lt;h3 id=&quot;1-进程和线程的关系&quot;&gt;&lt;a href=&quot;#1-进程和线程的关系&quot; class=&quot;headerlink&quot; title=&quot;1. 进程和线程的关系&quot;&gt;&lt;/a&gt;1. 进程和线程的关系&lt;/h3&gt;&lt;p&gt;一个程序至少有一个进程，而一个进程至少有一个线程&lt;br&gt;线程是进程的实体，是CPU调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位&lt;/p&gt;
+&lt;p&gt;进程如果是一个工厂，线程则是工厂里干活的工人&lt;br&gt;工人共享一个劳动空间，共享劳动工具&lt;/p&gt;
+&lt;p&gt;就是说进程里，有一个或多个线程，各线程共享同个内存空间和数据&lt;/p&gt;
+&lt;p&gt;可以看看阮一峰的&lt;a href=&quot;https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html&quot;&gt;《进程与线程的一个简单解释》&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-浏览器是多线程&quot;&gt;&lt;a href=&quot;#2-浏览器是多线程&quot; class=&quot;headerlink&quot; title=&quot;2. 浏览器是多线程&quot;&gt;&lt;/a&gt;2. 浏览器是多线程&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;GUI渲染线程&lt;/li&gt;
+&lt;li&gt;JS引擎线程&lt;/li&gt;
+&lt;li&gt;事件触发线程&lt;/li&gt;
+&lt;li&gt;定时触发线程&lt;/li&gt;
+&lt;li&gt;异步http请求线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，GUI线程和JS线程，是互斥！也就是某些页面在做JS运算时，会导致DOM刷新卡住的根源。&lt;br&gt;所以当JS线程在执行运算时，GUI线程是挂起的&lt;br&gt;早期通过在代码增加&lt;code&gt;setTimeout&lt;/code&gt;来解决渲染卡顿问题&lt;/p&gt;
+&lt;h3 id=&quot;3-Javascript是单线程&quot;&gt;&lt;a href=&quot;#3-Javascript是单线程&quot; class=&quot;headerlink&quot; title=&quot;3. Javascript是单线程&quot;&gt;&lt;/a&gt;3. Javascript是单线程&lt;/h3&gt;&lt;p&gt;JavaScript可以同时执行多个JS文件代码，看似多线程同时执行，其实还是单线程，只不过是分隔成多个任务，在不同任务跳转进行运算&lt;/p&gt;
+&lt;p&gt;Javascript的执行机制称为Event Loop&lt;/p&gt;
+&lt;p&gt;任务又分为同步和异步&lt;/p&gt;
+&lt;p&gt;同步任务都在主线程上执行，遇到异步任务，则丢到任务队列，接着继续执行同步任务，等到同步任务执行完毕，主线程空闲了，才会回过头去查看任务队列&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2020/09/task.jpg&quot; alt=&quot;event loop&quot;&gt;&lt;br&gt;（图片搜自谷歌）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VUE代码规范</title>
+    <link href="http://21ido.com/2019/07/c9ca51c5/"/>
+    <id>http://21ido.com/2019/07/c9ca51c5/</id>
+    <published>2019-07-22T06:21:08.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为规范代码特写了本文，但实际由于历史包袱，还有很多jQuery时代的代码，加上人员技术水平不齐，执行起来非常有难度&lt;/p&gt;
+&lt;h2 id=&quot;1-目的&quot;&gt;&lt;a href=&quot;#1-目的&quot; class=&quot;headerlink&quot; title=&quot;1. 目的&quot;&gt;&lt;/a&gt;1. 目的&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;易于阅读和理解&lt;/li&gt;
+&lt;li&gt;有助于debug&lt;/li&gt;
+&lt;li&gt;方便接手的人&lt;/li&gt;
+&lt;li&gt;不挖坑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;2-目录和文件规范&quot;&gt;&lt;a href=&quot;#2-目录和文件规范&quot; class=&quot;headerlink&quot; title=&quot;2. 目录和文件规范&quot;&gt;&lt;/a&gt;2. 目录和文件规范&lt;/h2&gt;&lt;h3 id=&quot;2-1-目录结构&quot;&gt;&lt;a href=&quot;#2-1-目录结构&quot; class=&quot;headerlink&quot; title=&quot;2.1 目录结构&quot;&gt;&lt;/a&gt;2.1 目录结构&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;src                                  源码目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- api                              接口，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- assets                           静态资源，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- components                       公用组件，全局文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- config                           配置信息&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- filters                          过滤器，全局工具&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- icons                            图标，全局资源&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- layout                           页面模板&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- libs                             公用工具库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- mock                             模拟接口，临时存放&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- store                            vuex, 状态管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- router                           路由，统一管理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|-- views                            视图目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   |-- account                      视图模块名&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   |-- |-- mygroup.vue              模块入口页面&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="vuejs" scheme="http://21ido.com/tags/vuejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6笔记(3)类</title>
+    <link href="http://21ido.com/2019/03/1eabff52/"/>
+    <id>http://21ido.com/2019/03/1eabff52/</id>
+    <published>2019-03-01T10:04:38.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ES5是没有类这个东西，虽然可以写出看起来像类的代码&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;Cat&lt;/span&gt; (name, color) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; ret = &lt;span class=&quot;title class_&quot;&gt;Object&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;create&lt;/span&gt;(&lt;span class=&quot;title class_&quot;&gt;Cat&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;prototype&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ret.&lt;span class=&quot;property&quot;&gt;name&lt;/span&gt; = name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ret.&lt;span class=&quot;property&quot;&gt;color&lt;/span&gt; = color&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; ret&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title class_&quot;&gt;Cat&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;prototype&lt;/span&gt;&lt;/span&gt; = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;say&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;say&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;variable language_&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;name&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;eat&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;eat&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 使用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;BlackCat&lt;/span&gt; = &lt;span class=&quot;title class_&quot;&gt;Cat&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Lily&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title class_&quot;&gt;BlackCat&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;say&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; say lily&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;到了ES6，有了比较正经的写法&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Cat&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;constructor&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;name, color&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;name&lt;/span&gt; = name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;color&lt;/span&gt; = color&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;say&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;say&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;variable language_&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;name&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;eat&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;eat&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 使用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;BlackCat&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Cat&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;Lily&amp;#x27;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;#x27;black&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title class_&quot;&gt;BlackCat&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;say&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; say lily&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;因为有了构造函数 &lt;code&gt;constructor&lt;/code&gt; 看起来就比较像传统类&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Canvas踩坑(2)马克笔效果</title>
+    <link href="http://21ido.com/2018/12/27f27d32/"/>
+    <id>http://21ido.com/2018/12/27f27d32/</id>
+    <published>2018-12-24T11:52:27.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/2018/12/markerpen0.png&quot; alt=&quot;Marker Pen&quot;&gt;&lt;/p&gt;
+&lt;p&gt;画笔里面，马克笔算是比较简单，比较难的是铅笔和毛笔&lt;/p&gt;
+&lt;p&gt;一般的线是由点连起来的，设置好 &lt;code&gt;lineCap&lt;/code&gt; 和 &lt;code&gt;lineJoin&lt;/code&gt; 即可，但马克笔是由&lt;strong&gt;块&lt;/strong&gt;连起来的&lt;/p&gt;
+&lt;p&gt;当我们拿到一个XY坐标点后，需进行扩大，使其变成一个矩形&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="canvas" scheme="http://21ido.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Canvas踩坑(1)实时绘制透明线</title>
+    <link href="http://21ido.com/2018/11/4d59cb14/"/>
+    <id>http://21ido.com/2018/11/4d59cb14/</id>
+    <published>2018-11-23T08:51:24.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/2018/11/canvasOpacity_1.png&quot; alt=&quot;canvasOpacity_1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Canvas画线算是最基础的操作，涉及的方法也比较简单&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;_cv = _canvas.&lt;span class=&quot;title function_&quot;&gt;getContext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;2d&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;property&quot;&gt;strokeStyle&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&amp;#x27;red&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;title function_&quot;&gt;beginPath&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;title function_&quot;&gt;moveTo&lt;/span&gt;(point.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, point.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;title function_&quot;&gt;lineTo&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;title function_&quot;&gt;stroke&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;点很多的话，加个 &lt;code&gt;for&lt;/code&gt; 循环也轻松搞定，如果画的是透明线，只需用 RGBA 格式即可，比如上图颜色为&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;_cv.&lt;span class=&quot;property&quot;&gt;strokeStyle&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&amp;#x27;rgba(253, 150, 38, 0.41)&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="canvas" scheme="http://21ido.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>element-ui upload组件覆写默认上传行为</title>
+    <link href="http://21ido.com/2018/09/a91bebb6/"/>
+    <id>http://21ido.com/2018/09/a91bebb6/</id>
+    <published>2018-09-20T03:15:35.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;element-ui 自带了上传组件，支持多文件，支持文件列表显示，支持定义各种钩子，非常方便&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;el-upload&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;upload&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:show-file-list&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;false&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:action&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;uploadUrl&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:before-upload&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;handleBeforeUpload&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-progress&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;handleUploading&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-success&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;handleUpload&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:on-error&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;handleUploadError&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;accept&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;.apk&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;:auto-upload&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;el-button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;slot&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;:loading&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;uploadLoading&amp;quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;size&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;mini&amp;quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;primary&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;上传&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;el-button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;v-html&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;tips&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;el-upload&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;同时也提供了 &lt;code&gt;http-request&lt;/code&gt; 参数来自定义上传行为&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="axios" scheme="http://21ido.com/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异步回调之generator（1）入门篇</title>
+    <link href="http://21ido.com/2018/09/ddbd4da6/"/>
+    <id>http://21ido.com/2018/09/ddbd4da6/</id>
+    <published>2018-09-11T09:39:39.000Z</published>
+    <updated>2023-05-03T15:11:30.132Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是Generator&quot;&gt;&lt;a href=&quot;#什么是Generator&quot; class=&quot;headerlink&quot; title=&quot;什么是Generator&quot;&gt;&lt;/a&gt;什么是Generator&lt;/h3&gt;&lt;p&gt;Generator 是ES6新特性，是另一种异步编程解决方案，提供了与之前传统函数不一样的语法行为&lt;br&gt;如果说Promise解决了回调函数的地狱式嵌套，Generator则解决了Promise.then()的多级链式调用&lt;/p&gt;
+&lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;p&gt;&lt;code&gt;function* Generator()&lt;/code&gt; Generator写法跟普通函数一样，&lt;code&gt;function&lt;/code&gt; 和函数名 &lt;code&gt;Generator&lt;/code&gt; 中间多了个&lt;code&gt;*&lt;/code&gt;号，同时函数内部可以使用 &lt;code&gt;yield&lt;/code&gt; 进行暂停并输出值&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// *号可随意放置，推荐使用第一种写法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;* &lt;span class=&quot;title class_&quot;&gt;Generator&lt;/span&gt;() &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; * &lt;span class=&quot;title class_&quot;&gt;Generator&lt;/span&gt;() &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; *&lt;span class=&quot;title class_&quot;&gt;Generator&lt;/span&gt;() &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;*&lt;span class=&quot;title class_&quot;&gt;Generator&lt;/span&gt;() &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="ES6" scheme="http://21ido.com/tags/ES6/"/>
+    
+      <category term="generator" scheme="http://21ido.com/tags/generator/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Axios笔记(2)</title>
+    <link href="http://21ido.com/2018/08/786557a3/"/>
+    <id>http://21ido.com/2018/08/786557a3/</id>
+    <published>2018-08-31T09:11:44.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;实例化&quot;&gt;&lt;a href=&quot;#实例化&quot; class=&quot;headerlink&quot; title=&quot;实例化&quot;&gt;&lt;/a&gt;实例化&lt;/h2&gt;&lt;p&gt;上一篇说了基本用法，实际使用中并不会直接调用，而是实例化一个对象&lt;br&gt;并配置好基本参数，然后所有请求走实例化对象&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; service = axios.&lt;span class=&quot;title function_&quot;&gt;create&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;baseURL&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;/api1.0/&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;timeout&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// request timeout&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;query&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;service&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;url&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;getList&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;method&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&amp;#x27;post&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;data&lt;/span&gt;: query&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 调用示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;list&lt;/span&gt;(query).&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;配置参数较多，参照 &lt;a href=&quot;https://github.com/axios/axios&quot;&gt;Axios官网&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;拦截器&quot;&gt;&lt;a href=&quot;#拦截器&quot; class=&quot;headerlink&quot; title=&quot;拦截器&quot;&gt;&lt;/a&gt;拦截器&lt;/h2&gt;&lt;p&gt;axios支持拦截器，可以在请求和返回时进行拦截处理
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="axios" scheme="http://21ido.com/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Axios笔记(1)</title>
+    <link href="http://21ido.com/2018/08/e16c0619/"/>
+    <id>http://21ido.com/2018/08/e16c0619/</id>
+    <published>2018-08-24T05:02:03.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Axios 是基于 promise 的http库，可在nodejs服务端或客户端浏览器运行&lt;br&gt;其中浏览器使用XMLHttpRequests对象进行请求&lt;br&gt;&lt;a href=&quot;https://github.com/axios/axios/&quot;&gt;Github地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot; title=&quot;特点&quot;&gt;&lt;/a&gt;特点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;支持服务端和客户端&lt;/li&gt;
+&lt;li&gt;基于Promise&lt;/li&gt;
+&lt;li&gt;支持请求和响应拦截&lt;/li&gt;
+&lt;li&gt;支持JSON格式转换&lt;/li&gt;
+&lt;li&gt;支持取消请求
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="axios" scheme="http://21ido.com/tags/axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise入门指南(5)</title>
+    <link href="http://21ido.com/2018/08/33ad2a19/"/>
+    <id>http://21ido.com/2018/08/33ad2a19/</id>
+    <published>2018-08-09T16:26:24.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Promise-catch&quot;&gt;&lt;a href=&quot;#Promise-catch&quot; class=&quot;headerlink&quot; title=&quot;Promise.catch&quot;&gt;&lt;/a&gt;Promise.catch&lt;/h3&gt;&lt;p&gt;&lt;code&gt;catch&lt;/code&gt; 是用来捕获异常的，但是网上很多教程代码把 &lt;code&gt;catch&lt;/code&gt; 当 &lt;code&gt;rejected&lt;/code&gt; 使用，这是不当的&lt;/p&gt;
+&lt;p&gt;前面说了 Promise 有3种状态， pending, fulffilled, rejected&lt;br&gt;并没有一种状态叫异常，实际使用中，能确定的状态用 resolve / reject 来回调，而不是丢到 catch&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 错误示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// try something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;something error&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p1.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p2&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).&lt;span class=&quot;title function_&quot;&gt;catch&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p3&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样当报错时，会抛到 catch 去执行，而实际有些错误是可预见的，所以当可预见和不可预见的错误，都往 catch 报的时候，就没法判断了，因此建议用 reject 来处理可预见性的错误&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise入门指南(4)</title>
+    <link href="http://21ido.com/2018/07/2ab61b58/"/>
+    <id>http://21ido.com/2018/07/2ab61b58/</id>
+    <published>2018-07-21T15:25:12.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Promise-all&quot;&gt;&lt;a href=&quot;#Promise-all&quot; class=&quot;headerlink&quot; title=&quot;Promise.all&quot;&gt;&lt;/a&gt;Promise.all&lt;/h3&gt;&lt;p&gt;有一些场景，需要同时调用几个接口，拿到全部返回数据，才能接着往下调用&lt;br&gt;以往遇到这种情况，需要设置一些临时变量来记录每个接口是否返回数据，每次返回时再判断是否数据已经齐全，再往下接着走&lt;br&gt;而 all 方法就是为此而生的，接受参数为 Promise对象数组&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pArr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p1 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp1&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p2 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp2&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p3 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp3&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; p = &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;all&lt;/span&gt;(pArr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resp&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;all is done, doing next&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p1 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p3 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p2 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; all is done, doing next&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise入门指南(3)</title>
+    <link href="http://21ido.com/2018/07/65f78d9f/"/>
+    <id>http://21ido.com/2018/07/65f78d9f/</id>
+    <published>2018-07-15T10:44:55.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Promise是JavaScript异步编程解决方案，之一&lt;br&gt;以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算&lt;br&gt;而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的api&lt;/p&gt;
+&lt;p&gt;Promise/A+规范解决了回调函数的一些弊端，比如&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码书写逻辑&lt;/li&gt;
+&lt;li&gt;更改回调顺序的噩梦&lt;/li&gt;
+&lt;li&gt;多步回调的魔鬼嵌套&lt;/li&gt;
+&lt;li&gt;回调函数的跟踪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景&lt;/p&gt;
+&lt;p&gt;前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;( &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise入门指南(2)</title>
+    <link href="http://21ido.com/2018/07/7cecbcde/"/>
+    <id>http://21ido.com/2018/07/7cecbcde/</id>
+    <published>2018-07-13T10:01:16.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;resolve, reject&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//do something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;finished&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;someone&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面 &lt;code&gt;new Promise&lt;/code&gt; 示例并return&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;getUrl&lt;/span&gt; = param =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//do something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $.&lt;span class=&quot;title function_&quot;&gt;ajax&lt;/span&gt;(url, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;response&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(response);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;getUrl&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;response&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;render&lt;/span&gt;(response);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;这是比较标准的写法，还有比较偷懒的写法&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise入门指南(1)</title>
+    <link href="http://21ido.com/2018/06/57c1ef1d/"/>
+    <id>http://21ido.com/2018/06/57c1ef1d/</id>
+    <published>2018-06-04T06:48:28.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Promise是异步编程的解决方案&quot;&gt;&lt;a href=&quot;#Promise是异步编程的解决方案&quot; class=&quot;headerlink&quot; title=&quot;Promise是异步编程的解决方案&quot;&gt;&lt;/a&gt;Promise是异步编程的解决方案&lt;/h3&gt;&lt;p&gt;Promise有3种状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pending&lt;/li&gt;
+&lt;li&gt;fulfilled&lt;/li&gt;
+&lt;li&gt;rejected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对象的状态是不受外界影响的，而且状态的改变只有两种&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pending -&amp;gt; fulfilled&lt;/li&gt;
+&lt;li&gt;pending -&amp;gt; rejected&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一旦变成fulfilled或rejected，则终止，不会再改变&lt;br&gt;而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作&lt;/p&gt;
+&lt;h3 id=&quot;代码示例&quot;&gt;&lt;a href=&quot;#代码示例&quot; class=&quot;headerlink&quot; title=&quot;代码示例&quot;&gt;&lt;/a&gt;代码示例&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;resolve, reject&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//do something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;finished&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;someone&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript学习笔记(2)</title>
+    <link href="http://21ido.com/2018/05/383e290e/"/>
+    <id>http://21ido.com/2018/05/383e290e/</id>
+    <published>2018-05-16T08:29:33.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h3&gt;&lt;h4 id=&quot;表示法&quot;&gt;&lt;a href=&quot;#表示法&quot; class=&quot;headerlink&quot; title=&quot;[]表示法&quot;&gt;&lt;/a&gt;[]表示法&lt;/h4&gt;&lt;p&gt;在类型定义后面加上[]即表示数组&lt;br&gt;定义的数组不允许出现其它类型，同时支持联合类型&lt;br&gt;&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catArr&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;[] = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catName&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] = [&lt;span class=&quot;string&quot;&gt;&amp;quot;one&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;three&amp;quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catColor&lt;/span&gt;: (&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;|&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;)[] = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0xFFF&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;catColor.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;four&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;泛型表示法&quot;&gt;&lt;a href=&quot;#泛型表示法&quot; class=&quot;headerlink&quot; title=&quot;泛型表示法&quot;&gt;&lt;/a&gt;泛型表示法&lt;/h4&gt;&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catArr&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catName&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;string&quot;&gt;&amp;quot;one&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;three&amp;quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catColor&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;|&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;catColor.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript学习笔记(1)</title>
+    <link href="http://21ido.com/2018/05/1f5ada0a/"/>
+    <id>http://21ido.com/2018/05/1f5ada0a/</id>
+    <published>2018-05-14T03:44:00.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/xcatliu/typescript-tutorial&quot;&gt;《TypeScript入门教程》&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;TypeScript是什么&quot;&gt;&lt;a href=&quot;#TypeScript是什么&quot; class=&quot;headerlink&quot; title=&quot;TypeScript是什么&quot;&gt;&lt;/a&gt;TypeScript是什么&lt;/h2&gt;&lt;p&gt;是JavaScript的超集&lt;br&gt;安装nodejs后执行&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i -g typescript&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;TypeScript是后缀名为ts的文本文件，编译ts命令为&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tsc hello.ts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;然后就会生成对应js文件&lt;/p&gt;
+&lt;h2 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h2&gt;&lt;h3 id=&quot;原始数据类型&quot;&gt;&lt;a href=&quot;#原始数据类型&quot; class=&quot;headerlink&quot; title=&quot;原始数据类型&quot;&gt;&lt;/a&gt;原始数据类型&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;布尔值  &lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;isCat&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt; = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket入门（3）心跳检测</title>
+    <link href="http://21ido.com/2018/05/30381c3b/"/>
+    <id>http://21ido.com/2018/05/30381c3b/</id>
+    <published>2018-05-11T02:41:26.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close&lt;br&gt;最好就是加一个心跳检测来判断网络异常&lt;br&gt;websocket有一个readyState状态值，代表的状态如下（摘自&lt;a href=&quot;http://www.ruanyifeng.com/blog/2017/05/websocket.html&quot;&gt;阮一峰博客&lt;/a&gt;）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CONNECTING：值为0，表示正在连接&lt;/li&gt;
+&lt;li&gt;OPEN：值为1，表示连接成功，可以通信了&lt;/li&gt;
+&lt;li&gt;CLOSING：值为2，表示连接正在关闭&lt;/li&gt;
+&lt;li&gt;CLOSED：值为3，表示连接已经关闭，或者打开连接失败&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当成功建立连接后，即启动心跳检测，大概的流程如下图&lt;br&gt;&lt;img src=&quot;/images/2018/05/websocket_heart.png&quot; alt=&quot;flow&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="socket" scheme="http://21ido.com/tags/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket入门（2）API使用</title>
+    <link href="http://21ido.com/2018/03/8e1b4ab/"/>
+    <id>http://21ido.com/2018/03/8e1b4ab/</id>
+    <published>2018-03-30T09:19:47.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Websocket有2种URI格式，ws:// 和 wss://，端口分别为80和443，类似 http:// 和 https://&lt;/p&gt;
+&lt;p&gt;看个demo&lt;/p&gt;
+&lt;p&gt;↓↓↓ 客户端 ↓↓↓&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;!DOCTYPE &lt;span class=&quot;keyword&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;WebSocket&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&amp;quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;language-javascript&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;showLog&lt;/span&gt; = (&lt;span class=&quot;params&quot;&gt;str&lt;/span&gt;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dom = &lt;span class=&quot;variable language_&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;getElementById&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;container&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; tmp = dom.&lt;span class=&quot;property&quot;&gt;innerHTML&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	tmp = str + &lt;span class=&quot;string&quot;&gt;&amp;quot;&amp;lt;br /&amp;gt;&amp;quot;&lt;/span&gt; + tmp;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	dom.&lt;span class=&quot;property&quot;&gt;innerHTML&lt;/span&gt; = tmp;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ws = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;WebSocket&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;ws://localhost:8080&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;ws.&lt;span class=&quot;property&quot;&gt;onopen&lt;/span&gt; = &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;ws onopen&amp;#x27;&lt;/span&gt;, event);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	ws.&lt;span class=&quot;title function_&quot;&gt;send&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;from client: hello&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;ws.&lt;span class=&quot;property&quot;&gt;onmessage&lt;/span&gt; = &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;ws onmessage&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;from server: &amp;#x27;&lt;/span&gt;, event);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;title function_&quot;&gt;showLog&lt;/span&gt;(event.&lt;span class=&quot;property&quot;&gt;data&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;ws.&lt;span class=&quot;property&quot;&gt;onclose&lt;/span&gt; = &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;close&amp;quot;&lt;/span&gt;, event);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;ws.&lt;span class=&quot;property&quot;&gt;onerror&lt;/span&gt; = &lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;error&amp;quot;&lt;/span&gt;, event);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;language-javascript&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;quot;container&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="socket" scheme="http://21ido.com/tags/socket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket入门（1）TCP基础</title>
+    <link href="http://21ido.com/2018/02/83090531/"/>
+    <id>http://21ido.com/2018/02/83090531/</id>
+    <published>2018-02-26T10:18:15.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WebSocket是html5的产物，跟socket相似，但是前期通讯是基于http，而http又是基于TCP&lt;br&gt;先说下TCP的三次握手&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2018/02/tcp3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;翻译成人话就是这样&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;客户端：老哥你在吗&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;服务端：老弟找我啥事&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;服务端：太好了是这样的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;然后传输开始巴拉巴拉巴拉&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="IT" scheme="http://21ido.com/categories/IT/"/>
+    
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="socket" scheme="http://21ido.com/tags/socket/"/>
+    
+      <category term="tcp" scheme="http://21ido.com/tags/tcp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript事件委托</title>
+    <link href="http://21ido.com/2018/01/c1495b93/"/>
+    <id>http://21ido.com/2018/01/c1495b93/</id>
+    <published>2018-01-17T09:43:52.000Z</published>
+    <updated>2023-05-03T15:11:30.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本例代码在&lt;a href=&quot;https://github.com/think2cat/practice/tree/master/delegate&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;事件委托简单来说，就是触发事件的DOM元素本身不执行绑定的事件，而是交给父元素或上上级甚至根元素去处理&lt;/p&gt;
+&lt;p&gt;先看个例子&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;AA &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;A1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;A2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;BB &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;B1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;B2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;CC &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;C1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;C2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;DD &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;D1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;D2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;EE &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;E1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;E2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;FF &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;F1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;F2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="delegate" scheme="http://21ido.com/tags/delegate/"/>
+    
+  </entry>
+  
+</feed>
