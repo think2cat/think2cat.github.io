@@ -80,8 +80,6 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索</a>
     			
             
-    			
-            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -167,31 +165,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Life/1月13日南山海雅刷街到西沥水库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Web/智能数据库链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2008/01/12e2b870/">1月13日 南山海雅刷街到西沥水库</a>
+      <a class="article-title" href="../../2003/10/df8b585/">智能数据库链接</a>
     </h1>
   
 
         
-        <a href="../../2008/01/12e2b870/" class="archive-article-date">
-  	<time datetime="2008-01-14T00:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-01-14</time>
+        <a href="../../2003/10/df8b585/" class="archive-article-date">
+  	<time datetime="2003-10-01T12:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-10-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>蓝调是第一次参加活动，特地从龙华赶来，还提前一小时到达海雅百货，太积极了。</p>
-<p>之前天气预报说会下雨，还好一整天都是阳光灿烂</p>
-<p>参加人员：蓝调、猪头斌、天天、游鱼、心灵、猫、包子、小詹、麦兜</p>
-<p><embed src='//player.56.com/v_MjcyNjMwNjc.swf' type='application/x-shockwave-flash' width='480' height='395'></embed><br>
-        
+        <figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> DBName(<span class="number">4</span>)</span><br><span class="line">DBName(<span class="number">4</span>)=<span class="string">&quot;/Tsys/DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">1</span>)=<span class="string">&quot;DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">2</span>)=<span class="string">&quot;../DataBase/DataBase.mdb&quot;</span></span><br><span class="line">DBName(<span class="number">3</span>)=<span class="string">&quot;../../DataBase/DataBase.mdb&quot;</span></span><br><span class="line"><span class="keyword">Dim</span> DBName_Level</span><br><span class="line">DBName_Level=<span class="number">0</span></span><br><span class="line"><span class="keyword">Dim</span> Connstr</span><br><span class="line">Connstr = <span class="string">&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&quot;</span></span><br><span class="line"><span class="keyword">Dim</span> Conn</span><br><span class="line"><span class="keyword">Set</span> Conn=<span class="built_in">Server</span>.<span class="built_in">CreateObject</span>(<span class="string">&quot;ADODB.CONNECTION&quot;</span>)</span><br><span class="line"><span class="keyword">Call</span> ConnOpen()</span><br><span class="line"></span><br><span class="line"><span class="keyword">Function</span> ConnOpen()</span><br><span class="line">    <span class="keyword">On</span> <span class="keyword">Error</span> <span class="keyword">Resume</span> <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">Dim</span> I</span><br><span class="line">    <span class="keyword">For</span> I=<span class="number">1</span> <span class="keyword">To</span> <span class="built_in">UBound</span>(DBName)</span><br><span class="line">        Err.Clear</span><br><span class="line">        Conn.Open Connstr &amp; <span class="built_in">Server</span>.MapPath(DBName(I))</span><br><span class="line">        <span class="keyword">If</span> Err.Number=<span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">            DBName_Level=I</span><br><span class="line">            ConnOpen=<span class="literal">true</span></span><br><span class="line">            <span class="keyword">Exit</span> <span class="keyword">Function</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">If</span> DBName_Level=<span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">        Err.Clear</span><br><span class="line">        <span class="built_in">Response</span>.Write <span class="string">&quot;&lt;p&gt;以下数据库无法打开，请查看Conn.asp文件及*.mdb数据库的位置&lt;/p&gt;&quot;</span></span><br><span class="line">        <span class="keyword">For</span> I=<span class="number">1</span> <span class="keyword">To</span> <span class="built_in">UBound</span>(DBName)</span><br><span class="line">            <span class="comment">&#x27;打印所有数据库路径</span></span><br><span class="line">            <span class="comment">&#x27;Response.Write(&quot;&quot; &amp; DBName(I) &amp; &quot;&lt;br&gt;&quot;)</span></span><br><span class="line">        <span class="keyword">Next</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -204,19 +198,94 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">asp</a>
         		</li>
-      		 
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">南山</a>
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
         		</li>
-      		 
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2003/10/df8b585/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Life/Cat_s_Blog基本完成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2003/09/72c63f76/">Cat&#39;s Blog基本完成</a>
+    </h1>
+  
+
+        
+        <a href="../../2003/09/72c63f76/" class="archive-article-date">
+  	<time datetime="2003-09-29T19:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>花了两天,忙的天昏地暗,累死我了!</p>
+<p>从没写过整套的程序,做程序真的蛮不容易的,不过很有趣,渐渐喜欢上编程了</p>
+<p>这两天只是做个大概的样子,界面什么都没去做,反正框架出来了,以后会慢慢完善的!</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
         		</li>
       		
 		</ul>
@@ -237,7 +306,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2008/01/12e2b870/">展开全文 >></a>
+          <a class="article-more-a" href="../../2003/09/72c63f76/">展开全文 >></a>
         </p>
       
 
@@ -267,32 +336,29 @@
 
 
   
-    <article id="post-IT/SVN学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Life/原码_补码_反码_移码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2008/01/a7642b15/">SVN学习笔记</a>
+      <a class="article-title" href="../../2003/09/ad359b9e/">原码、补码、反码、移码？</a>
     </h1>
   
 
         
-        <a href="../../2008/01/a7642b15/" class="archive-article-date">
-  	<time datetime="2008-01-08T11:21:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-01-08</time>
+        <a href="../../2003/09/ad359b9e/" class="archive-article-date">
+  	<time datetime="2003-09-27T08:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-09-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前公司因为VSS不能满足需求，所以打算用SVN来管理代码，老猫受命写了这篇文档，好让一些同事快速入门，还没写完。</p>
-<p>半年过去了，公司还在用着龟速的VSS 6.0，这文档也没有写下去的必要了，还是发出来吧</p>
-<hr>
-<h1 id="SVN学习笔记"><a href="#SVN学习笔记" class="headerlink" title="SVN学习笔记"></a>SVN学习笔记</h1><p>创建于：2007年7月25日<br>最后更新： 2007年8月3日 3:59 PM</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一、版本管理基础<br> 1.版本控制介绍<br> 2.常用软件<br>二、Subversion基础<br>  1.发展历史<br>  2.特性<br>  3.安装<br>  4.组成<br>  5.配置<br>三、基本操作<br>  1.检出Check Out<br>  2.提交Commit<br>  3.解决冲突<br>  4.标签Tag<br>四、分支与合并<br>  1.版本库的概念<br>  2.什么是分支？<br>  3.使用分支<br>五、进阶<br>  1.以后台服务方式启动<br>  2.从CVS转换到SVN<br>六、附录<br>  A. 参考资源<br>  B. 相关资源<br>
-        
+        <p>早上又看了一遍，还是乱糟糟的，翻了一下《程序员试题》，好像没瞧见要考这个，还是跳过算了。。<br>要做的事很多，却不知从何做起。唉，人要是支持超线程该多好。<br>刚刚看了一下以前的照片，真的很怀念以前的日子，以前老觉得苦的日子现在觉得很开心，现在觉得苦，那么以后会觉得甜么？</p>
+<p><strong> 为了明天，我要好好奋斗了。 </strong></p>
+
       
 
       
@@ -300,32 +366,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cvs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/IT//" class="article-tag-list-link color3">IT</a>
+        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
         		</li>
       		
 		</ul>
@@ -334,7 +381,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2008/01/a7642b15/">展开全文 >></a>
+          <a class="article-more-a" href="../../2003/09/ad359b9e/">展开全文 >></a>
         </p>
       
 
@@ -364,29 +411,28 @@
 
 
   
-    <article id="post-Life/12月30日排牙山_美丽的刷牙之行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Life/突然想写个自己的Blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2008/01/ea156cfe/">12月30日排牙山,美丽的刷牙之行</a>
+      <a class="article-title" href="../../2003/09/84c24cf7/">突然想写个自己的Blog</a>
     </h1>
   
 
         
-        <a href="../../2008/01/ea156cfe/" class="archive-article-date">
-  	<time datetime="2008-01-02T04:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-01-02</time>
+        <a href="../../2003/09/84c24cf7/" class="archive-article-date">
+  	<time datetime="2003-09-26T14:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-09-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>那天,那山,那人,那笑声,那脚印.  都很美</p>
-<p><img src="/images/2008/01/02_115923_9259.jpg" alt=""><br>出发前的大合照<br>
-        
+        <p>用别人的始终不爽,于是决定自己写一个!<br>晚上看了几个别人做的数据库,好像都不太满意,自己做了一个.第一次写程序,还是弄个简单点的,以后再慢慢完善,可是当新建了[MyBlog]文件夹后,却又不知从那做起了…..唉…毕竟是新手……..决定…….拿起纸笔,开始画草图,嘿嘿….</p>
+
       
 
       
@@ -399,11 +445,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">登山</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
         		</li>
       		
 		</ul>
@@ -424,7 +466,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2008/01/ea156cfe/">展开全文 >></a>
+          <a class="article-more-a" href="../../2003/09/84c24cf7/">展开全文 >></a>
         </p>
       
 
@@ -454,30 +496,28 @@
 
 
   
-    <article id="post-Life/12月23日周日南山刷华强北" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Life/我也有Blog了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2007/12/a90154a6/">12月23日 周日南山刷华强北</a>
+      <a class="article-title" href="../../2003/09/12501149/">我也有Blog了.....</a>
     </h1>
   
 
         
-        <a href="../../2007/12/a90154a6/" class="archive-article-date">
-  	<time datetime="2007-12-24T05:07:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-12-24</time>
+        <a href="../../2003/09/12501149/" class="archive-article-date">
+  	<time datetime="2003-09-26T03:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2003-09-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <embed src='//player.56.com/v_MjU4NDU2MTM.swf' type='application/x-shockwave-flash' width='480' height='395'></embed>
+        <p>嘿嘿，好久没写日记，不知有没力气拿笔，这东西应该是日记的代替品，Blog好像都是PHP的，刚刚找到一个ASP，当下一看，靠，ASP.Net的，真不爽</p>
 
-<p><strong>时间标签</strong><br>0 捐衣服<br>2:30 科技园<br>7:10 侨城东?<br>12:20 特区报社 吃午餐<br>13:50 市民中心<br>
-        
       
 
       
@@ -485,25 +525,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">世界之窗</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -519,580 +540,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/12/a90154a6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/12月22日宝安海滨广场" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/12/8285e9bf/">12月22日·宝安海滨广场</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/12/8285e9bf/" class="archive-article-date">
-  	<time datetime="2007-12-24T05:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2007/12/24_130052_9235.jpg" alt=""><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">海滨广场</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/12/8285e9bf/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Digital/宏碁TraveMate_4520评测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/12/8be8ebef/">宏碁TraveMate 4520评测</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/12/8be8ebef/" class="archive-article-date">
-  	<time datetime="2007-12-06T08:01:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2007/12/06_200712141948023373_12763.jpg" alt=""></p>
-<p>上月底在淘宝买了第三个本本，宏碁 TraveMate 4520(6A0512MI)，TK-55/512/120G/DVD刻录/WIFI，然后加100块升级到1G内存，加快递一共4960，全新带发票全国联保。</p>
-<p>本来是打算买13寸的，看上的基本都要6、7千，然后看12寸的，以为待机时间会长一点，鬼知道电池也不过2个半小时，续航时间长的都死贵死贵的，没办法还是用14寸吧，性价比高一点。</p>
-<p>在网上看了好多资料，还有很多网友评论什么，看了整整2个星期，然后才下决定，现在已经用了2个多星期了，感觉不错，特别喜欢，简单写下感受。</p>
-<p>Acer 4520有TM和AS之分，外观不一样，但基本配置差不多，TM是集成显卡而AS是独立显卡(8400MG)。我买的是TM，外壳键盘全黑色，比较有商务味道，比我之前用的AS 3642银色外壳黑色键盘更好看，当然外观还是各有所爱，我自己是很喜欢的。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Acer</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔记本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">评测</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AMD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Digital//" class="article-tag-list-link color3">Digital</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/12/8be8ebef/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/怀念爷爷" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/12/40236852/">怀念爷爷</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/12/40236852/" class="archive-article-date">
-  	<time datetime="2007-12-03T08:59:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-12-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很想写篇关于爷爷的文章，很想让所有人知道我有个好爷爷，很想把爷爷生平的光辉历史写出来，可是，不管在我眼里、心里，爷爷是多么的伟大，在其他人眼里，爷爷也不过是位普通的老人。</p>
-<p>爷爷很仁慈，我长这么大没见他发过脾气，在他的仁慈施教下，我们整个家族都继承了这一优良传统，家里从未发生口角等纠纷。爷爷生于20年代，跟大多数老一辈人，经历了抗战、解放、文革、下乡等历史时期。爷爷生活很朴素，年轻时过得很苦，后来生活逐渐好了，也依旧保持勤俭生活，子女想给他买衣服他都不让买，宁愿一件衣服穿个几十年。</p>
-<p>翻遍硬盘发现唯一一张跟爷爷的合影是大概10年前拍的，还是很小的扫描件。这几年在外读书工作，陪爷爷的时间很少，很想再陪爷爷喝茶聊天，却已人去楼空。</p>
-<p>写到这里我已泪流满面。</p>
-<p>07年11月10日，农历十月初一，爷爷去世了，享年84岁。</p>
-<p><img src="/images/2007/12/03_12781.jpg" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">怀念</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爷爷</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/12/40236852/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/11月25日南山海雅_红树林刷街" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/11/77374e3f/">11月25日·南山海雅=&gt;红树林刷街 [65p]</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/11/77374e3f/" class="archive-article-date">
-  	<time datetime="2007-11-26T05:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-11-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其它的不多说了！希望看了的人回个帖！<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">市民中心</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红树林</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/11/77374e3f/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/11月20周二晚深大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/11/dc90404/">11月20周二晚深大</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/11/dc90404/" class="archive-article-date">
-  	<time datetime="2007-11-21T03:44:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-11-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2007/11/21_112322_9118.jpg" alt=""><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">平花</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">深大</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/11/dc90404/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/11月18周日在圆博园晚上在白石洲腐败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/11/facbe1ae/">11月18周日在圆博园晚上在白石洲腐败</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/11/facbe1ae/" class="archive-article-date">
-  	<time datetime="2007-11-19T06:13:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这次参加活动的有叶子、蝌蚪、天天、阿猛、公爵、心灵、阿宗（这家伙晚到了几个小时呢），安安活动没有参加,后来腐败的时候来了</p>
-<p>下面看风景吧</p>
-<p><img src="/images/2007/11/19_133205_9008.jpg" alt=""><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">南山</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/11/facbe1ae/">展开全文 >></a>
+          <a class="article-more-a" href="../../2003/09/12501149/">展开全文 >></a>
         </p>
       
 
@@ -1124,7 +572,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="../20/">&amp;laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../19/">19</a><a class="page-number" href="../20/">20</a><span class="page-number current">21</span><a class="page-number" href="../22/">22</a><a class="page-number" href="../23/">23</a><span class="space">&hellip;</span><a class="page-number" href="../41/">41</a><a class="extend next" rel="next" href="../22/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="../20/">&amp;laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../19/">19</a><a class="page-number" href="../20/">20</a><span class="page-number current">21</span>
     </nav>
   
 
@@ -1176,8 +624,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-    
     
 
     <ul style="width: 70%">
@@ -1185,8 +631,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
       
       <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索</a></li>
-      
-        
       
         
     </ul>
@@ -1819,10 +1263,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">溜冰</a>
               </li>
              
@@ -2156,6 +1596,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">批量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
               </li>
              
               <li class="article-tag-list-item">

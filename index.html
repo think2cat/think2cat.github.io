@@ -80,8 +80,6 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索</a>
     			
             
-    			
-            
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -167,14 +165,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Life/初试Action" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Web/Github Actions实现Hexo自动化部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="2023/05/49292e5e/">Github Action调试成功</a>
+      <a class="article-title" href="2023/05/49292e5e/">Github Actions实现Hexo自动化部署</a>
     </h1>
   
 
@@ -187,9 +185,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>留个记号</p>
-<p><img src="/images/2023/05/20230503232733.jpg" alt=""></p>
-
+        <p>本文指出了网上有一些现成的YAML代码所引用的脚本比较老，导致报错的问题，并提供了如何使用Hexo和GitHub Actions来实现自动化部署的解决方案。</p>
+<p>Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI/CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。</p>
+<p>GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。<br>
+        
       
 
       
@@ -204,6 +203,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CI/CD</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -214,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
         		</li>
       		
 		</ul>
@@ -1110,9 +1117,946 @@
 
 
   
+    <article id="post-Web/Promise入门指南_5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/33ad2a19/">Promise入门指南(5)</a>
+    </h1>
+  
+
+        
+        <a href="2018/08/33ad2a19/" class="archive-article-date">
+  	<time datetime="2018-08-09T16:26:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Promise-catch"><a href="#Promise-catch" class="headerlink" title="Promise.catch"></a>Promise.catch</h3><p><code>catch</code> 是用来捕获异常的，但是网上很多教程代码把 <code>catch</code> 当 <code>rejected</code> 使用，这是不当的</p>
+<p>前面说了 Promise 有3种状态， pending, fulffilled, rejected<br>并没有一种状态叫异常，实际使用中，能确定的状态用 resolve / reject 来回调，而不是丢到 catch</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误示例</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// try something</span></span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;something error&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p1.<span class="title function_">then</span>(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;p2&#x27;</span>, v)</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;p3&#x27;</span>, v)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样当报错时，会抛到 catch 去执行，而实际有些错误是可预见的，所以当可预见和不可预见的错误，都往 catch 报的时候，就没法判断了，因此建议用 reject 来处理可预见性的错误<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/08/33ad2a19/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/Promise入门指南_4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/07/2ab61b58/">Promise入门指南(4)</a>
+    </h1>
+  
+
+        
+        <a href="2018/07/2ab61b58/" class="archive-article-date">
+  	<time datetime="2018-07-21T15:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h3><p>有一些场景，需要同时调用几个接口，拿到全部返回数据，才能接着往下调用<br>以往遇到这种情况，需要设置一些临时变量来记录每个接口是否返回数据，每次返回时再判断是否数据已经齐全，再往下接着走<br>而 all 方法就是为此而生的，接受参数为 Promise对象数组<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pArr = [];</span><br><span class="line">pArr.<span class="title function_">push</span>(<span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;p1 resolve&quot;</span>);</span><br><span class="line">		<span class="title function_">resolve</span>(<span class="string">&quot;resp1&quot;</span>);</span><br><span class="line">	&#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;))</span><br><span class="line">pArr.<span class="title function_">push</span>(<span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;p2 resolve&quot;</span>);</span><br><span class="line">		<span class="title function_">resolve</span>(<span class="string">&quot;resp2&quot;</span>);</span><br><span class="line">	&#125;, <span class="number">5000</span>);</span><br><span class="line">&#125;));</span><br><span class="line">pArr.<span class="title function_">push</span>(<span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;p3 resolve&quot;</span>);</span><br><span class="line">		<span class="title function_">resolve</span>(<span class="string">&quot;resp3&quot;</span>);</span><br><span class="line">	&#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;));</span><br><span class="line"><span class="keyword">let</span> p = <span class="title class_">Promise</span>.<span class="title function_">all</span>(pArr);</span><br><span class="line">p.<span class="title function_">then</span>(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;all is done, doing next&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// =&gt; p1 resolve</span></span><br><span class="line"><span class="comment">// =&gt; p3 resolve</span></span><br><span class="line"><span class="comment">// =&gt; p2 resolve</span></span><br><span class="line"><span class="comment">// =&gt; all is done, doing next</span></span><br></pre></td></tr></table></figure><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/07/2ab61b58/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/Promise入门指南_3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/07/65f78d9f/">Promise入门指南(3)</a>
+    </h1>
+  
+
+        
+        <a href="2018/07/65f78d9f/" class="archive-article-date">
+  	<time datetime="2018-07-15T10:44:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Promise是JavaScript异步编程解决方案，之一<br>以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算<br>而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的api</p>
+<p>Promise/A+规范解决了回调函数的一些弊端，比如</p>
+<ul>
+<li>代码书写逻辑</li>
+<li>更改回调顺序的噩梦</li>
+<li>多步回调的魔鬼嵌套</li>
+<li>回调函数的跟踪</li>
+</ul>
+<p>但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景</p>
+<p>前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">		<span class="title function_">resolve</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>());</span><br><span class="line">    &#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(p);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(p.<span class="title function_">then</span>(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>();</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/07/65f78d9f/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/Promise入门指南_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/07/7cecbcde/">Promise入门指南(2)</a>
+    </h1>
+  
+
+        
+        <a href="2018/07/7cecbcde/" class="archive-article-date">
+  	<time datetime="2018-07-13T10:01:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>)&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;finished&#x27;</span>);</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&#x27;someone&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面 <code>new Promise</code> 示例并return<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">getUrl</span> = param =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">        $.<span class="title function_">ajax</span>(url, <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">resolve</span>(response);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getUrl</span>(<span class="number">1</span>).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">render</span>(response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>这是比较标准的写法，还有比较偷懒的写法<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/07/7cecbcde/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/Promise入门指南_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/06/57c1ef1d/">Promise入门指南(1)</a>
+    </h1>
+  
+
+        
+        <a href="2018/06/57c1ef1d/" class="archive-article-date">
+  	<time datetime="2018-06-04T06:48:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Promise是异步编程的解决方案"><a href="#Promise是异步编程的解决方案" class="headerlink" title="Promise是异步编程的解决方案"></a>Promise是异步编程的解决方案</h3><p>Promise有3种状态</p>
+<ul>
+<li>pending</li>
+<li>fulfilled</li>
+<li>rejected</li>
+</ul>
+<p>对象的状态是不受外界影响的，而且状态的改变只有两种</p>
+<ol>
+<li>pending -&gt; fulfilled</li>
+<li>pending -&gt; rejected</li>
+</ol>
+<p>一旦变成fulfilled或rejected，则终止，不会再改变<br>而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>)&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;finished&#x27;</span>);</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&#x27;someone&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/06/57c1ef1d/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/TypeScript学习笔记_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/05/383e290e/">TypeScript学习笔记(2)</a>
+    </h1>
+  
+
+        
+        <a href="2018/05/383e290e/" class="archive-article-date">
+  	<time datetime="2018-05-16T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="表示法"><a href="#表示法" class="headerlink" title="[]表示法"></a>[]表示法</h4><p>在类型定义后面加上[]即表示数组<br>定义的数组不允许出现其它类型，同时支持联合类型<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">catArr</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catName</span>: <span class="built_in">string</span>[] = [<span class="string">&quot;one&quot;</span>,<span class="string">&quot;tow&quot;</span>,<span class="string">&quot;three&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catColor</span>: (<span class="built_in">string</span>|<span class="built_in">number</span>)[] = [<span class="number">1</span>,<span class="string">&quot;tow&quot;</span>,<span class="number">0xFFF</span>];</span><br><span class="line">catColor.<span class="title function_">push</span>(<span class="string">&quot;four&quot;</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="泛型表示法"><a href="#泛型表示法" class="headerlink" title="泛型表示法"></a>泛型表示法</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">catArr</span>: <span class="title class_">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catName</span>: <span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">&quot;one&quot;</span>,<span class="string">&quot;tow&quot;</span>,<span class="string">&quot;three&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catColor</span>: <span class="title class_">Array</span>&lt;<span class="built_in">boolean</span>|<span class="built_in">number</span>&gt; = [<span class="number">0</span>,<span class="number">1</span>, <span class="literal">true</span>];</span><br><span class="line">catColor.<span class="title function_">push</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/05/383e290e/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/TypeScript学习笔记_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/05/1f5ada0a/">TypeScript学习笔记(1)</a>
+    </h1>
+  
+
+        
+        <a href="2018/05/1f5ada0a/" class="archive-article-date">
+  	<time datetime="2018-05-14T03:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/xcatliu/typescript-tutorial">《TypeScript入门教程》</a></p>
+<h2 id="TypeScript是什么"><a href="#TypeScript是什么" class="headerlink" title="TypeScript是什么"></a>TypeScript是什么</h2><p>是JavaScript的超集<br>安装nodejs后执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure><br>TypeScript是后缀名为ts的文本文件，编译ts命令为<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc hello.ts</span><br></pre></td></tr></table></figure><br>然后就会生成对应js文件</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h3><ul>
+<li>布尔值  <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">isCat</span>: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/05/1f5ada0a/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/WebSocket入门(3)心跳检测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/05/30381c3b/">WebSocket入门（3）心跳检测</a>
+    </h1>
+  
+
+        
+        <a href="2018/05/30381c3b/" class="archive-article-date">
+  	<time datetime="2018-05-11T02:41:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮一峰博客</a>）</p>
+<ul>
+<li>CONNECTING：值为0，表示正在连接</li>
+<li>OPEN：值为1，表示连接成功，可以通信了</li>
+<li>CLOSING：值为2，表示连接正在关闭</li>
+<li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
+</ul>
+<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/05/30381c3b/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/WebSocket入门(2)API使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/03/8e1b4ab/">WebSocket入门（2）API使用</a>
+    </h1>
+  
+
+        
+        <a href="2018/03/8e1b4ab/" class="archive-article-date">
+  	<time datetime="2018-03-30T09:19:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Websocket有2种URI格式，ws:// 和 wss://，端口分别为80和443，类似 http:// 和 https://</p>
+<p>看个demo</p>
+<p>↓↓↓ 客户端 ↓↓↓</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>WebSocket<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no&quot;</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> <span class="title function_">showLog</span> = (<span class="params">str</span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">let</span> dom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;container&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">let</span> tmp = dom.<span class="property">innerHTML</span>;</span></span><br><span class="line"><span class="language-javascript">	tmp = str + <span class="string">&quot;&lt;br /&gt;&quot;</span> + tmp;</span></span><br><span class="line"><span class="language-javascript">	dom.<span class="property">innerHTML</span> = tmp;</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&#x27;ws://localhost:8080&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">ws.<span class="property">onopen</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ws onopen&#x27;</span>, event);</span></span><br><span class="line"><span class="language-javascript">	ws.<span class="title function_">send</span>(<span class="string">&#x27;from client: hello&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript">ws.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ws onmessage&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;from server: &#x27;</span>, event);</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">showLog</span>(event.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript">ws.<span class="property">onclose</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;close&quot;</span>, event);</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript">ws.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;error&quot;</span>, event);</span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/03/8e1b4ab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Web/WebSocket入门(1)TCP基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/02/83090531/">WebSocket入门（1）TCP基础</a>
+    </h1>
+  
+
+        
+        <a href="2018/02/83090531/" class="archive-article-date">
+  	<time datetime="2018-02-26T10:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WebSocket是html5的产物，跟socket相似，但是前期通讯是基于http，而http又是基于TCP<br>先说下TCP的三次握手</p>
+<p><img src="/images/2018/02/tcp3.png" alt=""></p>
+<p>翻译成人话就是这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">客户端：老哥你在吗</span><br><span class="line">服务端：老弟找我啥事</span><br><span class="line">服务端：太好了是这样的</span><br><span class="line">然后传输开始巴拉巴拉巴拉</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">tcp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/IT//" class="article-tag-list-link color3">IT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2018/02/83090531/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/41/">41</a><a class="extend next" rel="next" href="page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/21/">21</a><a class="extend next" rel="next" href="page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1164,8 +2108,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-    
     
 
     <ul style="width: 70%">
@@ -1173,8 +2115,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
       
       <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索</a></li>
-      
-        
       
         
     </ul>
@@ -1807,10 +2747,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">溜冰</a>
               </li>
              
@@ -2144,6 +3080,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">批量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
               </li>
              
               <li class="article-tag-list-item">

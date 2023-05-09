@@ -6,22 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
-  <title>Github Action调试成功 | 猫大叔</title>
+  <title>Github Actions实现Hexo自动化部署 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="留个记号">
+  <meta name="description" content="本文指出了网上有一些现成的YAML代码所引用的脚本比较老，导致报错的问题，并提供了如何使用Hexo和GitHub Actions来实现自动化部署的解决方案。 Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI&#x2F;CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。 GitHub Actions使用YAML脚本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github Action调试成功">
+<meta property="og:title" content="Github Actions实现Hexo自动化部署">
 <meta property="og:url" content="http://21ido.com/2023/05/49292e5e/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="留个记号">
+<meta property="og:description" content="本文指出了网上有一些现成的YAML代码所引用的脚本比较老，导致报错的问题，并提供了如何使用Hexo和GitHub Actions来实现自动化部署的解决方案。 Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI&#x2F;CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。 GitHub Actions使用YAML脚本">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://21ido.com/images/2023/05/20230503232733.jpg">
+<meta property="og:image" content="http://21ido.com/images/2023/05/actions1.png">
+<meta property="og:image" content="http://21ido.com/images/2023/05/actions2.png">
+<meta property="og:image" content="http://21ido.com/images/2023/05/actions3.png">
+<meta property="og:image" content="http://21ido.com/images/2023/05/actions4.png">
+<meta property="og:image" content="http://21ido.com/images/2023/05/actions5.png">
 <meta property="article:published_time" content="2023-05-03T15:26:22.000Z">
-<meta property="article:modified_time" content="2023-05-04T14:12:25.094Z">
+<meta property="article:modified_time" content="2023-05-09T05:48:41.606Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="Git">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="CI&#x2F;CD">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://21ido.com/images/2023/05/20230503232733.jpg">
+<meta name="twitter:image" content="http://21ido.com/images/2023/05/actions1.png">
   
     <link rel="alternative" href="/atom.xml" title="猫大叔" type="application/atom+xml">
   
@@ -83,8 +89,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">搜索</a>
-    			
-            
     			
             
 		</nav>
@@ -170,14 +174,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Life/初试Action" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Web/Github Actions实现Hexo自动化部署" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Github Action调试成功
+      Github Actions实现Hexo自动化部署
     </h1>
   
 
@@ -190,8 +194,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>留个记号</p>
-<p><img src="/images/2023/05/20230503232733.jpg" alt=""></p>
+        <p>本文指出了网上有一些现成的YAML代码所引用的脚本比较老，导致报错的问题，并提供了如何使用Hexo和GitHub Actions来实现自动化部署的解决方案。</p>
+<p>Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI/CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。</p>
+<p>GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。<br><span id="more"></span></p>
+<h2 id="1-SSH秘钥"><a href="#1-SSH秘钥" class="headerlink" title="1. SSH秘钥"></a>1. SSH秘钥</h2><p>我的Hexo分2个Git仓库，源码为私库 21ido.com，发布到 GitHub Pages为公开库 think2cat.github.io</p>
+<p>因为是从源码私库push到Pages公开库，此时需要在公开库设置公钥</p>
+<h3 id="1-生成秘钥"><a href="#1-生成秘钥" class="headerlink" title="1) 生成秘钥"></a>1) 生成秘钥</h3><p>执行下面代码，其中邮箱替换成自己的<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b <span class="number">4096</span> -C &quot;gavin2026@xxx.com&quot; -f hexo -N &quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>生成2个文件，hexo 和 hexo.pub</p>
+<h3 id="1-2-设置公钥"><a href="#1-2-设置公钥" class="headerlink" title="1.2 设置公钥"></a>1.2 设置公钥</h3><p>用记事本打开 hexo.pub，全选复制后到GitHub Pages库</p>
+<p>Settings &gt; Deploy keys &gt; Add deploy key</p>
+<p><img src="/images/2023/05/actions1.png" alt="Deploy key"></p>
+<p>把刚刚复制的粘贴进去，Title可以随便起，有多个公钥时可以区分，只有一个的话就无所谓了</p>
+<p>然后记得把下面的 Allow write access勾上</p>
+<p><img src="/images/2023/05/actions2.png" alt="Add deploy key"></p>
+<h3 id="1-3-设置私钥"><a href="#1-3-设置私钥" class="headerlink" title="1.3 设置私钥"></a>1.3 设置私钥</h3><p>接着记事本打开hexo，全选复制，私钥会长很多，到源码库</p>
+<p>Settings &gt; Secrets &gt; Actions &gt; New repository secret</p>
+<p><img src="/images/2023/05/actions3.png" alt="Actions"></p>
+<p>Name相当于变量名，可以自己起个名字，但要跟后面的yaml文件对应，系统默认大写，就算输入小写也会自动变成大写</p>
+<p><img src="/images/2023/05/actions4.png" alt="New repository secret"></p>
+<p>确定后这步就完成了，等于从源码库push到页面库时，公钥和私钥作为检验权限使用，而把私钥加在这里，是为了避免在源码写秘钥容易泄露，而且Actions的日志遇到 Secret 里的变量时，会自动处理成 ***，而不是明文，也能避免私钥泄露</p>
+<h2 id="2-创建工作流"><a href="#2-创建工作流" class="headerlink" title="2. 创建工作流"></a>2. 创建工作流</h2><p>因为写hexo是push到源码库，然后由源码库编译生成pages，再把生成的页面push到Pages库，所以工作流是建在源码库</p>
+<p>点击 Actions &gt; New workflow</p>
+<p><img src="/images/2023/05/actions5.png" alt="New workflow"></p>
+<p>也可以直接在Git库根目录新建 .github \ workflows 目录，然后在 workflows 目录再新建 yml 文件，文件名随意，新建的工作流都会在Actions下显示</p>
+<p>工作流分为几步骤</p>
+<ol>
+<li>checkout code</li>
+<li>配置node环境</li>
+<li>安装依赖包</li>
+<li>安装hexo</li>
+<li>hexo生成页面</li>
+<li>发布到GitHub Pages</li>
+</ol>
+<p>完整的YML脚本如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">blog</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="string">&#x27;16&#x27;</span></span><br><span class="line">        <span class="attr">cache:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">install</span> <span class="string">hexo...</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        npm install hexo-cli -g</span></span><br><span class="line"><span class="string">        npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">hexo</span> <span class="string">generate</span> <span class="string">public</span> <span class="string">files...</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        hexo clean</span></span><br><span class="line"><span class="string">        hexo g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">deploy_key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.ACTIONS_DEPLOY_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">external_repository:</span> <span class="string">think2cat/think2cat.github.io</span></span><br><span class="line">        <span class="attr">publish_branch:</span> <span class="string">master</span></span><br><span class="line">        <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-报错解决"><a href="#3-报错解决" class="headerlink" title="3. 报错解决"></a>3. 报错解决</h2><ul>
+<li><p>Please update the following actions to use Node.js 16</p>
+<p>  最开始用的是网上找的脚本 actions/checkout@v1 和 actions/setup-node@v2<br>  版本为12，于是改为 actions/checkout@v3 和 actions/setup-node@v3，并配上 16 版本属性</p>
+</li>
+<li><p>Error: pngquant failed to build, make sure that libpng-dev is installed</p>
+<p>  使用部署脚本为 <a href="mailto:sma11black/hexo-action@v1.0.3">sma11black/hexo-action@v1.0.3</a><br>  错误原因未知，可能是node版本兼容问题，改为全局安装 hexo + build</p>
+</li>
+<li><p>Please make sure you have the correct access rights and the repository exists.<br>  Error: Action failed with “The process ‘/usr/bin/git’ failed with exit code 128”</p>
+<p>  Git库权限问题，确保SSH公钥和私钥是一对，且对应的库没搞错</p>
+</li>
+</ul>
+<p>脚本依赖包没有考虑做缓存，可以自己试试用 actions/cache</p>
+<h2 id="4-附录："><a href="#4-附录：" class="headerlink" title="4. 附录："></a>4. 附录：</h2><p>阮一峰YAML教程 <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/07/yaml.html">https://www.ruanyifeng.com/blog/2016/07/yaml.html</a></p>
+<p>Github Actions <a target="_blank" rel="noopener" href="https://docs.github.com/zh/actions/learn-github-actions/understanding-github-actions">https://docs.github.com/zh/actions/learn-github-actions/understanding-github-actions</a></p>
+<p>actions-gh-pages <a target="_blank" rel="noopener" href="https://github.com/peaceiris/actions-gh-pages#readme">https://github.com/peaceiris/actions-gh-pages</a></p>
 
       
 
@@ -207,6 +258,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CI/CD</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -217,7 +276,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
         		</li>
       		
 		</ul>
@@ -315,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SSH%E7%A7%98%E9%92%A5"><span class="toc-number">1.</span> <span class="toc-text">1. SSH秘钥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5"><span class="toc-number">1.1.</span> <span class="toc-text">1) 生成秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E8%AE%BE%E7%BD%AE%E5%85%AC%E9%92%A5"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 设置公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%AE%BE%E7%BD%AE%E7%A7%81%E9%92%A5"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 设置私钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">2. 创建工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 报错解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%99%84%E5%BD%95%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4. 附录：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -400,8 +459,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-    
     
 
     <ul style="width: 70%">
@@ -409,8 +466,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
       
       <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">搜索</a></li>
-      
-        
       
         
     </ul>
@@ -1043,10 +1098,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">溜冰</a>
               </li>
              
@@ -1380,6 +1431,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">批量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CI/CD</a>
               </li>
              
               <li class="article-tag-list-item">
