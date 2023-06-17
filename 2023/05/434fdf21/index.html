@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. 灰度的来源当软件升级迭代在遇到架构或功能大改动（技术层面），或是需求和操作的大调整（用户体验层面），往往不是全量发布，而是先小范围发布，没有问题再增量到全部用户，这一过程，类似由白到黑的过度，而白与黑之间均为灰色，所以这一部署过程也叫灰度测试 2. 目的灰度测试是软件发布的一种测试方法，它通过向一小部分真实用户开放测试，接收他们的真实使用反馈和及时修复问题，从而降低改动带来的风险。 3. 流">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-22T03:03:27.000Z">
-<meta property="article:modified_time" content="2023-06-15T15:00:19.366Z">
+<meta property="article:modified_time" content="2023-06-17T09:39:58.907Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="CI&#x2F;CD">
 <meta property="article:tag" content="软件测试">
@@ -195,34 +195,50 @@
 <li>确定策略：包括部署策略、用户规模、覆盖率和回滚策略。</li>
 <li>分批次放量：需要分批次放量，先将新版本软件部署给一部分用户使用，观察其运行情况。如果没有问题，再逐渐扩大用户量，直至将新版本软件全部部署。</li>
 <li>收集反馈和修复问题：在测试过程中，需要及时收集用户的反馈和问题，对问题进行分析和修复</li>
-<li>再次发布新版本，确保没问题后逐渐扩大用户覆盖范围，直到100%全覆盖</li>
-</ol>
-<h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4. 注意事项"></a>4. 注意事项</h2><ol>
-<li>在真实环境下进行灰度测试，尽可能模拟真实的用户使用场景。</li>
+<li><p>再次发布新版本，确保没问题后逐渐扩大用户覆盖范围，直到100%全覆盖</p>
+<span id="more"></span>
+<h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4. 注意事项"></a>4. 注意事项</h2></li>
+<li><p>在真实环境下进行灰度测试，尽可能模拟真实的用户使用场景。</p>
+</li>
 <li>分析测试结果，并及时修复问题。</li>
 <li>有一个完善的测试计划和测试指标，以便于评估测试的效果。</li>
 </ol>
 <p>综上所述，灰度测试是软件开发过程中不可或缺的环节，可以帮助开发人员及时发现和修复问题，提高软件的质量和用户体验。但是，在进行灰度测试时需要注意相关的注意事项，以确保测试的有效性和可靠性</p>
-<span id="more"></span>
 <h2 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h2><h3 id="5-1-蓝绿部署"><a href="#5-1-蓝绿部署" class="headerlink" title="5.1 蓝绿部署"></a>5.1 蓝绿部署</h3><p>简单的说，就是在不停掉原版本的基础上，增加机器部署新版本，可以采取以下步骤：</p>
 <ol>
-<li>首先，需要准备两组环境，其中一组是当前正在运行的环境，另一组是新版本的环境</li>
+<li>首先，需要准备两组环境，其中一组是当前正在运行的环境，另一组是新版本的环境，新版本环境要能撑住100%的访问量</li>
 <li>然后，将新版本部署到新环境中，并进行内部测试</li>
-<li>接着，将新环境中的机器逐步加入到原有的负载均衡器中，这样一来，新版本就可以逐渐地被部署到线上环境中。</li>
+<li>接着，将新环境中的机器逐步加入到原有的负载均衡器中，这样一来，新版本就可以逐渐的被部署到线上环境中</li>
+<li>当负载均衡100%指向新版本机器，测试各指标依然正常后，旧版本机器下线</li>
 </ol>
-<p>需要注意的是，在蓝绿部署前要确保一点，新版本可以兼容旧版本的数据，包含数据库、后端接口或是前端的数据处理</p>
+<p>需要注意的是，在蓝绿部署前要确保一点，新版本可以兼容旧版本的数据，包含数据库、后端接口或是前端的数据处理，并且在非隔离环境（VM，Docker）下，蓝绿环境均可能被不同版本的包或冲突，导致异常而宕机的风险</p>
 <p>蓝绿部署的优点</p>
 <ol>
-<li>无需停掉原服务，不影响升级过程无法访问所带来不友好的用户体验</li>
+<li>无需停掉原服务，不影响升级过程中，短暂无法访问所带来不友好的用户体验</li>
 <li>降低新版本风险，一旦发现新版本有重大问题，可以直接在负载均衡停掉新版本指向，而无需进行回滚</li>
 </ol>
 <p>缺点：</p>
 <ol>
-<li>增加硬件成本，需要新增机器来部署新版本</li>
+<li>增加硬件成本，需要新增机器来部署新版本，在大型集群的环境，这种方式几乎不会采用</li>
 <li>数据库处理，新旧版本同时运行，即可能同时写入新旧格式的数据，对于版本迭代完全完成后，可能需要人工进行处理一些数据</li>
 <li>对于微服务架构，新旧版本可能会导致服务中止</li>
 </ol>
-<p>未完，更新中。。。</p>
+<h3 id="5-2-滚动部署"><a href="#5-2-滚动部署" class="headerlink" title="5.2 滚动部署"></a>5.2 滚动部署</h3><p>在现有的集群环境中，逐个节点升级版本，直到所有节点升级完成</p>
+<p>这种部署方式，无需新增硬件成本，只在原有环境进行升级发布</p>
+<p>但是缺点就是回滚相当麻烦，而且定位问题相对困难</p>
+<p>升级节点过程中，比如升级v2.0，当完成50%节点发现了问题，此时需要紧急更新补丁v2.1，于是有50%的节点需要从v2.0升级成v2.1，而此过程中，就有v1.0/v2.0/v2.1三个版本共存，如果此时有用户上报问题，需要定位时哪个版本产生的bug就比较麻烦</p>
+<p>而且还有种极端情况，升级到90%的时候，发现新版本存在大访问量时的数据库缺陷，需要进行回滚，那简直是人间地狱</p>
+<h3 id="5-3-灰度部署"><a href="#5-3-灰度部署" class="headerlink" title="5.3 灰度部署"></a>5.3 灰度部署</h3><p>灰度部署也叫金士雀部署，来源是17世纪，英国旷工发现金士雀对瓦斯气体非常敏感，嗅觉到极微量的瓦斯时便停止歌唱，所以在下矿场时会用金士雀作为探测器使用</p>
+<p>跟滚动部署有点类似，只需在现有环境部署</p>
+<ol>
+<li>从负载均衡停掉小部分节点</li>
+<li>停掉的节点进行金士雀版本升级</li>
+<li>负载均衡重新引入小部分真实用户到金士雀版本</li>
+<li>收集真实用户反馈，和各项测试指标</li>
+<li>进行全量升级</li>
+</ol>
+<p>灰度部署网上有另一种说法，就是真实测试后进行增量升级，而非全量升级，那样就变成滚动部署了，我是觉得金士雀测试瓦斯，只有安全和不安全两种情况，所以测试后，只有回滚和全量升级两种情况</p>
+<p>不管怎样都是需要结合真实环境做改动，一切从需求出发</p>
 
       
 
@@ -350,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%81%B0%E5%BA%A6%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">1. 灰度的来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%AE%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">2. 目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">4. 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%83%A8%E7%BD%B2"><span class="toc-number">5.</span> <span class="toc-text">5. 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%93%9D%E7%BB%BF%E9%83%A8%E7%BD%B2"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 蓝绿部署</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%81%B0%E5%BA%A6%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">1. 灰度的来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9B%AE%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">2. 目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.</span> <span class="toc-text">4. 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%83%A8%E7%BD%B2"><span class="toc-number">5.</span> <span class="toc-text">5. 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E8%93%9D%E7%BB%BF%E9%83%A8%E7%BD%B2"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 蓝绿部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%BB%9A%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 滚动部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%81%B0%E5%BA%A6%E9%83%A8%E7%BD%B2"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 灰度部署</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
