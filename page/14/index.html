@@ -165,6 +165,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/清除Tomcat页面缓存小技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2007/04/ebcd1bf6/">清除Tomcat页面缓存小技巧</a>
+    </h1>
+  
+
+        
+        <a href="../../2007/04/ebcd1bf6/" class="archive-article-date">
+  	<time datetime="2007-04-05T14:14:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信很多用Tomcat的人都会重复这样的事</p>
+<ol>
+<li>关闭Tomcat</li>
+<li>打开tomcat\work目录</li>
+<li>删除Catalina目录</li>
+<li>运行Tomcat<br>其实可以用RD命令删除整个目录，只需打开 tomcat\bin\startup.bat 文件，在开头加入</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rd/s/q <span class="string">&quot;D:\Program Files\tomcat-5.5.9\work\Catalina&quot;</span></span><br></pre></td></tr></table></figure>
+<p>路径根据自己实际情况做修改</p>
+<p>这样每次启动Tomcat的时候就会先删除页面缓存了，不用担心页面修改后没被重新编译</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2007/04/ebcd1bf6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Digital/笔记本散热垫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2052,117 +2150,6 @@
 
 
   
-    <article id="post-Web/Java转义字符补遗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/02/93538d04/">Java转义字符补遗</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/02/93538d04/" class="archive-article-date">
-  	<time datetime="2007-02-05T03:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>常见的Java的转义字符，如下，在大部分文章都提到了</p>
-<p>\n 回车(\u000a) </p>
-<p>\t 水平制表符(\u0009) </p>
-<p>\b 空格(\u0008) </p>
-<p>\r 换行(\u000d) </p>
-<p>\f 换页(\u000c) </p>
-<p>\’ 单引号(\u0027) </p>
-<p>\&quot; 双引号(\u0022) </p>
-<p>\ 反斜杠(\u005c) </p>
-<p>\ddd 三位八进制 </p>
-<p>\udddd 四位十六进制</p>
-<p>上周发现还有其它需要转义的字符，例如</p>
-<font color="#ff6600"><font color="#000080">String sName = &quot;Java转义字符(补遗)&quot;;<br><br>sName = sName.replaceFirst(&quot;(补遗)&quot;,&quot;&quot;);<br><br>out.println(sName);</font>
-
-<p></font></p>
-<p>如果你以为会输出&ldquo;<font color="#ff0000">Java转义字符</font>&rdquo;，那你就错了，事实上输出&ldquo;<font color="#ff0000">Java转义字符()</font>&rdquo;，我也很奇怪，以为是中英文括号的问题，可是并不是，我不确定是否转义问题，解决方法是</p>
-<font color="#000080">sName = sName.replaceFirst(&quot;\(补遗\)&quot;,&quot;&quot;);</font>
-
-<p>以上测试环境为 jdk 1.5.0.06 + tomcat 5.5.9</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/02/93538d04/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="../13/">&amp;laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../12/">12</a><a class="page-number" href="../13/">13</a><span class="page-number current">14</span><a class="page-number" href="../15/">15</a><a class="page-number" href="../16/">16</a><span class="space">&hellip;</span><a class="page-number" href="../21/">21</a><a class="extend next" rel="next" href="../15/">Next &amp;raquo;</a>
@@ -3192,6 +3179,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eventsource</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -3257,10 +3252,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">vuejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
