@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2023-08-02T14:35:43.094Z</updated>
+  <updated>2023-08-03T14:31:03.614Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,18 +21,32 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2023-08-02T14:35:43.094Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;EventSource是基于http1.1协议的推送技术，用于服务器主动向客户端发送数据，而不需要客服端主动请求&lt;/p&gt;
-&lt;h3 id=&quot;1-优缺点&quot;&gt;&lt;a href=&quot;#1-优缺点&quot; class=&quot;headerlink&quot; title=&quot;1. 优缺点&quot;&gt;&lt;/a&gt;1.
-        
-      
+      &lt;p&gt;EventSource是基于http协议的推送技术，用于服务器主动向客户端发送数据，而不需要客服端主动请求&lt;/p&gt;
+&lt;h3 id=&quot;1-优缺点&quot;&gt;&lt;a href=&quot;#1-优缺点&quot; class=&quot;headerlink&quot; title=&quot;1. 优缺点&quot;&gt;&lt;/a&gt;1. 优缺点&lt;/h3&gt;&lt;p&gt;优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基于http1.1，目前浏览器都支持&lt;/li&gt;
+&lt;li&gt;自动断线重连，无需另写心跳检测&lt;/li&gt;
+&lt;li&gt;支持自定义消息类型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单向通讯，客户端无法向服务端发送数据&lt;/li&gt;
+&lt;li&gt;仅支持纯文本，二进制数据需转码才能传送&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;相比于Websocket，EventSource更加轻量级，而且Websocket是独立协议，需要服务端支持&lt;br&gt;除了不能主动发送数据，可以说Websocket能做的，EventSource都能做&lt;/p&gt;
+&lt;h3 id=&quot;2-应用场景&quot;&gt;&lt;a href=&quot;#2-应用场景&quot; class=&quot;headerlink&quot; title=&quot;2. 应用场景&quot;&gt;&lt;/a&gt;2. 应用场景&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ChatGPT&lt;/li&gt;
+&lt;li&gt;天气预报&lt;/li&gt;
+&lt;li&gt;股票外汇等价格牌&lt;/li&gt;
+&lt;li&gt;火车公交位置牌&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-建立连接&quot;&gt;&lt;a href=&quot;#3-建立连接&quot; class=&quot;headerlink&quot; title=&quot;3. 建立连接&quot;&gt;&lt;/a&gt;3. 建立连接&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/2023/07/eventsource1.png&quot; alt=&quot;EventSource&quot;&gt;&lt;/p&gt;
+&lt;p&gt;EventSource使用简单，目前流行浏览器均支持&lt;/p&gt;
+&lt;p&gt;本文用node来写服务端的请求response&lt;br&gt;
     
     </summary>
     
@@ -50,7 +64,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -78,7 +92,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -104,7 +118,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.618Z</updated>
     
     <summary type="html">
     
@@ -143,7 +157,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -172,7 +186,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2023-08-02T14:35:43.094Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -197,7 +211,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2023-08-02T14:35:43.094Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -222,7 +236,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2023-08-02T14:35:43.094Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -247,7 +261,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -271,7 +285,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2023-08-02T14:35:43.102Z</updated>
+    <updated>2023-08-03T14:31:03.618Z</updated>
     
     <summary type="html">
     
@@ -297,7 +311,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -322,7 +336,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -352,7 +366,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -377,7 +391,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -399,7 +413,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -431,7 +445,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -454,7 +468,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -488,7 +502,7 @@
     <link href="http://21ido.com/2018/05/383e290e/"/>
     <id>http://21ido.com/2018/05/383e290e/</id>
     <published>2018-05-16T08:29:33.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -511,7 +525,7 @@
     <link href="http://21ido.com/2018/05/1f5ada0a/"/>
     <id>http://21ido.com/2018/05/1f5ada0a/</id>
     <published>2018-05-14T03:44:00.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
@@ -536,7 +550,7 @@
     <link href="http://21ido.com/2018/05/30381c3b/"/>
     <id>http://21ido.com/2018/05/30381c3b/</id>
     <published>2018-05-11T02:41:26.000Z</published>
-    <updated>2023-08-02T14:35:43.098Z</updated>
+    <updated>2023-08-03T14:31:03.614Z</updated>
     
     <summary type="html">
     
