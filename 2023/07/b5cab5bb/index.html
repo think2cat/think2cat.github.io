@@ -17,8 +17,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2023/07/eventsource1.png">
 <meta property="og:image" content="http://21ido.com/images/2023/07/eventsource2.png">
+<meta property="og:image" content="http://21ido.com/images/2023/07/eventsource3.png">
+<meta property="og:image" content="http://21ido.com/images/2023/07/eventsource4.png">
 <meta property="article:published_time" content="2023-07-27T03:46:25.000Z">
-<meta property="article:modified_time" content="2023-08-03T14:31:03.614Z">
+<meta property="article:modified_time" content="2023-08-14T03:40:13.213Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="eventsource">
 <meta property="article:tag" content="http">
@@ -224,22 +226,35 @@
 <h3 id="4-异常处理"><a href="#4-异常处理" class="headerlink" title="4. 异常处理"></a>4. 异常处理</h3><p>EventSource具有断线重连特性，所以网络掉线或是服务端挂了，也会一直重试，通过error事件可以捕获到 <code>type = &#39;error&#39;</code> 的异常</p>
 <p><img src="/images/2023/07/eventsource2.png" alt="EventSource"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source.<span class="property">onerror</span> = <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error&#x27;</span>, event)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可主动关闭连接，或是通过页面增加按钮来关闭，避免消耗资源</p>
+<p>可主动关闭连接，或是通过页面增加按钮来关闭，避免消耗资源（主要是服务端资源）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source.close()</span><br></pre></td></tr></table></figure>
-<p>同时可通过 <code>source.readyState</code> 来判断连接状态</p>
+<p>同时可通过只读属性 <code>source.readyState</code> 来判断连接状态</p>
 <blockquote>
 <p>0 = 连接中<br>1 = 已连接<br>2 = 已关闭</p>
 </blockquote>
-<h3 id="5-自定义事件"><a href="#5-自定义事件" class="headerlink" title="5. 自定义事件"></a>5. 自定义事件</h3><p>服务端发给客户端的信息，采用 <code>\n\n</code> 作为每个信息的分隔，除了上面用到的<code>data</code>，还支持 <code>event</code>、<code>id</code>、<code>retry</code> 等字段<br>即服务端发送的文本，可以是这样</p>
+<h3 id="5-自定义事件"><a href="#5-自定义事件" class="headerlink" title="5. 自定义事件"></a>5. 自定义事件</h3><p><img src="/images/2023/07/eventsource3.png" alt="EventSource"></p>
+<p>在服务器发送的数据里，type即为事件名称，默认值为 <code>message</code></p>
+<p><code>type</code> 对应服务端的 <code>event</code> 属性，自定义事件名时，需在服务端赋值，如下</p>
 <blockquote>
-<p>id: 2220\n<br>data: ‘test’\n<br>retry: 20000\n\n</p>
+<p>data: ‘test’\n<br>event: up\n</p>
+</blockquote>
+<p>表示 up 事件，此时浏览器收到数据流如下</p>
+<p><img src="/images/2023/07/eventsource4.png" alt="EventSource"></p>
+<p>前端使用时，需绑定 up 事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source.<span class="title function_">addEventListener</span>(<span class="string">&#x27;up&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;up&#x27;</span>, event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="6-重连间隔"><a href="#6-重连间隔" class="headerlink" title="6. 重连间隔"></a>6. 重连间隔</h3><p>服务端发给客户端的信息，采用 <code>\n\n</code> 作为每个信息包的分隔，除了上面用到的<code>data</code>和<code>event</code>，还支持 <code>id</code>、<code>retry</code> 等字段</p>
+<p><code>id</code> 为每条消息的标识id</p>
+<p><code>retry</code>为无通讯时客户端主动连接的间隔事件，单位为毫秒</p>
+<p>即服务端发送的文本，可以是这样</p>
+<blockquote>
+<p>id: 2221\n<br>data: ‘这是一段很长的文本’\n<br>retry: 10000\n\n</p>
 </blockquote>
 <p>如果是很长的文本，甚至可以把 <code>data</code> 拆成几行</p>
 <blockquote>
-<p>id: 2221\n<br>data: ‘这是一段很长的文本’\n<br>data: ‘文本的第二行’\n<br>data: ‘文本的第三行’\n\n</p>
+<p>id: 2221\n<br>data: ‘这是一段很长的文本’\n<br>data: ‘文本的第二行’\n<br>data: ‘文本的第三行’\n<br>retry: 10000\n\n</p>
 </blockquote>
 <p>总之只有识别到 <code>\n\n</code> 才算是一次数据的结束</p>
-<p>更新中</p>
+<p>一般来说，服务端主动发送的间隔，要小于重连间隔，如果超过重连时间（在chrome上测试，默认间隔为5秒），则浏览器会自动请求服务器，并触发异常事件</p>
 
       
 
@@ -367,7 +382,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">1. 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">2. 应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">3. 建立连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">4. 异常处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">5. 自定义事件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">1. 优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">2. 应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">3. 建立连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">4. 异常处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">5. 自定义事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E9%87%8D%E8%BF%9E%E9%97%B4%E9%9A%94"><span class="toc-number">6.</span> <span class="toc-text">6. 重连间隔</span></a></li></ol>
                     </div>
                 </span>
             </div>
