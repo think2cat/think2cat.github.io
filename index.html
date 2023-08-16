@@ -311,7 +311,9 @@
 <li>有一个完善的测试计划和测试指标，以便于评估测试的效果。</li>
 </ol>
 <p>综上所述，灰度测试是软件开发过程中不可或缺的环节，可以帮助开发人员及时发现和修复问题，提高软件的质量和用户体验。但是，在进行灰度测试时需要注意相关的注意事项，以确保测试的有效性和可靠性</p>
-<h2 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h2>
+<h2 id="5-部署"><a href="#5-部署" class="headerlink" title="5. 部署"></a>5. 部署</h2><p>本章图片均搜自谷歌，如有冒犯，请联系我删除</p>
+<h3 id="5-1-蓝绿部署"><a href="#5-1-蓝绿部署" class="headerlink" title="5.1 蓝绿部署"></a>5.1 蓝绿部署</h3><p><img src="/images/2023/05/grey1.png" alt="蓝绿部署" title="蓝绿部署"></p>
+<p>蓝色为原始版本环境，绿色为新版本环境<br>
         
       
 
@@ -402,7 +404,14 @@
       
         <p>本文介绍了如何使用GitHub Actions实现Hexo自动化部署，并指出了一些现有YAML代码所引用的脚本比较老导致报错的问题。</p>
 <p>Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI/CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。</p>
-<p>GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。<br>
+<p>GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。</p>
+<h2 id="1-SSH秘钥"><a href="#1-SSH秘钥" class="headerlink" title="1. SSH秘钥"></a>1. SSH秘钥</h2><p>我的Hexo分2个Git仓库，源码为私库 21ido.com，发布到 GitHub Pages为公开库 think2cat.github.io</p>
+<p>因为是从源码私库push到Pages公开库，此时需要在公开库设置公钥</p>
+<h3 id="1-1-生成秘钥"><a href="#1-1-生成秘钥" class="headerlink" title="1.1 生成秘钥"></a>1.1 生成秘钥</h3><p>执行下面代码，其中邮箱替换成自己的<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b <span class="number">4096</span> -C &quot;gavin2026@xxx.com&quot; -f hexo -N &quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>生成2个文件，hexo 和 hexo.pub</p>
+<h3 id="1-2-设置公钥"><a href="#1-2-设置公钥" class="headerlink" title="1.2 设置公钥"></a>1.2 设置公钥</h3><p>用记事本打开 hexo.pub，全选复制后到GitHub Pages库</p>
+<p>Settings &gt; Deploy keys &gt; Add deploy key</p>
+<p><img src="/images/2023/05/actions1.png" alt="Deploy key"><br>
         
       
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2023-08-14T03:42:30.224Z</updated>
+  <updated>2023-08-16T03:53:25.265Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -64,7 +64,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.269Z</updated>
     
     <summary type="html">
     
@@ -84,7 +84,9 @@
 &lt;li&gt;有一个完善的测试计划和测试指标，以便于评估测试的效果。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;综上所述，灰度测试是软件开发过程中不可或缺的环节，可以帮助开发人员及时发现和修复问题，提高软件的质量和用户体验。但是，在进行灰度测试时需要注意相关的注意事项，以确保测试的有效性和可靠性&lt;/p&gt;
-&lt;h2 id=&quot;5-部署&quot;&gt;&lt;a href=&quot;#5-部署&quot; class=&quot;headerlink&quot; title=&quot;5. 部署&quot;&gt;&lt;/a&gt;5. 部署&lt;/h2&gt;
+&lt;h2 id=&quot;5-部署&quot;&gt;&lt;a href=&quot;#5-部署&quot; class=&quot;headerlink&quot; title=&quot;5. 部署&quot;&gt;&lt;/a&gt;5. 部署&lt;/h2&gt;&lt;p&gt;本章图片均搜自谷歌，如有冒犯，请联系我删除&lt;/p&gt;
+&lt;h3 id=&quot;5-1-蓝绿部署&quot;&gt;&lt;a href=&quot;#5-1-蓝绿部署&quot; class=&quot;headerlink&quot; title=&quot;5.1 蓝绿部署&quot;&gt;&lt;/a&gt;5.1 蓝绿部署&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/2023/05/grey1.png&quot; alt=&quot;蓝绿部署&quot; title=&quot;蓝绿部署&quot;&gt;&lt;/p&gt;
+&lt;p&gt;蓝色为原始版本环境，绿色为新版本环境&lt;br&gt;
     
     </summary>
     
@@ -102,13 +104,20 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;本文介绍了如何使用GitHub Actions实现Hexo自动化部署，并指出了一些现有YAML代码所引用的脚本比较老导致报错的问题。&lt;/p&gt;
 &lt;p&gt;Hexo是一个快速、简单且强大的静态博客框架，而GitHub Actions则是一项功能强大的CI/CD工具，可以自动化地执行软件开发工作流程，用于自动构建、测试和部署代码，从而加快软件开发周期。&lt;/p&gt;
-&lt;p&gt;GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。&lt;br&gt;
+&lt;p&gt;GitHub Actions使用YAML脚本语言，一种轻量级的标记语言，语法简单，相比JSON更加简介，可以轻松地编写和维护自动化工作流程。&lt;/p&gt;
+&lt;h2 id=&quot;1-SSH秘钥&quot;&gt;&lt;a href=&quot;#1-SSH秘钥&quot; class=&quot;headerlink&quot; title=&quot;1. SSH秘钥&quot;&gt;&lt;/a&gt;1. SSH秘钥&lt;/h2&gt;&lt;p&gt;我的Hexo分2个Git仓库，源码为私库 21ido.com，发布到 GitHub Pages为公开库 think2cat.github.io&lt;/p&gt;
+&lt;p&gt;因为是从源码私库push到Pages公开库，此时需要在公开库设置公钥&lt;/p&gt;
+&lt;h3 id=&quot;1-1-生成秘钥&quot;&gt;&lt;a href=&quot;#1-1-生成秘钥&quot; class=&quot;headerlink&quot; title=&quot;1.1 生成秘钥&quot;&gt;&lt;/a&gt;1.1 生成秘钥&lt;/h3&gt;&lt;p&gt;执行下面代码，其中邮箱替换成自己的&lt;br&gt;&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen -t rsa -b &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; -C &amp;quot;gavin2026@xxx.com&amp;quot; -f hexo -N &amp;quot;&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;生成2个文件，hexo 和 hexo.pub&lt;/p&gt;
+&lt;h3 id=&quot;1-2-设置公钥&quot;&gt;&lt;a href=&quot;#1-2-设置公钥&quot; class=&quot;headerlink&quot; title=&quot;1.2 设置公钥&quot;&gt;&lt;/a&gt;1.2 设置公钥&lt;/h3&gt;&lt;p&gt;用记事本打开 hexo.pub，全选复制后到GitHub Pages库&lt;/p&gt;
+&lt;p&gt;Settings &amp;gt; Deploy keys &amp;gt; Add deploy key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2023/05/actions1.png&quot; alt=&quot;Deploy key&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -128,7 +137,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.269Z</updated>
     
     <summary type="html">
     
@@ -167,7 +176,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -196,7 +205,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -221,7 +230,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -246,7 +255,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -271,7 +280,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.269Z</updated>
     
     <summary type="html">
     
@@ -295,7 +304,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.269Z</updated>
     
     <summary type="html">
     
@@ -321,7 +330,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -346,7 +355,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -376,7 +385,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -401,7 +410,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -423,7 +432,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -455,7 +464,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -478,7 +487,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -512,7 +521,7 @@
     <link href="http://21ido.com/2018/05/383e290e/"/>
     <id>http://21ido.com/2018/05/383e290e/</id>
     <published>2018-05-16T08:29:33.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -535,7 +544,7 @@
     <link href="http://21ido.com/2018/05/1f5ada0a/"/>
     <id>http://21ido.com/2018/05/1f5ada0a/</id>
     <published>2018-05-14T03:44:00.000Z</published>
-    <updated>2023-08-14T03:42:30.224Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
@@ -560,7 +569,7 @@
     <link href="http://21ido.com/2018/05/30381c3b/"/>
     <id>http://21ido.com/2018/05/30381c3b/</id>
     <published>2018-05-11T02:41:26.000Z</published>
-    <updated>2023-08-14T03:42:30.228Z</updated>
+    <updated>2023-08-16T03:53:25.265Z</updated>
     
     <summary type="html">
     
