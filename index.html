@@ -165,6 +165,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/当空数组遇上every" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2023/09/1a355503/">当空数组遇上every, some</a>
+    </h1>
+  
+
+        
+        <a href="2023/09/1a355503/" class="archive-article-date">
+  	<time datetime="2023-09-16T02:18:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>早在17年写过一篇JS数组的文章<br><a href="/2017/03/10afd6ef/" title="Javascript数组的every、some、map、filter、forEach">Javascript数组的every、some、map、filter、forEach</a></p>
+<p>文中提到</p>
+<blockquote>
+<p><em>every</em>，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false</p>
+</blockquote>
+<p>这个说法有误，当传入空数组时，返回的也是 true</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[].<span class="title function_">every</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//--&gt; true</span></span><br></pre></td></tr></table></figure>
+<p>所以并不是说数组每个都为true时结果才为true，这点就很费解了<br>然后搜了ECMA-262规范的实现<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2023/09/1a355503/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/EventSource使用指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1994,102 +2090,6 @@
 
 
   
-    <article id="post-Web/WebSocket入门(3)心跳检测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/05/30381c3b/">WebSocket入门（3）心跳检测</a>
-    </h1>
-  
-
-        
-        <a href="2018/05/30381c3b/" class="archive-article-date">
-  	<time datetime="2018-05-11T02:41:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮一峰博客</a>）</p>
-<ul>
-<li>CONNECTING：值为0，表示正在连接</li>
-<li>OPEN：值为1，表示连接成功，可以通信了</li>
-<li>CLOSING：值为2，表示连接正在关闭</li>
-<li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
-</ul>
-<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2018/05/30381c3b/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/21/">21</a><a class="extend next" rel="next" href="page/2/">Next &amp;raquo;</a>
@@ -3264,6 +3264,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES5</a>
               </li>
              
               <li class="article-tag-list-item">

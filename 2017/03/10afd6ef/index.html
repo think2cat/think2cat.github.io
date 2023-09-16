@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://21ido.com">
   <title>Javascript数组的every、some、map、filter、forEach | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="every，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false some，判断是否有元素符合，一旦遇到true则停止 map，每个元素按function返回结果构成新数组 filter，返回所有符合条件的元素构成的新数组 forEach，单独执行每个元素，无返回  各函数执行时需要传入function作为参数，每次执行会传入value和index">
+  <meta name="description" content="2023-9-16 订正every默认返回true，只有数组里存在false时才返回false详见 当空数组遇上every, some   every，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false some，判断是否有元素符合，一旦遇到true则停止 map，每个元素按function返回结果构成新数组 filter，返回所有符合条件的元素构成的新数组 forE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript数组的every、some、map、filter、forEach">
 <meta property="og:url" content="http://21ido.com/2017/03/10afd6ef/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="every，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false some，判断是否有元素符合，一旦遇到true则停止 map，每个元素按function返回结果构成新数组 filter，返回所有符合条件的元素构成的新数组 forEach，单独执行每个元素，无返回  各函数执行时需要传入function作为参数，每次执行会传入value和index">
+<meta property="og:description" content="2023-9-16 订正every默认返回true，只有数组里存在false时才返回false详见 当空数组遇上every, some   every，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false some，判断是否有元素符合，一旦遇到true则停止 map，每个元素按function返回结果构成新数组 filter，返回所有符合条件的元素构成的新数组 forE">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-03-10T08:02:32.000Z">
-<meta property="article:modified_time" content="2023-08-16T03:53:25.265Z">
+<meta property="article:modified_time" content="2023-09-16T14:02:16.560Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <blockquote>
+<p>2023-9-16 订正<br><em>every默认返回true，只有数组里存在false时才返回false</em><br>详见 <a href="/2023/09/1a355503/" title="当空数组遇上every, some">当空数组遇上every, some</a></p>
+</blockquote>
+<ul>
 <li><strong>every</strong>，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false</li>
 <li><strong>some</strong>，判断是否有元素符合，一旦遇到true则停止</li>
 <li><strong>map</strong>，每个元素按function返回结果构成新数组</li>
@@ -1531,6 +1534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES5</a>
               </li>
              
               <li class="article-tag-list-item">

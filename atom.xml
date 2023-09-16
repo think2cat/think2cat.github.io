@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2023-08-16T03:53:25.265Z</updated>
+  <updated>2023-09-16T14:02:16.564Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>当空数组遇上every, some</title>
+    <link href="http://21ido.com/2023/09/1a355503/"/>
+    <id>http://21ido.com/2023/09/1a355503/</id>
+    <published>2023-09-16T02:18:12.000Z</published>
+    <updated>2023-09-16T14:02:16.564Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;早在17年写过一篇JS数组的文章&lt;br&gt;&lt;a href=&quot;/2017/03/10afd6ef/&quot; title=&quot;Javascript数组的every、some、map、filter、forEach&quot;&gt;Javascript数组的every、some、map、filter、forEach&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;文中提到&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;every&lt;/em&gt;，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个说法有误，当传入空数组时，返回的也是 true&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[].&lt;span class=&quot;title function_&quot;&gt;every&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;_&lt;/span&gt; =&amp;gt;&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//--&amp;gt; true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;所以并不是说数组每个都为true时结果才为true，这点就很费解了&lt;br&gt;然后搜了ECMA-262规范的实现&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
+    
+      <category term="ES5" scheme="http://21ido.com/tags/ES5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>EventSource使用指南</title>
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -64,7 +93,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2023-08-16T03:53:25.269Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -104,7 +133,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -137,7 +166,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2023-08-16T03:53:25.269Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -176,7 +205,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -205,7 +234,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -230,7 +259,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -255,7 +284,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -280,7 +309,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2023-08-16T03:53:25.269Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -304,7 +333,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2023-08-16T03:53:25.269Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -330,7 +359,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -355,7 +384,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.564Z</updated>
     
     <summary type="html">
     
@@ -385,7 +414,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -410,7 +439,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -432,7 +461,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -464,7 +493,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -487,7 +516,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -521,7 +550,7 @@
     <link href="http://21ido.com/2018/05/383e290e/"/>
     <id>http://21ido.com/2018/05/383e290e/</id>
     <published>2018-05-16T08:29:33.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -544,7 +573,7 @@
     <link href="http://21ido.com/2018/05/1f5ada0a/"/>
     <id>http://21ido.com/2018/05/1f5ada0a/</id>
     <published>2018-05-14T03:44:00.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
+    <updated>2023-09-16T14:02:16.560Z</updated>
     
     <summary type="html">
     
@@ -561,35 +590,6 @@
       <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebSocket入门（3）心跳检测</title>
-    <link href="http://21ido.com/2018/05/30381c3b/"/>
-    <id>http://21ido.com/2018/05/30381c3b/</id>
-    <published>2018-05-11T02:41:26.000Z</published>
-    <updated>2023-08-16T03:53:25.265Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close&lt;br&gt;最好就是加一个心跳检测来判断网络异常&lt;br&gt;websocket有一个readyState状态值，代表的状态如下（摘自&lt;a href=&quot;http://www.ruanyifeng.com/blog/2017/05/websocket.html&quot;&gt;阮一峰博客&lt;/a&gt;）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CONNECTING：值为0，表示正在连接&lt;/li&gt;
-&lt;li&gt;OPEN：值为1，表示连接成功，可以通信了&lt;/li&gt;
-&lt;li&gt;CLOSING：值为2，表示连接正在关闭&lt;/li&gt;
-&lt;li&gt;CLOSED：值为3，表示连接已经关闭，或者打开连接失败&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;当成功建立连接后，即启动心跳检测，大概的流程如下图&lt;br&gt;&lt;img src=&quot;/images/2018/05/websocket_heart.png&quot; alt=&quot;flow&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="http" scheme="http://21ido.com/tags/http/"/>
-    
-      <category term="socket" scheme="http://21ido.com/tags/socket/"/>
     
   </entry>
   

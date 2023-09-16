@@ -165,6 +165,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/WebSocket入门(3)心跳检测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/05/30381c3b/">WebSocket入门（3）心跳检测</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/05/30381c3b/" class="archive-article-date">
+  	<time datetime="2018-05-11T02:41:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>websocket自带onerror回调，当异常会触发，但是在目前阶段，某些时候浏览器并不会触发，包括chrome，直接close<br>最好就是加一个心跳检测来判断网络异常<br>websocket有一个readyState状态值，代表的状态如下（摘自<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮一峰博客</a>）</p>
+<ul>
+<li>CONNECTING：值为0，表示正在连接</li>
+<li>OPEN：值为1，表示连接成功，可以通信了</li>
+<li>CLOSING：值为2，表示连接正在关闭</li>
+<li>CLOSED：值为3，表示连接已经关闭，或者打开连接失败</li>
+</ul>
+<p>当成功建立连接后，即启动心跳检测，大概的流程如下图<br><img src="/images/2018/05/websocket_heart.png" alt="flow"><br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/05/30381c3b/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/WebSocket入门(2)API使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1514,7 +1610,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <blockquote>
+<p>2023-9-16 订正<br><em>every默认返回true，只有数组里存在false时才返回false</em><br>详见 <a href="/2023/09/1a355503/" title="当空数组遇上every, some">当空数组遇上every, some</a></p>
+</blockquote>
+<ul>
 <li><strong>every</strong>，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false</li>
 <li><strong>some</strong>，判断是否有元素符合，一旦遇到true则停止</li>
 <li><strong>map</strong>，每个元素按function返回结果构成新数组</li>
@@ -1933,99 +2032,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2016/01/ebd5f440/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/我为什么骑车上班_你为什么不" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2015/05/3f917936/">我为什么骑车上班，你为什么不？</a>
-    </h1>
-  
-
-        
-        <a href="../../2015/05/3f917936/" class="archive-article-date">
-  	<time datetime="2015-05-03T07:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2015/06/111.jpg" alt=""></p>
-<p>写在前面的后序：<br>在柴静的《穹顶之下》出来后，就有想写点东西，呼吁大家注意环保，呼吁少开车，后来跟同事的聊天慢慢发现这很难改变什么，开车的依旧选择开车，住的近的也依然不会骑车，第一步总是难以迈开，不想做的事总会给自己千万个理由</p>
-<p>我为什么骑车？</p>
-<ol>
-<li>酷</li>
-<li>省钱</li>
-<li>怕塞车</li>
-<li>不用等车</li>
-<li>无须挤公交
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单车</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2015/05/3f917936/">展开全文 >></a>
         </p>
       
 
@@ -3229,6 +3235,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES5</a>
               </li>
              
               <li class="article-tag-list-item">
