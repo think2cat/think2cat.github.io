@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[npm、yarn和npm的古往今来]]></title>
+    <url>%2F2023%2F12%2F4fefd04c%2F</url>
+    <content type="text"><![CDATA[未完结，更新中… [toc] I. 引言1. npm背景介绍Node.js的第一个版本是由Ryan Dahl创建的，最初发布于2009年5月27日该版本基于v8引擎，提供了一个事件驱动、非阻塞I/O环境，使得JS可以运行在服务器环境下而为了解决node.js生态系统中包的管理问题，在2010年，Isaac Z. Schlueter发布了npm 2. 包管理工具的重要性包管理工具在现代软件开发中是不可或缺的一部分，其重要性体现在以下几个方面： 依赖管理： 软件开发通常依赖于许多第三方库和工具。包管理工具能够方便地安装、更新和卸载这些依赖，确保项目能够顺利运行并保持最新状态。 版本控制： 包管理工具提供了对依赖项版本的控制机制。通过语义化版本控制（Semantic Versioning），开发者能够明确指定项目对依赖项的版本要求，避免由于版本不一致导致的兼容性问题。 易于分享和分发： 包管理工具使得开发者能够方便地分享自己的代码库（包）给其他人使用。这种分享机制促进了开源社区的发展，使得开发者能够从全球范围内获取并贡献代码。 构建和部署： 包管理工具通常集成了构建和打包的功能，简化了项目的构建过程。通过包管理工具，开发者可以轻松地将项目部署到生产环境中。 自动化任务： 包管理工具支持定义和运行各种自动化任务，例如运行测试、执行代码风格检查、生成文档等。这些任务可以通过配置文件或命令行参数进行定制，提高了开发过程的效率。 安全性： 包管理工具通常包含安全审查机制，能够检测并报告依赖项中存在的安全漏洞。这有助于开发者及时采取措施，保障项目的安全性。 多项目管理： 对于大型项目或使用多个子项目的情况，包管理工具支持工作区（workspace）和多包存储库，使得依赖项的管理更加灵活。 环境隔离： 包管理工具可以创建虚拟环境，将项目的依赖项隔离开来，避免了不同项目之间的冲突。这种隔离有助于确保项目在不同环境中的稳定性。]]></content>
+      <tags>
+        <tag>nodejs</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[当空数组遇上every, some]]></title>
     <url>%2F2023%2F09%2F1a355503%2F</url>
     <content type="text"><![CDATA[早在17年写过一篇JS数组的文章Javascript数组的every、some、map、filter、forEach 文中提到 every，判断是否所有元素都符合，需要每个都为true才返回true，否则返回false 这个说法有误，当传入空数组时，返回的也是 true 123[].every(_ =&gt; true)//--&gt; true 所以并不是说数组每个都为true时结果才为true，这点就很费解了然后搜了ECMA-262规范的实现 12345678910111213141516171819202122232425262728Array.prototype.every = function(callbackfn, thisArg) &#123; const O = this; const len = O.length; if (typeof callbackfn !== &quot;function&quot;) &#123; throw new TypeError(&quot;Callback isn&#x27;t callable&quot;); &#125; let k = 0; while (k &lt; len) &#123; const Pk = String(k); const kPresent = O.hasOwnProperty(Pk); if (kPresent) &#123; const kValue = O[Pk]; const testResult = Boolean(callbackfn.call(thisArg, kValue, k, O)); if (testResult === false) &#123; return false; &#125; &#125; k = k + 1; &#125; return true;&#125;; 可以看出最后的 return true，也就是说只有数组里遇到false，才会返回false，没有遇到false则默认返回true 所以空数组时，压根没有进到while循环，就直接返回默认true了 再来看看 some 遇到空数组 12345[].some(_ =&gt; false)//--&gt; false[].some(_ =&gt; true)//--&gt; false 空数组时，不管传入的判断函数返回值是什么，总是返回 false 查看some的实现 1234567891011121314151617181920212223Array.prototype.some = function(fun/*, thisArg*/) &#123; &#x27;use strict&#x27;; if (this == null) &#123; throw new TypeError(&#x27;Array.prototype.some called on null or undefined&#x27;); &#125; if (typeof fun !== &#x27;function&#x27;) &#123; throw new TypeError(); &#125; var t = Object(this); var len = t.length &gt;&gt;&gt; 0; var thisArg = arguments.length &gt;= 2 ? arguments[1] : void 0; for (var i = 0; i &lt; len; i++) &#123; if (i in t &amp;&amp; fun.call(thisArg, t[i], i, t)) &#123; return true; &#125; &#125; return false; &#125;; 可以发现跟every正好相反，默认返回值是false，只有按数组中判断返回true时，才会返回true 相关资料 Array.prototype.some() Nicholas C. Zakas《JavaScript WTF: Why does every() return true for empty arrays?》]]></content>
