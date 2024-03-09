@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-03-09T05:15:51.935Z</updated>
+  <updated>2024-03-09T05:24:10.692Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -30,22 +30,14 @@
 &lt;h4 id=&quot;1-npm背景介绍&quot;&gt;&lt;a href=&quot;#1-npm背景介绍&quot; class=&quot;headerlink&quot; title=&quot;1. npm背景介绍&quot;&gt;&lt;/a&gt;1. npm背景介绍&lt;/h4&gt;&lt;p&gt;Node.js的第一个版本是由Ryan Dahl创建的，最初发布于2009年5月27日&lt;br&gt;该版本基于v8引擎，提供了一个事件驱动、非阻塞I/O环境，使得JS可以运行在服务器环境下&lt;br&gt;而为了解决node.js生态系统中包的管理问题，在2010年，Isaac Z. Schlueter发布了npm&lt;/p&gt;
 &lt;h4 id=&quot;2-包管理工具的重要性&quot;&gt;&lt;a href=&quot;#2-包管理工具的重要性&quot; class=&quot;headerlink&quot; title=&quot;2. 包管理工具的重要性&quot;&gt;&lt;/a&gt;2. 包管理工具的重要性&lt;/h4&gt;&lt;p&gt;包管理工具在现代软件开发中是不可或缺的一部分，其重要性体现在以下几个方面：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;依赖管理&lt;br&gt;软件开发通常依赖于许多第三方库和工具。包管理工具能够方便地安装、更新和卸载这些依赖，确保项目能够顺利运行并保持最新状态。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;版本控制&lt;br&gt;包管理工具提供了对依赖项版本的控制机制。通过语义化版本控制（Semantic Versioning），开发者能够明确指定项目对依赖项的版本要求，避免由于版本不一致导致的兼容性问题。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;易于分享和分发&lt;br&gt;包管理工具使得开发者能够方便地分享自己的代码库（包）给其他人使用。这种分享机制促进了开源社区的发展，使得开发者能够从全球范围内获取并贡献代码。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;构建和部署&lt;br&gt;包管理工具通常集成了构建和打包的功能，简化了项目的构建过程。通过包管理工具，开发者可以轻松地将项目部署到生产环境中。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;自动化任务&lt;br&gt;包管理工具支持定义和运行各种自动化任务，例如运行测试、执行代码风格检查、生成文档等。这些任务可以通过配置文件或命令行参数进行定制，提高了开发过程的效率。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安全性&lt;br&gt;包管理工具通常包含安全审查机制，能够检测并报告依赖项中存在的安全漏洞。这有助于开发者及时采取措施，保障项目的安全性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;多项目管理&lt;br&gt;对于大型项目或使用多个子项目的情况，包管理工具支持工作区（workspace）和多包存储库，使得依赖项的管理更加灵活。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;环境隔离&lt;br&gt;包管理工具可以创建虚拟环境，将项目的依赖项隔离开来，避免了不同项目之间的冲突。这种隔离有助于确保项目在不同环境中的稳定性。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;依赖管理&lt;br&gt;软件开发通常依赖于许多第三方库和工具。包管理工具能够方便地安装、更新和卸载这些依赖，确保项目能够顺利运行并保持最新状态。&lt;/li&gt;
+&lt;li&gt;版本控制&lt;br&gt;包管理工具提供了对依赖项版本的控制机制。通过语义化版本控制（Semantic Versioning），开发者能够明确指定项目对依赖项的版本要求，避免由于版本不一致导致的兼容性问题。&lt;/li&gt;
+&lt;li&gt;易于分享和分发&lt;br&gt;包管理工具使得开发者能够方便地分享自己的代码库（包）给其他人使用。这种分享机制促进了开源社区的发展，使得开发者能够从全球范围内获取并贡献代码。&lt;/li&gt;
+&lt;li&gt;构建和部署&lt;br&gt;包管理工具通常集成了构建和打包的功能，简化了项目的构建过程。通过包管理工具，开发者可以轻松地将项目部署到生产环境中。&lt;/li&gt;
+&lt;li&gt;自动化任务&lt;br&gt;包管理工具支持定义和运行各种自动化任务，例如运行测试、执行代码风格检查、生成文档等。这些任务可以通过配置文件或命令行参数进行定制，提高了开发过程的效率。&lt;/li&gt;
+&lt;li&gt;安全性&lt;br&gt;包管理工具通常包含安全审查机制，能够检测并报告依赖项中存在的安全漏洞。这有助于开发者及时采取措施，保障项目的安全性。&lt;/li&gt;
+&lt;li&gt;多项目管理&lt;br&gt;对于大型项目或使用多个子项目的情况，包管理工具支持工作区（workspace）和多包存储库，使得依赖项的管理更加灵活。&lt;/li&gt;
+&lt;li&gt;环境隔离&lt;br&gt;包管理工具可以创建虚拟环境，将项目的依赖项隔离开来，避免了不同项目之间的冲突。这种隔离有助于确保项目在不同环境中的稳定性。&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>
@@ -64,7 +56,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -93,7 +85,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -136,7 +128,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -176,7 +168,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -209,7 +201,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -248,7 +240,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -277,7 +269,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -302,7 +294,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -327,7 +319,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -352,7 +344,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -376,7 +368,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.692Z</updated>
     
     <summary type="html">
     
@@ -402,7 +394,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -427,7 +419,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-03-09T05:15:51.935Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -457,7 +449,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -482,7 +474,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -504,7 +496,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -536,7 +528,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -559,7 +551,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
@@ -593,7 +585,7 @@
     <link href="http://21ido.com/2018/05/383e290e/"/>
     <id>http://21ido.com/2018/05/383e290e/</id>
     <published>2018-05-16T08:29:33.000Z</published>
-    <updated>2024-03-09T05:15:51.931Z</updated>
+    <updated>2024-03-09T05:24:10.688Z</updated>
     
     <summary type="html">
     
