@@ -16,7 +16,7 @@
 <meta property="og:description" content="I. 引言本文将深入探讨这三种包管理工具的背景、特点和使用场景，以帮助读者更好地了解它们，为自己的项目选择合适的工具。从最初的 Node.js 发布到包管理工具的崛起和不断演进，我们将带您一一解读，探索它们背后的故事和技术细节。 无论您是新手开发者还是资深工程师，相信本文都能为您带来一些有价值的信息和启发。让我们一起探索 npm、Yarn 和 PNPM 的世界，为我们的项目选择最佳伙伴！ 1. n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-14T13:36:52.000Z">
-<meta property="article:modified_time" content="2024-03-09T15:07:35.719Z">
+<meta property="article:modified_time" content="2024-03-10T02:08:55.560Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="nodejs">
 <meta property="article:tag" content="npm">
@@ -241,6 +241,11 @@
 <li>pnpm同样适用中大型项目或者monorepo结构的项目，符号链接减少磁盘占用， 并且对Windows平台极为友好</li>
 </ol>
 <p>随着 JavaScript 生态系统的不断发展和项目规模的不断扩大，包管理工具的选择变得越来越重要。无论是对于小型项目还是大型项目，选择合适的工具都能够极大地提高开发效率和项目质量。</p>
+<h3 id="Ⅵ-附录"><a href="#Ⅵ-附录" class="headerlink" title="Ⅵ. 附录"></a>Ⅵ. 附录</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37653878">一文看懂npm、yarn、pnpm之间的区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7060448346107805732">2022 前端包管理方案-pnpm 和 corepack</a></li>
+<li><a target="_blank" rel="noopener" href="https://javascript.ruanyifeng.com/nodejs/packagejson.html">package.json文件</a></li>
+</ul>
 
       
 
@@ -368,7 +373,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#I-%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">I. 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-npm%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1. npm背景介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">2. 包管理工具的重要性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#II-NPM%E7%9A%84%E7%89%B9%E7%82%B9%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">II. NPM的特点和优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#III-Yarn%E7%9A%84%E7%8B%AC%E7%89%B9%E4%B9%8B%E5%A4%84"><span class="toc-number">3.</span> <span class="toc-text">III. Yarn的独特之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IV-pnpm%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-number">4.</span> <span class="toc-text">IV. pnpm的崛起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V-%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">V. 选择建议</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#I-%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">I. 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-npm%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1. npm背景介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">2. 包管理工具的重要性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#II-NPM%E7%9A%84%E7%89%B9%E7%82%B9%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="toc-number">2.</span> <span class="toc-text">II. NPM的特点和优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#III-Yarn%E7%9A%84%E7%8B%AC%E7%89%B9%E4%B9%8B%E5%A4%84"><span class="toc-number">3.</span> <span class="toc-text">III. Yarn的独特之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IV-pnpm%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-number">4.</span> <span class="toc-text">IV. pnpm的崛起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V-%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">V. 选择建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%85%A5-%E9%99%84%E5%BD%95"><span class="toc-number">6.</span> <span class="toc-text">Ⅵ. 附录</span></a></li></ol>
                     </div>
                 </span>
             </div>
