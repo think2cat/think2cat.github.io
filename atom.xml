@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-03-10T02:08:55.560Z</updated>
+  <updated>2024-03-12T09:14:28.888Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解node.js模块</title>
+    <link href="http://21ido.com/2024/03/69025b32/"/>
+    <id>http://21ido.com/2024/03/69025b32/</id>
+    <published>2024-03-09T15:19:56.000Z</published>
+    <updated>2024-03-12T09:14:28.888Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;未完，更新中&lt;/p&gt;
+&lt;p&gt;JavaScript的思想是一切皆对象，而Node.js编程是基于模块化思想的。&lt;/p&gt;
+&lt;h3 id=&quot;1-基本概念&quot;&gt;&lt;a href=&quot;#1-基本概念&quot; class=&quot;headerlink&quot; title=&quot;1. 基本概念&quot;&gt;&lt;/a&gt;1. 基本概念&lt;/h3&gt;&lt;p&gt;Node.js采用了CommonJS模块系统，每个文件都是一个独立的模块，每个模块都有自己的作用域，可以有自己的变量和函数。这种模块化的设计使得代码更易于组织、维护和重用。&lt;/p&gt;
+&lt;p&gt;通过模块化，开发者可以将复杂的程序拆分成小的、独立的模块，每个模块专注于特定的功能。这样做有助于降低代码的耦合度，提高代码的可读性和可维护性。&lt;/p&gt;
+&lt;p&gt;此外，Node.js的模块化设计还支持模块之间的依赖管理，使得开发者可以方便地引入其他模块提供的功能。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+      <category term="nodejs" scheme="http://21ido.com/categories/Web/nodejs/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>npm、yarn和pnpm的古往今来</title>
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -56,7 +80,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.888Z</updated>
     
     <summary type="html">
     
@@ -85,7 +109,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-03-10T02:08:55.556Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -128,7 +152,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.888Z</updated>
     
     <summary type="html">
     
@@ -168,7 +192,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-03-10T02:08:55.556Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -201,7 +225,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.888Z</updated>
     
     <summary type="html">
     
@@ -240,7 +264,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -269,7 +293,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-03-10T02:08:55.556Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -294,7 +318,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-03-10T02:08:55.556Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -319,7 +343,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-03-10T02:08:55.556Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -344,7 +368,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.888Z</updated>
     
     <summary type="html">
     
@@ -368,7 +392,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.888Z</updated>
     
     <summary type="html">
     
@@ -394,7 +418,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -419,7 +443,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -449,7 +473,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -474,7 +498,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -496,7 +520,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -528,7 +552,7 @@
     <link href="http://21ido.com/2018/07/7cecbcde/"/>
     <id>http://21ido.com/2018/07/7cecbcde/</id>
     <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -551,7 +575,7 @@
     <link href="http://21ido.com/2018/06/57c1ef1d/"/>
     <id>http://21ido.com/2018/06/57c1ef1d/</id>
     <published>2018-06-04T06:48:28.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
+    <updated>2024-03-12T09:14:28.884Z</updated>
     
     <summary type="html">
     
@@ -577,29 +601,6 @@
       <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="promise" scheme="http://21ido.com/tags/promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TypeScript学习笔记(2)</title>
-    <link href="http://21ido.com/2018/05/383e290e/"/>
-    <id>http://21ido.com/2018/05/383e290e/</id>
-    <published>2018-05-16T08:29:33.000Z</published>
-    <updated>2024-03-10T02:08:55.560Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h3&gt;&lt;h4 id=&quot;表示法&quot;&gt;&lt;a href=&quot;#表示法&quot; class=&quot;headerlink&quot; title=&quot;[]表示法&quot;&gt;&lt;/a&gt;[]表示法&lt;/h4&gt;&lt;p&gt;在类型定义后面加上[]即表示数组&lt;br&gt;定义的数组不允许出现其它类型，同时支持联合类型&lt;br&gt;&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catArr&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;[] = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catName&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] = [&lt;span class=&quot;string&quot;&gt;&amp;quot;one&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;three&amp;quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catColor&lt;/span&gt;: (&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;|&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;)[] = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0xFFF&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;catColor.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;four&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h4 id=&quot;泛型表示法&quot;&gt;&lt;a href=&quot;#泛型表示法&quot; class=&quot;headerlink&quot; title=&quot;泛型表示法&quot;&gt;&lt;/a&gt;泛型表示法&lt;/h4&gt;&lt;figure class=&quot;highlight ts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catArr&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catName&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;string&quot;&gt;&amp;quot;one&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;tow&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;three&amp;quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;catColor&lt;/span&gt;: &lt;span class=&quot;title class_&quot;&gt;Array&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;boolean&lt;/span&gt;|&lt;span class=&quot;built_in&quot;&gt;number&lt;/span&gt;&amp;gt; = [&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;catColor.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="typescript" scheme="http://21ido.com/tags/typescript/"/>
     
   </entry>
   

@@ -165,6 +165,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/ASP调SOAP接口注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2008/01/a60b2e49/">ASP调SOAP接口注意事项</a>
+    </h1>
+  
+
+        
+        <a href="../../2008/01/a60b2e49/" class="archive-article-date">
+  	<time datetime="2008-01-25T04:25:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2008-01-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司一个ASP网站，要调用Java写的SOAP接口，本来想用微软那个 SOAP Toolkit提交，可是一直报错（参数错误），也不明白什么问题，只好用最原始的http请求，期间碰到许多问题，做下摘记，希望能让些人少走弯路</p>
+<ul>
+<li>post过去后服务器报错，例如<strong> tomcat报500错误 </strong>，可能是post的编码不对，检查下</li>
+<li>SOAP返回<blockquote>
+<p>&lt;faultstring&gt;The endpoint reference (EPR) for the Operation not found is <a target="_blank" rel="noopener" href="http://xxx.xxx.xxx.xxx/services/ScoreService">http://xxx.xxx.xxx.xxx/services/ScoreService</a> and the WSA Action = null&lt;/faultstring&gt;<br>那是http头没加action项，试试添加一行</p>
+<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objXML.setRequestHeader &amp;quot;SOAPAction&amp;quot;, &amp;quot;Update&amp;quot;</span><br></pre></td></tr></table></figure>
+<p>其中 update 是对应WSDL的方法</p>
+</blockquote>
+</li>
+<li>提示<blockquote>
+<p>Transport level information does not match with SOAP Message namespace<br>检查xmlns属性，别搞混了<br><a target="_blank" rel="noopener" href="http://schemas.xmlsoap.org/soap/envelope/">http://schemas.xmlsoap.org/soap/envelope/</a> 是 SOAP 1.1<br><a target="_blank" rel="noopener" href="http://www.w3.org/2003/05/soap-envelope">http://www.w3.org/2003/05/soap-envelope</a> 是 SOAP 1.2</p>
+</blockquote>
+</li>
+</ul>
+<p>附上相关文档地址</p>
+<p><a target="_blank" rel="noopener" href="http://www.w3.org/TR/2000/NOTE-SOAP-20000508/#_Toc478383490">SOAP 1.1</a> | <a target="_blank" rel="noopener" href="http://www.w3.org/TR/soap12-part1/" title="SOAP 1.2">SOAP 1.2</a></p>
+<p><a target="_blank" rel="noopener" href="http://eroomtest.cneroom.com/security.asmx">Security</a> 可以参考里面post和返回的格式等</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">asp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">soap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wsdl</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2008/01/a60b2e49/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Life/鼠仔再访_鼠年必旺" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1936,104 +2049,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2007/10/df4e117a/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Life/10月27日周六晚上宝安海滨广场" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/10/5381fbc0/">10月27日 周六晚上宝安海滨广场</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/10/5381fbc0/" class="archive-article-date">
-  	<time datetime="2007-10-29T01:54:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-10-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>07年10月27日<br>参加人员：坤坤、猫、心灵驿站、天天、小菜菜、谁会懂我心、KK和老公、安安、叶子、菜菜、草草，公爵因为去喝喜酒来晚了，等我们要走了才来，没活动就回去了，不好意思了</p>
-<embed src='//player.56.com/v_MjE4ODEwMDE.swf' type='application/x-shockwave-flash' width='480' height='395'></embed><br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷街</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">轮滑</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">南山66</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">海滨广场</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/10/5381fbc0/">展开全文 >></a>
         </p>
       
 

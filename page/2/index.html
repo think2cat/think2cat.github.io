@@ -165,6 +165,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/TypeScript学习笔记_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/05/383e290e/">TypeScript学习笔记(2)</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/05/383e290e/" class="archive-article-date">
+  	<time datetime="2018-05-16T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="表示法"><a href="#表示法" class="headerlink" title="[]表示法"></a>[]表示法</h4><p>在类型定义后面加上[]即表示数组<br>定义的数组不允许出现其它类型，同时支持联合类型<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">catArr</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catName</span>: <span class="built_in">string</span>[] = [<span class="string">&quot;one&quot;</span>,<span class="string">&quot;tow&quot;</span>,<span class="string">&quot;three&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catColor</span>: (<span class="built_in">string</span>|<span class="built_in">number</span>)[] = [<span class="number">1</span>,<span class="string">&quot;tow&quot;</span>,<span class="number">0xFFF</span>];</span><br><span class="line">catColor.<span class="title function_">push</span>(<span class="string">&quot;four&quot;</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="泛型表示法"><a href="#泛型表示法" class="headerlink" title="泛型表示法"></a>泛型表示法</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">catArr</span>: <span class="title class_">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catName</span>: <span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">&quot;one&quot;</span>,<span class="string">&quot;tow&quot;</span>,<span class="string">&quot;three&quot;</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="attr">catColor</span>: <span class="title class_">Array</span>&lt;<span class="built_in">boolean</span>|<span class="built_in">number</span>&gt; = [<span class="number">0</span>,<span class="number">1</span>, <span class="literal">true</span>];</span><br><span class="line">catColor.<span class="title function_">push</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/05/383e290e/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/TypeScript学习笔记_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1930,96 +2020,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2016/11/8ba397ba/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/Javascript模块化(1)AMD和CMD区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2016/08/d4129ce4/">Javascript模块化(1) AMD和CMD区别</a>
-    </h1>
-  
-
-        
-        <a href="../../2016/08/d4129ce4/" class="archive-article-date">
-  	<time datetime="2016-08-10T03:39:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Javascript发展壮大到一定程度，代码量和复杂度今非昔比，于是从最初的单页面里写function，到使用立即执行函数写模块防止污染全局，到模块化规范标准</p>
-<p><strong> CMD全称是Common Module Definition </strong>，通用模块加载规范，使用同步加载，node.js和sea.js就采用这种，在需要的时候直接引入然后就可以调用，比如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = <span class="built_in">require</span>(<span class="string">&quot;./animal.js&quot;</span>);</span><br><span class="line">cat.<span class="title function_">say</span>(<span class="string">&quot;miao&quot;</span>);</span><br></pre></td></tr></table></figure><br>因为node.js是服务端执行的，加载的时间也就读取文件的时间，所以基本不会造成堵塞，但是客户端则不同，有网速的影响，就可能导致卡住假死，此时AMD就因此而生<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">module</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2016/08/d4129ce4/">展开全文 >></a>
         </p>
       
 
