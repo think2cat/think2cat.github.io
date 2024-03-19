@@ -16,7 +16,7 @@
 <meta property="og:description" content="JavaScript的思想是一切皆对象，而Node.js编程是基于模块化思想的。 1. 基本概念Node.js采用了CommonJS模块系统，每个文件都是一个独立的模块，每个模块都有自己的作用域，可以有自己的变量和函数。这种模块化的设计使得代码更易于组织、维护和重用。 通过模块化，开发者可以将复杂的程序拆分成小的、独立的模块，每个模块专注于特定的功能。这样做有助于降低代码的耦合度，提高代码的可读性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-09T15:19:56.000Z">
-<meta property="article:modified_time" content="2024-03-19T14:00:42.899Z">
+<meta property="article:modified_time" content="2024-03-19T14:17:12.028Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="nodejs">
 <meta property="article:tag" content="javascript">
@@ -210,7 +210,7 @@
 <li>绝对路径解析<br> 当给<code>require()</code>函数传递以斜杆 <code>/</code> 开头的路径，node.js会解析为绝对路径，即相对于文件系统根目录，比如<code>require(&#39;/path/demo/module&#39;)</code></li>
 <li>相对路径解析<br> 当给<code>require()</code>函数传递以斜杆 <code>./</code>或<code>../</code> 开头的路径，node.js会解析为相对路径，即相对于当前模块文件的路径，比如<code>require(&#39;./module&#39;)</code></li>
 <li>核心模块解析<br> 当给<code>require()</code>函数传递不是绝对路径也不是相对路径时，node.js会解析成核心模块，比如<code>require(&#39;http&#39;)</code></li>
-<li>模块路径解析<br> 当在本层<code>node_modules</code>目录查找不到核心模块，node.js会逐级往上查找<code>node_modules</code>目录下是否有匹配模块</li>
+<li>模块路径解析<br> 当在本层<code>node_modules</code>目录查找不到核心模块，node.js会逐级往上查找<code>node_modules</code>目录下是否有匹配模块<br> 当在本层<code>node_modules</code>目录查找不到核心模块，node.js会逐级往上查找<code>node_modules</code>目录下是否有匹配模块</li>
 <li>文件扩展名解析<br> 当给<code>require()</code>传递 路径不带扩展名，node.js会尝试添加扩展名匹配具体文件，顺序为<code>.js &gt; .json &gt; .node</code>，如果还找不到文件，则抛出<code>MODULE_NOT_FOUND</code>异常</li>
 </ol>
 <h3 id="5-模块缓存"><a href="#5-模块缓存" class="headerlink" title="5. 模块缓存"></a>5. 模块缓存</h3><ol>
@@ -226,35 +226,15 @@
 <h3 id="7-module-exports-与-exports"><a href="#7-module-exports-与-exports" class="headerlink" title="7. module.exports 与 exports"></a>7. module.exports 与 exports</h3><p>module对象是Node.js里一个全局对象，表示当前模块本身，每个模块的module对象是独立的，包含了相关信息和属性，以及导出内容的 <code>exports</code> 对象</p>
 <p>大部分情况下，<code>exports === module.exports</code>，因为指向同一个导出对象，只有在给 <code>exports</code> 赋值时，此时 <code>exports</code> 会指向新赋予的值，而不再指向 <code>module.exports</code>，所以此时 <code>exports !== module.exports</code></p>
 <p>总的来说，CommonJS 模块规范允许开发者自由选择使用 <code>module.exports</code> 或 <code>exports</code> 导出函数，但需要注意它们之间的微妙差异，以避免出现意外的行为。</p>
-<h3 id="7-ES6模块"><a href="#7-ES6模块" class="headerlink" title="7. ES6模块"></a>7. ES6模块</h3><p>ES6模块相对CommonJS模块，主要差异有几点</p>
+<h3 id="7-ES模块"><a href="#7-ES模块" class="headerlink" title="7. ES模块"></a>7. ES模块</h3><p>ES模块相对CommonJS模块，主要差异有几点</p>
 <ol>
-<li>语法差异<ul>
-<li>ES6模块使用 <code>export</code> 和 <code>import</code> 进行模块的导出和引入</li>
-<li>CommonJS模块使用 <code>module.exports</code> 和 <code>require()</code> 导出和引入</li>
-</ul>
-</li>
-<li>作用域<ul>
-<li>ES6模块中变量是私有的，不可被全局作用域访问</li>
-<li>CommonJS模块的变量是公共的，引用该模块的对象都可访问</li>
-</ul>
-</li>
-<li>加载方式<ul>
-<li>ES6模块是静态加载，编译时依赖关系就确定了</li>
-<li>CommonJS模块是动态加载，依赖关系在运行时才确定</li>
-</ul>
-</li>
-<li>循环依赖<ul>
-<li>ES6模块不允许循环依赖，会报异常</li>
-<li>CommonJS模块运行循环依赖，但不推荐，有可能出现问题，需要谨慎使用</li>
-</ul>
-</li>
-<li>顶层对象<ul>
-<li>ES6模块没有全局对象，或者说全局对象是<code>undefined</code>，模块变量不会污染全局作用域</li>
-<li>CommonJS模块全局对象是<code>global</code>，任何模块中都可以访问到和修改</li>
-</ul>
-</li>
+<li>语法差异<br>ES模块使用 <code>export</code> 和 <code>import</code> 进行模块的导出和引入<br>CommonJS模块使用 <code>module.exports</code> 和 <code>require()</code> 导出和引入</li>
+<li>作用域<br>ES模块中变量是私有的，不可被全局作用域访问<br>CommonJS模块的变量是公共的，引用该模块的对象都可访问</li>
+<li>加载方式<br>ES模块是静态加载，编译时依赖关系就确定了<br>CommonJS模块是动态加载，依赖关系在运行时才确定</li>
+<li>循环依赖<br>ES模块不允许循环依赖，会报异常<br>CommonJS模块运行循环依赖，但不推荐，有可能出现问题，需要谨慎使用</li>
+<li>顶层对象<br>ES模块没有全局对象，或者说全局对象是<code>undefined</code>，模块变量不会污染全局作用域<br>CommonJS模块全局对象是<code>global</code>，任何模块中都可以访问到和修改</li>
 </ol>
-<p>ES6模块代码示例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">filterArea</span>(<span class="params">code</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="keyword">import</span> &#123; filterArea &#125; <span class="keyword">from</span> <span class="string">&#x27;./tools&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>ES模块代码示例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">filterArea</span>(<span class="params">code</span>) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="keyword">import</span> &#123; filterArea &#125; <span class="keyword">from</span> <span class="string">&#x27;./tools&#x27;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h3><p>在实际开发中，合理利用 Node.js 的模块化机制可以极大地提高项目的开发效率和代码质量。我们可以将不同功能的代码组织成独立的模块，并通过模块之间的依赖管理，实现模块间的数据共享和功能复用。同时，我们还需要注意避免循环依赖等问题，保证模块之间的稳健性和可靠性。</p>
 <p>深入理解 Node.js 模块化不仅仅是一种编程技巧，更是一种编程思维方式。只有通过不断地学习、实践和总结，才能更好地掌握 Node.js 模块化的精髓，提升自己的开发能力。</p>
 <p>希望本文能够帮助读者更深入地理解 Node.js 模块化，并在实际开发中得到应用。愿大家在 Node.js 开发的路上越走越远，越走越好！</p>
@@ -393,7 +373,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 模块实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B1%E4%BA%AB%E5%BC%95%E7%94%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">3. 共享引用机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%B7%AF%E5%BE%84%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">4. 路径解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%A8%A1%E5%9D%97%E7%BC%93%E5%AD%98"><span class="toc-number">5.</span> <span class="toc-text">5. 模块缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">6.</span> <span class="toc-text">6. 循环依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-module-exports-%E4%B8%8E-exports"><span class="toc-number">7.</span> <span class="toc-text">7. module.exports 与 exports</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-ES6%E6%A8%A1%E5%9D%97"><span class="toc-number">8.</span> <span class="toc-text">7. ES6模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">8. 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 模块实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B1%E4%BA%AB%E5%BC%95%E7%94%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">3. 共享引用机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%B7%AF%E5%BE%84%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">4. 路径解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%A8%A1%E5%9D%97%E7%BC%93%E5%AD%98"><span class="toc-number">5.</span> <span class="toc-text">5. 模块缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-number">6.</span> <span class="toc-text">6. 循环依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-module-exports-%E4%B8%8E-exports"><span class="toc-number">7.</span> <span class="toc-text">7. module.exports 与 exports</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-ES%E6%A8%A1%E5%9D%97"><span class="toc-number">8.</span> <span class="toc-text">7. ES模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">8. 总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
