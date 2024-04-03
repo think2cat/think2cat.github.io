@@ -165,6 +165,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/FCKEditor出现类型不匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2007/05/f1a2a654/">FCKEditor出现类型不匹配: &#39;Server.HTMLEncode&#39; 解决方法</a>
+    </h1>
+  
+
+        
+        <a href="../../2007/05/f1a2a654/" class="archive-article-date">
+  	<time datetime="2007-05-25T07:18:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-05-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>程序如下：<br><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> oFCKeditorIntro</span><br><span class="line"><span class="keyword">Set</span> oFCKeditorIntro = <span class="keyword">New</span> FCKeditor</span><br><span class="line">oFCKeditorIntro.BasePath = <span class="string">&quot;../FCKeditor/&quot;</span></span><br><span class="line"></span><br><span class="line">oFCKeditorIntro.ToolbarSet = <span class="string">&quot;Default&quot;</span></span><br><span class="line">oFCKeditorIntro.Width = <span class="string">&quot;100%&quot;</span></span><br><span class="line">oFCKeditorIntro.Height = <span class="string">&quot;350&quot;</span></span><br><span class="line">oFCKeditorIntro.Value = rs(<span class="string">&quot;Info&quot;</span>)</span><br><span class="line"></span><br><span class="line">oFCKeditorIntro.Create <span class="string">&quot;Info&quot;</span></span><br></pre></td></tr></table></figure><br>无情滴出错了</p>
+<blockquote>
+<p>Microsoft VBScript 运行时错误 错误 ‘800a000d’<br>类型不匹配: ‘Server.HTMLEncode’<br>/fckeditor.asp，行97<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">asp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2007/05/f1a2a654/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Life/健康寿命测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1986,96 +2073,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2007/03/35b91cb2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IT/慎用EFS加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2007/03/50933986/">慎用EFS加密</a>
-    </h1>
-  
-
-        
-        <a href="../../2007/03/50933986/" class="archive-article-date">
-  	<time datetime="2007-03-05T15:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨天下午把春节照片移到备份盘，备份盘是有EFS加密的，于是照片都被加密了</p>
-<p>昨天晚上想打开备份盘的文件，提示无权限，因为以前也出现过这类问题，只要把EFS证书重新导入就可以了</p>
-<p>打开MMC，一看里面居然有2个Administrator用户的文件加密证书，我把2个都删了，重新导入，文件可以打开了</p>
-<p>晚上想整理下照片，结果可怕的事情发生了，昨天加密的那部分照片全都无法显示，没救了已经。。。</p>
-<p>因为是从别的盘移动过来的，索性试试用数据恢复软件，最后恢复了乱七八糟一堆文件，整理一番之后，大概还有2百多M的照片丢失，而且还原过来的照片的日期时间以及Exif信息全部丢失，唉</p>
-<p>看来EFS好是好，还是要小心使用，明明只有一个帐户，为什么会出现2个EFS加密证书呢，真是搞不懂啊</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EPS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/IT//" class="article-tag-list-link color3">IT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2007/03/50933986/">展开全文 >></a>
         </p>
       
 

@@ -165,6 +165,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IT/慎用EFS加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2007/03/50933986/">慎用EFS加密</a>
+    </h1>
+  
+
+        
+        <a href="../../2007/03/50933986/" class="archive-article-date">
+  	<time datetime="2007-03-05T15:46:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2007-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天下午把春节照片移到备份盘，备份盘是有EFS加密的，于是照片都被加密了</p>
+<p>昨天晚上想打开备份盘的文件，提示无权限，因为以前也出现过这类问题，只要把EFS证书重新导入就可以了</p>
+<p>打开MMC，一看里面居然有2个Administrator用户的文件加密证书，我把2个都删了，重新导入，文件可以打开了</p>
+<p>晚上想整理下照片，结果可怕的事情发生了，昨天加密的那部分照片全都无法显示，没救了已经。。。</p>
+<p>因为是从别的盘移动过来的，索性试试用数据恢复软件，最后恢复了乱七八糟一堆文件，整理一番之后，大概还有2百多M的照片丢失，而且还原过来的照片的日期时间以及Exif信息全部丢失，唉</p>
+<p>看来EFS好是好，还是要小心使用，明明只有一个帐户，为什么会出现2个EFS加密证书呢，真是搞不懂啊</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EPS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/IT//" class="article-tag-list-link color3">IT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2007/03/50933986/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Digital/多普达575刷机摘要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1984,117 +2074,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2006/10/c4d720b9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/HTML代码优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2006/10/ca0f1096/">HTML代码优化</a>
-    </h1>
-  
-
-        
-        <a href="../../2006/10/ca0f1096/" class="archive-article-date">
-  	<time datetime="2006-10-22T17:32:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2006-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/2006/10/23_2006-10-1023851983_12739.gif" alt=""></p>
-<p>刚刚翻硬盘发现的，这是7月初写给美工组的文档，主要针对网页制作、切图人员<br>其中6.5节可能因为文件覆盖而不全</p>
-<h1 id="HTML代码优化"><a href="#HTML代码优化" class="headerlink" title="HTML代码优化"></a>HTML代码优化</h1><p>作者：梦游的猫（猫大叔）</p>
-<p>最后修改时间 2006年7月7日 16:40:37</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>一. 为什么要优化？<br>二. 优化原则<br>三. 优化技巧<br>四. SEO<br>五. 关于网页标准</p>
-<ol>
-<li>何谓标准？</li>
-<li>使用标准价值在哪？</li>
-<li>团队合作流程</li>
-<li>如何实现<br>六. 实例分析</li>
-<li>删除空标签</li>
-<li>合并标签</li>
-<li>合理安排表格布局</li>
-<li>表格列表优化</li>
-<li>利用&lt;div&gt;简化代码<br>七. 修订记录<br>八. 附录<br>A. 参考文档<br>B. 相关资源
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">seo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2006/10/ca0f1096/">展开全文 >></a>
         </p>
       
 

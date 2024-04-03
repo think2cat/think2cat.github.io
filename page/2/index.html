@@ -165,6 +165,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/Promise入门指南_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/06/57c1ef1d/">Promise入门指南(1)</a>
+    </h1>
+  
+
+        
+        <a href="../../2018/06/57c1ef1d/" class="archive-article-date">
+  	<time datetime="2018-06-04T06:48:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Promise是异步编程的解决方案"><a href="#Promise是异步编程的解决方案" class="headerlink" title="Promise是异步编程的解决方案"></a>Promise是异步编程的解决方案</h3><p>Promise有3种状态</p>
+<ul>
+<li>pending</li>
+<li>fulfilled</li>
+<li>rejected</li>
+</ul>
+<p>对象的状态是不受外界影响的，而且状态的改变只有两种</p>
+<ol>
+<li>pending -&gt; fulfilled</li>
+<li>pending -&gt; rejected</li>
+</ol>
+<p>一旦变成fulfilled或rejected，则终止，不会再改变<br>而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>)&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;finished&#x27;</span>);</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&#x27;someone&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2018/06/57c1ef1d/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/TypeScript学习笔记_2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1929,97 +2030,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="../../2017/03/1768cee0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/Less入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2016/11/8ba397ba/">Less入门</a>
-    </h1>
-  
-
-        
-        <a href="../../2016/11/8ba397ba/" class="archive-article-date">
-  	<time datetime="2016-11-08T12:16:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-LESS-是什么"><a href="#1-LESS-是什么" class="headerlink" title="1) LESS 是什么"></a>1) LESS 是什么</h2><p>首先，CSS是什么，CSS是层叠样式表，用于描述HTML和XML样式表现的语言</p>
-<p>Less 是一种动态的样式语言。Less扩展了CSS的动态行为，增加了变量（Variables）、混合书写模式（mixins）、操作（operations）和功能（functions）等等</p>
-<h2 id="2-示例"><a href="#2-示例" class="headerlink" title="2) 示例"></a>2) 示例</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@bgColor</span>: #fff;</span><br><span class="line"><span class="keyword">@mainPadding</span>: <span class="number">15px</span>;</span><br><span class="line"><span class="keyword">@fontColor</span>: #<span class="number">444</span>;</span><br><span class="line"><span class="keyword">@fontSize</span>: <span class="number">20px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>:@bgColor;</span><br><span class="line">  <span class="attribute">padding</span>: @mainPadding;</span><br><span class="line">  <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#d2d6de</span>;</span><br><span class="line">  <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">color</span>: @fontColor;</span><br><span class="line">    <span class="attribute">padding</span>: @mainPadding;</span><br><span class="line">    <span class="attribute">font-size</span>: @fontSize;</span><br><span class="line">      <span class="selector-tag">span</span>&#123;</span><br><span class="line">        <span class="attribute">font-size</span>: @fontSize + <span class="number">10</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">less</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="../../2016/11/8ba397ba/">展开全文 >></a>
         </p>
       
 

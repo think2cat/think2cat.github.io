@@ -165,6 +165,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Web/深入理解HTTP重定向：从301到308状态码全解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2024/03/8563c276/">深入理解HTTP重定向：从301到308状态码全解析</a>
+    </h1>
+  
+
+        
+        <a href="2024/03/8563c276/" class="archive-article-date">
+  	<time datetime="2024-03-26T09:16:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-http状态码"><a href="#1-http状态码" class="headerlink" title="1. http状态码"></a>1. http状态码</h2><p>http状态码是客户端和服务器端进行http通讯时，服务端发给客户端的数字代码（3位数字组成），用于表示服务器对请求的处理结果，比如常见的404</p>
+<h2 id="2-http重定向"><a href="#2-http重定向" class="headerlink" title="2. http重定向"></a>2. http重定向</h2><p>http重定向是服务端返回的处理结果中一种，用于指示客户端请求的资源在其它位置</p>
+<p>http重定向的状态码为 3xx，常见的有301和303</p>
+<ol>
+<li>301 Moved Permanently 永久重定向，应该更新资源地址，以便下次直接请求到新位置</li>
+<li>302 Found 临时重定向，保持原始请求方法（Get/Post）来获取新位置的资源，可能会被浏览器缓存</li>
+<li>303 See Other 临时重定向，使用Get方法获取新位置的资源，不会被浏览器缓存</li>
+<li>307 Temporary Redirect 临时重定向，跟302的行为一致，比302更加严格的要求使用相同http方法去请求新位置的资源</li>
+<li>308 Permanent Redirect 永久重定向，跟301类似，强调保留原始请求的http方法（Get/Post）</li>
+<li>300 Multiple Choices 多重选择，服务端会返回多个URI的列表，由客户端选择</li>
+<li>304 Not Modified 未修改，表示请求资源自上次请求之后未修改，可以直接从缓存获取</li>
+</ol>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2024/03/8563c276/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Web/深入理解node.js模块" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1985,107 +2085,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2018/07/7cecbcde/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Web/Promise入门指南_1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/06/57c1ef1d/">Promise入门指南(1)</a>
-    </h1>
-  
-
-        
-        <a href="2018/06/57c1ef1d/" class="archive-article-date">
-  	<time datetime="2018-06-04T06:48:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Promise是异步编程的解决方案"><a href="#Promise是异步编程的解决方案" class="headerlink" title="Promise是异步编程的解决方案"></a>Promise是异步编程的解决方案</h3><p>Promise有3种状态</p>
-<ul>
-<li>pending</li>
-<li>fulfilled</li>
-<li>rejected</li>
-</ul>
-<p>对象的状态是不受外界影响的，而且状态的改变只有两种</p>
-<ol>
-<li>pending -&gt; fulfilled</li>
-<li>pending -&gt; rejected</li>
-</ol>
-<p>一旦变成fulfilled或rejected，则终止，不会再改变<br>而在pending阶段，是不能取消，即一旦开始执行，就只能等状态改变，无法中途取消操作</p>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve, reject</span>)&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;finished&#x27;</span>);</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="string">&#x27;someone&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web//" class="article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2018/06/57c1ef1d/">展开全文 >></a>
         </p>
       
 
