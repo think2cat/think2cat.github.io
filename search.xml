@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[深入理解HTTP重定向：从301到308状态码全解析]]></title>
     <url>%2F2024%2F03%2F8563c276%2F</url>
-    <content type="text"><![CDATA[1. http状态码http状态码是客户端和服务器端进行http通讯时，服务端发给客户端的数字代码（3位数字组成），用于表示服务器对请求的处理结果，比如常见的404 2. http重定向http重定向是服务端返回的处理结果中一种，用于指示客户端请求的资源在其它位置 http重定向的状态码为 3xx，常见的有301和303 301 Moved Permanently 永久重定向，应该更新资源地址，以便下次直接请求到新位置 302 Found 临时重定向，保持原始请求方法（Get/Post）来获取新位置的资源，可能会被浏览器缓存 303 See Other 临时重定向，使用Get方法获取新位置的资源，不会被浏览器缓存 307 Temporary Redirect 临时重定向，跟302的行为一致，比302更加严格的要求使用相同http方法去请求新位置的资源 308 Permanent Redirect 永久重定向，跟301类似，强调保留原始请求的http方法（Get/Post） 300 Multiple Choices 多重选择，服务端会返回多个URI的列表，由客户端选择 304 Not Modified 未修改，表示请求资源自上次请求之后未修改，可以直接从缓存获取 3. 重定向的常见使用场景 301 永久重定向 网站结构更改，旧URL重定向到新URL 域名更改，旧域名重定向到新域名 移动设备访问PC页面，重定向到移动版本页面 302 临时重定向 网站更新维护，暂时重定向到维护页面 宕机或网络拥堵，暂时把请求转移其它CDN减轻服务器负载 灰度测试 303 临时重定向(Get) POST请求或表单提交，为了避免重复提交，重定向到操作成功页面 307 临时重定向 同302，严格要求保持原请求方法 308 同301，严格要求保持原请求方法 4. 善用304加快速度严格来说304并非重定向，而是告知服务端资源未修改。 当客户端发送一个带有条件请求头（如If-Modified-Since或If-None-Match）的Get请求，如果服务端检测到内容未修改，则直接返回304状态码，返回http包只含头部信息，并非完整的资源内容，从而节省网络带宽。此时客户端直接使用缓存资源，也就加快了加载速度，提升用户体验。 极端情况是缓存资源受到破坏，无法加载，此时客户端会再发送普通Get请求，而不是带条件的请求，服务端则返回完整的资源内容。 5. 300 多重选择当返回300状态码时，浏览器不会自动进行重定向，需要客户端根据返回的列表，自行选择其中一个URL，并重新发起请求 一般返回格式有两种， JSON 1234567&#123; &quot;choices&quot;: [ &quot;https://example.com/resource1&quot;, &quot;https://example.com/resource2&quot;, &quot;https://example.com/resource3&quot; ]&#125; 还有XML 12345&lt;choices&gt; &lt;url&gt;https://example.com/resource1&lt;/url&gt; &lt;url&gt;https://example.com/resource2&lt;/url&gt; &lt;url&gt;https://example.com/resource3&lt;/url&gt;&lt;/choices&gt; 其中choices是常见命名，非固定的标准命名，也有其它的如 options、alternatives、items 常见的JSON格式还有1234567&#123; &quot;alternatives&quot;: [ &#123;&quot;url&quot;: &quot;https://example.com/resource1&quot;, &quot;name&quot;: &quot;Resource 1&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource2&quot;, &quot;name&quot;: &quot;Resource 2&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource3&quot;, &quot;name&quot;: &quot;Resource 3&quot;&#125; ]&#125; 在日常的Web开发中，正确地使用重定向是至关重要的。无论是进行网站重构、域名更改，还是优化用户体验，我们都应该根据具体的情况选择合适的重定向类型，并遵循最佳实践。只有这样，我们才能确保网站的可访问性、性能和用户满意度。]]></content>
+    <content type="text"><![CDATA[从HTTP状态码的基本概念开始，逐步介绍不同类型的重定向及其应用场景。无论您是初学者还是有经验的开发人员，都能从本文中获得实用的知识和技巧。 1. http状态码http状态码是客户端和服务器端进行http通讯时，服务端发给客户端的数字代码（3位数字组成），用于表示服务器对请求的处理结果，比如常见的404 2. http重定向http重定向是服务端返回的处理结果中一种，用于指示客户端请求的资源在其它位置 http重定向的状态码为 3xx，常见的有301和303 301 Moved Permanently 永久重定向，应该更新资源地址，以便下次直接请求到新位置 302 Found 临时重定向，保持原始请求方法（Get/Post）来获取新位置的资源，可能会被浏览器缓存 303 See Other 临时重定向，使用Get方法获取新位置的资源，不会被浏览器缓存 307 Temporary Redirect 临时重定向，跟302的行为一致，比302更加严格的要求使用相同http方法去请求新位置的资源 308 Permanent Redirect 永久重定向，跟301类似，强调保留原始请求的http方法（Get/Post） 300 Multiple Choices 多重选择，服务端会返回多个URI的列表，由客户端选择 304 Not Modified 未修改，表示请求资源自上次请求之后未修改，可以直接从缓存获取 3. 重定向的常见使用场景 301 永久重定向 网站结构更改，旧URL重定向到新URL 域名更改，旧域名重定向到新域名 移动设备访问PC页面，重定向到移动版本页面 302 临时重定向 网站更新维护，暂时重定向到维护页面 宕机或网络拥堵，暂时把请求转移其它CDN减轻服务器负载 灰度测试 303 临时重定向(Get) POST请求或表单提交，为了避免重复提交，重定向到操作成功页面 307 临时重定向 同302，严格要求保持原请求方法 308 永久重定向 同301，严格要求保持原请求方法 4. 善用304加快速度严格来说304并非重定向，而是告知服务端资源未修改。 当客户端发送一个带有条件请求头（如If-Modified-Since或If-None-Match）的Get请求，如果服务端检测到内容未修改，则直接返回304状态码，返回http包只含头部信息，并非完整的资源内容，从而节省网络带宽。此时客户端直接使用缓存资源，也就加快了加载速度，提升用户体验。 极端情况是缓存资源受到破坏，无法加载，此时客户端会再发送普通Get请求，而不是带条件的请求，服务端则返回完整的资源内容。 5. 300 多重选择当返回300状态码时，浏览器不会自动进行重定向，需要客户端根据返回的列表，自行选择其中一个URL，并重新发起请求 一般返回格式有两种， JSON 1234567&#123; &quot;choices&quot;: [ &quot;https://example.com/resource1&quot;, &quot;https://example.com/resource2&quot;, &quot;https://example.com/resource3&quot; ]&#125; 还有XML 12345&lt;choices&gt; &lt;url&gt;https://example.com/resource1&lt;/url&gt; &lt;url&gt;https://example.com/resource2&lt;/url&gt; &lt;url&gt;https://example.com/resource3&lt;/url&gt;&lt;/choices&gt; 其中choices是常见命名，非固定的标准命名，也有其它的如 options、alternatives、items 常见的JSON格式还有1234567&#123; &quot;alternatives&quot;: [ &#123;&quot;url&quot;: &quot;https://example.com/resource1&quot;, &quot;name&quot;: &quot;Resource 1&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource2&quot;, &quot;name&quot;: &quot;Resource 2&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource3&quot;, &quot;name&quot;: &quot;Resource 3&quot;&#125; ]&#125; 在日常的Web开发中，正确地使用重定向是至关重要的。无论是进行网站重构、域名更改，还是优化用户体验，我们都应该根据具体的情况选择合适的重定向类型，并遵循最佳实践。只有这样，我们才能确保网站的可访问性、性能和用户满意度。]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -416,8 +416,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -2663,8 +2663,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -3384,8 +3384,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -3499,8 +3499,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3635,8 +3635,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3871,8 +3871,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4672,8 +4672,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4684,8 +4684,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4696,8 +4696,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -5045,8 +5045,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
