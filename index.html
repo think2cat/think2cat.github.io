@@ -204,42 +204,7 @@
 <li><strong>请求结果无通知和提示</strong></li>
 </ol>
 <p>静默执行，请求成功或失败，浏览器都不会有提示</p>
-<h2 id="3-适用场景"><a href="#3-适用场景" class="headerlink" title="3. 适用场景"></a>3. 适用场景</h2><ol>
-<li><strong>数据监控分析</strong></li>
-</ol>
-<p>性能监控，分析用户浏览行为，统计页面停留时间等</p>
-<ol start="2">
-<li><strong>日志记录</strong></li>
-</ol>
-<p>当页面崩溃时，发送相关数据，以便重现场景方便调试</p>
-<ol start="3">
-<li><strong>实时传输数据</strong></li>
-</ol>
-<p>ajax请求会占用网络带宽，影响用户体验，而Beacon可以在不影响用户体验前提下，异步发送这些数据</p>
-<h2 id="4-如何使用"><a href="#4-如何使用" class="headerlink" title="4. 如何使用"></a>4. 如何使用</h2><p><strong>1. 接口参数</strong></p>
-<p><code>navigator.sendBeacon(url, [data])</code></p>
-<ul>
-<li>url: 请求地址，必填参数</li>
-<li>data: 传送数据，支持的格式见上文</li>
-</ul>
-<p>接口执行后返回布尔值，表示是否成功插入队列</p>
-<p><strong>2. 例子</strong></p>
-<p>最常见的提交JSON数据</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">&#x27;/postTest&#x27;</span></span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">navigator.<span class="title function_">sendBeacon</span>(url, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data))</span><br></pre></td></tr></table></figure>
-<p>需要说明的是请求只支持POST方式，如使用express做后端的话，相关代码为</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">&#x27;body-parser&#x27;</span>)</span><br><span class="line">app.<span class="title function_">use</span>(bodyParser.<span class="title function_">text</span>())</span><br><span class="line">app.<span class="title function_">use</span>(bodyParser.<span class="title function_">urlencoded</span>(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/postTest&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(req.<span class="property">body</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><strong>3. 取消请求</strong></p>
-<p><strong>先说结论，Beacon无法取消请求，除非浏览器关闭</strong></p>
-<p>起初以为<code>sendBeacon</code>基于<code>fetch</code>，所以尝试使用<code>AbortController</code>取消请求，网上搜了一下还真有这种资料</p>
-<p>说 <code>navigator.sendBeacon(url, data, options)</code>，第三个参数为 <code>&#123; credentials: &#39;include&#39;, signal: abortController.signal &#125;</code></p>
-<p>其中 <code>signal</code> 支持传入AbortSignal对象，用于取消请求</p>
-<p><em>补充一下，<code>AbortSignal</code> 是一个用于取消异步操作的信号对象，与<code>AbortController</code>一起使用，常用于<code>fetch</code>的取消请求</em></p>
-<p><em><code>axois</code>的底层其实也是基于<code>fetch</code>，所以也可以使用<code>AbortController</code>来取消请求</em></p>
-<p>然后我就写了测试代码，在 Chrome v123 下，完全无效，无法取消请求</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 AbortController 对象</span></span><br><span class="line"><span class="keyword">const</span> controller = <span class="keyword">new</span> <span class="title class_">AbortController</span>()</span><br><span class="line"><span class="keyword">const</span> signal = controller.<span class="property">signal</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">&#x27;/postTest&#x27;</span></span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求任务增加信号传参</span></span><br><span class="line">navigator.<span class="title function_">sendBeacon</span>(url, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data), &#123; <span class="attr">signal</span>: controller.<span class="property">signal</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    controller.<span class="title function_">abort</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;请求已取消&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="5-兼容性"><a href="#5-兼容性" class="headerlink" title="5.兼容性"></a>5.兼容性</h2><p><img src="/images/2024/04/sendBeacon_1.png" alt=""></p>
-<p>综上所述，Beacon API 主要取决于需求和使用场景。如果需要获取大量数据或者处理复杂的网络请求，Fetch API 可能更适合你的需求；而如果只需要发送少量数据，并且不影响用户体验，或希望在页面关闭时也能够发送数据，Beacon API 可能更适合你。</p>
-
+        
       
 
       

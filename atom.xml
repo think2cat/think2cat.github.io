@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-04-23T13:37:04.098Z</updated>
+  <updated>2024-04-23T14:23:48.706Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,18 +21,29 @@
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Beacon API 是一种用于在浏览器中异步发送数据的 Web API。它通常用于在页面关闭前发送一些数据，以确保这些数据不会因为页面的关闭而丢失。&lt;/p&gt;
-&lt;h2 id=&quot;1-工作机制&quot;&gt;&lt;a href=&quot;#1-工作机制&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;p&gt;Beacon API 是一种用于在浏览器中异步发送数据的 Web API。它通常用于在页面关闭前发送一些数据，以确保这些数据不会因为页面的关闭而丢失。&lt;/p&gt;
+&lt;h2 id=&quot;1-工作机制&quot;&gt;&lt;a href=&quot;#1-工作机制&quot; class=&quot;headerlink&quot; title=&quot;1. 工作机制&quot;&gt;&lt;/a&gt;1. 工作机制&lt;/h2&gt;&lt;p&gt;当用户关闭页面后，浏览器会执行一些幕后工作，比如关闭页面相关资源、清理页面状态，还有比如检查是否有未发送的Beacon请求，并尝试去发送请求，这些都是在后台线程进行，所以并不会阻碍页面的关闭。&lt;/p&gt;
+&lt;p&gt;而 Beacon API 正是因为浏览器这种后台机制，使得页面关闭后依然可以发送请求。&lt;/p&gt;
+&lt;h2 id=&quot;2-特点&quot;&gt;&lt;a href=&quot;#2-特点&quot; class=&quot;headerlink&quot; title=&quot;2. 特点&quot;&gt;&lt;/a&gt;2. 特点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;异步非阻塞&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;调用接口后，无需等待服务器响应，而是把网络请求加入队列，不会影响页面代码执行和用户体验。&lt;br&gt;加入队列后，浏览器会等网络空闲进行请求，不影响页面中其它资源的网络传输&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;strong&gt;数据缓存&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;加入队列后，需要发送的数据将被缓存起来，从而避免页面关闭造成数据丢失&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;strong&gt;支持多种数据格式&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;允许发送的数据格式有String、ArrayBuffer、TypedArray、DataView、ReadableStream、Blob、FormData对象和URLSearchParams&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;&lt;strong&gt;请求结果无通知和提示&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;静默执行，请求成功或失败，浏览器都不会有提示&lt;/p&gt;
     
     </summary>
     
@@ -52,7 +63,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-04-23T13:37:04.102Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -86,7 +97,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-04-23T13:37:04.102Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -120,7 +131,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -155,7 +166,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-04-23T13:37:04.102Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -184,7 +195,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
@@ -227,7 +238,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -267,7 +278,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
@@ -300,7 +311,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-04-23T13:37:04.102Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -339,7 +350,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -368,7 +379,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
@@ -393,7 +404,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
@@ -418,7 +429,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.706Z</updated>
     
     <summary type="html">
     
@@ -443,7 +454,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -467,7 +478,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-04-23T13:37:04.102Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -493,7 +504,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -518,7 +529,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -548,7 +559,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -573,7 +584,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
@@ -595,7 +606,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2024-04-23T13:37:04.098Z</updated>
+    <updated>2024-04-23T14:23:48.710Z</updated>
     
     <summary type="html">
     
