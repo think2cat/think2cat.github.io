@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-04-06T07:41:09.761Z</updated>
+  <updated>2024-04-23T13:37:04.098Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Beacon API 前端开发中的异步数据传输利器</title>
+    <link href="http://21ido.com/2024/04/db296fb2/"/>
+    <id>http://21ido.com/2024/04/db296fb2/</id>
+    <published>2024-04-12T14:09:05.000Z</published>
+    <updated>2024-04-23T13:37:04.098Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Beacon API 是一种用于在浏览器中异步发送数据的 Web API。它通常用于在页面关闭前发送一些数据，以确保这些数据不会因为页面的关闭而丢失。&lt;/p&gt;
+&lt;h2 id=&quot;1-工作机制&quot;&gt;&lt;a href=&quot;#1-工作机制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="js" scheme="http://21ido.com/tags/js/"/>
+    
+      <category term="Beacon" scheme="http://21ido.com/tags/Beacon/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入理解HTTP重定向：从301到308状态码全解析</title>
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.102Z</updated>
     
     <summary type="html">
     
@@ -55,7 +86,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.102Z</updated>
     
     <summary type="html">
     
@@ -89,7 +120,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -124,7 +155,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.102Z</updated>
     
     <summary type="html">
     
@@ -153,7 +184,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-04-06T07:41:09.757Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -185,9 +216,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="eventsource" scheme="http://21ido.com/tags/eventsource/"/>
-    
       <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="eventsource" scheme="http://21ido.com/tags/eventsource/"/>
     
   </entry>
   
@@ -196,7 +227,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -236,7 +267,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-04-06T07:41:09.757Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -269,7 +300,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.102Z</updated>
     
     <summary type="html">
     
@@ -308,7 +339,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -337,7 +368,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-04-06T07:41:09.757Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -362,7 +393,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-04-06T07:41:09.757Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -387,7 +418,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-04-06T07:41:09.757Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -412,7 +443,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -436,7 +467,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.102Z</updated>
     
     <summary type="html">
     
@@ -462,7 +493,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -474,9 +505,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="axios" scheme="http://21ido.com/tags/axios/"/>
     
@@ -487,7 +518,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -504,9 +535,9 @@
       <category term="Web" scheme="http://21ido.com/categories/Web/"/>
     
     
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
       <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="axios" scheme="http://21ido.com/tags/axios/"/>
     
@@ -517,7 +548,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -542,7 +573,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -564,7 +595,7 @@
     <link href="http://21ido.com/2018/07/65f78d9f/"/>
     <id>http://21ido.com/2018/07/65f78d9f/</id>
     <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
+    <updated>2024-04-23T13:37:04.098Z</updated>
     
     <summary type="html">
     
@@ -579,29 +610,6 @@
 &lt;p&gt;但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景&lt;/p&gt;
 &lt;p&gt;前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;( &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promise入门指南(2)</title>
-    <link href="http://21ido.com/2018/07/7cecbcde/"/>
-    <id>http://21ido.com/2018/07/7cecbcde/</id>
-    <published>2018-07-13T10:01:16.000Z</published>
-    <updated>2024-04-06T07:41:09.761Z</updated>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;resolve, reject&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//do something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;finished&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;someone&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;前面提到的这种写法，实际不会这么直接把Promise赋值给p，因为大部分function调用需要传入参数，所以习惯在function里面 &lt;code&gt;new Promise&lt;/code&gt; 示例并return&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;getUrl&lt;/span&gt; = param =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//do something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $.&lt;span class=&quot;title function_&quot;&gt;ajax&lt;/span&gt;(url, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;response&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(response);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title function_&quot;&gt;getUrl&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;).&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;response&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;title function_&quot;&gt;render&lt;/span&gt;(response);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;这是比较标准的写法，还有比较偷懒的写法&lt;br&gt;
     
     </summary>
     

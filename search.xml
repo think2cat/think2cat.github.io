@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Beacon API 前端开发中的异步数据传输利器]]></title>
+    <url>%2F2024%2F04%2Fdb296fb2%2F</url>
+    <content type="text"><![CDATA[Beacon API 是一种用于在浏览器中异步发送数据的 Web API。它通常用于在页面关闭前发送一些数据，以确保这些数据不会因为页面的关闭而丢失。 1. 工作机制当用户关闭页面后，浏览器会执行一些幕后工作，比如关闭页面相关资源、清理页面状态，还有比如检查是否有未发送的Beacon请求，并尝试去发送请求，这些都是在后台线程进行，所以并不会阻碍页面的关闭。 而 Beacon API 正是因为浏览器这种后台机制，使得页面关闭后依然可以发送请求。 2. 特点 异步非阻塞 调用接口后，无需等待服务器响应，而是把网络请求加入队列，不会影响页面代码执行和用户体验。加入队列后，浏览器会等网络空闲进行请求，不影响页面中其它资源的网络传输 数据缓存 加入队列后，需要发送的数据将被缓存起来，从而避免页面关闭造成数据丢失 支持多种数据格式 允许发送的数据格式有String、ArrayBuffer、TypedArray、DataView、ReadableStream、Blob、FormData对象和URLSearchParams 请求结果无通知和提示 静默执行，请求成功或失败，浏览器都不会有提示 3. 适用场景 数据监控分析 性能监控，分析用户浏览行为，统计页面停留时间等 日志记录 当页面崩溃时，发送相关数据，以便重现场景方便调试 实时传输数据 ajax请求会占用网络带宽，影响用户体验，而Beacon可以在不影响用户体验前提下，异步发送这些数据 4. 如何使用1. 接口参数 navigator.sendBeacon(url, [data]) url: 请求地址，必填参数 data: 传送数据，支持的格式见上文 接口执行后返回布尔值，表示是否成功插入队列 2. 例子 最常见的提交JSON数据 123456const url = &#x27;/postTest&#x27;const data = &#123; a: 1, b: 2&#125;navigator.sendBeacon(url, JSON.stringify(data)) 需要说明的是请求只支持POST方式，如使用express做后端的话，相关代码为 1234567891011const express = require(&#x27;express&#x27;)const app = express()const bodyParser = require(&#x27;body-parser&#x27;)app.use(bodyParser.text())app.use(bodyParser.urlencoded(&#123;extended: false&#125;))app.post(&#x27;/postTest&#x27;, (req, res) =&gt; &#123; // do something console.log(req.body)&#125;) 3. 取消请求 先说结论，Beacon无法取消请求，除非浏览器关闭 起初以为sendBeacon基于fetch，所以尝试使用AbortController取消请求，网上搜了一下还真有这种资料 说 navigator.sendBeacon(url, data, options)，第三个参数为 &#123; credentials: &#39;include&#39;, signal: abortController.signal &#125; 其中 signal 支持传入AbortSignal对象，用于取消请求 补充一下，AbortSignal 是一个用于取消异步操作的信号对象，与AbortController一起使用，常用于fetch的取消请求 axois的底层其实也是基于fetch，所以也可以使用AbortController来取消请求 然后我就写了测试代码，在 Chrome v123 下，完全无效，无法取消请求 1234567891011121314151617// 创建一个 AbortController 对象const controller = new AbortController()const signal = controller.signalconst url = &#x27;/postTest&#x27;const data = &#123; a: 1, b: 2&#125;// 请求任务增加信号传参navigator.sendBeacon(url, JSON.stringify(data), &#123; signal: controller.signal &#125;)setTimeout(() =&gt; &#123; controller.abort() console.log(&#x27;请求已取消&#x27;)&#125;, 100) 5.兼容性 综上所述，Beacon API 主要取决于需求和使用场景。如果需要获取大量数据或者处理复杂的网络请求，Fetch API 可能更适合你的需求；而如果只需要发送少量数据，并且不影响用户体验，或希望在页面关闭时也能够发送数据，Beacon API 可能更适合你。]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>js</tag>
+        <tag>Beacon</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[深入理解HTTP重定向：从301到308状态码全解析]]></title>
     <url>%2F2024%2F03%2F8563c276%2F</url>
     <content type="text"><![CDATA[从HTTP状态码的基本概念开始，逐步介绍不同类型的重定向及其应用场景。无论您是初学者还是有经验的开发人员，都能从本文中获得实用的知识和技巧。 1. http状态码http状态码是客户端和服务器端进行http通讯时，服务端发给客户端的数字代码（3位数字组成），用于表示服务器对请求的处理结果，比如常见的404 2. http重定向http重定向是服务端返回的处理结果中一种，用于指示客户端请求的资源在其它位置 http重定向的状态码为 3xx，常见的有301和303 301 Moved Permanently 永久重定向，应该更新资源地址，以便下次直接请求到新位置 302 Found 临时重定向，保持原始请求方法（Get/Post）来获取新位置的资源，可能会被浏览器缓存 303 See Other 临时重定向，使用Get方法获取新位置的资源，不会被浏览器缓存 307 Temporary Redirect 临时重定向，跟302的行为一致，比302更加严格的要求使用相同http方法去请求新位置的资源 308 Permanent Redirect 永久重定向，跟301类似，强调保留原始请求的http方法（Get/Post） 300 Multiple Choices 多重选择，服务端会返回多个URI的列表，由客户端选择 304 Not Modified 未修改，表示请求资源自上次请求之后未修改，可以直接从缓存获取 3. 重定向的常见使用场景 301 永久重定向 网站结构更改，旧URL重定向到新URL 域名更改，旧域名重定向到新域名 移动设备访问PC页面，重定向到移动版本页面 302 临时重定向 网站更新维护，暂时重定向到维护页面 宕机或网络拥堵，暂时把请求转移其它CDN减轻服务器负载 灰度测试 303 临时重定向(Get) POST请求或表单提交，为了避免重复提交，重定向到操作成功页面 307 临时重定向 同302，严格要求保持原请求方法 308 永久重定向 同301，严格要求保持原请求方法 4. 善用304加快速度严格来说304并非重定向，而是告知服务端资源未修改。 当客户端发送一个带有条件请求头（如If-Modified-Since或If-None-Match）的Get请求，如果服务端检测到内容未修改，则直接返回304状态码，返回http包只含头部信息，并非完整的资源内容，从而节省网络带宽。此时客户端直接使用缓存资源，也就加快了加载速度，提升用户体验。 极端情况是缓存资源受到破坏，无法加载，此时客户端会再发送普通Get请求，而不是带条件的请求，服务端则返回完整的资源内容。 5. 300 多重选择当返回300状态码时，浏览器不会自动进行重定向，需要客户端根据返回的列表，自行选择其中一个URL，并重新发起请求 一般返回格式有两种， JSON 1234567&#123; &quot;choices&quot;: [ &quot;https://example.com/resource1&quot;, &quot;https://example.com/resource2&quot;, &quot;https://example.com/resource3&quot; ]&#125; 还有XML 12345&lt;choices&gt; &lt;url&gt;https://example.com/resource1&lt;/url&gt; &lt;url&gt;https://example.com/resource2&lt;/url&gt; &lt;url&gt;https://example.com/resource3&lt;/url&gt;&lt;/choices&gt; 其中choices是常见命名，非固定的标准命名，也有其它的如 options、alternatives、items 常见的JSON格式还有1234567&#123; &quot;alternatives&quot;: [ &#123;&quot;url&quot;: &quot;https://example.com/resource1&quot;, &quot;name&quot;: &quot;Resource 1&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource2&quot;, &quot;name&quot;: &quot;Resource 2&quot;&#125;, &#123;&quot;url&quot;: &quot;https://example.com/resource3&quot;, &quot;name&quot;: &quot;Resource 3&quot;&#125; ]&#125; 在日常的Web开发中，正确地使用重定向是至关重要的。无论是进行网站重构、域名更改，还是优化用户体验，我们都应该根据具体的情况选择合适的重定向类型，并遵循最佳实践。只有这样，我们才能确保网站的可访问性、性能和用户满意度。]]></content>
@@ -58,8 +71,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>eventsource</tag>
         <tag>http</tag>
+        <tag>eventsource</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +193,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>http</tag>
+        <tag>javascript</tag>
         <tag>axios</tag>
       </tags>
   </entry>
@@ -193,8 +206,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>http</tag>
+        <tag>javascript</tag>
         <tag>axios</tag>
       </tags>
   </entry>
@@ -416,8 +429,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -2663,8 +2676,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -3384,8 +3397,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -3499,8 +3512,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -3635,8 +3648,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3871,8 +3884,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4672,8 +4685,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -4684,8 +4697,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>asp</tag>
         <tag>blog</tag>
+        <tag>asp</tag>
       </tags>
   </entry>
   <entry>
@@ -4696,8 +4709,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>html</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -5045,8 +5058,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>css</tag>
         <tag>blog</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
