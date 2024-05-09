@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-05-09T07:38:14.037Z</updated>
+  <updated>2024-05-09T08:23:43.108Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>篡改猴脚本入门</title>
+    <title>篡改猴脚本教程之ajax劫持</title>
     <link href="http://21ido.com/2024/05/44bb9485/"/>
     <id>http://21ido.com/2024/05/44bb9485/</id>
     <published>2024-05-03T07:36:05.000Z</published>
-    <updated>2024-05-09T07:38:14.037Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -30,9 +30,8 @@
 &lt;p&gt;最早写脚本始于18年玩新浪微博时，由于每次打开都会弹出安装Flash插件的提示，所以写了个脚本把提示窗移除。&lt;/p&gt;
 &lt;p&gt;本文以修改表格数据列为例，简单介绍篡改猴脚本开发。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2024/05/monkey_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目标页面，缺少金额数据，每次查看都要点详情进去，很不方便，所以想直接显示在外面表格。&lt;/p&gt;
+&lt;p&gt;目标页面，缺少金额数据，每次查看都要点详情进去，很不方便，更不利于对比，所以想直接显示在外面表格。&lt;/p&gt;
 &lt;p&gt;本例因涉及集团内部系统，只讲重点代码和注意点，不展示完整代码。&lt;/p&gt;
-&lt;p&gt;在插件点击【添加新脚本】会创建一个模板&lt;/p&gt;
     
     </summary>
     
@@ -52,7 +51,7 @@
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-05-09T07:38:14.029Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -94,7 +93,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-05-09T07:38:14.037Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -128,7 +127,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-05-09T07:38:14.037Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -162,7 +161,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -197,7 +196,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -226,7 +225,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -269,7 +268,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -309,7 +308,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -342,7 +341,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -381,7 +380,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -410,7 +409,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -435,7 +434,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -460,7 +459,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -485,7 +484,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -509,7 +508,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.108Z</updated>
     
     <summary type="html">
     
@@ -535,7 +534,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -560,7 +559,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -590,7 +589,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
@@ -615,7 +614,7 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-05-09T07:38:14.033Z</updated>
+    <updated>2024-05-09T08:23:43.104Z</updated>
     
     <summary type="html">
     
