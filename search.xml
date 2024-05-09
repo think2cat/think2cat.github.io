@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[篡改猴脚本入门]]></title>
+    <url>%2F2024%2F05%2F44bb9485%2F</url>
+    <content type="text"><![CDATA[篡改猴，最强浏览器扩展，英文名Tampermonkey，最早出现在Firefox，名叫油猴（Greasemonkey ），两者有相似的功能和脚本语法，但并非同个扩展。 可以在页面注入JS脚本，实现一些功能。 最早写脚本始于18年玩新浪微博时，由于每次打开都会弹出安装Flash插件的提示，所以写了个脚本把提示窗移除。 本文以修改表格数据列为例，简单介绍篡改猴脚本开发。 目标页面，缺少金额数据，每次查看都要点详情进去，很不方便，所以想直接显示在外面表格。 本例因涉及集团内部系统，只讲重点代码和注意点，不展示完整代码。 在插件点击【添加新脚本】会创建一个模板 12345678910111213141516// ==UserScript==// @name New Userscript// @namespace http://tampermonkey.net/// @version 2024-05-03// @description try to take over the world!// @author You// @match http://*/*// @icon data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==// @grant none// ==/UserScript==(function() &#123; &#x27;use strict&#x27;; // Your code here...&#125;)(); 集团系统采用React16，要想直接获取数据实在艰难，所以换个思路，拦截ajax请求，拿到数据后直接插入表格，这里涉及http拦截，采用ajaxHooker.js这个库 12// @run-at document-start// @require https://scriptcat.org/lib/637/1.3.4/ajaxHooker.js#sha256=fWw0ORFWJPYQXZqlv9oxxC96PK/oGwgVpiWCDaC3YPU= 需要注意劫持库的加载，劫持发生的时机是其它库引入的时候，至少是http请求之前，因此脚本应运行于document-start阶段 其使用语法如下123ajaxHooker.hook(request =&gt; &#123; console.log(request);&#125;); 当页面发出ajax请求时，会被劫持，此时可以通过request.url判断是否为所需数据 1234567ajaxHooker.hook(request =&gt; &#123; if (request.url === &#x27;/api/v1/query&#x27;) &#123; request.response = res =&gt; &#123; // res.responseText 为接口返回数据，可存起来使用 &#125; &#125;&#125;); 取到数据后，不要急着去修改表格，因为此时表格可能还未完成渲染，可以通过setTimeout做延迟修改，也可通过querySelector判断表格是否渲染完成，从而再做修改表格的操作 操作表格就跟平时操作DOM一样，这里不再讲述，值得一提的是像React或Vue这种单页面系统，篡改猴的脚步一旦注入，是一直存在的，要注意变量的使用，在做路由跳转时才不会相互干扰]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>js</tag>
+        <tag>Tampermonkey</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Beacon API 前端开发中的异步数据传输利器]]></title>
     <url>%2F2024%2F04%2Fdb296fb2%2F</url>
     <content type="text"><![CDATA[Beacon API 是一种用于在浏览器中异步发送数据的 Web API。它通常用于在页面关闭前发送一些数据，以确保这些数据不会因为页面的关闭而丢失。 1. 工作机制当用户关闭页面后，浏览器会执行一些幕后工作，比如关闭页面相关资源、清理页面状态，还有比如检查是否有未发送的Beacon请求，并尝试去发送请求，这些都是在后台线程进行，所以并不会阻碍页面的关闭。 而 Beacon API 正是因为浏览器这种后台机制，使得页面关闭后依然可以发送请求。 2. 特点 异步非阻塞 调用接口后，无需等待服务器响应，而是把网络请求加入队列，不会影响页面代码执行和用户体验。加入队列后，浏览器会等网络空闲进行请求，不影响页面中其它资源的网络传输 数据缓存 加入队列后，需要发送的数据将被缓存起来，从而避免页面关闭造成数据丢失 支持多种数据格式 允许发送的数据格式有String、ArrayBuffer、TypedArray、DataView、ReadableStream、Blob、FormData对象和URLSearchParams 请求结果无通知和提示 静默执行，请求成功或失败，浏览器都不会有提示 3. 适用场景 数据监控分析 性能监控，分析用户浏览行为，统计页面停留时间等 日志记录 当页面崩溃时，发送相关数据，以便重现场景方便调试 实时传输数据 ajax请求会占用网络带宽，影响用户体验，而Beacon可以在不影响用户体验前提下，异步发送这些数据 4. 如何使用1. 接口参数 navigator.sendBeacon(url, [data]) url: 请求地址，必填参数 data: 传送数据，支持的格式见上文 接口执行后返回布尔值，表示是否成功插入队列 2. 例子 最常见的提交JSON数据 123456const url = &#x27;/postTest&#x27;const data = &#123; a: 1, b: 2&#125;navigator.sendBeacon(url, JSON.stringify(data)) 需要说明的是请求只支持POST方式，如使用express做后端的话，相关代码为 1234567891011const express = require(&#x27;express&#x27;)const app = express()const bodyParser = require(&#x27;body-parser&#x27;)app.use(bodyParser.text())app.use(bodyParser.urlencoded(&#123;extended: false&#125;))app.post(&#x27;/postTest&#x27;, (req, res) =&gt; &#123; // do something console.log(req.body)&#125;) 3. 取消请求 先说结论，Beacon无法取消请求，除非浏览器关闭 起初以为sendBeacon基于fetch，所以尝试使用AbortController取消请求，网上搜了一下还真有这种资料 说 navigator.sendBeacon(url, data, options)，第三个参数为 &#123; credentials: &#39;include&#39;, signal: abortController.signal &#125; 其中 signal 支持传入AbortSignal对象，用于取消请求 补充一下，AbortSignal 是一个用于取消异步操作的信号对象，与AbortController一起使用，常用于fetch的取消请求 axois的底层其实也是基于fetch，所以也可以使用AbortController来取消请求 然后我就写了测试代码，在 Chrome v123 下，完全无效，无法取消请求 1234567891011121314151617// 创建一个 AbortController 对象const controller = new AbortController()const signal = controller.signalconst url = &#x27;/postTest&#x27;const data = &#123; a: 1, b: 2&#125;// 请求任务增加信号传参navigator.sendBeacon(url, JSON.stringify(data), &#123; signal: controller.signal &#125;)setTimeout(() =&gt; &#123; controller.abort() console.log(&#x27;请求已取消&#x27;)&#125;, 100) 5.兼容性 综上所述，Beacon API 主要取决于需求和使用场景。如果需要获取大量数据或者处理复杂的网络请求，Fetch API 可能更适合你的需求；而如果只需要发送少量数据，并且不影响用户体验，或希望在页面关闭时也能够发送数据，Beacon API 可能更适合你。]]></content>
@@ -429,8 +442,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -2676,8 +2689,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -3397,8 +3410,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -3512,8 +3525,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3648,8 +3661,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3884,8 +3897,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4685,8 +4698,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -4697,8 +4710,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4709,8 +4722,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -5058,8 +5071,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>

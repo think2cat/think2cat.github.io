@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-04-23T14:23:48.706Z</updated>
+  <updated>2024-05-09T07:38:14.037Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>篡改猴脚本入门</title>
+    <link href="http://21ido.com/2024/05/44bb9485/"/>
+    <id>http://21ido.com/2024/05/44bb9485/</id>
+    <published>2024-05-03T07:36:05.000Z</published>
+    <updated>2024-05-09T07:38:14.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;篡改猴，最强浏览器扩展，英文名Tampermonkey，最早出现在Firefox，名叫油猴（Greasemonkey ），两者有相似的功能和脚本语法，但并非同个扩展。&lt;/p&gt;
+&lt;p&gt;可以在页面注入JS脚本，实现一些功能。&lt;/p&gt;
+&lt;p&gt;最早写脚本始于18年玩新浪微博时，由于每次打开都会弹出安装Flash插件的提示，所以写了个脚本把提示窗移除。&lt;/p&gt;
+&lt;p&gt;本文以修改表格数据列为例，简单介绍篡改猴脚本开发。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2024/05/monkey_1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目标页面，缺少金额数据，每次查看都要点详情进去，很不方便，所以想直接显示在外面表格。&lt;/p&gt;
+&lt;p&gt;本例因涉及集团内部系统，只讲重点代码和注意点，不展示完整代码。&lt;/p&gt;
+&lt;p&gt;在插件点击【添加新脚本】会创建一个模板&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
+    
+    
+      <category term="http" scheme="http://21ido.com/tags/http/"/>
+    
+      <category term="js" scheme="http://21ido.com/tags/js/"/>
+    
+      <category term="Tampermonkey" scheme="http://21ido.com/tags/Tampermonkey/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Beacon API 前端开发中的异步数据传输利器</title>
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.029Z</updated>
     
     <summary type="html">
     
@@ -63,7 +94,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.037Z</updated>
     
     <summary type="html">
     
@@ -97,7 +128,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.037Z</updated>
     
     <summary type="html">
     
@@ -131,7 +162,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -166,7 +197,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -195,7 +226,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -238,7 +269,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -278,7 +309,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -311,7 +342,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -350,7 +381,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -379,7 +410,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -404,7 +435,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -429,7 +460,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-04-23T14:23:48.706Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -454,7 +485,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -478,7 +509,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -504,7 +535,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -529,7 +560,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -559,7 +590,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
@@ -584,43 +615,11 @@
     <link href="http://21ido.com/2018/07/2ab61b58/"/>
     <id>http://21ido.com/2018/07/2ab61b58/</id>
     <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
+    <updated>2024-05-09T07:38:14.033Z</updated>
     
     <summary type="html">
     
       &lt;h3 id=&quot;Promise-all&quot;&gt;&lt;a href=&quot;#Promise-all&quot; class=&quot;headerlink&quot; title=&quot;Promise.all&quot;&gt;&lt;/a&gt;Promise.all&lt;/h3&gt;&lt;p&gt;有一些场景，需要同时调用几个接口，拿到全部返回数据，才能接着往下调用&lt;br&gt;以往遇到这种情况，需要设置一些临时变量来记录每个接口是否返回数据，每次返回时再判断是否数据已经齐全，再往下接着走&lt;br&gt;而 all 方法就是为此而生的，接受参数为 Promise对象数组&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pArr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p1 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp1&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p2 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp2&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p3 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp3&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; p = &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;all&lt;/span&gt;(pArr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resp&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;all is done, doing next&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p1 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p3 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p2 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; all is done, doing next&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promise入门指南(3)</title>
-    <link href="http://21ido.com/2018/07/65f78d9f/"/>
-    <id>http://21ido.com/2018/07/65f78d9f/</id>
-    <published>2018-07-15T10:44:55.000Z</published>
-    <updated>2024-04-23T14:23:48.710Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Promise是JavaScript异步编程解决方案，之一&lt;br&gt;以往我们所习惯的回调函数也是之一，还有事件监听和观察者模式（也叫发布订阅模式）也算&lt;br&gt;而Promise是遵循的是Promise/A+规范，像Axios也是遵循这个规范，提供了相同的api&lt;/p&gt;
-&lt;p&gt;Promise/A+规范解决了回调函数的一些弊端，比如&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;代码书写逻辑&lt;/li&gt;
-&lt;li&gt;更改回调顺序的噩梦&lt;/li&gt;
-&lt;li&gt;多步回调的魔鬼嵌套&lt;/li&gt;
-&lt;li&gt;回调函数的跟踪&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;但Promise也不是万能的，作为解决方案之一，并不是适合所有的异步场景&lt;/p&gt;
-&lt;p&gt;前面说到Promise特征之一就是状态一旦变成 fulfilled 或是 rejected ，则不会再改变，而当执行 then 进行 resolve 和 rejected 回调注册时，返回的其实是一个新的Promise对象&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;( &lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;dir&lt;/span&gt;(p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;(&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Date&lt;/span&gt;().&lt;span class=&quot;title function_&quot;&gt;getTime&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
