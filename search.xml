@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[深入解读MongoDB事务：从基础到优化]]></title>
+    <url>%2F2024%2F05%2F42fc09e2%2F</url>
+    <content type="text"><![CDATA[1. 引言MongoDB在4.0版本引入了对多文档事务的支持，这一特性使得开发者能够在一个事务中操作多个文档和集合，确保这些操作的原子性和一致性。这对于构建复杂的应用程序和保证数据完整性至关重要。 什么是事务事务是数据库一系列操作的集合，视为一个逻辑单元。当全部操作成功时，事务才算操作成功；如果其中某一操作失败，则视为整体失败，数据会回滚到未执行前的状态。 假设某玩家消费100金币买了一个装备123456789101112BEGIN TRANSACTION;-- 开始事务，一系列操作-- 账户金币减掉100UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;-- 装备库存减1UPDATE products SET stock = stock - 1 WHERE product_id = 456 AND stock &gt; 0;-- 用户装备增加INSERT INTO weapons (account_id, product_id) VALUES (1, 456)；-- 提交事务COMMIT; 如果玩家的金币扣了，但装备已经没有库存，购买失败，则整个操作失败，扣掉的金币要还回去。 ACID特性ACID是数据库事务四个重要特征 原子性（Atomicity）：事务中的所有操作要么全部完成，要么全部不执行。如果事务在执行过程中遇到错误，所有已经执行的操作都必须回滚到事务开始之前的状态。这确保了数据库不会处于部分更新的状态。例如：一个银行转账操作，如果扣款成功但未成功入账，整个操作会被回滚，账户余额恢复到初始状态。 一致性（Consistency）：事务执行前后，数据库都必须保持一致的状态。所有的业务规则、约束和触发器都必须得到满足，确保数据库从一个有效状态转变到另一个有效状态。例如：转账操作前后，账户总余额应保持不变。 隔离性（Isolation）：多个事务并发执行时，一个事务的操作对其他事务是隔离的。事务的中间状态对其他事务是不可见的，只有在事务提交后，其结果才会对其他事务可见。例如：一个用户在读取数据时不会看到其他未提交事务的修改。 持久性（Durability）：一旦事务提交，它对数据库的改变是永久性的，即使系统发生故障，也不会丢失。事务的结果会被持久地保存到存储介质中。例如：已完成的转账记录在系统重启后仍然存在。 2. MongoDB事务简介 MongoDB在4.0版本引入了对多文档事务的支持，使开发者能够在同一个事务中操作多个文档和集合，保证这些操作的原子性和一致性。 历史版本 MongoDB 3.0及之前：仅支持单文档级别的原子操作，不支持多文档事务 MongoDB 4.0：引入了副本集环境下的多文档事务支持 MongoDB 4.2：扩展了对分片集群环境下的多文档事务支持。 3. 使用事务启动和提交事务 启动会话：MongoClient.startSession() 启动事务：在会话对象上调用 startTransaction() 方法来启动事务 执行操作：在会话中执行一系列数据库操作（插入、更新、删除等） 提交事务：在成功完成所有操作后调用 session.commitTransaction() 提交事务 回滚事务：如果遇到错误，调用 session.abortTransaction() 回滚事务 结束会话：session.endSession() 示例代码以下代码演示了如何在MongoDB中使用事务 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950try &#123; await client.connect(); const session = client.startSession(); session.startTransaction(); try &#123; const accountsCollection = client.db(&quot;test&quot;).collection(&quot;accounts&quot;); const productsCollection = client.db(&quot;test&quot;).collection(&quot;products&quot;); const weaponsCollection = client.db(&quot;test&quot;).collection(&quot;weapons&quot;); // 扣金币操作 const accountUpdateResult = await accountsCollection.updateOne( &#123; account_id: 1 &#125;, &#123; $inc: &#123; balance: -100 &#125; &#125;, &#123; session &#125; ); if (accountUpdateResult.matchedCount === 0 || accountUpdateResult.modifiedCount === 0) &#123; throw new Error(&quot;Account update failed or no account found.&quot;); &#125; // 减少库存 const productUpdateResult = await productsCollection.updateOne( &#123; product_id: 456, stock: &#123; $gt: 0 &#125; &#125;, &#123; $inc: &#123; stock: -1 &#125; &#125;, &#123; session &#125; ); if (productUpdateResult.matchedCount === 0 || productUpdateResult.modifiedCount === 0) &#123; throw new Error(&quot;Product update failed or no product found.&quot;); &#125; // 增加用户装备 const weaponInsertResult = await weaponsCollection.insertOne( &#123; account_id: 1, product_id: 456 &#125;, &#123; session &#125; ); if (weaponInsertResult.insertedCount === 0) &#123; throw new Error(&quot;Weapon insert failed.&quot;); &#125; await session.commitTransaction(); console.log(&quot;Transaction committed.&quot;); &#125; catch (error) &#123; await session.abortTransaction(); console.log(&quot;Transaction aborted due to an error: &quot;, error); &#125; finally &#123; session.endSession(); &#125; 4. 锁的基本概念事务的实现离不开锁的作用，数据库的锁是一种机制，用于控制数据并发访问时，保持数据的一致性和完整性，防止并发读写数据造成的竞争和冲突 什么是锁锁是数据库中用于管理并发访问和维护数据一致性的一种机制。通过锁，可以确保多个事务在并发执行时不会相互干扰，从而保证数据的一致性和完整性。 图书馆里来了一些新书，好些人去借书，当你在书架一行行的找时，突然来了个人，一下就拿走了几本，碰巧就有你找的那本书，于是你把那人揍了一顿。 第二天图书馆发布了新规矩，一个书架只能同时一个人能借书，排队拿钥匙，有钥匙的人可去找书，不管有没找到，其他人不能进去找，只有等到钥匙归还后，第二人才能接着去找书。 这就是锁，避免了冲突的发生，但同时也带来了性能的问题。 锁的分类方式多种多样，主要根据锁定粒度、锁的模式、持有时间、特性、作用范围和实现机制等因素进行分类。 MongoDB支持锁的模式 共享锁（S）：用于读操作，允许多个事务并发读取。 排他锁（X）：用于写操作，阻止其他事务读取或写入。 意向共享锁（IS）：用于表示有读取的意图，允许多个意向共享锁和意向排他锁。 意向排他锁（IX）：用于表示有写入的意图，允许多个意向排他锁，阻止共享锁和排他锁。 锁的影响优点： 锁的设计保证了数据的一致性和完整性，并能有效控制并发操作。 缺点： 性能开销，上锁和解锁需要时间，在高并发下，多个事务争抢相同资源，会增加等待时间，降低性能 资源开销，维护锁的信息，即需要消耗内存资源，也需要CPU资源 死锁，多个事务在相互等待对方释放锁时，则会造成死锁 5. 事务的其它依赖锁只是事务实现的一部分，完整实现还依赖于日志记录、版本控制等其他机制。 日志记录（Write-Ahead Logging, WAL）日志记录是指在事务对数据库进行修改之前，先将这些修改操作记录到日志中。这样，即使在系统崩溃后，数据库也可以根据日志来恢复未完成的事务，确保数据的一致性和持久性。 作用 原子性：如果事务失败，可以使用日志回滚操作，将数据库恢复到事务开始之前的状态。 持久性：一旦事务提交，其日志记录会被持久化到磁盘，即使系统崩溃，事务的结果也不会丢失。 版本控制（Multi-Version Concurrency Control, MVCC）通过维护数据的多个版本来管理并发控制。每当一个事务对数据进行修改时，系统会创建一个新版本的数据，而旧版本仍然保留。这使得读操作可以读取旧版本的数据，而不受正在进行的写操作的影响，从而提高并发性能。 作用 隔离性：不同事务可以读取数据的不同版本，从而避免读写冲突。 一致性：每个事务在其开始时获取数据的快照，确保在整个事务过程中读取到一致的数据。 6. 事务优化1. 事务尽可能短事务太长会占用锁的时间，影响其他并发操作。因此，大事务应尽量拆分为小事务，并确保小事务的执行时间尽可能短。 2. 减少锁的范围和争用过多锁会影响性能，减少锁的使用，并精细化使用锁，能用文档锁就不使用集合锁。 3. 避免高冲突的操作高并发访问同一资源容易造成锁冲突，甚至死锁。可以使用队列来处理频繁抢占的资源，并将数据分区或分片，减少并发冲突。 4. 提前校验和准备能在外部获取的数据，应提前准备好，缩短事务运行时间，同时避免在事务中进行不必要的数据校验。 5. 使用适当的隔离级别较高的隔离级别会导致其他锁的延迟，所以尽量选择合适的读级别锁或写级别锁。 总结通过设计良好的数据模型、适当的索引、精简的事务逻辑以及合适的读写关注级别，开发者可以有效提升MongoDB事务的执行效率。在实际项目中，监控和调优事务性能也是必不可少的步骤，能够帮助识别潜在问题并及时改进。 总之，充分理解MongoDB事务的工作原理和优化方法，将有助于开发者构建更可靠、更高效的数据库应用。希望本篇文章能为您在MongoDB事务的应用和优化上提供有价值的参考和指导。]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>MongoDB</tag>
+        <tag>DB</tag>
+        <tag>优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[篡改猴脚本教程之ajax劫持]]></title>
     <url>%2F2024%2F05%2F44bb9485%2F</url>
     <content type="text"><![CDATA[篡改猴，最强浏览器扩展，英文名Tampermonkey，最早出现在Firefox，名叫油猴（Greasemonkey ），两者有相似的功能和脚本语法，但并非同个扩展。 可以在页面注入JS脚本，实现一些功能。 最早写脚本始于18年玩新浪微博时，由于每次打开都会弹出安装Flash插件的提示，所以写了个脚本把提示窗移除。 本文以修改表格数据列为例，简单介绍篡改猴脚本开发。 目标页面，缺少金额数据，每次查看都要点详情进去，很不方便，更不利于对比，所以想直接显示在外面表格。 本例因涉及集团内部系统，只讲重点代码和注意点，不展示完整代码。 在插件点击【添加新脚本】会创建一个模板 12345678910111213141516// ==UserScript==// @name New Userscript// @namespace http://tampermonkey.net/// @version 2024-05-03// @description try to take over the world!// @author You// @match http://*/*// @icon data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==// @grant none// ==/UserScript==(function() &#123; &#x27;use strict&#x27;; // Your code here...&#125;)(); 内部系统采用React16，要想直接获取数据实在艰难，所以换个思路，拦截ajax请求，拿到数据后直接插入表格，这里涉及http拦截，采用ajaxHooker.js这个库 12// @run-at document-start// @require https://scriptcat.org/lib/637/1.3.4/ajaxHooker.js#sha256=fWw0ORFWJPYQXZqlv9oxxC96PK/oGwgVpiWCDaC3YPU= 需要注意劫持库的加载，劫持发生的时机是其它库引入的时候，至少是http请求之前，因此脚本应运行于document-start阶段 其使用语法如下123ajaxHooker.hook(request =&gt; &#123; console.log(request);&#125;); 当页面发出ajax请求时，会被劫持，此时可以通过request.url判断是否为所需数据 1234567ajaxHooker.hook(request =&gt; &#123; if (request.url === &#x27;/api/v1/query&#x27;) &#123; request.response = res =&gt; &#123; // res.responseText 为接口返回数据，可存起来使用 &#125; &#125;&#125;); 取到数据后，不要急着去修改表格，因为此时表格可能还未完成渲染，可以通过setTimeout做延迟修改，也可通过querySelector判断表格是否渲染完成，从而再做修改表格的操作 操作表格就跟平时操作DOM一样，这里不再讲述，值得一提的是像React或Vue这种单页面系统，篡改猴的脚步一旦注入，是一直存在的，要注意变量的使用，在做路由跳转时才不会相互干扰]]></content>
@@ -442,8 +455,8 @@
       </categories>
       <tags>
         <tag>flex</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -2689,8 +2702,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
         <tag>zblog</tag>
       </tags>
   </entry>
@@ -3410,8 +3423,8 @@
       </categories>
       <tags>
         <tag>mobile</tag>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -3525,8 +3538,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3661,8 +3674,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -3897,8 +3910,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -3972,10 +3985,10 @@
         <category>Web</category>
       </categories>
       <tags>
+        <tag>优化</tag>
         <tag>html</tag>
         <tag>seo</tag>
         <tag>web</tag>
-        <tag>优化</tag>
       </tags>
   </entry>
   <entry>
@@ -4698,8 +4711,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -4710,8 +4723,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>asp</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -4722,8 +4735,8 @@
         <category>Web</category>
       </categories>
       <tags>
-        <tag>html</tag>
         <tag>css</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -5071,8 +5084,8 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>blog</tag>
         <tag>css</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>

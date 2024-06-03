@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-05-09T08:23:43.108Z</updated>
+  <updated>2024-06-03T14:32:51.313Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入解读MongoDB事务：从基础到优化</title>
+    <link href="http://21ido.com/2024/05/42fc09e2/"/>
+    <id>http://21ido.com/2024/05/42fc09e2/</id>
+    <published>2024-05-25T15:54:27.000Z</published>
+    <updated>2024-06-03T14:32:51.313Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot; title=&quot;1. 引言&quot;&gt;&lt;/a&gt;1. 引言&lt;/h2&gt;&lt;p&gt;MongoDB在4.0版本引入了对多文档事务的支持，这一特性使得开发者能够在一个事务中操作多个文档和集合，确保这些操作的原子性和一致性。这对于构建复杂的应用程序和保证数据完整性至关重要。&lt;/p&gt;
+&lt;h3 id=&quot;什么是事务&quot;&gt;&lt;a href=&quot;#什么是事务&quot; class=&quot;headerlink&quot; title=&quot;什么是事务&quot;&gt;&lt;/a&gt;什么是事务&lt;/h3&gt;&lt;p&gt;事务是数据库一系列操作的集合，视为一个逻辑单元。当全部操作成功时，事务才算操作成功；如果其中某一操作失败，则视为整体失败，数据会回滚到未执行前的状态。&lt;/p&gt;
+&lt;p&gt;假设某玩家消费100金币买了一个装备&lt;br&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;BEGIN&lt;/span&gt; TRANSACTION;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 开始事务，一系列操作&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 账户金币减掉100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;UPDATE&lt;/span&gt; accounts &lt;span class=&quot;keyword&quot;&gt;SET&lt;/span&gt; balance &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; balance &lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHERE&lt;/span&gt; account_id &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 装备库存减1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;UPDATE&lt;/span&gt; products &lt;span class=&quot;keyword&quot;&gt;SET&lt;/span&gt; stock &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; stock &lt;span class=&quot;operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;WHERE&lt;/span&gt; product_id &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;AND&lt;/span&gt; stock &lt;span class=&quot;operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 用户装备增加&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;INTO&lt;/span&gt; weapons (account_id, product_id) &lt;span class=&quot;keyword&quot;&gt;VALUES&lt;/span&gt; (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;)；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;-- 提交事务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;COMMIT&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果玩家的金币扣了，但装备已经没有库存，购买失败，则整个操作失败，扣掉的金币要还回去。&lt;/p&gt;
+&lt;h4 id=&quot;ACID特性&quot;&gt;&lt;a href=&quot;#ACID特性&quot; class=&quot;headerlink&quot; title=&quot;ACID特性&quot;&gt;&lt;/a&gt;ACID特性&lt;/h4&gt;&lt;p&gt;ACID是数据库事务四个重要特征&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;原子性（Atomicity）&lt;/strong&gt;：事务中的所有操作要么全部完成，要么全部不执行。如果事务在执行过程中遇到错误，所有已经执行的操作都必须回滚到事务开始之前的状态。这确保了数据库不会处于部分更新的状态。&lt;br&gt;例如：一个银行转账操作，如果扣款成功但未成功入账，整个操作会被回滚，账户余额恢复到初始状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一致性（Consistency）&lt;/strong&gt;：事务执行前后，数据库都必须保持一致的状态。所有的业务规则、约束和触发器都必须得到满足，确保数据库从一个有效状态转变到另一个有效状态。&lt;br&gt;例如：转账操作前后，账户总余额应保持不变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隔离性（Isolation）&lt;/strong&gt;：多个事务并发执行时，一个事务的操作对其他事务是隔离的。事务的中间状态对其他事务是不可见的，只有在事务提交后，其结果才会对其他事务可见。&lt;br&gt;例如：一个用户在读取数据时不会看到其他未提交事务的修改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持久性（Durability）&lt;/strong&gt;：一旦事务提交，它对数据库的改变是永久性的，即使系统发生故障，也不会丢失。事务的结果会被持久地保存到存储介质中。&lt;br&gt;例如：已完成的转账记录在系统重启后仍然存在。
+    
+    </summary>
+    
+      <category term="IT" scheme="http://21ido.com/categories/IT/"/>
+    
+    
+      <category term="MongoDB" scheme="http://21ido.com/tags/MongoDB/"/>
+    
+      <category term="DB" scheme="http://21ido.com/tags/DB/"/>
+    
+      <category term="优化" scheme="http://21ido.com/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>篡改猴脚本教程之ajax劫持</title>
     <link href="http://21ido.com/2024/05/44bb9485/"/>
     <id>http://21ido.com/2024/05/44bb9485/</id>
     <published>2024-05-03T07:36:05.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -51,7 +84,7 @@
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -93,7 +126,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -127,7 +160,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -161,7 +194,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -196,7 +229,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -225,7 +258,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -268,7 +301,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -308,7 +341,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -341,7 +374,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -380,7 +413,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -409,7 +442,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -434,7 +467,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -459,7 +492,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -484,7 +517,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -508,7 +541,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-05-09T08:23:43.108Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -534,7 +567,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -559,7 +592,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.329Z</updated>
     
     <summary type="html">
     
@@ -589,7 +622,7 @@
     <link href="http://21ido.com/2018/08/33ad2a19/"/>
     <id>http://21ido.com/2018/08/33ad2a19/</id>
     <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
+    <updated>2024-06-03T14:32:51.325Z</updated>
     
     <summary type="html">
     
@@ -597,28 +630,6 @@
 &lt;p&gt;前面说了 Promise 有3种状态， pending, fulffilled, rejected&lt;br&gt;并没有一种状态叫异常，实际使用中，能确定的状态用 resolve / reject 来回调，而不是丢到 catch&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 错误示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// try something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;something error&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p1.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p2&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).&lt;span class=&quot;title function_&quot;&gt;catch&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p3&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这样当报错时，会抛到 catch 去执行，而实际有些错误是可预见的，所以当可预见和不可预见的错误，都往 catch 报的时候，就没法判断了，因此建议用 reject 来处理可预见性的错误&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promise入门指南(4)</title>
-    <link href="http://21ido.com/2018/07/2ab61b58/"/>
-    <id>http://21ido.com/2018/07/2ab61b58/</id>
-    <published>2018-07-21T15:25:12.000Z</published>
-    <updated>2024-05-09T08:23:43.104Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Promise-all&quot;&gt;&lt;a href=&quot;#Promise-all&quot; class=&quot;headerlink&quot; title=&quot;Promise.all&quot;&gt;&lt;/a&gt;Promise.all&lt;/h3&gt;&lt;p&gt;有一些场景，需要同时调用几个接口，拿到全部返回数据，才能接着往下调用&lt;br&gt;以往遇到这种情况，需要设置一些临时变量来记录每个接口是否返回数据，每次返回时再判断是否数据已经齐全，再往下接着走&lt;br&gt;而 all 方法就是为此而生的，接受参数为 Promise对象数组&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pArr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p1 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp1&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p2 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp2&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;5000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pArr.&lt;span class=&quot;title function_&quot;&gt;push&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;setTimeout&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;() =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;p3 resolve&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;title function_&quot;&gt;resolve&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;resp3&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; p = &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;all&lt;/span&gt;(pArr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resp&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;all is done, doing next&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p1 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p3 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; p2 resolve&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// =&amp;gt; all is done, doing next&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;
     
     </summary>
     
