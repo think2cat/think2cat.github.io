@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-06-20T13:06:07.342Z</updated>
+  <updated>2024-06-20T13:59:12.102Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -21,17 +21,22 @@
     <link href="http://21ido.com/2024/06/c6a8bf4d/"/>
     <id>http://21ido.com/2024/06/c6a8bf4d/</id>
     <published>2024-06-16T03:46:37.000Z</published>
-    <updated>2024-06-20T13:06:07.342Z</updated>
+    <updated>2024-06-20T13:59:12.102Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;什么是锁&quot;&gt;&lt;a href=&quot;#什么是锁&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;什么是锁&quot;&gt;&lt;a href=&quot;#什么是锁&quot; class=&quot;headerlink&quot; title=&quot;什么是锁&quot;&gt;&lt;/a&gt;什么是锁&lt;/h2&gt;&lt;p&gt;锁是一种机制，用于管理并发访问和维护数据一致性。它确保多个操作不会同时修改相同的数据，从而避免数据冲突。&lt;/p&gt;
+&lt;p&gt;假设图书馆里有一批热门书籍，很多人都想借阅。图书馆为了管理这些书籍的借阅过程，引入了不同类型的“锁”。&lt;/p&gt;
+&lt;h2 id=&quot;锁的种类&quot;&gt;&lt;a href=&quot;#锁的种类&quot; class=&quot;headerlink&quot; title=&quot;锁的种类&quot;&gt;&lt;/a&gt;锁的种类&lt;/h2&gt;&lt;h3 id=&quot;1-共享锁（S锁）&quot;&gt;&lt;a href=&quot;#1-共享锁（S锁）&quot; class=&quot;headerlink&quot; title=&quot;1. 共享锁（S锁）&quot;&gt;&lt;/a&gt;1. 共享锁（S锁）&lt;/h3&gt;&lt;p&gt;共享锁允许多个事务并发读取同一数据，但不能进行写操作。读读不互斥，多个事务可以同时获取共享锁。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;图书馆允许多个人同时阅读同一本书，但不能带走。也就是说，书架上的书可以被很多人同时拿下来翻阅，但不能被借走。&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-排他锁（X锁）&quot;&gt;&lt;a href=&quot;#2-排他锁（X锁）&quot; class=&quot;headerlink&quot; title=&quot;2.排他锁（X锁）&quot;&gt;&lt;/a&gt;2.排他锁（X锁）&lt;/h3&gt;&lt;p&gt;排他锁允许一个事务进行写操作，同时阻止其他事务读取或写入。写写互斥，读写互斥，只有一个事务能持有排他锁。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;图书馆规定，当一个人借书时，其他人不能同时借这本书，也不能翻阅这本书。借书的人会把书从书架上拿走，直到他归还后，其他人才可以继续借阅或查看这本书。&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-意向共享锁（IS锁）&quot;&gt;&lt;a href=&quot;#3-意向共享锁（IS锁）&quot; class=&quot;headerlink&quot; title=&quot;3.意向共享锁（IS锁）&quot;&gt;&lt;/a&gt;3.意向共享锁（IS锁）&lt;/h3&gt;&lt;p&gt;意向共享锁表示一个事务有读取某些资源的意图。多个事务可以同时获取意向共享锁和意向排他锁。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;图书馆规定，一个人如果计划去翻阅某本书，他可以提前在图书馆的系统里登记自己的意图，这样系统知道将来可能会有很多人同时查看这本书。登记意图的人还没有拿到书，但图书馆知道他有这个计划。&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-意向排他锁（IX锁）&quot;&gt;&lt;a href=&quot;#4-意向排他锁（IX锁）&quot; class=&quot;headerlink&quot; title=&quot;4.意向排他锁（IX锁）&quot;&gt;&lt;/a&gt;4.意向排他锁（IX锁）&lt;/h3&gt;&lt;p&gt;意向排他锁表示一个事务有写入某些资源的意图。多个事务可以同时获取意向排他锁，但不能获取共享锁或排他锁。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;图书馆规定，一个人如果计划去借某本书，他可以提前在图书馆的系统里登记自己的意图，这样系统知道将来可能会有很多人要借这本书。登记意图的人还没有拿到书，但图书馆知道他有这个计划。&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;图书馆场景&quot;&gt;&lt;a href=&quot;#图书馆场景&quot; class=&quot;headerlink&quot; title=&quot;图书馆场景&quot;&gt;&lt;/a&gt;图书馆场景&lt;/h3&gt;&lt;p&gt;假设图书馆里有一本《哈利波特与数据结构》的书，多个读者对这本书感兴趣。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;共享锁（S锁）：&lt;/strong&gt;&lt;br&gt;多个读者可以同时在图书馆翻阅《哈利波特与数据结构》，但不能借走。&lt;br&gt;
     
     </summary>
     
@@ -51,7 +56,7 @@
     <link href="http://21ido.com/2024/05/42fc09e2/"/>
     <id>http://21ido.com/2024/05/42fc09e2/</id>
     <published>2024-05-25T15:54:27.000Z</published>
-    <updated>2024-06-20T13:06:07.342Z</updated>
+    <updated>2024-06-20T13:59:12.102Z</updated>
     
     <summary type="html">
     
@@ -84,7 +89,7 @@
     <link href="http://21ido.com/2024/05/44bb9485/"/>
     <id>http://21ido.com/2024/05/44bb9485/</id>
     <published>2024-05-03T07:36:05.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -114,7 +119,7 @@
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -156,7 +161,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -190,7 +195,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -224,7 +229,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -259,7 +264,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -288,7 +293,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -331,7 +336,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -371,7 +376,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -404,7 +409,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -443,7 +448,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -472,7 +477,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -497,7 +502,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -522,7 +527,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.114Z</updated>
     
     <summary type="html">
     
@@ -547,7 +552,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -571,7 +576,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-06-20T13:06:07.358Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -597,7 +602,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
@@ -622,7 +627,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-06-20T13:06:07.354Z</updated>
+    <updated>2024-06-20T13:59:12.118Z</updated>
     
     <summary type="html">
     
