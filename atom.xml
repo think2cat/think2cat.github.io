@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://21ido.com/"/>
-  <updated>2024-06-03T14:32:51.313Z</updated>
+  <updated>2024-06-20T13:06:07.342Z</updated>
   <id>http://21ido.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>从图书馆借书到MongoDB锁：一文看懂锁机制</title>
+    <link href="http://21ido.com/2024/06/c6a8bf4d/"/>
+    <id>http://21ido.com/2024/06/c6a8bf4d/</id>
+    <published>2024-06-16T03:46:37.000Z</published>
+    <updated>2024-06-20T13:06:07.342Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是锁&quot;&gt;&lt;a href=&quot;#什么是锁&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="IT" scheme="http://21ido.com/categories/IT/"/>
+    
+    
+      <category term="MongoDB" scheme="http://21ido.com/tags/MongoDB/"/>
+    
+      <category term="DB" scheme="http://21ido.com/tags/DB/"/>
+    
+      <category term="数据库锁" scheme="http://21ido.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入解读MongoDB事务：从基础到优化</title>
     <link href="http://21ido.com/2024/05/42fc09e2/"/>
     <id>http://21ido.com/2024/05/42fc09e2/</id>
     <published>2024-05-25T15:54:27.000Z</published>
-    <updated>2024-06-03T14:32:51.313Z</updated>
+    <updated>2024-06-20T13:06:07.342Z</updated>
     
     <summary type="html">
     
@@ -54,7 +84,7 @@
     <link href="http://21ido.com/2024/05/44bb9485/"/>
     <id>http://21ido.com/2024/05/44bb9485/</id>
     <published>2024-05-03T07:36:05.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -84,7 +114,7 @@
     <link href="http://21ido.com/2024/04/db296fb2/"/>
     <id>http://21ido.com/2024/04/db296fb2/</id>
     <published>2024-04-12T14:09:05.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -126,7 +156,7 @@
     <link href="http://21ido.com/2024/03/8563c276/"/>
     <id>http://21ido.com/2024/03/8563c276/</id>
     <published>2024-03-26T09:16:06.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -160,7 +190,7 @@
     <link href="http://21ido.com/2024/03/69025b32/"/>
     <id>http://21ido.com/2024/03/69025b32/</id>
     <published>2024-03-09T15:19:56.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -194,7 +224,7 @@
     <link href="http://21ido.com/2023/12/4fefd04c/"/>
     <id>http://21ido.com/2023/12/4fefd04c/</id>
     <published>2023-12-14T13:36:52.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -229,7 +259,7 @@
     <link href="http://21ido.com/2023/09/1a355503/"/>
     <id>http://21ido.com/2023/09/1a355503/</id>
     <published>2023-09-16T02:18:12.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -258,7 +288,7 @@
     <link href="http://21ido.com/2023/07/b5cab5bb/"/>
     <id>http://21ido.com/2023/07/b5cab5bb/</id>
     <published>2023-07-27T03:46:25.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -301,7 +331,7 @@
     <link href="http://21ido.com/2023/05/434fdf21/"/>
     <id>http://21ido.com/2023/05/434fdf21/</id>
     <published>2023-05-22T03:03:27.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -341,7 +371,7 @@
     <link href="http://21ido.com/2023/05/49292e5e/"/>
     <id>http://21ido.com/2023/05/49292e5e/</id>
     <published>2023-05-03T15:26:22.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -374,7 +404,7 @@
     <link href="http://21ido.com/2020/09/5bd537b/"/>
     <id>http://21ido.com/2020/09/5bd537b/</id>
     <published>2020-09-14T02:34:10.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -413,7 +443,7 @@
     <link href="http://21ido.com/2019/07/c9ca51c5/"/>
     <id>http://21ido.com/2019/07/c9ca51c5/</id>
     <published>2019-07-22T06:21:08.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -442,7 +472,7 @@
     <link href="http://21ido.com/2019/03/1eabff52/"/>
     <id>http://21ido.com/2019/03/1eabff52/</id>
     <published>2019-03-01T10:04:38.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -467,7 +497,7 @@
     <link href="http://21ido.com/2018/12/27f27d32/"/>
     <id>http://21ido.com/2018/12/27f27d32/</id>
     <published>2018-12-24T11:52:27.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -492,7 +522,7 @@
     <link href="http://21ido.com/2018/11/4d59cb14/"/>
     <id>http://21ido.com/2018/11/4d59cb14/</id>
     <published>2018-11-23T08:51:24.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -517,7 +547,7 @@
     <link href="http://21ido.com/2018/09/a91bebb6/"/>
     <id>http://21ido.com/2018/09/a91bebb6/</id>
     <published>2018-09-20T03:15:35.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -541,7 +571,7 @@
     <link href="http://21ido.com/2018/09/ddbd4da6/"/>
     <id>http://21ido.com/2018/09/ddbd4da6/</id>
     <published>2018-09-11T09:39:39.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.358Z</updated>
     
     <summary type="html">
     
@@ -567,7 +597,7 @@
     <link href="http://21ido.com/2018/08/786557a3/"/>
     <id>http://21ido.com/2018/08/786557a3/</id>
     <published>2018-08-31T09:11:44.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -592,7 +622,7 @@
     <link href="http://21ido.com/2018/08/e16c0619/"/>
     <id>http://21ido.com/2018/08/e16c0619/</id>
     <published>2018-08-24T05:02:03.000Z</published>
-    <updated>2024-06-03T14:32:51.329Z</updated>
+    <updated>2024-06-20T13:06:07.354Z</updated>
     
     <summary type="html">
     
@@ -614,31 +644,6 @@
       <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
     
       <category term="axios" scheme="http://21ido.com/tags/axios/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promise入门指南(5)</title>
-    <link href="http://21ido.com/2018/08/33ad2a19/"/>
-    <id>http://21ido.com/2018/08/33ad2a19/</id>
-    <published>2018-08-09T16:26:24.000Z</published>
-    <updated>2024-06-03T14:32:51.325Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Promise-catch&quot;&gt;&lt;a href=&quot;#Promise-catch&quot; class=&quot;headerlink&quot; title=&quot;Promise.catch&quot;&gt;&lt;/a&gt;Promise.catch&lt;/h3&gt;&lt;p&gt;&lt;code&gt;catch&lt;/code&gt; 是用来捕获异常的，但是网上很多教程代码把 &lt;code&gt;catch&lt;/code&gt; 当 &lt;code&gt;rejected&lt;/code&gt; 使用，这是不当的&lt;/p&gt;
-&lt;p&gt;前面说了 Promise 有3种状态， pending, fulffilled, rejected&lt;br&gt;并没有一种状态叫异常，实际使用中，能确定的状态用 resolve / reject 来回调，而不是丢到 catch&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 错误示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; p1 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Promise&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;resolve&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// try something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Error&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;something error&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p1.&lt;span class=&quot;title function_&quot;&gt;then&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p2&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).&lt;span class=&quot;title function_&quot;&gt;catch&lt;/span&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;v&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable language_&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;p3&amp;#x27;&lt;/span&gt;, v)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样当报错时，会抛到 catch 去执行，而实际有些错误是可预见的，所以当可预见和不可预见的错误，都往 catch 报的时候，就没法判断了，因此建议用 reject 来处理可预见性的错误&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Web" scheme="http://21ido.com/categories/Web/"/>
-    
-    
-      <category term="javascript" scheme="http://21ido.com/tags/javascript/"/>
-    
-      <category term="promise" scheme="http://21ido.com/tags/promise/"/>
     
   </entry>
   
