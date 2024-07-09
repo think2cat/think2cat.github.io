@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://21ido.com">
-  <title>宏任务、微任务 | 猫大叔</title>
+  <title>浅谈JavaScript的线程与进程 | 猫大叔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先，JavaScript是单线程语言 1. 进程和线程的关系一个程序至少有一个进程，而一个进程至少有一个线程线程是进程的实体，是CPU调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位 进程如果是一个工厂，线程则是工厂里干活的工人工人共享一个劳动空间，共享劳动工具 就是说进程里，有一个或多个线程，各线程共享同个内存空间和数据 可以看看阮一峰的">
+  <meta name="description" content="首先，JavaScript 是单线程语言。 1. 进程和线程的关系一个程序至少有一个进程，而一个进程至少有一个线程。线程是进程的执行单元，是 CPU 调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位。 如果把进程比作一个工厂，线程则是工厂里干活的工人。工人共享一个劳动空间，共享劳动工具。也就是说，在一个进程里，有一个或多个线程，各线程共享同一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="宏任务、微任务">
+<meta property="og:title" content="浅谈JavaScript的线程与进程">
 <meta property="og:url" content="http://21ido.com/2020/09/5bd537b/index.html">
 <meta property="og:site_name" content="猫大叔">
-<meta property="og:description" content="首先，JavaScript是单线程语言 1. 进程和线程的关系一个程序至少有一个进程，而一个进程至少有一个线程线程是进程的实体，是CPU调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位 进程如果是一个工厂，线程则是工厂里干活的工人工人共享一个劳动空间，共享劳动工具 就是说进程里，有一个或多个线程，各线程共享同个内存空间和数据 可以看看阮一峰的">
+<meta property="og:description" content="首先，JavaScript 是单线程语言。 1. 进程和线程的关系一个程序至少有一个进程，而一个进程至少有一个线程。线程是进程的执行单元，是 CPU 调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位。 如果把进程比作一个工厂，线程则是工厂里干活的工人。工人共享一个劳动空间，共享劳动工具。也就是说，在一个进程里，有一个或多个线程，各线程共享同一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://21ido.com/images/2020/09/task.jpg">
 <meta property="article:published_time" content="2020-09-14T02:34:10.000Z">
-<meta property="article:modified_time" content="2024-06-29T13:00:29.654Z">
+<meta property="article:modified_time" content="2024-07-09T12:15:00.726Z">
 <meta property="article:author" content="猫大叔">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="ES6">
@@ -169,14 +169,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Web/宏任务、微任务" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Web/浅谈JavaScript的线程与进程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      宏任务、微任务
+      浅谈JavaScript的线程与进程
     </h1>
   
 
@@ -189,39 +189,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先，JavaScript是单线程语言</p>
-<h3 id="1-进程和线程的关系"><a href="#1-进程和线程的关系" class="headerlink" title="1. 进程和线程的关系"></a>1. 进程和线程的关系</h3><p>一个程序至少有一个进程，而一个进程至少有一个线程<br>线程是进程的实体，是CPU调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位</p>
-<p>进程如果是一个工厂，线程则是工厂里干活的工人<br>工人共享一个劳动空间，共享劳动工具</p>
-<p>就是说进程里，有一个或多个线程，各线程共享同个内存空间和数据</p>
-<p>可以看看阮一峰的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">《进程与线程的一个简单解释》</a></p>
+        <p>首先，JavaScript 是单线程语言。</p>
+<h3 id="1-进程和线程的关系"><a href="#1-进程和线程的关系" class="headerlink" title="1. 进程和线程的关系"></a>1. 进程和线程的关系</h3><p>一个程序至少有一个进程，而一个进程至少有一个线程。线程是进程的执行单元，是 CPU 调度和分派的基本单位，可以看成实际在干活运算的是线程，而进程只是一个或多个线程的资源分配和调度的系统单位。</p>
+<p>如果把进程比作一个工厂，线程则是工厂里干活的工人。工人共享一个劳动空间，共享劳动工具。也就是说，在一个进程里，有一个或多个线程，各线程共享同一个内存空间和数据。</p>
+<p>可以看看阮一峰的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">《进程与线程的一个简单解释》</a>。</p>
 <h3 id="2-浏览器是多线程"><a href="#2-浏览器是多线程" class="headerlink" title="2. 浏览器是多线程"></a>2. 浏览器是多线程</h3><ul>
-<li>GUI渲染线程</li>
-<li>JS引擎线程</li>
+<li>GUI 渲染线程</li>
+<li>JS 引擎线程</li>
 <li>事件触发线程</li>
 <li>定时触发线程</li>
-<li>异步http请求线程</li>
+<li>异步 HTTP 请求线程</li>
 </ul>
-<p>其中，GUI线程和JS线程，是互斥！也就是某些页面在做JS运算时，会导致DOM刷新卡住的根源。<br>所以当JS线程在执行运算时，GUI线程是挂起的<br>早期通过在代码增加<code>setTimeout</code>来解决渲染卡顿问题</p>
-<h3 id="3-Javascript是单线程"><a href="#3-Javascript是单线程" class="headerlink" title="3. Javascript是单线程"></a>3. Javascript是单线程</h3><p>JavaScript可以同时执行多个JS文件代码，看似多线程同时执行，其实还是单线程，只不过是分隔成多个任务，在不同任务跳转进行运算</p>
-<p>Javascript的执行机制称为Event Loop</p>
-<p>任务又分为同步和异步</p>
-<p>同步任务都在主线程上执行，遇到异步任务，则丢到任务队列，接着继续执行同步任务，等到同步任务执行完毕，主线程空闲了，才会回过头去查看任务队列</p>
-<p><img src="/images/2020/09/task.jpg" alt="event loop"><br>（图片搜自谷歌）<br><span id="more"></span></p>
-<p>这也就是 <code>setTimeout(() =&gt; &#123;&#125;, 0)</code> 并不会立马执行，而且延迟时间并不准确的原因，因为主线程还没空闲去执行任务队列</p>
+<p>其中，GUI 线程和 JS 线程是互斥的。这也就是为什么某些页面在执行 JS 运算时会导致 DOM 刷新卡住。因为当 JS 线程在执行运算时，GUI 线程会被挂起。</p>
+<p>早期通过在代码中增加 <code>setTimeout</code> 来解决渲染卡顿问题。</p>
+<h3 id="3-JavaScript-是单线程"><a href="#3-JavaScript-是单线程" class="headerlink" title="3. JavaScript 是单线程"></a>3. JavaScript 是单线程</h3><p>JavaScript 可以同时执行多个 JS 文件代码，看似多线程同时执行，其实还是单线程，只不过是分隔成多个任务，在不同任务之间跳转进行运算。</p>
+<p>JavaScript 的执行机制称为 Event Loop。任务分为同步和异步。</p>
+<p>同步任务都在主线程上执行，遇到异步任务则丢到任务队列，接着继续执行同步任务。当同步任务执行完毕，主线程空闲后，才会回过头去查看任务队列。</p>
+<p><img src="/images/2020/09/task.jpg" alt="event loop"><br>（图片来源于谷歌，描述了任务在事件循环中的执行顺序）</p>
+<p>这也就是 <code>setTimeout(() =&gt; &#123;&#125;, 0)</code> 并不会立马执行，延迟时间并不准确的原因，因为主线程还没空闲去执行任务队列。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;哟哟哟&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<p>执行时，并不是说放到任务队列，1000ms后执行，而是，由定时器线程1000ms后才丢到队列！<br>常用到的 <code>setInterval</code>， 也是一样的逻辑</p>
-<h3 id="4-宏任务、微任务"><a href="#4-宏任务、微任务" class="headerlink" title="4. 宏任务、微任务"></a>4. 宏任务、微任务</h3><p><strong>宏任务 macrotask</strong>，包括主线程、setTimeout、setInterval、requestAnimationFrame</p>
-<p><strong>微任务 microtask</strong>，包括Promise、process.nextTick、MutationObserver，还有已废弃的Object.observe</p>
-<p>前面说了通过在代码增加<code>setTimeout</code>来解决渲染卡顿问题</p>
-<p>因为JS线程和GUI线程胡扯，所以执行的时候其实是这样</p>
-<p>JS任务 =&gt; 渲染DOM =&gt; JS任务 =&gt; 渲染DOM</p>
-<p>所以通过<code>setTimeout</code>把长运算代码切片处理，防止JS执行时间太长造成页面假死</p>
-<p>而<strong>微任务</strong>则是在 渲染 之前执行的，简单说，在主代码执行完后，执行渲染，然后再去瞧任务队列</p>
-<p>但是如果有微任务，则是执行主代码后，先执行微任务，然后渲染，再是任务队列</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;begin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise&#x27;</span>)</span><br><span class="line">  <span class="title function_">resolve</span>()</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise.resolve&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;end&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>执行结果</p>
+<p>执行时，并不是说放到任务队列，1000ms 后执行，而是由定时器线程在 1000ms 后才丢到队列！常用的 setInterval 也是一样的逻辑。</p>
+<h3 id="4-宏任务与微任务"><a href="#4-宏任务与微任务" class="headerlink" title="4. 宏任务与微任务"></a>4. 宏任务与微任务</h3><p><strong>宏任务 (macrotask)</strong>，包括主线程、setTimeout、setInterval、requestAnimationFrame。</p>
+<p><strong>微任务 (microtask)</strong>，包括 Promise、process.nextTick、MutationObserver 以及已废弃的 Object.observe。</p>
+<p>前面提到通过在代码中增加 setTimeout 来解决渲染卡顿问题，因为 JS 线程和 GUI 线程互斥，所以执行的顺序实际上是这样：</p>
+<p>JS 任务 =&gt; 渲染 DOM =&gt; JS 任务 =&gt; 渲染 DOM</p>
+<p>通过 setTimeout 把长运算代码切片处理，防止 JS 执行时间太长造成页面假死。</p>
+<p>微任务则是在渲染之前执行。简单来说，在主代码执行完后，执行渲染，然后再去查看任务队列。</p>
+<p>但是如果有微任务，则是执行主代码后，先执行微任务，然后渲染，再执行任务队列。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;begin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;setTimeout&#x27;</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise&#x27;</span>);</span><br><span class="line">  <span class="title function_">resolve</span>();</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise.resolve&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>执行结果：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">begin</span><br><span class="line">promise</span><br><span class="line">end</span><br><span class="line">promise.resolve</span><br><span class="line">setTimeout</span><br></pre></td></tr></table></figure>
-<p>可以看出<code>Promise.resolve</code>是在<code>setTimeout</code>之前执行，网上有很多示例代码，套了很多层，实际工作中并用不到</p>
+<p>可以看出 <code>Promise.resolve</code> 是在 <code>setTimeout</code> 之前执行的。网上有很多示例代码，套了很多层，实际工作中并不常用到。</p>
 
       
 
@@ -358,7 +356,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">1. 进程和线程的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 浏览器是多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Javascript%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. Javascript是单线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%8F%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">4. 宏任务、微任务</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">1. 进程和线程的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 浏览器是多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JavaScript-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">3. JavaScript 是单线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">4. 宏任务与微任务</span></a></li></ol>
                     </div>
                 </span>
             </div>
